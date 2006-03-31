@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/  http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2006-03-30T01:42:05Z</responseDate><request>http://www.language-archives.org/sr/www.cs.mu.oz.au/research/lt/projects/kayardild/gyd-olac-records.xml</request><error code="badVerb">Need a verb</error></OAI-PMH>

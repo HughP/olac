@@ -1,0 +1,61 @@
+----------------
+INSTALLATION
+----------------
+
+  1. Set up the OLAC harvester (available from olac.sf.net) to store data in 
+	a MySQL database.
+
+  2. Change the value of $dbName on line 7 of .reports/lib/olacdb.php to name 
+	of the OLAC database. 
+	
+     Change $username, $password and $hostname on lines 9 to 11 of 
+	./reports/lib/olacdb.php to the appropriate values for connecting to 
+	the OLAC database.
+
+     Change $URLBASE in ./reports/reportInclude.php on line 2 to the base URL of
+	the directory where the files in reports/ are stored. 
+
+  3. Create ranking tables:
+
+	To create the soundex and ranking tables:
+	mysql> source lib/searchTables.sql
+
+		[ Creates the tables:
+			TAG_USAGE
+			ITEM_SCORES
+		]
+
+  4. Populate ranking tables:
+
+	Run the following scripts found in lib:
+	?> php createTagUsageTable.php
+	?> php createItemScoresTable.php
+			[ depends on metadataScoring.php ]
+
+	These scripts can be set to run at the time of harvesting to update
+	the database tables.
+
+  5. If moving the lib directory, change the value of LIB in 
+	reports/reportsInclude.php to the new
+	path of the lib directory. (To use archiveReportCard.php, reports
+	will need to be generated again after moving the lib directory as in
+	step 7). 
+	
+	Similarly, to move the 'style' directory, change $STYLE
+	in reports/reportsInclude.php.
+  
+  6. Generate archive report cards
+
+	Firstly ensure that the reports/reportCards/ directory is set to 
+	the correct permissions (eg, chmod 755 reportCards)
+
+	?> cd reports
+	?> php generateReport.php
+
+	This will create archive report cards in the directory 
+	reports/reportCards/ of the form archive{$id}.html
+
+	This script can also be set to run at the time of harvesting to update
+	archive report cards.
+
+	Archive Report Cards are then viewed using archiveReportCard.php.

@@ -1,0 +1,182 @@
+Synopsis
+========
+
+  Perl implementation of OLAC archive aggregator/harvester.  OLACA is the
+  name of the aggregator and ovester, the name of harvester.  In the heart
+  is the OLAC database.  Ovester collects metadata elements from the OLAC
+  data providers and stores them in the OLAC database.  OLACA serves the
+  stored metadata using OAI-PMH for other harvesters.
+
+  
+  
+Files
+=====
+
+  README              this file
+  ChangeLog           change log
+  OLAC/Aggregator.pm  OLAC aggregator module
+  OLAC/Harvester.pm   OLAC harvester rutines
+  OLAC/DB.pm          OLAC database rutines
+  OLAC/Utils.pm       Utility functions
+  olac_schema.sql     OLAC database schema
+  identify.xml        sample Identify response to be used by olaca.pl
+  archives.xml        OLAC archives list (sample)
+  initdb.pl           OLAC database initializer
+  olaca.pl            OLAC aggregator (CGI)
+  ovester.pl          OLAC harvester
+
+
+Download
+========
+
+  http://sourceforge.net/projects/olac/files
+
+
+Required Perl Modules
+=====================
+
+  DBI module    (DBI)
+  (http://www.CPAN.org)
+
+  MySQL module  (DBD::mysql)
+  (http://www.CPAN.org)
+
+  XML modules   (XML::Parser, XML::DOM)
+  (http://www.CPAN.org)
+
+  Note: We assume that you have MySQL database system already running in
+  your machine.  If you don't, please install it.
+  (http://www.mysql.com)
+
+  Note: Above modules depend on many other Perl modules.  You
+  should install them too!  The following document might be helpful:
+
+    http://sial.org/code/perl/docs/life-with-cpan.txt
+
+
+
+Installation
+============
+
+  0. The followings are assumed:
+
+   olac_suite-x.y.tgz    the olac_suite package you've downloaded
+   $OLAC        the directory that the olac_suite will be installed
+   $DOWNLOAD    the directory containing the downloaded olac_suite package
+   $CGI         the CGI directory of your web server (only need for OLACA)
+   OLACDBNAME   the MySQL database name to be used as your OLAC database    
+   USERNAME     your MySQL account username
+   PASSWORD     a password for your MySQL account
+   $DBINFO      your database information file (to be explained later)
+
+   Note: Your MySQL account needs to be able to create and drop tables and
+   indices.
+
+
+  1. Unpack the package
+
+     $ cd $OLAC
+     $ gunzip -c $DOWNLOAD/olac_suite-x.y.tgz | tar xf -
+ 
+
+  2. Create a database information file
+
+   The database information file is a simple text file containing your
+   MySQL database name, username and password.  This file is used by both
+   ovester and OLACA to access the database.  It looks something like this:
+
+     OLACDBNAME
+     USERNAME
+     PASSWORD
+
+   *IMPORTANT* Be careful not to make the file readable by other people.
+
+
+  3. Database setup
+
+   Run the initdb.pl script to initialize the database.  The existing OLAC
+   tables will be dropped, so be careful.
+
+     $ cd $OLAC
+     $ perl -I$OLAC:$PERL5LIB initdb.pl -s olac_schema.sql -d .dbinfo
+
+   Note that .dbinfo is your database information file.
+
+
+  4. Install Aggregator
+
+   If you are not goint to use OLACA, please stop here.
+  
+   Edit $OLAC/identify.xml to fit your circumstance.
+   Edit $OLAC/olaca.pl:
+
+     line 5: my $dbinfofile = "<the path to your database information file>";
+     line 6: my $identify = "<the path to your identify.xml file>";
+
+   Upload olaca.pl into the CGI directory:
+
+     $ cd $OLAC
+     $ cp olaca.pl $CGI
+
+   *IMPORTANT* Again, be very careful not to expose the database information
+   file to the world.
+
+
+
+Running ovester
+===============
+
+  Example 0.
+
+     $ cd $OLAC
+     $ perl -I$OLAC:$PERL5LIB ovester.pl
+
+   This will display a short usage.
+
+
+  Example 1.
+
+     $ cd $OLAC
+     $ perl -I$OLAC:$PERL5LIB ovester.pl -d $DBINFO
+
+   This will download the up-to-date archives list from the central database
+   [http://www.language-archives.org/register/archive_list.php4], and
+   harvest archives listed in the list.  Only new metadata records will be
+   harvested.
+
+
+  Example 2.
+
+     $ cd $OLAC
+     $ perl -I$OLAC:$PERL5LIB ovester.pl -d $DBINFO -p
+
+   This does the same thing as Example 1.  One difference is that archives in
+   the database that don't match with the archive list are purged after
+   harvesting is finished.
+
+
+  Example 3.
+
+     $ cd $OLAC
+     $ perl -I$OLAC:$PERL5LIB ovester.pl -d $DBINFO -l mylist.xml
+
+   This uses local archives list (mylist.xml here) rather than the one in
+   www.language-archives.org.  Only the new metadata records are harvested.
+   The archives list looks something like this:
+
+     <?xml version="1.0" encoding="UTF-8" ?>
+     <archives>
+       <archive baseURL="http://www.language-archives.org/cgi-bin/gateway/gateway.cgi/www.language-archives.org/devel/sr/Formosan.xml"/>
+       <archive baseURL="http://www.language-archives.org/cgi-bin/gateway/gateway.cgi/www.language-archives.org/devel/sr/EarlyMandarin.xml"/>
+       ...
+     </archives>
+
+
+
+
+Contact
+=======
+
+  {haejoong,sb}@ldc.upenn.edu
+
+
