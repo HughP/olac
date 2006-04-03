@@ -20,8 +20,6 @@
       <changes><p>
         In section 3, URLs for OLAC copies of Dublin Core schemas
         are changed to refer instead to those at <tt>dublincore.org</tt>.
-        In section 4, the value for a language identifier is
-        updated to the Ethnologue (15th Edition) code.
       </p></changes> 
   </header> 
   <body> 
@@ -162,7 +160,7 @@ describing a resource about the Dschang language of Cameroon:</p>
 
 <eg><![CDATA[1. <subject>Dschang</subject>
 2. <subject xsi:type="olac:language">Dschang</subject>
-3. <subject xsi:type="olac:language" olac:code="ybb"/>]]></eg>
+3. <subject xsi:type="olac:language" olac:code="x-sil-BAN"/>]]></eg>
 
 <p>All metadata extensions that have been adopted by OLAC
 as recommended best practice are defined in the <tt>olac</tt>
