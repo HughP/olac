@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
+<!-- OLAC Document List
+       Last updated: 4 April 2006 -->
+<documents>
+  <list>
+    <document href="OLAC/src/metadata.xml"/>
+    <document href="OLAC/src/repositories.xml"/>
+    <document href="OLAC/src/process.xml"/>
+    <document href="OLAC/src/olacms-20011022.xml"/>
+    <document href="OLAC/src/protocol-20021209.xml"/>
+    <document href="REC/src/access-20021119.xml"/>
+    <document href="REC/src/discourse.xml"/>
+    <document href="REC/src/field.xml"/>
+    <document href="REC/src/language.xml"/>
+    <document href="REC/src/olac-extensions.xml"/>
+    <document href="REC/src/role.xml"/>
+    <document href="REC/src/type.xml"/>
+    <document href="NOTE/src/query.xml"/>
+    <document href="NOTE/src/viser.xml"/>
+    <document href="NOTE/src/third-party-extensions.xml"/>
+    <document href="NOTE/src/olac_display.xml"/>
+  </list>
+  <textBlocks>
+    <typeIntro>
+      <p>This index lists all documents that are current within the OLAC document process. They are listed by type. See also <a href="documents_by_status.html">OLAC documents by status</a> and <a href="documents_by_date.html">OLAC documents by date</a>, which include documents that have been retired or withdrawn.</p>
+    </typeIntro>
+    <statusIntro>
+      <p>This index lists all documents that have come under the OLAC document process. They are listed by current status in the process. See also <a href="document_index.html">OLAC documents by type</a> and <a href="documents_by_date.html">OLAC documents by date</a>.</p>
+    </statusIntro>
+    <dateIntro>
+      <p>This index lists all documents that have come under the OLAC document process. They are listed by latest date of revision, beginning with the most recent. See also <a href="document_index.html">OLAC documents by type</a> and <a href="documents_by_status.html">OLAC documents by status</a>.</p>
+    </dateIntro>
+    <processRef>
+      <p>
+        <small>N.B. See the <a href="http://www.language-archives.org/OLAC/process.html">OLAC Process</a> document for an explanation of the document types, status levels, and review process.</small>
+      </p>
+    </processRef>
+  </textBlocks>
+  <byType>
+    <section>
+      <heading>Standards</heading>
+      <intro>OLAC Standards specify how the Open Language Archives Community operates.</intro>
+    </section>
+    <section>
+      <heading>Recommendations</heading>
+      <intro>OLAC Recommendations express the consensus of members of the Open Language Archives Community regarding various aspects of language resource archiving.</intro>
+    </section>
+    <section>
+      <heading>Notes</heading>
+      <intro>OLAC Notes offer background information and helps for implementors of language archives.</intro>
+    </section>
+  </byType>
+  <byStatus>
+    <section>
+      <heading>Adopted</heading>
+      <intro>An adopted document has run all the way through the 
+OLAC document review process and been accepted for publication as an OLAC
+document by the OLAC Council.</intro>
+    </section>
+    <section>
+      <heading>Candidate</heading>
+      <intro>A candidate document has been accepted in principle by the
+OLAC Council but is currently in a period of implementation and testing by the community.
+Final adoption awaits the successful outcome of implementation. </intro>
+    </section>
+    <section>
+      <heading>Proposed</heading>
+      <intro>A proposed document is considered ready for publication by its
+developers and is now in the midst of open peer review by the entire community.</intro>
+    </section>
+    <section>
+      <heading>Draft</heading>
+      <intro>A draft document is still in the process of being written by its
+original developers and has not yet been put forward for review by the community.</intro>
+    </section>
+    <section>
+      <heading>Retired</heading>
+      <intro>A retired document is one that once had Adopted status, but has 
+now become obsolete (such as by being superseded by a newer document).</intro>
+    </section>
+    <section>
+      <heading>Withdrawn</heading>
+      <intro>A withdrawn document is one that was removed from the document
+process before attaining Adopted status, either because it was superseded 
+by a newer document or failed to gain final acceptance.</intro>
+    </section>
+  </byStatus>
+</documents>
