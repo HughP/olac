@@ -17,19 +17,15 @@ HTML = $(DISPLAY) $(QUERY) $(VISER)
 
 .SUFFIXES: .xml .html
 
-.PHONY: docs latest install
+.PHONY: docs install
 
-all: docs latest install
-
-html: $(HTML)
-
-latest: html
-	ln -s -f olac_display-20030215.html olac_display.html
-	ln -s -f query-20030729.html query.html
-	ln -s -f viser-20030729.html viser.html
+all: docs install
 
 install: latest html
 	mv $(HTML) ..
+	ln -s -f olac_display-20030215.html olac_display.html
+	ln -s -f query-20030729.html query.html
+	ln -s -f viser-20030729.html viser.html
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
