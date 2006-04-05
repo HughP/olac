@@ -7,9 +7,9 @@
     <document href="OLAC/src/metadata.xml"/>
     <document href="OLAC/src/repositories.xml"/>
     <document href="OLAC/src/process.xml"/>
-    <document href="OLAC/src/olacms-20011022.xml"/>
-    <document href="OLAC/src/protocol-20021209.xml"/>
-    <document href="REC/src/access-20021119.xml"/>
+    <document href="OLAC/src/olacms.xml"/>
+    <document href="OLAC/src/protocol.xml"/>
+    <document href="REC/src/access.xml"/>
     <document href="REC/src/discourse.xml"/>
     <document href="REC/src/field.xml"/>
     <document href="REC/src/language.xml"/>
