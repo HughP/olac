@@ -4,7 +4,7 @@ WEB = sb@login.ldc.upenn.edu:language-archives
 INDEXES = document_list.xml document_headers.xsl document_index.xsl documents_by_status.xsl documents_by_date.xsl
 
 RSYNC_OPTS = -alrvz -e ssh --relative --include-from=publish.txt
-XSLT = /home/sb/language-archives/xalan
+XSLT = java org.apache.xalan.xslt.Process
 
 .PHONY: standards recommendations notes indexes rsync
 
@@ -26,10 +26,10 @@ notes:
 	$(MAKE) -C NOTE/src all
 
 indexes: $(INDEXES)
-	$(XSLT) document_list.xml document_headers.xsl > document_headers.xml
-	$(XSLT) document_list.xml document_index.xsl > document_index.html
-	$(XSLT) document_list.xml documents_by_status.xsl > documents_by_status.html
-	$(XSLT) document_list.xml documents_by_date.xsl > documents_by_date.html
+	$(XSLT) -in document_list.xml -xsl document_headers.xsl > document_headers.xml
+	$(XSLT) -in document_list.xml -xsl document_index.xsl > document_index.html
+	$(XSLT) -in document_list.xml -xsl documents_by_status.xsl > documents_by_status.html
+	$(XSLT) -in document_list.xml -xsl documents_by_date.xsl > documents_by_date.html
 
 rsync:
 	rsync $(RSYNC_OPTS) . $(WEB)

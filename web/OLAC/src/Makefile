@@ -1,6 +1,6 @@
 # Build documents
 
-XSLT = ../../xalan
+XSLT = java org.apache.xalan.xslt.Process
 OLAC_XSL = ../../OLAC_doc.xsl
 
 
@@ -41,5 +41,5 @@ install: latest html
 	mv $(ALL) ..
 
 .xml.html:
-	$(XSLT) $< $(OLAC_XSL) > $@
+	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
 
