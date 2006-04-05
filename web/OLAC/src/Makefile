@@ -33,12 +33,12 @@ all: docs latest install
 html: $(HTML)
 
 latest: html
-	ln -s metadata-20060331.html metadata.html
-	ln -s process-20060331.html process.html
-	ln -s repositories-20060331.html repositories.html
+	ln -s -f metadata-20060331.html metadata.html
+	ln -s -f process-20060331.html process.html
+	ln -s -f repositories-20060331.html repositories.html
 
 install: latest html
-	mv $(ALL) ..
+	mv $(HTML) ..
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
