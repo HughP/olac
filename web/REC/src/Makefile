@@ -29,8 +29,8 @@ latest: html
 	ln -s discourse-20030127.html discourse.html
 	ln -s field-20030121.html field.html
 	ln -s language-20031213.html language.html
-	ln -s role-20031010.html
-	ln -s type-20021212.html
+	ln -s role-20031010.html role.html
+	ln -s type-20021212.html type.html
 
 install: latest html
 	mv $(ALL) ..
