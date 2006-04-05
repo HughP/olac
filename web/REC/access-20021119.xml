@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="draft" type="recommendation"/>
+    <status code="draft" type="recommendation" endDate="20030618"/>
     <title>OLAC Access Vocabulary</title>
     <baseName>access</baseName>
     <issued>20021119</issued>
