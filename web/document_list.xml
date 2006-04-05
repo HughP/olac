@@ -4,22 +4,22 @@
        Last updated: 4 April 2006 -->
 <documents>
   <list>
-    <document href="OLAC/src/metadata.xml"/>
-    <document href="OLAC/src/repositories.xml"/>
-    <document href="OLAC/src/process.xml"/>
-    <document href="OLAC/src/olacms.xml"/>
-    <document href="OLAC/src/protocol.xml"/>
-    <document href="REC/src/access.xml"/>
-    <document href="REC/src/discourse.xml"/>
-    <document href="REC/src/field.xml"/>
-    <document href="REC/src/language.xml"/>
-    <document href="REC/src/olac-extensions.xml"/>
-    <document href="REC/src/role.xml"/>
-    <document href="REC/src/type.xml"/>
-    <document href="NOTE/src/query.xml"/>
-    <document href="NOTE/src/viser.xml"/>
-    <document href="NOTE/src/third-party-extensions.xml"/>
-    <document href="NOTE/src/olac_display.xml"/>
+    <document href="OLAC/metadata.xml"/>
+    <document href="OLAC/repositories.xml"/>
+    <document href="OLAC/process.xml"/>
+    <document href="OLAC/olacms.xml"/>
+    <document href="OLAC/protocol.xml"/>
+    <document href="REC/access.xml"/>
+    <document href="REC/discourse.xml"/>
+    <document href="REC/field.xml"/>
+    <document href="REC/language.xml"/>
+    <document href="REC/olac-extensions.xml"/>
+    <document href="REC/role.xml"/>
+    <document href="REC/type.xml"/>
+    <document href="NOTE/query.xml"/>
+    <document href="NOTE/viser.xml"/>
+    <document href="NOTE/third-party-extensions.xml"/>
+    <document href="NOTE/olac_display.xml"/>
   </list>
   <textBlocks>
     <typeIntro>
