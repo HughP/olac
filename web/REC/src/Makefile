@@ -33,7 +33,7 @@ latest: html
 	ln -s -f type-20021212.html type.html
 
 install: latest html
-	mv $(ALL) ..
+	mv $(HTML) ..
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
