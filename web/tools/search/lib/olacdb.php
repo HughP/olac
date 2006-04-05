@@ -4,14 +4,12 @@ class OLACDB
 {
     var $connect;
 
-    function OLACDB($dbname = "olac2")
+    function OLACDB()
     {
-	$userName = "olac";
-	$password = "js6a%ola";
-	#$hostname = "wave:33051";
-	#$hostname = "wave:/tmp/mysql-djpenton-acla";
-	#$hostname = "wave:/tmp/mysqld-amol-olac.sock";
-	$hostname = "mysql.ldc.upenn.edu";
+        $dsn = trim(file_get_contents("/home/olac/.mysqlpass"));
+        preg_match("/\s*mysql:\/\/(.*):(.*)@(.*)\/(.*)\s*/", $dsn, $matches);
+        list($all, $userName, $password, $hostname, $dbname) = $matches;
+
         $this->connect = 
 	mysql_connect($hostname, $userName, $password ) or
                 die ("Could not connect to database");
