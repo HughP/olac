@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HTML xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Metadata</TITLE>
@@ -10,7 +10,7 @@
 <meta name="Description" content="This document defines the format used by the Open Language
           Archives Community OLAC for the interchange of metadata within the
           framework of the Open Archives Initiative OAI. The metadata set is based on the complete set of  Dublin Core metadata terms DCMT, but the format allows for the use of extensions to express  community-specific qualifiers. ">
-<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20031208">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
@@ -26,7 +26,7 @@
 <H1>OLAC Metadata</H1>
 <table cellspacing="10">
 <tr valign="top">
-<th width="100" align="left">Date&nbsp;issued:</th><td>2003-12-08</td>
+<th align="left" width="100">Date&nbsp;issued:</th><td>2003-12-08</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th><td><i>Standard. </i>This document describes a standard that is currently followed by OLAC archives and services.</td>
@@ -48,9 +48,11 @@
 </td>
 </tr>
 <tr valign="top">
-<th align="left">Editors:</th><td><editors>Gary Simons, SIL International
+<th align="left">Editors:</th><td>
+<editors>Gary Simons, SIL International
         (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)<br>Steven Bird, University of Melbourne and University of
-        Pennsylvania (<a href="mailto:sb@cs.mu.oz.au">mailto:sb@cs.mu.oz.au</a>)</editors></td>
+        Pennsylvania (<a href="mailto:sb@cs.mu.oz.au">mailto:sb@cs.mu.oz.au</a>)</editors>
+</td>
 </tr>
 <tr valign="top">
 <th align="left">Changes since previous version:</th><td>
@@ -79,10 +81,10 @@
 </tr>
 </table>
 <blockquote>
-<small>Copyright © 2003 Gary
+<small>Copyright &copy; 2003 Gary
       Simons (SIL International) and Steven Bird (University of
       Melbourne and University of
-        Pennsylvania). This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later (the latest version is presently available at <a href="http://www.opencontent.org/openpub/">http://www.opencontent.org/openpub/</a>).</small>
+        Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small>
 </blockquote>
 <hr>
 <h3>Table of contents</h3>
@@ -169,8 +171,7 @@ DC Qualifiers) developed by the DC Architecture Working Group for implementing q
 </p>
 </li>
 <li>
-<p>Example: <a href="http://www.language-archives.org/OLAC/1.0/olac.xml
-            ">http://www.language-archives.org/OLAC/1.0/olac.xml
+<p>Example: <a href="http://www.language-archives.org/OLAC/1.0/olac.xml%0A            ">http://www.language-archives.org/OLAC/1.0/olac.xml
             </a>
 </p>
 </li>
@@ -410,8 +411,7 @@ documentation as shown below.
 </p>
 <p>
 This documentation should be placed after
-the <tt>import</tt> statement(s) and before the type declarations; see the example above in <a href="#Defining a third-party
-extension">Defining a third-party
+the <tt>import</tt> statement(s) and before the type declarations; see the example above in <a href="#Defining a third-party%0Aextension">Defining a third-party
 extension</a>.
 The <tt>&lt;olac-extension&gt;</tt> element should be embedded in
 <tt>&lt;xs:appinfo&gt;</tt> within
