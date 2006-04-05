@@ -5,7 +5,7 @@
   <header> 
     <status code="adopted" type="standard"/> 
       <title>OLAC Metadata</title> <baseName>metadata</baseName> 
-      <issued>20060331</issued> <previousIssued>20031208</previousIssued> 
+      <issued>20060405</issued> <previousIssued>20031208</previousIssued> 
       <abstract> 
         <p>This document defines the format used by the Open Language
           Archives Community <cit>OLAC</cit> for the interchange of metadata within the
@@ -13,14 +13,11 @@
       </abstract> 
       <editors>Gary Simons, SIL International
         (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of
-        Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors><copyright>2003 Gary
+        Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors><copyright>2006 Gary
       Simons (SIL International) and Steven Bird (University of
       Melbourne and University of
         Pennsylvania)</copyright> 
-      <changes><p>
-        In section 3, URLs for OLAC copies of Dublin Core schemas
-        are changed to refer instead to those at <tt>dublincore.org</tt>.
-      </p></changes> 
+      <changes><p>Updated to support the current versions of Dublin Core schemas by pointing (in section 3 and references) to the latest DC versions at <tt>dublincore.org</tt> rather than to older copies stored on the OLAC site.</p></changes> 
   </header> 
   <body> 
     <section> 
@@ -61,14 +58,14 @@ in <cit>DCMT</cit>.</p>
       <p>The XML implementation of OLAC metadata follows the
 "Guidelines for implementing Dublin Core in XML" <cit>DCXML</cit>. The
 OLAC metadata schema is an application profile <cit>HP2000</cit> that
-incorporates the elements from the two metadata schemas (Basic DC and
-DC Qualifiers) developed by the DC Architecture Working Group for implementing qualified DC <cit>DCQXML</cit>. The OLAC metadata schema and the schemas for all OLAC extensions use the following Dublin Core schemas:</p><ul> 
+incorporates the elements from the two metadata schemas (Simple DC and Qualified
+DC) developed by the DC Architecture Working Group for implementing qualified DC <cit>DC-Schemas</cit>. The OLAC metadata schema and the schemas for all OLAC extensions use the following Dublin Core schemas:</p><ul> 
         <li> 
-          <p>Basic DC:
+          <p>Simple DC:
             <url>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</url> </p> 
         </li> 
         <li> 
-          <p>DC Qualifiers: <url>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd</url></p> 
+          <p>Qualified DC: <url>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd</url></p> 
         </li> 
       </ul><p>The most recent version of the OLAC metadata schema (along with a sample record) 
          can be found at:</p><ul> 
@@ -109,7 +106,7 @@ follows:
 <p>An example of an OLAC static repository is found at:</p>
 <blockquote><p><url>http://www.language-archives.org/OLAC/1.0/static-repository.xml</url></p></blockquote>
 
-<p>In addition to these basic DC metadata elements, a record may use DC qualifiers
+<p>In addition to these core DC metadata elements, a record may use DC qualifiers
 following the guidelines given in <cit>DCXML</cit>.
 A qualified element may specify a refinement
 (using an element defined in the
@@ -385,8 +382,8 @@ on the OLAC website in <cit>OLAC-Extensions</cit> or
   <references> 
     
     
-    <ref abbrev="DCMT">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/2003/03/04/dcmi-terms/</url>&gt;</ref> 
-    <ref abbrev="DCXML">Guidelines for implementing Dublin Core in XML.<br/>&lt;<url>http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</url>&gt;</ref><ref abbrev="DCQXML">Recommendations for XML Schema for Qualified Dublin Core.<br/>&lt;<url>http://dublincore.org/schemas/xmls/</url>&gt;</ref>
+    <ref abbrev="DCMT">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref> 
+    <ref abbrev="DCXML">Guidelines for implementing Dublin Core in XML.<br/>&lt;<url>http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</url>&gt;</ref><ref abbrev="DC-Schemas">XML schemas to support the "Guidelines for implementing DC in XML" recommendation.<br/>&lt;<url>http://dublincore.org/schemas/xmls/</url>&gt;</ref>
     
     <ref abbrev="OAI">Open Archives Initiative.
       <br/>&lt;<url>http://www.openarchives.org/</url>&gt;</ref><ref abbrev="OLAC-Process">OLAC Process.<br/>&lt;<url>http://www.language-archives.org/OLAC/process.html</url>&gt;</ref><ref abbrev="OLAC-Extensions">Recommended metadata extensions.<br/>&lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref> 
@@ -411,6 +408,6 @@ on the OLAC website in <cit>OLAC-Extensions</cit> or
     
   <ref abbrev="HP2000">Heery, Rachel and Manjula Patel, 2000. Application profiles: mixing and matching metadata schemas. Ariadne, Issue 25.<br/>&lt;<url>http://www.ariadne.ac.uk/issue25/app-profiles/</url>&gt;</ref><ref abbrev="RFC1766">Tags for the Identification of Languages.<br/>&lt;<url>http://www.ietf.org/rfc/rfc1766.txt</url>&gt;</ref><ref abbrev="ISO639">Codes for the 
 Representation of Names
-of Languages.<br/>&lt;<url>http://lcweb.loc.gov/standards/iso639-2/langhome.html</url>&gt;<br/>See also: &lt;<url>http://www.geo-guide.de/info/tools/languagecode.html</url>&gt;</ref><ref abbrev="XMLS">XML Schema, Part 1: Structures.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-1/</url>&gt;</ref><ref abbrev="XMLSP">XML Schema, Part 0: Primer.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-0/</url>&gt;</ref></references>
+of Languages.<br/>&lt;<url>http://lcweb.loc.gov/standards/iso639-2/langhome.html</url>&gt;</ref><ref abbrev="XMLS">XML Schema, Part 1: Structures.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-1/</url>&gt;</ref><ref abbrev="XMLSP">XML Schema, Part 0: Primer.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-0/</url>&gt;</ref></references>
 </OLAC_doc>
 
