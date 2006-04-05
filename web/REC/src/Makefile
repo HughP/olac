@@ -1,0 +1,40 @@
+# Build documents
+
+XSLT = ../../xalan
+OLAC_XSL = ../../OLAC_doc.xsl
+
+
+### Documents in the OLAC Process
+
+DISCOURSE = discourse-20021121.html discourse-20021217.html discourse-20030127.html
+FIELD     = field-20021127.html field-20030121.html
+LANGUAGE  = language-20010319.html language-20031213.html
+ROLE      = role-20021119.html role-20030827.html role-20031010.html
+TYPE      = type-20010320.html type-20020612.html type-20020628.html type-20021121.html type-20021212.html
+
+HTML = $(DISCOURSE) $(FIELD) $(LANGUAGE) $(ROLE) $(TYPE)
+
+
+### Build
+
+.SUFFIXES: .xml .html
+
+.PHONY: docs latest install
+
+all: docs latest install
+
+html: $(HTML)
+
+latest: html
+	ln -s discourse-20030127.html discourse.html
+	ln -s field-20030121.html field.html
+	ln -s language-20031213.html language.html
+	ln -s role-20031010.html
+	ln -s type-20021212.html
+
+install: latest html
+	mv $(ALL) ..
+
+.xml.html:
+	$(XSLT) $< $(OLAC_XSL) > $@
+
