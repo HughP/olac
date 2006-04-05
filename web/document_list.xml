@@ -33,7 +33,7 @@
     </dateIntro>
     <processRef>
       <p>
-        <small>N.B. See the <a href="http://www.language-archives.org/OLAC/process.html">OLAC Process</a> document for an explanation of the document types, status levels, and review process.</small>
+        <small>N.B. See the <a href="OLAC/process.html">OLAC Process</a> document for an explanation of the document types, status levels, and review process.</small>
       </p>
     </processRef>
   </textBlocks>
