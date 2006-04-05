@@ -17,13 +17,13 @@ clean:
 	$(MAKE) -C slides clean
 
 standards:
-	$(MAKE) -C OLAC/src all
+	$(MAKE) -C OLAC all
 
 recommendations:
-	$(MAKE) -C REC/src all
+	$(MAKE) -C REC all
 
 notes:
-	$(MAKE) -C NOTE/src all
+	$(MAKE) -C NOTE all
 
 indexes: $(INDEXES)
 	$(XSLT) -in document_list.xml -xsl document_headers.xsl > document_headers.xml
