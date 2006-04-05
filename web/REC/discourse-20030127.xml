@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="proposed" type="recommendation"/>
+    <status code="candidate" type="recommendation"/>
     <title>OLAC Discourse Type Vocabulary</title>
     <baseName>discourse</baseName>
     <issued>20030127</issued>
