@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
+<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <?xml-stylesheet href="OLAC_doc.xsl" type="text/xsl"?>
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="draft" type="recommendation"/>
+    <status code="proposed" type="recommendation"/>
     <title>OLAC Role Vocabulary</title>
     <baseName>role</baseName>
     <issued>20031010</issued>
@@ -22,7 +23,7 @@
           Heidi Johnson (University of Texas at Austin)
         </copyright>
     <changes>
-    <p>
+      <p>
     Adds:
     singer
     </p>
@@ -43,7 +44,7 @@
         of what the term means. 
         <i>Comments</i>  offers more details on what the term represents, and may also include
          examples given to illustrate how the term is meant to be applied.</p>
-        <p>Additional roles may be found in the MARC Relator set <cit>MARC-RELATOR</cit>. Any MARC
+      <p>Additional roles may be found in the MARC Relator set <cit>MARC-RELATOR</cit>. Any MARC
          term that does not appear in the OLAC Roles set defined below may be used in the sense
          defined in the MARC document. The roles defined here are either very commonly used to
          characterize the creators of linguistic resources, or have been re-defined to reflect
@@ -71,7 +72,8 @@
                     parts, such as a book of short stories, or a person who
                     produces a corpus of resources, which may be archived separately.</p>
         </comment>
-        <examples><p>A compiler of a book of short stories or a CD with several songs on it; 
+        <examples>
+          <p>A compiler of a book of short stories or a CD with several songs on it; 
           a collector of a corpus of recordings in some language or on a given topic; 
           a person who assembles a suite of software tools.</p>
         </examples>
@@ -104,9 +106,11 @@
         <name>Developer</name>
         <definition>The participant developed the methodology or tools that constitute the resource,
         or that were used to create the resource.</definition>
-        <examples><p>A software programmer, designer, or analyst; a designer of a questionnaire
+        <examples>
+          <p>A software programmer, designer, or analyst; a designer of a questionnaire
         or research task.
-        </p></examples>
+        </p>
+        </examples>
       </term>
       <term>
         <code>editor</code>
@@ -127,12 +131,15 @@
         <name>Interpreter</name>
         <definition>The participant translates in real-time or explains the discourse recorded in the resource.</definition>
         <comment>
-            <p> The choice between 'interpreter' and 'translator' may depend on the dynamics of the resource creation
+          <p> The choice between 'interpreter' and 'translator' may depend on the dynamics of the resource creation
           event or process. Generally, if the participant is translating 'live'; that is, while the speaker or signer is 
           speaking or signing, she or he should be identified as an interpreter. Also, some discourse genres include a
-          participant who interprets or explains a performance of some kind.</p></comment>
-        <examples><p>A person translating from English to ASL during a speech; a Kuna chief who interprets a chant that
-          another chief has just performed, thus completing the ceremony.</p></examples>
+          participant who interprets or explains a performance of some kind.</p>
+        </comment>
+        <examples>
+          <p>A person translating from English to ASL during a speech; a Kuna chief who interprets a chant that
+          another chief has just performed, thus completing the ceremony.</p>
+        </examples>
       </term>
       <term>
         <code>interviewer</code>
@@ -158,8 +165,10 @@
         <definition>The participant performed some portion of a recorded, filmed, or transcribed resource.</definition>
         <comment>
           <p>It is recommended that this term be used only for creative participants whose role is not better
-          indicated by a more specific term, such as 'speaker', 'signer', or 'singer'. </p></comment>
-        <examples><p>A person performing a ceremony or delivering an oration or a sermon; native speakers 
+          indicated by a more specific term, such as 'speaker', 'signer', or 'singer'. </p>
+        </comment>
+        <examples>
+          <p>A person performing a ceremony or delivering an oration or a sermon; native speakers 
           re-enacting a traditional genre of speech, such as ritual greetings or insults; an actor or musician.</p>
         </examples>
       </term>
@@ -191,12 +200,14 @@
         <name>Responder</name>
         <definition>The participant was an interlocutor in some sort of discourse event.   
 		</definition>
-        <comment><p>This person's voice can be  heard (or their words can be read)
+        <comment>
+          <p>This person's voice can be  heard (or their words can be read)
           in the resource, typically saying the 
           language-appropriate equivalent of "uh-huh", "amen", "you don't say", etc.
           This role is sometimes referred
           to as a "yes-sayer", "backchanneler, or "co-conversant".
-        </p></comment>
+        </p>
+        </comment>
       </term>
       <term>
         <code>signer</code>
@@ -205,11 +216,14 @@
                 recording, a film, or a transcription of a recorded resource.</definition>
         <comment>
           <p>Signers are those whose gestures predominate in a recorded or filmed 
-          resource. (This resource may be a transcription of that recording.)</p></comment>
-        <examples><p>Participants in a recorded conversation, elicitation session, or informal 
+          resource. (This resource may be a transcription of that recording.)</p>
+        </comment>
+        <examples>
+          <p>Participants in a recorded conversation, elicitation session, or informal 
           narration would be termed Signers.  Audience members who do not participate 
           beyond the occasional backchannel would be termed Responders.
-        </p></examples>
+        </p>
+        </examples>
       </term>
       <term>
         <code>singer</code>
@@ -249,13 +263,11 @@
       </term>
     </section>
   </body>
-  
   <todo>
     <p>
       Elicit roles from language researchers other than documentary linguists.
     </p>
   </todo>
-    
   <references>
     <ref abbrev="OLAC-Metadata">OLAC Metadata<br/>
       &lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>></ref>
