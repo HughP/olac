@@ -9,8 +9,9 @@ LATEST = ../document_latest.sh
 DISPLAY = olac_display-20020810.html olac_display-20030215.html
 QUERY   = query-20021102.html query-20030729.html
 VISER   = viser-20021102.html viser-20030729.html
+THIRD   = third-party-extensions-20021204.html
 
-HTML = $(DISPLAY) $(QUERY) $(VISER)
+HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD)
 
 
 ### Build
@@ -20,9 +21,10 @@ HTML = $(DISPLAY) $(QUERY) $(VISER)
 .PHONY: all
 
 all: $(HTML)
-	$(LATEST) olac_display  20030215
-	$(LATEST) query         20030729
-	$(LATEST) viser         20030729
+	$(LATEST) olac_display            20030215
+	$(LATEST) query                   20030729
+	$(LATEST) viser                   20030729
+	$(LATEST) third-party-extensions  20021204
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
