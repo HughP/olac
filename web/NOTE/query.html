@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HTML xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>A query facility for selective harvesting of OLAC metadata</TITLE>
@@ -7,7 +7,7 @@
 <meta name="Creator" content="Gary Simons, SIL International
         (mailto:gary_simons@sil.org)">
 <meta name="Description" content="Documents a verb, Query, supported by the CGI interface to the OLAC Aggregator. The purpose of the verb is to support selective harvesting of OLAC metadata, such as would be needed in order to offer a  specialized service based on OLAC metadata. The  request returns a ListRecords response; its parameters support the construction of an SQL query to specify the subset of records to harvest.">
-<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20030729">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
@@ -23,7 +23,7 @@
 <H1>A query facility for selective harvesting of OLAC metadata</H1>
 <table cellspacing="10">
 <tr valign="top">
-<th width="100" align="left">Date issued:</th><td>2003-07-29</td>
+<th align="left" width="100">Date&nbsp;issued:</th><td>2003-07-29</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th><td><i>Draft Implementation Note.</i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
@@ -35,7 +35,7 @@
 <th align="left">Latest version:</th><td><a href="http://www.language-archives.org/NOTE/query.html">http://www.language-archives.org/NOTE/query.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Previous version:</th><td><a href="http://www.language-archives.org/NOTE/query-20021102.html">http://www.language-archives.org/NOTE/query-20021102.html</a></td>
+<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/NOTE/query-20021102.html">http://www.language-archives.org/NOTE/query-20021102.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Abstract:</th><td>
@@ -43,8 +43,10 @@
 </td>
 </tr>
 <tr valign="top">
-<th align="left">Editors:</th><td><editors>Gary Simons, SIL International
-        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors></td>
+<th align="left">Editors:</th><td>
+<editors>Gary Simons, SIL International
+        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors>
+</td>
 </tr>
 <tr valign="top">
 <th align="left">Changes since previous version:</th><td>
@@ -53,8 +55,8 @@
 </tr>
 </table>
 <blockquote>
-<small>Copyright © 2003 Gary Simons
-      (SIL International). This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later (the latest version is presently available at <a href="http://www.opencontent.org/openpub/">http://www.opencontent.org/openpub/</a>).</small>
+<small>Copyright &copy; 2003 Gary Simons
+      (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small>
 </blockquote>
 <hr>
 <h3>Table of contents</h3>
@@ -210,16 +212,14 @@
 <li>
 <p>All resources in the LDC repository:</p>
 <p>
-<a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
-elements=0&amp;sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'">http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
+<a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&%0Aelements=0&sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'">http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
 elements=0&amp;sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'</a>
 </p>
 </li>
 <li>
 <p>All resources that are marked up in XML and are in the French language:</p>
 <p>
-<a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
-elements=2&amp;sql=e1.Content%3D'text/xml'+and+e2.tagName%3D'language'+and+e2.Code%3D'fr'">http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
+<a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&%0Aelements=2&sql=e1.Content%3D'text/xml'+and+e2.tagName%3D'language'+and+e2.Code%3D'fr'">http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query&amp;
 elements=2&amp;sql=e1.Content%3D'text/xml'+and+e2.tagName%3D'language'+and+e2.Code%3D'fr'</a>
 </p>
 </li>

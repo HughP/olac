@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HTML xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>Viser: A virtual service provider for displaying selected OLAC metadata</TITLE>
@@ -7,7 +7,7 @@
 <meta name="Creator" content="Gary Simons, SIL International
         (mailto:gary_simons@sil.org)">
 <meta name="Description" content="Documents a service named Viser, hosted on the OLAC web site, that allows language resource sites to post services based on OLAC metadata without having to implement a conventional service provider. Viser works in conjunction with the query facility of the OLAC Aggregator to selectively harvest OLAC metadata and then provide HTML displays of records that match a query. The  service returns an XML document with processing instructions to invoke an XSL stylesheet and set certain display parameters; the actual rendering to HTML happens in the client's browser.">
-<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20030729">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
@@ -23,7 +23,7 @@
 <H1>Viser: A virtual service provider for displaying selected OLAC metadata</H1>
 <table cellspacing="10">
 <tr valign="top">
-<th width="100" align="left">Date issued:</th><td>2003-07-29</td>
+<th align="left" width="100">Date&nbsp;issued:</th><td>2003-07-29</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th><td><i>Draft Implementation Note.</i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
@@ -35,7 +35,7 @@
 <th align="left">Latest version:</th><td><a href="http://www.language-archives.org/NOTE/viser.html">http://www.language-archives.org/NOTE/viser.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Previous version:</th><td><a href="http://www.language-archives.org/NOTE/viser-20021102.html">http://www.language-archives.org/NOTE/viser-20021102.html</a></td>
+<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/NOTE/viser-20021102.html">http://www.language-archives.org/NOTE/viser-20021102.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Abstract:</th><td>
@@ -43,8 +43,10 @@
 </td>
 </tr>
 <tr valign="top">
-<th align="left">Editors:</th><td><editors>Gary Simons, SIL International
-        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors></td>
+<th align="left">Editors:</th><td>
+<editors>Gary Simons, SIL International
+        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors>
+</td>
 </tr>
 <tr valign="top">
 <th align="left">Changes since previous version:</th><td>
@@ -53,8 +55,8 @@
 </tr>
 </table>
 <blockquote>
-<small>Copyright © 2003 Gary Simons
-      (SIL International). This material may be distributed only subject to the terms and conditions set forth in the Open Publication License, v1.0 or later (the latest version is presently available at <a href="http://www.opencontent.org/openpub/">http://www.opencontent.org/openpub/</a>).</small>
+<small>Copyright &copy; 2003 Gary Simons
+      (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small>
 </blockquote>
 <hr>
 <h3>Table of contents</h3>
@@ -193,16 +195,14 @@
 <li>
 <p>All resources  in or about the Swahili language:</p>
 <p>
-<a href="http://www.language-archives.org/viser?
-elements=1&amp;sql=e1.code%3D'x-sil-SWA'&amp;title=Swahili+Language+Resources">http://www.language-archives.org/viser?
+<a href="http://www.language-archives.org/viser?%0Aelements=1&sql=e1.code%3D'x-sil-SWA'&title=Swahili+Language+Resources">http://www.language-archives.org/viser?
 elements=1&amp;sql=e1.code%3D'x-sil-SWA'&amp;title=Swahili+Language+Resources</a>
 </p>
 </li>
 <li>
 <p>A catalog of resources in the LDC repository:</p>
 <p>
-<a href="http://www.language-archives.org/viser?
-elements=0&amp;sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'&amp;title=Resources+Available+Through+LDC">http://www.language-archives.org/viser?
+<a href="http://www.language-archives.org/viser?%0Aelements=0&sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'&title=Resources+Available+Through+LDC">http://www.language-archives.org/viser?
 elements=0&amp;sql=OaiIdentifier+like+'oai:www.ldc.upenn.edu:%25'&amp;title=Resources+Available+Through+LDC</a>
 </p>
 </li>
