@@ -5,7 +5,7 @@
   <header> 
     <status code="adopted" type="standard"/> 
       <title>OLAC Process</title><baseName>process</baseName> 
-      <issued>20060331</issued><previousIssued>20030708</previousIssued> 
+      <issued>20060405</issued><previousIssued>20030708</previousIssued> 
       <abstract> 
         <p>This document summarizes the governing ideas of OLAC (i.e. the
           purpose, vision, and core values) and then describes how OLAC is organized and
@@ -13,14 +13,13 @@
       </abstract> 
       <editors>Gary Simons, SIL International
         (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of
-        Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>) </editors> <copyright>2003
+        Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>) </editors> <copyright>2006
       Gary Simons (SIL International) and Steven Bird (University of Melbourne and University of
       Pennsylvania)</copyright> 
       <changes><p>
         In section 2, peer review is extended to cover automated review based
-        on peer consensus regarding best practice.  In section 3, the responsibilities
-        of OLAC coordinators is expanded to include oversight of <tt>www.language-archives.org</tt>.
-        </p></changes> 
+        on peer consensus regarding best practice.  In section 3, oversight of <tt>www.language-archives.org</tt> is added to the responsibilities of the OLAC Coordinators.
+        In section 5, the statement on intellecutal property rights refers to the Creative Commons License <cit>CCL</cit> that has superseded the previously used Open Publications License <cit>OPL</cit>.</p></changes> 
   </header> 
   <body> 
     <section> 
@@ -272,8 +271,8 @@
         alternative approach or into an informational note that discusses the relative
         merits of different approaches. </p> 
     <p><i>Intellectual property rights.</i> All documents published by OLAC
-        on its web site are published under the terms of the Open Publication License
-        <cit>OPL</cit>. Typically, the authors or editors of the document will be
+        on its web site are published under the terms of the Creative Commons Attribution-ShareAlike 2.5 License
+        <cit>CCL</cit> which permits redistribution and even repurposing provided that attribution of the original source is given  and that any derivative work is distributed on the same terms. Typically, the authors or editors of the document will be
         listed as the copyright holders.</p></section> 
     <section> 
       <heading>The working group process</heading> 
@@ -369,6 +368,6 @@
       <br/>&lt;<url>http://www.language-archives.org/docs/vision.html</url>&gt;</ref>
     
     <ref abbrev="OPL">Open Publication
-      License.<br/>&lt;<url>http://www.opencontent.org/openpub/</url>&gt;</ref><ref abbrev="OAI-FAQ">Open Archives Initiative Frequently Asked Questions (FAQ).<br/>&lt;<url>http://www.openarchives.org/documents/FAQ.html</url>&gt;</ref> 
+      License is officially superseded.<br/>&lt;<url>http://web.archive.org/web/20040401091107/http://www.opencontent.org/</url>&gt;</ref><ref abbrev="CCL">Creative Commons Attribution-ShareAlike 2.5 License.<br/>&lt;<url>http://creativecommons.org/licenses/by-sa/2.5/</url>&gt;</ref><ref abbrev="OAI-FAQ">Open Archives Initiative Frequently Asked Questions (FAQ).<br/>&lt;<url>http://www.openarchives.org/documents/FAQ.html</url>&gt;</ref> 
   </references>
 </OLAC_doc>
