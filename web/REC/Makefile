@@ -6,7 +6,7 @@ LATEST = ../document_latest.sh
 
 ### Documents in the OLAC Process
 
-ACCESS    = access-20021119.xml
+ACCESS    = access-20021119.html
 DISCOURSE = discourse-20021121.html discourse-20021217.html discourse-20030127.html
 FIELD     = field-20021127.html field-20030121.html
 LANGUAGE  = language-20010319.html language-20031213.html

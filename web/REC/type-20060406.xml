@@ -3,11 +3,11 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="proposed" type="recommendation"/>
+    <status code="candidate" type="recommendation"/>
     <title>OLAC Linguistic Data Type Vocabulary</title>
     <baseName>type</baseName>
-    <issued>20021212</issued>
-    <previousIssued>20020628</previousIssued>
+    <issued>20060406</issued>
+    <previousIssued>20021212</previousIssued>
     <abstract><p>
               This document specifies the codes, or controlled vocabulary, for the Linguistic Data Type extension of the DCMI Type element. These codes describe the content of a resource from the standpoint of recognized structural types of linguistic information. 
     </p></abstract>
@@ -20,8 +20,8 @@
       Heidi Johnson (University of Texas at Austin)
     </copyright>
     <changes>
-<p>Adds: Language Description, Primary Text</p>
-<p>Deletes: Transcription section, Annotation section, Dataset, Text section (changed to Primary Text), Description (changed to Language Description), subtypes of Lexicon. </p>
+      <p>Promoted to candidate status, with a call for review by
+        those have put the document into practice.</p>
     </changes>
   </header>
 

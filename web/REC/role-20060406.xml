@@ -3,11 +3,11 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="proposed" type="recommendation"/>
+    <status code="candidate" type="recommendation"/>
     <title>OLAC Role Vocabulary</title>
     <baseName>role</baseName>
-    <issued>20031010</issued>
-    <previousIssued>20030827</previousIssued>
+    <issued>20060406</issued>
+    <previousIssued>20031010</previousIssued>
     <abstract>
       <p>Role is an attribute of both the Creator and Contributor elements. (Please note that Dublin
       Core now discourages the use of the Creator element, recommending that all Role information be
@@ -22,10 +22,8 @@
           Heidi Johnson (University of Texas at Austin)
         </copyright>
     <changes>
-    <p>
-    Adds:
-    singer
-    </p>
+      <p>Promoted to candidate status, with a call for review by
+        those have put the document into practice.</p>
     </changes>
   </header>
   <body>
