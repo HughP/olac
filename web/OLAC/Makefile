@@ -15,7 +15,7 @@ REPOSITORIES = repositories-20021211.html repositories-20030528.html repositorie
         repositories-20030917.html
 
 OLACMS = olacms-20010221.html olacms-20010406.html olacms-20010425.html olacms-20010616.html\
-        olacms-20011022.html olacms-20011022.html
+        olacms-20011022.html
 
 PROTOCOL = protocol-20011210.html protocol-20021209.html
 
@@ -32,6 +32,8 @@ all: $(HTML)
 	$(LATEST) metadata      20060405
 	$(LATEST) process       20060405
 	$(LATEST) repositories  20030917
+	$(LATEST) olacms        20011022
+	$(LATEST) protocol      20021209
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
