@@ -3,23 +3,23 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc> 
   <header> 
-    <status code="candidate" type="standard"/> 
+    <status code="adopted" type="standard"/> 
       <title>OLAC Process</title><baseName>process</baseName> 
-      <issued>20030625</issued><previousIssued>20021210</previousIssued> 
+      <issued>20060405</issued><previousIssued>20030708</previousIssued> 
       <abstract> 
-        <p>The document summarizes the governing ideas of OLAC (i.e. the
+        <p>This document summarizes the governing ideas of OLAC (i.e. the
           purpose, vision, and core values) and then describes how OLAC is organized and
           how it operates.</p> 
       </abstract> 
       <editors>Gary Simons, SIL International
         (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of
-        Pennsylvania (<url>mailto:sb@cs.mu.oz.au</url>) </editors> <copyright>2003
+        Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>) </editors> <copyright>2006
       Gary Simons (SIL International) and Steven Bird (University of Melbourne and University of
       Pennsylvania)</copyright> 
-      <changes> 
-        <p>There are minor editorial changes throughout based on a final reading by both Coordinators before submission to the Advisory Board for final adoption. The only changes of substance are dropping a restriction on renewing Council membership only once (in section 3) and refinements to the criteria for registration (in section 7).</p> 
-         
-      </changes> 
+      <changes><p>
+        In section 2, peer review is extended to cover automated review based
+        on peer consensus regarding best practice.  In section 3, oversight of <tt>www.language-archives.org</tt> is added to the responsibilities of the OLAC Coordinators.
+        In section 5, the statement on intellecutal property rights refers to the Creative Commons License <cit>CCL</cit> that has superseded the previously used Open Publications License <cit>OPL</cit>.</p></changes> 
   </header> 
   <body> 
     <section> 
@@ -101,8 +101,7 @@
         The only price paid by participating institutions is to implement the standards of the community. The greatest voice in the consensus process that sets the standards and recommendations of the community will be given to those who are most active in implementing them.</p></dd><dt>Peer review</dt><dd> 
       <p>As a part of the academic community, OLAC places a high value on peer
         review. All of the standards and documents of OLAC  go through a process of
-         peer review that is open to all who want to participate. To assure  quality within its network of interoperating repositories and services, OLAC solicits anonymous peer review regarding conformance of participating institutions to its standards and recommendations. In addition it supports signed peer
-        review for evaluations it does not solicit.</p></dd></dl> 
+         peer review that is open to all who want to participate. To assure  quality within its network of interoperating repositories and services, OLAC solicits peer review regarding conformance of participating institutions to its standards and recommendations.  OLAC also conducts automated review based on peer consensus regarding best practice.</p></dd></dl> 
     </section> 
     <section> 
       <heading>Organization</heading> 
@@ -112,7 +111,10 @@
         currently participating individuals and institutions.</p>
       <dl><dt>Coordinators</dt><dd> 
       <p>The persons who oversee the operation of the process described in this
-        document.</p></dd><dt>Advisory Board</dt><dd> 
+        document, relying on input from the Advisory Board as needed.  They also
+        ensure that the content and services offered at <tt>www.language-archives.org</tt>
+        are consistent with OLAC standards.</p></dd>
+      <dt>Advisory Board</dt><dd> 
       <p>The members of the advisory board are persons who are recognized by
         their peers as being leaders within a subcommunity (whether defined by
         discipline or by geography) of the wider language resources and digital
@@ -120,7 +122,7 @@
         The term of service is two years and is renewable. The role of an advisory board member is two-fold: to advise the Coordinators about how to respond to
         particular concerns of their subcommunities, and to promote OLAC within their
         subcommunities. </p></dd><dt>Council</dt><dd> 
-      <p>A panel of individuals (numbering from seven to nine) who make decisions for the community as described below in <xref>The document process</xref> and <xref>The registration process</xref>. Members of the Council must have experiential knowledge of OLAC gained through being involved in the implementation or operation of an OLAC repository or service, and must be willing and able to commit time and energy to the functions of the Council. Geographic and domain distribution of members is relevant, but will not override the other criteria. Council members serve a term of two years, renewable. Council members are nominated by the Coordinators and ratified by consensus of the Advisory Board.</p></dd><dt>Participating Archives and Services</dt><dd> 
+      <p>A panel of individuals (numbering from seven to nine) who make decisions for the community as described below in <xref>The document process</xref> and <xref>The registration process</xref>. Members of the Council must have experiential knowledge of OLAC gained through being involved in the implementation or operation of an OLAC repository or service, and must be willing and able to commit time and energy to the functions of the Council. Geographic and domain distribution of members is relevant, but will not override the other criteria. Council members serve a term of two years, renewable. Council members are nominated by the Coordinators and ratified by consensus of the Advisory Board.</p></dd><dt>Archives and Services</dt><dd> 
       <p>Data providers and service providers <cit>OAI-FAQ</cit> that are following the OLAC
         standards and have been successfully registered on the OLAC
         web site. For each registered archive or service, there is a designated contact person with
@@ -143,7 +145,7 @@
         for it is through documents that OLAC defines itself and the practices that it
         promotes. The documents published by OLAC are of three types:</p>
       <dl><dt>Standard</dt><dd> 
-      <p>A standard describes procedures that participating archives and
+      <p>A standard describes procedures that  archives and
         services must follow when participating in the activities of the community or
         specifications they must follow when implementing an archive or service.</p></dd><dt>Recommendation</dt><dd> 
       <p>A recommendation describes the OLAC consensus on the best current
@@ -238,7 +240,7 @@
       <p>When a document enters candidate status, the OLAC Coordinators send a
         call for implementation with a specific deadline date to the entire community.
         The implementation period will be set for a duration not shorter than one month
-        nor longer than one year, depending on the anticipated difficulty of
+        nor longer than six months, depending on the anticipated difficulty of
         implementation. At the end of the testing period, a call for review is
         issued in which the community members who have actually put the document to use
         are invited to describe their experience and comment on whether it is ready to
@@ -269,8 +271,8 @@
         alternative approach or into an informational note that discusses the relative
         merits of different approaches. </p> 
     <p><i>Intellectual property rights.</i> All documents published by OLAC
-        on its web site are published under the terms of the Open Publication License
-        <cit>OPL</cit>. Typically, the authors or editors of the document will be
+        on its web site are published under the terms of the Creative Commons Attribution-ShareAlike 2.5 License
+        <cit>CCL</cit> which permits redistribution and even repurposing provided that attribution of the original source is given  and that any derivative work is distributed on the same terms. Typically, the authors or editors of the document will be
         listed as the copyright holders.</p></section> 
     <section> 
       <heading>The working group process</heading> 
@@ -303,7 +305,7 @@
       </ul> 
       <p>When the above conditions are satisfactorily met, the OLAC
         Coordinators will set up a web page for the working group and a mailing list
-        that is seeded with the initial membership list. When those are in place, a
+        that is seeded with the initial membership list. The OLAC Coordinators will also be subscribed to the mailing list as a way of keeping informed of the working group&#8217;s activities. When tho web page and mailing list are in place, a
         call for participation will be sent out to the entire OLAC community. Any
         person who wants to participate in the development of the planned documents may
         subscribe to the mailing list and thereby become a member of the working
@@ -334,7 +336,7 @@
         conditions are no longer met, the working group may elect to dissolve itself or may
         be dissolved by the OLAC Coordinators.</p> 
     </section> 
-  <section><heading>The registration process</heading><p>The OLAC web site provides a mechanism for institutions or individuals to request that their repository or service be enrolled as a Participating Archive or Service. To successfully enroll as a Participating Archive, the repository  must meet the following criteria:</p><ul><li><p>It must catalog language resources.</p></li><li><p>It must conform to the standards of OLAC.</p></li></ul><p>To successfully enroll as a Participating Service, the service  must meet the following criteria:</p><ul><li><p>It must provide a service based on information harvested from OLAC archives.</p></li><li><p>It must exploit at least one community-specific aspect of OLAC metadata.</p></li></ul><p>A request for registration is first processed by the OLAC Coordinators, and then referred to the OLAC Council for final approval when the mechanical aspects of the application are in order.</p></section></body> 
+  <section><heading>The registration process</heading><p>The OLAC web site provides a mechanism for institutions or individuals to request that their repository or service be enrolled as a participating archive or service. To successfully enroll as an OLAC Archive, the repository  must meet the following criteria:</p><ul><li><p>It must catalog language resources.</p></li><li><p>It must conform to the standards of OLAC.</p></li></ul><p>To successfully enroll as an OLAC Service, the service  must meet the following criteria:</p><ul><li><p>It must provide a service based on information harvested from OLAC archives.</p></li><li><p>It must exploit at least one community-specific aspect of OLAC metadata.</p></li></ul><p>A request for registration is first processed by the OLAC Coordinators, and then referred to the OLAC Council for final approval when the mechanical aspects of the application are in order.</p></section></body> 
   <references> 
     <ref abbrev="DCMI-Process">Dublin Core Metadata Initiative - Structure and
       Operation.<br/>&lt;<url>http://dublincore.org/documents/1999/05/31/dcmi-structure/</url>&gt;<br/>Guidelines
@@ -366,6 +368,6 @@
       <br/>&lt;<url>http://www.language-archives.org/docs/vision.html</url>&gt;</ref>
     
     <ref abbrev="OPL">Open Publication
-      License.<br/>&lt;<url>http://www.opencontent.org/openpub/</url>&gt;</ref><ref abbrev="OAI-FAQ">Open Archives Initiative Frequently Asked Questions (FAQ).<br/>&lt;<url>http://www.openarchives.org/documents/FAQ.html</url>&gt;</ref> 
+      License is officially superseded.<br/>&lt;<url>http://web.archive.org/web/20040401091107/http://www.opencontent.org/</url>&gt;</ref><ref abbrev="CCL">Creative Commons Attribution-ShareAlike 2.5 License.<br/>&lt;<url>http://creativecommons.org/licenses/by-sa/2.5/</url>&gt;</ref><ref abbrev="OAI-FAQ">Open Archives Initiative Frequently Asked Questions (FAQ).<br/>&lt;<url>http://www.openarchives.org/documents/FAQ.html</url>&gt;</ref> 
   </references>
 </OLAC_doc>
