@@ -1,5 +1,6 @@
+Current Repository Design (20060406, badenh@users.sourceforge.net)
 
-web/	contents for language-archives.org
-src/	code for OLAC services etc
-docs/	documents under the OLAC process
+web/	contents for language-archives.org, including documents under the OLAC process, and some dynamic services
+
+src/	code for OLAC services eg harvester, search, metadata quality reports
 
