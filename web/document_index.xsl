@@ -4,7 +4,7 @@
      Stylesheet for generating the main OLAC document index (by type)
 
      G. Simons, 10 Sept 2002
-     Last revised: 4 April 2006
+     Last revised: 6 April 2006
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -40,9 +40,7 @@
                 <tr>
                   <td style="padding: 10pt">
                     <br/>
-                    <h2>
-                      <font color="0x00004a">OLAC Documents</font>
-                    </h2>
+                    <h2>OLAC Documents</h2>
                     <table width="90%" cellpadding="5" align="center">
                       <tr>
                         <td colspan="2">
@@ -81,7 +79,7 @@
           </tr>
         </table>
         <div class="timestamp">
-http://www.language-archives.org/document_index.html<br/>Latest update: <xsl:for-each select="$doc-headers//header[1]">
+http://www.language-archives.org/documents.html<br/>Latest update: <xsl:for-each select="$doc-headers//header[1]">
             <xsl:call-template name="format-date"/>
           </xsl:for-each>
         </div>

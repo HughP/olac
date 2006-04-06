@@ -4,7 +4,7 @@
      Stylesheet for generating list of OLAC documents by status
 
      G. Simons, 2 Aug 2003
-     Last updated: 4 April 2006
+     Last updated: 6 April 2006
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" encoding="ISO-8859-1"/>
@@ -25,54 +25,61 @@
         <meta name="Publisher" content="OLAC (Open Language Archives Community)"/>
       </HEAD>
       <BODY>
-        <hr/>
-        <table cellpadding="10">
+        <table border="0" cellspacing="1" cellpadding="0" width="100%">
           <tr>
-            <td>
-              <a href="http://www.language-archives.org/">
-                <img border="0" src="http://www.language-archives.org/images/olac100.gif"/>
-              </a>
-            </td>
-            <td valign="middle">
-              <h1>
-                <font color="0x00004a">OLAC Documents by Status</font>
-              </h1>
-              <p>Latest update: <xsl:for-each select="$doc-headers//header[1]">
-                  <xsl:call-template name="format-date"/>
-                </xsl:for-each>
-              </p>
+            <td class="frame">
+              <table border="0" cellspacing="1" cellpadding="0" width="100%">
+                <tr>
+                  <td>
+                    <xsl:copy-of select="pageBanner/*"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <br/>
+                    <h2>OLAC Documents by Status</h2>
+                    <table width="90%" cellpadding="5" align="center">
+                      <tr>
+                        <td colspan="2">
+                          <xsl:copy-of select="textBlocks/statusIntro/*"/>
+                        </td>
+                      </tr>
+                      <xsl:for-each select="byStatus/section">
+                        <tr valign="top">
+                          <td>
+                            <h4 style="margin-left: 18pt">
+                              <a href="#{heading}">
+                                <xsl:value-of select="heading"/>
+                              </a>
+                            </h4>
+                          </td>
+                          <td>
+                            <xsl:value-of select="intro"/>
+                          </td>
+                        </tr>
+                      </xsl:for-each>
+                      <tr>
+                        <td colspan="2">
+                          <xsl:copy-of select="textBlocks/processRef/*"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <xsl:apply-templates select="byStatus/section"/>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
-        <hr/>
-        <table width="90%" cellpadding="5" align="center">
-          <tr>
-            <td colspan="2">
-              <xsl:copy-of select="textBlocks/statusIntro/*"/>
-            </td>
-          </tr>
-          <xsl:for-each select="byStatus/section">
-            <tr valign="top">
-              <td>
-                <h4 style="margin-left: 18pt">
-                  <a href="#{heading}">
-                    <xsl:value-of select="heading"/>
-                  </a>
-                </h4>
-              </td>
-              <td>
-                <xsl:value-of select="intro"/>
-              </td>
-            </tr>
+        <div class="timestamp">
+http://www.language-archives.org/documents_by_status.html<br/>Latest update: <xsl:for-each select="$doc-headers//header[1]">
+            <xsl:call-template name="format-date"/>
           </xsl:for-each>
-          <tr>
-            <td colspan="2">
-              <xsl:copy-of select="textBlocks/processRef/*"/>
-            </td>
-          </tr>
-        </table>
-        <hr/>
-        <xsl:apply-templates select="byStatus/section"/>
+        </div>
       </BODY>
     </HTML>
   </xsl:template>

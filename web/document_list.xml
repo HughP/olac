@@ -26,10 +26,10 @@
       <p>This index lists all documents that are current within the OLAC document process. They are listed by type. See also <a href="documents_by_status.html">OLAC documents by status</a> and <a href="documents_by_date.html">OLAC documents by date</a>, which include documents that have been retired or withdrawn.</p>
     </typeIntro>
     <statusIntro>
-      <p>This index lists all documents that have come under the OLAC document process. They are listed by current status in the process. See also <a href="document_index.html">OLAC documents by type</a> and <a href="documents_by_date.html">OLAC documents by date</a>.</p>
+      <p>This index lists all documents that have come under the OLAC document process. They are listed by current status in the process. See also <a href="documents.html">OLAC documents by type</a> and <a href="documents_by_date.html">OLAC documents by date</a>.</p>
     </statusIntro>
     <dateIntro>
-      <p>This index lists all documents that have come under the OLAC document process. They are listed by latest date of revision, beginning with the most recent. See also <a href="document_index.html">OLAC documents by type</a> and <a href="documents_by_status.html">OLAC documents by status</a>.</p>
+      <p>This index lists all documents that have come under the OLAC document process. They are listed by latest date of revision, beginning with the most recent. See also <a href="documents.html">OLAC documents by type</a> and <a href="documents_by_status.html">OLAC documents by status</a>.</p>
     </dateIntro>
     <processRef>
       <p>

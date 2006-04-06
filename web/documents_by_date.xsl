@@ -4,7 +4,7 @@
      Stylesheet for generating list of OLAC documents by date
 
      G. Simons, 2 Aug 2003
-     Last updated: 4 April 2006
+     Last updated: 6 April 2006
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -25,43 +25,49 @@
         <meta name="Publisher" content="OLAC (Open Language Archives Community)"/>
       </HEAD>
       <BODY>
-        <hr/>
-        <table cellpadding="10">
+        <table border="0" cellspacing="1" cellpadding="0" width="100%">
           <tr>
-            <td>
-              <a href="http://www.language-archives.org/">
-                <img border="0" src="http://www.language-archives.org/images/olac100.gif"/>
-              </a>
-            </td>
-            <td valign="middle">
-              <h1>
-                <font color="0x00004a">OLAC Documents by Date</font>
-              </h1>
-              <p>Latest update: <xsl:for-each select="$doc-headers//header[1]">
-                  <xsl:call-template name="format-date"/>
-                </xsl:for-each>
-              </p>
+            <td class="frame">
+              <table border="0" cellspacing="1" cellpadding="0" width="100%">
+                <tr>
+                  <td>
+                    <xsl:copy-of select="pageBanner/*"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <br/>
+                    <h2>OLAC Documents by Date</h2>
+                    <table width="90%" cellpadding="5" align="center">
+                      <tr>
+                        <td>
+                          <xsl:copy-of select="textBlocks/dateIntro/*"/>
+                          <xsl:copy-of select="textBlocks/processRef/*"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <table>
+                      <xsl:for-each select="$doc-headers//header">
+                        <xsl:sort select="issued" order="descending"/>
+                        <xsl:sort select="title"/>
+                        <xsl:apply-templates select="document(@href)"/>
+                      </xsl:for-each>
+                    </table>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
-        <hr/>
-        <table width="90%" cellpadding="5" align="center">
-          <tr>
-            <td>
-              <xsl:copy-of select="textBlocks/dateIntro/*"/>
-              <xsl:copy-of select="textBlocks/processRef/*"/>
-            </td>
-          </tr>
-        </table>
-        <hr/>
-        <br/>
-        <table>
-          <xsl:for-each select="$doc-headers//header">
-            <xsl:sort select="issued" order="descending"/>
-            <xsl:sort select="title"/>
-            <xsl:apply-templates select="document(@href)"/>
+        <div class="timestamp">
+http://www.language-archives.org/documents_by_date.html<br/>Latest update: <xsl:for-each select="$doc-headers//header[1]">
+            <xsl:call-template name="format-date"/>
           </xsl:for-each>
-        </table>
+        </div>
       </BODY>
     </HTML>
   </xsl:template>
