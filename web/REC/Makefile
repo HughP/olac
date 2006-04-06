@@ -13,7 +13,7 @@ LANGUAGE  = language-20010319.html language-20031213.html
 ROLE      = role-20021119.html role-20030827.html role-20031010.html role-20060406.html
 TYPE      = type-20010320.html type-20020612.html type-20020628.html type-20021121.html type-20021212.html type-20060406.html
 
-HTML = $(ACCESS) $(DISCOURSE) $(FIELD) $(LANGUAGE) $(ROLE) $(TYPE)
+HTML = $(ACCESS) $(DISCOURSE) $(FIELD) $(LANGUAGE) $(ROLE) $(TYPE) olac-extensions.html
 
 
 ### Build
