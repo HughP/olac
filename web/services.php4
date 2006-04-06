@@ -108,7 +108,7 @@ vocabulary; linguistics; linguistic data; language data">
 <!-- navigation block -->
 <td align=center>
 <table class=banner><tr>
-<td class=sec><a href="index.html"><b>HOME</b></a></td><td>|</td>
+<td class=sec><a href="index.html">HOME</a></td><td>|</td>
 <td class=sec><a href="documents.html">DOCUMENTS</a></td><td>|</td>
 <td class=sec><a href="about.html">ABOUT</a></td><td>|</td><td>|</td>
 <td class=sec><a href="archives.php4">ARCHIVES</a></td>
