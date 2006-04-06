@@ -8,7 +8,7 @@ XSLT = java org.apache.xalan.xslt.Process
 
 .PHONY: standards recommendations notes indexes rsync
 
-all: standards recommendations notes indexes rsync
+all: standards recommendations notes indexes
 
 clean:
 	rm -rf index.html api
@@ -27,7 +27,7 @@ notes:
 
 indexes: $(INDEXES)
 	$(XSLT) -in document_list.xml -xsl document_headers.xsl > document_headers.xml
-	$(XSLT) -in document_list.xml -xsl document_index.xsl > document_index.html
+	$(XSLT) -in document_list.xml -xsl document_index.xsl > documents.html
 	$(XSLT) -in document_list.xml -xsl documents_by_status.xsl > documents_by_status.html
 	$(XSLT) -in document_list.xml -xsl documents_by_date.xsl > documents_by_date.html
 
