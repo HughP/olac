@@ -108,15 +108,15 @@ vocabulary; linguistics; linguistic data; language data">
 <!-- navigation block -->
 <td align=center>
 <table class=banner><tr>
-<td class=sec><a href="index.html">HOME</a></td><td>|</td>
+<td class=sec><a href="index.html"><b>HOME</b></a></td><td>|</td>
 <td class=sec><a href="documents.html">DOCUMENTS</a></td><td>|</td>
-<td class=sec><a href="archives.php4">ARCHIVES</a></td><td>|</td>
-<td class=sec><a href="events.html">EVENTS</a></td>
+<td class=sec><a href="about.html">ABOUT</a></td><td>|</td><td>|</td>
+<td class=sec><a href="archives.php4">ARCHIVES</a></td>
 </tr><tr>
 <td class=sec><a href="news.html">NEWS</a></td><td>|</td>
 <td class=sec><a href="organization.html">ORGANIZATION</a></td><td>|</td>
-<td class=sec><font color=#ff9090><b>SERVICES</b></font></td><td>|</td>
-<td class=sec><a href="tools.html">TOOLS</a></td>
+<td class=sec><a href="tools.html">TOOLS</a></td><td>|</td>
+<td class=sec><font color=#ff9090><b>SERVICES</b></font></td>
 </tr></table>
 </td>
 
