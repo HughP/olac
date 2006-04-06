@@ -110,7 +110,7 @@ vocabulary; linguistics; linguistic data; language data">
 <table class=banner><tr>
 <td class=sec><a href="index.html">HOME</a></td><td>|</td>
 <td class=sec><a href="documents.html">DOCUMENTS</a></td><td>|</td>
-<td class=sec><a href="about.html">ABOUT</a></td><td>|</td><td>|</td>
+<td class=sec><a href="about.html">ABOUT</a></td><td>|</td>
 <td class=sec><a href="archives.php4">ARCHIVES</a></td>
 </tr><tr>
 <td class=sec><a href="news.html">NEWS</a></td><td>|</td>
