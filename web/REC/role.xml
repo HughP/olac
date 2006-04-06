@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="candidate" type="recommendation"/>
+    <status code="proposed" type="recommendation"/>
     <title>OLAC Role Vocabulary</title>
     <baseName>role</baseName>
     <issued>20031010</issued>
