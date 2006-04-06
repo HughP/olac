@@ -3,11 +3,11 @@
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
   <header>
-    <status code="proposed" type="recommendation"/>
+    <status code="candidate" type="recommendation"/>
     <title>OLAC Discourse Type Vocabulary</title>
     <baseName>discourse</baseName>
-    <issued>20030127</issued>
-    <previousIssued>20021217</previousIssued>
+    <issued>20060406</issued>
+    <previousIssued>20030127</previousIssued>
     <abstract><p>
       This document specifies the codes, or controlled vocabulary,
       for the Discourse Type extension of the OLAC Type element.
@@ -22,15 +22,10 @@
       Heidi Johnson (University of Texas at Austin),
       Helen Aristar Dry (Eastern Michigan University)
     </copyright>
-    <changes><p>
-	<ul>
-		<li>Term 'Conversation' changed to 'Interactive Discourse'.</li>
-		<li>Term 'Formulaic' changed to 'Formulaic Discourse'.</li>
-		<li>Term 'Ludic' changed to 'Language Play'.</li>
-		<li>Term 'Procedural' changed to 'Procedural Discourse'.</li>
-		<li>Some small modifications to definitions or examples.</li>
-	</ul>
-    </p></changes>
+    <changes>
+      <p>Promoted to candidate status, with a call for review by
+        those have put the document into practice.</p>
+    </changes>
   </header>
 
   <body>

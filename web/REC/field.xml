@@ -1,42 +1,70 @@
 <?xml version="1.0"?> <?xml-stylesheet href="OLAC_doc.xsl" type="text/xsl"?> 
 <!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc> 
-<header> 
-<status code="proposed" type="recommendation"/> 
-<title>OLAC Linguistic Subject Vocabulary</title> 
-<baseName>field</baseName> 
-<issued>20030121</issued> 
-<previousIssued>20021127</previousIssued> 
-<abstract>
-<p>This document specifies the codes, or suggested vocabulary, for the 'linguistic' value of the xsi:type attribute of the OLAC Subject element. These codes describe the content of a resource as about a particular subfield of linguistic science, or about the level of linguistic structure which is the primary concern of a given subfield. </p>
-</abstract> 
-<editors> Helen Aristar Dry (<url>mailto:hdry@linguistlist.org</url>), 
-Michael Appleby (<url>mailto:michael@linguistlist.org</url>) 
-</editors> 
-<copyright> 
-Helen Aristar Dry (Eastern Michigan University), Michael Appleby (Eastern Michigan 
-University) 
-</copyright> 
-<changes><p>
-Title changed from 'Linguistic Field' to 'Linguistic Subject';
-Added terms Forensic Linguistics, Language Acquisition, Mathematical Linguistics;
-'Language Description' renamed to 'Language Documentation'; 'Translation' renamed to 'Translation and Interpreting';
-Many terms redefined, with new examples.
-</p>
-</changes> 
-</header> 
-<body> 
-<section> 
-<heading>Introduction</heading> 
-<p>The OLAC:Linguistic extension of the Subject Element is used to describe the content of a resource as about a particular subfield of linguistic science.  By extension, it may be used to describe a resource which is about the level of linguistic structure or the linguistic artifact which is the primary concern of that subfield; so, for example, the code "syntax" may be used for resources about syntactic structure, and the code "text_and_corpus_linguistics" may be used for resources which are about corpora. In many cases, it may be that a resource is about more than one subfield; in such cases, all relevant subfields should be chosen. Like other OLAC descriptors, the Linguistic extension of the DCMI element Subject is both optional and repeatable.</p>
-<p>Every effort has been made to correlate the OLAC Linguistic definitions with current practice in the linguistics community. However, in some cases, the definition may be wider or narrower than some linguists might expect. For example, 'Applied Linguistics' may be narrower, as it applies only to linguistic applications in the classroom, and 'Semantics' might be wider, encompassing as it does Lexical Semantics. Where the OLAC definition is narrower, there will be another, more appropriate subfield for the residual meaning.  For example, 'Computational Linguistics' is more appropriate than 'Applied Linguistics' for computer applications. </p>
-</section> 
+  <header> 
+    <status code="candidate" type="recommendation"/> 
+    <title>OLAC Linguistic Subject Vocabulary</title> 
+    <baseName>field</baseName> 
+    <issued>20060406</issued> 
+    <previousIssued>20030121</previousIssued> 
+    <abstract>
+      <p>This document specifies the codes, or suggested vocabulary, for the 'linguistic' value of the xsi:type attribute of the OLAC Subject element. These codes describe the content of a resource as about a particular subfield of linguistic science, or about the level of linguistic structure which is the primary concern of a given subfield. </p>
+    </abstract> 
+    <editors> Helen Aristar Dry (<url>mailto:hdry@linguistlist.org</url>), 
+      Michael Appleby (<url>mailto:michael@linguistlist.org</url>) 
+    </editors> 
+    <copyright> 
+      Helen Aristar Dry (Eastern Michigan University), Michael Appleby (Eastern Michigan University) 
+    </copyright> 
+    <changes>
+      <p>Promoted to candidate status, with a call for review by
+        those have put the document into practice.</p>
+    </changes> 
+  </header> 
 
-<section> 
-<heading>Linguistic Subject</heading> 
-<p> Each term in the controlled vocabulary is described in one of the following subsections. The heading gives the encoded value for the term that is to be used as the value of the code attribute of the Subject metadata element when the xsi:type attribute is 'OLAC:linguistic' <cit>OLAC-MS</cit>. Under the heading, the term is described in four ways. Name gives a descriptive label for the term. Definition is a one-line summary of what the term means. Comments offers more details on what the term represents. Examples may also be given to illustrate how the term is meant to be applied. </p>
+  <body> 
+    <section> 
+      <heading>Introduction</heading> 
+      <p>The OLAC:Linguistic extension of the Subject Element is used to
+      describe the content of a resource as about a particular subfield of
+      linguistic science.  By extension, it may be used to describe a
+      resource which is about the level of linguistic structure or the
+      linguistic artifact which is the primary concern of that subfield; so,
+      for example, the code "syntax" may be used for resources about
+      syntactic structure, and the code "text_and_corpus_linguistics" may be
+      used for resources which are about corpora. In many cases, it may be
+      that a resource is about more than one subfield; in such cases, all
+      relevant subfields should be chosen. Like other OLAC descriptors, the
+      Linguistic extension of the DCMI element Subject is both optional and
+      repeatable.</p>
+        
+      <p>Every effort has been made to correlate the OLAC Linguistic
+      definitions with current practice in the linguistics
+      community. However, in some cases, the definition may be wider or
+      narrower than some linguists might expect. For example, 'Applied
+      Linguistics' may be narrower, as it applies only to linguistic
+      applications in the classroom, and 'Semantics' might be wider,
+      encompassing as it does Lexical Semantics. Where the OLAC definition
+      is narrower, there will be another, more appropriate subfield for the
+      residual meaning.  For example, 'Computational Linguistics' is more
+      appropriate than 'Applied Linguistics' for computer applications. </p>
+    </section>
 
-<term> 
+    <section> 
+    <heading>Linguistic Subject</heading> 
+
+    <p> Each term in the controlled vocabulary is described in one of
+    the following subsections. The heading gives the encoded value for
+    the term that is to be used as the value of the code attribute of
+    the Subject metadata element when the xsi:type attribute is
+    'OLAC:linguistic' <cit>OLAC-MS</cit>. Under the heading, the term
+    is described in four ways. Name gives a descriptive label for the
+    term. Definition is a one-line summary of what the term
+    means. Comments offers more details on what the term
+    represents. Examples may also be given to illustrate how the term
+    is meant to be applied. </p>
+
+    <term> 
 	<code>anthropological_linguistics</code> 
 	<name>Anthropological Linguistics</name> 
 	<definition>
@@ -49,9 +77,9 @@ Many terms redefined, with new examples.
 	<examples>
 		<p> The SIL Ethnologue, which collects data on the number on speakers of a language and the geographical region in which it is spoken. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>applied_linguistics</code> 
 	<name>Applied Linguistics</name> 
 	<definition>
@@ -64,9 +92,9 @@ Many terms redefined, with new examples.
 	<examples>
 	<p>Teaching materials, guides for language teachers, and studies of adult language learning. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>cognitive_science</code> 
 	<name>Cognitive Science</name> 
 	<definition>
@@ -78,9 +106,9 @@ Many terms redefined, with new examples.
 	<examples>
 		<p>An experiment on language and vision or a book on the study of mind.</p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>computational_linguistics</code> 
 	<name>Computational Linguistics</name> 
 	<definition>
@@ -93,9 +121,9 @@ Many terms redefined, with new examples.
 	<examples>
 		<p>Books and papers dealing with Machine Translation, Text to Speech software, and algorithms to parse sentences. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>discourse_analysis</code> 
 	<name>Discourse Analysis</name> 
 	<definition>
@@ -108,9 +136,9 @@ Many terms redefined, with new examples.
 	<examples>
 		<p>Transcripts of discourse, perhaps with turn taking and speaker overlap highlighted; papers on Discourse Representation Theory or on different talk types such as doctor/patient interaction; and audio and video tapes of interactive discourse which might serve as an object of study.</p>
 	</examples> 
-</term> 
+    </term> 
 
-<term>
+    <term>
 	<code>forensic_linguistics</code>
 	<name>Forensic Linguistics</name>
 	<definition>
@@ -123,9 +151,9 @@ Many terms redefined, with new examples.
   	<examples>
   		<p>Papers on issues in dispute in court cases, e.g., authorship identification, assessment of ambiguity in texts, voice attribution.</p>
 	</examples>
-</term>
+    </term>
 
-<term> 
+    <term> 
 	<code>general_linguistics</code> 
 	<name>General Linguistics</name> 
 	<definition>
@@ -138,9 +166,9 @@ Many terms redefined, with new examples.
 		<p> Broad, often introductory textbooks such as The Cambridge Encyclopaedia 
 of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>historical_linguistics</code> 
 	<name>Historical Linguistics</name> 
 	<definition>
@@ -153,9 +181,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A study of the diachronic development of vowels in Romance.</p>
 	</examples> 
-</term>
+    </term>
 
-<term> 
+    <term> 
 	<code>history_of_linguistics</code> 
 	<name>History of Linguistics</name>
 	<definition>
@@ -164,9 +192,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A biography of Ferdinand de Saussure, or an analysis of Plato's discussions on language. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term>
+    <term>
 	<code>language_acquisition</code>
 	<name>Language Acquisition</name>
 	<definition>The study of the process of acquiring human language.</definition>
@@ -177,9 +205,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>Studies of first language acquisition, audio or video tapes of language acquisition experiments, and guides to experimental techniques in eliciting acquisition data.</p>
 	</examples>
-</term>
+    </term>
 
-<term> 
+    <term> 
 	<code>language_documentation</code> 
 	<name>Language Documentation</name> 
 	<definition>
@@ -188,9 +216,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A manual on fieldwork techniques. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>lexicography</code> 
 	<name>Lexicography</name> 
 	<definition>
@@ -202,9 +230,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>Books and papers about creating dictionaries.  Swadesh word lists, a bilingual Avestan-Engliah dictionary, and a collection of legal terms in a particular language. </p>
 	</examples>
-</term> 
+    </term> 
  
-<term> 
+    <term> 
 	<code>linguistics_and_literature</code> 
 	<name>Linguistics and Literature</name> 
 	<definition>The application of linguistic analysis to literary texts, e.g., fiction, drama, or poetry.</definition> 
@@ -214,9 +242,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>An analysis of lexical patterns characteristic of a particular author or syntactic constructions used to create specific literary effects. </p>
 	</examples>
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>linguistic_theories</code> 
 	<name>Linguistic Theories</name> 
 	<definition>Theories (argued to be) fundamental to linguistic science, often spanning more than one subfield such as phonology and syntax.
@@ -224,9 +252,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>Papers arguing for or against Universal Grammar, Transformational Grammar, or Montague Grammar. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term>
+    <term>
 	<code>mathematical_linguistics</code>
 	<name>Mathematical Linguistics</name>
 	<definition>
@@ -238,9 +266,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A linguistic paper about the formal properties of grammars.</p>
 	</examples>
-</term>
+    </term>
 
-<term> 
+    <term> 
 	<code>morphology</code> 
 	<name>Morphology</name> 
 	<definition>
@@ -253,9 +281,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A paper on morphological theory, Word Grammar (Hudson). </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>neurolinguistics</code> 
 	<name>Neurolinguistics</name> 
 	<definition>
@@ -267,9 +295,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A study of brain damage with respect to language impairment, a study of the neurological development of the brain during first language acquisition.   The latter should also be classified as Language Acquisition.</p>
 	</examples>
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>philosophy_of_language</code> 
 	<name>Philosophy of Language</name> 
 	<definition>The application of philosophy to language and linguistic theory.</definition> 
@@ -279,9 +307,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A paper on the Sapir-Whorf hypothesis, a comparative study of verbal and non-verbal thought. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>phonetics</code> 
 	<name>Phonetics</name> 
 	<definition>
@@ -294,9 +322,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A sound inventory of a language, a study of the variation of articulation of a particular sound. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>phonology</code> 
 	<name>Phonology</name> 
 	<definition>
@@ -309,9 +337,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>Phonological theories applied to a particular language; that is, a study of the syllable structure of a language, or the rules behind sound alternations. Also to be included under 'Phonology' are phoneme datasets, field notes on the phonology of a language, and papers on phonological theories themselves, such as a critique of Optimality Theory. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>pragmatics</code> 
 	<name>Pragmatics</name> 
 	<definition>
@@ -324,9 +352,9 @@ of Language (Crystal, 1987), and glossaries of linguistic terminology. </p>
 	<examples>
 		<p>A study of politeness phenomena, honorifics, deixis or speech acts. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>psycholinguistics</code> 
 	<name>Psycholinguistics</name> 
 	<definition>
@@ -338,9 +366,9 @@ The application of psychology to linguistics, in terms of the psychological mech
 	<examples>
 		<p>A cross-linguistic study of acquisition of a particular syntactic constraint, a study of aphasic children's language development. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>semantics</code> 
 	<name>Semantics</name> 
 	<definition>
@@ -353,9 +381,9 @@ The study of the meaning of linguistic structures.
 	<examples>
 		<p>A paper on a semantic theory, such as Truth Conditional Semantics. A paper on color lexemes in a particular language.</p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>sociolinguistics</code> 
 	<name>Sociolinguistics</name> 
 	<definition>
@@ -368,9 +396,9 @@ The study of language in context of the society that speaks it.
 	<examples>
 		<p>A study of language variation according to such factors as the speakers' gender, age, and/or social class. </p>
 	</examples> 
- </term>
+     </term>
  
-<term> 
+    <term> 
 	<code>syntax</code> 
 	<name>Syntax</name> 
 	<definition>
@@ -383,9 +411,9 @@ The study of language in context of the society that speaks it.
 		<p>A syntactic description of a language, using a particular syntactic theory. A paper using language data to criticize a syntactic theory. 
 		</p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>text_and_corpus_linguistics</code> 
 	<name>Text and Corpus Linguistics</name> 
 	<definition>
@@ -397,9 +425,9 @@ The study of the linguistic properties of an extended passage, text, or corpus o
 	<examples>
 		<p>A statistical analysis of the British National Corpus, on the use of modal verbs in spoken and written English. </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>translating_and_interpreting</code> 
 	<name>Translating and Interpreting</name> 
 	<definition>
@@ -412,9 +440,9 @@ The study of the act of converting one language into another, either via speech 
 	<examples>
 		<p>A study of the relative merits of different levels of translation (that is, literal translation, word-for-word translation and so on). </p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>typology</code> 
 	<name>Typology</name> 
 	<definition>
@@ -428,9 +456,9 @@ The study of the similarites and differences between languages, regardless of an
 		<p>A paper using data from multiple languages as an argument for or against Universal Grammar. An analysis of a poorly documented language in terms of Greenberg's Universals. 
 		</p>
 	</examples> 
-</term> 
+    </term> 
 
-<term> 
+    <term> 
 	<code>writing_systems</code> 
 	<name>Writing Systems</name> 
 	<definition>
@@ -443,19 +471,15 @@ The visual representation of spoken language on paper or other media, and the is
 	<examples>
 		<p>A paper examining issues in a linguist's development of a writing system for a previously unwritten language. An examination of pictographic writing systems.  A book on the decipherment of Linear B.</p>
 	</examples> 
-</term> 
+    </term> 
 
-</section> 
-
+  </section> 
 </body>
-
-
 
 <references>
 	<ref abbrev="OLAC-MS">OLAC Metadata Set.<br/>
 	&lt;<url>http://www.language-archives.org/OLAC/olacms.html</url>&gt;
 	</ref>
-
 </references>
 
 </OLAC_doc>
