@@ -28,54 +28,63 @@
         <meta name="Publisher" content="OLAC (Open Language Archives Community)"/>
       </HEAD>
       <BODY>
-        <hr/>
-        <table cellpadding="10">
+        <table border="0" cellspacing="1" cellpadding="0" width="100%">
           <tr>
-            <td>
-              <a href="http://www.language-archives.org/">
-                <img border="0" src="http://www.language-archives.org/images/olac100.gif"/>
-              </a>
-            </td>
-            <td valign="middle">
-              <h1>
-                <font color="0x00004a">OLAC Documents</font>
-              </h1>
-              <p>Latest update: <xsl:for-each select="$doc-headers//header[1]">
-                  <xsl:call-template name="format-date"/>
-                </xsl:for-each>
-              </p>
+            <td class="frame">
+              <table border="0" cellspacing="1" cellpadding="0" width="100%">
+                <tr>
+                  <td>
+                    <xsl:copy-of select="pageBanner/*"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <br/>
+                    <h2>
+                      <font color="0x00004a">OLAC Documents</font>
+                    </h2>
+                    <table width="90%" cellpadding="5" align="center">
+                      <tr>
+                        <td colspan="2">
+                          <xsl:copy-of select="textBlocks/typeIntro/*"/>
+                        </td>
+                      </tr>
+                      <xsl:for-each select="byType/section">
+                        <tr valign="top">
+                          <td>
+                            <h4 style="margin-left: 18pt">
+                              <a href="#{heading}">
+                                <xsl:value-of select="heading"/>
+                              </a>
+                            </h4>
+                          </td>
+                          <td>
+                            <xsl:value-of select="intro"/>
+                          </td>
+                        </tr>
+                      </xsl:for-each>
+                      <tr>
+                        <td colspan="2">
+                          <xsl:copy-of select="textBlocks/processRef/*"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10pt">
+                    <xsl:apply-templates select="byType/section"/>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
         </table>
-        <hr/>
-        <table width="90%" cellpadding="5" align="center">
-          <tr>
-            <td colspan="2">
-              <xsl:copy-of select="textBlocks/typeIntro/*"/>
-            </td>
-          </tr>
-          <xsl:for-each select="byType/section">
-            <tr valign="top">
-              <td>
-                <h4 style="margin-left: 18pt">
-                  <a href="#{heading}">
-                    <xsl:value-of select="heading"/>
-                  </a>
-                </h4>
-              </td>
-              <td>
-                <xsl:value-of select="intro"/>
-              </td>
-            </tr>
+        <div class="timestamp">
+http://www.language-archives.org/document_index.html<br/>Latest update: <xsl:for-each select="$doc-headers//header[1]">
+            <xsl:call-template name="format-date"/>
           </xsl:for-each>
-          <tr>
-            <td colspan="2">
-              <xsl:copy-of select="textBlocks/processRef/*"/>
-            </td>
-          </tr>
-        </table>
-        <hr/>
-        <xsl:apply-templates select="byType/section"/>
+        </div>
       </BODY>
     </HTML>
   </xsl:template>
