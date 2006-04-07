@@ -1,5 +1,6 @@
 #! /bin/sh
 
+webroot=/web/org/language-archives
 base=/home/olac/bin
 dat=$base/syschk.dat
 dat_xsv_html=$base/syschk.dat.xsv_html
@@ -214,6 +215,26 @@ else
     echo "Fail - only $n 1K-blocks remaining"
     RESULT=FAIL
 fi
+echo
+
+##
+## symlinks
+##
+echo "Checking symbolic links ..."
+echo
+find $webroot -type l -exec ls -l \{} \; > $tmp 2> /dev/null
+cat $tmp | $base/syschk.symlinks.py |
+while read a ; do
+    echo "  $a"
+done
+echo
+if [ -s $tmp ] ; then
+    echo "  Fail"
+    RESULT=FAIL
+else
+    echo "  OK"
+fi
+rm -f $tmp
 echo
 
 ##
