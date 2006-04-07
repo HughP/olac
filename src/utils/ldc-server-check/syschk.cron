@@ -1,0 +1,24 @@
+#! /bin/sh
+
+PATH=/usr/local/bin:/usr/bin:$PATH:/sbin
+export PATH
+
+thisdir=`dirname $0`
+t=`date +"%Y-%m-%dT%H:%M:%S%z"`
+$thisdir/syschk.sh
+res=$?
+exec >>$thisdir/syschk.log
+if [ $res -eq 0 ] ; then
+	echo "$t OLAC System Status: OK"
+else
+	echo "$t OLAC System Status: ALERT"
+	( cat | email -s "OLAC System Status: ALERT" haejoong olac-admin@language-archives.org ) <<EOF
+The OLAC System Status script reports one or more issues which need to
+be reviewed. Please visit the URL below to check detailed status:
+
+    http://www.language-archives.org/status.php
+
+EOF
+fi
+
+

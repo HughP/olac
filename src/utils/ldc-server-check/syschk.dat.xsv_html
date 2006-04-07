@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="#internalStyle" type="text/css"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+     Schema validation report for
+	/web/language-archives/OLAC/1.0/static-repository.xml</title>
+<style id="internalStyle" type="text/css">p.nas { margin-left: 1em; color: red; margin-top: 0px}
+           p.sdf { margin-bottom: 0px }
+           .node { font-weight: bold }
+    </style>
+</head>
+<body>
+<h3>Schema validating with XSV 2.8-1 of 2004/07/01 13:14:57</h3>
+<ul>
+<li>
+<strong>Target</strong>: <code>/web/language-archives/OLAC/1.0/static-repository.xml</code>
+</li>
+<li>
+<strong>docElt</strong>: <code>{http://www.openarchives.org/OAI/2.0/static-repository}Repository</code>
+</li>
+<li>Validation was strict, starting with type <code>{http://www.openarchives.org/OAI/2.0/static-repository}:repo</code>
+</li>
+<li>
+<strong>schemaLocs</strong>: http://www.openarchives.org/OAI/2.0/static-repository -&gt; http://www.language-archives.org/OLAC/1.0/static-repository.xsd; http://www.language-archives.org/OLAC/1.0/ -&gt; http://www.language-archives.org/OLAC/1.0/olac.xsd; http://purl.org/dc/elements/1.1/ -&gt; http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd; http://purl.org/dc/terms/ -&gt; http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd</li>
+<li>The schema(s) used for schema-validation had
+  no errors</li>
+<li>No schema-validity problems were found in the target
+ </li>
+</ul>
+<hr />
+<h3>Schema resources involved</h3>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/static-repository.xsd</code>
+ (source: <code>schemaLoc</code>) for
+   <code>http://www.openarchives.org/OAI/2.0/static-repository</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/OLAC-PMH.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.openarchives.org/OAI/2.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/terms/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.w3.org/2001/03/xml.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.w3.org/XML/1998/namespace</code>,
+    skipped, other docs already loaded for
+this namespace: </p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.w3.org/2001/03/xml.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.w3.org/XML/1998/namespace</code>,
+    skipped, other docs already loaded for
+this namespace: </p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcmitype.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/dcmitype/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-discourse-type.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-extension.xsd</code>
+ (source: <code>new namespace</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/olac-extension.xsd</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-language.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/LanguageCodes.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-linguistic-field.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-linguistic-type.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-role.xsd</code>
+ (source: <code>include</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac-archive.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/olac-archive</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.openarchives.org/OAI/2.0/oai-identifier.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://www.openarchives.org/OAI/2.0/oai-identifier</code>,
+    succeeded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>import</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://www.language-archives.org/OLAC/1.0/olac.xsd</code>
+ (source: <code>schemaLoc</code>) for
+   <code>http://www.language-archives.org/OLAC/1.0/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd</code>
+ (source: <code>schemaLoc</code>) for
+   <code>http://purl.org/dc/elements/1.1/</code>,
+    skipped, already loaded</p>
+<p class="sdf">Attempt to load a schema document from
+<code>http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd</code>
+ (source: <code>schemaLoc</code>) for
+   <code>http://purl.org/dc/terms/</code>,
+    skipped, already loaded</p>
+<hr />
+</body>
+</html>

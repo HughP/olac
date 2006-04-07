@@ -1,0 +1,14 @@
+#! /home/olac/expect-5.43/expect -f
+trap {puts oops} SIGTERM
+spawn telnet localhost 25
+
+expect {
+	eof	{exit 1}
+	"220 mailman.ldc.upenn.edu ESMTP Postfix"
+}
+send "helo yertle\n"
+expect "250 mailman.ldc.upenn.edu"
+send "quit\r"
+expect "221 Bye"
+interact
+
