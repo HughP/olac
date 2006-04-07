@@ -12,7 +12,7 @@ if [ $res -eq 0 ] ; then
 	echo "$t OLAC System Status: OK"
 else
 	echo "$t OLAC System Status: ALERT"
-	( cat | email -s "OLAC System Status: ALERT" haejoong olac-admin@language-archives.org ) <<EOF
+	( cat | mail -s "OLAC System Status: ALERT" haejoong olac-admin@language-archives.org ) <<EOF
 The OLAC System Status script reports one or more issues which need to
 be reviewed. Please visit the URL below to check detailed status:
 
