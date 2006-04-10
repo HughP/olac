@@ -226,15 +226,15 @@ find $webroot -type l -exec ls -l \{} \; > $tmp 2> /dev/null
 cat $tmp | $base/syschk.symlinks.py |
 while read a ; do
     echo "  $a"
-done
+done | tee $tmp.2
 echo
-if [ -s $tmp ] ; then
+if [ -s $tmp.2 ] ; then
     echo "  Fail"
     RESULT=FAIL
 else
     echo "  OK"
 fi
-rm -f $tmp
+rm -f $tmp $tmp.2
 echo
 
 ##
