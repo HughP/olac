@@ -35,7 +35,7 @@ of the Art.'  This annual workshop marks the culmination of the 5-year
 E-MELD project; one goal of the workshop is to review digital
 standards ratified by the community in prior workshops on text,
 lexicons, databases, and annotation.  The workshop will be held in
-July, in conjunction with the LSA Summer Meeting at Michigan State
+June, in conjunction with the LSA Summer Meeting at Michigan State
 University.
 
 Workshop website:
@@ -44,10 +44,11 @@ Workshop website:
 
 OLAC TUTORIAL AT THE LSA ANNUAL MEETING
 
-A tutorial on OLAC was held at the Annual Meeting of the Linguistic
-Society of America in January.  The focus of the presentations was on
-audio and video recording.  The event was officially sponsored by the
-LSA's Committee for Endangered Languages and their Preservation.
+A tutorial organized by the OLAC Outreach working group was held at 
+the Annual Meeting of the Linguistic Society of America in January.
+The focus of the presentations was on audio and video recording.  
+The event was officially sponsored by the LSA's Committee for 
+Endangered Languages and their Preservation.
 
 Tutorial website:
   http://www.ailla.utexas.org/site/lsa_olac06.html
@@ -55,14 +56,16 @@ Tutorial website:
 
 NEW OLAC REPOSITORIES IN 2005
 
-Four repositories joined OLAC in 2005: the *Audio Archive of
-Linguistic Fieldwork* at the Berkeley Language Center, UC Berkeley,
-USA; the *Comparative Corpus of Spoken Portuguese* at IEL Unicamp,
-Campinas, Brazil; *The Online Database of Interlinear Text (ODIN)* at
-California State University, Fresno, USA; and *Pacific And Regional
-Archive for Digital Sources in Endangered Cultures (PARADISEC)*, at
-the Universities of Melbourne, Sydney, New England, and Australian
-National University.
+Four repositories joined OLAC in 2005:
+- the *Audio Archive of Linguistic Fieldwork* at the Berkeley 
+  Language Center, UC Berkeley, USA;
+- the *Comparative Corpus of Spoken Portuguese* at IEL Unicamp,
+  Campinas, Brazil;
+- *The Online Database of Interlinear Text (ODIN)* at California 
+  State University, Fresno, USA; and 
+- *Pacific And Regional Archive for Digital Sources in Endangered 
+  Cultures (PARADISEC)*, at the Universities of Melbourne, Sydney,
+  New England, and Australian National University.
 
 Full list of OLAC Archives:
   http://www.language-archives.org/archives.php4
