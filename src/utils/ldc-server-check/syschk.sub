@@ -62,7 +62,12 @@ printf "  * Fetch l-a.org index page: "
 line=`curl -sI "http://www.language-archives.org/" | head -1`
 if [ -n "$line" ] ; then
     ret=`echo $line | awk '{print $2}'`
-    echo "OK"
+    if [ "$ret" = "200" ] ; then
+	echo "OK"
+    else
+	echo "Fail"
+	RESULT=FAIL
+    fi
     #echo
     #echo $line
     #echo
@@ -150,7 +155,8 @@ echo
 printf "  * current access log is active: "
 
 # last log line
-a=`tail $HTTPD_ACCESS_LOG | grep www.language-archives.org | grep '/tools/search/' | grep -m 1 'query=' | tail -1`
+a=`cat $HTTPD_ACCESS_LOG | grep www.language-archives.org | tail -1`
+#a=`tail $HTTPD_ACCESS_LOG | grep www.language-archives.org | grep '/tools/search/' | grep -m 1 'query=' | tail -1`
 #a=`tail -1 $HTTPD_ACCESS_LOG`
 # date
 b=`echo $a | awk '{print $5,$6}'`
@@ -168,6 +174,51 @@ else
 fi
 echo "_OLACSEARCH_MATCH_COUNT=$_OLACSEARCH_MATCH_COUNT" >>$dat
 echo
+
+
+##
+## search/report alive?
+##
+echo "Checking OLAC Search/Report ... "
+echo
+
+URL_SEARCH="http://www.language-archives.org/tools/search/?query=hindi&archive=&page=1&webLangID=ENG"
+URL_REPORT="http://www.language-archives.org/tools/reports/?archive=41"
+
+printf "  * Query OLAC Search: "
+# fetch header only
+line=`curl -sI "$URL_SEARCH" | head -1`
+if [ -n "$line" ] ; then
+    ret=`echo $line | awk '{print $2}'`
+    if [ "$ret" = "200" ] ; then
+	echo "OK"
+    else
+	echo "Fail"
+	RESULT=FAIL
+    fi
+else
+    echo "Fail"
+    RESULT=FAIL
+fi
+printf "  * Query OLAC Report: "
+# fetch header only
+line=`curl -sI "$URL_REPORT" | head -1`
+if [ -n "$line" ] ; then
+    ret=`echo $line | awk '{print $2}'`
+    if [ "$ret" = "200" ] ; then
+	echo "OK"
+    else
+	echo "Fail"
+	RESULT=FAIL
+    fi
+else
+    echo "Fail"
+    RESULT=FAIL
+fi
+echo
+
+
+
 
 ##
 ## xsv run
