@@ -29,6 +29,9 @@ ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
 # which php?
 PHP=/pkg/ldc/freebsd/pkg/php-5.0.3/bin/php
 
+# xml dump directory
+XMLDUMPDIR=$ODIR
+
 #########################
 # DO NOT EDIT FROM HERE #
 #########################
@@ -59,6 +62,11 @@ if [ ${new_records:-0} -gt 0 ] ; then
 	echo "  - Generating report..."
 	$PHP generateReports.php
     ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
+
+    echo
+    echo "Creating an XML dump..."
+    echo
+    ./xmldump.py > $XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.gz
 fi
 
 
@@ -76,7 +84,7 @@ fi
 ######## END: ISO 630 report generation ########
 
 
-#cat $TMP_LOG | /usr/bin/mail -s "OLAC Harvester Log: `date +\"%b %e, %Y\"`" $ADMIN_EMAIL
+cat $TMP_LOG | /usr/bin/mail -s "OLAC Harvester Log: `date +\"%b %e, %Y\"`" $ADMIN_EMAIL
 
 rm -f $TMP_LOG
 
