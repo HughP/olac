@@ -10,12 +10,6 @@ XSLT = java org.apache.xalan.xslt.Process
 
 all: standards recommendations notes indexes
 
-clean:
-	rm -rf index.html api
-	$(MAKE) -C en clean
-	$(MAKE) -C pt-br clean
-	$(MAKE) -C slides clean
-
 standards:
 	$(MAKE) -C OLAC all
 
