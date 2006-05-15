@@ -52,10 +52,10 @@ def print_response(url):
         OUT.write(c.toprettyxml("  "))
     rtoks = dom.getElementsByTagName("resumptionToken")
     if rtoks:
-        rtok = rtoks[0].firstChild.nodeValue
+        rtok = rtoks[0].firstChild.nodeValue.strip()
     else:
         rtok = None
-    return rtok.strip()
+    return rtok
 
 def main():
     url = url_base + "?verb=ListRecords&metadataPrefix=olac"
