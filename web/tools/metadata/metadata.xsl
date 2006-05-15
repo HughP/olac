@@ -74,7 +74,9 @@ available at http://www.gnu.org/licenses/gpl.txt).
 			<td bgcolor="silver">
 				<b>
 					<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-					<xsl:value-of select="$label"/>
+					<xsl:if test="name() != name(preceding-sibling::*[1])">
+						<xsl:value-of select="$label"/>
+					</xsl:if>
 					<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
 				</b>
 			</td>
@@ -170,9 +172,9 @@ available at http://www.gnu.org/licenses/gpl.txt).
 			</xsl:when>
 			<xsl:when test="$secondaryCode != ''">
 				<xsl:call-template name="element-content"/>
-				<xsl:text> (</xsl:text>
+				<xsl:text> [</xsl:text>
 				<xsl:value-of select="$secondaryCode"/>
-				<xsl:text>)</xsl:text>
+				<xsl:text>]</xsl:text>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:call-template name="element-content"/>
