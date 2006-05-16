@@ -1,5 +1,5 @@
 
-<?
+<?php
 
 include "olacdb.php";
 $DB = new OLACDB();

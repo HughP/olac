@@ -1,4 +1,4 @@
-<?
+<?php
 
 include "metadataScoring.php";
 require_once "olacdb.php";
