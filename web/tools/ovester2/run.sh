@@ -66,9 +66,9 @@ if [ ${new_records:-0} -gt 0 ] ; then
     echo
     echo "Creating an XML dump..."
     echo
-    dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.gz
+    dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
     ./olacaxmldump.py > $dumpnam
-    ln -sf $dumpnam $XMLDUMPDIR/ListRecords.gz
+    ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
 fi
 
 
