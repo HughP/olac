@@ -51,14 +51,14 @@ if [ ${new_records:-0} -gt 0 ] ; then
     (   echo
 	echo "Updating search database..."
 	echo
-        cd ../../mu_tools/lib
+        cd ../../tools/reports/lib
 	echo "  - Updating tag usage table..."
         $PHP createTagUsageTable.php
 	echo "  - Updating soundex table..."
 	$PHP createSoundexTable.php
 	echo "  - Updating item scores table..."
 	$PHP createItemScoresTable.php
-	cd ../reports
+	cd ..
 	echo "  - Generating report..."
 	$PHP generateReports.php
     ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
