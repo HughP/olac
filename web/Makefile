@@ -3,7 +3,7 @@
 WEB = sb@login.ldc.upenn.edu:language-archives
 INDEXES = document_list.xml document_headers.xsl document_index.xsl documents_by_status.xsl documents_by_date.xsl
 
-RSYNC_OPTS = -alrvz -e ssh --relative --include-from=publish.txt
+RSYNC_OPTS = -alrvz -e ssh -C --relative --no-implied-dirs --include-from=publish.txt 
 XSLT = java org.apache.xalan.xslt.Process
 
 .PHONY: standards recommendations notes indexes rsync
