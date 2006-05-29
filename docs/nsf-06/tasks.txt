@@ -1,99 +1,100 @@
-1. Access to Language Archive Catalogs: Improving the quality and
-   quantity of conventional institutional data providers.
+Goal 1: Access to Language Archive Catalogs: Improving the quality and
+quantity of conventional institutional data providers.
 
-   OLAC has ~30 participating archives and ~30k records, but many
-   archives have trivial collections of records, and many are only
-   represented via static repositories set up by OLAC coordinators
-   3-5 years ago.
+OLAC has ~30 participating archives and ~30k records, but many
+archives have trivial collections of records, and many are only
+represented via static repositories set up by OLAC coordinators 3-5
+years ago.
 
-   Year 1: Work with existing OLAC repositories to raise their report
-   card score (to 4.0?); this will require that they use OLAC vocabularies.
-   Set up an automatic quarterly report to be sent to curators to
-   remind them about the state of their metadata, and also the level
-   of interest in their archive seen via our search service.
+Task 1.1: Work with existing OLAC repositories to raise their report
+card score (to 4.0?); this will require that they use OLAC
+vocabularies.  Set up an automatic quarterly report to be sent to
+curators to remind them about the state of their metadata, and also
+the level of interest in their archive seen via our search service.
  
-   Year 2: identify major language archives with online HTML
-   catalogues, and automatically map them to OLAC metadata; work with
-   these archives to expose their catalogue in OLAC format
-   (e.g. American Philosophical Society, National Anthropological
-   Archives).
+Task 1.2: identify major language archives with online HTML
+catalogues, and automatically map them to OLAC metadata; work with
+these archives to expose their catalogue in OLAC format (e.g. American
+Philosophical Society, National Anthropological Archives).
 
-   Year 3: more of the same; plus branching out more widely than
-   language archives, e.g. to national archives?
+Task 1.3: more of the same; plus branching out more widely than
+language archives, e.g. to national archives?
 
-   Misc: Extend OLAC's collection level description to include the
-   number items held, not just the number of metadata records.
+Misc: Extend OLAC's collection level description to include the number
+items held, not just the number of metadata records.
 
+----
 
-2. Access to Language Documentation on the Web: Extending coverage
-   beyond the community of participants by automated cross-walking and
-   mining.
+Goal 2: Access to Language Documentation on the Web: Extending
+coverage beyond the community of participants by automated
+cross-walking and mining.
 
-   The web contains documents in hundreds of languages; for the
-   so-called low-density languages, these materials count as primary
-   language documentation, and are of value to linguists.  Many
-   language resources are documented in HTML on the web, e.g. the
-   online catalogues of major language archives.  Linguists searching
-   the web experience low precision, because Google cannot support
-   community-specific semantics (e.g. "Santa Cruz" as a language
-   name).  Many institutional libraries, national archives, and other
-   repositories document their holdings using MARC or DC metadata.
-   Linguists experience low recall for these materials, because many
-   of these repositories are not indexed by Google.
+The web contains documents in hundreds of languages; for the so-called
+low-density languages, these materials count as primary language
+documentation, and are of value to linguists.  Many language resources
+are documented in HTML on the web, e.g. the online catalogues of major
+language archives.  Linguists searching the web experience low
+precision, because Google cannot support community-specific semantics
+(e.g. "Santa Cruz" as a language name).  Many institutional libraries,
+national archives, and other repositories document their holdings
+using MARC or DC metadata.  Linguists experience low recall for these
+materials, because many of these repositories are not indexed by
+Google.
 
-   Year 1: Build an OAI-DC to OLAC crosswalk, and discover language
-   resources in OAI repositories for indexing by OLAC.  Automatically
-   detect language id, and other OLAC terms.  (This will quickly
-   enlarge the content of OLAC, and give us more pulling power for
-   task 1 year 2.)
+Task 2.1: Build an OAI-DC to OLAC crosswalk, and discover language
+resources in OAI repositories for indexing by OLAC.  Automatically
+detect language id, and other OLAC terms.  (This will quickly enlarge
+the content of OLAC, and give us more pulling power for task 1 year
+2.)
 
-   Year 2: Build a MARC-OLAC crosswalk, and discover language
-   resources via Z39.50 for indexing by OLAC.  This will cover
-   the world's major libraries and archives.
+Task 2.2: Build a MARC-OLAC crosswalk, and discover language resources
+via Z39.50 for indexing by OLAC.  This will cover the world's major
+libraries and archives.
 
-   Year 3: (but could start earlier) mine the web for low-density
-   language materials and cache them, document the materials in OLAC
-   metadata (overlap with LangGator); generate static HTML pages for
-   all metadata, for indexing by search engines, to facilitate
-   resource discovery.
+Task 2.3: (but could start earlier) mine the web for low-density
+language materials and cache them, document the materials in OLAC
+metadata (overlap with LangGator); generate static HTML pages for all
+metadata, for indexing by search engines, to facilitate resource
+discovery.
 
-3. Access to Digital Content: Curating new digital language resources
-   (both inside and outside the community) through language-aware
-   institutional repositories.
+----
 
-   Most searches for language resources do not lead to an online
-   version of the resource.  Instead it is usually necessary to visit
-   an archive or contact an author.  Many sponsored language
-   documentation projects create resources that only reside in the
-   investigator's computer.  There is some consensus about what
-   comprises the inventory of basic documentation for a language
-   (e.g. EMELD and Rosetta index pages for a language), but this
-   should be broadened.
+Goal 3: Access to Digital Content: Curating new digital language
+resources (both inside and outside the community) through
+language-aware institutional repositories.
 
-   Year 1: Create an ISO 639-3 module for DSpace, including a flexible
-   browser for 7000+ languages, with geographical, genetic, historical
-   navigation, and support for maintenance of the vocabulary over
-   time.  Set up a DSpace sandbox at the LDC, with user accounts, to
-   permit the community to interact with the repository and give
-   feedback.  (Also: promote ISO 639-3 to library community at large,
-   e.g. JCDL, RLG, ASA)
+Most searches for language resources do not lead to an online version
+of the resource.  Instead it is usually necessary to visit an archive
+or contact an author.  Many sponsored language documentation projects
+create resources that only reside in the investigator's computer.
+There is some consensus about what comprises the inventory of basic
+documentation for a language (e.g. EMELD and Rosetta index pages for a
+language), but this should be broadened.
 
-   Year 2: Create an OLAC module for DSpace, and expand the DSpace
-   sandbox at LDC.
+Task 3.1: Create an ISO 639-3 module for DSpace, including a flexible
+browser for 7000+ languages, with geographical, genetic, historical
+navigation, and support for maintenance of the vocabulary over time.
+Set up a DSpace sandbox at the LDC, with user accounts, to permit the
+community to interact with the repository and give feedback.  (Also:
+promote ISO 639-3 to library community at large, e.g. JCDL, RLG, ASA)
 
-   Year 3: deliverable - downloadable package with DSpace plus OLAC module.
+Task 3.2: Create an OLAC module for DSpace, and expand the DSpace
+sandbox at LDC.
 
-   Misc:
+Task 3.3: deliverable - downloadable package with DSpace plus OLAC
+module.
 
-   DSpace: link the language homepages in different DSpace instances, by
-   including OLAC search functionality inside DSpace?; set up a
-   language documentation template?
+Misc tasks not yet incorporated
 
-   OLAC Score Cards - rank archives on accessibility of digital
-     content, and other best practices (cf OAIS).
+DSpace: link the language homepages in different DSpace instances, by
+including OLAC search functionality inside DSpace?; set up a language
+documentation template?
 
-   Language identification: Promote ISO 639-3 to DCMI; once adopted
-     encourage downstream adoption by DSpace, OAI, etc.
+OLAC Score Cards - rank archives on accessibility of digital content,
+and other best practices (cf OAIS).
 
-   DCMI: promote OLAC as a DC application profile, to encourage wider
-     usage of OLAC vocabularies.
+Language identification: Promote ISO 639-3 to DCMI; once adopted
+encourage downstream adoption by DSpace, OAI, etc.
+
+DCMI: promote OLAC as a DC application profile, to encourage wider
+usage of OLAC vocabularies.
