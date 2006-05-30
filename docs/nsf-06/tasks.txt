@@ -12,6 +12,8 @@ Task 1.1: Improve the quality of existing OLAC repositories
 + background: we have an OLAC metadata usage page that shows what
     vocabulary items are in use
 + background: query logs; scale of query interest; precision/recall issues
++ vision: all OLAC repositories should contain metadata conforming to
+    best practice
 + task: identify low-scoring archives, and work with them to
     improve the quality of their metadata, particularly the
     use of OLAC vocabularies; map vocabulary items; identify synonyms etc
@@ -25,6 +27,7 @@ Task 1.2: Improve the quantity of OLAC repositories
 
 + background: tailing off of new additions
 + background: large archives still not participating (APA, NAA)
++ vision: all major language archives should be in OLAC
 + task: automatic scraping of HTML metadata, to show archivists
     their search results coming up; motivate them to improve precision
     and recall by mapping their terms to OLAC terms
@@ -33,10 +36,15 @@ Task 1.2: Improve the quantity of OLAC repositories
 Task 1.3: Improve the archival credibility of OLAC repositories
 
 + background: many so-called archives are not credible archives at all
++ background: archiving best practices change over time
++ vision: all OLAC archives should conform to current best practices
+    in the treatment of their holdings
 + task: refine OLAC's collection level description to include
     more fine-grained categorization of OLAC; where this is vetted
     by OLAC against published criteria (derived from OAIS reference model)
-+ task: incorporate criteria into scorecard
++ task: incorporate criteria into score card
++ task: generalize the score card mechanism to facilitate the addition
+    of new measures over time (as best practices evolve)
 
 Misc: Extend OLAC's collection level description to include the number
 items held, not just the number of metadata records.
@@ -44,7 +52,7 @@ items held, not just the number of metadata records.
 ----
 
 Goal 2: Access to Language Documentation on the Web: Extending
-coverage beyond the community of participants by automated
+coverage and access beyond the community of participants by automated
 cross-walking and mining.
 
 The web contains documents in hundreds of languages; for the so-called
@@ -61,24 +69,56 @@ Google.
 
 Task 2.1: Index all OAI content relevant to language documentation
 
-Build an OAI-DC to OLAC crosswalk, and discover language
-resources in OAI repositories for indexing by OLAC.  Automatically
-detect language id, and other OLAC terms.  (This will quickly enlarge
-the content of OLAC, and give us more pulling power for task 1 year
-2.)
++ background: OAI indexes a lot of material, including pre-prints that
+    will be relevant to languages and linguistics:
+    http://romeo.eprints.org/search.php?t=Linguistics
++ background: language and linguistic field not systematically
+    identified
++ background: these materials are not returned in OLAC searches
++ vision: OLAC should index all OAI content relevant to langauge
+    documentation
++ task: OAI-DC to OLAC crosswalk
++ task: identify relevant records
++ task: automatic enrichment of records (especially language id)
+
+(NB This will quickly enlarge the content of OLAC, and give us more
+pulling power for task 1.2.)
 
 Task 2.2: Index all Z39.50 content relevant to language documentation
 
-Build a MARC-OLAC crosswalk, and discover language resources
-via Z39.50 for indexing by OLAC.  This will cover the world's major
-libraries and archives.
++ background: libraries hold many grammars and dictionaries relevant
+    to language documentation
++ background: library catalogue search requires another interface
++ vision: OLAC should index Z39.50 content from major libraries
++ task: deploy Z39.50 gateway software on OLAC site
++ task: build MARC-OLAC crosswalk
++ task: modify OLAC search to group results by item not by location
 
+Task 2.3: Serve all OLAC content back to generic web search engines
+
++ background: many people use Google et al to search for language
+    resources
++ vision: users searching for language resources using a web search
+    engine should find OLAC records
++ task: generate static HTML pages for all OLAC metadata
+
+
+[out of scope?
 Task 2.3: Index all web content relevant to language documentation
+  (NB this presupposes the existence of a caching service, or else
+  extra disk storage that we should budget for; and encroaches on the
+  Langgator proposal, whose outcome is not yet known)
 
-Mine the web for low-density language materials and cache them,
-document the materials in OLAC metadata (overlap with LangGator);
-generate static HTML pages for all metadata, for indexing by search
-engines, to facilitate resource discovery.
++ background: "low-density" language resources on the web constitute
+    important language documentation
++ background: much of this material only exists on the web briefly
++ background: texts (and audio) in an endangered language constitutes
+    primary language documentation
++ background: work on automatic language identification (Hughes et al)
++ vision: OLAC should index (cached) web content in endangered languages
++ task: mine the web for low-density language materials and cache them
++ task: document the materials in OLAC metadata
+]
 
 ----
 
