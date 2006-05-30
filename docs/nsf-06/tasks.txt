@@ -59,21 +59,26 @@ using MARC or DC metadata.  Linguists experience low recall for these
 materials, because many of these repositories are not indexed by
 Google.
 
-Task 2.1: Build an OAI-DC to OLAC crosswalk, and discover language
+Task 2.1: Index all OAI content relevant to language documentation
+
+Build an OAI-DC to OLAC crosswalk, and discover language
 resources in OAI repositories for indexing by OLAC.  Automatically
 detect language id, and other OLAC terms.  (This will quickly enlarge
 the content of OLAC, and give us more pulling power for task 1 year
 2.)
 
-Task 2.2: Build a MARC-OLAC crosswalk, and discover language resources
+Task 2.2: Index all Z39.50 content relevant to language documentation
+
+Build a MARC-OLAC crosswalk, and discover language resources
 via Z39.50 for indexing by OLAC.  This will cover the world's major
 libraries and archives.
 
-Task 2.3: (but could start earlier) mine the web for low-density
-language materials and cache them, document the materials in OLAC
-metadata (overlap with LangGator); generate static HTML pages for all
-metadata, for indexing by search engines, to facilitate resource
-discovery.
+Task 2.3: Index all web content relevant to language documentation
+
+Mine the web for low-density language materials and cache them,
+document the materials in OLAC metadata (overlap with LangGator);
+generate static HTML pages for all metadata, for indexing by search
+engines, to facilitate resource discovery.
 
 ----
 
