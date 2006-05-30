@@ -132,40 +132,57 @@ or contact an author.  Many sponsored language documentation projects
 create resources that only reside in the investigator's computer.
 There is some consensus about what comprises the inventory of basic
 documentation for a language (e.g. EMELD and Rosetta index pages for a
-language), but this should be broadened.
+language), but this should be broadened.  [More about DSpace.]
 
 Task 3.1: Create DSpace modules to support language identification and
 linguistic data.
 
-* 3.1.1. Create an ISO 639-3 module for DSpace, including a flexible
-browser for 7000+ languages, with geographical, genetic, historical
-navigation, and support for maintenance of the vocabulary over time.
-
-* 3.1.2. Add support for the ingest of best practice formats.
-
-* 3.1.3. Set up a DSpace sandbox at the LDC, with user accounts, to permit the
-community to interact with the repository and give feedback.
-
-* 3.1.4. Promote ISO 639-3 to library community at large, e.g. JCDL,
-RLG, ASA
++ background: language identification is the single most important
+    thing that characterises a linguistic resource
++ background: precision/recall problems with existing language-id,
+    and the case for ISO 639-3 (refs)
++ background: management of ISO 639-3 over time
++ background: DSpace as a model for institutional repositories; uptake
++ vision: Users of popular instutional repository solutions are able
+    to specify language id
++ task: create an ISO 639-3 module for DSpace, including a flexible
+    browser for 7000+ languages, with geographical, genetic, historical
+    navigation
++ task: support for maintenance of the vocabulary over time.
++ task: set up a DSpace sandbox at the LDC, with user accounts,
+    to permit the community to interact with the repository and give feedback.
 
 Task 3.2: Create an OLAC module for DSpace, and expand the DSpace
 sandbox at LDC.
 
-Task 3.3: Support off-line ingest via DSpace, permitting a field
-linguist to prepare a SIP (including OLAC metadata) to be uploaded to
-an institutional repository once the user has internet access.  Make
-this into a downloadable package (including XML editor, stylesheets,
-schemas, and configuration files).
++ background: motivation for OLAC's other vocabularies
++ background: language resources are of many types other than documents
++ vision: Users of popular institutional repository solutions are
+    able to install an OLAC module so that they can integrate OLAC
+    metadata creation into the work-flows and life-cycles of their
+    digital objects
++ task: create an OLAC plugin???
++ task: add support for the ingest of best practice formats
+
+Task 3.3: Support field linguists who must manage digital objects
+offline for later upload.
+
++ background: fieldwork mode; creating resources while offline
++ background: importance of capturing metadata at creation time
++ vision: Field linguists should be able to participate in all the
+    above
++ task: add off-line ingest via DSpace, permitting a field linguist to
+    prepare a SIP (including OLAC metadata) to be uploaded to an
+    institutional repository.
++ task: build a downloadable package (including XML editor,
+    stylesheets, schemas, and configuration files).
+
 
 Misc tasks not yet incorporated
 
 DSpace: link the language homepages in different DSpace instances, by
 including OLAC search functionality inside DSpace?; set up a language
 documentation template?
-
-OLAC Score Cards - rank archives on accessibility of digital content,
-and other best practices (cf OAIS).
 
 Language identification: Promote ISO 639-3 to DCMI; once adopted
 encourage downstream adoption by DSpace, OAI, etc.
