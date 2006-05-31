@@ -105,8 +105,9 @@ Task 2.3: Serve all OLAC content back to generic web search engines
 
 [out of scope?
 Task 2.3: Index all web content relevant to language documentation
-  (NB this presupposes the existence of a caching service, or else
-  extra disk storage that we should budget for; and encroaches on the
+  (NB this presupposes the existence of a caching service, and I think
+  we could probably use the text and audio upload service offered by
+  the Internet Archive; this task encroaches on the
   Langgator proposal, whose outcome is not yet known)
 
 + background: "low-density" language resources on the web constitute
