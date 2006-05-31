@@ -1,5 +1,7 @@
 \section{Background and Results from Prior Support}
 
+%%%%%%%% Scale...
+
 Today, language technology and the linguistic sciences are confronted
 with a vast array of \emph{language resources}, richly structured,
 large and diverse.  Texts, recordings, dictionaries, annotations,
@@ -14,6 +16,8 @@ LinguistList network counts over 20,000 members.  The Linguistic Data
 Consortium produces linguistic databases for some 1,000 organizations.
 The number of individuals having an immediate interest in language
 resources numbers in the tens of thousands.
+
+%%%%%%%% The opportunity...
 
 Today, we have unprecedented opportunities to \emph{connect} these
 communities to the language resources they need.  First, inexpensive
@@ -32,6 +36,8 @@ This combination is well-suited to the language resource community,
 where the available data is growing rapidly and where a large
 user-base is consistent in how it describes its resource needs.
 
+%%%%%%%% What OLAC has done...
+
 OLAC was founded in 2000 with the goals of (i) developing consensus on
 best current practice for the digital archiving of language resources,
 and (ii) developing a network of interoperating repositories and
@@ -40,10 +46,12 @@ goal, substantial progress on identifying best practices has now been
 achieved under the NSF EMELD project; consideration of best practices
 is now incorporated into the funding of language documentation
 projects (DEL, \citet{BirdSimons03language}).  For the second goal,
-over 30 repositories holding over 30,000 metadata records are
+35 repositories holding some 30,000 metadata records are
 participating in OLAC; linguists can search all repositories
 simultaneously using OLAC services, and the interest level now stands
 at 100,000 queries per month.
+
+%%%%%%%% Shortcomings...
 
 Despite these early successes, it is still true today that ``new
 digital language resources of all kinds -- lexicons, interlinear
@@ -53,7 +61,6 @@ resources they replace'' \citep{BirdSimons03language}.  The proliferation of
 language ``archiving projects'' have only made this problem more
 acute: endangered languages are captured in ephemeral file formats,
 and the so-called ``archive'' goes away at the end of the project.
-
 Mirroring the twin goals of OLAC, there are just two things a linguist
 must do to ensure that digital data endure: ``(1) the materials must be
 put into an enduring file format, and (2) the materials must be
@@ -62,6 +69,8 @@ to new storage media as needed'' (Simons 2006).  This amounts to an
 injunction to individuals to *use* portable formats and credible
 archives.  However, this change in practice will not happen unless
 there are substantial, immediate benefits for the working linguist.
+
+%%%%%%%% What we want to do about it...
 
 \vspace{1in}
 
@@ -112,69 +121,116 @@ and
 
 \subsection{Access to Language Archive Catalogs}
 
+%%%%%%%% What OLAC currently provides...
 
-What OLAC does (just the facts):
+Members of the language resources community share a common goal of
+wanting to search for language resourceswith high recall
+and precision. To support this, the metadata records of the
+community need to agree on the use of specialized vocabularies.
+Over the past five years, OLAC participants have adopted five
+such vocabularies:
+\textit{subject language},
+  for identifying precisely which which language(s) it is about;
+\textit{linguistic type},
+  for classifying the structure of a resource as primary text,
+  lexicon, or language description;
+\textit{linguistic field},
+  for specifying relevant subfields of linguistics;
+\textit{discourse type},
+  for indicating the linguistic genre of the material;
+\textit{role},
+  for documenting the role that specific individuals and institutions
+  have played in creating a given resource.
+These vocabularies are represented in the OLAC Metadata format,
+an extension of Dublin Core Metadata \citep{BirdSimons04metadata}.
+Participating language archives publish their catalogs in an XML
+format, and these are ``harvested'' twice a day by OLAC services,
+using the Open Archives Initiative (OAI) Protocol for Metadata Harvesting
+\citep{SimonsBird03lht}.
 
-- OLAC metadata \citep{BirdSimons04metadata}
+%%%%%%%% How OLAC has been innovative...
 
-- harvesting with OAI-PMH \citep{SimonsBird03lht}
+OLAC has been a developer or early adopter of several other key
+digital library technologies in service to the language resources
+community:
+(i) a simplified method for archives to publish their metadata
+  (``static repositories''), now adopted by the OAI as a service
+  to the wider digital archives community, lowering the barrier to entry;
+(ii) a Google-like search interface for searching participating
+  archives, with specialised support for language identification
+  \citep{HughesKamat05,Hughes06lrec};
+(iii) a report card system, which publishes a metadata quality score
+  for each participating archive, to serve as a form of
+  peer review, and an incentive for archives to improve the quality of
+  their metadata;
+(iv) a metadata usage report, showing how individual metadata
+  elements and values have been put to use by participating archives;
+(v) an ``OAI crosswalk'', permitting users of digital library services
+  outside the language resources community to access all OLAC metadata;
+(vi) a web crawler gateway, permitting users of search engines such
+  as Google to access all OLAC metadata.
 
-- static repositories
+Beyond these technological achievements, OLAC has succeeded in
+establishing a \emph{community}.  In a 2004 publication of the
+Digital Library Federation, OLAC was singled out for this
+facet of its work:
 
-- federated search \citep{HughesKamat05}
-  - popularity \citep{Hughes06lrec}
-
-- report card system
-  - public metrics as a form of peer review
-
-- metadata usage report, shows what metadata elements and values are in use
-
-- OAI crosswalk (permits access by rest of digital libraries
-    community; typically people searching for e-prints)
-
-- DP9 gateway (permits search engines to index content)
-
-- established a community
+\begin{quote}
+  OLAC is exemplary in several ways: the technical and social
+  infrastructure that it has developed to support its community of
+  contributors, based on shared principles and standards; the
+  resources that it provides at its Web site about its purpose, scope,
+  history, tools, news and events; and the efforts of its two leaders
+  ... to articulate the challenges, analyze the options, and recommend
+  possible solutions to their community of contributors in order to
+  improve OLAC.  [REF]
+\end{quote}
 
 \vspace{1in}
 
-Successes (evaluation of the above):
+%%%%%%%% Three shortcomings...
 
-- quality boosted by report card system (evidence?)
+Despite these successes, OLAC still has significant shortcomings in
+three areas.
+%% Shortcoming 1
+First, the quality of metadata is still low.  The average score for an
+OLAC record is 6/10, a score which is inflated by a small number of
+large archives that are already following best practice.  The majority
+of archives deliver records with a lower score, negatively impacting
+the precision and recall provided by the OLAC search service.
+%% Shortcoming 2
+Second, many language archives are not yet participating in OLAC.  For
+example, the American Philosophical Assocation (Philadelphia) and the
+National Anthropological Archives (Washington DC) are major national
+centers having substantial collections of early language documentation
+for native American languages.  The Oriental Institute (Chicago) and
+the School of Oriental and African Studies (London) have vast
+collections covering Asian and African languages.  Similarly, many
+smaller archives are yet to participate in OLAC, e.g. the
+Archive of the Indigenous Languages of Latin America (Austin), and the
+Memorial University of Newfoundland Folklore and Language Archive (St
+John's).  Many linguistics departments have archives holding language
+documentation collected over many decades by their staff, e.g. UCLA,
+UCSB, U Chicago, ...
+%% Shortcoming 3
+Third, many of the participating archives are more accurately described
+as digitization projects.  Once project funding and institutional
+backing cease, the materials may no longer be accessible.  These
+initiatives are not yet following best practices in digital archiving,
+as defined by the OAIS Reference Model [REF].
 
-- quantity boosted by static repositories, lowering the barrier to entry
-  (an OLAC innovation adopted and implemented by the OAI community)
+%%%%%%%% Our vision for what needs to be done, long term...
 
-\vspace{1in}
+In order to address these three shortcomings, we believe that the
+language archives community needs to develop in three ways:
 
-Shortcomings:
-
-- quality (still low); precision/recall issues (any findings from
-    Baden's study?)
-
-- quantity of archives
-  - major archives not participating: APA, NAA, SOAS
-  - smaller archives not participating: AILLA
-  - why not?
-  - tailing off of new additions
-
-- archival credibility:
-    many so-called archives are not credible archives at all,
-    archiving best practices change over time
-
-\vspace{1in}
-
-Our vision for the future, for what the community needs:
-
-1) all OLAC repositories should have up-to-date catalogs
-   that contain metadata conforming to best practice
-
-2) all major language archives should be in OLAC
-
-3) all OLAC archives should conform to current best practices
-    in the treatment of their holdings
-
-\vspace{1in}
+\begin{enumerate}
+\item all OLAC repositories should have up-to-date catalogs
+      that contain metadata conforming to best practice;
+\item all major language archives should be in OLAC;
+\item all OLAC archives should conform to current best practices
+      in the treatment of their holdings.
+\end{enumerate}
 
 \subsection{Access to Language Documentation on the Web}
 
