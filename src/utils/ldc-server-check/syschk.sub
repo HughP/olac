@@ -289,6 +289,23 @@ rm -f $tmp $tmp.2
 echo
 
 ##
+## file permissions
+##
+echo "Checking file/directory permissions ..."
+echo
+dir=/web/language-archives/tools/search/logs/
+printf "  * $dir "
+grp=`stat -f "%Sg" $dir`
+perm=`stat -f "%SMp" $dir`
+if [ "$grp" != 'www' -r "$perm" != 'wrx' ] ; then
+    echo "is not read-/writable - Fail"
+else
+    echo "is read-/writable - OK"
+fi
+echo
+
+
+##
 ## md5 checksum
 ##
 echo "Checking md5 checksum ..."
