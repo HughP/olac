@@ -1,33 +1,47 @@
 Goal 1: Access to Language Archive Catalogs: Improving the quality and
 quantity of conventional institutional data providers.
 
-OLAC has ~30 participating archives and ~30k records, but many
-archives have trivial collections of records, and many are only
+OLAC has ~30 participating archives, but many
+have trivial collections of records or are only
 represented via static repositories set up by OLAC coordinators 3-5
-years ago.
+years ago.  From these archives, OLAC harvests ~30k records, but
+the records produced by most archives do not fully follow 
+recommended best practices and thus fail to score high on our metrics
+of metadata quality.
 
 Task 1.1: Improve the quality of existing OLAC repositories
 
-+ background: report cards, as a performance incentive
++ background: report cards, as a performance incentive (or,
+    public metrics as a form of peer review)
 + background: we have an OLAC metadata usage page that shows what
-    vocabulary items are in use
+    metadata elements and values are in use
 + background: query logs; scale of query interest; precision/recall issues
-+ vision: all OLAC repositories should contain metadata conforming to
-    best practice
++ vision: all OLAC repositories should have up-to-date catalogs
+    that contain metadata conforming to best practice
++ task: adopt a recommendation document on metadata best practice
++ task: update the report cards to conform to the adopted recommendations
 + task: identify low-scoring archives, and work with them to
     improve the quality of their metadata, particularly the
     use of OLAC vocabularies; map vocabulary items; identify synonyms etc
-+ task: develop an OLAC usage document based on this experience
-+ task: analyze query logs to see what
-+ task: automatic quarterly report to be sent to curators to remind
-    them about the state of their metadata, and the top queries
-    pertaining to their archives.
++ task: develop an OLAC metadata usage note based on this experience
++ task: identify stale archives, and work with them to bring their 
+    catalog up-to-date
++ task: analyze query logs to see what ???
++ task: develop automated quarterly report to be sent to curators to 
+    remind them about the quality and currency of their metadata, and 
+    inform them of the top queries pertaining to their archives.
  
 Task 1.2: Improve the quantity of OLAC repositories
 
 + background: tailing off of new additions
-+ background: large archives still not participating (APA, NAA)
-+ vision: all major language archives should be in OLAC
++ background: large archives still not participating (APS, NAA)
++ background: list of smaller archives not participating
++ vision: all language archives should be in OLAC
++ task: compile a list of all known non-participating language archives
++ task: configure XMLmind to create a static repository editor suitable
+    for use by small archives
++ task: contact all identified archives and consult to develop best
+    strategy for generating their metadata
 + task: automatic scraping of HTML metadata, to show archivists
     their search results coming up; motivate them to improve precision
     and recall by mapping their terms to OLAC terms
@@ -38,7 +52,8 @@ Task 1.3: Improve the archival credibility of OLAC repositories
 + background: many so-called archives are not credible archives at all
 + background: archiving best practices change over time
 + vision: all OLAC archives should conform to current best practices
-    in the treatment of their holdings
+    in the treatment of their holdings (OAIS)
++ task: develop an OLAC recommendation document on this topic
 + task: refine OLAC's collection level description to include
     more fine-grained categorization of OLAC; where this is vetted
     by OLAC against published criteria (derived from OAIS reference model)
@@ -99,8 +114,9 @@ Task 2.3: Serve all OLAC content back to generic web search engines
 + background: many people use Google et al to search for language
     resources
 + vision: users searching for language resources using a web search
-    engine should find OLAC records
-+ task: generate static HTML pages for all OLAC metadata
+    engine should find OLAC records and come to OLAC for precise searching
++ task: generate static HTML pages for all OLAC metadata (incluidng
+    a pointer to the OLAC search engine for more precise searching) 
 
 
 [out of scope?
