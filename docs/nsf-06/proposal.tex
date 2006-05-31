@@ -1,5 +1,5 @@
 \documentclass[11pt]{nsf}
-\usepackage{natbib,epsfig,fancyheadings,subfigure,alltt,url}
+\usepackage{natbib,epsfig,fancyheadings,subfigure,alltt,url,daytime}
 \bibliographystyle{plainnat}
 \bibpunct[:]{(}{)}{;}{a}{,}{,}
 \def\figwidth{0.92\linewidth}
@@ -10,7 +10,8 @@
 \lhead{}\chead{}\rhead{}
 \lfoot{\it Liberman, Bird, Simons: OLAC}
 \cfoot{\it\thepage}
-\rfoot{\it July, 2006}
+% \rfoot{\it July, 2006}
+\rfoot{\it \it Draft: \daytime, \today}
 \def\smtt#1{{\small\tt #1}}
 \def\note#1{{\bf #1}}
 \newenvironment{sv}{\scriptsize\begin{alltt}}{\end{alltt}\normalsize}
