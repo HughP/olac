@@ -64,6 +64,12 @@ Task 1.3: Improve the archival credibility of OLAC repositories
 Misc: Extend OLAC's collection level description to include the number
 items held, not just the number of metadata records.
 
+Misc: Improve search services, to drive the improvement in quality and
+quantity of metadata
+
+Misc: add an SRW/SRU layer to OLAC's service, permitting more flexible
+access to harvested metadata
+
 ----
 
 Goal 2: Access to Language Documentation on the Web: Extending
