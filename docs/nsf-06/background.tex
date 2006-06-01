@@ -81,8 +81,16 @@ there are substantial, immediate benefits for the working linguist.
 \todo{Stress signifance of our Language paper for scoping out the
   full range of best practice issues}
 
-\todo{Define language resources; mention some communities that create
-  and use them.}
+Goal 1: Access to Language Archive Catalogs: Improving the quality and
+quantity of conventional institutional data providers.
+
+Goal 2: Access to Language Documentation on the Web: Extending
+coverage and access beyond the community of participants by automated
+cross-walking and mining.
+
+Goal 3: Access to Digital Content: Curating new digital language
+resources (both inside and outside the community) through
+language-aware institutional repositories.
 
 \vspace{1in}
 
@@ -121,7 +129,7 @@ and
 
 \subsection{Access to Language Archive Catalogs}
 
-%%%%%%%% What OLAC currently provides...
+%%%%%%%% The status quo...
 
 Members of the language resources community share a common goal of
 wanting to search for language resourceswith high recall
@@ -192,13 +200,13 @@ facet of its work:
 
 Despite these successes, OLAC still has significant shortcomings in
 three areas.
-%% Shortcoming 1
+%% Shortcoming 1: quality
 First, the quality of metadata is still low.  The average score for an
 OLAC record is 6/10, a score which is inflated by a small number of
 large archives that are already following best practice.  The majority
 of archives deliver records with a lower score, negatively impacting
 the precision and recall provided by the OLAC search service.
-%% Shortcoming 2
+%% Shortcoming 2: quantity
 Second, many language archives are not yet participating in OLAC.  For
 example, the American Philosophical Assocation (Philadelphia) and the
 National Anthropological Archives (Washington DC) are major national
@@ -212,7 +220,7 @@ Memorial University of Newfoundland Folklore and Language Archive (St
 John's).  Many linguistics departments have archives holding language
 documentation collected over many decades by their staff, e.g. UCLA,
 UCSB, U Chicago, ...
-%% Shortcoming 3
+%% Shortcoming 3: OAIS
 Third, many of the participating archives are more accurately described
 as digitization projects.  Once project funding and institutional
 backing cease, the materials may no longer be accessible.  These
@@ -232,13 +240,97 @@ language archives community needs to develop in three ways:
       in the treatment of their holdings.
 \end{enumerate}
 
-\subsection{Access to Language Documentation on the Web}
+\subsection{Access to Language Resources on the Web}
 
-Automatic language identification
-\citep{HughesBaldwin06lrec}
+%%%%%%%% The status quo...
 
-Finding language resources on the web
-\citep{BaldwinBird06}
+Language resources of all kinds can be discovered on the web:
+interlinear texts, dictionaries, linguistic descriptions, even
+linguistic research papers.  Even plain text documents sometimes count
+as primary language documentation when they are in any of the
+thousands of ``low-density'' languages, languages with a small
+presence on the web.  In recent years, many e-print repositories have
+sprung up, often in connection with an academic institution, and
+indexed by the Open Archives Initiative.  Traditional print libraries
+-- with their collections of dictionaries, grammars, and linguistic
+monographs -- often have a catalogue with a web interface, though
+their contents are usually not indexed by search engines.  Instead,
+it is possible to search the world's libraries using the Open WorldCat
+service.
+
+%%%%%%%% Technology innovations...
+
+The task of finding language resources on the web is beset with
+problems.  The most obvious one is \emph{scale}: one project is
+confronting this problem by probing web search engines with linguistic
+query terms and lodging the results with the Internet Archive
+\citep{BaldwinBird06}; the ODIN project has mined the web for
+interlinear text and archived the found objects
+\citep{Langendoen02,Lewis03}.  A second problem is \emph{volatility}:
+the (planned) LangGator project will avoid this problem by working
+with the ``historic web,'' housed at the Internet Archive.  Yet
+another problem is the content behind search interfaces or the
+\emph{hidden web}: the ?? project is indexing hundreds of library
+catalogues via Z39.50 services, and exposing the aggregated results
+using the SRW/SRU standard.
+
+%%%%%%%% Three shortcomings...
+
+Despite the promise of these technological innovations, three major
+problems still need to be addressed.
+%% Shortcoming 1: low precision and recall with Google
+First, users of web search engines such as Google typically experience
+low precision and recall when searching for language resources.
+Searches for scarce resources are often swamped with irrelevant
+results (low precision).  For example searches for ``Santa Cruz'' will
+not yield results for this East Papuan language of the Solomons.
+Furthermore, many resources are not returned at all because search
+terms do not match the desired document (low recall).  For example,
+the Dschang lexicon \cite{BirdTadadjeu97} was published as
+``Lexique Y\'emba,'' because the language of wider communication is
+French, and the language autonym for \textit{Dschang} is \textit{Y\'emba}.
+Such materials are easy to find by searching for all synonyms and
+translations of linguistic terminology, and searching for all
+encodings of IPA characters.  A harder problem is to
+reliably identify such things as the subject language and the
+linguistic type of the found resource \citep{HughesBaldwin06lrec}.
+
+%% Shortcoming 2: hidden web
+A second shortcoming is that these technological innovations are
+not adequately integrated with OLAC.  Users searching for language
+resources also need to visit other services like OAIster and WorldCat.
+For example, OAI e-print repositories include a lot of articles
+relevant to languages and linguistics (see
+\url{http://romeo.eprints.org/search.php?t=Linguistics}),
+results which are not returned in OLAC searches.
+Similarly, searching the world's libraries involves a Google-
+or Yahoo-mediated search of the WorldCat site, and does not
+permit systematic aggregation and integration.
+%% Shortcoming 3: finding OLAC
+A third shortcoming is that users who do to find language resources
+using any of these non-OLAC services are unlikely to discover that
+OLAC can provide additional value, such as richer metadata and more
+focussed result sets.
+
+%%%%%%%% Our vision for what needs to be done, long term...
+
+In order to address these three shortcomings, we believe that the
+language archives community needs to develop in three ways:
+
+\begin{enumerate}
+\item low density language materials identified in allied projects
+      should be reliably categorized for OLAC vocabularies;
+\item OLAC should index all OAI and library relevant to language
+      documentation, by crosswalking OAI-DC and MARC records and
+      adding further OLAC metadata;
+\item OLAC should export all records as static HTML, loaded with
+      synonyms and containing embedded queries, so that
+      users searching for language resources using a web search
+      quickly find OLAC records and remain on the OLAC site for
+      more precise searching.
+\end{enumerate}
+
+
 
 \vspace{1in}
 
