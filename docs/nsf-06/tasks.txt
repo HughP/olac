@@ -162,18 +162,30 @@ linguistic data.
 
 + background: language identification is the single most important
     thing that characterises a linguistic resource
++ background: this is especially critical for endangered languages--
+    each relevant resource is highly valuable but without precise
+    language identification it becomes another needle in the haystack
 + background: precision/recall problems with existing language-id,
     and the case for ISO 639-3 (refs)
 + background: management of ISO 639-3 over time
 + background: DSpace as a model for institutional repositories; uptake
++ background: OAIS reference model as ISO standard for digital archiving
+    and Dspace as leading tool that comforms
++ background: if mainstream digital archiving tools use precision, then
+    we automatically get precision when we crosswealk from DC to OLAC (as in 2.1)
 + vision: Users of popular instutional repository solutions are able
-    to specify language id
+    to specify language id with precision
 + task: create an ISO 639-3 module for DSpace, including a flexible
     browser for 7000+ languages, with geographical, genetic, historical
     navigation
++ task: support ISO 639-3 as a vocabulary both for language and subject
++ task: advocacy in DC and DL communities (even general cataloging
+    community?) for ISO 639-3 as a standard for language and subject
 + task: support for maintenance of the vocabulary over time.
 + task: set up a DSpace sandbox at the LDC, with user accounts,
     to permit the community to interact with the repository and give feedback.
++ ?task: Set up a production Dspace repository at GIAL that will serve
+    as an example of an operational installation 
 
 Task 3.2: Create an OLAC module for DSpace, and expand the DSpace
 sandbox at LDC.
@@ -184,6 +196,14 @@ sandbox at LDC.
     able to install an OLAC module so that they can integrate OLAC
     metadata creation into the work-flows and life-cycles of their
     digital objects
+{GS: I might approach this a bit differently.  I see it as a vision for
+killing two birds with one stone: making it possible (1) for established
+institutional repositories that now support only preprints would be able
+to support digital language documentation as well, and (2) for existing 
+language archives that don't have their digital act together to
+adopt an off-the-shelf best-practice solution.  I'm not sure if that 
+should be in a different vision statement, or belongs in background
+statements.  You can take this input and adjust as you see fit.}
 + task: create an OLAC plugin???
 + task: add support for the ingest of best practice formats
 
@@ -192,8 +212,10 @@ offline for later upload.
 
 + background: fieldwork mode; creating resources while offline
 + background: importance of capturing metadata at creation time
++ ?background: importance of being able to periodically upload
+    collected materials to the home institution for safekeeping
 + vision: Field linguists should be able to participate in all the
-    above
+    above while they are in the field
 + task: add off-line ingest via DSpace, permitting a field linguist to
     prepare a SIP (including OLAC metadata) to be uploaded to an
     institutional repository.
@@ -208,7 +230,7 @@ including OLAC search functionality inside DSpace?; set up a language
 documentation template?
 
 Language identification: Promote ISO 639-3 to DCMI; once adopted
-encourage downstream adoption by DSpace, OAI, etc.
+encourage downstream adoption by DSpace, OAI, etc. {GS: I added this to 3.1}
 
 DCMI: promote OLAC as a DC application profile, to encourage wider
 usage of OLAC vocabularies.
