@@ -11,9 +11,9 @@ in size, in number, in diversity.  Multiple \emph{communities} depend
 on language resources, including linguists, engineers, teachers and
 actual speakers.  Many individuals and institutions serve these
 communities, including archivists, software developers, and
-publishers.  These communities are large.  For example, the
-LinguistList network counts over 20,000 members.  The Linguistic Data
-Consortium produces linguistic databases for some 1,000 organizations.
+publishers.  These communities are large:
+the Linguistic Data Consortium produces linguistic databases for some 1,000 organizations;
+and the LinguistList network counts over 20,000 members.  [SIL scale measure?]
 The number of individuals having an immediate interest in language
 resources numbers in the tens of thousands.
 
@@ -58,7 +58,7 @@ digital language resources of all kinds -- lexicons, interlinear
 texts, grammars, language maps, field notes, recordings -- are
 difficult to reuse and less portable than the conventional printed
 resources they replace'' \citep{BirdSimons03language}.  The proliferation of
-language ``archiving projects'' have only made this problem more
+language ``archiving projects'' has only made this problem more
 acute: endangered languages are captured in ephemeral file formats,
 and the so-called ``archive'' goes away at the end of the project.
 Mirroring the twin goals of OLAC, there are just two things a linguist
@@ -67,34 +67,26 @@ put into an enduring file format, and (2) the materials must be
 deposited with an archive that will make a practice of migrating them
 to new storage media as needed'' (Simons 2006).  This amounts to an
 injunction to individuals to \emph{use} portable formats and credible
-archives.  However, this change in practice will not happen unless
-there are substantial, immediate benefits for the working linguist.
+archives.
 
-%%%%%%%% What we want to do about it...
+The proposed project will create new incentives that are designed to
+encourage linguists to acopt these new practices.  The project has
+three objectives:
 
-\vspace{1in}
+\begin{description}
+  \item[Goal 1: Access to Language Archive Catalogs:]
+    Improving the quality and quantity of OLAC archives.
 
-\todo{Big picture: problem statement, vision for what needs to be done
-  long-term to address the problem, approx 1 page; focus on access and
-  the three different kinds of access reflected in our goals}
+  \item[Goal 2: Access to Language Documentation on the Web:]
+    Extending coverage and access beyond the existing community of
+    participants by automated cross-walking and mining.
 
-\todo{Stress signifance of our Language paper for scoping out the
-  full range of best practice issues}
+  \item[Goal 3: Access to Digital Content:]
+    Curating new digital language resources through
+    language-aware institutional repositories.
+\end{description}
 
-Goal 1: Access to Language Archive Catalogs: Improving the quality and
-quantity of conventional institutional data providers.
-
-Goal 2: Access to Language Documentation on the Web: Extending
-coverage and access beyond the community of participants by automated
-cross-walking and mining.
-
-Goal 3: Access to Digital Content: Curating new digital language
-resources (both inside and outside the community) through
-language-aware institutional repositories.
-
-\vspace{1in}
-
-\textbf{Prior Support:} The current project represents an outgrowth of
+\textbf{Prior Support:} The proposed project represents an outgrowth of
 prior NSF support to the investigators in the following projects:
 \textit{Multidimensional Exploration of Linguistic Databases}
   (Award \#9983258, 02/01/2000--01/31/2003);
@@ -120,25 +112,23 @@ Key results from these projects were:
 and
 (vi) models and tools for querying linguistic databases
 \citep{BirdBuneman01,BirdBunemanTan00,LaiBird04,Bird05planx,Bird06icde}
-
-
 \todo{Add more citations for other PIs to the above}
 
-\todo{Next sub-sections lay the groundwork for our three goals,
-  probably 1 page on each}
+% Next sub-sections lay the groundwork for our three goals,
+% probably 1 page on each
 
 \subsection{Access to Language Archive Catalogs}
 
 %%%%%%%% The status quo...
 
-Members of the language resources community share a common goal of
-wanting to search for language resourceswith high recall
-and precision. To support this, the metadata records of the
-community need to agree on the use of specialized vocabularies.
-Over the past five years, OLAC participants have adopted five
-such vocabularies:
+Members of the language resources community have a common need for
+discovering language resources with high precision and recall.  To
+support this, the community needs to agree on
+some specialized vocabularies in the metadata for
+describing resources.  Over the past five years, OLAC
+participants have adopted five such vocabularies:
 \textit{subject language},
-  for identifying precisely which which language(s) it is about;
+  for identifying precisely which which language(s) a resource is ``about'';
 \textit{linguistic type},
   for classifying the structure of a resource as primary text,
   lexicon, or language description;
@@ -146,15 +136,17 @@ such vocabularies:
   for specifying relevant subfields of linguistics;
 \textit{discourse type},
   for indicating the linguistic genre of the material;
+  and
 \textit{role},
-  for documenting the role that specific individuals and institutions
-  have played in creating a given resource.
-These vocabularies are represented in the OLAC Metadata format,
-an extension of Dublin Core Metadata \citep{BirdSimons04metadata}.
+  for documenting the parts played by specific individuals and institutions
+  in creating a resource.
+These vocabularies are represented in the OLAC Metadata format
+which is an extension of Dublin Core Metadata \citep{BirdSimons04metadata}---the dominant metadata standard in the
+digiral library and world wide web communities.
 Participating language archives publish their catalogs in an XML
-format, and these are ``harvested'' twice a day by OLAC services,
+format, and these records are ``harvested'' twice a day by OLAC services
 using the Open Archives Initiative (OAI) Protocol for Metadata Harvesting
-\citep{SimonsBird03lht}.
+\citep{SimonsBird03lht}---another standard of the digital library community.
 
 %%%%%%%% How OLAC has been innovative...
 
@@ -162,24 +154,27 @@ OLAC has been a developer or early adopter of several other key
 digital library technologies in service to the language resources
 community:
 (i) a simplified method for archives to publish their metadata
-  (``static repositories''), now adopted by the OAI as a service
-  to the wider digital archives community, lowering the barrier to entry;
+  (``static repositories''), lowering the barrier to entry, and
+  now adopted by the OAI as a service to the wider
+  digital archives community;
 (ii) a Google-like search interface for searching participating
-  archives, with specialised support for language identification
+  archives with specialised support for language identification
   \citep{HughesKamat05,Hughes06lrec};
-(iii) a report card system, which publishes a metadata quality score
-  for each participating archive, to serve as a form of
-  peer review, and an incentive for archives to improve the quality of
+(iii) a report card system which publishes a metadata quality score
+  for each participating archive to serve as a form of
+  peer review and an incentive for archives to improve the quality of
   their metadata;
-(iv) a metadata usage report, showing how individual metadata
+(iv) a metadata usage report showing how individual metadata
   elements and values have been put to use by participating archives;
-(v) an ``OAI crosswalk'', permitting users of digital library services
+(v) an ``OAI crosswalk'' permitting users of digital library services
   outside the language resources community to access all OLAC metadata;
-(vi) a web crawler gateway, permitting users of search engines such
+  and
+(vi) a web crawler gateway permitting users of search engines such
   as Google to access all OLAC metadata.
 
 Beyond these technological achievements, OLAC has succeeded in
-establishing a \emph{community}.  In a 2004 publication of the
+establishing a \emph{community} that operates by means of an open
+process [ref to OLAC Process doc].  In a 2004 publication of the
 Digital Library Federation, OLAC was singled out for this
 facet of its work:
 
@@ -196,14 +191,16 @@ facet of its work:
 
 %%%%%%%% Three shortcomings...
 
-Despite these successes, OLAC still has significant shortcomings in
-three areas.
+Despite these successes, OLAC has three significant shortcomings.
 %% Shortcoming 1: quality
-First, the quality of metadata is still low.  The average score for an
-OLAC record is 6/10, a score which is inflated by a small number of
-large archives that are already following best practice.  The majority
-of archives deliver records with a lower score, negatively impacting
-the precision and recall provided by the OLAC search service.
+First, the quality of metadata in the majority of participating archives remains
+low.  Accorindg to the OLAC report card system, the average 
+metadata-quality score for an OLAC record is 6.2 out of 10. However,
+this score is
+inflated by four of the larger archives that are already
+following best practice; the average score for the remaining 31 archives
+is only 3.5 out of 10.  Another way in which quality of current metadata suffers is that it is not being kept up-to-date; most archives have not
+updated their metadata to reflect new acquisitions since joining OLAC.
 %% Shortcoming 2: quantity
 Second, many language archives are not yet participating in OLAC.  For
 example, the American Philosophical Assocation (Philadelphia) and the
@@ -212,18 +209,18 @@ centers having substantial collections of early language documentation
 for native American languages.  The Oriental Institute (Chicago) and
 the School of Oriental and African Studies (London) have vast
 collections covering Asian and African languages.  Similarly, many
-smaller archives are yet to participate in OLAC, e.g. the
-Archive of the Indigenous Languages of Latin America (Austin), and the
+smaller archives are yet to participate in OLAC, e.g.\ the
+[AILLA is participating---nedd another example], and the
 Memorial University of Newfoundland Folklore and Language Archive (St
 John's).  Many linguistics departments have archives holding language
 documentation collected over many decades by their staff, e.g. UCLA,
-UCSB, U Chicago, ...
+UCSB, U Chicago, [MORE].
 %% Shortcoming 3: OAIS
-Third, many of the participating archives are more accurately described
+Third, many of the participating ``archives'' are more accurately described
 as digitization projects.  Once project funding and institutional
-backing cease, the materials may no longer be accessible.  These
+backing cease, the materials may disappear.  Thus, these
 initiatives are not yet following best practices in digital archiving,
-as defined by the OAIS Reference Model \citep{OAIS02}.
+e.g.\ as defined by the Open Archival Information Systems (OAIS) reference model \citep{OAIS02} which has attained the status of an ISO standard (ISO 14721:2003) and is accepted as best practice within the digital library community.
 
 %%%%%%%% Our vision for what needs to be done, long term...
 
@@ -233,7 +230,7 @@ language archives community needs to develop in three ways:
 \begin{enumerate}\setlength{\itemsep}{0pt}
 \item all OLAC repositories should have up-to-date catalogs
       that contain metadata conforming to best practice;
-\item all major language archives should be in OLAC;
+\item all major language archives should be participating in OLAC; and
 \item all OLAC archives should conform to current best practices
       in the treatment of their holdings.
 \end{enumerate}
@@ -242,70 +239,104 @@ language archives community needs to develop in three ways:
 
 %%%%%%%% The status quo...
 
-Language resources of all kinds can be discovered on the web:
-interlinear texts, dictionaries, linguistic descriptions, even
-linguistic research papers.  Even plain text documents sometimes count
+Language resources of all kinds have been posted on the web
+and can be discovered with a standard search engine:
+interlinear texts, dictionaries, linguistic descriptions, and
+linguistic research papers.  Even ordinary web pages may count
 as primary language documentation when they are in any of the
 thousands of ``low-density'' languages, languages with a small
-presence on the web.  In recent years, many e-print repositories have
-sprung up, often in connection with an academic institution, and
-indexed by the Open Archives Initiative.  Traditional print libraries
--- with their collections of dictionaries, grammars, and linguistic
-monographs -- often have a catalogue with a web interface, though
-their contents are usually not indexed by search engines.  Instead,
-it is possible to search the world's libraries using the Open WorldCat
-service.
+presence on the web.  Another source of language resources is traditional
+libraries with their collections of printed dictionaries, grammars,
+and linguistic monographs.  Library automation has resulted in
+standards like MARC for digital cataloging and the Z39.50 protocol for 
+searching digital catalogues. Today such catalogues typically have a web
+interface, though their entries are usually not indexed by search
+engines.  WorldCat is a single service that provides a web-based search
+engine over the world's major libraries. A more recent trend in the library automation arena has been
+the development of e-print repositories, often in connection with an academic institution.  These use simpler standards, Dublin Core for
+metadata ctaloging and the Open Archives Initiative protocol for metdata
+harvesting.  OAIster is a single service that provides a web-based
+search engine over all known e-print repositories.
 
-%%%%%%%% Technology innovations...
+%%%%%%%% Technology innovations... [GFS: the topic of the follinwg is problems, not innovations]
 
 The task of finding language resources on the web is beset with
-problems.  The most obvious one is \emph{scale}: one project is
-confronting this problem by probing web search engines with linguistic
+problems.  The most obvious one is \emph{scale}: that is, searchig for
+low-density language resources among the billions of pages indexed
+by Google is like searching for a needle in a haystack. one project is
+addressing this problem by probing web search engines with linguistic
 query terms and lodging the results with the Internet Archive
-\citep{BaldwinBird06}; the ODIN project has mined the web for
-interlinear text and archived the found objects
+\citep{BaldwinBird06}. In another case, the ODIN project has mined
+the web for interlinear text examples and archived the found objects
 \citep{Langendoen02,Lewis03}.  A second problem is \emph{volatility}:
-the (planned) LangGator project will avoid this problem by working
+for instance, a four-year longitudinal study has shown the half-life
+of a web page to be approximately two years [ref to Koehler].
+% GFS: Here's the reference
+% http://portal.acm.org/citation.cfm?id=506072.506080&coll=ACM&dl=ACM&CFID=77507462&CFTOKEN=24608581
+% Web page change and persistence---a four-year longitudinal study
+% Wallace Koehler   	 
+% Journal of the American Society for Information Science and Technology archive
+% Volume 53 ,  Issue 2  (January 2002) Pages: 162 - 171  
+The (planned) LangGator project will avoid this problem by working
 with the ``historic web,'' housed at the Internet Archive.  Yet
-another problem is the content behind search interfaces or the
-\emph{hidden web}: the ?iNode? project is indexing hundreds of library
-catalogues via Z39.50 services, and exposing the aggregated results
-using the SRW/SRU standard.
+another problem is that of the
+\emph{hidden web}: namely, the content that lies behind search
+interfaces and is thus opaque to conventional search engines.
+Within the library automation community, JZKit is an open-source project
+that addresses this by building an aggregated index of library
+catalogues that are accessible thorugh about a dozen search interfaces
+(inclu9indg the Z39.50 and SRW/SRU standards).
+% GFS: http://developer.k-int.com/jzkit2/
+% Note that the same Ian Ibbotson is the contact:
+% http://www.loc.gov/z3950/agency/resources/software.html
 
 %%%%%%%% Three shortcomings...
 
-Despite the promise of these technological innovations, three major
+In order for the language resources community to realize the promise of universal access to relevant resources, three major
 problems still need to be addressed.
 %% Shortcoming 1: low precision and recall with Google
-First, users of web search engines such as Google typically experience
+First, due to the huge scale of the search space and the absence
+of precise indexing vocabularies,
+users of web search engines such as Google typically experience
 low precision and recall when searching for language resources.
 Searches for scarce resources are often swamped with irrelevant
 results (low precision).  For example searches for ``Santa Cruz'' will
-not yield results for this East Papuan language of the Solomons.
-Furthermore, many resources are not returned at all because search
-terms do not match the desired document (low recall).  For example,
-the Dschang lexicon \cite{BirdTadadjeu97} was published as
-``Lexique Y\'emba,'' because the language of wider communication is
-French, and the language autonym for \textit{Dschang} is \textit{Y\'emba}.
-Such materials are easy to find by searching for all synonyms and
-translations of linguistic terminology, and searching for all
-encodings of IPA characters.  A harder problem is to
-reliably identify such things as the subject language and the
+not yield results for the East Papuan language of this name, spoken in
+the Solomons.
+%%
+Furthermore, many resources are just not returned at all because
+search terms do not match the synonymous terms used in the desired
+documents (low recall).  For example, searcing for ``Dschang lexicon''
+will not return the Dschang lexicon developed by one of the PIs
+\citep{BirdTadadjeu97}; it was published as ``Lexique Y\'emba,'' since
+the language of wider communication is French, and the language
+autonym for \textit{Dschang} is \textit{Y\'emba}.
+%%
+Such materials are straightforward to find, however, using
+linguistically-aware web mining programs that probe
+Google's index by querying for all synonyms and translations of
+linguistic terminology and by searching for pages that contain IPA characters.
+A harder problem is to reliably identify the subject language and the
 linguistic type of the found resource \citep{HughesBaldwin06lrec}.
 
 %% Shortcoming 2: hidden web
-A second shortcoming is that these technological innovations are
-not adequately integrated with OLAC.  Users searching for language
-resources also need to visit other services like OAIster and WorldCat.
-For example, OAI e-print repositories include a lot of articles
+A second problem is that the libary automation solutions are part of
+the hidden web and remain hidden to the language resources community
+at large.
+Users searching for language
+resources also need to visit other services like WorldCat and OAIster;
+a more ideal situation would be for the language-resource content
+of these services to be integrated with OLAC.
+For example, OAI e-print repositories include many articles
 relevant to languages and linguistics (see
 \url{http://romeo.eprints.org/search.php?t=Linguistics}),
 results which are not returned in OLAC searches.
-Similarly, searching the world's libraries involves a Google-
-or Yahoo-mediated search of the WorldCat site, and does not
-permit systematic aggregation and integration.
+Similarly, searching the world's libraries could be done with a Google-
+or Yahoo-mediated search of the WorldCat site, but this would not
+permit systematic aggregation and integration, and would still suffer
+from the problems of low recall and precision.
 %% Shortcoming 3: finding OLAC
-A third shortcoming is that users who do to find language resources
+A third shortcoming is that users who try to find language resources
 using any of these non-OLAC services are unlikely to discover that
 OLAC can provide additional value, such as richer metadata and more
 focussed result sets.
@@ -318,9 +349,9 @@ language archives community needs to develop in three ways:
 \begin{enumerate}\setlength{\itemsep}{0pt}
 \item low density language materials identified in allied projects
       should be reliably categorized for OLAC vocabularies;
-\item OLAC should index all OAI and library relevant to language
-      documentation, by crosswalking OAI-DC and MARC records and
-      adding further OLAC metadata;
+\item OLAC should index all OAI and library holdings relevant to language
+      documentation by crosswalking OAI-DC and MARC records and
+      adding further OLAC metadata to support precise searching;
 \item OLAC should export all records as static HTML, loaded with
       synonyms and containing embedded queries, so that
       users searching for language resources using a web search
@@ -328,11 +359,142 @@ language archives community needs to develop in three ways:
       more precise searching.
 \end{enumerate}
 
-
-
-\vspace{1in}
-
 \subsection{Access to Digital Content}
 
-\vspace{1in}
+%%%%%%%% The status quo...
+
+Most searches for archived language resources do not lead to an online version
+of the resource.  In many cases, the resource is not digital, so
+that it is necessary to visit an archive to access the physical artifact.
+In other cases, the resource is digital but the archive has never
+implemented a system for automated curation and it is necessary to
+contact an archivist or an author to get a copy.  Even worse, there is a large quantity of language
+documentation material in the possession of the linguists who
+originally collected it that has never been archived or catalogued.
+As long as they remain unarchived, they are in imminent danger of
+being lost to posterity (Simons 2006). 
+As long as they remain uncatalogued, searches for language resources
+will never discover these resources.
+
+% GFS: Not used
+% Many sponsored language documentation projects
+% create resources that only reside in the investigator's computer.
+% There is some consensus about what comprises the inventory of basic
+% documentation for a language (e.g. EMELD and Rosetta index pages for a
+% language), but this should be broadened.
+
+%%%%%%%% DSpace repository as solution
+
+What the language resource community needs to solve these problems
+is for language archives to have a digital archiving system that
+automates the basic functions of curating a collection.  The Open Archival Information Systems (OAIS) reference model \citep{OAIS02} is an ISO standard (ISO 14721:2003) that specifies best practices for digital archiving.  It defines standards for the six basic functions that 
+any archive must perform: ingest, data management, archival
+storage, access, preservation planning, and administration. and is accepted as best practice within the digital library community.
+
+In recent years, DSpace has emerged as the leading implementation of
+a system that supports the OAIS reference model.  It also supports
+the OAI protocol for metadata harvesting so taht materials deposited
+in a DSpace repository are automatically become part of the virtual
+digital library as indexed by OAIster and other OAI service provicers.
+DSpace was developed 
+jointly in 2002 by the MIT Libraries and Hewlett-Packard Company to be
+``MIT's online institutional repository---built to save, share, and search MIT's digital research materials'' [1]. From the outset
+DSpace has been distributed as an open source software product at SourceForge where it is supported by a thriving developer community
+that ranks in the 98th percentile for level of activity when 
+comparaed to all other projects [2].  It is now in use at more than one hundred universities as the institutional repository where faculty 
+members log in to deposit the fruits of their research  [3]. 
+The same software automatically supports search and access by the public,
+including the ability to limit access where public access is not 
+appropriate.  Given the large uptake by
+major academic institutions along with the active open source mode of
+development and dissemination, DSpace seems destined to be the leading
+digital repository system for years to come. Furthermore, the future of
+stored materials is ensured beyond the life of DSpace since the system
+supports portable export formats for the archived information.
+
+% [1] http://libraries.mit.edu/dspace-mit/
+% [2] http://sourceforge.net/projects/dspace/
+% [3] http://wiki.dspace.org/DspaceInstances
+
+%%%%%%%% Three shortcomings...
+
+Most language archives have not yet implemented automated ingest and
+access for digital materials.  A system like DSpace would provide 
+an off-the-shelf solution.  
+However, before DSpace can meet the needs of digital language archives,
+three major problems will need to be addressed.
+% 1. precise language identification is missing
+The first problem is the need to support precise language identification.
+Language identification is the single most important thing that
+characterises a linguistic resource; this is especially critical for
+endangered languages---each relevant resource is highly valuable but
+without precise language identification it becomes another needle in
+the haystack. DSpace supports the ISO 639-2 standard [4] for coding the
+language that a resource is in. Two changes are needed: we also need
+to be able to identify the language a resource is about, and we need
+to be able to use the ISO 639-3 standard.  ISO 639-2 provides
+three-letter codes for fewer than 400 individual languages and covers all
+remaining languages with 68 collective codes like [aus] ``Australian 
+languages'' or [sai] ``South American Indian (other)''.  This clearly
+is not acceptable for indexing low-density language resources.
+By contrast, the newly developed ISO 639-3 [5] (which is being put to
+the vote for final adoption this year) provides over 7,000 additional
+three-letter codes for uniquely identifying all known human languages,
+past and present.  ISO 639-3 has already been adopted by OLAC as its
+standard for language identification.
+Adding support for ISO 639-3 to DSpace would not only meet the
+needs of language resource creators, but would also have the
+effect of getting precise language identification into the 
+digital archiving mainstream, so that cataloguers in general could
+give precise identification that would already be in place
+when we crosswalk from DC to OLAC.
+
+% management of codespace over time deferred for section on method
+
+% [4] http://www.loc.gov/standards/iso639-2/
+% [5] http://www.sil.org/iso639-3/
+
+% 2. DSpace is only for documents
+A second problem is that the default configuration of DSpace
+is for depositing conventional documents (like books and articles).
+However, language documentation involves other formats like
+XML files, audio files, image files, and video files. Furthermore,
+language resources need a richer set of metadata using the OLAC 
+metadata standard with its specialized vocabularies for indexing.
+
+% 3. fieldwork mode requires offline solution
+A third problem to be solved is that linguists working in the
+field on language documentation do not have internet access from
+the fieldwork site. Thus they would not be able to submit their
+results to an institutional repository from the point of creation.
+However, it is important to capture all the needed metadata at the time
+of  creation.  Given fieldwork's ever-present risk of accident (such as
+canoe tipping) or calamity (such as theft) or natural disaster (such
+as tsunami) or operator error (such as inadvertent deletion), it is
+also important to to be able to upload
+collected materials to the institutional repository for safekeeping
+as soon as it is possible to reach a location with internet access.
+Therefore, the field linguist requires a solution in which archival
+submissions can be created and fully documented while offline and then uploaded later to the institutional repository. Fortunately, this
+should be straightforward with DSpace since it includes an application
+named ``batch item importer'' that ingests an external Submission Information Package consisting of an XML metadata document with the content files.
+
+%%%%%%%% Our vision for what needs to be done, long term...
+
+In order to address these three shortcomings, we believe that the
+language archives community needs to develop in three ways:
+
+\begin{enumerate}\setlength{\itemsep}{0pt}
+\item users of popular institutional repository solutions are able
+  to specify language identification with precision;
+
+\item users of popular institutional repository solutions are
+    able to install an OLAC module so that they can integrate OLAC
+    metadata creation into the work-flows and life-cycles of their
+    digital objects;
+
+\item field linguists should be able to participate in all the
+    above while they are in the field
+\end{enumerate}
+
 
