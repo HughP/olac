@@ -77,16 +77,19 @@ encourage linguists to adopt these new practices.  The project has
 three objectives:
 
 \begin{description}
-  \item[Objective 1: Access to Language Archive Catalogs:]
-    Improving the quality and quantity of OLAC archives.
+  \item[Objective 1: Access to Language Resources in the Archive:]
+    Develop guidelines and services that encourage conformance to best
+    practices in documenting and curating the world's language resources.
 
-  \item[Objective 2: Access to Language Documentation on the Web:]
-    Extending coverage and access beyond the existing community of
-    participants by automated cross-walking and mining.
+  \item[Objective 2: Access to Language Resources on the Web:]
+    Develop services to bridge the resource catalogues of the
+    language, archive, library, and web domains (OLAC, OAI, MARC,
+    Google), to facilitate language resource discovery on the web.
 
-  \item[Objective 3: Access to Digital Content:]
-    Curating new digital language resources through
-    language-aware institutional repositories.
+  \item[Objective 3: Access to Language Resources from the Field:]
+    Extend institutional repository software to support the
+    documentation and curation of language resources by linguists,
+    in conformance with best practice archiving standards.
 \end{description}
 
 \textbf{Prior Support:} The proposed project represents an outgrowth of
@@ -115,10 +118,8 @@ Key results from these projects were:
 and
 (vi) models and tools for querying linguistic databases
 \citep{BirdBuneman01,BirdBunemanTan00,LaiBird04,Bird05planx,Bird06icde}
-\todo{Add more citations for other PIs to the above}
 
-% Next sub-sections lay the groundwork for our three goals,
-% probably 1 page on each
+\todo{Gary, Mark: list some recent projects and publications}
 
 \subsection{Access to Language Archive Catalogs}
 
@@ -245,26 +246,27 @@ language archives community needs to develop in three ways:
 
 %%%%%%%% The status quo...
 
-Language resources of all kinds have been posted on the web
-and can be discovered with a standard search engine:
-interlinear texts, dictionaries, linguistic descriptions, and
-linguistic research papers.  Even ordinary web pages may count
-as primary language documentation when they are in any of the
-thousands of ``low-density'' languages, languages with a small
-presence on the web.  Another source of language resources is traditional
-libraries with their collections of printed dictionaries, grammars,
-and linguistic monographs.  Library automation has resulted in
-standards like MARC for digital cataloging and the Z39.50 protocol for 
-searching digital catalogues. Today such catalogues typically have a web
-interface, though their entries are usually not indexed by search
-engines.  WorldCat is a single service that provides a web-based search
-engine over the world's major libraries. A more recent trend in the library automation arena has been
-the development of e-print repositories, often in connection with an academic institution.  These use simpler standards, Dublin Core for
-metadata ctaloging and the Open Archives Initiative protocol for metdata
-harvesting.  OAIster is a single service that provides a web-based
-search engine over all known e-print repositories.
+Language resources of all kinds have been posted on the web and can be
+discovered with a standard search engine: interlinear texts,
+dictionaries, linguistic descriptions, and linguistic research papers.
+Even ordinary web pages may count as primary language documentation
+when they are in any of the thousands of ``low-density'' languages,
+languages with a small presence on the web.  Another source of
+language resources is traditional libraries with their collections of
+printed dictionaries, grammars, and linguistic monographs.  Library
+automation has resulted in standards like MARC for digital cataloging
+and the Z39.50 protocol for searching digital catalogues. Today such
+catalogues typically have a web interface, though their entries are
+usually not indexed by search engines.  WorldCat is a single service
+that provides a web-based search engine over the world's major
+libraries. A more recent trend in the library automation arena has
+been the development of e-print repositories, often in connection with
+an academic institution.  These use simpler standards, Dublin Core for
+metadata ctaloging and the Open Archives Initiative protocol for
+metdata harvesting.  OAIster is a single service that provides a
+web-based search engine over all known e-print repositories.
 
-%%%%%%%% Technology innovations... [GFS: the topic of the follinwg is problems, not innovations]
+%%%%%%%%
 
 The task of finding language resources on the web is beset with
 problems.  The most obvious one is \emph{scale}: that is, searching for
@@ -276,13 +278,7 @@ query terms and lodging the results with the Internet Archive
 the web for interlinear text examples and archived the found objects
 \citep{Langendoen02,Lewis03}.  A second problem is \emph{volatility}:
 for instance, a four-year longitudinal study has shown the half-life
-of a web page to be approximately two years [ref to Koehler].
-% GFS: Here's the reference
-% http://portal.acm.org/citation.cfm?id=506072.506080&coll=ACM&dl=ACM&CFID=77507462&CFTOKEN=24608581
-% Web page change and persistence---a four-year longitudinal study
-% Wallace Koehler   	 
-% Journal of the American Society for Information Science and Technology archive
-% Volume 53 ,  Issue 2  (January 2002) Pages: 162 - 171  
+of a web page to be approximately two years \cite{Koehler02}.
 The (planned) LangGator project will avoid this problem by working
 with the ``historic web,'' housed at the Internet Archive.  Yet
 another problem is that of the
@@ -292,9 +288,6 @@ Within the library automation community, JZKit is an open-source project
 that addresses this by building an aggregated index of library
 catalogues that are accessible thorugh about a dozen search interfaces
 (including the Z39.50 and SRW/SRU standards).
-% GFS: http://developer.k-int.com/jzkit2/
-% Note that the same Ian Ibbotson is the contact:
-% http://www.loc.gov/z3950/agency/resources/software.html
 
 %%%%%%%% Three shortcomings...
 
@@ -366,22 +359,20 @@ language archives community needs to develop in three ways:
 
 \subsection{Access to Digital Content}
 
-\todo{[Upbeat paragraph]}
-
-%%%%%%%% The status quo...
-
-Most searches for archived language resources do not lead to an online version
-of the resource.  In many cases, the resource is not digital, so
-that it is necessary to visit an archive to access the physical artifact.
-In other cases, the resource is digital but the archive has never
-implemented a system for automated curation and it is necessary to
-contact an archivist or an author to get a copy.  Even worse, there is a large quantity of language
-documentation material in the possession of the linguists who
+Multimedia and web technologies now deliver unprecedented access to
+rich digital resources.  However, most searches for archived language
+resources still do not lead to an online version of the resource.  In
+many cases, the resource is not digital, so that it is necessary to
+visit an archive to access the physical artifact.  In other cases, the
+resource is digital but the archive has never implemented a system for
+automated curation and it is necessary to contact an archivist or an
+author to get a copy.  Even worse, there is a large quantity of
+language documentation material in the possession of the linguists who
 originally collected it that has never been archived or catalogued.
 As long as they remain unarchived, they are in imminent danger of
-being lost to posterity (Simons 2006). 
-As long as they remain uncatalogued, searches for language resources
-will never discover these resources.
+being lost to posterity (Simons 2006).  As long as they remain
+uncatalogued, searches for language resources will never discover
+these resources.
 
 % GFS: Not used
 % Many sponsored language documentation projects
@@ -392,11 +383,15 @@ will never discover these resources.
 
 %%%%%%%% DSpace repository as solution
 
-What the language resource community needs to solve these problems
-is for language archives to have a digital archiving system that
-automates the basic functions of curating a collection.  The Open Archival Information Systems (OAIS) reference model \citep{OAIS02} is an ISO standard (ISO 14721:2003) that specifies best practices for digital archiving.  It defines standards for the six basic functions that 
-any archive must perform: ingest, data management, archival
-storage, access, preservation planning, and administration. and is accepted as best practice within the digital library community.
+What the language resource community needs to solve these problems is
+for language archives to have a digital archiving system that
+automates the basic functions of curating a collection.  The Open
+Archival Information Systems (OAIS) reference model \citep{OAIS02} is
+an ISO standard (ISO 14721:2003) that specifies best practices for
+digital archiving.  It defines standards for the six basic functions
+that any archive must perform: ingest, data management, archival
+storage, access, preservation planning, and administration. and is
+accepted as best practice within the digital library community.
 
 In recent years, DSpace has emerged as the leading implementation of
 a system that supports the OAIS reference model.  It also supports
@@ -407,12 +402,13 @@ DSpace was developed
 jointly in 2002 by the MIT Libraries and Hewlett-Packard Company to be
 ``MIT's online institutional repository---built to save, share, and
 search MIT's digital research materials'' (\url{http://libraries.mit.edu/dspace-mit/}).
-From the outset
-DSpace has been distributed as an open source software product at SourceForge where it is supported by a thriving developer community
-that ranks in the 98th percentile for level of activity when 
-compared to all other projects (\url{http://sourceforge.net/projects/dspace/}).
-It is now in use at more than one hundred universities as the institutional repository where faculty 
-members log in to deposit the fruits of their research
+From the outset DSpace has been distributed as an open source software
+product at SourceForge where it is supported by a thriving developer
+community that ranks in the 98th percentile for level of activity when
+compared to all other projects
+(\url{http://sourceforge.net/projects/dspace/}).  It is now in use at
+more than one hundred universities as the institutional repository
+where faculty members log in to deposit the fruits of their research
 (\url{http://wiki.dspace.org/DspaceInstances}).
 The same software automatically supports search and access by the public,
 including the ability to limit access where public access is not 
