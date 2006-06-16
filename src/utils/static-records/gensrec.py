@@ -6,6 +6,7 @@ output: Static record pages
 """
 
 import sys
+import gzip
 from cStringIO import StringIO
 import os.path
 
@@ -17,7 +18,7 @@ record = """<record
 """
      
 flag = False
-f = file(sys.argv[1])
+f = gzip.open(sys.argv[1])
 l = f.readline()
 g = None
 while l:
