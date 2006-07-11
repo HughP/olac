@@ -5,6 +5,8 @@
 #
 # ChangeLog:
 #
+# 2006-07-10 Baden Hughes <badenh@csse.unimelb.edu.au>
+#	* added statistics tracking
 # 2005-03-20 Baden Hughes <badenh@cs.mu.oz.au>
 #	* added supporting documentation
 # 2005-01-05 Baden Hughes <badenh@cs.mu.oz.au> 
@@ -1693,6 +1695,13 @@ $DB->disconnect();
 print $output;
 
 ?>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-427085-4";
+urchinTracker();
+</script>
 
 </BODY>
 </HTML>
