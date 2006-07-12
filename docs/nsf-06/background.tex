@@ -51,46 +51,80 @@ at 100,000 queries per month.  Participating archives include:
 Alaska Native Language Center Archive,
 Archive of the Indigenous Languages of Latin America,
 UC Berkeley Audio Archive of Linguistic Fieldwork,
-Oxford Text Archive, and
-SIL Language and Culture Archives.
+Oxford Text Archive, Rosetta Project All Language Archive, 
+SIL Language and Culture Archives, and 29 more.
 
 %%%%%%%% Shortcomings...
 
-Despite these early successes, it is still true today that ``new
-digital language resources of all kinds -- lexicons, interlinear
-texts, grammars, language maps, field notes, recordings -- are
-difficult to reuse and less portable than the conventional printed
-resources they replace'' \citep{BirdSimons03language}.  The proliferation of
-language ``archiving projects'' has only made this problem more
-acute: endangered languages are captured in ephemeral file formats,
-and the so-called ``archive'' goes away at the end of the project.
-Mirroring the twin goals of OLAC, there are just two things a linguist
-must do to ensure that digital data endure: ``(1) the materials must be
-put into an enduring file format, and (2) the materials must be
-deposited with an archive that will make a practice of migrating them
-to new storage media as needed'' (Simons 2006).  This amounts to an
-injunction to individuals to \emph{use} portable formats and credible
-archives.
+% Despite these early successes, it is still true today that ``new
+% digital language resources of all kinds -- lexicons, interlinear
+% texts, grammars, language maps, field notes, recordings -- are
+% difficult to reuse and less portable than the conventional printed
+% resources they replace'' \citep{BirdSimons03language}.  The proliferation of
+% language ``archiving projects'' has only made this problem more
+% acute: endangered languages are captured in ephemeral file formats,
+% and the so-called ``archive'' goes away at the end of the project.
+% Mirroring the twin goals of OLAC, there are just two things a linguist
+% must do to ensure that digital data endure: ``(1) the materials must be
+% put into an enduring file format, and (2) the materials must be
+% deposited with an archive that will make a practice of migrating them
+% to new storage media as needed'' (Simons 2006).  This amounts to an
+% injunction to individuals to \emph{use} portable formats and credible
+% archives.
 
-The proposed project will create new incentives that are designed to
-encourage linguists to adopt these new practices.  The project has
-three objectives:
+The results to-date of OLAC demonstrate a high level of participation
+and interest within the language resources community, but we recognize
+that the current coverage (with 30,000 items cataloged) is only the 
+tip of the iceberg. Google (with billions of items indexed) is still
+the first search engine of choice for most linguists since it has so
+much greater coverage. However, using a conventional search engine to
+find a particular kind of resource for a particular language is
+not likely to succeed, especially for an uncommon language. 
+One of three outcomes is more likely:
+(1) Relevant resources do exist as web pages, but they are 
+{\it occluded} from view by fuzziness of search terms and 
+descriptors on the page.
+(2) Relevant resources are accessible from the web, but they are
+{\it hidden} from the view of the search engine because they are
+on the other side of form-based interfaces.
+(3) Relevant resources are {\it missing} altogether because the
+archive has not published its catalog or because they have not
+been archived by the linguists who created them.
+
+% The proposed project will create new incentives that are designed to
+% encourage linguists to adopt these new practices.  The project has
+% three objectives:
+
+The proposed project aims to dramatically improve the language
+resource community's access to resources by achieving an 
+order-of-magnitude increase in the coverage of the OLAC catalog.
+The project seeks to do so through three main areas of activity:
 
 \begin{description}
-  \item[Objective 1: Access to Language Resources in the Archive:]
+  \item[Objective 1: Access to Language Resources in Archives:]
     Develop guidelines and services that encourage conformance to best
-    practices in documenting and curating the world's language resources.
+    practices in cataloging and curating the world's language resources
+    in language archives.
 
   \item[Objective 2: Access to Language Resources on the Web:]
-    Develop services to bridge the resource catalogues of the
-    language, archive, library, and web domains (OLAC, OAI, MARC,
-    Google), to facilitate language resource discovery on the web.
+    Develop services to bridge the resource catalogs of the
+    repository, library, and web domains (OAI, MARC, Google)
+    to facilitate language resource discovery with precision through OLAC.
 
   \item[Objective 3: Access to Language Resources from the Field:]
     Extend institutional repository software to support the
-    documentation and curation of language resources by linguists,
-    in conformance with best practice archiving standards.
+    best-practice cataloging and curation of language resources
+    uploaded by linguists themselves.
 \end{description}
+
+For the most part, objective 1 addresses the problem of occluded resources,
+objective 2 or hidden resources, and objective 3 of hidden resources.
+As a further outcome, it is hoped that an OLAC search
+engine with vastly increased coverage will become such a popular tool
+among linguiss that it will provide powerful incentive for them to
+adopt best practices in digital archiving of their own work so that it
+can become accessible to others through this means. 
+
 
 \textbf{Prior Support:} The proposed project represents an outgrowth of
 prior NSF support to the investigators in the following projects:
@@ -255,8 +289,8 @@ languages with a small presence on the web.  Another source of
 language resources is traditional libraries with their collections of
 printed dictionaries, grammars, and linguistic monographs.  Library
 automation has resulted in standards like MARC for digital cataloging
-and the Z39.50 protocol for searching digital catalogues. Today such
-catalogues typically have a web interface, though their entries are
+and the Z39.50 protocol for searching digital catalogs. Today such
+catalogs typically have a web interface, though their entries are
 usually not indexed by search engines.  WorldCat is a single service
 that provides a web-based search engine over the world's major
 libraries. A more recent trend in the library automation arena has
@@ -286,7 +320,7 @@ another problem is that of the
 interfaces and is thus opaque to conventional search engines.
 Within the library automation community, JZKit is an open-source project
 that addresses this by building an aggregated index of library
-catalogues that are accessible thorugh about a dozen search interfaces
+catalogs that are accessible thorugh about a dozen search interfaces
 (including the Z39.50 and SRW/SRU standards).
 
 %%%%%%%% Three shortcomings...
@@ -368,10 +402,10 @@ resource is digital but the archive has never implemented a system for
 automated curation and it is necessary to contact an archivist or an
 author to get a copy.  Even worse, there is a large quantity of
 language documentation material in the possession of the linguists who
-originally collected it that has never been archived or catalogued.
+originally collected it that has never been archived or cataloged.
 As long as they remain unarchived, they are in imminent danger of
 being lost to posterity (Simons 2006).  As long as they remain
-uncatalogued, searches for language resources will never discover
+uncataloged, searches for language resources will never discover
 these resources.
 
 % GFS: Not used
@@ -448,7 +482,7 @@ standard for language identification.
 Adding support for ISO 639-3 to DSpace would not only meet the
 needs of language resource creators, but would also have the
 effect of getting precise language identification into the 
-digital archiving mainstream, so that cataloguers in general could
+digital archiving mainstream, so that catalogers in general could
 give precise identification that would already be in place
 when we crosswalk from DC to OLAC.
 
