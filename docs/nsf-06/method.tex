@@ -22,17 +22,21 @@ in language archives.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
 \item \emph{Best practice document:}
-  Prepare and adopt an OLAC recommendation on metadata best practice.
+  Prepare and adopt an OLAC recommendation on metadata best practice,
+  adapting the DC Usage Guidelines and fleshing out published recommendations
+  \citep{BirdSimons03language,Simons06}.
 \item \emph{Report cards:}
-  Update automated score cards to conform to the adopted recommendations.
+  Update automated score cards to conform to the adopted
+  recommendations, by running a series of tests on metadata records.
 \item \emph{Metadata quality:}
   Identify low-scoring archives and work with them to
   improve the quality of their metadata, particularly the
   use of OLAC vocabularies. 
   Develop an OLAC metadata usage note based on this experience.
 \item \emph{Updating archives:}
-  Identify stale archives, and work with them to bring their 
-  catalogs up-to-date.
+  Identify OLAC archives whose metadata records have gone stale,
+  and work with them to bring their catalogs up-to-date and to
+  set up automatic processes to expose their live catalogs.
 \item \emph{Quarterly reporting:}
   Develop an automated quarterly report to be emailed to curators to 
   remind them about the quality and currency of their metadata, and to
@@ -53,9 +57,12 @@ in language archives.}
   Contact all identified archives and consult with them to develop best
   strategy for generating their metadata.
 \item \emph{Scraping:}
-  Do automatic scraping of HTML metadata to show archivists
-  their search results coming up; use as a motivation to improve precision
-  and recall by mapping their terms to OLAC terms.
+  Do automatic scraping of the HTML metadata already published on
+  archive sites and perform a quick low-accuracy conversion to OLAC
+  metadata in order to show archivists their search results coming up
+  in user queries; use this to show archivists the value of mapping their
+  terms to OLAC terms and publishing OLAC metadata in order to
+  improve precision and recall.
 \item \emph{OLAC export:}
   Work with these archives to expose their catalog in OLAC format.
 \item \emph{Repository editor:}
@@ -69,11 +76,12 @@ in language archives.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
 \item \emph{Recommendation:}
-  Prepare and adopt an OLAC recommendation document on this topic.
+  Prepare and adopt an OLAC recommendation document on 
+  best practices for the long-term curation of language archive holdings.
 \item \emph{Archive categories:}
   Refine the {\tt <olac-archive>} description to include
   more fine-grained categorization of participating archives.
-  Categories should be based on published criteria (in OAIS reference model)
+  Categories should be based on published criteria (in the OAIS reference model)
   and assignment of categories should be vetted by OLAC.
 \item \emph{Report cards:}
   Incorporate these criteria into the automated score cards.
@@ -106,7 +114,9 @@ in language archives.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
 \item \emph{Gateway:}
-  Interface to a Z39.50 gateway (e.g.~using JZKit)
+  Interface to a Z39.50 gateway (e.g.~using JZKit), to set up an
+  OLAC repository that can be harvested for language resources held in
+  libraries.
 \item \emph{Crosswalk:}
   Develop OAI-DC to OLAC and MARC to OLAC crosswalks that add
   precision for linguistic data type and language identification.
@@ -130,11 +140,11 @@ in language archives.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
 \item \emph{Static HTML:}
-  Generate a static HTML page for each OLAC metadata record.
+  Generate a static HTML page for each OLAC metadata record, by adding
+  a new module to the OLAC harvester.
 \item \emph{Synonyms:}
-  Add synonyms for all identified linguistic terminology to static pages,
-  so that these pages are more likely to be found in
-  conventional web searches.
+  Add synonyms for all identified linguistic terminology to static HTML pages,
+  so that these pages are more likely to be found in conventional web searches.
 \item \emph{Embedded queries:}
   Enrich static pages with OLAC query links, so that users who discover
   OLAC records via a Google search result are encouraged to remain on the
