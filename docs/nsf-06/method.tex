@@ -88,16 +88,15 @@ in language archives.}
   to facilitate language resource discovery with precision through OLAC.}
 
 \def\task{2.1}
-\paragraph{Task {\task}: Low density language materials identified in allied projects
-      should be reliably categorized with OLAC vocabularies.}
+\paragraph{Task {\task}: Low density language materials identified in
+  linguistic web-mining projects should be reliably categorized with OLAC vocabularies.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
-\item \emph{Crosswalk:}
-  Develop an OAI-DC to OLAC crosswalk that adds precision for linguistic data
-  type and language identification.
-\item \emph{Metadata enrichment:}
-  Automatically identify language resources and
-  enrich the metadata records (especially language id).
+\item \emph{Automatic metadata creation:}
+  Generate OLAC metadata records for low-density
+  language resources discovered by linguistic web-mining projects,
+  with a focus on the ISO 639-3 language identifier and the OLAC
+  linguistic type (primary text, lexicon, linguistic description).
 \end{enumerate}
 
 \def\task{2.2}
@@ -107,17 +106,18 @@ in language archives.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]
 \item \emph{Gateway:}
-  Interface to a Z39.50 gateway (e.g. using JZKit,
-  \url{http://developer.k-int.com/jzkit2/})
+  Interface to a Z39.50 gateway (e.g.~using JZKit)
 \item \emph{Crosswalk:}
-  Develop a MARC to OLAC crosswalk.
+  Develop OAI-DC to OLAC and MARC to OLAC crosswalks that add
+  precision for linguistic data type and language identification.
 \item \emph{Metadata enrichment:}
-  Automatically identify language resources and
-  enrich the metadata records (especially language id).
+  Harvest OAI and Z39.50 sources, automatically identifying language resources
+  and enriching the metadata records, with a focus on language
+  identifier and linguistic type.
 \end{enumerate}
 
 % JZKit:
-% Note that the same Ian Ibbotson is the contact:
+% Ian Ibbotson is the contact:
 % http://www.loc.gov/z3950/agency/resources/software.html
 
 % \item modify OLAC search to group results by item not by location
