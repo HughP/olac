@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{48}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -38,7 +38,7 @@ Steven Bird and John Bell, editors.
 \bibitem[Bird and Harrington(2001)]{BirdHarrington01}
 Steven Bird and Jonathan Harrington, editors.
 \newblock \emph{Speech Communication: Special Issue on Speech Annotation and
-  Corpus Tools}, volume~33.
+  Corpus Tools}, volume 33 (1--2).
 \newblock Elsevier, 2001.
 
 \bibitem[Bird and Liberman(2001)]{BirdLiberman01}
@@ -88,7 +88,8 @@ Steven Bird and Gary Simons.
 
 \bibitem[Bird and Simons(2004)]{BirdSimons04metadata}
 Steven Bird and Gary Simons.
-\newblock Building an open language archives community on the dc foundation.
+\newblock Building an {Open Language Archives Community} on the {DC}
+  foundation.
 \newblock In Diane Hillmann and Elaine Westbrooks, editors, \emph{Metadata in
   Practice: a work in progress}. Chicago: ALA Editions, 2004.
 
@@ -194,7 +195,7 @@ David Graff and Steven Bird.
 \bibitem[Hughes(2006)]{Hughes06lrec}
 Baden Hughes.
 \newblock Searching for language resources on the web: User behaviour in the
-  open language archives community.
+  {Open Language Archives Community}.
 \newblock In \emph{Proceedings of the 5th International Conference on Language
   Resources and Evaluation}, pages 601--604. Paris: European Language Resources
   Association, 2006.
@@ -212,6 +213,27 @@ Baden Hughes, Timothy Baldwin, Steven Bird, Jeremy Nicholson, and Andrew
 \newblock In \emph{Proceedings of the 5th International Conference on Language
   Resources and Evaluation}, pages 485--488. Paris: European Language Resources
   Association, 2006.
+
+\bibitem[{ISO}(1998)]{ISO639-2}
+{ISO}.
+\newblock {ISO} 639-2: Codes for the representation of names of languages-part
+  2: Alpha-3 code, 1998.
+\newblock \url{http://lcweb.loc.gov/standards/iso639-2/langhome.html}.
+
+\bibitem[{ISO}(2006)]{ISO639-3}
+{ISO}.
+\newblock {ISO} 639-3: Codes for the representation of names of languages -
+  part 3: Alpha-3 code for comprehensive coverage of languages, 2006.
+\newblock \url{http://www.sil.org/iso639-3/}.
+
+\bibitem[Koehler(2002)]{Koehler02}
+Wallace Koehler.
+\newblock Web page change and persistence---a four-year longitudinal study.
+\newblock \emph{Journal of the American Society for Information Science and
+  Technology}, 53:\penalty0 162--171, 2002.
+\newblock
+  \url{http://portal.acm.org/citation.cfm?id=506072.506080&coll=ACM&dl=ACM&CFI%
+D=77507462&CFTOKEN=24608581}.
 
 \bibitem[Lai and Bird(2004)]{LaiBird04}
 Catherine Lai and Steven Bird.
@@ -257,15 +279,21 @@ Kazuaki Maeda, Steven Bird, Xiaoyi Ma, and Haejoong Lee.
   Language Resources and Evaluation}, pages 1914--1921. Paris: ELRA, 2002.
 \newblock \url{http://arXiv.org/abs/cs/0204005}.
 
+\bibitem[{NISO}(2003)]{Z3950}
+{NISO}.
+\newblock Information retrieval (z39.50): Application service definition and
+  protocol specification, 2003.
+\newblock \url{http://www.loc.gov/z3950/agency/Z39-50-2003.pdf}.
+
 \bibitem[Simons(2002)]{Simons02query}
 Gary Simons.
-\newblock A query facility for selective harvesting of olac metadata, 2002.
+\newblock A query facility for selective harvesting of {OLAC} metadata, 2002.
 \newblock \url{http://www.language-archives.org/NOTE/query.html}.
 
 \bibitem[Simons(2003)]{Simons03display}
 Gary Simons.
-\newblock Specifications for an olac metadata display format and an
-  olac-to-oai\_dc crosswalk, 2003.
+\newblock Specifications for an {OLAC} metadata display format and an
+  {OLAC-to-OAI\_DC} crosswalk, 2003.
 \newblock \url{http://www.language-archives.org/NOTE/olac_display.html}.
 
 \bibitem[Simons(2006)]{Simons06}
@@ -292,9 +320,35 @@ Gary Simons and Steven Bird.
 
 \bibitem[Simons and Bird(2003{\natexlab{b}})]{SimonsBird03llc}
 Gary Simons and Steven Bird.
-\newblock The open language archives community: An infrastructure for
+\newblock The {Open Language Archives Community}: An infrastructure for
   distributed archiving of language resources.
 \newblock \emph{Literary and Linguistic Computing}, 18:\penalty0 117--128,
   2003{\natexlab{b}}.
+
+\bibitem[Simons et~al.(2004{\natexlab{a}})Simons, Fitzsimons, Langendoen,
+  Lewis, Farrar, Lanham, Basham, and Gonzalez]{SimonsEtal04text}
+Gary Simons, Brian Fitzsimons, D.~Terence Langendoen, William Lewis, Scott
+  Farrar, Alexis Lanham, Ruby Basham, and Hector Gonzalez.
+\newblock A model for interoperability: Xml documents as an rdf database.
+\newblock In \emph{Proceedings of the EMELD Workshop on Linguistic Databases
+  and Best Practice, 15-18 July 2004, Detroit, MI}, 2004{\natexlab{a}}.
+\newblock \url{http://emeld.org/workshop/2004/simons-paper.pdf}.
+
+\bibitem[Simons et~al.(2004{\natexlab{b}})Simons, Lewis, Farrar, Langendoen,
+  Fitzsimons, and Gonzalez]{SimonsEtal04lex}
+Gary Simons, William Lewis, Scott Farrar, D.~Terence Langendoen, Brian
+  Fitzsimons, and Hector Gonzalez.
+\newblock The semantics of markup: Mapping legacy markup schemas to a common
+  semantics.
+\newblock In Graham Wilcock, Nancy Ide, and Laurent Romary, editors,
+  \emph{Proceedings of the 4th workshop on NLP and XML (NLPXML-2004)}, pages
+  25--32. Association for Computational Linguistics, 2004{\natexlab{b}}.
+\newblock \url{http://emeld.org/documents/SOMFinal1col.pdf}.
+
+\bibitem[{US Library of Congress}(2000)]{MARC}
+{US Library of Congress}.
+\newblock {MARC} 21: Specifications for record structure, character sets, and
+  exchange media, 2000.
+\newblock \url{http://lcweb.loc.gov/marc/specifications/}.
 
 \end{thebibliography}
