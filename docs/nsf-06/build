@@ -1,0 +1,2 @@
+dvips -l=10 -t letter proposal.dvi -o
+dvips -p=11 -t letter proposal.dvi -o
