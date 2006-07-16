@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{46}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -279,12 +279,6 @@ Kazuaki Maeda, Steven Bird, Xiaoyi Ma, and Haejoong Lee.
   Language Resources and Evaluation}, pages 1914--1921. Paris: ELRA, 2002.
 \newblock \url{http://arXiv.org/abs/cs/0204005}.
 
-\bibitem[{NISO}(2003)]{Z3950}
-{NISO}.
-\newblock Information retrieval (z39.50): Application service definition and
-  protocol specification, 2003.
-\newblock \url{http://www.loc.gov/z3950/agency/Z39-50-2003.pdf}.
-
 \bibitem[Simons(2002)]{Simons02query}
 Gary Simons.
 \newblock A query facility for selective harvesting of {OLAC} metadata, 2002.
@@ -344,11 +338,5 @@ Gary Simons, William Lewis, Scott Farrar, D.~Terence Langendoen, Brian
   \emph{Proceedings of the 4th workshop on NLP and XML (NLPXML-2004)}, pages
   25--32. Association for Computational Linguistics, 2004{\natexlab{b}}.
 \newblock \url{http://emeld.org/documents/SOMFinal1col.pdf}.
-
-\bibitem[{US Library of Congress}(2000)]{MARC}
-{US Library of Congress}.
-\newblock {MARC} 21: Specifications for record structure, character sets, and
-  exchange media, 2000.
-\newblock \url{http://lcweb.loc.gov/marc/specifications/}.
 
 \end{thebibliography}
