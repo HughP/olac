@@ -1,2 +1,10 @@
-dvips -l=10 -t letter proposal.dvi -o
-dvips -p=11 -t letter proposal.dvi -o
+latex proposal
+dvips -l=10 -t letter proposal.dvi
+ps2pdf proposal.ps
+
+dvips -p=11 -t letter proposal.dvi -o references.ps
+ps2pdf references.ps
+
+latex budget-penn
+dvips -t letter budget-penn.dvi
+ps2pdf budget-penn.ps
