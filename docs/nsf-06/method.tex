@@ -22,7 +22,7 @@ in language archives.}
 \paragraph{Outcome {\task}: All OLAC repositories should have up-to-date catalogs
       that contain metadata conforming to best practice.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Best practice document:}
   Prepare and adopt an OLAC recommendation on metadata best practice,
   adapting the DC Usage Guidelines and fleshing out published recommendations
@@ -52,7 +52,7 @@ in language archives.}
 \def\task{1.2}
 \paragraph{Outcome {\task}: All major language archives should be participating in OLAC.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Non-participating archives:}
   Compile a list of all known non-participating language archives.
 \item \emph{Collaboration:}
@@ -76,7 +76,7 @@ in language archives.}
 \paragraph{Outcome {\task}: All OLAC repositories should conform to current best practices
       for the long-term curation of their holdings.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Recommendation:}
   Prepare and adopt an OLAC recommendation document on 
   best practices for the long-term curation of language archive holdings.
@@ -102,18 +102,28 @@ in language archives.}
    documentation should be indexed in OLAC, by
    crosswalking and enriching existing catalog records.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
-\item \emph{Gateway:}
-  Interface to a Z39.50 gateway (e.g.~using JZKit), to set up an
-  OLAC repository that can be harvested for language resources held in
-  libraries.
-\item \emph{Crosswalk:}
-  Develop OAI-DC to OLAC and MARC to OLAC crosswalks that add
-  precision for linguistic data type and language identification.
-\item \emph{Metadata enrichment:}
-  Harvest OAI and Z39.50 sources, automatically identifying language resources
-  and enriching the metadata records, with a focus on language
-  identifier and linguistic type.
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Language identification:}
+  Develop an automated procedure for finding
+  language identification in a catalog record and translating it to an
+  appropriate ISO 639-3 code.
+\item \emph{Data type identification:}
+  Develop an automated procedure for finding
+  linguistic data type information in a catalog record and translating
+  it to an appropriate OLAC linguistic data type code.
+\item \emph{OAI Crosswalk:}
+  Develop an OLAC data provider that harvests from the
+  leading OAI aggregator and serves up all records that are determined to
+  be language resources with the metadata enriched for precise
+  identification of language and linguistic data type (primary text vs
+  lexicon vs linguistic description).
+\item \emph{Z39.50 Crosswalk:}
+  Develop an OLAC data provider that harvests from one or more
+  Z39.50 gateways (e.g.~using JZKit), eliminates duplicates,
+  applies the MARC to DC crosswalk\footnote{\scriptsize\url{http://www.loc.gov/marc/marc2dc.html}},
+  and serves up all records that are determined to
+  be language resources with the metadata enriched for precise
+  identification of language and linguistic data type.
 \end{enumerate}
 
 % JZKit:
@@ -124,12 +134,22 @@ in language archives.}
 \paragraph{Outcome {\task}: Low density language materials identified in
   linguistic web-mining projects should be reliably categorized with OLAC vocabularies.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
-\item \emph{Automatic metadata creation:}
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Language identification:}
+  Develop an automated procedure for finding
+  low-density language identification from a URL,
+  (e.g.~using character encodings, keywords,
+  n-gram signatures, and place-name references)
+  and translating this to an appropriate ISO 639-3 code.
+\item \emph{Data type identification:}
+  Develop an automated procedure for finding
+  linguistic data type information from a URL,
+  (e.g.~using Bayesian classifiers trained on existing metadata records)
+  and translating this to an appropriate OLAC linguistic data type code.
+\item \emph{Web mining:}
   Generate OLAC metadata records for low-density
   language resources discovered by linguistic web-mining projects,
-  with a focus on the ISO 639-3 language identifier and the OLAC
-  linguistic type (primary text, lexicon, linguistic description).
+  such as Hughes' collection of 600,000 low-density language URLs.
 \end{enumerate}
 
 % \item modify OLAC search to group results by item not by location
@@ -140,7 +160,7 @@ in language archives.}
       quickly find OLAC records and are drawn to the OLAC site for
       more precise searching.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Static HTML:}
   Generate a static HTML page for each OLAC metadata record, by adding
   a new module to the OLAC harvester.
@@ -163,7 +183,7 @@ in language archives.}
 \paragraph{Outcome {\task}: Users of an institutional repository should be able
   to specify language identification with precision.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{ISO 639-3 support:}
   Create an ISO 639-3 module for DSpace, including a flexible
   browser for 7000+ languages, with geographical, genetic, historical
@@ -184,7 +204,7 @@ in language archives.}
     metadata creation into the workflow and lifecycle of their
     digital objects.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{DSpace/OLAC module:}
   Create an OLAC module for DSpace, permitting users to create OLAC
   records for self-archiving of language resources.
@@ -203,7 +223,7 @@ in language archives.}
 \paragraph{Outcome {\task}: Field linguists should be able to participate in all the
     above while they are in the field.}
 
-\begin{enumerate}[label=\emph{\task\alph*}]
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Offline ingest:}
   Develop a tool to permit a linguist in the field (while offline) to
   prepare a submission information package (SIP) including OLAC
