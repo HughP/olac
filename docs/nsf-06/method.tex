@@ -131,19 +131,19 @@ in language archives.}
 % http://www.loc.gov/z3950/agency/resources/software.html
 
 \def\task{2.2}
-\paragraph{Outcome {\task}: Low density language materials identified in
-  linguistic web-mining projects should be reliably categorized with OLAC vocabularies.}
+\paragraph{Outcome {\task}: Low density language materials identified by
+  linguistic web mining should be reliably categorized with OLAC vocabularies.}
 
 \begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
 \item \emph{Language identification:}
   Develop an automated procedure for finding
-  low-density language identification from a URL,
+  low-density language identification from an arbitrary web document,
   (e.g.~using character encodings, keywords,
-  n-gram signatures, and place-name references)
+  n-gram signatures, anchor text, and place-name references)
   and translating this to an appropriate ISO 639-3 code.
 \item \emph{Data type identification:}
-  Develop an automated procedure for finding
-  linguistic data type information from a URL,
+  Develop an automated procedure for identifying
+  the linguistic data type of an arbitrary web document
   (e.g.~using Bayesian classifiers trained on existing metadata records)
   and translating this to an appropriate OLAC linguistic data type code.
 \item \emph{Web mining:}
