@@ -1,0 +1,57 @@
+bib2olac is a simple conversion utility that converts a bibtex file into an
+XML fragment adhering to the OLAC standard. This fragment is enclosed in a
+supplied template file, thus generating a complete OLAC repository.
+
+# INSTALLATION
+
+bib2olac requires the following modules:
+
+	- recode v3.6 (http://directory.fsf.org/recode.html)
+	- btparse v0.34 (http://www.gerg.ca/software/btOOL/)
+
+Both modules are included in the bib2olac archive and can be automatically
+installed by running the "install --install-libraries" command. If you wish to
+install one or both libraries manually, omit the --install-libraries flag.
+
+bib2olac will expect that both recode and btparse be installed in your
+/usr/local/ directory and will NOT compile if they aren't. If you wish to
+install the modules elsewhere you will need to modify the supplied Makefile and
+also bib2olac.c, so if it all possible, accept the defaults!
+
+# USING BIB2OLAC
+
+bib2olac is invoked as follows:
+
+bib2olac -i bibtex_input_file_name -t olac_template_file_name
+
+(both arguments are compulsory).
+
+By default, the generated OLAC repository is printed to stdout, but you can
+specify a different location using the optional -o output_file_name flag.
+
+Note that btparse is a pedantic parser and will often print syntax warnings to
+stderr, so using the -o flag or redirecting stdout is generally a good idea.
+
+# THE TEMPLATE FILE
+
+bib2olac comes with a sample input and template file. We recommend that you
+modify the template file with your own information (very carefully), rather
+than creating a new one. Most importantly, do NOT remove the
+repositoryIdentifier element, as this is required for the conversion process.
+Similarly, you should insure that your sampleIdentifier element reflects your
+repositoryIdentifier, and that the integer at the end of your identifier is less
+than or equal to the number of records in your input bibtex file (so leaving it 
+as 01 is a good idea!) If you do not meet these requirements, your repository 
+will fail validation (you can validate the generated repository at
+http://www.language-archives.org/register/register.php4).
+
+The generated records will be substituted for the line in the template that
+reads:
+
+<GENERATED_CONTENT_HERE />
+
+If no such line is present the records will simpy be appended at the end of the
+template file, giving invalid XML. It is VERY IMPORTANT that the <GENERATED...
+declaration be kept on a separate line with whitespace only prefixing it: any
+non-whitespace characters will cause the parser to miss the declaration and
+append the generated records at the end of the template.

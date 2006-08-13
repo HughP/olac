@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# There is one optional argument, --install-libraries, which installs the
+# necessary supporting modules btparse and recode.
+
+BIB2OLAC=bib2olac
+BTPARSE=btparse-0.34
+RECODE=recode-3.6
+
+if [ $1 == "--install-libraries" ]; then
+
+	gunzip $BTPARSE.tar.gz
+	tar -xvf $BTPARSE.tar
+	cd $BTPARSE
+	./configure
+	./make install
+	cd ..
+
+	gunzip $RECODE.tar.gz
+	tar -xvf $RECODE.tar
+	cd $RECODE
+	./configure
+	./make install
+	cd ..
+fi
+
+make $BIB2OLAC
+
+echo "bib2olac installation complete."
+
