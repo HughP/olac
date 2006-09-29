@@ -10,8 +10,9 @@ DISPLAY = olac_display-20020810.html olac_display-20030215.html olac_display-200
 QUERY   = query-20021102.html query-20030729.html
 VISER   = viser-20021102.html viser-20030729.html
 THIRD   = third-party-extensions-20021204.html
+TOOLBOX = toolbox-20060928.html
 
-HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD)
+HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD) $(TOOLBOX)
 
 
 ### Build
@@ -25,6 +26,7 @@ all: $(HTML)
 	$(LATEST) query                   20030729
 	$(LATEST) viser                   20030729
 	$(LATEST) third-party-extensions  20021204
+	$(LATEST) toolbox                 20060928
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
