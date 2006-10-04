@@ -293,14 +293,12 @@ if ($content=="") { $content=$row['Code']; }
 
 foreach ($queryTokens as $tok)
 {
+   $tok = str_replace("(", "\(", $tok);
    # Case insensitive matching of query keywords
-   $content = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $content );
-   $moreInfo = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $moreInfo );
+   $content = eregi_replace($tok, "<em>\\0</em>", $content );
+   $moreInfo = eregi_replace($tok, "<em>\\0</em>", $moreInfo );
    # Case insensitive matching of query keywords
-   $row['TagName'] = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $row['TagName'] );
+   $row['TagName'] = eregi_replace($tok, "<em>\\0</em>", $row['TagName'] );
 }
 
 # If the content of the matching tag itself is longer than the maximum
