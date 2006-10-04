@@ -278,9 +278,9 @@ function tokenizeQuery($queryString)
         $queryTokens = tokenizeQuery( $_GET['queryTerms'] );
         foreach( $queryTokens as $tok )
         {
+		$tok = str_replace("(","\(",$tok);
                 # Case insensitive matching of query keywords
-                $body = ereg_replace( sql_regcase($tok),
-                "<em>\\0</em>", $body );
+                $body = eregi_replace($tok, "<em>\\0</em>", $body );
         }
 
 
