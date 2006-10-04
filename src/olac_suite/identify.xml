@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+         http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+
+<responseDate/>
+<request/>
+
+<Identify>
+  <repositoryName>OLAC Aggregator</repositoryName>
+  <baseURL/>
+  <protocolVersion>2.0</protocolVersion>
+  <adminEmail>mailto:haejoong@ldc.upenn.edu</adminEmail>
+  <earliestDatestamp></earliestDatestamp>
+  <deletedRecord>transient</deletedRecord>
+  <granularity>YYYY-MM-DD</granularity>
+  <!-- maybe later
+  <compression>identity</compression>
+  -->
+
+  <description>
+    <oai-identifier
+      xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier
+      http://www.openarchives.org/OAI/2.0/oai-identifier.xsd">
+
+      <scheme>oai</scheme>
+      <repositoryIdentifier>OLACA.language-archives.org</repositoryIdentifier>
+      <delimiter>:</delimiter>
+      <sampleIdentifier>oai:ldc.upenn.edu:LDC93S1</sampleIdentifier>
+    </oai-identifier>
+  </description>
+  <description>
+    <olac-archive type="institutional"
+      xmlns="http://www.language-archives.org/OLAC/1.0/olac-archive"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.language-archives.org/OLAC/1.0/olac-archive
+      http://www.language-archives.org/OLAC/1.0/olac-archive.xsd">
+
+      <archiveURL>http://www.language-archives.org:8082/dp9/</archiveURL>
+      <curator>Steven Bird &amp; Gary Simons</curator>
+      <curatorTitle>Coordinators</curatorTitle>
+      <curatorEmail>mailto:olac-admin@language-archives.org</curatorEmail>
+      <institution>Open Language Archives Community</institution>
+      <institutionURL>http://www.language-archives.org/</institutionURL>
+      <location/>
+      <synopsis>This repository contains all records from OLAC-registered
+        archives.  It is intended to be used by services which do not want
+        to harvest individual OLAC archives.</synopsis>
+      <access>Metadata may be used only subject to the access permissions given by the individual archives.</access>
+    </olac-archive>
+  </description>
+</Identify>
+
+</OAI-PMH>

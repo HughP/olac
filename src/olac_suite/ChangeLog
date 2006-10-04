@@ -1,0 +1,29 @@
+2004-12-02  Haejoong Lee  <haejoong@ldc.upenn.edu>
+
+	* releasing olac_suite 0.9b (bug-fix release)
+	* initdb.pl doesn't populate Extension tables anymore.
+	  populate_ext.sql and populate_ext_sqls.py should be used
+	* added two clean-up utilities: cleanup.pl, archive_clean.pl
+
+2003-03-12  Haejoong Lee  <haejoong@ldc.upenn.edu>
+
+	* Harvester.pm, ovester.pl, README: purge() fix. Archives should be
+	identified by a pair of	repositoryIdentifier and baseURL.  Archives
+	in the database are purged if their (repositoryIdentifier,baseURL)
+	pair is not in the given archive list.
+	
+2003-03-06  Haejoong Lee  <haejoong@ldc.upenn.edu>
+
+	* identify.xml: admin@language-archives.org --> olac-admin@...
+	* ovester.pl: fetch
+	http://www.language-archives.org/register/archive_list.php4
+	instead of
+	http://www.language-archives.org/register/ archive_list-OLAC1.0.php4
+	for a archives list
+
+2003-03-06  Haejoong Lee  <haejoong@ldc.upenn.edu>
+
+	* first release after migration to OAI 2.0 / OLAC 1.0.
+	* ovester has been rewritten (without Hussein's OAI harvester module)
+
+
