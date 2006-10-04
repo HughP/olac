@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<archives number="31">
+<archive id="acl.sr.language-archives.org" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/acl.xml"/>
+<archive id="ailla.utexas.edu" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/ailla.xml"/>
+<archive id="archives.anlc.uaf.edu" baseURL="http://www.language-archives.org/sr/archives.anlc.uaf.edu/olac/anlc.xml"/>
+<archive id="aseda.aiatsis.gov.au" baseURL="http://www.language-archives.org/sr/coombs.anu.edu.au/SpecialProj/ASEDA/ASEDAsr.xml"/>
+<archive id="atilf.inalf.fr" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/atilf.xml"/>
+<archive id="childes.psy.cmu.edu" baseURL="http://www.language-archives.org/sr/childes.psy.cmu.edu/childes.xml"/>
+<archive id="clal.cornell.edu" baseURL="http://www.language-archives.org/sr/metadata-wg.mannlib.cornell.edu/clal.xml"/>
+<archive id="dfki.de" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/dfki.xml"/>
+<archive id="EarlyMandarin.sinica.edu.tw" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/EarlyMandarin.xml"/>
+<archive id="elra.icp.inpg.fr" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/elra.xml"/>
+<archive id="ethnologue.com" baseURL="http://www.ethnologue.com/oai2.asp"/>
+<archive id="Formosan.sinica.edu.tw" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/Formosan.xml"/>
+<archive id="kayardild.lt.cs.mu.oz.au" baseURL="http://www.language-archives.org/sr/www.cs.mu.oz.au/research/lt/projects/kayardild/gyd-olac-records.xml"/>
+<archive id="Krebs.linguistlist.org" baseURL="http://www.language-archives.org/sr/victoria.linguistlist.org/php4/ore/XMLnamespacefiles/Krebs/Krebs.xml"/>
+<archive id="lacito.archivage.vjf.cnrs.fr" baseURL="http://lacito.archivage.vjf.cnrs.fr/servlet/metadata"/>
+<archive id="langdoc.uni-bielefeld.de" baseURL="http://www.language-archives.org/sr/www.spectrum.uni-bielefeld.de/langdoc/olac.xml"/>
+<archive id="linguistlist.org" baseURL="http://cf.linguistlist.org/cfdocs/new-website/olac/metadata-catalog.cfm"/>
+<archive id="ota.ahds.ac.uk" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/ota.xml"/>
+<archive id="paradisec.org.au" baseURL="http://www.language-archives.org/sr/paradisec.org.au/PDSCsr.xml"/>
+<archive id="perseus.tufts.edu" baseURL="http://www.perseus.tufts.edu/cgi-bin/pdataprov"/>
+<archive id="rosettaproject.longnow.org" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/rosetta.xml"/>
+<archive id="scoil.linguistics.berkeley.edu" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/scoil.xml"/>
+<archive id="sil.org" baseURL="http://www.ethnologue.com/sil_archives2.asp"/>
+<archive id="SinicaCorpus.sinica.edu.tw" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/SinicaCorpus.xml"/>
+<archive id="surrey.smg.surrey.ac.uk" baseURL="http://www.language-archives.org/sr/www.surrey.ac.uk/LIS/MB/metadata.xml"/>
+<archive id="TalkBank.cmu.edu" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/talkbank.xml"/>
+<archive id="TDProject.sr.language-archives.org" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/tdproject.xml"/>
+<archive id="THDL.virginia.edu" baseURL="http://www.language-archives.org/sr/www.language-archives.org/devel/sr/thdl-olac.xml"/>
+<archive id="tractor.de" baseURL="http://www.language-archives.org/sr/ota.ahds.ac.uk/olac/tractor.xml"/>
+<archive id="uqflint.uq.edu.au" baseURL="http://www.language-archives.org/sr/www.e-ling.org/olac/repositories/sr/uqflint.xml"/>
+<archive id="www.ldc.upenn.edu" baseURL="http://www.language-archives.org/sr/www.ldc.upenn.edu/Projects/OLAC/corpus_table.xml"/>
+</archives>
