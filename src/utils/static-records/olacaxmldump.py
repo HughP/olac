@@ -24,6 +24,13 @@ and this turned out to be very quick, therefore making the server less busy.
 This program replaces both old olacaxmldump.py and gensrec.py.  The old
 olacaxmldump.py queried OLACA to get ListRecords response and used
 gensrec.py to generate static pages.
+
+TODO:
+
+- Significant speedup should be possible by doing incremental update.
+  In this case, sqlite may not be necessary.  Handling deleted records
+  is an issue, though. 
+
 """
 
 import os
