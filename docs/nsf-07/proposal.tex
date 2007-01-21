@@ -1,0 +1,39 @@
+\documentclass[11pt]{nsf}
+\usepackage{natbib,epsfig,fancyheadings,url,daytime,enumitem}
+\bibliographystyle{apalike}
+
+\def\UrlFont{\small\tt}
+\def\figwidth{0.92\linewidth}
+\def\todo#1{\textbf{\itshape\large#1}}
+
+\pagestyle{fancy}
+\setlength{\headrulewidth}{0pt}
+\lhead{}\chead{}\rhead{}
+\lfoot{\it Liberman, Simons, Bird: OLAC}
+\cfoot{\it\thepage}
+\rfoot{\it July, 2006}
+% \rfoot{\it \it Draft: \daytime, \today}
+\def\smtt#1{{\small\tt #1}}
+\def\note#1{{\bf #1}}
+\newenvironment{sv}{\scriptsize\begin{alltt}}{\end{alltt}\normalsize}
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Large
+    OLAC: Accessing the World's Language Resources
+  }
+\end{center}
+
+\input{background}
+\input{method}
+
+\vfil\pagebreak
+
+\raggedright\small
+\pagestyle{fancy}
+\setcounter{page}{1}
+\bibliography{general}
+
+\end{document}
+

@@ -1,0 +1,191 @@
+\section{Methods and Workplan}
+
+The discussion of methods and workplan is organized according to
+the two major objectives listed in the introduction.
+Each objective is in turn elucidated in terms of three outcomes
+(as listed at the conclusion of each of the preceding subsections).
+The basic plan is that outcomes 1.1 and 2.1 will be pursued
+during year 1; outcomes 1.2 and 2.2 during year 2;
+and outcomes 1.3 and 2.3 during year 3.
+The following discussion fleshes out the six outcomes in terms of the
+tasks that must be performed in order to achieve them. The allocation of activities to project
+personnel is discussed in the budget justification.
+
+
+\subsection*{Objective 1: Access to Language Resources in Archives}
+
+\emph{Develop guidelines and services that encourage best common
+    practices among language archives that will 
+    facilitate language resource discovery with precision through OLAC.}
+
+\def\task{1.1}
+\paragraph{Outcome {\task}: All OLAC repositories should have up-to-date catalogs
+      that contain metadata conforming to best practice.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Best practice document:}
+  Prepare and adopt an OLAC recommendation on metadata best practice,
+  adapting the DC Usage Guidelines and fleshing out published recommendations
+  \citep{BirdSimons03language,Simons06}.
+\item \emph{Score cards:}
+  Update the automated score card system that reports on the quality
+  of metadata records to conform to the adopted recommendations.
+\item \emph{Metadata quality:}
+  Identify low-scoring archives and work with them to
+  improve the quality of their metadata, particularly the
+  use of OLAC vocabularies. 
+  Develop an OLAC metadata usage note based on this experience.
+\item \emph{Updating archives:}
+  Identify OLAC archives whose metadata records have gone stale,
+  and work with them to bring their catalogs up-to-date and to
+  set up automatic processes to expose their live catalogs.
+\item \emph{Quarterly reporting:}
+  Develop an automated quarterly report to be emailed to curators to 
+  remind them about the quality and currency of their metadata, and to
+  inform them of statistics concerning queries on their archives.
+\item \emph{Metrics:}
+  Develop metrics for monitoring the size, coverage, and use of the 
+  complete OLAC metadata catalog, and implement such reporting on the web site.
+
+\end{enumerate}
+
+\def\task{1.2}
+\paragraph{Outcome {\task}: All major language archives should be participating in OLAC.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Non-participating archives:}
+  Compile a list of all known non-participating language archives.
+\item \emph{Collaboration:}
+  Contact all identified archives and consult with them to develop best
+  strategy for generating their metadata.
+\item \emph{Scraping:}
+  Do automatic scraping of the HTML metadata already published on
+  archive sites and perform a quick low-accuracy conversion to OLAC
+  metadata in order to show archivists their search results coming up
+  in user queries; use this to show archivists the value of mapping their
+  terms to OLAC terms and publishing OLAC metadata in order to
+  improve precision and recall.
+\item \emph{OLAC export:}
+  Work with these archives to expose their catalog in OLAC format.
+\item \emph{Repository editor:}
+  Configure an open source XML editor (like XMLmind) to create a static repository editor
+  suitable for use by small archives.
+\end{enumerate}
+
+\def\task{1.3}
+\paragraph{Outcome {\task}: All OLAC repositories should conform to current best practices
+      for the long-term curation of their holdings.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Recommendation:}
+  Prepare and adopt an OLAC recommendation document on 
+  best practices for the long-term curation of language archive holdings.
+\item \emph{Archive categories:}
+  Refine the {\tt <olac-archive>} description to include
+  more fine-grained categorization of participating archives.
+  Categories should be based on published criteria (in the OAIS reference model)
+  and assignment of categories should be vetted by OLAC.
+\item \emph{Score cards:}
+  Incorporate these criteria into the automated score cards.
+  Generalize the score card mechanism to facilitate the addition
+  of new measures over time (as best practices evolve).
+\end{enumerate}
+
+\subsection*{Objective 2: Access to Language Resources on the Web}
+
+\emph{Develop services to bridge the resource catalogs of the
+  repository, library, and web domains (OAI, MARC, Google)
+  to facilitate language resource discovery with precision through OLAC.}
+
+\def\task{2.1}
+\paragraph{Outcome {\task}:  All repository and library holdings relevant to language
+   documentation should be indexed in OLAC, by
+   crosswalking and enriching existing catalog records.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Language identification:}
+  Develop an automated procedure for finding
+  language identification in a catalog record and translating it to an
+  appropriate ISO 639-3 code.
+\item \emph{Data type identification:}
+  Develop an automated procedure for finding
+  linguistic data type information in a catalog record and translating
+  it to an appropriate OLAC linguistic data type code.
+\item \emph{OAI Crosswalk:}
+  Develop an OLAC data provider that harvests from the
+  leading OAI aggregator and serves up all records that are determined to
+  be language resources with the metadata enriched for precise
+  identification of language and linguistic data type (primary text vs
+  lexicon vs linguistic description).
+\item \emph{Z39.50 Crosswalk:}
+  Develop an OLAC data provider that harvests from one or more
+  Z39.50 gateways (e.g.~using JZKit), eliminates duplicates,
+  applies the MARC to DC crosswalk\footnote{\scriptsize\url{http://www.loc.gov/marc/marc2dc.html}},
+  and serves up all records that are determined to
+  be language resources with the metadata enriched for precise
+  identification of language and linguistic data type.
+\end{enumerate}
+
+% JZKit:
+% Ian Ibbotson is the contact:
+% http://www.loc.gov/z3950/agency/resources/software.html
+
+\def\task{2.2}
+\paragraph{Outcome {\task}: Low density language materials identified by
+  linguistic web mining should be reliably categorized with OLAC vocabularies.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Language identification:}
+  Develop an automated procedure for finding
+  low-density language identification from an arbitrary web document,
+  (e.g.~using character encodings, keywords,
+  n-gram signatures, anchor text, and place-name references)
+  and translating this to an appropriate ISO 639-3 code.
+\item \emph{Data type identification:}
+  Develop an automated procedure for identifying
+  the linguistic data type of an arbitrary web document
+  (e.g.~using Bayesian classifiers trained on existing metadata records)
+  and translating this to an appropriate OLAC linguistic data type code.
+\item \emph{Web mining:}
+  Generate OLAC metadata records for low-density
+  language resources discovered by linguistic web-mining projects,
+  such as Hughes' collection of 600,000 low-density language URLs.
+\end{enumerate}
+
+% \item modify OLAC search to group results by item not by location
+
+\def\task{2.3}
+\paragraph{Outcome {\task}: Web search engines should index all OLAC records,
+      so that users who discover language resources using a web search
+      quickly find OLAC records and are drawn to the OLAC site for
+      more precise searching.}
+
+\begin{enumerate}[label=\emph{\task\alph*}]\setlength{\itemsep}{0pt}
+\item \emph{Static HTML:}
+  Generate a static HTML page for each OLAC metadata record, by adding
+  a new module to the OLAC harvester.
+\item \emph{Synonyms:}
+  Add synonyms for all identified linguistic terminology to static HTML pages,
+  so that these pages are more likely to be found in conventional web searches.
+\item \emph{Embedded queries:}
+  Enrich static pages with OLAC query links, so that users who discover
+  OLAC records via a Google search result are encouraged to remain on the
+  OLAC site for more precise searching.
+\end{enumerate}
+
+\section{Dissemination Plans}
+\label{sec:dissemination}
+
+We will present the results of our research at major international
+conferences in linguistics, computational linguistics, and
+digital libraries, and submit extended discussions of the research to
+leading journals.  The results of our research will also be deployed
+on the OLAC web site as they come into existence. In this way the
+results will be put into action immediately by the institutions
+who are contributing their resources to the OLAC catalog and by 
+individuals who are using the OLAC search services to find them.
+All tools and data created by the project will be
+disseminated with open source and open content licenses.
+We will make occasional use of LanguageLog, when appropriate, to
+disseminate information of broader interest that is discovered using
+OLAC search services.
