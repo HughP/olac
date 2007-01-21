@@ -1,0 +1,333 @@
+\begin{thebibliography}{}
+
+\bibitem[Baldwin et~al., 2006]{BaldwinBird06}
+Baldwin, T., Bird, S., and Hughes, B. (2006).
+\newblock Collecting low-density language materials on the web.
+\newblock In {\em Proceedings of the 12th Australasian Web Conference}.
+  Southern Cross University.
+
+\bibitem[Bird, 2003a]{Bird03paradigms}
+Bird, S., editor (2003a).
+\newblock {\em Grassfields Bantu Fieldwork: Dschang Tone Paradigms}.
+\newblock Linguistic Data Consortium.
+\newblock
+  \url{http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC2003S02},
+  ISBN 1-58563-254-6.
+
+\bibitem[Bird, 2003b]{Bird03ngomba}
+Bird, S., editor (2003b).
+\newblock {\em Grassfields Bantu Fieldwork: Ngomba Tone Paradigms}.
+\newblock Linguistic Data Consortium.
+\newblock
+  \url{http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC2001S16},
+  ISBN 1-58563-216-3.
+
+\bibitem[Bird and Bell, 2001]{BirdBell01}
+Bird, S. and Bell, J., editors (2001).
+\newblock {\em Grassfields Bantu Fieldwork: Ngomba Tone Paradigms}.
+\newblock Linguistic Data Consortium.
+\newblock
+  \url{http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC2001S16},
+  ISBN 1-58563-216-3.
+
+\bibitem[Bird et~al., 2001a]{BirdBuneman01}
+Bird, S., Buneman, P., and Liberman, M., editors (2001a).
+\newblock {\em Proceedings of the IRCS Workshop on Linguistic Databases}.
+\newblock \url{http://www.ldc.upenn.edu/annotation/database/}.
+
+\bibitem[Bird et~al., 2000a]{BirdBunemanTan00}
+Bird, S., Buneman, P., and Tan, W.-C. (2000a).
+\newblock Towards a query language for annotation graphs.
+\newblock In {\em Proceedings of the Second International Conference on
+  Language Resources and Evaluation}, pages 807--814. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0007023}.
+
+\bibitem[Bird et~al., 2005]{Bird05planx}
+Bird, S., Chen, Y., Davidson, S.~B., Lee, H., and Zheng, Y. (2005).
+\newblock Extending {XPath} to support linguistic queries.
+\newblock In {\em Programming Language Technologies for {XML} (PLANX)}, pages
+  35--46.
+\newblock \url{http://eprints.unimelb.edu.au/archive/00001451/}.
+
+\bibitem[Bird et~al., 2006]{Bird06icde}
+Bird, S., Chen, Y., Davidson, S.~B., Lee, H., and Zheng, Y. (2006).
+\newblock Designing and evaluating an {XPath} dialect for linguistic queries.
+\newblock In {\em 22nd International Conference on Data Engineering}, pages
+  52--61.
+\newblock \url{http://eprints.unimelb.edu.au/archive/00001455/}.
+
+\bibitem[Bird et~al., 2000b]{ATLAS00}
+Bird, S., Day, D., Garofolo, J., Henderson, J., Laprun, C., and Liberman, M.
+  (2000b).
+\newblock {ATLAS}: A flexible and extensible architecture for linguistic
+  annotation.
+\newblock In {\em Proceedings of the Second International Conference on
+  Language Resources and Evaluation}. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0007022}.
+
+\bibitem[Bird and Harrington, 2001]{BirdHarrington01}
+Bird, S. and Harrington, J., editors (2001).
+\newblock {\em Speech Communication: Special Issue on Speech Annotation and
+  Corpus Tools}, volume 33 (1--2).
+\newblock Elsevier.
+
+\bibitem[Bird and Liberman, 2001]{BirdLiberman01}
+Bird, S. and Liberman, M. (2001).
+\newblock A formal framework for linguistic annotation.
+\newblock {\em Speech Communication}, 33:23--60.
+\newblock \url{http://arxiv.org/abs/cs/0010033}.
+
+\bibitem[Bird et~al., 2001b]{Bird01acl}
+Bird, S., Maeda, K., Ma, X., and Lee, H. (2001b).
+\newblock Annotation tools based on the annotation graph api.
+\newblock In {\em Proceedings of ACL/EACL Workshop on Sharing Tools and
+  Resources for Research and Education}.
+
+\bibitem[Bird et~al., 2002]{BirdMaeda02}
+Bird, S., Maeda, K., Ma, X., Lee, H., Randall, B., and Zayat, S. (2002).
+\newblock {TableTrans, MultiTrans, InterTrans and TreeTrans}: Diverse tools
+  built on the annotation graph toolkit.
+\newblock In {\em Proceedings of the Third International Conference on Language
+  Resources and Evaluation}, pages 364--370. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0204006}.
+
+\bibitem[Bird and Simons, 2000a]{BirdSimons00}
+Bird, S. and Simons, G., editors (2000a).
+\newblock {\em Proceedings of the Workshop on Web-Based Language Documentation
+  and Description}.
+\newblock \url{http://www.ldc.upenn.edu/exploration/expl2000/}.
+
+\bibitem[Bird and Simons, 2000b]{BirdSimons00survey}
+Bird, S. and Simons, G. (2000b).
+\newblock A survey of the state of the art in digital language documentation
+  and description.
+\newblock \url{http://www.language-archives.org/docs/survey.html}.
+
+\bibitem[Bird and Simons, 2001]{BirdSimons01}
+Bird, S. and Simons, G. (2001).
+\newblock The {OLAC} metadata set and controlled vocabularies.
+\newblock In {\em Proceedings of ACL/EACL Workshop on Sharing Tools and
+  Resources for Research and Education}.
+\newblock \url{http://arXiv.org/abs/cs/0105030}.
+
+\bibitem[Bird and Simons, 2002]{BirdSimons02workshop}
+Bird, S. and Simons, G., editors (2002).
+\newblock {\em Proceedings of the IRCS Workshop on Open Language Archives}.
+\newblock \url{http://www.language-archives.org/events/olac02/}.
+
+\bibitem[Bird and Simons, 2003a]{BirdSimons03chum}
+Bird, S. and Simons, G. (2003a).
+\newblock Extending {Dublin Core} metadata to support the description and
+  discovery of language resources.
+\newblock {\em Computers and the Humanities}, 37:375--388.
+\newblock \url{http://arxiv.org/abs/cs.CL/0308022}.
+
+\bibitem[Bird and Simons, 2003b]{BirdSimons03language}
+Bird, S. and Simons, G. (2003b).
+\newblock Seven dimensions of portability for language documentation and
+  description.
+\newblock {\em Language}, 79:557--82.
+
+\bibitem[Bird and Simons, 2004]{BirdSimons04metadata}
+Bird, S. and Simons, G. (2004).
+\newblock Building an {Open Language Archives Community} on the {DC}
+  foundation.
+\newblock In Hillmann, D. and Westbrooks, E., editors, {\em Metadata in
+  Practice: a work in progress}. Chicago: ALA Editions.
+
+\bibitem[Bird and Tadadjeu, 1997]{BirdTadadjeu97}
+Bird, S. and Tadadjeu, M. (1997).
+\newblock {\em Petit Dictionnaire {Y\'emba-Fran\c{c}ais} ({Dschang-French}
+  Dictionary)}.
+\newblock Cameroon: ANACLAC.
+
+\bibitem[Brogan, 2004]{Brogan04}
+Brogan, M.~L. (2004).
+\newblock A survey of digital library aggregation services.
+\newblock \url{http://www.diglib.org/pubs/brogan/}.
+
+\bibitem[CCSDS, 2002]{OAIS02}
+CCSDS (2002).
+\newblock {\em Reference Model for an Open Archival Information System (OAIS):
+  Blue Book}.
+\newblock NASA Consultative Committee for Space Data Systems.
+\newblock \url{http://public.ccsds.org/publications/archive/650x0b1.pdf}.
+
+\bibitem[Cieri and Bird, 2001]{CieriBird01}
+Cieri, C. and Bird, S. (2001).
+\newblock Annotation graphs and servers and multi-modal resources:
+  Infrastructure for interdisciplinary education, research and development.
+\newblock In {\em Proceedings of ACL/EACL Workshop on Sharing Tools and
+  Resources}, pages 23--30. Somerset, NJ: Association for Computational
+  Linguistics.
+
+\bibitem[Cotton and Bird, 2002]{CottonBird02}
+Cotton, S. and Bird, S. (2002).
+\newblock An integrated framework for treebanks and multilayer annotations.
+\newblock In {\em Proceedings of the Third International Conference on Language
+  Resources and Evaluation}, pages 1670--1677. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0204007}.
+
+\bibitem[Graff and Bird, 2000]{GraffBird00}
+Graff, D. and Bird, S. (2000).
+\newblock Many uses, many annotations for large speech corpora: Switchboard and
+  {TDT} as case studies.
+\newblock In {\em Proceedings of the Second International Conference on
+  Language Resources and Evaluation}. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0007024}.
+
+\bibitem[Hughes, 2006]{Hughes06lrec}
+Hughes, B. (2006).
+\newblock Searching for language resources on the web: User behaviour in the
+  {Open Language Archives Community}.
+\newblock In {\em Proceedings of the 5th International Conference on Language
+  Resources and Evaluation}, pages 601--604. Paris: European Language Resources
+  Association.
+
+\bibitem[Hughes et~al., 2006]{HughesBaldwin06lrec}
+Hughes, B., Baldwin, T., Bird, S., Nicholson, J., and MacKinlay, A. (2006).
+\newblock Reconsidering language identification for written language resources.
+\newblock In {\em Proceedings of the 5th International Conference on Language
+  Resources and Evaluation}, pages 485--488. Paris: European Language Resources
+  Association.
+
+\bibitem[Hughes and Kamat, 2005]{HughesKamat05}
+Hughes, B. and Kamat, A. (2005).
+\newblock A metadata search engine for digital language archives.
+\newblock {\em DLib Magazine}, 11(2).
+
+\bibitem[{ISO}, 1998]{ISO639-2}
+{ISO} (1998).
+\newblock {ISO} 639-2: Codes for the representation of names of languages-part
+  2: Alpha-3 code.
+\newblock \url{http://lcweb.loc.gov/standards/iso639-2/langhome.html}.
+
+\bibitem[{ISO}, 2006]{ISO639-3}
+{ISO} (2006).
+\newblock {ISO} 639-3: Codes for the representation of names of languages -
+  part 3: Alpha-3 code for comprehensive coverage of languages.
+\newblock \url{http://www.sil.org/iso639-3/}.
+
+\bibitem[Koehler, 2002]{Koehler02}
+Koehler, W. (2002).
+\newblock Web page change and persistence---a four-year longitudinal study.
+\newblock {\em Journal of the American Society for Information Science and
+  Technology}, 53:162--171.
+\newblock
+  \url{http://portal.acm.org/citation.cfm?id=506072.506080&coll=ACM&dl=ACM&CFI%
+D=77507462&CFTOKEN=24608581}.
+
+\bibitem[Lai and Bird, 2004]{LaiBird04}
+Lai, C. and Bird, S. (2004).
+\newblock Querying and updating treebanks: A critical survey and requirements
+  analysis.
+\newblock In {\em Proceedings of the Australasian Language Technology
+  Workshop}, pages 139--146.
+\newblock \url{http://eprints.unimelb.edu.au/archive/00000774/}.
+
+\bibitem[Langendoen et~al., 2002]{Langendoen02}
+Langendoen, D.~T., Farrar, S., and Lewis, W.~D. (2002).
+\newblock Bridging the markup gap: smart search engines for language
+  researchers.
+\newblock In {\em Proceedings of the International Workshop on Resources and
+  Tools in Field Linguistics}. Paris: ELRA.
+\newblock \url{http://faculty.washington.edu/wlewis2/papers/LangFarLew02.pdf}.
+
+\bibitem[Lewis, 2003]{Lewis03}
+Lewis, W.~D. (2003).
+\newblock Mining and migrating interlinear glossed text.
+\newblock In {\em Proceedings of the EMELD Workshop on Digitizing and
+  Annotating Texts and Field Recordings}.
+\newblock \url{http://emeld.org/workshop/2003/Lewis-paper.pdf}.
+
+\bibitem[Ma et~al., 2002]{MaLee02}
+Ma, X., Lee, H., Bird, S., and Maeda, K. (2002).
+\newblock Models and tools for collaborative annotation.
+\newblock In {\em Proceedings of the Third International Conference on Language
+  Resources and Evaluation}, pages 2066--2073. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0204004}.
+
+\bibitem[Maeda and Bird, 2000]{MaedaBird00}
+Maeda, K. and Bird, S. (2000).
+\newblock A formal framework for interlinear text.
+\newblock In Bird, S. and Simons, G., editors, {\em Proceedings of the Workshop
+  on Web-Based Language Documentation and Description}.
+\newblock \url{http://www.ldc.upenn.edu/exploration/expl2000/papers/}.
+
+\bibitem[Maeda et~al., 2002]{MaedaBird02}
+Maeda, K., Bird, S., Ma, X., and Lee, H. (2002).
+\newblock Creating annotation tools with the annotation graph toolkit.
+\newblock In {\em Proceedings of the Third International Conference on Language
+  Resources and Evaluation}, pages 1914--1921. Paris: ELRA.
+\newblock \url{http://arXiv.org/abs/cs/0204005}.
+
+\bibitem[{NISO}, 2003]{Z3950}
+{NISO} (2003).
+\newblock Information retrieval (z39.50): Application service definition and
+  protocol specification.
+\newblock \url{http://www.loc.gov/z3950/agency/Z39-50-2003.pdf}.
+
+\bibitem[Simons, 2002]{Simons02query}
+Simons, G. (2002).
+\newblock A query facility for selective harvesting of {OLAC} metadata.
+\newblock \url{http://www.language-archives.org/NOTE/query.html}.
+
+\bibitem[Simons, 2003]{Simons03display}
+Simons, G. (2003).
+\newblock Specifications for an {OLAC} metadata display format and an
+  {OLAC-to-OAI\_DC} crosswalk.
+\newblock \url{http://www.language-archives.org/NOTE/olac_display.html}.
+
+\bibitem[Simons, 2006]{Simons06}
+Simons, G. (2006).
+\newblock Ensuring that digital data last: The priority of archival form over
+  working form and presentation form.
+\newblock SIL Electronic Working Papers 2006-003, SIL International.
+\newblock An expanded version of a paper originally presented at the: EMELD
+  Symposium on Endangered Data vs. Enduring Practice, Linguistic Society of
+  America annual meeting, 8--11 January 2004, Boston, MA,
+  \url{http://www.sil.org/silewp/abstract.asp?ref=2006-003}.
+
+\bibitem[Simons and Bird, 2002]{OLAC-Process}
+Simons, G. and Bird, S. (2002).
+\newblock {OLAC} process.
+\newblock \url{http://www.language-archives.org/OLAC/process.html}.
+
+\bibitem[Simons and Bird, 2003a]{SimonsBird03lht}
+Simons, G. and Bird, S. (2003a).
+\newblock Building an {Open Language Archives Community} on the {OAI}
+  foundation.
+\newblock {\em Library Hi Tech}, 21:210--218.
+\newblock \url{http://www.arxiv.org/abs/cs.CL/0302021}.
+
+\bibitem[Simons and Bird, 2003b]{SimonsBird03llc}
+Simons, G. and Bird, S. (2003b).
+\newblock The {Open Language Archives Community}: An infrastructure for
+  distributed archiving of language resources.
+\newblock {\em Literary and Linguistic Computing}, 18:117--128.
+
+\bibitem[Simons et~al., 2004a]{SimonsEtal04text}
+Simons, G., Fitzsimons, B., Langendoen, D.~T., Lewis, W., Farrar, S., Lanham,
+  A., Basham, R., and Gonzalez, H. (2004a).
+\newblock A model for interoperability: Xml documents as an rdf database.
+\newblock In {\em Proceedings of the EMELD Workshop on Linguistic Databases and
+  Best Practice, 15-18 July 2004, Detroit, MI}.
+\newblock \url{http://emeld.org/workshop/2004/simons-paper.pdf}.
+
+\bibitem[Simons et~al., 2004b]{SimonsEtal04lex}
+Simons, G., Lewis, W., Farrar, S., Langendoen, D.~T., Fitzsimons, B., and
+  Gonzalez, H. (2004b).
+\newblock The semantics of markup: Mapping legacy markup schemas to a common
+  semantics.
+\newblock In Wilcock, G., Ide, N., and Romary, L., editors, {\em Proceedings of
+  the 4th workshop on NLP and XML (NLPXML-2004)}, pages 25--32. Association for
+  Computational Linguistics.
+\newblock \url{http://emeld.org/documents/SOMFinal1col.pdf}.
+
+\bibitem[{US Library of Congress}, 2000]{MARC}
+{US Library of Congress} (2000).
+\newblock {MARC} 21: Specifications for record structure, character sets, and
+  exchange media.
+\newblock \url{http://lcweb.loc.gov/marc/specifications/}.
+
+\end{thebibliography}
