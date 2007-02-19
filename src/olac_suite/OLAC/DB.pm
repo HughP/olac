@@ -34,7 +34,7 @@ sub _connect {
 	my $user = <FH>;   OLAC::Utils::trim $user;
 	my $pass = <FH>;   OLAC::Utils::trim $pass;
 	$self->{dbh} = DBI->connect("dbi:mysql:$dbname", $user, $pass,
-				    {PrintError=>0, AutoCommit=>1});
+				    {PrintError=>1, AutoCommit=>1});
 	if (DBI->errstr) {
 	    $self->{err} = OLAC::Error->new
 		('db error', "can't connect", DBI->errstr);
@@ -349,13 +349,14 @@ sub getTable_GetRecord {
     my $metadata;
 
     $metadata = $self->{dbh}->selectall_arrayref
-	("select TagName,Lang,Content,me.Extension_ID,cd.Code, " .
-	 "       ex.Label,cd.Label " .
-	 "from METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd " .
-	 "where Item_ID='$archived_item->{Item_ID}' " .
-	 "and me.Extension_ID=ex.Extension_ID " .
-	 "and me.Extension_ID=cd.Extension_ID " .
-	 "and (cd.Code='' or me.Code=cd.Code) ");
+	("
+select TagName,Lang,Content,me.Extension_ID,cd.Code,
+       ex.Label,cd.Label
+from METADATA_ELEM me
+     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+where Item_ID='$archived_item->{Item_ID}'
+	");
 
     return ($header, $metadata);
 }
@@ -443,25 +444,27 @@ sub getTable_ListRecords {
     #####
     # prepare query for $meta
     $query = "
-select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
-       ex.Label, cd.Label, Item_ID
-from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
-where  me.Extension_ID=ex.Extension_ID
-and    me.Extension_ID=cd.Extension_ID
-and    (cd.Code='' or me.Code=cd.Code) ";
+select TagName,Lang,Content,me.Extension_ID,cd.Code,
+       ex.Label,cd.Label, Item_ID
+from METADATA_ELEM me
+     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
 
+    $conj = "where";
     if ($request->{next}) {
 	my $first = $header->[0]->[2];
 	my $last = $header->[199]->[2];
-	$query .= "and Item_ID >= $first and Item_ID <= $last ";
+	$query .= "$conj Item_ID >= $first and Item_ID <= $last ";
+        $conj = "and";
     }
     if ($request->{from}) {
 	$f = "DateStamp >= '$request->{from}'";
-	$query .= "and $f ";
+	$query .= "$conj $f ";
+        $conj = "and";
     }
     if ($request->{until}) {
 	$u = "DateStamp <= '$request->{until}'";
-	$query .= "and $u ";
+	$query .= "$conj $u ";
     }
     $query .= "order by Item_ID";
 
@@ -516,13 +519,12 @@ sub getTable_Query {
     foreach my $item (@$header) {
 	# prepare query for $meta
 	$query = "
-select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
-       ex.Label, cd.Label, Item_ID
-from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
-where  Item_ID=$item->[2]
-and    me.Extension_ID=ex.Extension_ID
-and    me.Extension_ID=cd.Extension_ID
-and    (cd.Code='' or me.Code=cd.Code) ";
+select TagName,Lang,Content,me.Extension_ID,cd.Code,
+       ex.Label,cd.Label
+from METADATA_ELEM me
+     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+where Item_ID=$item->[2]";
 
 	$meta1 = $self->{dbh}->selectall_arrayref($query);
 	push (@$meta, $meta1);
