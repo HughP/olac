@@ -215,7 +215,7 @@ var $maxUsageRank = 3;
 					# content is left blank
             (me.Code != '' and me.Extension_ID != 0) as codeExists
 
-            from METADATA_ELEM me, EXTENSION ex
+            from EXTENSION ex, METADATA_ELEM me
             LEFT OUTER JOIN CODE_DEFN cd
             on (cd.Extension_ID = me.Extension_ID
                 and me.Code = cd.Code)
