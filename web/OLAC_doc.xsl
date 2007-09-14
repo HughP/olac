@@ -3,7 +3,7 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 5 Apr 2006
+     Last modified: 12 Sept 2007
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -79,8 +79,8 @@
                   <xsl:for-each select="element">
                     <LI>
                       <A>
-                        <xsl:attribute name="href">#<xsl:value-of select="tag"/></xsl:attribute>
-                        <xsl:value-of select="tag"/>
+                        <xsl:attribute name="href">#<xsl:value-of select="@name"/></xsl:attribute>
+                        <xsl:value-of select="@name"/>
                       </A>
                     </LI>
                   </xsl:for-each>
@@ -444,19 +444,11 @@
   <xsl:template match="element">
     <h3>
       <A>
-        <xsl:attribute name="name"><xsl:value-of select="tag"/></xsl:attribute>
+        <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
       </A>
-      <xsl:value-of select="tag"/>
+      <xsl:value-of select="@name"/>
     </h3>
     <table width="95%" align="center" cellspacing="12">
-      <tr valign="top">
-        <td width="100">
-          <i>Name</i>
-        </td>
-        <td>
-          <xsl:value-of select="name"/>
-        </td>
-      </tr>
       <tr valign="top">
         <td width="100">
           <i>Definition</i>
@@ -465,38 +457,51 @@
           <xsl:value-of select="definition"/>
         </td>
       </tr>
-      <tr valign="top">
+       <tr valign="top">
+          <td width="100">
+             <i>Refinements</i>
+          </td>
+          <td>
+             <xsl:choose>
+                <xsl:when test="refinements">
+                   <xsl:apply-templates select="refinements/*"/>
+                </xsl:when>
+                <xsl:otherwise>
+                   <p>There are no refinements for this element.</p>
+                </xsl:otherwise>
+             </xsl:choose>
+          </td>
+       </tr>
+       <tr valign="top">
+          <td width="100">
+             <i>Schemes</i>
+          </td>
+          <td>
+             <xsl:choose>
+                <xsl:when test="schemes">
+                   <xsl:apply-templates select="schemes/*"/>
+                </xsl:when>
+                <xsl:otherwise>
+                   <p>There are no encoding schemes for this element.</p>
+                </xsl:otherwise>
+             </xsl:choose>
+          </td>
+       </tr>
+       <xsl:if test="bp">
+          <tr valign="top">
+          <td width="100">
+             <i>Best practices</i>
+          </td>
+          <td>
+                   <xsl:apply-templates select="bp/*"/>
+          </td>
+       </tr></xsl:if>
+       <tr valign="top">
         <td width="100">
-          <i>Comments</i>
+          <i>Usage Notes</i>
         </td>
         <td>
           <xsl:apply-templates select="comment/*"/>
-        </td>
-      </tr>
-      <tr valign="top">
-        <td width="100">
-          <i>Attributes</i>
-        </td>
-        <td>
-          <xsl:choose>
-            <xsl:when test="attributes">
-              <xsl:apply-templates select="attributes/*"/>
-              <p>
-                <xsl:text>Also  </xsl:text>
-                <i>lang</i>
-                <xsl:text> and  </xsl:text>
-                <i>scheme</i>
-                <xsl:text> (see section 2).  </xsl:text>
-              </p>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:text>Only  </xsl:text>
-              <i>lang</i>
-              <xsl:text> and  </xsl:text>
-              <i>scheme</i>
-              <xsl:text> (see section 2).  </xsl:text>
-            </xsl:otherwise>
-          </xsl:choose>
         </td>
       </tr>
       <tr valign="top">
@@ -777,6 +782,9 @@
       <xsl:apply-templates/>
     </pre>
   </xsl:template>
+   <xsl:template match="refinements/dl | schemes/dl">
+            <xsl:apply-templates select="self::dl" mode="table"/>
+   </xsl:template>
   <xsl:template match="dl">
     <blockquote>
       <dl>
@@ -793,20 +801,23 @@
   </xsl:template>
   <xsl:template match="dl[@style='table']">
     <blockquote>
-      <table cellpadding="4">
-        <xsl:for-each select="dt">
-          <tr valign="top">
-            <td>
-              <xsl:value-of select="."/>
-              <xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp;</xsl:text>
-            </td>
-            <td>
-              <xsl:apply-templates select="./following::dd[1]/*"/>
-            </td>
-          </tr>
-        </xsl:for-each>
-      </table>
+       <xsl:apply-templates select="self::dl" mode="table"/>
     </blockquote>
+  </xsl:template>
+   <xsl:template match="dl" mode="table">
+     <table cellpadding="4">
+        <xsl:for-each select="dt">
+           <tr valign="top">
+              <td>
+                 <xsl:value-of select="."/>
+                 <xsl:text disable-output-escaping="yes">&amp;nbsp;&amp;nbsp;</xsl:text>
+              </td>
+              <td>
+                 <xsl:apply-templates select="./following::dd[1]/*"/>
+              </td>
+           </tr>
+        </xsl:for-each>
+     </table>
   </xsl:template>
   <xsl:template match="*">
     <xsl:copy>
