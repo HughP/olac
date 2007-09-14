@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>Best Practice Recommendations for Language Resource
+         Description</TITLE>
+<meta name="Title" content="Best Practice Recommendations for Language Resource
+         Description">
+<meta name="Creator" content="Gary Simons, SIL International
+            (mailto:gary_simons@sil.org)Steven Bird,
+         University of Pennsylvania
+         (mailto:sb@ldc.upenn.edu)">
+<meta name="Description" content="This document expresses the consensus of the Open Language
+            Archives Community on best practice recommendations for
+            language resource description using the OLAC metadata standard
+         OLAC-Metadata.">
+<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta name="Date" content="20070904">
+<STYLE>
+          BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
+                              FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
+          H1    {FONT-SIZE: 24pt }
+          H2    {FONT-SIZE: 18pt }
+          H3    {FONT-SIZE: 16pt }
+
+        </STYLE>
+</HEAD>
+<BODY>
+<hr>
+<H1>Best Practice Recommendations for Language Resource
+         Description</H1>
+<table cellspacing="10">
+<tr valign="top">
+<th width="100" align="left">Date&nbsp;issued:</th>
+<td>2007-09-04</td>
+</tr>
+<tr valign="top">
+<th align="left">Status of document:</th>
+<td><i>Draft Recommendation. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
+</tr>
+<tr valign="top">
+<th align="left">This version:</th>
+<td><a href="http://www.language-archives.org/REC/bpr-20070904.html">http://www.language-archives.org/REC/bpr-20070904.html</a></td>
+</tr>
+<tr valign="top">
+<th align="left">Latest version:</th>
+<td><a href="http://www.language-archives.org/REC/bpr.html">http://www.language-archives.org/REC/bpr.html</a></td>
+</tr>
+<tr valign="top">
+<th align="left">Previous&nbsp;version:</th>
+<td>None.</td>
+</tr>
+<tr valign="top">
+<th align="left">Abstract:</th>
+<td>
+<p>This document expresses the consensus of the Open Language
+            Archives Community on best practice recommendations for
+            language resource description using the OLAC metadata standard
+         [<a href="#OLAC-Metadata">OLAC-Metadata</a>].</p>
+</td>
+</tr>
+<tr valign="top">
+<th align="left">Editors:</th>
+<td><editors>Gary Simons, SIL International
+            (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)<br>Steven Bird,
+         University of Pennsylvania
+         (<a href="mailto:sb@ldc.upenn.edu">mailto:sb@ldc.upenn.edu</a>)</editors></td>
+</tr>
+</table>
+<blockquote><small>Copyright © 2007 Gary Simons (SIL International) and Steven Bird
+         (University of Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small></blockquote>
+<hr>
+<h3>Table of contents</h3>
+<ol>
+<LI><A href="#Recommendations">Recommendations</A><UL>
+<LI><A href="#All elements">All elements</A></LI>
+<LI><A href="#Contributor, Creator, Publisher">Contributor, Creator, Publisher</A></LI>
+<LI><A href="#Date">Date</A></LI>
+<LI><A href="#Format">Format</A></LI>
+<LI><A href="#Format.markup">Format.markup</A></LI>
+<LI><A href="#Identifier">Identifier</A></LI>
+<LI><A href="#Language, Subject.language">Language, Subject.language</A></LI>
+<LI><A href="#Source">Source</A></LI>
+<LI><A href="#Subject">Subject</A></LI>
+<LI><A href="#Title">Title</A></LI>
+<LI><A href="#Type">Type</A></LI>
+<LI><A href="#Type.functionality">Type.functionality</A></LI>
+<LI><A href="#Type.linguistic">Type.linguistic</A></LI>
+</UL>
+</LI>
+</ol>
+<blockquote><a href="#References">References</a><br></blockquote>
+<hr>
+<body>
+<h2><A name="Recommendations"></A>1. Recommendations</h2>
+<p>This document lists the best practice recommendations for
+            individual metadata elements that are given within the
+            specification of the OLAC metadata set [<a href="#OLAC-MS">OLAC-MS</a>].
+            This list can be used as a checklist when evaluating a
+            particular OLAC metadata record for its conformance to
+            recommended best practice</p>
+<p>The recommendations are listed below under the metadata
+            element they pertain to.</p>
+<h3><A name="All elements"></A>All elements</h3>
+<ul>
+<li>
+<p>Whenever the language of the element content is
+                     other than English, recommended best practice is
+                     to use the <i>lang</i> attribute to identify the
+                     language.</p>
+</li>
+</ul>
+<h3><A name="Contributor, Creator, Publisher"></A>Contributor, Creator, Publisher</h3>
+<ul>
+<li>
+<p>Recommended best practice is to identify the
+                     entity by means of a name and to give the name in
+                     a form that is ready for sorting within an index.
+                     For the names of persons, this means that the
+                     name should be given in inverted order with the
+                     surname first. For the names of organizations,
+                     this means that any initial article should be
+                     omitted. </p>
+</li>
+<li>
+<p>When a resource has more than one contributor,
+                     creator, or publisher, use a separate
+                     Contributor, Creator, or Publisher element for
+                     each one.</p>
+</li>
+</ul>
+<h3><A name="Date"></A>Date</h3>
+<ul>
+<li>
+<p>Recommended best practice is to use a coded value
+                     when possible, since that guarantees that a
+                     service provider can do a straight alphanumeric
+                     sort to put collections of metadata descriptions
+                     in correct chronological order.</p>
+</li>
+<li>
+<p>The encoded value may match one of the four
+                     following patterns: <tt>YYYY</tt>,
+                     <tt>YYYY-MM</tt>, <tt>YYYY-MM-DD</tt>, or
+                        <tt>YYYY-YYYY</tt>.</p>
+</li>
+</ul>
+<h3><A name="Format"></A>Format</h3>
+<ul>
+<li>
+<p>The <i>code</i> attribute should be used to make
+                     a precise identification of the format using a
+                     controlled vocabulary. This is especially
+                     important for digital resources since service
+                     providers may use this information to match data
+                     resources with the software tools that are
+                     appropriate for manipulating them.</p>
+</li>
+<li>
+<p>[The OLAC-Format vocabulary was not elaborated,
+                     but it was suggested that it should be based on
+                        [<a href="#MIME">MIME</a>] types.]</p>
+</li>
+</ul>
+<h3><A name="Format.markup"></A>Format.markup</h3>
+<ul>
+<li>
+<p>Recommended best practice is to identify the
+                     markup scheme by a URI giving an OAI identifier
+                     for the markup scheme as a resource in an OLAC
+                     archive. Thus, if the DTD, Schema, or markup
+                     documentation is not already archived in an OLAC
+                     repository, the depositor of a marked-up resource
+                     should also deposit the documentation for the
+                     markup scheme. </p>
+</li>
+</ul>
+<h3><A name="Identifier"></A>Identifier</h3>
+<ul>
+<li>
+<p>Recommended best practice is to identify the
+                     resource by means of a string or number
+                     conforming to a globally-known formal
+                     identification system. Example formal
+                     identification systems include the Uniform
+                     Resource Identifier (URI) (including the Uniform
+                     Resource Locator (URL)), the Digital Object
+                     Identifier (DOI), and the International Standard
+                     Book Number (ISBN).</p>
+</li>
+</ul>
+<h3><A name="Language, Subject.language"></A>Language, Subject.language</h3>
+<ul>
+<li>
+<p>Recommended best practice is to specify the
+                     language via the <i>code</i> attribute while
+                     leaving the element content empty. </p>
+</li>
+<li>
+<p>Use the element content only when the controlled
+                     vocabulary does not offer an appropriate code, or
+                     when further specification is needed, such as to
+                     name a specific dialect or to give an alternate
+                     name that differs from the default name given by
+                     the controlled vocabulary.</p>
+</li>
+</ul>
+<h3><A name="Source"></A>Source</h3>
+<ul>
+<li>
+<p>Recommended best practice for OLAC is to reserve
+                     the use of Source for cases when the present
+                     resource has a substantially different Type or
+                     Creator or Title than the Source resource. </p>
+</li>
+<li>
+<p>When the difference from the original work is
+                     only a difference of Date or Format or Publisher
+                     or Identifier or edition designator in the Title,
+                     then use Relation to encode the relationship to
+                     the original work.</p>
+</li>
+</ul>
+<h3><A name="Subject"></A>Subject</h3>
+<ul>
+<li>
+<p>Recommended best practice is to select a value
+                     from a controlled vocabulary or formal
+                     classification scheme. The <i>scheme</i>
+                     attribute is used to identify the scheme.</p>
+</li>
+</ul>
+<h3><A name="Title"></A>Title</h3>
+<ul>
+<li>
+<p>When there is more than one instance of Title,
+                     recommended best practice is that only one
+                     instance, namely the original title, be
+                     unqualified. All others (e.g. translations)
+                     should specify <tt>code="alternative"</tt>.</p>
+</li>
+</ul>
+<h3><A name="Type"></A>Type</h3>
+<ul>
+<li>
+<p>Recommended best practice is to use the
+                     <i>code</i> attribute to identify the type using
+                     the Dublin Core Types controlled vocabulary
+                        [<a href="#DC-Type">DC-Type</a>]. The element content is
+                     typically left empty. Use the element content
+                     only when the controlled vocabulary does not
+                     offer an appropriate type, or when further
+                     specification is needed.</p>
+</li>
+</ul>
+<h3><A name="Type.functionality"></A>Type.functionality</h3>
+<ul>
+<li>
+<p>Recommended best practice is to the <i>code</i>
+                     attribute to identify the software functionality
+                     using a controlled vocabulary. See
+                     OLAC-Functionality for the definition of the
+                     vocabulary.</p>
+</li>
+</ul>
+<h3><A name="Type.linguistic"></A>Type.linguistic</h3>
+<ul>
+<li>
+<p>Recommended best practice is to the <i>code</i>
+                     attribute to identify the linguistic data type
+                     using a controlled vocabulary. See
+                     OLAC-Linguistic-Type for the definition of the
+                     vocabulary.</p>
+</li>
+</ul>
+</body><a name="References"></a><hr>
+<h2>References</h2>
+<table cellspacing="10">
+<tr valign="top">
+<td width="150">[<a name="DC-Type">DC-Type</a>]</td>
+<td>DCMI Type
+      Vocabulary.<br>&lt;<a href="http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/">http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="MIME">MIME</a>]</td>
+<td>Internet Media
+      Types.<br>&lt;<a href="http://www.isi.edu/in-notes/iana/assignments/media-types/media-types">http://www.isi.edu/in-notes/iana/assignments/media-types/media-types</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td>
+<td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
+</tr>
+</table>
+</BODY>
+</HTML>

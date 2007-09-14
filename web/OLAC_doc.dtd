@@ -4,7 +4,7 @@
 
 DTD for OLAC documents
 Gary Simons, SIL International, 16 Feb 2001
-Last modified: 1 Aug 2003
+Last modified: 13 Sept 2007
 -->
 <!ELEMENT OLAC_doc (header, body, todo?, references?)>
 <!--Header information for the document-->
@@ -91,18 +91,23 @@ indent on the left. Use <br> within for line breaks.-->
 <!ELEMENT subheading (#PCDATA)>
 <!--The documentation for an element of the metadata set. This is used only
 in the OLAC Metadata Set document.-->
-<!ELEMENT element (tag, name, definition, comment, attributes?, examples?, todo?)>
-<!--The XML tag used for this metadata element.-->
-<!ELEMENT tag (#PCDATA)>
-<!--The name of the metadata element or controlled vocabulary term-->
-<!ELEMENT name (#PCDATA)>
+<!ELEMENT element (definition, comment, refinements?, schemes?, bp?, examples?, todo?)>
+<!--The name of the metadata element (changed to an attribute so that it would show when
+the element is folded in the editor-->
+<!ATTLIST element name CDATA #REQUIRED>
+<!--The name of the controlled vocabulary term-->
+<!ELEMENT name (#PCDATA) >
 <!--One-line definition of what the element is used for or what the
 conttrolled vaculary term represents.-->
 <!ELEMENT definition (#PCDATA)>
-<!--Comments on how the element of term is meant to be used.-->
+<!--Lists the refinements for this element-->
+<!ELEMENT refinements (dl)>
+<!--Lists the encoding schemes that may be used with this element-->
+<!ELEMENT schemes (dl)>
+<!--Best practices related to use of the element-->
+<!ELEMENT bp (p)*>
+<!--Comments (=Usage notes) on how the element of term is meant to be used.-->
 <!ELEMENT comment (p | ul | ol)*>
-<!--Describesany attributes which the element may have-->
-<!ELEMENT attributes (p+)>
 <!--Examples of appropriate uses of the element or term-->
 <!ELEMENT examples (p | eg)*>
 <!--List of things remaining to do in order to complete the document, or
