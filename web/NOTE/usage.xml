@@ -6,7 +6,7 @@
       <status code="draft" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20070912</issued>
+      <issued>20070919</issued>
       <previousIssued/>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the
@@ -397,7 +397,7 @@
                   </dd>
                </dl>
             </schemes>
-            <bp></bp>
+            <bp><p></p></bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
                <eg>&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
