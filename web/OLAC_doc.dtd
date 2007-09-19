@@ -105,7 +105,7 @@ conttrolled vaculary term represents.-->
 <!--Lists the encoding schemes that may be used with this element-->
 <!ELEMENT schemes (dl)>
 <!--Best practices related to use of the element-->
-<!ELEMENT bp (p)*>
+<!ELEMENT bp (p)+ >
 <!--Comments (=Usage notes) on how the element of term is meant to be used.-->
 <!ELEMENT comment (p | ul | ol)*>
 <!--Examples of appropriate uses of the element or term-->

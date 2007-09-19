@@ -181,12 +181,21 @@
             <refinements>
                <dl>
                   <dt>spatial</dt>
-                  <dd/>
+                  <dd></dd>
                   <dt>temporal</dt>
-                  <dd/>
+                  <dd></dd>
                </dl>
             </refinements>
-
+            <schemes>
+               <dl>
+                  <dt>cdterms:Box</dt>
+                  <dd></dd>
+                  <dt>cdterms:Point</dt>
+                  <dd></dd>
+               </dl>
+            </schemes>
+            
+            
             <examples>
                <p>A resource about English in India:</p>
                <eg>&lt;subject.language code="en"/&gt;
@@ -260,6 +269,23 @@
                   in correct chronological order. The element content may always be used
                   to express date-related values or comments that cannot be fitted into
                   the encoding standard.</p>
+               <p>The <i>code</i> attribute is used to hold a standardized encoding
+                  of a date. Following <cit>DCMES</cit>, OLAC uses the YYYY-MM-DD
+                  format as defined in <cit>W3CDTF</cit>. When a month or day value
+                  is less than 10, use a leading 0 to maintain a two-digit length.
+                  The encoded value may be for the year alone, for the year and
+                  month, or for an exact date. A range of years is also a valid
+                  value for this attribute; in this case both years must be
+                  four-digit values and the earliest year should come first. Thus,
+                  the encoded value may match one of the four following patterns:
+                  <tt>YYYY</tt>, <tt>YYYY-MM</tt>, <tt>YYYY-MM-DD</tt>, or
+                  <tt>YYYY-YYYY</tt>.</p>
+               <p>A Date with no refinement will be assumed to be the date of issue
+                  (i.e. publication). A single resource should not have more than
+                  one instance of each date refinement. In selecting a single date
+                  to associate with a resource, a service provider will select the
+                  most recent of date created, issued, or modified.</p>
+               
             </comment>
             <refinements>
                <dl>
@@ -281,33 +307,10 @@
                   <dd/>
                </dl>
             </refinements>
-
             <schemes>
                <dl>
-                  <dt/>
-                  <dd>
-                     <p>The <i>code</i> attribute is used to hold a standardized encoding
-                        of a date. Following <cit>DCMES</cit>, OLAC uses the YYYY-MM-DD
-                        format as defined in <cit>W3CDTF</cit>. When a month or day value
-                        is less than 10, use a leading 0 to maintain a two-digit length.
-                        The encoded value may be for the year alone, for the year and
-                        month, or for an exact date. A range of years is also a valid
-                        value for this attribute; in this case both years must be
-                        four-digit values and the earliest year should come first. Thus,
-                        the encoded value may match one of the four following patterns:
-                           <tt>YYYY</tt>, <tt>YYYY-MM</tt>, <tt>YYYY-MM-DD</tt>, or
-                           <tt>YYYY-YYYY</tt>.</p>
-                     <p>The <i>refine</i> attribute is optionally used to refine the
-                        meaning of the date using values from a controlled vocabulary (for
-                        instance, date of creation versus date of issue versus date of
-                        modification, and so on). The vocabulary for refinements to Date
-                        is defined in <cit>DC-Q</cit>. </p>
-                     <p>A Date with no refinement will be assumed to be the date of issue
-                        (i.e. publication). A single resource should not have more than
-                        one instance of each date refinement. In selecting a single date
-                        to associate with a resource, a service provider will select the
-                        most recent of date created, issued, or modified.</p>
-                  </dd>
+                  <dt>cdterms:W3CDTF</dt>
+                  <dd></dd>
                </dl>
             </schemes>
             <examples>
@@ -371,6 +374,12 @@
                   resource. Format may be used to determine the software, hardware or
                   other equipment needed to display or operate the resource. Examples of
                   dimensions include size and duration. <cit>DCMES</cit></p>
+               <p>The element content may be left empty, but it would typically be
+                  used to add further details about the format of the resource, such
+                  as the sampling rate for digital recordings, the size of computer
+                  files, the number of pages and dimensions of a book, the
+                  appearance of a physical object, and so on. </p>
+               
             </comment>
             <refinements>
                <dl>
@@ -383,22 +392,12 @@
 
             <schemes>
                <dl>
-                  <dt/>
+                  <dt>cdterms:IMT</dt>
                   <dd>
-                     <p>The <i>code</i> attribute should be used to make a precise
-                        identification of the format using a controlled vocabulary. This
-                        is especially important for digital resources since service
-                        providers may use this information to match data resources with
-                        the software tools that are appropriate for manipulating them. See
-                           <cit>OLAC-Format</cit> for the definition of the vocabulary. </p>
-                     <p>The element content may be left empty, but it would typically be
-                        used to add further details about the format of the resource, such
-                        as the sampling rate for digital recordings, the size of computer
-                        files, the number of pages and dimensions of a book, the
-                        appearance of a physical object, and so on. </p>
                   </dd>
                </dl>
             </schemes>
+            <bp></bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
                <eg>&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
@@ -449,6 +448,13 @@
                   <dd/>
                </dl>
             </refinements>
+            <schemes>
+               <dl>
+                  <dt>cdterms:URI</dt>
+                  <dd></dd>
+               </dl>
+            </schemes>
+            
             <examples>
                <p>A Uniform Resource Locator for retrieval of an electronically encoded
                   resource:</p>
@@ -606,14 +612,8 @@
             </refinements>
             <schemes>
                <dl>
-                  <dt/>
-                  <dd>
-                     <p>The <i>refine</i> attribute should be used to clarify the nature
-                        of the relationship using values from a controlled vocabulary (for
-                        instance, <i>isReplacedBy, requires, hasPart, isPartOf,</i> and so
-                        on). The vocabulary for refinements to Relation is defined in
-                           <cit>DC-Q</cit>. </p>
-                  </dd>
+                  <dt>cdterms:URI</dt>
+                  <dd></dd>
                </dl>
             </schemes>
             <examples>
@@ -710,6 +710,12 @@
                   designator in the <xref>Title</xref>, then use Relation to encode the
                   relationship to the original work.</p>
             </comment>
+            <schemes>
+               <dl>
+                  <dt>cdterms:URI</dt>
+                  <dd></dd>
+               </dl>
+            </schemes>
             <examples>
                <p>Source for a digital encoding of a manuscript in a participating
                   archive:</p>
@@ -808,17 +814,19 @@
             </comment>
             <schemes>
                <dl>
-                  <dt/>
+                  <dt>dcterms:DCMIType</dt>
                   <dd>
-                     <p>Recommended best practice is to use the <i>code</i> attribute to
-                        identify the type using the Dublin Core Types controlled
-                        vocabulary <cit>DC-Type</cit>. The element content is typically
-                        left empty. Use the element content only when the controlled
-                        vocabulary does not offer an appropriate type, or when further
-                        specification is needed.</p>
+                     <p></p>
                   </dd>
                </dl>
             </schemes>
+            <bp><p>Recommended best practice is to use the <i>code</i> attribute to
+               identify the type using the Dublin Core Types controlled
+               vocabulary <cit>DC-Type</cit>. The element content is typically
+               left empty. Use the element content only when the controlled
+               vocabulary does not offer an appropriate type, or when further
+               specification is needed.</p></bp>
+
             <examples>
                <p>The resource is a video recording:</p>
                <eg>&lt;type code="Image"/&gt;</eg>
