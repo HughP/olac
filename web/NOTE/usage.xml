@@ -110,8 +110,7 @@
          <p>In a given metadata record, every element is optional and every element is
             repeatable.</p>
          <element name="Contributor">
-            <definition>An entity responsible for making contributions to the content of
-               the resource.</definition>
+         	<definition>An entity responsible for making contributions to the resource.</definition>
             <comment>
                <p>A Contributor may be a person, an organization, or a service.
                   Contributor is closely related to <xref>Creator</xref>. The difference
@@ -156,7 +155,7 @@
             </examples>
          </element>
          <element name="Coverage">
-            <definition>The extent or scope of the content of the resource. </definition>
+         	<definition>The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</definition>
             <comment>
                <p> Coverage will typically include spatial location (a place name or
                   geographic coordinates), temporal period (a period label, date, or date
@@ -208,8 +207,7 @@
             </examples>
          </element>
          <element name="Creator">
-            <definition>An entity primarily responsible for making the content of the
-               resource. </definition>
+         	<definition>An entity primarily responsible for making the resource.</definition>
             <comment>
                <p>A Creator may be a person, an organization, or a service. Creator is
                   closely related to <xref>Contributor</xref>. In determining whether an
@@ -261,7 +259,7 @@
             </todo>
          </element>
          <element name="Date">
-            <definition>A date associated with an event in the life cycle of the resource.</definition>
+         	<definition>A point or period of time associated with an event in the lifecycle of the resource.</definition>
             <comment>
                <p>Recommended best practice is to use a coded value (see below) when
                   possible, since that guarantees that a service provider can do a
@@ -323,7 +321,7 @@
             </examples>
          </element>
          <element name="Description">
-            <definition>An account of the content of the resource. </definition>
+         	<definition>An account of the resource.</definition>
             <comment>
                <p>Description may include but is not limited to: an abstract, table of
                   contents, reference to a graphical representation of content, or a
@@ -368,7 +366,7 @@
             </todo>
          </element>
          <element name="Format">
-            <definition>The physical or digital manifestation of the resource. </definition>
+         	<definition>The file format, physical medium, or dimensions of the resource.</definition>
             <comment>
                <p>Typically, Format may include the media-type or dimensions of the
                   resource. Format may be used to determine the software, hardware or
@@ -419,7 +417,7 @@
             </todo>
          </element>
          <element name="Identifier">
-            <definition>An unambiguous reference to the resource within a given context.</definition>
+         	<definition>An unambiguous reference to the resource within a given context.</definition>
             <comment>
                <p>Recommended best practice is to identify the resource by means of a
                   string or number conforming to a globally-known formal identification
@@ -465,7 +463,7 @@
             </examples>
          </element>
          <element name="Language">
-            <definition>A language of the intellectual content of the resource.</definition>
+         	<definition>A language of the resource.</definition>
             <comment>
                <p>Language is used for a language the resource is in, as opposed to the
                   language it describes (see <xref>Subject.language</xref>). It is related
@@ -531,11 +529,12 @@
             </todo>
          </element>
          <element name="Provenance">
-            <definition/>
+         	<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" -->
+         	<definition>A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation.</definition>
             <comment/>
          </element>
          <element name="Publisher">
-            <definition>An entity responsible for making the resource available </definition>
+         	<definition>An entity responsible for making the resource available.</definition>
             <comment>
                <p>Examples of a Publisher include a person, an organization, or a service.
                   Typically, the name of a Publisher should be used to indicate the
@@ -557,7 +556,7 @@
             </examples>
          </element>
          <element name="Relation">
-            <definition>A reference to a related resource.</definition>
+         	<definition>A related resource.</definition>
             <comment>
                <p>This element is used to document relationships between resources, for
                   instance, part-whole relationships, version relationships, dependency
@@ -639,7 +638,7 @@
             </examples>
          </element>
          <element name="Rights">
-            <definition>Information about rights held in and over the resource. </definition>
+         	<definition>Information about rights held in and over the resource.</definition>
             <comment>
                <p> Typically, a Rights element will contain a rights management statement
                   for the resource, or reference a service providing such information.
@@ -675,12 +674,12 @@
             </todo>
          </element>
          <element name="Rights Holder">
-            <definition/>
+         	<!-- Rights Holder is not in this order in the DCMI listing at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" (in alphabetical order). -->
+         	<definition>A person or organization owning or managing rights over the resource.</definition>
             <comment/>
          </element>
          <element name="Source">
-            <definition>A reference to a resource from which the present resource is
-               derived.</definition>
+         	<definition>The resource from which the described resource is derived.</definition>
             <comment>
                <p>The present resource may be derived from the Source resource in whole or
                   in part. <cit>DCMES</cit> When the Source resource is also available in
@@ -727,7 +726,7 @@
             </examples>
          </element>
          <element name="Subject">
-            <definition>The topic of the content of the resource.</definition>
+         	<definition>The topic of the resource.</definition>
             <comment>
                <p>Typically, a Subject will be expressed as keywords, key phrases or
                   classification codes that describe a topic of the resource.
@@ -749,7 +748,8 @@
             </todo>
          </element>
          <element name="Subject.Language">
-            <definition>A language which the content of the resource describes or
+           <!-- Gary will clean this up. --> 
+         	<definition>A language which the content of the resource describes or
                discusses.</definition>
             <comment>
                <p>See <xref>Language</xref> for a complete discussion (with examples) of
@@ -766,7 +766,7 @@
             </schemes>
          </element>
          <element name="Title">
-            <definition>A name given to the resource. </definition>
+         	<definition>A name given to the resource.</definition>
             <comment>
                <p>Typically, a Title will be a name by which the resource is formally
                   known. <cit>DCMES</cit></p>
@@ -805,7 +805,7 @@
             </examples>
          </element>
          <element name="Type">
-            <definition>The nature or genre of the content of the resource. </definition>
+         	<definition>The nature or genre of the resource.</definition>
             <comment>
                <p> Type includes terms describing general categories, functions, genres,
                   or aggregation levels for content. To describe the physical or digital
@@ -833,7 +833,8 @@
             </examples>
          </element>
          <element name="Type.linguistic">
-            <definition>The nature or genre of the content of the resource from a
+           <!-- Gary will clean this up. --> 
+         	<definition>The nature or genre of the content of the resource from a
                linguistic standpoint.</definition>
             <comment>
                <p>For a resource that is information in or about a language,
