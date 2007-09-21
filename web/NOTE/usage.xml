@@ -185,9 +185,13 @@
             <schemes>
                <dl>
                   <dt>cdterms:Box</dt>
-                  <dd></dd>
+                  <dd>
+                  	<p>The DCMI Box identifies a region of space using its geographic limits.</p>
+                  </dd>
                   <dt>cdterms:Point</dt>
-                  <dd></dd>
+                  <dd>
+                  	<p>The DCMI Point identifies a point in space using its geographic coordinates.</p>
+                  </dd>
                </dl>
             </schemes>
          	<bp>
@@ -284,21 +288,37 @@
             <refinements>
                <dl>
                   <dt>available</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date (often a range) that the resource will become or did become available.</p>
+                  </dd>
                   <dt>created</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date of creation of the resource.</p>
+                  </dd>
                   <dt>dateAccepted</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date of acceptance of the resource (e.g. of thesis by university department, of article by journal, etc.).</p>
+                  </dd>
                   <dt>dateCopyrighted</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date of a statement of copyright.</p>
+                  </dd>
                   <dt>dateSubmitted</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date of submission of the resource (e.g. thesis, articles, etc.).</p>
+                  </dd>
                   <dt>issued</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date of formal issuance (e.g., publication) of the resource.</p>
+                  </dd>
                   <dt>modified</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date on which the resource was changed.</p>
+                  </dd>
                   <dt>valid</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Date (often a range) of validity of a resource.</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
@@ -348,9 +368,13 @@
             <refinements>
                <dl>
                   <dt>abstract</dt>
-                  <dd/>
+                  <dd>
+                  	<p>A summary of the content of the resource.</p>
+                  </dd>
                   <dt>tableOfContents</dt>
-                  <dd/>
+                  <dd>
+                  	<p>A list of subunits of the content of the resource.</p>
+                  </dd>
                </dl>
             </refinements>
 
@@ -390,9 +414,13 @@
             <refinements>
                <dl>
                   <dt>extent</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The size or duration of the resource.</p>
+                  </dd>
                   <dt>medium</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The material or physical carrier of the resource.</p>
+                  </dd>
                </dl>
             </refinements>
 
@@ -447,7 +475,11 @@
             <refinements>
                <dl>
                   <dt>bibliographicCitation</dt>
-                  <dd/>
+                  <dd>
+                  	<p>A bibliographic reference for the resource.
+                  		Comment:  Recommended practice is to include sufficient bibliographic detail to identify the resource as unambiguously as possible, whether or not the citation is in a standard form. 
+                  	</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
@@ -606,31 +638,55 @@
             <refinements>
                <dl>
                   <dt>conformsTo</dt>
-                  <dd/>
+                  <dd>
+                  	<p>A reference to an established standard to which the resource conforms.</p>
+                  </dd>
                   <dt>hasFormat</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource pre-existed the referenced resource, which is essentially the same intellectual content presented in another format.</p>
+                  </dd>
                   <dt>hasPart</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource includes the referenced resource either physically or logically.</p>
+                  </dd>
                   <dt>hasVersion</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource has a version, edition, or adaptation, namely, the referenced resource.</p>
+                  </dd>
                   <dt>isFormatOf</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource is the same intellectual content of the referenced resource, but presented in another format.</p>
+                  </dd>
                   <dt>isPartOf</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource is a physical or logical part of the referenced resource.</p>
+                  </dd>
                   <dt>isReferencedBy</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource is referenced, cited, or otherwise pointed to by the referenced resource.</p>
+                  </dd>
                   <dt>isReplacedBy</dt>
                   <dd/>
                   <dt>isRequiredBy</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource is required by the referenced resource, either physically or logically.</p>
+                  </dd>
                   <dt>isVersionOf</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource is a version, edition, or adaptation of the referenced resource. Changes in version imply substantive changes in content rather than differences in format.</p>
+                  </dd>
                   <dt>references</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource references, cites, or otherwise points to the referenced resource.</p>
+                  </dd>
                   <dt>replaces</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource supplants, displaces, or supersedes the referenced resource.</p>
+                  </dd>
                   <dt>requires</dt>
-                  <dd/>
+                  <dd>
+                  	<p>The described resource requires the referenced resource to support its function, delivery, or coherence of content.</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
@@ -678,9 +734,17 @@
             <refinements>
                <dl>
                   <dt>accessRights</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Information about who can access the resource or an indication of its security status.
+                  		Comment:  Access Rights may include information regarding access or restrictions based on privacy, security or other regulations. 
+                  	</p>
+                  </dd>
                   <dt>license</dt>
-                  <dd/>
+                  <dd>
+                  	<p>A legal document giving official permission to do something with the resource.
+                  		Comment:  Recommended best practice is to identify the license using a URI. Examples of such licenses can be found at http://creativecommons.org/licenses/. 
+                  	</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
@@ -823,7 +887,11 @@
             <refinements>
                <dl>
                   <dt>alternative</dt>
-                  <dd/>
+                  <dd>
+                  	<p>Any form of the title used as a substitute or alternative to the formal title of the resource.
+                  		Comment:  This qualifier can include Title abbreviations as well as translations. 
+                  	</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
