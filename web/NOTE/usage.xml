@@ -123,13 +123,6 @@
                   the resource. As a rule of thumb, Creator is used when the contribution
                   is such that it would be cited in the "author" field of a bibliographic
                   entry, and Contributor is used otherwise.</p>
-               <p>Recommended best practice is to identify the entity by means of a name
-                  and to give the name in a form that is ready for sorting within an
-                  index. For the names of persons, this means that the name should be
-                  given in inverted order with the surname first. For the names of
-                  organizations, this means that any initial article should be omitted.
-                  When a resource has more than one contributor, use a separate
-                  Contributor element for each one.</p>
             </comment>
             <schemes>
                <dl>
@@ -143,7 +136,16 @@
                   </dd>
                </dl>
             </schemes>
-            <examples>
+           <bp>
+           	<p>Recommended best practice is to identify the entity by means of a name
+           		and to give the name in a form that is ready for sorting within an
+           		index. For the names of persons, this means that the name should be
+           		given in inverted order with the surname first. For the names of
+           		organizations, this means that any initial article should be omitted.
+           		When a resource has more than one contributor, use a separate
+           		Contributor element for each one.</p>
+           </bp>
+         	<examples>
                <p>A generic contributor:</p>
                <eg>&lt;contributor&gt;Smith, John L.&lt;/contributor&gt;</eg>
                <p>A funding agency:</p>
@@ -161,11 +163,6 @@
                   geographic coordinates), temporal period (a period label, date, or date
                   range) or jurisdiction (such as a named administrative entity).
                      <cit>DCMES</cit></p>
-               <p>Recommended best practice is to select a value from a controlled
-                  vocabulary that is identified in the <i>scheme</i> attribute (for
-                  example, the Thesaurus of Geographic Names <cit>TGN</cit>). Where
-                  appropriate, named places or time periods should be used in preference
-                  to numeric identifiers such as sets of coordinates or date ranges.</p>
                <p>In the OLAC context, service providers already have a database that maps
                   languages to the countries in which they are spoken
                   <cit>OLAC-Language</cit>. Coverage should not be used to duplicate this
@@ -193,8 +190,11 @@
                   <dd></dd>
                </dl>
             </schemes>
-            
-            
+         	<bp>
+         		<p>Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</p>
+            </bp>
+         	
+         	
             <examples>
                <p>A resource about English in India:</p>
                <eg>&lt;subject.language code="en"/&gt;
@@ -216,13 +216,6 @@
                   "author" slot of a bibliographic reference as a primary source of the
                   intellectual content. Entities that do not merit that level of
                   recognition should be treated as Contributors.</p>
-               <p>Recommended best practice is to identify a Creator by means of a name
-                  and to give the name in a form that is ready for sorting within an
-                  index. For the names of persons, this means that the name should be
-                  given in inverted order with the surname first. For the names of
-                  organizations, this means that any initial article should be omitted.
-                  When a resource has more than one creator, use a separate Creator
-                  element for each one.</p>
             </comment>
             <schemes>
                <dl>
@@ -236,7 +229,17 @@
                   </dd>
                </dl>
             </schemes>
-            <examples>
+           <bp>
+           	<p>Recommended best practice is to identify a Creator by means of a name
+           		and to give the name in a form that is ready for sorting within an
+           		index. For the names of persons, this means that the name should be
+           		given in inverted order with the surname first. For the names of
+           		organizations, this means that any initial article should be omitted.
+           		When a resource has more than one creator, use a separate Creator
+           		element for each one.</p>
+           </bp>
+         	
+         	<examples>
                <p>A personal author:</p>
                <eg>&lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;</eg>
                <p>An institutional author:</p>
@@ -261,12 +264,6 @@
          <element name="Date">
          	<definition>A point or period of time associated with an event in the lifecycle of the resource.</definition>
             <comment>
-               <p>Recommended best practice is to use a coded value (see below) when
-                  possible, since that guarantees that a service provider can do a
-                  straight alphanumeric sort to put collections of metadata descriptions
-                  in correct chronological order. The element content may always be used
-                  to express date-related values or comments that cannot be fitted into
-                  the encoding standard.</p>
                <p>The <i>code</i> attribute is used to hold a standardized encoding
                   of a date. Following <cit>DCMES</cit>, OLAC uses the YYYY-MM-DD
                   format as defined in <cit>W3CDTF</cit>. When a month or day value
@@ -282,8 +279,7 @@
                   (i.e. publication). A single resource should not have more than
                   one instance of each date refinement. In selecting a single date
                   to associate with a resource, a service provider will select the
-                  most recent of date created, issued, or modified.</p>
-               
+                  most recent of date created, issued, or modified.</p>              
             </comment>
             <refinements>
                <dl>
@@ -311,7 +307,19 @@
                   <dd></dd>
                </dl>
             </schemes>
-            <examples>
+         	<bp>
+         		<!-- Following comment from 2002 OLAC metadata draft. -->
+         		<p>Recommended best practice is to use a coded value (see below) when
+         			possible, since that guarantees that a service provider can do a
+         			straight alphanumeric sort to put collections of metadata descriptions
+         			in correct chronological order. The element content may always be used
+         			to express date-related values or comments that cannot be fitted into
+         			the encoding standard.</p>
+         		<!-- Following comment from 20061218 DCMI terms document. -->
+         		<p>Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</p>
+         	</bp>
+         	
+         	<examples>
                <p>A typical year of publication:</p>
                <eg>&lt;date code="1992"/&gt;</eg>
                <p>A resource modified on October 16, 1996:</p>
@@ -395,7 +403,9 @@
                   </dd>
                </dl>
             </schemes>
-            <bp><p></p></bp>
+            <bp>
+            	<p>Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</p>
+            </bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
                <eg>&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
@@ -419,12 +429,6 @@
          <element name="Identifier">
          	<definition>An unambiguous reference to the resource within a given context.</definition>
             <comment>
-               <p>Recommended best practice is to identify the resource by means of a
-                  string or number conforming to a globally-known formal identification
-                  system. Example formal identification systems include the Uniform
-                  Resource Identifier (URI) (including the Uniform Resource Locator
-                  (URL)), the Digital Object Identifier (DOI), and the International
-                  Standard Book Number (ISBN). <cit>DCMES</cit></p>
                <p>In the case of a resource that is not electronically encoded, but is
                   housed in a conventional archive, Identifier may be used to give a local
                   shelf or box number, or whatever scheme is used to locate a resource
@@ -452,7 +456,19 @@
                   <dd></dd>
                </dl>
             </schemes>
-            
+         	<bp>
+         		<!-- Following comment from 2002 OLAC usage document. -->
+         		<p>Recommended best practice is to identify the resource by means of a
+         			string or number conforming to a globally-known formal identification
+         			system. Example formal identification systems include the Uniform
+         			Resource Identifier (URI) (including the Uniform Resource Locator
+         			(URL)), the Digital Object Identifier (DOI), and the International
+         			Standard Book Number (ISBN). <cit>DCMES</cit></p>
+         		<!-- Following comment from 20061218 DCMI terms document. -->
+         		<p>Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</p>
+         	</bp>
+         	
+         	
             <examples>
                <p>A Uniform Resource Locator for retrieval of an electronically encoded
                   resource:</p>
@@ -490,6 +506,7 @@
                      <p>The <i>code</i> attribute should be used to make a precise
                         identification of the language using a controlled vocabulary. See
                            <cit>OLAC-Language</cit> for the definition of the vocabulary. </p>
+                  	<!-- Move to a <bp><p>? -->
                      <p>Recommended best practice is to specify the language via the
                            <i>code</i> attribute while leaving the element content empty.
                         Use the element content only when the controlled vocabulary does
@@ -505,7 +522,11 @@
                </dl>
 
             </schemes>
-            <examples>
+            <bp>
+            	<p>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</p>
+            </bp>
+         	
+         	<examples>
                <p>A resource in English about the Sikaiana language:</p>
                <eg>&lt;language code="en"/&gt; &lt;subject.language
                   code="x-sil-SKY"/&gt;</eg>
@@ -539,15 +560,18 @@
                <p>Examples of a Publisher include a person, an organization, or a service.
                   Typically, the name of a Publisher should be used to indicate the
                   entity. <cit>DCMES</cit></p>
-               <p>Recommended best practice is to identify a Publisher by means of a name
-                  and to give the name in a form that is ready for sorting within an
-                  index. For the names of persons, this means that the name should be
-                  given in inverted order with the surname first. For the names of
-                  organizations, this means that any initial article should be omitted.
-                  When a resource has more than one publisher, use a separate Publisher
-                  element for each one.</p>
             </comment>
-            <examples>
+         	<bp>
+         		<p>Recommended best practice is to identify a Publisher by means of a name
+         			and to give the name in a form that is ready for sorting within an
+         			index. For the names of persons, this means that the name should be
+         			given in inverted order with the surname first. For the names of
+         			organizations, this means that any initial article should be omitted.
+         			When a resource has more than one publisher, use a separate Publisher
+         			element for each one.</p>
+         	</bp>
+         	
+         	<examples>
                <p>A typical publisher:</p>
                <eg>&lt;publisher&gt;Oxford University
                   Press&lt;/publisher&gt;</eg>
@@ -615,7 +639,11 @@
                   <dd></dd>
                </dl>
             </schemes>
-            <examples>
+            <bp>
+            	<p>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </p>
+            </bp>
+         	
+         	<examples>
                <p>A link to a required font:</p>
                <eg>&lt;relation
                   refine="requires"&gt;oai:sil:software/ipafont&lt;/relation&gt;</eg>
@@ -659,7 +687,8 @@
                <dl>
                   <dt/>
                   <dd>
-                     <p>Recommended best practice is to use the <i>code</i> attribute to
+                    <!-- Move to <bp><p>? --> 
+                  	<p>Recommended best practice is to use the <i>code</i> attribute to
                         make a summary statement about rights using a controlled
                         vocabulary. If the coded value adequately documents the rights
                         management issues, leave the element content empty. Otherwise, use
@@ -677,11 +706,16 @@
          	<!-- Rights Holder is not in this order in the DCMI listing at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" (in alphabetical order). -->
          	<definition>A person or organization owning or managing rights over the resource.</definition>
             <comment/>
+         	<bp>
+         		<p>Recommended best practice is to use the URI or name of the Rights Holder to indicate the entity.</p>
+         	</bp>
+         	
          </element>
          <element name="Source">
          	<definition>The resource from which the described resource is derived.</definition>
             <comment>
-               <p>The present resource may be derived from the Source resource in whole or
+             <!-- Move to <bp><p>? -->  
+            	<p>The present resource may be derived from the Source resource in whole or
                   in part. <cit>DCMES</cit> When the Source resource is also available in
                   an on-line archive, recommended best practice is to reference it by
                   means of an "oai:" identifier. In this case service providers should
@@ -700,14 +734,7 @@
                   overlaps with <xref>Relation</xref>, since the <i>isFormatOf</i> and
                      <i>isVersionOf</i> refinements both refer to derivative works in the
                   technical sense.</p>
-               <p>Recommended best practice for OLAC is to reserve the use of Source for
-                  cases when the present resource has a substantially different
-                  <xref>Type</xref> or <xref>Creator</xref> or <xref>Title</xref> than the
-                  Source resource. When the difference from the original work is only a
-                  difference of <xref>Date</xref> or <xref>Format</xref> or
-                     <xref>Publisher</xref> or <xref>Identifier</xref> or edition
-                  designator in the <xref>Title</xref>, then use Relation to encode the
-                  relationship to the original work.</p>
+
             </comment>
             <schemes>
                <dl>
@@ -715,7 +742,11 @@
                   <dd></dd>
                </dl>
             </schemes>
-            <examples>
+            <bp>
+            	<p>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</p>
+            </bp>
+         	
+         	<examples>
                <p>Source for a digital encoding of a manuscript in a participating
                   archive:</p>
                <eg>&lt;source&gt;oai:somearchive:holding1023&lt;/source&gt;</eg>
@@ -731,11 +762,26 @@
                <p>Typically, a Subject will be expressed as keywords, key phrases or
                   classification codes that describe a topic of the resource.
                   <cit>DCMES</cit></p>
-               <p> Recommended best practice is to select a value from a controlled
-                  vocabulary or formal classification scheme. The <i>scheme</i> attribute
-                  is used to identify the scheme.</p>
             </comment>
-            <examples>
+            <bp>
+            	<!-- Following comment from 2002 OLAC metadata draft. -->
+            	<p>Recommended best practice for OLAC is to reserve the use of Source for
+            		cases when the present resource has a substantially different
+            		<xref>Type</xref> or <xref>Creator</xref> or <xref>Title</xref> than the
+            		Source resource. When the difference from the original work is only a
+            		difference of <xref>Date</xref> or <xref>Format</xref> or
+            		<xref>Publisher</xref> or <xref>Identifier</xref> or edition
+            		designator in the <xref>Title</xref>, then use Relation to encode the
+            		relationship to the original work.</p>
+            	<!-- Following comment from 2002 OLAC metadata draft. -->
+            	<p> Recommended best practice is to select a value from a controlled
+            		vocabulary or formal classification scheme. The <i>scheme</i> attribute
+            		is used to identify the scheme.</p>
+            	<!-- Following comment from 20061218 DCMI terms document. -->
+            	<p>Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</p>
+            </bp>
+         	
+         	<examples>
                <p>A Library of Congress subject heading:</p>
                <eg>&lt;subject scheme="LCSH"&gt;African
                   languages&lt;/subject&gt;</eg>
@@ -784,7 +830,8 @@
                <dl>
                   <dt/>
                   <dd>
-                     <p>The <i>refine</i> attribute may optionally be used for a single
+                    <!-- Move to <bp><p>? --> 
+                  	<p>The <i>refine</i> attribute may optionally be used for a single
                         refinement supported by <cit>DC-Q</cit>. The value
                         <i>alternative</i> indicates a form of the title that is used as a
                         substitute or alternative to the formal title of the resource.
@@ -820,12 +867,17 @@
                   </dd>
                </dl>
             </schemes>
-            <bp><p>Recommended best practice is to use the <i>code</i> attribute to
-               identify the type using the Dublin Core Types controlled
-               vocabulary <cit>DC-Type</cit>. The element content is typically
-               left empty. Use the element content only when the controlled
-               vocabulary does not offer an appropriate type, or when further
-               specification is needed.</p></bp>
+            <bp>
+            	<!-- Following comment from 2002 OLAC metadata draft. -->
+            	<p>Recommended best practice is to use the <i>code</i> attribute to
+            		identify the type using the Dublin Core Types controlled
+            		vocabulary <cit>DC-Type</cit>. The element content is typically
+            		left empty. Use the element content only when the controlled
+            		vocabulary does not offer an appropriate type, or when further
+            		specification is needed.</p>
+            	<!-- Following comment from 20061218 DCMI terms document. -->   	
+            	<p>Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</p>
+            </bp>
 
             <examples>
                <p>The resource is a video recording:</p>
@@ -848,7 +900,8 @@
                <dl>
                   <dt/>
                   <dd>
-                     <p>Recommended best practice is to the <i>code</i> attribute to
+                    <!-- Move to <bp><p>? --> 
+                  	<p>Recommended best practice is to the <i>code</i> attribute to
                         identify the linguistic data type using a controlled vocabulary.
                         See <cit>OLAC-Linguistic-Type</cit> for the definition of the
                         vocabulary. The vocabulary uses a two-level coding system. There
