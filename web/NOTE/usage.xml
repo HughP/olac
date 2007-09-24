@@ -596,7 +596,9 @@
          	<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" -->
          	<definition>A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation.</definition>
             <comment/>
-         	<bp>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</bp>
+         	<bp>
+         		<p>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</p>
+         	</bp>
          </element>
          <element name="Publisher">
          	<definition>An entity responsible for making the resource available.</definition>
