@@ -188,13 +188,13 @@
             </refinements>
             <schemes>
                <dl>
-                  <dt>cdterms:Box</dt>
+                  <dt>dcterms:Box</dt>
                   <dd>
-                  	<p>The DCMI Box identifies a region of space using its geographic limits.</p>
+                  	<p>The DCMI Box identifies a region of space using its geographic limits.<cit>DCMI-Box</cit>.</p>
                   </dd>
-                  <dt>cdterms:Point</dt>
+                  <dt>dcterms:Point</dt>
                   <dd>
-                  	<p>The DCMI Point identifies a point in space using its geographic coordinates.</p>
+                  	<p>The DCMI Point identifies a point in space using its geographic coordinates.<cit>DCMI-Point</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -228,7 +228,7 @@
             <schemes>
                <dl>
                   <dt>olac:role</dt>
-                  <dd>
+               	<dd>
                      <p>The <i>refine</i> attribute is optionally used to specify the role
                         (such as author, editor, translator, and so on) played by the
                         named entity in the creation of the resource. The role is
@@ -327,8 +327,8 @@
             </refinements>
             <schemes>
                <dl>
-                  <dt>cdterms:W3CDTF</dt>
-                  <dd></dd>
+                  <dt>dcterms:W3CDTF</dt>
+               	<dd><p>W3C Encoding rules for dates and times - a profile based on ISO 8601.<cit>W3CDTF</cit>.</p></dd>
                </dl>
             </schemes>
          	<bp>
@@ -430,8 +430,9 @@
 
             <schemes>
                <dl>
-                  <dt>cdterms:IMT</dt>
+                  <dt>dcterms:IMT</dt>
                   <dd>
+                  	<p>The Internet media type of the resource.<cit>IMT</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -488,8 +489,8 @@
             </refinements>
             <schemes>
                <dl>
-                  <dt>cdterms:URI</dt>
-                  <dd></dd>
+                  <dt>dcterms:URI</dt>
+               	<dd><p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p></dd>
                </dl>
             </schemes>
          	<bp>
@@ -538,6 +539,7 @@
             <schemes>
                <dl>
                   <dt/>
+               	<!-- Empty definition term. -->
                   <dd>
                      <p>The <i>code</i> attribute should be used to make a precise
                         identification of the language using a controlled vocabulary. See
@@ -695,8 +697,8 @@
             </refinements>
             <schemes>
                <dl>
-                  <dt>cdterms:URI</dt>
-                  <dd></dd>
+                  <dt>dcterms:URI</dt>
+               	<dd><p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p></dd>
                </dl>
             </schemes>
             <bp>
@@ -754,6 +756,7 @@
             <schemes>
                <dl>
                   <dt/>
+               	<!-- Empty definition term. -->
                   <dd>
                     <!-- Move to <bp><p>? --> 
                   	<p>Recommended best practice is to use the <i>code</i> attribute to
@@ -806,8 +809,9 @@
             </comment>
             <schemes>
                <dl>
-                  <dt>cdterms:URI</dt>
-                  <dd></dd>
+                  <dt>dcterms:URI</dt>
+               	<dd><p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p> 
+               	</dd>
                </dl>
             </schemes>
             <bp>
@@ -872,6 +876,7 @@
             <schemes>
                <dl>
                   <dt/>
+               	<!-- Empty definition term. -->
                   <dd>
                      <p>As with the <xref>Language</xref> element, a <i>code</i> attribute
                         is used to identify the language precisely. </p>
@@ -901,7 +906,8 @@
             <schemes>
                <dl>
                   <dt/>
-                  <dd>
+               	<!-- Empty definition term. -->
+               	<dd>
                     <!-- Move to <bp><p>? --> 
                   	<p>The <i>refine</i> attribute may optionally be used for a single
                         refinement supported by <cit>DC-Q</cit>. The value
@@ -935,7 +941,8 @@
                <dl>
                   <dt>dcterms:DCMIType</dt>
                   <dd>
-                     <p></p>
+                  	<p>A list of types used to categorize the nature or genre of the content of the resource.
+                  		<cit>DC-Type</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -971,6 +978,7 @@
             <schemes>
                <dl>
                   <dt/>
+               	<!-- Empty definition term. -->
                   <dd>
                     <!-- Move to <bp><p>? --> 
                   	<p>Recommended best practice is to the <i>code</i> attribute to
@@ -1010,6 +1018,7 @@
 
       <ref abbrev="DCMES">Dublin Core Metadata Element Set, Version 1.1.
             <br/>&lt;<url>http://dublincore.org/documents/dces/</url>&gt;</ref>
+   	
       <ref abbrev="DC-Q">Dublin Core
             Qualifiers.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmes-qualifiers/</url>&gt;</ref>
 
@@ -1022,9 +1031,21 @@
       <ref abbrev="DCMI-Submit">DCMI Open Metadata Registry: Submit a Scheme for
             Registration.<br/>&lt;<url>http://wip.dublincore.org:8080/registry/authServlet?req_type=newscheme&amp;lang=enUS</url>&gt;</ref>
 
-      <ref abbrev="DC-Type">DCMI Type
-            Vocabulary.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</url>&gt;</ref>
+   	<ref abbrev="DCMI-Box">DCMI Box
+   		<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</url>&gt;</ref>
 
+   	<ref abbrev="DCMI-Point">DCMI Point
+   		<br/>&lt;<url>http://dublincore.org/documents/dcmi-point/</url>&gt;</ref>
+   	
+   	<ref abbrev="DC-Type">DCMI Type
+   		<br/>&lt;<url>http://dublincore.org/documents/dcmi-box/</url>&gt;</ref>
+   	
+   	<ref abbrev="IMT">IMT
+   		<br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
+   	
+   	<ref abbrev="URI">URI
+   		<br/>&lt;<url>http://www.ietf.org/rfc/rfc2396.txt</url>&gt;</ref>
+   	
       <ref abbrev="IANA-CS">Internet Character
             Sets.<br/>&lt;<url>http://www.isi.edu/in-notes/iana/assignments/character-sets</url>&gt;</ref>
 
@@ -1081,6 +1102,7 @@
 
       <ref abbrev="W3CDTF">Date and Time Formats, W3C
             Note.<br/>&lt;<url>http://www.w3.org/TR/NOTE-datetime</url>&gt;</ref>
+   	
       <ref abbrev="OAI-DC">Schema for OAI implementation of Dublin Core
             metadata.<br/>&lt;<url>http://www.openarchives.org/OAI/1.1/dc.xsd</url>&gt;</ref>
 
