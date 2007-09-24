@@ -177,9 +177,13 @@
             <refinements>
                <dl>
                   <dt>spatial</dt>
-                  <dd></dd>
+                  <dd>
+                  	<p>Spatial characteristics of the intellectual content of the resource.</p>
+                  </dd>
                   <dt>temporal</dt>
-                  <dd></dd>
+                  <dd>
+                  	<p>Temporal characteristics of the intellectual content of the resource.Temporal characteristics of the intellectual content of the resource.</p>
+                  </dd>
                </dl>
             </refinements>
             <schemes>
