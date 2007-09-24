@@ -287,7 +287,8 @@
                   (i.e. publication). A single resource should not have more than
                   one instance of each date refinement. In selecting a single date
                   to associate with a resource, a service provider will select the
-                  most recent of date created, issued, or modified.</p>              
+                  most recent of date created, issued, or modified.</p>
+            	<p>date of publication may differ from its creation date)</p>
             </comment>
             <refinements>
                <dl>
@@ -322,7 +323,8 @@
                   <dt>valid</dt>
                   <dd>
                   	<p>Date (often a range) of validity of a resource.</p>
-                  </dd>
+                  	<!-- same as "File date"?
+                  		Most recent date that this object was checked for integrity or at least readability (not necessarily the date the operating system gives). --></dd>
                </dl>
             </refinements>
             <schemes>
@@ -341,6 +343,7 @@
          			the encoding standard.</p>
          		<!-- Following comment from 20061218 DCMI terms document. -->
          		<p>Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</p>
+         		<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
          	</bp>
          	
          	<examples>
@@ -413,7 +416,7 @@
                   as the sampling rate for digital recordings, the size of computer
                   files, the number of pages and dimensions of a book, the
                   appearance of a physical object, and so on. </p>
-               
+            	<p>Web content of a more document-like nature (a specific title, a credited author, and a date), such as an electronic working paper series, should be archived, and can usually be handled similarly to a print publication. Articles written by SIL authors for electronic journals or other formal web publications on other web sites should also be archived. Materials initially published in print (or on audio cassette, etc.) and converted for the web should be elsewhere included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be suitable for maintaining as a presentation form.</p>
             </comment>
             <refinements>
                <dl>
@@ -562,6 +565,8 @@
             </schemes>
             <bp>
             	<p>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</p>
+            	<!-- Following from Joan Spanne's SIL_Guidelines. -->
+            	<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
             </bp>
          	
          	<examples>
@@ -591,6 +596,7 @@
          	<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" -->
          	<definition>A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation.</definition>
             <comment/>
+         	<bp>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</bp>
          </element>
          <element name="Publisher">
          	<definition>An entity responsible for making the resource available.</definition>
@@ -736,6 +742,7 @@
                   Copyright, and various Property Rights. If the Rights element is absent,
                   no assumptions can be made about the status of these and other rights
                   with respect to the resource. <cit>DCMES</cit></p>
+            	<p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories, descriptions, songs or art work, which researcher collect in the course of their work. The rights, in most cases, belong to the creator—not the researcher or SIL—or, in some cases, to the language community (as a legal entity). Intellectual property law as it applies to community cultural property is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators of such works and the conditions under which they came into the hands of an SIL worker are critical steps in archiving these valuable works. Only with this information about their origins can SIL follow through on its intention to respect the intellectual property rights of vernacular language communities in which we work.</p>
             </comment>
             <refinements>
                <dl>
@@ -768,7 +775,11 @@
                   </dd>
                </dl>
             </schemes>
-            <todo>
+         	<bp>
+         		<p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector’s private study. To publish or otherwise distribute these works should have the approval of the owner—the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker’s name, basic demographic information , the context in which collecting took place, and the date.</p>
+         	</bp>
+         	
+         	<todo>
                <p>Write the OLAC-Rights document.</p>
                <p>Add examples after we work out the controlled vocabulary.</p>
             </todo>
