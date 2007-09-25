@@ -66,7 +66,7 @@
                 <xsl:attribute name="href">#<xsl:value-of select="normalize-space(heading)"/></xsl:attribute>
                 <xsl:value-of select="heading"/>
               </A>
-              <xsl:if test='subsection|element|term[@status!="retired"]|extensions'>
+              <xsl:if test="subsection|element|term[@status!='retired']|extensions">
                 <UL>
                   <xsl:for-each select="subsection">
                     <LI>
@@ -84,15 +84,15 @@
                       </A>
                     </LI>
                   </xsl:for-each>
-                  <xsl:for-each select='term[@status!="retired"]'>
+                  <xsl:for-each select="term[@status!='retired']">
                     <LI>
                       <A>
                         <xsl:attribute name="href">#<xsl:value-of select="code"/></xsl:attribute>
                         <xsl:value-of select="code"/>
                       </A>
-                      <xsl:if test='term[@status!="retired"]'>
+                      <xsl:if test="term[@status!='retired']">
                         <UL>
-                          <xsl:for-each select='term[@status!="retired"]'>
+                          <xsl:for-each select="term[@status!='retired']">
                             <LI>
                               <A>
                                 <xsl:attribute name="href">#<xsl:value-of select="code"/></xsl:attribute>
@@ -118,6 +118,19 @@
                   </xsl:for-each>
                 </UL>
               </xsl:if>
+               <xsl:if test="recommendations">
+                  <UL>
+                  <xsl:for-each select="document(recommendations/@href)//element[bp]">
+                     <LI>
+                        <A>
+                           <xsl:attribute name="href"><xsl:value-of
+                              select="concat('#',@name)"/></xsl:attribute>
+                           <xsl:value-of select="@name"/>
+                        </A>
+                     </LI>
+                  </xsl:for-each>
+                  </UL>
+               </xsl:if>
             </LI>
           </xsl:for-each>
         </ol>
@@ -530,7 +543,23 @@
       </xsl:if>
     </table>
   </xsl:template>
-  <xsl:template match="extensions">
+  <xsl:template match="recommendations">
+     <xsl:for-each select="document(@href)//element[bp]">
+        <h3>
+           <A>
+              <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
+           </A>
+           <xsl:value-of select="@name"/>
+        </h3>
+        <xsl:for-each select="bp/p">
+           <OL><xsl:attribute name="START">
+              <xsl:value-of select="count(preceding::bp/p)+count(preceding-sibling::p)+1"/></xsl:attribute>
+              <LI><xsl:value-of select="self::*"/></LI>
+           </OL>
+        </xsl:for-each>
+     </xsl:for-each>
+  </xsl:template>
+   <xsl:template match="extensions">
     <xsl:for-each select="extension">
       <xsl:variable name="extName">
         <xsl:value-of select="@name"/>
@@ -611,7 +640,7 @@
       </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
-  <xsl:template match='term[@status!="retired"]'>
+  <xsl:template match="term[@status!='retired']">
     <h3>
       <A>
         <xsl:attribute name="name"><xsl:value-of select="code"/></xsl:attribute>
@@ -683,8 +712,8 @@
       </xsl:if>
     </table>
   </xsl:template>
-  <xsl:template match='term[@status="retired"]'/>
-  <xsl:template match='term[@status!="retired"]' mode="subterm">
+  <xsl:template match="term[@status='retired']"/>
+  <xsl:template match="term[@status!='retired']" mode="subterm">
     <h4>
       <A>
         <xsl:attribute name="name"><xsl:value-of select="code"/></xsl:attribute>
@@ -746,7 +775,7 @@
       </xsl:if>
     </table>
   </xsl:template>
-  <xsl:template match='term[@status="retired"]' mode="subterm"/>
+  <xsl:template match="term[@status='retired']" mode="subterm"/>
   <xsl:template match="event" mode="history"/>
   <xsl:template match="todo">
     <hr/>

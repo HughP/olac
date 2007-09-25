@@ -7,7 +7,7 @@
       <title>Best Practice Recommendations for Language Resource
          Description</title>
       <baseName>bpr</baseName>
-      <issued>20070904</issued>
+      <issued>20070924</issued>
       <previousIssued/>
       <abstract>
          <p>This document expresses the consensus of the Open Language
@@ -27,13 +27,30 @@
    <body>
 
       <section>
-         <heading>Recommendations</heading>
-         <p>This document lists the best practice recommendations for
-            individual metadata elements that are given within the
-            specification of the OLAC metadata set <cit>OLAC-MS</cit>.
-            This list can be used as a checklist when evaluating a
-            particular OLAC metadata record for its conformance to
-            recommended best practice</p>
+         <heading>Introduction</heading>
+         <p>This document expresses the consensus of the Open Language
+            Archives Community on best practices for describing
+            language resources using the OLAC metadata standard
+            <cit>OLAC-Metadata</cit>. The standard itself specifies the formal constraints
+            on the syntax of valid descriptions, but does not set requirements on the
+            content of the metadata elements (beyond general conformance to the definitions
+            of the qualified Dublin Core metadata set <cit>DCMI</cit>). This document
+            provides more detailed guidance about the content of specific metadata
+            elements.</p>
+         <p>This document does not provide a complete set of advice about what the
+            metadata elements means and how they are to be used. Such advice is supplied
+            in an OLAC informational note <cit>OLAC-Usage</cit>. This document lists only
+            specific metadata usage guidelines that have been agreed upon by the OLAC community as
+            representing best practice.  It is not a requirement of participation that OLAC data providers
+            follow these recommendations. However, these recommendations will be used as the standard for
+            evaluating the quality of the metadata records supplied by an OLAC data
+            provider. </p></section>
+      <section>
+         <heading>Recommendations from 2002</heading>
+         <p>This section is temporary.  It is holding the recommendations written in the
+            2002 version of the document.  The next section shows the recommendations that
+         are being automatically copied in from NOTE/usage.xml. The current section will be
+         deleted once we have decided that we don't need the information any more. </p>
          <p>The recommendations are listed below under the metadata
             element they pertain to.</p>
 
@@ -236,17 +253,23 @@
             </ul>
          </subsection>
       </section>
-
+      <section>
+         <heading>Recommendations</heading>
+         <p>These are the recommendations automatically copied from the NOTE/usage.xml.</p>
+         <recommendations href="../NOTE/usage.xml"/>
+      </section>
+      
+      
    </body> 
    
   <references> 
     
-    <ref abbrev="MIME">Internet Media
-      Types.<br/>&lt;<url>http://www.isi.edu/in-notes/iana/assignments/media-types/media-types</url>&gt;</ref><ref abbrev="DC-Type">DCMI Type
-      Vocabulary.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</url>&gt;</ref>
+     <ref abbrev="DCMI">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
     
-     
      <ref abbrev="OLAC-Metadata">OLAC Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
+     
+     <ref abbrev="OLAC-Usage">OLAC Metadata Usage
+        Guidelines.<br/>&lt;<url>http://www.language-archives.org/NOTE/usage.html</url>&gt;</ref>
      
   </references>
 </OLAC_doc>
