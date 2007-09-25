@@ -14,7 +14,7 @@
             language resource description using the OLAC metadata standard
          OLAC-Metadata.">
 <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-<meta name="Date" content="20070904">
+<meta name="Date" content="20070924">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
@@ -31,7 +31,7 @@
 <table cellspacing="10">
 <tr valign="top">
 <th width="100" align="left">Date&nbsp;issued:</th>
-<td>2007-09-04</td>
+<td>2007-09-24</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th>
@@ -39,7 +39,7 @@
 </tr>
 <tr valign="top">
 <th align="left">This version:</th>
-<td><a href="http://www.language-archives.org/REC/bpr-20070904.html">http://www.language-archives.org/REC/bpr-20070904.html</a></td>
+<td><a href="http://www.language-archives.org/REC/bpr-20070924.html">http://www.language-archives.org/REC/bpr-20070924.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Latest version:</th>
@@ -71,7 +71,8 @@
 <hr>
 <h3>Table of contents</h3>
 <ol>
-<LI><A href="#Recommendations">Recommendations</A><UL>
+<LI><A href="#Introduction">Introduction</A></LI>
+<LI><A href="#Recommendations from 2002">Recommendations from 2002</A><UL>
 <LI><A href="#All elements">All elements</A></LI>
 <LI><A href="#Contributor, Creator, Publisher">Contributor, Creator, Publisher</A></LI>
 <LI><A href="#Date">Date</A></LI>
@@ -87,17 +88,51 @@
 <LI><A href="#Type.linguistic">Type.linguistic</A></LI>
 </UL>
 </LI>
+<LI><A href="#Recommendations">Recommendations</A><UL>
+<LI><A href="#Contributor">Contributor</A></LI>
+<LI><A href="#Coverage">Coverage</A></LI>
+<LI><A href="#Creator">Creator</A></LI>
+<LI><A href="#Date">Date</A></LI>
+<LI><A href="#Format">Format</A></LI>
+<LI><A href="#Identifier">Identifier</A></LI>
+<LI><A href="#Language">Language</A></LI>
+<LI><A href="#Provenance">Provenance</A></LI>
+<LI><A href="#Publisher">Publisher</A></LI>
+<LI><A href="#Relation">Relation</A></LI>
+<LI><A href="#Rights">Rights</A></LI>
+<LI><A href="#Rights Holder">Rights Holder</A></LI>
+<LI><A href="#Source">Source</A></LI>
+<LI><A href="#Subject">Subject</A></LI>
+<LI><A href="#Type">Type</A></LI>
+</UL>
+</LI>
 </ol>
 <blockquote><a href="#References">References</a><br></blockquote>
 <hr>
 <body>
-<h2><A name="Recommendations"></A>1. Recommendations</h2>
-<p>This document lists the best practice recommendations for
-            individual metadata elements that are given within the
-            specification of the OLAC metadata set [<a href="#OLAC-MS">OLAC-MS</a>].
-            This list can be used as a checklist when evaluating a
-            particular OLAC metadata record for its conformance to
-            recommended best practice</p>
+<h2><A name="Introduction"></A>1. Introduction</h2>
+<p>This document expresses the consensus of the Open Language
+            Archives Community on best practices for describing
+            language resources using the OLAC metadata standard
+            [<a href="#OLAC-Metadata">OLAC-Metadata</a>]. The standard itself specifies the formal constraints
+            on the syntax of valid descriptions, but does not set requirements on the
+            content of the metadata elements (beyond general conformance to the definitions
+            of the qualified Dublin Core metadata set [<a href="#DCMI">DCMI</a>]). This document
+            provides more detailed guidance about the content of specific metadata
+            elements.</p>
+<p>This document does not provide a complete set of advice about what the
+            metadata elements means and how they are to be used. Such advice is supplied
+            in an OLAC informational note [<a href="#OLAC-Usage">OLAC-Usage</a>]. This document lists only
+            specific metadata usage guidelines that have been agreed upon by the OLAC community as
+            representing best practice.  It is not a requirement of participation that OLAC data providers
+            follow these recommendations. However, these recommendations will be used as the standard for
+            evaluating the quality of the metadata records supplied by an OLAC data
+            provider. </p>
+<h2><A name="Recommendations from 2002"></A>2. Recommendations from 2002</h2>
+<p>This section is temporary.  It is holding the recommendations written in the
+            2002 version of the document.  The next section shows the recommendations that
+         are being automatically copied in from NOTE/usage.xml. The current section will be
+         deleted once we have decided that we don't need the information any more. </p>
 <p>The recommendations are listed below under the metadata
             element they pertain to.</p>
 <h3><A name="All elements"></A>All elements</h3>
@@ -272,22 +307,124 @@
                      vocabulary.</p>
 </li>
 </ul>
+<h2><A name="Recommendations"></A>3. Recommendations</h2>
+<p>These are the recommendations automatically copied from the NOTE/usage.xml.</p>
+<h3><A name="Contributor"></A>Contributor</h3>
+<OL START="1"><LI>Recommended best practice is to identify the entity by means of a name
+           		and to give the name in a form that is ready for sorting within an
+           		index. For the names of persons, this means that the name should be
+           		given in inverted order with the surname first. For the names of
+           		organizations, this means that any initial article should be omitted.
+           		When a resource has more than one contributor, use a separate
+           		Contributor element for each one.</LI>
+</OL>
+<h3><A name="Coverage"></A>Coverage</h3>
+<OL START="2"><LI>Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</LI>
+</OL>
+<h3><A name="Creator"></A>Creator</h3>
+<OL START="3"><LI>Recommended best practice is to identify a Creator by means of a name
+           		and to give the name in a form that is ready for sorting within an
+           		index. For the names of persons, this means that the name should be
+           		given in inverted order with the surname first. For the names of
+           		organizations, this means that any initial article should be omitted.
+           		When a resource has more than one creator, use a separate Creator
+           		element for each one.</LI>
+</OL>
+<h3><A name="Date"></A>Date</h3>
+<OL START="4"><LI>Recommended best practice is to use a coded value (see below) when
+         			possible, since that guarantees that a service provider can do a
+         			straight alphanumeric sort to put collections of metadata descriptions
+         			in correct chronological order. The element content may always be used
+         			to express date-related values or comments that cannot be fitted into
+         			the encoding standard.</LI>
+</OL>
+<OL START="5"><LI>Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</LI>
+</OL>
+<OL START="6"><LI>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</LI>
+</OL>
+<h3><A name="Format"></A>Format</h3>
+<OL START="7"><LI>Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</LI>
+</OL>
+<h3><A name="Identifier"></A>Identifier</h3>
+<OL START="8"><LI>Recommended best practice is to identify the resource by means of a
+         			string or number conforming to a globally-known formal identification
+         			system. Example formal identification systems include the Uniform
+         			Resource Identifier (URI) (including the Uniform Resource Locator
+         			(URL)), the Digital Object Identifier (DOI), and the International
+         			Standard Book Number (ISBN). DCMES</LI>
+</OL>
+<OL START="9"><LI>Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</LI>
+</OL>
+<h3><A name="Language"></A>Language</h3>
+<OL START="10"><LI>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</LI>
+</OL>
+<OL START="11"><LI>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</LI>
+</OL>
+<h3><A name="Provenance"></A>Provenance</h3>
+<OL START="12"><LI>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</LI>
+</OL>
+<h3><A name="Publisher"></A>Publisher</h3>
+<OL START="13"><LI>Recommended best practice is to identify a Publisher by means of a name
+         			and to give the name in a form that is ready for sorting within an
+         			index. For the names of persons, this means that the name should be
+         			given in inverted order with the surname first. For the names of
+         			organizations, this means that any initial article should be omitted.
+         			When a resource has more than one publisher, use a separate Publisher
+         			element for each one.</LI>
+</OL>
+<h3><A name="Relation"></A>Relation</h3>
+<OL START="14"><LI>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </LI>
+</OL>
+<h3><A name="Rights"></A>Rights</h3>
+<OL START="15"><LI>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector&#8217;s private study. To publish or otherwise distribute these works should have the approval of the owner&#8212;the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker&#8217;s name, basic demographic information , the context in which collecting took place, and the date.</LI>
+</OL>
+<h3><A name="Rights Holder"></A>Rights Holder</h3>
+<OL START="16"><LI>Recommended best practice is to use the URI or name of the Rights Holder to indicate the entity.</LI>
+</OL>
+<h3><A name="Source"></A>Source</h3>
+<OL START="17"><LI>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</LI>
+</OL>
+<h3><A name="Subject"></A>Subject</h3>
+<OL START="18"><LI>Recommended best practice for OLAC is to reserve the use of Source for
+            		cases when the present resource has a substantially different
+            		Type or Creator or Title than the
+            		Source resource. When the difference from the original work is only a
+            		difference of Date or Format or
+            		Publisher or Identifier or edition
+            		designator in the Title, then use Relation to encode the
+            		relationship to the original work.</LI>
+</OL>
+<OL START="19"><LI> Recommended best practice is to select a value from a controlled
+            		vocabulary or formal classification scheme. The scheme attribute
+            		is used to identify the scheme.</LI>
+</OL>
+<OL START="20"><LI>Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</LI>
+</OL>
+<h3><A name="Type"></A>Type</h3>
+<OL START="21"><LI>Recommended best practice is to use the code attribute to
+            		identify the type using the Dublin Core Types controlled
+            		vocabulary DC-Type. The element content is typically
+            		left empty. Use the element content only when the controlled
+            		vocabulary does not offer an appropriate type, or when further
+            		specification is needed.</LI>
+</OL>
+<OL START="22"><LI>Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</LI>
+</OL>
 </body><a name="References"></a><hr>
 <h2>References</h2>
 <table cellspacing="10">
 <tr valign="top">
-<td width="150">[<a name="DC-Type">DC-Type</a>]</td>
-<td>DCMI Type
-      Vocabulary.<br>&lt;<a href="http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/">http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</a>&gt;</td>
-</tr>
-<tr valign="top">
-<td width="150">[<a name="MIME">MIME</a>]</td>
-<td>Internet Media
-      Types.<br>&lt;<a href="http://www.isi.edu/in-notes/iana/assignments/media-types/media-types">http://www.isi.edu/in-notes/iana/assignments/media-types/media-types</a>&gt;</td>
+<td width="150">[<a name="DCMI">DCMI</a>]</td>
+<td>DCMI Metadata Terms.<br>&lt;<a href="http://dublincore.org/documents/dcmi-terms/">http://dublincore.org/documents/dcmi-terms/</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td>
 <td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-Usage">OLAC-Usage</a>]</td>
+<td>OLAC Metadata Usage
+        Guidelines.<br>&lt;<a href="http://www.language-archives.org/NOTE/usage.html">http://www.language-archives.org/NOTE/usage.html</a>&gt;</td>
 </tr>
 </table>
 </BODY>

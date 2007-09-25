@@ -85,7 +85,7 @@ indent on the left. Use <br> within for line breaks.-->
 <!--Body of document-->
 <!ELEMENT body (section+)>
 <!--A section of the document. -->
-<!ELEMENT section (heading, (p | ul | ol | dl | blockquote | eg | extensions)*, (subsection+ | element+ | term+)?)>
+<!ELEMENT section (heading, (p | ul | ol | dl | blockquote | eg | extensions)*, (subsection+ | element+ | term+ | recommendations)?)>
 <!ELEMENT subsection (subheading, (p | ul | ol | dl | blockquote | eg)*)>
 <!ELEMENT heading (#PCDATA)>
 <!ELEMENT subheading (#PCDATA)>
@@ -95,8 +95,9 @@ in the OLAC Metadata Set document.-->
 <!--The name of the metadata element (changed to an attribute so that it would show when
 the element is folded in the editor-->
 <!ATTLIST element name CDATA #REQUIRED>
-<!--The name of the controlled vocabulary term-->
-<!ELEMENT name (#PCDATA) >
+<!-- Extract all of the bp (best practice) recommendations from the document in href -->
+<!ELEMENT recommendations EMPTY >
+<!ATTLIST recommendations href CDATA #REQUIRED >
 <!--One-line definition of what the element is used for or what the
 conttrolled vaculary term represents.-->
 <!ELEMENT definition (#PCDATA)>
@@ -124,6 +125,8 @@ recursive so that a controlled vocabulary can encode a taxonomic hierarchy.-->
 the code attributed in a metadata element. If includes the full path if it
 is at a lower level in a hierarchy.-->
 <!ELEMENT code (#PCDATA)>
+<!--The name of the controlled vocabulary term-->
+<!ELEMENT name (#PCDATA) >
 <!ELEMENT history (event+)>
 <!ELEMENT event (date, remedy?, comment?)>
 <!ATTLIST event
