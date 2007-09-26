@@ -66,7 +66,7 @@
                 <xsl:attribute name="href">#<xsl:value-of select="normalize-space(heading)"/></xsl:attribute>
                 <xsl:value-of select="heading"/>
               </A>
-              <xsl:if test="subsection|element|term[@status!='retired']|extensions">
+              <xsl:if test="subsection|element[@name!='All elements']|term[@status!='retired']|extensions">
                 <UL>
                   <xsl:for-each select="subsection">
                     <LI>
@@ -454,6 +454,29 @@
       </xsl:for-each>
     </table>
   </xsl:template>
+   <!-- The following is a special case just for supporting extraction of the best
+      practices in the bpr.xml document -->
+   <xsl:template match="element[@name='All elements']">
+
+      <table width="95%" align="center" cellspacing="12">
+         <tr valign="top">
+               <td width="100">
+                  <i>Best practices</i>
+               </td>
+               <td>
+                  <xsl:apply-templates select="bp/*"/>
+               </td>
+         </tr>
+         <tr valign="top">
+            <td width="100">
+               <i>Examples</i>
+            </td>
+            <td>
+               <xsl:apply-templates select="examples/*"/>
+            </td>
+         </tr>
+      </table>
+   </xsl:template>
   <xsl:template match="element">
     <h3>
       <A>
@@ -554,7 +577,7 @@
         <xsl:for-each select="bp/p">
            <OL><xsl:attribute name="START">
               <xsl:value-of select="count(preceding::bp/p)+count(preceding-sibling::p)+1"/></xsl:attribute>
-              <LI><xsl:value-of select="self::*"/></LI>
+              <LI><xsl:apply-templates select="self::*"/></LI>
            </OL>
         </xsl:for-each>
      </xsl:for-each>

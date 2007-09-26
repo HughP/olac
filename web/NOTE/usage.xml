@@ -6,7 +6,7 @@
       <status code="draft" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20070919</issued>
+      <issued>20070925</issued>
       <previousIssued/>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the
@@ -34,7 +34,7 @@
             other elements that may be used..</p>
       </section>
       <section>
-         <heading>Attributes</heading>
+         <heading>All elements</heading>
          <p>Four attributes&#8212;<i>refine, code, scheme,</i> and
             <i>lang</i>&#8212;are used throughout the XML implementation of the
             metadata elements. A fifth attribute, <i>langs,</i> is used on complete
@@ -94,21 +94,43 @@
             select one and have display of elements in the other languages suppressed. An
             element in a language not included in the list of alternatives should always
             be displayed (for instance, the vernacular title of a work).</p>
-      </section>
-      <section>
-         <heading>Metadata elements</heading>
-         <p>Each element of the OLAC metadata set is described in one of the following
-            subsections. The heading gives the generic identifier of the XML tag used to
-            encode the element. Under the heading, the element is described in five ways.
-               <i>Name</i> gives a descriptive label for the tag. <i>Definition</i> is a
-            one-line summary of what the element is used for. <i>Comments</i> offers
-            details on how to use the element; the first paragraph typically repeats the
-            comment from <cit>DCMES</cit>, while the remaining paragraphs give further
-            specification for how OLAC uses the element. <i>Attributes</i> describes the
-            XML attributes used with the element. <i>Examples</i> shows samples of
-            properly encoded elements.</p>
          <p>In a given metadata record, every element is optional and every element is
             repeatable.</p>
+         <element name="All elements">
+            <definition><!-- Don;t use. Just a trick to make export to RED/bpr.xml work. --></definition>
+            <comment><!-- Ditto. --></comment>
+            <bp>
+               <p>Whenever the language of the element content is
+                  other than English, recommended best practice is
+                  to use the <i>xml:lang</i> attribute with a value from <cit>ISO639-3</cit> to identify the
+                  language.</p>
+               <p>When a resource has more than one value for a particular metadata
+                  element, recommended best practice is to use a separate instance of the
+                  metadata element for each instance rather than listing all the values in
+                  a single instance.</p>
+            </bp>
+            <examples><!-- I think we want to put these here --></examples>
+         </element>
+         
+      </section>
+      <section>
+         <heading>Individual elements</heading>
+         <p>Each of the core elements of the Dublin Core metadata set is described in one of the following
+            subsections. The heading gives the name of the
+            element; the element is then described under six subheadings.
+            <i>Definition</i> is the definition for the element as given by the Dublin
+            Core Metadata Initiative <cit>DCMT</cit>.
+            <i>Refinements</i> lists the refined element names (from the <i>dcterms</i>
+            namespace) that may be used in place of the generic element name to specify a
+            more precise meaning for the metadata item. The refinement definitions are copied from  <cit>DCMT</cit>.
+            <i>Schemes</i> lists the encoding schemes that may be used with this element
+            (or its refinements) as the value of the <i>xsi:type</i> attribute.
+            <i>Best practices</i> lists the best practices for the use of this element
+            that are recommended by the OLAC community <cit>OLAC-BP</cit>. 
+            <i>Usage notes</i> offers additional notes for the OLAC community
+            on how to use the element in the context of describing language resources. 
+            <i>Examples</i> shows samples of
+            properly encoded elements and sample refinements.</p>
          <element name="Contributor">
          	<definition>An entity responsible for making contributions to the resource.</definition>
             <comment>
@@ -162,7 +184,7 @@
                <p> Coverage will typically include spatial location (a place name or
                   geographic coordinates), temporal period (a period label, date, or date
                   range) or jurisdiction (such as a named administrative entity).
-                     <cit>DCMES</cit></p>
+                     <cit>DCMT</cit></p>
                <p>In the OLAC context, service providers already have a database that maps
                   languages to the countries in which they are spoken
                   <cit>OLAC-Language</cit>. Coverage should not be used to duplicate this
@@ -273,7 +295,7 @@
          	<definition>A point or period of time associated with an event in the lifecycle of the resource.</definition>
             <comment>
                <p>The <i>code</i> attribute is used to hold a standardized encoding
-                  of a date. Following <cit>DCMES</cit>, OLAC uses the YYYY-MM-DD
+                  of a date. Following <cit>DCMT</cit>, OLAC uses the YYYY-MM-DD
                   format as defined in <cit>W3CDTF</cit>. When a month or day value
                   is less than 10, use a leading 0 to maintain a two-digit length.
                   The encoded value may be for the year alone, for the year and
@@ -360,7 +382,7 @@
             <comment>
                <p>Description may include but is not limited to: an abstract, table of
                   contents, reference to a graphical representation of content, or a
-                  free-text account of the content. <cit>DCMES</cit></p>
+                  free-text account of the content. <cit>DCMT</cit></p>
                <p>No formatting conventions are defined within the text of Description.
                   Service providers may format the entire Description as a single
                   paragraph, collapsing adjacent white space characters into a single
@@ -410,7 +432,7 @@
                <p>Typically, Format may include the media-type or dimensions of the
                   resource. Format may be used to determine the software, hardware or
                   other equipment needed to display or operate the resource. Examples of
-                  dimensions include size and duration. <cit>DCMES</cit></p>
+                  dimensions include size and duration. <cit>DCMT</cit></p>
                <p>The element content may be left empty, but it would typically be
                   used to add further details about the format of the resource, such
                   as the sampling rate for digital recordings, the size of computer
@@ -503,7 +525,7 @@
          			system. Example formal identification systems include the Uniform
          			Resource Identifier (URI) (including the Uniform Resource Locator
          			(URL)), the Digital Object Identifier (DOI), and the International
-         			Standard Book Number (ISBN). <cit>DCMES</cit></p>
+         			Standard Book Number (ISBN). <cit>DCMT</cit></p>
          		<!-- Following comment from 20061218 DCMI terms document. -->
          		<p>Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</p>
          	</bp>
@@ -605,7 +627,7 @@
             <comment>
                <p>Examples of a Publisher include a person, an organization, or a service.
                   Typically, the name of a Publisher should be used to indicate the
-                  entity. <cit>DCMES</cit></p>
+                  entity. <cit>DCMT</cit></p>
             </comment>
          	<bp>
          		<p>Recommended best practice is to identify a Publisher by means of a name
@@ -743,7 +765,7 @@
                   Rights information often encompasses Intellectual Property Rights (IPR),
                   Copyright, and various Property Rights. If the Rights element is absent,
                   no assumptions can be made about the status of these and other rights
-                  with respect to the resource. <cit>DCMES</cit></p>
+                  with respect to the resource. <cit>DCMT</cit></p>
             	<p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories, descriptions, songs or art work, which researcher collect in the course of their work. The rights, in most cases, belong to the creator—not the researcher or SIL—or, in some cases, to the language community (as a legal entity). Intellectual property law as it applies to community cultural property is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators of such works and the conditions under which they came into the hands of an SIL worker are critical steps in archiving these valuable works. Only with this information about their origins can SIL follow through on its intention to respect the intellectual property rights of vernacular language communities in which we work.</p>
             </comment>
             <refinements>
@@ -800,7 +822,7 @@
             <comment>
              <!-- Move to <bp><p>? -->  
             	<p>The present resource may be derived from the Source resource in whole or
-                  in part. <cit>DCMES</cit> When the Source resource is also available in
+                  in part. <cit>DCMT</cit> When the Source resource is also available in
                   an on-line archive, recommended best practice is to reference it by
                   means of an "oai:" identifier. In this case service providers should
                   presented the Source as an active link that retrieves the metadata for
@@ -846,7 +868,7 @@
             <comment>
                <p>Typically, a Subject will be expressed as keywords, key phrases or
                   classification codes that describe a topic of the resource.
-                  <cit>DCMES</cit></p>
+                  <cit>DCMT</cit></p>
             </comment>
             <bp>
             	<!-- Following comment from 2002 OLAC metadata draft. -->
@@ -901,7 +923,7 @@
          	<definition>A name given to the resource.</definition>
             <comment>
                <p>Typically, a Title will be a name by which the resource is formally
-                  known. <cit>DCMES</cit></p>
+                  known. <cit>DCMT</cit></p>
                <p>A translation of the title can be supplied in a second Title element.
                   Use the <i>lang</i> attribute to identify the language of these
                   elements.</p>
@@ -948,7 +970,7 @@
                <p> Type includes terms describing general categories, functions, genres,
                   or aggregation levels for content. To describe the physical or digital
                   manifestation of the resource, use the <xref>Format</xref> element.
-                     <cit>DCMES</cit></p>
+                     <cit>DCMT</cit></p>
             </comment>
             <schemes>
                <dl>
@@ -1029,11 +1051,11 @@
          of America and Related Laws Contained in Title 17 of the United States
             Code.<br/>&lt;<url>http://www.loc.gov/copyright/title17/92chap1.html#101</url>&gt;</ref>
 
-      <ref abbrev="DCMES">Dublin Core Metadata Element Set, Version 1.1.
-            <br/>&lt;<url>http://dublincore.org/documents/dces/</url>&gt;</ref>
+      <ref abbrev="DCMT">Dublin Core Metadata Terms.
+         <br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
    	
       <ref abbrev="DC-Q">Dublin Core
-            Qualifiers.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmes-qualifiers/</url>&gt;</ref>
+            Qualifiers.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/DCMT-qualifiers/</url>&gt;</ref>
 
       <ref abbrev="DCQ-HTML">Recording qualified Dublin Core metadata in HTML meta
             elements.<br/>&lt;<url>http://dublincore.org/documents/2000/08/15/dcq-html/</url>&gt;</ref>
@@ -1053,22 +1075,26 @@
    	<ref abbrev="DC-Type">DCMI Type
    		<br/>&lt;<url>http://dublincore.org/documents/dcmi-box/</url>&gt;</ref>
    	
-   	<ref abbrev="IMT">IMT
+      <ref abbrev="IANA-CS">Internet Character Sets.<br/>
+         &lt;<url>http://www.isi.edu/in-notes/iana/assignments/character-sets</url>&gt;</ref>
+      
+      <ref abbrev="IMT">IMT
    		<br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
    	
-   	<ref abbrev="URI">URI
+      <ref abbrev="ISO639-3">ISO 639: Codes for the representation of names of languages - Part 3: Alpha-3 code for comprehensive coverage of languages.<br/>
+         &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
+      
+      <ref abbrev="URI">URI
    		<br/>&lt;<url>http://www.ietf.org/rfc/rfc2396.txt</url>&gt;</ref>
    	
-      <ref abbrev="IANA-CS">Internet Character
-            Sets.<br/>&lt;<url>http://www.isi.edu/in-notes/iana/assignments/character-sets</url>&gt;</ref>
-
       <ref abbrev="MIME">Internet Media
             Types.<br/>&lt;<url>http://www.isi.edu/in-notes/iana/assignments/media-types/media-types</url>&gt;</ref>
 
       <ref abbrev="OAI">Open Archives Initiative.
             <br/>&lt;<url>http://www.openarchives.org/</url>&gt;</ref>
-      <ref abbrev="OLAC-CPU">OLAC CPU
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
+      
+      <ref abbrev="OLAC-BP">Best Practice Recommendations for Language Resource
+         Description.<br/>&lt;<url>http://www.language-archives.org/REC/bpr.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Linguistic-Type">OLAC Linguistic Data Type
             Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
@@ -1076,34 +1102,10 @@
       <ref abbrev="OLAC-Metadata">OLAC
             Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
 
-      <ref abbrev="OLAC-Encoding">OLAC Encoding
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Format">OLAC Format
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Functionality">OLAC Functionality
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
       <ref abbrev="OLAC-Language">OLAC Language
             Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
 
-      <ref abbrev="OLAC-OS">OLAC Operating System
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Registration">The OLAC Registration
-            Service.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Rights">OLAC Rights
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
       <ref abbrev="OLAC-Role">OLAC Role
-            Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Scheme">OLAC Vocabulary for Encoding
-            Schemes.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
-
-      <ref abbrev="OLAC-Sourcecode">OLAC Source Code
             Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
 
       <ref abbrev="TGN">Getty Thesaurus of Geographical

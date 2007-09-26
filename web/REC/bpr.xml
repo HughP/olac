@@ -7,7 +7,7 @@
       <title>Best Practice Recommendations for Language Resource
          Description</title>
       <baseName>bpr</baseName>
-      <issued>20070924</issued>
+      <issued>20070925</issued>
       <previousIssued/>
       <abstract>
          <p>This document expresses the consensus of the Open Language
@@ -255,7 +255,9 @@
       </section>
       <section>
          <heading>Recommendations</heading>
-         <p>These are the recommendations automatically copied from the NOTE/usage.xml.</p>
+         <p>The following are the OLAC recommendations on best practice for describing
+            language resources. See <cit>OLAC-Usage</cit> for more explanation with
+            examples.</p>
          <recommendations href="../NOTE/usage.xml"/>
       </section>
       
