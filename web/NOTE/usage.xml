@@ -6,7 +6,7 @@
       <status code="draft" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20070925</issued>
+      <issued>20070927</issued>
       <previousIssued/>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the
@@ -977,7 +977,7 @@
                   <dt>dcterms:DCMIType</dt>
                   <dd>
                   	<p>A list of types used to categorize the nature or genre of the content of the resource.
-                  		<cit>DC-Type</cit>.</p>
+                  		<cit>DCMI-Type</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -985,12 +985,12 @@
             	<!-- Following comment from 2002 OLAC metadata draft. -->
             	<p>Recommended best practice is to use the <i>code</i> attribute to
             		identify the type using the Dublin Core Types controlled
-            		vocabulary <cit>DC-Type</cit>. The element content is typically
+            		vocabulary <cit>DCMI-Type</cit>. The element content is typically
             		left empty. Use the element content only when the controlled
             		vocabulary does not offer an appropriate type, or when further
             		specification is needed.</p>
             	<!-- Following comment from 20061218 DCMI terms document. -->   	
-            	<p>Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</p>
+               <p>Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary <cit>DCMI-Type</cit>. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</p>
             </bp>
 
             <examples>
@@ -1072,8 +1072,8 @@
    	<ref abbrev="DCMI-Point">DCMI Point
    		<br/>&lt;<url>http://dublincore.org/documents/dcmi-point/</url>&gt;</ref>
    	
-   	<ref abbrev="DC-Type">DCMI Type
-   		<br/>&lt;<url>http://dublincore.org/documents/dcmi-box/</url>&gt;</ref>
+   	<ref abbrev="DCMI-Type">DCMI Type Vocabulary.
+   	   <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
    	
       <ref abbrev="IANA-CS">Internet Character Sets.<br/>
          &lt;<url>http://www.isi.edu/in-notes/iana/assignments/character-sets</url>&gt;</ref>

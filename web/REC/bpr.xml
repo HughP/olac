@@ -7,7 +7,7 @@
       <title>Best Practice Recommendations for Language Resource
          Description</title>
       <baseName>bpr</baseName>
-      <issued>20070925</issued>
+      <issued>20070927</issued>
       <previousIssued/>
       <abstract>
          <p>This document expresses the consensus of the Open Language
@@ -255,9 +255,10 @@
       </section>
       <section>
          <heading>Recommendations</heading>
-         <p>The following are the OLAC recommendations on best practice for describing
-            language resources. See <cit>OLAC-Usage</cit> for more explanation with
-            examples.</p>
+         <p>The following are the OLAC recommendations on best practices for describing
+            language resources. Follow the "more" links to see the fuller treatment with definitions, usage
+            notes, and examples in 
+          <cit>OLAC-Usage</cit>.</p>
          <recommendations href="../NOTE/usage.xml"/>
       </section>
       
@@ -267,7 +268,10 @@
   <references> 
     
      <ref abbrev="DCMI">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
-    
+
+     <ref abbrev="DCMI-Type">DCMI Type Vocabulary.
+        <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
+     
      <ref abbrev="OLAC-Metadata">OLAC Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
      
      <ref abbrev="OLAC-Usage">OLAC Metadata Usage
