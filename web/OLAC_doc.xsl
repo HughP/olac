@@ -567,12 +567,14 @@
     </table>
   </xsl:template>
   <xsl:template match="recommendations">
+     <xsl:variable name="href" select="concat(substring-before(@href,'.xml'),'.html')"/>
      <xsl:for-each select="document(@href)//element[bp]">
         <h3>
            <A>
               <xsl:attribute name="name"><xsl:value-of select="@name"/></xsl:attribute>
            </A>
            <xsl:value-of select="@name"/>
+           <small> (<a href="{$href}#{@name}">more</a>)</small>
         </h3>
         <xsl:for-each select="bp/p">
            <OL><xsl:attribute name="START">
