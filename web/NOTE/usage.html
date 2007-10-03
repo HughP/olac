@@ -10,7 +10,7 @@
             metadata elements used in the metadata standard of the Open Language Archives
             Community.">
 <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-<meta name="Date" content="20070925">
+<meta name="Date" content="20071002">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
@@ -26,7 +26,7 @@
 <table cellspacing="10">
 <tr valign="top">
 <th width="100" align="left">Date&nbsp;issued:</th>
-<td>2007-09-25</td>
+<td>2007-10-02</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th>
@@ -34,7 +34,7 @@
 </tr>
 <tr valign="top">
 <th align="left">This version:</th>
-<td><a href="http://www.language-archives.org/NOTE/usage-20070925.html">http://www.language-archives.org/NOTE/usage-20070925.html</a></td>
+<td><a href="http://www.language-archives.org/NOTE/usage-20071002.html">http://www.language-archives.org/NOTE/usage-20071002.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Latest version:</th>
@@ -82,10 +82,8 @@
 <LI><A href="#Rights Holder">Rights Holder</A></LI>
 <LI><A href="#Source">Source</A></LI>
 <LI><A href="#Subject">Subject</A></LI>
-<LI><A href="#Subject.Language">Subject.Language</A></LI>
 <LI><A href="#Title">Title</A></LI>
 <LI><A href="#Type">Type</A></LI>
-<LI><A href="#Type.linguistic">Type.linguistic</A></LI>
 </UL>
 </LI>
 </ol>
@@ -168,6 +166,11 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
+<p>Minimal best practice is for the value of each metadata element to
+               conform to the definition of that element.</p>
+<p>When the meaning of a particular element in a metadata record fits the
+                  definition of a refinement, recommended best practice is to use the
+                  refinement rather than the generic element.</p>
 <p>Whenever the language of the element content is
                   other than English, recommended best practice is
                   to use the <i>xml:lang</i> attribute with a value from [<a href="#ISO639-3">ISO639-3</a>] to identify the
@@ -233,12 +236,13 @@
 <td width="100"><i>Best practices</i></td>
 <td>
 <p>Recommended best practice is to identify the entity by means of a name
-           		and to give the name in a form that is ready for sorting within an
+           	       in a form that is ready for sorting within an
            		index. For the names of persons, this means that the name should be
            		given in inverted order with the surname first. For the names of
            		organizations, this means that any initial article should be omitted.
-           		When a resource has more than one contributor, use a separate
-           		Contributor element for each one.</p>
+           		</p>
+<p>Recommended best practice is to use the <i>olac:role</i> scheme to
+                 indicate the role of the contributor.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -302,13 +306,21 @@
 <tr valign="top">
 <td>dcterms:Box&nbsp;&nbsp;</td>
 <td>
-<p>The DCMI Box identifies a region of space using its geographic limits.[<a href="#DCMI-Box">DCMI-Box</a>].</p>
+<p>The DCMI Box identifies a region of space using its geographic
+                  	   limits [<a href="#DCMI-Box">DCMI-Box</a>].</p>
 </td>
 </tr>
 <tr valign="top">
 <td>dcterms:Point&nbsp;&nbsp;</td>
 <td>
-<p>The DCMI Point identifies a point in space using its geographic coordinates.[<a href="#DCMI-Point">DCMI-Point</a>].</p>
+<p>The DCMI Point identifies a point in space using its geographic
+                  	   coordinates [<a href="#DCMI-Point">DCMI-Point</a>].</p>
+</td>
+</tr>
+<tr valign="top">
+<td>dcterms:TGN&nbsp;&nbsp;</td>
+<td>
+<p>The Getty Thesaurus of Geographic Names [<a href="#TGN">TGN</a>].</p>
 </td>
 </tr>
 </table>
@@ -317,7 +329,8 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</p>
+<p>In the case of Spatial coverage, recommended best practice is to use an
+         		   encoding scheme to give precise geocoding of the resource.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -385,12 +398,13 @@
 <td width="100"><i>Best practices</i></td>
 <td>
 <p>Recommended best practice is to identify a Creator by means of a name
-           		and to give the name in a form that is ready for sorting within an
+           	   in a form that is ready for sorting within an
            		index. For the names of persons, this means that the name should be
            		given in inverted order with the surname first. For the names of
            		organizations, this means that any initial article should be omitted.
-           		When a resource has more than one creator, use a separate Creator
-           		element for each one.</p>
+           		</p>
+<p>Recommended best practice is to use the <i>olac:role</i> scheme to
+                 indicate the role of the contributor.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -421,13 +435,9 @@
 <td width="100"><b><font color="red"><i>To do</i></font></b></td>
 <td>
 <font color="red">
-<p>Develop the controlled vocabulary and write the OLAC-Role document. The
-                  MARC vocabulary for "relators" (i.e. the relationship between a named
-                  entity and a work) may be a good place to start:
-                     <a href="http://lcweb.loc.gov/marc/relators/re0002r1.html">http://lcweb.loc.gov/marc/relators/re0002r1.html</a></p>
 <p>Here, and with Contributor, we recommend a format that puts surname
-                  first. We should probably go a step further and recommend that archives
-                  follow the standards described in AACR2. We need help from a librarian
+                  first. Are there other name-related standards in AACR2 that we should
+                  recommend? We need help from a librarian
                   to give us a synopsis (or a pointer to such) of the rules for fomatting
                   personal and corporate names. </p>
 </font>
@@ -502,7 +512,8 @@
 <tr valign="top">
 <td>dcterms:W3CDTF&nbsp;&nbsp;</td>
 <td>
-<p>W3C Encoding rules for dates and times - a profile based on ISO 8601.[<a href="#W3CDTF">W3CDTF</a>].</p>
+<p>W3C Encoding rules for dates and times - a profile based on ISO
+               	   8601 [<a href="#W3CDTF">W3CDTF</a>].</p>
 </td>
 </tr>
 </table>
@@ -511,14 +522,11 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to use a coded value (see below) when
-         			possible, since that guarantees that a service provider can do a
-         			straight alphanumeric sort to put collections of metadata descriptions
-         			in correct chronological order. The element content may always be used
-         			to express date-related values or comments that cannot be fitted into
-         			the encoding standard.</p>
-<p>Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</p>
-<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
+<p>Minimal best practice is that a record have at least one instance of Date
+         		(or one of its refinements).</p>
+<p>Minimal best practice is that every instance of Date (or a refinement) use
+         	   the <i>dcterms:W3CDTF</i> scheme or a value enclosed in square brackets if
+         	   the value does not conform to the encoding scheme.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -586,6 +594,12 @@
 </td>
 </tr>
 <tr valign="top">
+<td width="100"><i>Best practices</i></td>
+<td>
+<p>Minimal best practice is that a metadata record should contain at least
+                  one Description or Subject element.</p>
+</td>
+</tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
 <td>
 <p>Description may include but is not limited to: an abstract, table of
@@ -618,15 +632,6 @@
                   uncompress the speech data. &lt;/description&gt;</pre>
 <p>A reference to an existing on-line description:</p>
 <pre style="margin-left: 12pt">&lt;description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br>&lt;/description&gt;</pre>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td>
-<td>
-<font color="red">
-<p>[<a href="#DC-Q">DC-Q</a>] defines two refinements for Description: table of
-                  contents and abstract. Do we want to introduce this?</p>
-</font>
 </td>
 </tr>
 </table>
@@ -671,7 +676,8 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</p>
+<p>In the case of a digital resource, recommended best practice is to express
+            	   the format using a MIME type from the <i>dcterms:IMT</i> scheme. </p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -697,22 +703,6 @@
 <p>For a digitally recorded text:</p>
 <pre style="margin-left: 12pt">&lt;format code="audio/wav"&gt;Duration: 153 seconds. Size:
                   3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</pre>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td>
-<td>
-<font color="red">
-<p>We need to develop the vocabulary for Format. It should be based on the
-                  list of Internet Media Types [<a href="#MIME">MIME</a>] but we will probably still
-                  want our own vocabulary document at least for the purpose of explaining
-                  and exemplifying the use of MIME types. But further than that, we may
-                  want to pull out a subset of MIME types. We also may want to add some
-                  new categories and subtypes for our purposes in order to cover archive
-                  holdings that are not digital, e.g. manuscript, print, microform, and so
-                  on. The library or archive world probably has such a controlled
-                  vocabulary already, e.g. does MARC have standards for this?</p>
-</font>
 </td>
 </tr>
 </table>
@@ -753,13 +743,8 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to identify the resource by means of a
-         			string or number conforming to a globally-known formal identification
-         			system. Example formal identification systems include the Uniform
-         			Resource Identifier (URI) (including the Uniform Resource Locator
-         			(URL)), the Digital Object Identifier (DOI), and the International
-         			Standard Book Number (ISBN). [<a href="#DCMT">DCMT</a>]</p>
-<p>Recommended best practice is to identify the resource by means of a string conforming to a formal identification system.</p>
+<p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when
+         		   the value is a Uniform Resource Locator (URL).</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -809,10 +794,10 @@
 <td>
 <table cellpadding="4">
 <tr valign="top">
-<td>&nbsp;&nbsp;</td>
+<td>olac:ISO639-3&nbsp;&nbsp;</td>
 <td>
-<p>The <i>code</i> attribute should be used to make a precise
-                        identification of the language using a controlled vocabulary. See
+<p>The ISO 639-3 set of three-letter identifiers for the
+                        identification of human languages. See
                            [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary. </p>
 <p>Recommended best practice is to specify the language via the
                            <i>code</i> attribute while leaving the element content empty.
@@ -833,8 +818,10 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</p>
-<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
+<p>Minimal best practice is that every record contain at least one Language
+            	element.</p>
+<p>Minimal best practice is that every Language
+                  element use the <i>olac:ISO639-3</i> scheme to identify it precisely.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -856,6 +843,7 @@
                   text that is being annotated. For a dictionary, use Language for the
                   language in which the definitions are written; use Subject.language for
                   the language whose words are being defined.</p>
+<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -908,13 +896,10 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Best practices</i></td>
+<td width="100"><i>Usage Notes</i></td>
 <td>
 <p>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</p>
 </td>
-</tr><tr valign="top">
-<td width="100"><i>Usage Notes</i></td>
-<td></td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td>
@@ -943,12 +928,11 @@
 <td width="100"><i>Best practices</i></td>
 <td>
 <p>Recommended best practice is to identify a Publisher by means of a name
-         			and to give the name in a form that is ready for sorting within an
+         			in a form that is ready for sorting within an
          			index. For the names of persons, this means that the name should be
          			given in inverted order with the surname first. For the names of
          			organizations, this means that any initial article should be omitted.
-         			When a resource has more than one publisher, use a separate Publisher
-         			element for each one.</p>
+         			</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -1074,7 +1058,9 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </p>
+<p>When the related resource is also held in a participating archive,
+            	   recommended best practice is to identify the related resource by means of
+            	   its OAI identifier. </p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -1125,6 +1111,15 @@
                   &lt;/relation&gt;</pre>
 </td>
 </tr>
+<tr valign="top">
+<td width="100"><b><font color="red"><i>To do</i></font></b></td>
+<td>
+<font color="red">
+<p>Do we need a scheme for olac:OAI to represent an OLAC OAI identifier?
+            Or should we just use dcterms:URI and match on initial "oai:"?</p>
+</font>
+</td>
+</tr>
 </table>
 <h3><A name="Rights"></A>Rights</h3>
 <table width="95%" align="center" cellspacing="12">
@@ -1158,27 +1153,10 @@
 <tr valign="top">
 <td width="100"><i>Schemes</i></td>
 <td>
-<table cellpadding="4">
-<tr valign="top">
-<td>&nbsp;&nbsp;</td>
-<td>
-<p>Recommended best practice is to use the <i>code</i> attribute to
-                        make a summary statement about rights using a controlled
-                        vocabulary. If the coded value adequately documents the rights
-                        management issues, leave the element content empty. Otherwise, use
-                        the content to add the relevant details. See
-                        [<a href="#OLAC-Rights">OLAC-Rights</a>] for the definition of the vocabulary. </p>
-</td>
-</tr>
-</table>
+<p>There are no encoding schemes for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Best practices</i></td>
-<td>
-<p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector&#8217;s private study. To publish or otherwise distribute these works should have the approval of the owner&#8212;the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker&#8217;s name, basic demographic information , the context in which collecting took place, and the date.</p>
-</td>
-</tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
 <td>
 <p> Typically, a Rights element will contain a rights management statement
@@ -1188,6 +1166,7 @@
                   no assumptions can be made about the status of these and other rights
                   with respect to the resource. [<a href="#DCMT">DCMT</a>]</p>
 <p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories, descriptions, songs or art work, which researcher collect in the course of their work. The rights, in most cases, belong to the creator&#8212;not the researcher or SIL&#8212;or, in some cases, to the language community (as a legal entity). Intellectual property law as it applies to community cultural property is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators of such works and the conditions under which they came into the hands of an SIL worker are critical steps in archiving these valuable works. Only with this information about their origins can SIL follow through on its intention to respect the intellectual property rights of vernacular language communities in which we work.</p>
+<p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector&#8217;s private study. To publish or otherwise distribute these works should have the approval of the owner&#8212;the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker&#8217;s name, basic demographic information , the context in which collecting took place, and the date.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -1198,8 +1177,8 @@
 <td width="100"><b><font color="red"><i>To do</i></font></b></td>
 <td>
 <font color="red">
-<p>Write the OLAC-Rights document.</p>
-<p>Add examples after we work out the controlled vocabulary.</p>
+<p>Mention Creative Commons in the usage notes and give an example of a CC
+                  license statement.</p>
 </font>
 </td>
 </tr>
@@ -1223,13 +1202,10 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Best practices</i></td>
-<td>
-<p>Recommended best practice is to use the URI or name of the Rights Holder to indicate the entity.</p>
-</td>
-</tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
-<td></td>
+<td>
+<p>Use the URI or name of the Rights Holder to indicate the entity.</p>
+</td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td>
@@ -1264,7 +1240,9 @@
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</p>
+<p>When the Source resource is also held in a participating archive,
+                  recommended best practice is to identify the related resource by means of
+                  its OAI identifier. </p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -1288,6 +1266,14 @@
                   overlaps with <a href="#Relation">Relation</a>, since the <i>isFormatOf</i> and
                      <i>isVersionOf</i> refinements both refer to derivative works in the
                   technical sense.</p>
+<p>Use Source (as opposed to Relation) in 
+                  cases when the present resource has a substantially different
+                  <a href="#Type">Type</a> or <a href="#Creator">Creator</a> or <a href="#Title">Title</a> than the
+                  Source resource. When the difference from the original work is only a
+                  difference of <a href="#Date">Date</a> or <a href="#Format">Format</a> or
+                  <a href="#Publisher">Publisher</a> or <a href="#Identifier">Identifier</a> or edition
+                  designator in the <a href="#Title">Title</a>, then use Relation to encode the
+                  relationship to the original work.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -1318,24 +1304,46 @@
 <tr valign="top">
 <td width="100"><i>Schemes</i></td>
 <td>
-<p>There are no encoding schemes for this element.</p>
+<table cellpadding="4">
+<tr valign="top">
+<td>olac:ISO639-3&nbsp;&nbsp;</td>
+<td>
+<p>The ISO 639-3 set of three-letter identifiers for the
+                        identification of human languages. See <a href="#Language">Language</a> for a complete discussion (with examples) of
+                        using this scheme.</p>
+<p>Recommended best practice is to specify the language via the
+                        <i>code</i> attribute while leaving the element content empty.
+                        Use the element content only when the controlled vocabulary does
+                        not offer an appropriate code, or when further specification is
+                        needed, such as to name a specific dialect or to give an alternate
+                        name that differs from the default name given by the controlled
+                        vocabulary. </p>
+<p>Service providers should use the <i>code</i> attribute to support
+                        searches by language, and may use the element content in searches
+                        by keyword. They also may supply the default language name in
+                        keyword searching when the element content is missing.</p>
+</td>
+</tr>
+<tr valign="top">
+<td>olac:linguistic-field&nbsp;&nbsp;</td>
+<td>
+<p>The OLAC vocabulary for describing the content of a resource as
+                     relevant to a particular subfield of linguistic science
+                     [<a href="#OLAC-Linguistic-Field">OLAC-Linguistic-Field</a>]. </p>
+</td>
+</tr>
+</table>
 </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice for OLAC is to reserve the use of Source for
-            		cases when the present resource has a substantially different
-            		<a href="#Type">Type</a> or <a href="#Creator">Creator</a> or <a href="#Title">Title</a> than the
-            		Source resource. When the difference from the original work is only a
-            		difference of <a href="#Date">Date</a> or <a href="#Format">Format</a> or
-            		<a href="#Publisher">Publisher</a> or <a href="#Identifier">Identifier</a> or edition
-            		designator in the <a href="#Title">Title</a>, then use Relation to encode the
-            		relationship to the original work.</p>
-<p> Recommended best practice is to select a value from a controlled
-            		vocabulary or formal classification scheme. The <i>scheme</i> attribute
-            		is used to identify the scheme.</p>
-<p>Recommended best practice is to use a controlled vocabulary. To describe the spatial or temporal topic of the resource, use the Coverage element.</p>
+<p>Minimal best practice is that a metadata record should contain at least
+                  one Description or Subject element.</p>
+<p>When the subject is a human language, minimal best practice is to use
+            	   the <i>olac:ISO639-3</i> scheme to identify it precisely.</p>
+<p>When the subject matter falls within the field of linguistics, recommended best practice is to use
+                  the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -1343,6 +1351,7 @@
 <p>Typically, a Subject will be expressed as keywords, key phrases or
                   classification codes that describe a topic of the resource.
                   [<a href="#DCMT">DCMT</a>]</p>
+<p>To describe the spatial or temporal topic of the resource, use the <a href="#Coverage">Coverage</a> element.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -1358,50 +1367,10 @@
 <td>
 <font color="red">
 <p>Geographic and temporal aspects of language varieties go in Coverage.
-                  Subject is where social dimensions of language varieties would go. Does
-                  the community need to develop an encoding scheme for this? Add an
+                  Subject is where social dimensions of language varieties would go. Add an
                   example.</p>
 </font>
 </td>
-</tr>
-</table>
-<h3><A name="Subject.Language"></A>Subject.Language</h3>
-<table width="95%" align="center" cellspacing="12">
-<tr valign="top">
-<td width="100"><i>Definition</i></td>
-<td>A language which the content of the resource describes or
-               discusses.</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Refinements</i></td>
-<td>
-<p>There are no refinements for this element.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Schemes</i></td>
-<td>
-<table cellpadding="4">
-<tr valign="top">
-<td>&nbsp;&nbsp;</td>
-<td>
-<p>As with the <a href="#Language">Language</a> element, a <i>code</i> attribute
-                        is used to identify the language precisely. </p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Usage Notes</i></td>
-<td>
-<p>See <a href="#Language">Language</a> for a complete discussion (with examples) of
-                  using the Language and Subject.language elements.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Examples</i></td>
-<td></td>
 </tr>
 </table>
 <h3><A name="Title"></A>Title</h3>
@@ -1437,14 +1406,23 @@
                         <i>alternative</i> indicates a form of the title that is used as a
                         substitute or alternative to the formal title of the resource.
                         This qualifier can include abbreviated titles as well as
-                        translations. Recommended best practice is that only one instance
-                        of Title, namely the original title, be unqualified.</p>
+                        translations. </p>
 </td>
 </tr>
 </table>
 </td>
 </tr>
 <tr valign="top">
+<td width="100"><i>Best practices</i></td>
+<td>
+<p>Minimal best practice is that every record must have an instance of the
+                  Title element.</p>
+<p>Recommended best practice is that only one instance
+                  of Title, namely the original title, be unqualified.
+                  All others (e.g. translations)
+                  should be specified as the Alternative refinement.</p>
+</td>
+</tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
 <td>
 <p>Typically, a Title will be a name by which the resource is formally
@@ -1490,19 +1468,26 @@
                   		[<a href="#DCMI-Type">DCMI-Type</a>].</p>
 </td>
 </tr>
+<tr valign="top">
+<td>olac:linguistic-type&nbsp;&nbsp;</td>
+<td>
+<p>The nature or genre of the content of the resource from a
+                     linguistic standpoint [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>]. For a resource that is information in or about a language,
+                     use this scheme to identify what kind of information it is from a
+                     linguistic standpoint.</p>
+</td>
+</tr>
 </table>
 </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Best practices</i></td>
 <td>
-<p>Recommended best practice is to use the <i>code</i> attribute to
-            		identify the type using the Dublin Core Types controlled
-            		vocabulary [<a href="#DCMI-Type">DCMI-Type</a>]. The element content is typically
-            		left empty. Use the element content only when the controlled
-            		vocabulary does not offer an appropriate type, or when further
-            		specification is needed.</p>
-<p>Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</p>
+<p>Minimal best practice is that every record contain at least one Type
+                  element that uses the <i>dcterms:DCMIType</i> scheme.</p>
+<p>When a resource is an instance of  language data, documentation, or
+                  description, minimal best practice is to use the
+                  <i>olac:linguistic-type</i> scheme to identify its linguistic data type. </p>
 </td>
 </tr><tr valign="top">
 <td width="100"><i>Usage Notes</i></td>
@@ -1520,66 +1505,14 @@
 <pre style="margin-left: 12pt">&lt;type code="Image"/&gt;</pre>
 </td>
 </tr>
-</table>
-<h3><A name="Type.linguistic"></A>Type.linguistic</h3>
-<table width="95%" align="center" cellspacing="12">
-<tr valign="top">
-<td width="100"><i>Definition</i></td>
-<td>The nature or genre of the content of the resource from a
-               linguistic standpoint.</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Refinements</i></td>
-<td>
-<p>There are no refinements for this element.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Schemes</i></td>
-<td>
-<table cellpadding="4">
-<tr valign="top">
-<td>&nbsp;&nbsp;</td>
-<td>
-<p>Recommended best practice is to the <i>code</i> attribute to
-                        identify the linguistic data type using a controlled vocabulary.
-                        See [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] for the definition of the
-                        vocabulary. The vocabulary uses a two-level coding system. There
-                        are four primary types &#8212;<i>transcription, annotation,
-                           description,</i> and <i>lexicon</i>&#8212; each of which
-                        have a number of subtypes. Use the element content only when the
-                        controlled vocabulary does not offer an appropriate code, or when
-                        further explanation about the data type is needed. </p>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Usage Notes</i></td>
-<td>
-<p>For a resource that is information in or about a language,
-                  Type.linguistic identifies what kind of information it is from a
-                  linguistic standpoint. For a resource that is a software tool,
-                  Type.linguistic identifies what kind of information it processes.
-                  Service providers may use this information to match data files with
-                  software tools that might be applied to them.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Examples</i></td>
-<td>
-<p>The resource describes the grammar of a language:</p>
-<pre style="margin-left: 12pt">&lt;type.linguistic code="description/grammar"/&gt;</pre>
-<p>The resource includes the orthographic transcription of text:</p>
-<pre style="margin-left: 12pt">&lt;type.linguistic code="transcription/orthographic"/&gt;</pre>
-</td>
-</tr>
 <tr valign="top">
 <td width="100"><b><font color="red"><i>To do</i></font></b></td>
 <td>
 <font color="red">
-<p>Write the OLAC-Linguistic-Type document. </p>
+<p>The following is leftover from 2002; do we still want it?  For a resource that is a software tool,
+               Type.linguistic identifies what kind of information it processes.
+               Service providers may use this information to match data files with
+               software tools that might be applied to them.</p>
 </font>
 </td>
 </tr>
@@ -1591,7 +1524,7 @@
 </h2>
 <font color="red">
 <p>There is not yet a provision for handling subject categorization by linguistic
-         classification.</p>
+         (genetic) classification.</p>
 <p>Rights.software has been left in limbo. It may be possible to unify it with
          Rights.</p>
 </font><a name="References"></a><hr>
@@ -1684,9 +1617,14 @@
             Vocabulary.<br>&lt;<a href="http://www.language-archives.org/OLAC/???">http://www.language-archives.org/OLAC/???</a>&gt;</td>
 </tr>
 <tr valign="top">
+<td width="150">[<a name="OLAC-Linguistic-Field">OLAC-Linguistic-Field</a>]</td>
+<td>OLAC Linguistic Subject
+         Vocabulary.<br>&lt;<a href="http://www.language-archives.org/REC/field.htmll">http://www.language-archives.org/REC/field.htmll</a>&gt;</td>
+</tr>
+<tr valign="top">
 <td width="150">[<a name="OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>]</td>
 <td>OLAC Linguistic Data Type
-            Vocabulary.<br>&lt;<a href="http://www.language-archives.org/OLAC/???">http://www.language-archives.org/OLAC/???</a>&gt;</td>
+         Vocabulary.<br>&lt;<a href="http://www.language-archives.org/REC/type.html">http://www.language-archives.org/REC/type.html</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td>
