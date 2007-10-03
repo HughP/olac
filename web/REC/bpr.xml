@@ -7,7 +7,7 @@
       <title>Best Practice Recommendations for Language Resource
          Description</title>
       <baseName>bpr</baseName>
-      <issued>20070927</issued>
+      <issued>20071002</issued>
       <previousIssued/>
       <abstract>
          <p>This document expresses the consensus of the Open Language
@@ -38,225 +38,21 @@
             provides more detailed guidance about the content of specific metadata
             elements.</p>
          <p>This document does not provide a complete set of advice about what the
-            metadata elements means and how they are to be used. Such advice is supplied
-            in an OLAC informational note <cit>OLAC-Usage</cit>. This document lists only
+            metadata elements mean or about how they should be used. Such advice is supplied
+            in an OLAC informational note <cit>OLAC-Usage</cit>. This document lists the
             specific metadata usage guidelines that have been agreed upon by the OLAC community as
             representing best practice.  It is not a requirement of participation that OLAC data providers
-            follow these recommendations. However, these recommendations will be used as the standard for
+            follow these recommendations. However, these recommendations are used as the standard for
             evaluating the quality of the metadata records supplied by an OLAC data
             provider. </p></section>
       <section>
-         <heading>Recommendations from 2002</heading>
-         <p>This section is temporary.  It is holding the recommendations written in the
-            2002 version of the document.  The next section shows the recommendations that
-         are being automatically copied in from NOTE/usage.xml. The current section will be
-         deleted once we have decided that we don't need the information any more. </p>
-         <p>The recommendations are listed below under the metadata
-            element they pertain to.</p>
-
-         <subsection>
-            <subheading>All elements</subheading>
-            <ul>
-               <li>
-                  <p>Whenever the language of the element content is
-                     other than English, recommended best practice is
-                     to use the <i>lang</i> attribute to identify the
-                     language.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Contributor, Creator, Publisher</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to identify the
-                     entity by means of a name and to give the name in
-                     a form that is ready for sorting within an index.
-                     For the names of persons, this means that the
-                     name should be given in inverted order with the
-                     surname first. For the names of organizations,
-                     this means that any initial article should be
-                     omitted. </p>
-               </li>
-               <li>
-                  <p>When a resource has more than one contributor,
-                     creator, or publisher, use a separate
-                     Contributor, Creator, or Publisher element for
-                     each one.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Date</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to use a coded value
-                     when possible, since that guarantees that a
-                     service provider can do a straight alphanumeric
-                     sort to put collections of metadata descriptions
-                     in correct chronological order.</p>
-               </li>
-               <li>
-                  <p>The encoded value may match one of the four
-                     following patterns: <tt>YYYY</tt>,
-                     <tt>YYYY-MM</tt>, <tt>YYYY-MM-DD</tt>, or
-                        <tt>YYYY-YYYY</tt>.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Format</subheading>
-            <ul>
-               <li>
-                  <p>The <i>code</i> attribute should be used to make
-                     a precise identification of the format using a
-                     controlled vocabulary. This is especially
-                     important for digital resources since service
-                     providers may use this information to match data
-                     resources with the software tools that are
-                     appropriate for manipulating them.</p>
-               </li>
-               <li>
-                  <p>[The OLAC-Format vocabulary was not elaborated,
-                     but it was suggested that it should be based on
-                        <cit>MIME</cit> types.]</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Format.markup</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to identify the
-                     markup scheme by a URI giving an OAI identifier
-                     for the markup scheme as a resource in an OLAC
-                     archive. Thus, if the DTD, Schema, or markup
-                     documentation is not already archived in an OLAC
-                     repository, the depositor of a marked-up resource
-                     should also deposit the documentation for the
-                     markup scheme. </p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Identifier</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to identify the
-                     resource by means of a string or number
-                     conforming to a globally-known formal
-                     identification system. Example formal
-                     identification systems include the Uniform
-                     Resource Identifier (URI) (including the Uniform
-                     Resource Locator (URL)), the Digital Object
-                     Identifier (DOI), and the International Standard
-                     Book Number (ISBN).</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Language, Subject.language</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to specify the
-                     language via the <i>code</i> attribute while
-                     leaving the element content empty. </p>
-               </li>
-               <li>
-                  <p>Use the element content only when the controlled
-                     vocabulary does not offer an appropriate code, or
-                     when further specification is needed, such as to
-                     name a specific dialect or to give an alternate
-                     name that differs from the default name given by
-                     the controlled vocabulary.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Source</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice for OLAC is to reserve
-                     the use of Source for cases when the present
-                     resource has a substantially different Type or
-                     Creator or Title than the Source resource. </p>
-               </li>
-               <li>
-                  <p>When the difference from the original work is
-                     only a difference of Date or Format or Publisher
-                     or Identifier or edition designator in the Title,
-                     then use Relation to encode the relationship to
-                     the original work.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Subject</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to select a value
-                     from a controlled vocabulary or formal
-                     classification scheme. The <i>scheme</i>
-                     attribute is used to identify the scheme.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Title</subheading>
-            <ul>
-               <li>
-                  <p>When there is more than one instance of Title,
-                     recommended best practice is that only one
-                     instance, namely the original title, be
-                     unqualified. All others (e.g. translations)
-                     should specify <tt>code="alternative"</tt>.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Type</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to use the
-                     <i>code</i> attribute to identify the type using
-                     the Dublin Core Types controlled vocabulary
-                        <cit>DC-Type</cit>. The element content is
-                     typically left empty. Use the element content
-                     only when the controlled vocabulary does not
-                     offer an appropriate type, or when further
-                     specification is needed.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Type.functionality</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to the <i>code</i>
-                     attribute to identify the software functionality
-                     using a controlled vocabulary. See
-                     OLAC-Functionality for the definition of the
-                     vocabulary.</p>
-               </li>
-            </ul>
-         </subsection>
-         <subsection>
-            <subheading>Type.linguistic</subheading>
-            <ul>
-               <li>
-                  <p>Recommended best practice is to the <i>code</i>
-                     attribute to identify the linguistic data type
-                     using a controlled vocabulary. See
-                     OLAC-Linguistic-Type for the definition of the
-                     vocabulary.</p>
-               </li>
-            </ul>
-         </subsection>
-      </section>
-      <section>
          <heading>Recommendations</heading>
          <p>The following are the OLAC recommendations on best practices for describing
-            language resources. Follow the "more" links to see the fuller treatment with definitions, usage
+            language resources. Two levels of practice are distinguished: "minimal
+            best practices" are those that must be followed to attain a basic level of good
+            quality, while "recommended best practices" are those that contribute to
+            achieving the highest quality.
+            Follow the "more" links to see the fuller treatment with definitions, usage
             notes, and examples in 
           <cit>OLAC-Usage</cit>.</p>
          <recommendations href="../NOTE/usage.xml"/>
@@ -269,8 +65,8 @@
     
      <ref abbrev="DCMI">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
 
-     <ref abbrev="DCMI-Type">DCMI Type Vocabulary.
-        <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
+     <ref abbrev="ISO639-3">ISO 639: Codes for the representation of names of languages - Part 3: Alpha-3 code for comprehensive coverage of languages.<br/>
+        &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
      
      <ref abbrev="OLAC-Metadata">OLAC Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
      
