@@ -191,6 +191,8 @@
                   geographic coordinates), temporal period (a period label, date, or date
                   range) or jurisdiction (such as a named administrative entity).
                      <cit>DCMT</cit></p>
+            	<!-- Following <p> from OLACSIL.txt -->  
+            	<p>Typically it can contain a country or region to which the resource relates.</p>
                <p>In the OLAC context, service providers already have a database that maps
                   languages to the countries in which they are spoken
                   <cit>OLAC-Language</cit>. Coverage should not be used to duplicate this
@@ -281,6 +283,8 @@
            		</p>
               <p>Recommended best practice is to use the <i>olac:role</i> scheme to
                  indicate the role of the contributor.</p>
+           	<!-- Following <p> from OLACSIL.txt -->
+           	<p>If western name, enter as Family-name, Given-name(s). If romanized form of Asian name where the family name is the common form of address, enter as Family-name Given-Name(s) without the comma.</p>
            </bp>
          	
          	<examples>
@@ -399,6 +403,10 @@
                   consisting solely of a URL and will be presented as a link in user
                   interfaces. Service providers are not obliged to search other
                   Description text for the occurrence of URLs.</p>
+               <!-- Following <p> from OLACSIL.txt -->
+               <p>Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content. For the original SIL TOC, use this element to map \anno annotation &lt;annotation&gt;,  a qualitative or evaluative comment about this resource, including judgment about suitability for a particular application or context.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>If the description is either an abstract or a table of contents for the resource, that may be specified in this element. If the description is other than one of these, leave \descType empty.</p>
             </comment>
             <refinements>
                <dl>
@@ -415,7 +423,8 @@
             <bp>
                <p>Minimal best practice is that a metadata record should contain at least
                   one Description or Subject element.</p>
-            </bp>
+         	</bp>
+         	
             <examples>
                <p>A prose description of a resource:</p>
                <eg>&lt;description&gt;The CALLHOME Japanese corpus of telephone
@@ -516,8 +525,9 @@
          	<bp>
          		<p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when
          		   the value is a Uniform Resource Locator (URL).</p>
+         		<!-- Following <p> from OLACSIL.txt -->
+         		<p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of files if this is a digital resource. URL for work published online. ISBN for hard-copy publication, if available, or bibliographic citation if not. (Place, publisher, [series and volume] for a monograph; journal title, vol., issue and pages for an article; editor, place, publisher, [series and volume] and pages for book-chapter; name, location and date of conference for a conference paper; degree level and institution for a thesis.)</p>
          	</bp>
-         	
          	
             <examples>
                <p>A Uniform Resource Locator for retrieval of an electronically encoded
@@ -548,6 +558,8 @@
                   text that is being annotated. For a dictionary, use Language for the
                   language in which the definitions are written; use Subject.language for
                   the language whose words are being defined.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>For scholarly works, this will usually be a major language (English, French, Indonesian, etc.). For vernacular works, it will be the minority language and will usually be the same as the language coded in subject_language. Repeat tag for each code needed for polyglot works. Give the language name in this element, if it is a specific variety of the language as identified using its three-letter ISO 6390-3 identifier, which should be given in \language_code.</p>            	
                <!-- Following from Joan Spanne's SIL_Guidelines. -->
                <p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
             </comment>
@@ -557,7 +569,7 @@
                   <dd>
                      <p>The ISO 639-3 set of three-letter identifiers for the
                         identification of human languages. See
-                           <cit>OLAC-Language</cit> for the definition of the vocabulary. </p>
+                           <cit>OLAC-Language</cit> for the definition of the vocabulary. </p>                  	
                   	<!-- Move to a <bp><p>? -->
                      <p>Recommended best practice is to specify the language via the
                            <i>code</i> attribute while leaving the element content empty.
@@ -570,11 +582,15 @@
                         searches by language, and may use the element content in searches
                         by keyword. They also may supply the default language name in
                         keyword searching when the element content is missing.</p>
+                  	<!-- What about md-lang from OLACSIL.txt ?:  
+                  		\desc The language in which this metadata record is primarily written (not including coded range-set values). Multiple titles (using alternative), descriptions, and subject terms may be given in additional languages to aid in searching; specify the language used for each of those if different from the language specified in this element. -->                 	
                   </dd>
                </dl>
-
             </schemes>
             <bp>
+            	<p>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</p>
+            	<!-- Following from Joan Spanne's SIL_Guidelines.doc -->
+            	<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
             	<p>Minimal best practice is that every record contain at least one Language
             	element.</p>
                <p>Minimal best practice is that every Language
@@ -657,7 +673,8 @@
                   developed by the same creators. When the new version is nothing more
                   than a rendition in a new format, then the <i>isForrmatOf</i> refinement
                   is used. </p>
-               <p> </p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>Use this element to associate independent but conceptually related materials. Use the \relationType element to specify the nature of the relationship between the work described in this record and the work whose ID is given in this element.  Repeat for each related item.  Use an unambiguous identifier (such as the \primaryid) for the related resource, if possible, or a standard name for a schema to which this resource conforms, e.g., GOLD: General Ontology for Linguistic Description.</p>
             </comment>
             <refinements>
                <dl>
@@ -759,6 +776,8 @@
                   no assumptions can be made about the status of these and other rights
                   with respect to the resource. <cit>DCMT</cit></p>
             	<p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories, descriptions, songs or art work, which researcher collect in the course of their work. The rights, in most cases, belong to the creator—not the researcher or SIL—or, in some cases, to the language community (as a legal entity). Intellectual property law as it applies to community cultural property is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators of such works and the conditions under which they came into the hands of an SIL worker are critical steps in archiving these valuable works. Only with this information about their origins can SIL follow through on its intention to respect the intellectual property rights of vernacular language communities in which we work.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>Specify a license, access conditions (for the public) or rights holders specific to this item. A rights holder may be the publisher, if the author assigned rights to the work in a publication contract, or a member of a language community if the work is that person’s creative initiative and he/she was not in the employ of an entity language project. (Do not include SIL International, an SIL entity or a WO, as the appropriate authority is assumed based on the primary id.) If the Rights element is absent, no assumptions can be made about the status of these and other rights with respect to the resource.</p>
                <p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector’s private study. To publish or otherwise distribute these works should have the approval of the owner—the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker’s name, basic demographic information , the context in which collecting took place, and the date.</p>
             </comment>
             <refinements>
@@ -888,6 +907,8 @@
             	   the <i>olac:ISO639-3</i> scheme to identify it precisely.</p>
                <p>When the subject matter falls within the field of linguistics, recommended best practice is to use
                   the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
             </bp>
          	
          	<examples>
@@ -909,6 +930,8 @@
                <p>A translation of the title can be supplied in a second Title element.
                   Use the <i>lang</i> attribute to identify the language of these
                   elements.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>[Can be] a name given to a work to identify it if a formal title is not used, such as for a data set or collection of texts. For a formal title, this is generally in the language in which the work is written or recorded. If the title is in a language different from the language identified in \md-lang, note the language of the title in the \titleLang field.</p>
             </comment>
             <refinements>
                <dl>
@@ -961,6 +984,8 @@
                   or aggregation levels for content. To describe the physical or digital
                   manifestation of the resource, use the <xref>Format</xref> element.
                      <cit>DCMT</cit></p>
+            	<!-- Following <p> from OLACSIL.txt -->
+            	<p>Select from the closed range of resource types; some have subtypes further specified. This relates to the intended use or mode of perception by a user, e.g., a computer image file of a text (such as a scanned document) is type 'text', not type 'image'. The list here contains all the DCMI:Type vocabulary terms and the terms of HIS: RMR_mode where those differ from DCMI:Type</p>
             </comment>
             <schemes>
                <dl>
