@@ -261,6 +261,8 @@
                   "author" slot of a bibliographic reference as a primary source of the
                   intellectual content. Entities that do not merit that level of
                   recognition should be treated as Contributors.</p>
+               <!-- Following <p> from OLACSIL.txt -->
+               <p>If western name, enter as Family-name, Given-name(s). If romanized form of Asian name where the family name is the common form of address, enter as Family-name Given-Name(s) without the comma.</p>
             </comment>
             <schemes>
                <dl>
@@ -283,8 +285,6 @@
            		</p>
               <p>Recommended best practice is to use the <i>olac:role</i> scheme to
                  indicate the role of the contributor.</p>
-           	<!-- Following <p> from OLACSIL.txt -->
-           	<p>If western name, enter as Family-name, Given-name(s). If romanized form of Asian name where the family name is the common form of address, enter as Family-name Given-Name(s) without the comma.</p>
            </bp>
          	
          	<examples>
@@ -505,6 +505,7 @@
                      <tt>&lt;identifier&gt;</tt> in the
                   <tt>&lt;header&gt;</tt> of the <tt>&lt;record&gt;</tt>s
                   returned by the OAI protocol.</p>
+               <p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of files if this is a digital resource. URL for work published online. ISBN for hard-copy publication, if available, or bibliographic citation if not. (Place, publisher, [series and volume] for a monograph; journal title, vol., issue and pages for an article; editor, place, publisher, [series and volume] and pages for book-chapter; name, location and date of conference for a conference paper; degree level and institution for a thesis.)</p>
             </comment>
             <refinements>
                <dl>
@@ -526,7 +527,6 @@
          		<p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when
          		   the value is a Uniform Resource Locator (URL).</p>
          		<!-- Following <p> from OLACSIL.txt -->
-         		<p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of files if this is a digital resource. URL for work published online. ISBN for hard-copy publication, if available, or bibliographic citation if not. (Place, publisher, [series and volume] for a monograph; journal title, vol., issue and pages for an article; editor, place, publisher, [series and volume] and pages for book-chapter; name, location and date of conference for a conference paper; degree level and institution for a thesis.)</p>
          	</bp>
          	
             <examples>
@@ -588,9 +588,6 @@
                </dl>
             </schemes>
             <bp>
-            	<p>Recommended best practice is to use a controlled vocabulary such as RFC 3066 [RFC3066].</p>
-            	<!-- Following from Joan Spanne's SIL_Guidelines.doc -->
-            	<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
             	<p>Minimal best practice is that every record contain at least one Language
             	element.</p>
                <p>Minimal best practice is that every Language
@@ -873,6 +870,8 @@
                   classification codes that describe a topic of the resource.
                   <cit>DCMT</cit></p>
                <p>To describe the spatial or temporal topic of the resource, use the <xref>Coverage</xref> element.</p>
+               <!-- Following <p> from OLACSIL.txt -->
+               <p>Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
             </comment>
             <schemes>
                <dl>
@@ -907,8 +906,6 @@
             	   the <i>olac:ISO639-3</i> scheme to identify it precisely.</p>
                <p>When the subject matter falls within the field of linguistics, recommended best practice is to use
                   the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
-            	<!-- Following <p> from OLACSIL.txt -->
-            	<p>Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
             </bp>
          	
          	<examples>
