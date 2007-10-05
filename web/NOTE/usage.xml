@@ -6,7 +6,7 @@
       <status code="draft" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20071002</issued>
+      <issued>20071004</issued>
       <previousIssued/>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the
@@ -403,9 +403,9 @@
                   consisting solely of a URL and will be presented as a link in user
                   interfaces. Service providers are not obliged to search other
                   Description text for the occurrence of URLs.</p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content. For the original SIL TOC, use this element to map \anno annotation &lt;annotation&gt;,  a qualitative or evaluative comment about this resource, including judgment about suitability for a particular application or context.</p>
             	<!-- Following <p> from OLACSIL.txt -->
+            	<p>Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content. For the original SIL TOC, use this element to map \anno annotation &lt;annotation&gt;,  a qualitative or evaluative comment about this resource, including judgment about suitability for a particular application or context.</p>
+            	<!-- Following <p> from OLACSIL.txt --> <!-- under \+mkr descType-->
             	<p>If the description is either an abstract or a table of contents for the resource, that may be specified in this element. If the description is other than one of these, leave \descType empty.</p>
             </comment>
             <refinements>
@@ -505,6 +505,7 @@
                      <tt>&lt;identifier&gt;</tt> in the
                   <tt>&lt;header&gt;</tt> of the <tt>&lt;record&gt;</tt>s
                   returned by the OAI protocol.</p>
+            	<!-- Following <p> from OLACSIL.txt -->
                <p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of files if this is a digital resource. URL for work published online. ISBN for hard-copy publication, if available, or bibliographic citation if not. (Place, publisher, [series and volume] for a monograph; journal title, vol., issue and pages for an article; editor, place, publisher, [series and volume] and pages for book-chapter; name, location and date of conference for a conference paper; degree level and institution for a thesis.)</p>
             </comment>
             <refinements>
@@ -526,7 +527,6 @@
          	<bp>
          		<p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when
          		   the value is a Uniform Resource Locator (URL).</p>
-         		<!-- Following <p> from OLACSIL.txt -->
          	</bp>
          	
             <examples>
@@ -582,7 +582,7 @@
                         searches by language, and may use the element content in searches
                         by keyword. They also may supply the default language name in
                         keyword searching when the element content is missing.</p>
-                  	<!-- What about md-lang from OLACSIL.txt ?:  
+                  	<!-- What about md-lang from OLACSIL.txt ?:  <!-- Following <p> from OLACSIL.txt -->
                   		\desc The language in which this metadata record is primarily written (not including coded range-set values). Multiple titles (using alternative), descriptions, and subject terms may be given in additional languages to aid in searching; specify the language used for each of those if different from the language specified in this element. -->                 	
                   </dd>
                </dl>
@@ -995,7 +995,11 @@
                   <dd><p>The nature or genre of the content of the resource from a
                      linguistic standpoint <cit>OLAC-Linguistic-Type</cit>. For a resource that is information in or about a language,
                      use this scheme to identify what kind of information it is from a
-                     linguistic standpoint.</p></dd>
+                     linguistic standpoint.
+                  <!-- Following <p> from OLACSIL.txt -->
+                  <p>Linguistic Type extension of the Type element should only be used if a resource  represents one of the structural types in the range set. The element may be repeated if a resource represents more than one linguistic type. So, for example, a primary text accompanied by a lexicon of vocabulary items would be described as both a primary text and a lexicon. 
+                  	In many cases, adequate description of a linguistic resource will require that the Linguistic Type extension be used in conjunction with the Discourse Type extension of the Type element, or the Linguistic extension of the Subject element. For example, a narrative text might be described as both a primary text (OLAC Linguistic Type) and a narrative (OLAC Discourse Type).</p>
+                  </p></dd>
                </dl>
             </schemes>
             <bp>
