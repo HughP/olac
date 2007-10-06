@@ -405,8 +405,33 @@
                   Description text for the occurrence of URLs.</p>
             	<!-- Following <p> from OLACSIL.txt -->
             	<p>Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content. For the original SIL TOC, use this element to map \anno annotation &lt;annotation&gt;,  a qualitative or evaluative comment about this resource, including judgment about suitability for a particular application or context.</p>
-            	<!-- Following <p> from OLACSIL.txt --> <!-- under \+mkr descType-->
+            	<!-- Following <p> from OLACSIL.txt --> <!-- under \+mkr descType -->
             	<p>If the description is either an abstract or a table of contents for the resource, that may be specified in this element. If the description is other than one of these, leave \descType empty.</p>
+            	<!-- from SIL_Guidelines p. 18 -->
+            	<p>Clarity and consistency in naming are the most important; there is a specific place in the description that can be used to give additional identifying information.</p>
+            	<!-- from SIL_Guidelines p. 20 -->
+            	<p>The Item level metadata entry carries the information about each specific work. The work can be a stapled paper document, a sound recording on tape, a computer file or several computer files that together constitute a single document. One entry can even contain information about a sub-collection of like items, given that certain qualifications are met. Some types of materials naturally assemble into a sub-collection, such as a group of recordings, texts or photographs in a single language or relating to a single community, etc. Such a collection can be documented in a single metadata entry, provided that:
+            		•	All the materials are of the same access level, medium, and type. 
+            		•	They are documented in more detail in a separate file included with the collection, which describes each individual piece in terms appropriate to the matieral—see section 2.4.4.
+            		•	If submitted on computer media, all materials are grouped into a single parent directory (which may contain subdirectories, as needed).</p>
+            	<!-- from SIL_Guidelines p. 25-26 -->
+            	<p>Documenting a body of materials as a collection, as is typical with a group of recordings or language texts, can be done with simplified documentation in the main TOC file and a supplementary documentation file with details for each text or recording. It should be a text file, preferably tab delimited or tagged, to facilitate loading into a database. Such a file ought to include as much as is known for each text, photograph or recording:
+            		•	Label used with original (on tape, box, photo or text), if it uniquely identifies the item within the collection
+            		•	Date of work, in yyyymmdd or the appropriate level of precision
+            		•	Title, if there is a meaningful title given by the creator
+            		•	Title gloss, if useful
+            		•	Event or context of recording or photograph
+            		•	Keyword description of the genre (e.g., procedure, folk tale, description of event, etc.) or subject
+            		•	Length in hh:mm:ss (for recording) or in word count (for a text)
+            		•	For recordings or texts
+            		o	Speaker or writer’s name, if this is a work of original creation by the speaker (a story teller, an original song, etc.) and thus appropriate to credit the creator (otherwise, maintain the person’s  privacy)
+            		o	Speaker age (approximate)
+            		o	Speaker gender
+            		o	Speaker status or role in community which might be relevant in analyzing a text
+            		•	For photographs
+            		o	Photographer’s name
+            		o	Identifiable subjects’ names (unless this would constitute a violation of privacy as considered in light of the community’s or person’s known preferences), ages, roles in community 
+            	</p>
             </comment>
             <refinements>
                <dl>
@@ -417,12 +442,18 @@
                   <dt>tableOfContents</dt>
                   <dd>
                   	<p>A list of subunits of the content of the resource.</p>
+                  	<!-- from SIL_Guidelines p. 18 -->
+                  	<p>The Table of Contents file can be used to describe materials submitted not only computer media but also in other media, as much of the metadata about the work itself, which does not pertain to the medium of storage, is the same.</p>
+                  	<!-- from SIL_Guidelines p. 19 --> <!-- See Table 2 and 3 p. 19-20 and 21-24 -->
+                  	<p>A Table of Contents file is the recommended method for submitters to use to describe the materials they are depositing in the archives. It is designed to be human readable (a text format which can be read independent of special software), but also to be usable for automated import into a computer database.... A paper cover sheet can be used to give...descriptive information for materials submitted in paper or other non-computer media.</p>
                   </dd>
                </dl>
             </refinements>
             <bp>
                <p>Minimal best practice is that a metadata record should contain at least
-                  one Description or Subject element.</p>
+               one Description or Subject element.</p>
+            	<!-- from SIL_Guidelines p. 18-->
+            	<p>For computer files, great levels of detail in the file organization and complex coded naming schemes for file names are generally less satisfactory than explicit descriptions of the files included on a given media unit. Coded file naming schemes are difficult to apply accurately and can lead to mistakes in description and potentially to loss of materials actually in the collection, because they cannot be identified. For this reason, it is best to explicitly describe files (and dependently related sets of files) in a document such as a Table Of Contents file.</p>
          	</bp>
          	
             <examples>
@@ -452,6 +483,11 @@
                   as the sampling rate for digital recordings, the size of computer
                   files, the number of pages and dimensions of a book, the
                   appearance of a physical object, and so on. </p>
+            	<!-- from SIL_Guidelines p. 14 --> <!-- Refer to and adapt Table 1 p. 14-15? -->
+            	<p>The procedures, media and formats for unpublished materials are very much dependent upon the nature of materials and the anticipated uses, both short- and long-term. Table 1 gives suggestions for what should be submitted by users, but it only addresses common types of materials. If possible, both a source and a presentation form of the work should be submitted. </p>
+            	<!-- from SIL_Guidelines p. 47-48 -->
+            	<p>The FORMAT of a computer file refers to the encoding scheme used to represent the data (in 1’s and 0’s), and relates to the software and/or hardware required to access and use the object. Usually represented by the suffix of a computer file name, e.g., WAV or MP3 for sound recording objects, TIFF, JPEG, GIF, BMP for images, MPEG for full-motion image streams, DOC for a Word document, XML for an eXtensible Markup Language document, SFM for a Standard Format Marked data file.</p>
+            	<!-- from SIL_Guidelines p. 35 -->
             	<p>Web content of a more document-like nature (a specific title, a credited author, and a date), such as an electronic working paper series, should be archived, and can usually be handled similarly to a print publication. Articles written by SIL authors for electronic journals or other formal web publications on other web sites should also be archived. Materials initially published in print (or on audio cassette, etc.) and converted for the web should be elsewhere included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be suitable for maintaining as a presentation form.</p>
             </comment>
             <refinements>
@@ -463,6 +499,12 @@
                   <dt>medium</dt>
                   <dd>
                   	<p>The material or physical carrier of the resource.</p>
+                  	<!-- from SIL_Guidelines p. 48 -->
+                  	<p>Physical manifestation of an information object or information storage unit,  e.g., paper, acid-free paper, microfilm, microfiche, 35 mm slide, 16 mm film, audio cassette, reel-to-reel sound recording, video cassette, CD-R, Mini-disc, DVD, Digital Audio Tape (DAT) or computer hard disk. Sometimes used synonymously with “format” in its physical sense, but that use of “format” has been avoided in this document.</p>
+                  	<!-- from SIL_Guidelines p. 13-14 -->
+                  	<p>Published materials which are produced in paper or other non-computer media should be archived in that medium.... However, data sets and language texts (including Scripture portions) are resource types that are almost always sought in source form for use in further linguistic analysis or for later revision, no matter the age of the data or text. For such materials, the need is for long term preservation of a computer based source form. A non-proprietary, standardized format, such as SFM or XML, is most desirable. </p>
+                  	<!-- from SIL_Guidelines p. 48 -->
+                  	<p>e.g., paper, acid-free paper, microfilm, microfiche, 35 mm slide, 16 mm film, audio cassette, reel-to-reel sound recording, video cassette, CD-R, Mini-disc, DVD, Digital Audio Tape (DAT) or computer hard disk. Sometimes used synonymously with “format” in its physical sense, but that use of “format” has been avoided in this document.</p>
                   </dd>
                </dl>
             </refinements>
@@ -485,7 +527,7 @@
                   file.&lt;/format&gt;</eg>
                <p>For a digitally recorded text:</p>
                <eg>&lt;format code="audio/wav"&gt;Duration: 153 seconds. Size:
-                  3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</eg>
+               3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</eg>
             </examples>
          </element>
          <element name="Identifier">
@@ -582,8 +624,8 @@
                         searches by language, and may use the element content in searches
                         by keyword. They also may supply the default language name in
                         keyword searching when the element content is missing.</p>
-                  	<!-- What about md-lang from OLACSIL.txt ?:  <!-- Following <p> from OLACSIL.txt -->
-                  		\desc The language in which this metadata record is primarily written (not including coded range-set values). Multiple titles (using alternative), descriptions, and subject terms may be given in additional languages to aid in searching; specify the language used for each of those if different from the language specified in this element. -->                 	
+                  	<!-- What about md-lang from OLACSIL.txt ? -->  <!-- Following <p> from OLACSIL.txt -->
+                  	<p> \desc The language in which this metadata record is primarily written (not including coded range-set values). Multiple titles (using alternative), descriptions, and subject terms may be given in additional languages to aid in searching; specify the language used for each of those if different from the language specified in this element. </p>                 	
                   </dd>
                </dl>
             </schemes>
@@ -621,7 +663,10 @@
          	<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" -->
          	<definition>A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation.</definition>
             <comment>
-               <p>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance. In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.</p>
+            	<!-- from SIL_Guidelines p. 48 -->
+            	<p>PROVENANCE: 1) The individual, department or agency that created, accumulated, maintained and/or used materials (data sources, documents). 2) Information regarding the origin and custodial history of documents or data sources. The Principle of Provenance (also known as “respect des fonds”), a foundational principle of archives management, is that materials of the same provenance must not be intermingled with those of any other provenance. It is the principle of provenance that is the basis for arranging and storing materials by language project (as the original setting of creation and accumulation), rather than extracting and collocating all grammar materials, all anthropology materials, all instances of a shell book, etc. into topical collections in the archives.</p>
+            	<!-- from SIL_Guidelines p. 17-->
+            	<p>Unlike a library, which usually organizes works by topic, the archive should organize materials by common origin or provenance.... In general, it is best to keep collections together as a physical unit (as much as the different types of media permit), with each language program collection stored on its own computer media unit (such as CD-R), or all together in adjacent paper files. This most easily enables a particular team to see what has been submitted in the past and maintains the physical integrity of each collection consistently for archives management procedures.... the archives should not mix materials from different collections...according to...topical categories.</p>
             </comment>
          </element>
          <element name="Publisher">
@@ -630,14 +675,18 @@
                <p>Examples of a Publisher include a person, an organization, or a service.
                   Typically, the name of a Publisher should be used to indicate the
                   entity. <cit>DCMT</cit></p>
+            	<!-- from SIL_Guidelines p. 35 -->
+            	<p>Content (documents, web pages—text, graphics, streaming audio and video) created for and published on the World Wide Web on a sanctioned entity site comprises a special class of published materials. Web content of a more document-like nature (a specific title, a credited author, and a date), such as an electronic working paper series, should be archived, and can usually be handled similarly to a print publication. Articles written by SIL authors for electronic journals or other formal web publications on other web sites should also be archived. Materials initially published in print (or on audio cassette, etc.) and converted for the web should be elsewhere included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be suitable for maintaining as a presentation form.</p>
+            	<!-- from SIL_Guidelines p. 35 on advisability of including UNPUBLISHED materials -->
+            	<p>Caring for unpublished resources of long term value ... Language data, either in lexical form (a database) or as a text (with documentation) is more and more sought after as input for computational linguistic analysis. Descriptions and analyses are also desirable, if they are of reasonably good quality (e.g. consultant checked). Translation by-products, such as key terms papers and back translations, can be very useful to other teams in related languages. Language surveys and their supporting data are very valuable. Collected texts, recorded language data and transcriptions, if of sufficiently good quality, are also very valuable, as are photographs and slides, but the complexities resulting from lack of context (if not well documented) and ethical considerations add to the challenges of managing them in the archives .</p>
+            	<p>Being selective about what should be archived is important. Selectivity imposes an extra initial labor cost, but one which pays dividends in the short and long runs. For the submitter, being selective reduces the amount of material submitted, and therefore, reduces the burden of describing the material as well. For the archives, every object has a cost of storage, migration and management, which is balanced against its short and long term value. Is this a work that will be useful or informative in the future?  Is it unique?  Is it something that can no longer be obtained elsewhere?  Is it reasonably good quality?  ‘Yes’ to these indicates that a work is probably worth keeping.</p>
             </comment>
          	<bp>
          		<p>Recommended best practice is to identify a Publisher by means of a name
          			in a form that is ready for sorting within an
          			index. For the names of persons, this means that the name should be
          			given in inverted order with the surname first. For the names of
-         			organizations, this means that any initial article should be omitted.
-         			</p>
+         			organizations, this means that any initial article should be omitted.</p>
          	</bp>
          	
          	<examples>
@@ -672,6 +721,8 @@
                   is used. </p>
             	<!-- Following <p> from OLACSIL.txt -->
             	<p>Use this element to associate independent but conceptually related materials. Use the \relationType element to specify the nature of the relationship between the work described in this record and the work whose ID is given in this element.  Repeat for each related item.  Use an unambiguous identifier (such as the \primaryid) for the related resource, if possible, or a standard name for a schema to which this resource conforms, e.g., GOLD: General Ontology for Linguistic Description.</p>
+            	<!-- from SIL_Guidelines p. 16 -->
+            	<p>Relationship metadata pertains to relationships among independent objects, such as print/analog and digital forms of the same content, presentation and source forms, a dissertation and a book which came directly from it. This must not be confused with the administrative metadata elements that link distinct but dependent parts of a larger whole.</p>
             </comment>
             <refinements>
                <dl>
@@ -772,10 +823,14 @@
                   Copyright, and various Property Rights. If the Rights element is absent,
                   no assumptions can be made about the status of these and other rights
                   with respect to the resource. <cit>DCMT</cit></p>
+            	<!-- from SIL_Guidelines p. 12 -->
             	<p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories, descriptions, songs or art work, which researcher collect in the course of their work. The rights, in most cases, belong to the creator—not the researcher or SIL—or, in some cases, to the language community (as a legal entity). Intellectual property law as it applies to community cultural property is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators of such works and the conditions under which they came into the hands of an SIL worker are critical steps in archiving these valuable works. Only with this information about their origins can SIL follow through on its intention to respect the intellectual property rights of vernacular language communities in which we work.</p>
             	<!-- Following <p> from OLACSIL.txt -->
             	<p>Specify a license, access conditions (for the public) or rights holders specific to this item. A rights holder may be the publisher, if the author assigned rights to the work in a publication contract, or a member of a language community if the work is that person’s creative initiative and he/she was not in the employ of an entity language project. (Do not include SIL International, an SIL entity or a WO, as the appropriate authority is assumed based on the primary id.) If the Rights element is absent, no assumptions can be made about the status of these and other rights with respect to the resource.</p>
-               <p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector’s private study. To publish or otherwise distribute these works should have the approval of the owner—the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker’s name, basic demographic information , the context in which collecting took place, and the date.</p>
+            	<!-- from SIL_Guidelines p.26-->
+            	<p>Texts and recordings are collected by a language worker often based on an assumption of private use for research. However, they are the intellectual property of someone else. The original writer or speaker, or perhaps the language community as a body, might want to assert ownership if texts or recordings are used for a purpose besides the original collector’s private study. To publish or otherwise distribute these works should have the approval of the owner—the creator. Because of this, special documentation is needed in an archives context. For language texts it is wise to document the speaker’s name, basic demographic information , the context in which collecting took place, and the date.</p>
+            	<!-- from SIL_Guidelines p.26-->
+            	<p>Photographs, similarly, are usually taken in a context assuming private use, unless a media person explicitly states other intentions. Though the photograph is the intellectual property of the photographer, publication of a photograph with identifiable persons should take into consideration their privacy rights and preferences.</p>
             </comment>
             <refinements>
                <dl>
@@ -963,7 +1018,7 @@
                   All others (e.g. translations)
                   should be specified as the Alternative refinement.</p>
             </bp>
-            
+         	
             <examples>
                <p>A typical title:</p>
                <eg>&lt;title&gt;A Dictionary of the Nggela
@@ -995,11 +1050,11 @@
                   <dd><p>The nature or genre of the content of the resource from a
                      linguistic standpoint <cit>OLAC-Linguistic-Type</cit>. For a resource that is information in or about a language,
                      use this scheme to identify what kind of information it is from a
-                     linguistic standpoint.
+                     linguistic standpoint.</p>
                   <!-- Following <p> from OLACSIL.txt -->
                   <p>Linguistic Type extension of the Type element should only be used if a resource  represents one of the structural types in the range set. The element may be repeated if a resource represents more than one linguistic type. So, for example, a primary text accompanied by a lexicon of vocabulary items would be described as both a primary text and a lexicon. 
                   	In many cases, adequate description of a linguistic resource will require that the Linguistic Type extension be used in conjunction with the Discourse Type extension of the Type element, or the Linguistic extension of the Subject element. For example, a narrative text might be described as both a primary text (OLAC Linguistic Type) and a narrative (OLAC Discourse Type).</p>
-                  </p></dd>
+                  </dd>
                </dl>
             </schemes>
             <bp>
