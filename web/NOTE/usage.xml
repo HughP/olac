@@ -136,6 +136,8 @@
             on how to use the element in the context of describing language resources. 
             <i>Examples</i> shows samples of
             properly encoded elements and sample refinements.</p>
+      	<!-- from OLACSIL_in_Toolbox_Instructions-1 -->
+      	<p>While the order of the elements is not specified in the OLAC standard, maintaining the proper order of the markers as defined in the database type definition is essential to the proper operation of the XML and XSL processes down the line.</p>
          <element name="Contributor">
          	<definition>An entity responsible for making contributions to the resource.</definition>
             <comment>
@@ -549,6 +551,12 @@
                   returned by the OAI protocol.</p>
             	<!-- Following <p> from OLACSIL.txt -->
                <p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of files if this is a digital resource. URL for work published online. ISBN for hard-copy publication, if available, or bibliographic citation if not. (Place, publisher, [series and volume] for a monograph; journal title, vol., issue and pages for an article; editor, place, publisher, [series and volume] and pages for book-chapter; name, location and date of conference for a conference paper; degree level and institution for a thesis.)</p>
+            	<!-- from OLACSIL_in_Toolbox_Instructions-1 -->
+            	<p>The expectation is that all the materials originating from a specific language program will constitute one collection. Where two (or more) separate programs have operated in a single language (using the list of ISO 639-3  identified languages as reference), the Specific Collection Identifier can also include some distinguishing information, such as dialect.
+            		For example, a project in the Leemo dialect of the Hadiyya language of Ethiopia would construct a primary identifier as:
+            		ETG-hdy_Leemo-001.</p>
+            		<p>Alternatively, it might be desirable to gather materials from a single program that serves multiple languages into a single set of records. To indicate a cluster language program, use the same name (or a code) used within the entity to identify the program. The language of any one resource is specified within its particular metadata record. Codes of three letters for other than ISO language codes should be avoided in the Specific Collection Identifier segment (but other code schemas may be okay).</p>
+            	      <p>For materials that originate from other than language program work, a different identification is needed. This could be an author’s surname for the collection of works by one scholar. It could also be a department name for materials pertaining to a specific department, e.g., SurveyDept.</p>
             </comment>
             <refinements>
                <dl>
