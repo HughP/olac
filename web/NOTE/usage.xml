@@ -97,7 +97,7 @@
          <p>In a given metadata record, every element is optional and every element is
             repeatable.</p>
          <element name="All elements">
-            <definition><!-- Don;t use. Just a trick to make export to RED/bpr.xml work. --></definition>
+            <definition><!-- Don't use. Just a trick to make export to RED/bpr.xml work. --></definition>
             <comment><!-- Ditto. --></comment>
             <bp>
                <p>Minimal best practice is for the value of each metadata element to
@@ -459,8 +459,8 @@
             		•	If submitted on computer media, all materials are grouped into a single parent directory (which may contain subdirectories, as needed)
             		Whereas the OLAC metadata record is based on an external standard, the file used to describe a collection can be more flexible, with adjustments particular to the collection itself. Elements used are typically text name, creator(s) and some demographic data about them, other significant participants , date, location, event or setting (“occasion”), literary or musical genre, topic, or any other appropriate specialized information. For texts (including sound recording versions), it is recommended that this be done in a supplementary Toolbox file using the textcat.typ database type definition (the Text_Collection.db is an empty database of this type), which can be kept in the same Toolbox project. Another method may be used, such as a spreadsheet, though keeping track of multiple versions of the same text gets more complicated in a single table or spreadsheet.
             		This sub-collection description file is to be included with the main OLAC metadata file when materials are deposited with an archives. You may wish to create a new database type, possibly based on textcat.typ, for a collection of another kind of resource such as photographs. Where a data elements would be used the same way as an OLAC element, it is best to simply use the same OLAC element (which the textcat.typ does), with the same definitions and appropriate range sets. More ideas about documenting collections can be found in the following article from Notes on Linguistics:
-            		Spanne, Joan. 2001. "The linguist’s role in archiving linguistic data resources." Notes on Linguistics 4(1): 4-15.
-            	</p>
+            		Spanne, Joan. 2001. "The linguist’s role in archiving linguistic data resources." Notes on Linguistics 4(1): 4-15.</p>
+            	<p><!-- paraphrase from PARK_IMLS.pdf --> The Description element should not be confused with Subject.  Description contains free-text descriptions, while Subject contains subject headings.</p>
             </comment>
             <refinements>
                <dl>
@@ -964,8 +964,7 @@
                   classification codes that describe a topic of the resource.
                   <cit>DCMT</cit></p>
                <p>To describe the spatial or temporal topic of the resource, use the <xref>Coverage</xref> element.</p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
+               <p><!-- paraphrase from PARK_IMLS.pdf --> The Subject element should not be confused with Description.  Subject contains subject headings, while Description contains free-text descriptions.</p>
             </comment>
             <schemes>
                <dl>
@@ -999,7 +998,8 @@
             	<p>When the subject is a human language, minimal best practice is to use
             	   the <i>olac:ISO639-3</i> scheme to identify it precisely.</p>
                <p>When the subject matter falls within the field of linguistics, recommended best practice is to use
-                  the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
+                  the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>           	
+            	<p><!-- Following <p> from OLACSIL.txt -->Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
             </bp>
          	
          	<examples>
