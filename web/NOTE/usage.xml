@@ -191,12 +191,12 @@
            </bp>
          	<examples>
                <p>A generic contributor:</p>
-               <eg>&lt;contributor&gt;Smith, John L.&lt;/contributor&gt;</eg>
+               <eg>&lt;dc:contributor&gt;Smith, John L.&lt;/contributor&gt;</eg>
                <p>A funding agency:</p>
-               <eg>&lt;contributor refine="sponsor"&gt;National Science
+               <eg>&lt;dc:contributor refine="sponsor"&gt;National Science
                   Foundation&lt;/contributor&gt;</eg>
                <p>The person who performed a role for which there is not a suitable code:</p>
-               <eg>&lt;contributor&gt;Smith, John L. (format
+               <eg>&lt;dc:contributor&gt;Smith, John L. (format
                   conversion)&lt;/contributor&gt;</eg>
             </examples>
          </element>
@@ -518,6 +518,7 @@
             	<p>The FORMAT of a computer file refers to the encoding scheme used to represent the data (in 1’s and 0’s), and relates to the software and/or hardware required to access and use the object. Usually represented by the suffix of a computer file name, e.g., WAV or MP3 for sound recording objects, TIFF, JPEG, GIF, BMP for images, MPEG for full-motion image streams, DOC for a Word document, XML for an eXtensible Markup Language document, SFM for a Standard Format Marked data file.</p>
             	<!-- from SIL_Guidelines p. 35 -->
             	<p>Web content of a more document-like nature (a specific title, a credited author, and a date), such as an electronic working paper series, should be archived, and can usually be handled similarly to a print publication. Articles written by SIL authors for electronic journals or other formal web publications on other web sites should also be archived. Materials initially published in print (or on audio cassette, etc.) and converted for the web should be elsewhere included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be suitable for maintaining as a presentation form.</p>
+            	<p><!-- paraphrase from PARK_IMLS.pdf -->Format, which includes the names of media types such as photograph, should not be confused with Type, which categorizes the nature or genre of the content of the resource and includes terms that describe general categories, functions, genres, or aggregation levels for content.</p>
             </comment>
             <refinements>
                <dl>
@@ -1004,7 +1005,7 @@
          	
          	<examples>
                <p>A Library of Congress subject heading:</p>
-               <eg>&lt;subject scheme="LCSH"&gt;African
+               <eg>&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African
                   languages&lt;/subject&gt;</eg>
             </examples>
             <todo>
@@ -1060,12 +1061,12 @@
          	
             <examples>
                <p>A typical title:</p>
-               <eg>&lt;title&gt;A Dictionary of the Nggela
+               <eg>&lt;dc:title&gt;A Dictionary of the Nggela
                   Language&lt;/title&gt;</eg>
                <p>A vernacular title with translation:</p>
-               <eg>&lt;title lang="x-sil-LLU"&gt;Na tala 'uria na idulaa
-                  diana&lt;/title&gt; &lt;title refine="alternative"
-                  lang="en"&gt;The road to good reading&lt;/title&gt;</eg>
+            	<eg>&lt;dc:title xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="x-sil-LLU"&gt;Na tala 'uria na idulaa
+                  diana&lt;/title&gt; &lt;dcterms:alternative 
+                  lang="en" <!-- what do I do with this last part? -->&gt;The road to good reading&lt;/title&gt;</eg>
             </examples>
          </element>
          <element name="Type">
@@ -1091,7 +1092,7 @@
                      use this scheme to identify what kind of information it is from a
                      linguistic standpoint.</p>
                   <!-- Following <p> from OLACSIL.txt -->
-                  <p>Linguistic Type extension of the Type element should only be used if a resource  represents one of the structural types in the range set. The element may be repeated if a resource represents more than one linguistic type. So, for example, a primary text accompanied by a lexicon of vocabulary items would be described as both a primary text and a lexicon. 
+                  <p>Linguistic Type extension of the Type element should only be used if a resource represents one of the structural types in the range set. The element may be repeated if a resource represents more than one linguistic type. So, for example, a primary text accompanied by a lexicon of vocabulary items would be described as both a primary text and a lexicon. 
                   	In many cases, adequate description of a linguistic resource will require that the Linguistic Type extension be used in conjunction with the Discourse Type extension of the Type element, or the Linguistic extension of the Subject element. For example, a narrative text might be described as both a primary text (OLAC Linguistic Type) and a narrative (OLAC Discourse Type).</p>
                   </dd>
                </dl>
@@ -1105,8 +1106,8 @@
            </bp>
 
             <examples>
-               <p>The resource is a video recording:</p>
-               <eg>&lt;type code="Image"/&gt;</eg>
+               <p>The resource is a video recording:<!-- Is "video recording" really a Type and not Format (because 'photograph' was an example of Format according to Jung-ran Park.)? Need examples to contrast Format and Type. --></p>
+               <eg>&lt;dc:type xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="Image"/&gt;</eg>
             </examples>
             <todo><p>The following is leftover from 2002; do we still want it?  For a resource that is a software tool,
                Type.linguistic identifies what kind of information it processes.
