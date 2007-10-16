@@ -191,13 +191,13 @@
            </bp>
          	<examples>
                <p>A generic contributor:</p>
-               <eg>&lt;dc:contributor&gt;Smith, John L.&lt;/contributor&gt;</eg>
+               <eg>&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</eg>
                <p>A funding agency:</p>
-               <eg>&lt;dc:contributor refine="sponsor"&gt;National Science
-                  Foundation&lt;/contributor&gt;</eg>
+               <eg>&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;National Science
+                  Foundation&lt;/dc:contributor&gt;</eg>
                <p>The person who performed a role for which there is not a suitable code:</p>
                <eg>&lt;dc:contributor&gt;Smith, John L. (format
-                  conversion)&lt;/contributor&gt;</eg>
+                  conversion)&lt;/dc:contributor&gt;</eg>
             </examples>
          </element>
          <element name="Coverage">
@@ -258,13 +258,13 @@
          	
             <examples>
                <p>A resource about English in India:</p>
-               <eg>&lt;subject.language code="en"/&gt;
-                  &lt;coverage&gt;India&lt;/coverage&gt;</eg>
+            	<eg>&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;
+                  &lt;dc:coverage&gt;India&lt;/dc:coverage&gt;</eg>
                <p>A resource about languages spoken on Guadalcanal:</p>
-               <eg>&lt;coverage scheme="TGN"&gt;Guadalcanal
-                  (island)&lt;/coverage&gt;</eg>
+               <eg>&lt;dc:coverage xsi:type="dcterms:TGN"&gt;Guadalcanal
+                  (island)&lt;/dc:coverage&gt;</eg>
                <p>A resource about language use in the 19th century:</p>
-               <eg>&lt;coverage&gt;19th century&lt;/coverage&gt;</eg>
+               <eg>&lt;dc:coverage&gt;19th century&lt;/dc:coverage&gt;</eg>
             </examples>
          </element>
          <element name="Creator">
@@ -309,13 +309,13 @@
          	
          	<examples>
                <p>A personal author:</p>
-               <eg>&lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;</eg>
+               <eg>&lt;dc:creator&gt;Bloomfield, Leonard&lt;/dc:creator&gt;</eg>
                <p>An institutional author:</p>
-               <eg>&lt;creator&gt;Linguistic Society of
-                  America&lt;/creator&gt;</eg>
+               <eg>&lt;dc:creator&gt;Linguistic Society of
+                  America&lt;/dc:creator&gt;</eg>
                <p>An editor:</p>
-               <eg>&lt;creator refine="editor"&gt;Sapir,
-                  Edward&lt;/creator&gt;</eg>
+               <eg>&lt;dc:creator xsi:type="olac:role" olac:code="editor"&gt;Sapir,
+                  Edward&lt;/dc:creator&gt;</eg>
             </examples>
             <todo>
                <p>Here, and with Contributor, we recommend a format that puts surname
@@ -400,11 +400,11 @@
          	
          	<examples>
                <p>A typical year of publication:</p>
-               <eg>&lt;date code="1992"/&gt;</eg>
+         		<eg>&lt;dc:date xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="1992"/&gt;</eg>
                <p>A resource modified on October 16, 1996:</p>
-               <eg>&lt;date refine="modified" code="1996-10-16"/&gt;</eg>
+         		<eg>&lt;dcterms:modified xsi:type="dcterms:W3C-DTF" dcterms:code="1996-10-16"/&gt;</eg>
                <p>A resource from approximately 1950:</p>
-               <eg>&lt;date code="1950"&gt;circa 1950&lt;/date&gt;</eg>
+         		<eg>&lt;dc:date xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="1950"&gt;circa 1950&lt;/dc:date&gt;</eg>
             </examples>
          </element>
          <element name="Description">
@@ -487,7 +487,7 @@
          	
             <examples>
                <p>A prose description of a resource:</p>
-               <eg>&lt;description&gt;The CALLHOME Japanese corpus of telephone
+               <eg>&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone
                   speech consists of 120 unscripted telephone conversations between native
                   speakers of Japanese. All calls, which lasted up to 30 minutes,
                   originated in North America and were placed to locations overseas
@@ -495,9 +495,9 @@
                   friends. This corpus contains speech data files ONLY, along with the
                   minimal amount of documentation needed to describe the contents and
                   format of the speech files and the software packages needed to
-                  uncompress the speech data. &lt;/description&gt;</eg>
+                  uncompress the speech data. &lt;/dc:description&gt;</eg>
                <p>A reference to an existing on-line description:</p>
-               <eg>&lt;description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br/>&lt;/description&gt;</eg>
+               <eg>&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br/>&lt;/dc:description&gt;</eg>
             </examples>
          </element>
          <element name="Format">
@@ -554,10 +554,10 @@
             <examples>
                <p>For a digitally encoded dictionary:</p>
             	<eg>&lt;dc:format xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="text/xml"&gt;5,237 entries in a 1.2M XML
-                  file.&lt;/format&gt;</eg>
+                  file.&lt;/dc:format&gt;</eg>
                <p>For a digitally recorded text:</p>
             	<eg>&lt;dc:format xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="audio/wav"&gt;Duration: 153 seconds. Size:
-               3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</eg>
+               3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;</eg>
             </examples>
          </element>
          <element name="Identifier">
@@ -610,10 +610,10 @@
             <examples>
                <p>A Uniform Resource Locator for retrieval of an electronically encoded
                   resource:</p>
-               <eg>&lt;dc:identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/identifier&gt;</eg>
+               <eg>&lt;dc:identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</eg>
                <p>A local identifier for retrieval within a physical collection:</p>
                <eg>&lt;dc:identifier&gt;Shelf 12, Box
-               7&lt;/identifier&gt;</eg>
+               7&lt;/dc:identifier&gt;</eg>
             </examples>
          </element>
          <element name="Language">
@@ -676,20 +676,20 @@
          	
          	<examples>
                <p>A resource in English about the Sikaiana language:</p>
-         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
-                  code="x-sil-SKY"/&gt;</eg>
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;dc:subject xsi:type="olac:<!-- I don't know what goes here. -->" 
+         			olac:code="x-sil-SKY" <!-- Do we want to use ISO639-3 codes? -->/&gt;</eg>
                <p>A Yemba-French dictionary, where the alternate name Dschang is
                   preferred.</p>
-         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="fr" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
-                  code="x-sil-BAN"&gt;Dschang&lt;/subject.language&gt;</eg>
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="fr" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;dc:subject xsi:type="olac:<!-- I don't know what goes here. -->"
+         			olac:code="x-sil-BAN"&gt;Dschang&lt;/dc:language&gt;</eg>
                <p>The <i>American Heritage Dictionary</i>, which is both in and about
                   American English:</p>
-         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
-                  code="en"/&gt; &lt;coverage&gt;United
-                  States&lt;/coverage&gt;</eg>
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;dc:subject xsi:type="olac:<!-- I don't know what goes here. -->"
+         			olac:code="en"/&gt; &lt;dc:coverage&gt;United
+                  States&lt;/dc:coverage&gt;</eg>
                <p>A resource about a language for which the controlled vocabulary does not
                   yet provide a code:</p>
-               <eg>&lt;subject.language <!-- I'm not sure what to do with this one as there is no code. -->&gt;Ancient
+               <eg>&lt;subject.language <!-- I'm not sure what to do with this one as there is no code.  Change to dc:subject ???-->&gt;Ancient
                   Sumerian&lt;/subject.language&gt;</eg>
             </examples>
             <todo>
@@ -730,9 +730,9 @@
          	<examples>
                <p>A typical publisher:</p>
                <eg>&lt;dc:publisher&gt;Oxford University
-                  Press&lt;/publisher&gt;</eg>
+                  Press&lt;/dc:publisher&gt;</eg>
                <p>The URL for a publisher:</p>
-               <eg>&lt;dc:publisher&gt;http://www.oup.com/&lt;/publisher&gt;</eg>
+               <eg>&lt;dc:publisher&gt;http://www.oup.com/&lt;/dc:publisher&gt;</eg>
             </examples>
          </element>
          <element name="Relation">
@@ -832,18 +832,18 @@
          	
          	<examples>
                <p>A link to a required font:</p>
-               <eg>&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/relation&gt;</eg>
+         		<eg>&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/dcterms:requires&gt;</eg>
                <p>Links to the component pieces of a collected work:</p>
-               <eg>&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/relation&gt;
-                  &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/relation&gt;
-                  &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/relation&gt;
-                  &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/relation&gt;
-                  &lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/relation&gt;</eg>
+         		<eg>&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/dcterms:hasPart&gt;
+         			&lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
+         			&lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
+         			&lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
+         			&lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</eg>
                <p>A chapter that was published in a book (that does not have an archived
                   metadata record):</p>
          		<eg>&lt;dcterms:isPartOf&gt;In Joel Sherzer and Greg
                   Urban (eds.), Native South American discourse , 237-306. Berlin: Mouton.
-                  &lt;/relation&gt;</eg>
+                  &lt;dcterms:isPartOf&gt;</eg>
          	</examples>
             <todo><p>Do we need a scheme for olac:OAI to represent an OLAC OAI identifier?
             Or should we just use dcterms:URI and match on initial "oai:"?</p></todo>
@@ -945,11 +945,11 @@
          	<examples>
                <p>Source for a digital encoding of a manuscript in a participating
                   archive:</p>
-               <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/source&gt;</eg>
+               <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</eg>
                <p>Source for data extracted from a published source:</p>
                <eg>&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to
                   the Forests of the British Solomon Islands, by T. C. Whitmore. Oxford
-                  University Press, 1966.&lt;/source&gt;</eg>
+                  University Press, 1966.&lt;/dc:source&gt;</eg>
             </examples>
          </element>
          <element name="Subject">
@@ -1000,7 +1000,7 @@
          	<examples>
                <p>A Library of Congress subject heading:</p>
                <eg>&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African
-                  languages&lt;/subject&gt;</eg>
+                  languages&lt;/dc:subject&gt;</eg>
             </examples>
             <todo>
                <p>Geographic and temporal aspects of language varieties go in Coverage.
@@ -1056,11 +1056,11 @@
             <examples>
                <p>A typical title:</p>
                <eg>&lt;dc:title&gt;A Dictionary of the Nggela
-                  Language&lt;/title&gt;</eg>
+                  Language&lt;/dc:title&gt;</eg>
                <p>A vernacular title with translation:</p>
             	<eg>&lt;dc:title xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="x-sil-LLU"&gt;Na tala 'uria na idulaa
-                  diana&lt;/title&gt; &lt;dcterms:alternative 
-                  lang="en" <!-- what do I do with this last part? -->&gt;The road to good reading&lt;/title&gt;</eg>
+                  diana&lt;/dc:title&gt; &lt;dcterms:alternative 
+                  lang="en" <!-- what do I do with this last part? -->&gt;The road to good reading&lt;/dc:title&gt;</eg>
             </examples>
          </element>
          <element name="Type">
