@@ -553,10 +553,10 @@
             </bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
-               <eg>&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
+            	<eg>&lt;dc:format xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="text/xml"&gt;5,237 entries in a 1.2M XML
                   file.&lt;/format&gt;</eg>
                <p>For a digitally recorded text:</p>
-               <eg>&lt;format code="audio/wav"&gt;Duration: 153 seconds. Size:
+            	<eg>&lt;dc:format xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="audio/wav"&gt;Duration: 153 seconds. Size:
                3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</eg>
             </examples>
          </element>
@@ -610,9 +610,9 @@
             <examples>
                <p>A Uniform Resource Locator for retrieval of an electronically encoded
                   resource:</p>
-               <eg>&lt;identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/identifier&gt;</eg>
+               <eg>&lt;dc:identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/identifier&gt;</eg>
                <p>A local identifier for retrieval within a physical collection:</p>
-               <eg>&lt;identifier&gt;Shelf 12, Box
+               <eg>&lt;dc:identifier&gt;Shelf 12, Box
                7&lt;/identifier&gt;</eg>
             </examples>
          </element>
@@ -676,20 +676,20 @@
          	
          	<examples>
                <p>A resource in English about the Sikaiana language:</p>
-               <eg>&lt;language code="en"/&gt; &lt;subject.language
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
                   code="x-sil-SKY"/&gt;</eg>
                <p>A Yemba-French dictionary, where the alternate name Dschang is
                   preferred.</p>
-               <eg>&lt;language code="fr"/&gt; &lt;subject.language
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="fr" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
                   code="x-sil-BAN"&gt;Dschang&lt;/subject.language&gt;</eg>
                <p>The <i>American Heritage Dictionary</i>, which is both in and about
                   American English:</p>
-               <eg>&lt;language code="en"/&gt; &lt;subject.language
+         		<eg>&lt;dc:language xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="en" <!-- Do we want to use ISO639-3 codes? -->/&gt; &lt;subject.language
                   code="en"/&gt; &lt;coverage&gt;United
                   States&lt;/coverage&gt;</eg>
                <p>A resource about a language for which the controlled vocabulary does not
                   yet provide a code:</p>
-               <eg>&lt;subject.language&gt;Ancient
+               <eg>&lt;subject.language <!-- I'm not sure what to do with this one as there is no code. -->&gt;Ancient
                   Sumerian&lt;/subject.language&gt;</eg>
             </examples>
             <todo>
@@ -729,10 +729,10 @@
          	
          	<examples>
                <p>A typical publisher:</p>
-               <eg>&lt;publisher&gt;Oxford University
+               <eg>&lt;dc:publisher&gt;Oxford University
                   Press&lt;/publisher&gt;</eg>
                <p>The URL for a publisher:</p>
-               <eg>&lt;publisher&gt;http://www.oup.com/&lt;/publisher&gt;</eg>
+               <eg>&lt;dc:publisher&gt;http://www.oup.com/&lt;/publisher&gt;</eg>
             </examples>
          </element>
          <element name="Relation">
@@ -832,22 +832,16 @@
          	
          	<examples>
                <p>A link to a required font:</p>
-               <eg>&lt;relation
-                  refine="requires"&gt;oai:sil:software/ipafont&lt;/relation&gt;</eg>
+               <eg>&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/relation&gt;</eg>
                <p>Links to the component pieces of a collected work:</p>
-               <eg>&lt;relation
-                  refine="hasPart"&gt;oai:somearchive:holding126&lt;/relation&gt;
-                  &lt;relation
-                  refine="hasPart"&gt;oai:somearchive:holding127&lt;/relation&gt;
-                  &lt;relation
-                  refine="hasPart"&gt;oai:somearchive:holding128&lt;/relation&gt;
-                  &lt;relation
-                  refine="hasPart"&gt;oai:somearchive:holding129&lt;/relation&gt;
-                  &lt;relation
-                  refine="hasPart"&gt;oai:somearchive:holding130&lt;/relation&gt;</eg>
+               <eg>&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/relation&gt;
+                  &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/relation&gt;
+                  &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/relation&gt;
+                  &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/relation&gt;
+                  &lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/relation&gt;</eg>
                <p>A chapter that was published in a book (that does not have an archived
                   metadata record):</p>
-               <eg>&lt;relation refine="isPartOf"&gt;In Joel Sherzer and Greg
+         		<eg>&lt;dcterms:isPartOf&gt;In Joel Sherzer and Greg
                   Urban (eds.), Native South American discourse , 237-306. Berlin: Mouton.
                   &lt;/relation&gt;</eg>
          	</examples>
@@ -951,9 +945,9 @@
          	<examples>
                <p>Source for a digital encoding of a manuscript in a participating
                   archive:</p>
-               <eg>&lt;source&gt;oai:somearchive:holding1023&lt;/source&gt;</eg>
+               <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/source&gt;</eg>
                <p>Source for data extracted from a published source:</p>
-               <eg>&lt;source&gt;Kwara'ae flora vocabulary extracted from Guide to
+               <eg>&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to
                   the Forests of the British Solomon Islands, by T. C. Whitmore. Oxford
                   University Press, 1966.&lt;/source&gt;</eg>
             </examples>
