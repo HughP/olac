@@ -416,7 +416,7 @@
                <p>A resource modified on October 16, 1996:</p>
          	   <eg>&lt;dcterms:modified xsi:type="dcterms:W3CDTF">1996-10-16&lt;/dcterms:modified&gt;</eg>
                <p>A resource from approximately 1950:</p>
-         		<eg>&lt;dc:date>circa 1950&lt;/dc:date&gt;</eg>
+         		<eg>&lt;dc:date>circa 1950&lt;/dc:date&gt; <!-- what about not using additional terms in the element text? --></eg>
             </examples>
          </element>
          <element name="Description">
@@ -572,7 +572,7 @@
             <examples>
                <p>For a digitally encoded dictionary:</p>
                <eg>&lt;dc:format xsi:type="dcterms:IMT">text/xml&lt;/dc:format>
-&lt;dcterms:extent>5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</eg>
+               	&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</eg>
                <p>For a digitally recorded text:</p>
                <eg>&lt;dc:format xsi:type="dcterms:IMT">audio/wav&lt;/dc:format>
 &lt;dc:format>Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format>
@@ -727,7 +727,7 @@
 &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
                <p>A resource about a language for which the controlled vocabulary does not
                   yet provide a code:</p>
-               <eg>&lt;dc:subject xsi:type="olac:language">Ancient Sumerian&lt;/dc:subject&gt;</eg>
+         		<eg>&lt;dc:subject xsi:type="olac:language"&gt;Ancient Sumerian&lt;/dc:subject&gt;</eg>
             </examples>
             <todo>
                <p>Add an example of specifying a dialect.</p>
