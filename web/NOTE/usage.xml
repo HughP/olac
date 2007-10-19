@@ -416,7 +416,7 @@
                <p>A resource modified on October 16, 1996:</p>
          	   <eg>&lt;dcterms:modified xsi:type="dcterms:W3CDTF">1996-10-16&lt;/dcterms:modified&gt;</eg>
                <p>A resource from approximately 1950:</p>
-         		<eg>&lt;dc:date>circa 1950&lt;/dc:date&gt; <!-- what about not using additional terms in the element text? --></eg>
+         	   <eg>&lt;dc:date>circa 1950&lt;/dc:date&gt; <!-- what about not using additional terms in the element text? --></eg>
             </examples>
          </element>
          <element name="Description">
@@ -571,8 +571,8 @@
             </bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
-               <eg>&lt;dc:format xsi:type="dcterms:IMT">text/xml&lt;/dc:format>
-               	&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</eg>
+            	<eg>&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
+&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</eg>
                <p>For a digitally recorded text:</p>
                <eg>&lt;dc:format xsi:type="dcterms:IMT">audio/wav&lt;/dc:format>
 &lt;dc:format>Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format>
@@ -647,8 +647,8 @@
                <eg>&lt;dc:identifier&gt;Shelf 12, Box 7&lt;/dc:identifier&gt;</eg>
                <p>The citation for a chapter that was published in a book:</p>
                <eg>&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg
-                  Urban (eds.), Native South American discourse, 237-306. Berlin: Mouton.
-                  &lt;dcterms:bibliographicCitation&gt;</eg>
+   Urban (eds.), Native South American discourse, 237-306. Berlin: Mouton.
+   &lt;dcterms:bibliographicCitation&gt;</eg>
                
             </examples>
          </element>
@@ -1009,8 +1009,8 @@
                <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</eg>
                <p>Source for data extracted from a published source:</p>
                <eg>&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to
-the Forests of the British Solomon Islands, by T. C. Whitmore. Oxford
-University Press, 1966.&lt;/dc:source&gt;</eg>
+   the Forests of the British Solomon Islands, by T. C. Whitmore. Oxford
+   University Press, 1966.&lt;/dc:source&gt;</eg>
             </examples>
          </element>
          <element name="Subject">
@@ -1120,7 +1120,7 @@ University Press, 1966.&lt;/dc:source&gt;</eg>
                <eg>&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</eg>
                <p>A vernacular title with translation:</p>
             	<eg>&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt;
-            	   &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
+&lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
             </examples>
          </element>
       	<!-- Type:   i Exhibited perhaps the most different archivespecific
