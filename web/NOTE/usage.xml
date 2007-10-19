@@ -187,7 +187,15 @@
            		organizations, this means that any initial article should be omitted.
            		</p>
               <p>Recommended best practice is to use the <i>olac:role</i> scheme to
-                 indicate the role of the contributor.</p>
+              indicate the role of the contributor.</p>
+           	<p>Enter one name per element instance. Do not enter multiple names in single element instance. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+           	<p>Use surname, firstname order; Main unit, subunit order to make the form of name entry ready for sort. <!-- 
+           	http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+           	<p>Do not use quotation marks to enclose corporate names.  If the name is a translation from its usual form
+           		or not usually given in English, use the lang attribute.  <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --><!-- need examples; the examples on slide were unclear - "Institute for Slovene Language ""Fran Ramovs"",
+           			Slovene Academy for Sciences and Arts,
+           			Ljubljana, Slovenia". --></p>
+           	<p>Be consistent with corporate name forms. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
            </bp>
          	<examples>
                <p>A generic contributor:</p>
@@ -345,6 +353,9 @@
                   to associate with a resource, a service provider will select the
                   most recent of date created, issued, or modified.</p>
             	<p>date of publication may differ from its creation date)</p>
+            	<p>- ‘Available’ as a refinement pertains to Date, not
+            		to other aspects of availability <!-- http://www.language-archives.org/events/olac02/proceedings.pdf -->
+            	</p>
             </comment>
             <refinements>
                <dl>
@@ -396,13 +407,17 @@
          	   <p>Minimal best practice is that every instance of Date (or a refinement) use
          	   the <i>dcterms:W3CDTF</i> scheme or a value enclosed in square brackets if
          	   the value does not conform to the encoding scheme.</p>
+         		<p>Do not use additional terms (“recorded on”, “donated on”)
+         			in the element text <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+         		<p>Do not enter a coded year value and then a mm/dd/yy value in
+         			element text. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
          	</bp>
          	
          	<examples>
                <p>A typical year of publication:</p>
          		<eg>&lt;dc:date xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="1992"/&gt;</eg>
                <p>A resource modified on October 16, 1996:</p>
-         		<eg>&lt;dcterms:modified xsi:type="dcterms:W3C-DTF" dcterms:code="1996-10-16"/&gt;</eg>
+         		<eg>&lt;dcterms:modified xsi:type="dcterms:W3C-DTF"&gt;1996-10-16"&lt;dcterms:modified&gt;</eg>
                <p>A resource from approximately 1950:</p>
          		<eg>&lt;dc:date xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="1950"&gt;circa 1950&lt;/dc:date&gt;</eg>
             </examples>
@@ -461,6 +476,7 @@
             		This sub-collection description file is to be included with the main OLAC metadata file when materials are deposited with an archives. You may wish to create a new database type, possibly based on textcat.typ, for a collection of another kind of resource such as photographs. Where a data elements would be used the same way as an OLAC element, it is best to simply use the same OLAC element (which the textcat.typ does), with the same definitions and appropriate range sets. More ideas about documenting collections can be found in the following article from Notes on Linguistics:
             		Spanne, Joan. 2001. "The linguist’s role in archiving linguistic data resources." Notes on Linguistics 4(1): 4-15.</p>
             	<p><!-- paraphrase from PARK_IMLS.pdf --> The Description element should not be confused with Subject.  Description contains free-text descriptions, while Subject contains subject headings.</p>
+            	<p>Description element is not a "catch-all" category.  Consider using Format element for extent or Subject element. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
             <refinements>
                <dl>
@@ -519,6 +535,11 @@
             	<!-- from SIL_Guidelines p. 35 -->
             	<p>Web content of a more document-like nature (a specific title, a credited author, and a date), such as an electronic working paper series, should be archived, and can usually be handled similarly to a print publication. Articles written by SIL authors for electronic journals or other formal web publications on other web sites should also be archived. Materials initially published in print (or on audio cassette, etc.) and converted for the web should be elsewhere included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be suitable for maintaining as a presentation form.</p>
             	<p><!-- paraphrase from PARK_IMLS.pdf -->Format, which includes the names of media types such as photograph, should not be confused with Type, which categorizes the nature or genre of the content of the resource and includes terms that describe general categories, functions, genres, or aggregation levels for content.</p>
+            	<p>Need to differentiate IMT (Internet Media Type code) from a Type code. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+            		<p>Also for medium and extent information (however, no
+            			instance for either DC qualifier was actually specified) <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --> </p>
+            		<p>OLAC had 5 refinements (cpu, encoding, markup, os,
+            			sourcecode) but each of these was used very little, if at all <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
             <refinements>
                <dl>
@@ -560,6 +581,8 @@
                3.3M. Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;</eg>
             </examples>
          </element>
+      	<!-- Identifier would probably benefit from a
+      		more thorough best practice document.  --><!-- http://www.language-archives.org/events/olac02/proceedings.pdf -->
          <element name="Identifier">
             <definition>An unambiguous reference to the resource within a given context.</definition>
             <comment>
@@ -585,6 +608,17 @@
             		ETG-hdy_Leemo-001.</p>
             		<p>Alternatively, it might be desirable to gather materials from a single program that serves multiple languages into a single set of records. To indicate a cluster language program, use the same name (or a code) used within the entity to identify the program. The language of any one resource is specified within its particular metadata record. Codes of three letters for other than ISO language codes should be avoided in the Specific Collection Identifier segment (but other code schemas may be okay).</p>
             	      <p>For materials that originate from other than language program work, a different identification is needed. This could be an author’s surname for the collection of works by one scholar. It could also be a department name for materials pertaining to a specific department, e.g., SurveyDept.</p>
+            	<p>– Many non-unique Identifier URLs:
+            		• In a few archives, multiple resources were
+            		‘identified’ with the same URL, usually availability
+            		info or a further description, but not the resource
+            		itself
+            		• Often apparently mistaken as the only place one
+            		could put a URL associated with this resource
+            		• Sometimes incomplete (relative?) paths given
+            		– Some identifiers seemed useful only to the archives, but
+            		were not relevant for resource discovery or request for
+            		access <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
             <refinements>
                <dl>
@@ -640,6 +674,8 @@
             	<p>For scholarly works, this will usually be a major language (English, French, Indonesian, etc.). For vernacular works, it will be the minority language and will usually be the same as the language coded in subject_language. Repeat tag for each code needed for polyglot works. Give the language name in this element, if it is a specific variety of the language as identified using its three-letter ISO 6390-3 identifier, which should be given in \language_code.</p>            	
                <!-- Following from Joan Spanne's SIL_Guidelines. -->
                <p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of collections, rather than using an entity developed code for individual languages, as entity specific codes become confusing or misleading when removed from the immediate entity context.</p>
+            	<p>May need to clarify between language name or code and attribute supplying
+            		OLAC language code. <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
             <schemes>
                <dl>
@@ -718,6 +754,10 @@
             	<!-- from SIL_Guidelines p. 35 on advisability of including UNPUBLISHED materials -->
             	<p>Caring for unpublished resources of long term value ... Language data, either in lexical form (a database) or as a text (with documentation) is more and more sought after as input for computational linguistic analysis. Descriptions and analyses are also desirable, if they are of reasonably good quality (e.g. consultant checked). Translation by-products, such as key terms papers and back translations, can be very useful to other teams in related languages. Language surveys and their supporting data are very valuable. Collected texts, recorded language data and transcriptions, if of sufficiently good quality, are also very valuable, as are photographs and slides, but the complexities resulting from lack of context (if not well documented) and ethical considerations add to the challenges of managing them in the archives .</p>
             	<p>Being selective about what should be archived is important. Selectivity imposes an extra initial labor cost, but one which pays dividends in the short and long runs. For the submitter, being selective reduces the amount of material submitted, and therefore, reduces the burden of describing the material as well. For the archives, every object has a cost of storage, migration and management, which is balanced against its short and long term value. Is this a work that will be useful or informative in the future?  Is it unique?  Is it something that can no longer be obtained elsewhere?  Is it reasonably good quality?  ‘Yes’ to these indicates that a work is probably worth keeping.</p>
+            	<p>Usually a publisher or the archives itself,
+            		sometimes with URL, sometimes URL
+            		given in separate instance of element. Do not use it for host publication
+            		information, which should be in Relation.<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
          	<bp>
          		<p>Recommended best practice is to identify a Publisher by means of a name
@@ -725,6 +765,29 @@
          			index. For the names of persons, this means that the name should be
          			given in inverted order with the surname first. For the names of
          			organizations, this means that any initial article should be omitted.</p>
+         		<p>Copyright statement should be in text of element, not in
+         			the ‘code’ <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+         		<p>Rights developments:
+         			– With the Access extension on Rights, OLAC is
+         			integrating access and permitted use
+         			– Leave the work to the content of the element or a
+         			referral to additional information</p>
+         			<p>Additional good practice guidance is needed
+         			regarding parameters of protection: duration of
+         			restriction, entity with authority to override,
+         			expectations placed on users <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+         		<p>– Identifier was used (repeated) for what clearly had to be
+         			a Source resource URL (based on contextual content of
+         			record)
+         			– Source was used to give information on the linguistic
+         			consultant, with lengthy description. The whole would
+         			have been more appropriate in Description element.
+         			(Contributor was used also)
+         			– Source was used to specify an entity responsible for
+         			development, creation, donation, etc. of the resource (in
+         			one a Ph.D. granting institution is named, another the
+         			gov. agency responsible, others, SIL is named) <!-- http://www.language-archives.org/events/olac02/proceedings.pdf -->
+         		</p>
          	</bp>
          	
          	<examples>
@@ -761,6 +824,7 @@
             	<p>Use this element to associate independent but conceptually related materials. Use the \relationType element to specify the nature of the relationship between the work described in this record and the work whose ID is given in this element.  Repeat for each related item.  Use an unambiguous identifier (such as the \primaryid) for the related resource, if possible, or a standard name for a schema to which this resource conforms, e.g., GOLD: General Ontology for Linguistic Description.</p>
             	<!-- from SIL_Guidelines p. 16 -->
             	<p>Relationship metadata pertains to relationships among independent objects, such as print/analog and digital forms of the same content, presentation and source forms, a dissertation and a book which came directly from it. This must not be confused with the administrative metadata elements that link distinct but dependent parts of a larger whole.</p>
+            	<p>“Previously” could utilize “Replaces” <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </comment>
             <refinements>
                <dl>
@@ -995,6 +1059,8 @@
                <p>When the subject matter falls within the field of linguistics, recommended best practice is to use
                   the <i>olac:linguistic-field</i> scheme to identify the subfield.</p>           	
             	<p><!-- Following <p> from OLACSIL.txt -->Recommended best practice is to select a value from a controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or type of resource if not identified in other elements, e.g., Health book, Optimized phonological description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb structure; Kinship.</p>
+            	<p>Element should be repeated for multiple subject
+            		terms <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </bp>
          	
          	<examples>
@@ -1063,6 +1129,23 @@
                   lang="en" <!-- what do I do with this last part? -->&gt;The road to good reading&lt;/dc:title&gt;</eg>
             </examples>
          </element>
+      	<!-- Type:   i Exhibited perhaps the most different archivespecific
+      		interpretations of its use
+      		i Evidence of different vocabularies for type used
+      		by numerous archives
+      		i When coded, the codes were generally applied
+      		correctly
+      		i Abused by some poor mappings -->
+      	<!-- iMore thorough best practice guidelines for:
+      		– Description
+      		– Identifier
+      		– Rights
+      		– Subject qualifiers and extensions (dealing with
+      		overlap, use of multiple schemes)
+      		– Type and its extensions
+      		iThe definitions and controlled vocabularies
+      		have to be in order FIRST -->
+      	<!-- http://www.language-archives.org/events/olac02/proceedings.pdf -->
          <element name="Type">
          	<definition>The nature or genre of the resource.</definition>
             <comment>
@@ -1101,7 +1184,7 @@
 
             <examples>
                <p>The resource is a video recording:<!-- Is "video recording" really a Type and not Format (because 'photograph' was an example of Format according to Jung-ran Park.)? Need examples to contrast Format and Type. --></p>
-               <eg>&lt;dc:type xsi:type="olac:<!-- I don't know what goes here. -->" olac:code="Image"/&gt;</eg>
+            	<eg>&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Image&lt;dc:type/&gt;</eg>
             </examples>
             <todo><p>The following is leftover from 2002; do we still want it?  For a resource that is a software tool,
                Type.linguistic identifies what kind of information it processes.
