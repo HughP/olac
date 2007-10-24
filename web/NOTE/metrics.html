@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>OLAC metadata quality metrics</TITLE>
+<meta name="Title" content="OLAC metadata quality metrics">
+<meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)">
+<meta name="Description" content="Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
+            records.">
+<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta name="Date" content="20071023">
+<STYLE>
+          BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
+                              FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
+          H1    {FONT-SIZE: 24pt }
+          H2    {FONT-SIZE: 18pt }
+          H3    {FONT-SIZE: 16pt }
+
+        </STYLE>
+</HEAD>
+<BODY>
+<hr>
+<H1>OLAC metadata quality metrics</H1>
+<table cellspacing="10">
+<tr valign="top">
+<th width="100" align="left">Date&nbsp;issued:</th>
+<td>2007-10-23</td>
+</tr>
+<tr valign="top">
+<th align="left">Status of document:</th>
+<td><i>Draft Informational Note. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
+</tr>
+<tr valign="top">
+<th align="left">This version:</th>
+<td><a href="http://www.language-archives.org/NOTE/metrics-20071023.html">http://www.language-archives.org/NOTE/metrics-20071023.html</a></td>
+</tr>
+<tr valign="top">
+<th align="left">Latest version:</th>
+<td><a href="http://www.language-archives.org/NOTE/metrics.html">http://www.language-archives.org/NOTE/metrics.html</a></td>
+</tr>
+<tr valign="top">
+<th align="left">Previous&nbsp;version:</th>
+<td>None.</td>
+</tr>
+<tr valign="top">
+<th align="left">Abstract:</th>
+<td>
+<p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
+            records.</p>
+</td>
+</tr>
+<tr valign="top">
+<th align="left">Editors:</th>
+<td><editors>Gary Simons, SIL International (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors></td>
+</tr>
+</table>
+<blockquote><small>Copyright © 2007 Gary Simons (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small></blockquote>
+<hr>
+<h3>Table of contents</h3>
+<ol>
+<LI><A href="#Introduction">Introduction</A></LI>
+<LI><A href="#The quality score">The quality score</A></LI>
+<LI><A href="#Other metrics">Other metrics</A></LI>
+</ol>
+<blockquote><a href="#References">References</a><br></blockquote>
+<hr>
+<body>
+<h2><A name="Introduction"></A>1. Introduction</h2>
+<p>The vision of OLAC is that "any user on the Internet should be able to go to a
+            single gateway to find all the language resources available at all
+            participating institutions" (see vision statement in 
+            [<a href="#OLAC-Process">OLAC-Process</a>]). The ability of a user to discover any relevant
+            language resource is dependent on the quality of the metadata that describes
+            it. Ensuring quality through peer review is a core value that OLAC employs to
+            achieve its vision. "OLAC also conducts automated review based on peer
+            consensus regarding best practice" (see core value statements in 
+            [<a href="#OLAC-Process">OLAC-Process</a>]). </p>
+<p>This note explains the automated system that is implemented on the OLAC web site for evaluating the quality of metadata
+            records. The peer consensus regarding best practice is expressed in
+            [<a href="#OLAC-BPR">OLAC-BPR</a>] and further elucidated in [<a href="#OLAC-Usage">OLAC-Usage</a>]. </p>
+<h2><A name="The quality score"></A>2. The quality score</h2>
+<p>Many of the best practice recommendations for resource description 
+          cannot be automatically checked for
+          conformance; however, there are many that can be. As an aid in creating
+          descriptive metadata that meets the latter set of recommendations an automated
+          quality score has been implemented. Each metadata record receives a score in the
+       range of 0 to 10 based on the presence or absence of recommended practices. In some
+       contexts the score is reported as a number in this range; in others it is
+       summarized graphically as a rating of 1 to 5 stars.  That is, any score above 9 is
+       reported as 5 stars, scors in the range of 7 to 9 are reported as 4 stars, and so
+       on.</p>
+<p>The practices in focus are ones that contribute to resource discovery. The score has
+          two major parts: 75% is based on the metadata elements that are
+          present and 25% is based on the use of encoding schemes.  The elements provide
+          the breadth and depth of the description, while the encoding schemes provide
+          precision for searching. Since support for precise search counts as 25% of the
+          score, a record that makes no use of encoding schemes can score no higher than 4 stars. </p>
+<p>The element part of the score consists of 6 points awarded for each of six basic
+         metadata elements that must be present to give the record minimal breadth of
+         coverage, plus a further 1.5 points awarded for additional elements that add to the 
+         depth of description. These components of the score are awarded as follows:</p>
+<blockquote>
+<dl>
+<dt><b>Title</b></dt>
+<dd>
+<p>1 point is awarded for the presence of a Tittle element. Absence of a
+                  title that is inherent to the resource does not block achieving this
+                  point, since in that case it is recommended best practice for the
+                  cataloger to supply a descriptive title enclosed in square brackets.
+                  </p>
+</dd>
+<dt><b>Date</b></dt>
+<dd>
+<p>1 point is awarded for the presence of at least one
+                  Date element (or any of its refinements). Absence of a
+                  date in the resource itself does not block achieving this
+                  point, since in that case it is recommended best practice for the
+                  cataloger to estimate the date.</p>
+</dd>
+<dt><b>Agent</b></dt>
+<dd>
+<p>1 point is awarded for the presence of at least one element that
+                  provides an indication of who is behind the resource, whether as
+                  Contributor or Creator or Publisher.</p>
+</dd>
+<dt><b>About</b></dt>
+<dd>
+<p>1 point is awarded for the presence of at least one element that
+                  provides an indication of what the resource is about, whether Subject or
+                  Description or Coverage (or any refinement of the latter two).</p>
+</dd>
+<dt><b>Language</b></dt>
+<dd>
+<p>1 point is awarded for the presence of at least one Language element.
+                  Absence of any natural language content in a resource (such as in a
+                  software tool) does not block achieving this
+                  point, since in that case it is recommended best practice is to use the
+                  ISO 639-3 code <tt>[zxx]</tt> meaning "No linguistic content."  </p>
+</dd>
+<dt><b>Type</b></dt>
+<dd>
+<p>1 point is awarded for the presence of at least one Type element.</p>
+</dd>
+<dt><b>Depth</b></dt>
+<dd>
+<p>0.25 points up to a maximum of 1.5 points are awarded for each element
+               that is present in addition to the ones counted above. This means that in
+               order to get the full complement of 7.5 points for the element part of the
+               score, the record must have at least 12 elements. This may include elements
+            that are not mentioned above as well as multiple instances of those mentioned
+            above.</p>
+</dd>
+</dl>
+</blockquote>
+<p>The encoding scheme part of the score consists of up to 2.5 points awarded as
+            follows:</p>
+<blockquote>
+<dl>
+<dt><b>ISO639-3</b></dt>
+<dd>
+<p>0.5 points up to a maximum of 1 point are awarded for each use of
+                  the ISO639-3 encoding scheme with the Language element or the Subject 
+                  element to precisely identify a language. This encoding scheme is
+                  singled out for special weighting since discovery by language is such a
+                  fundamental requirement for our community. Every resource can achieve at
+                  least 0.5 points with a Language element.  A resource that is not about
+                  any language or does not have content in a second language will not be
+                  able to achieve the other 0.5 points. This gives a theoretical maximum
+                  score of 9.5 points (which still summarizes as 5 stars) for that subset of resources.
+               </p>
+</dd>
+<dt><b>Precision</b></dt>
+<dd>
+<p>0.25 points up to a maximum of 1.5 points are awarded for each use of an
+                  encoding scheme other than ISO639-3.
+                  This means that in
+                  order to get the full complement of 2.5 points for the schemes part of the
+                  score, the record must use an encoding scheme with at least 8 elements.
+                  Since encoding schemes are possible with 5 of the 6 mandatory elements,
+                  this is typically not difficult to achieve. </p>
+</dd>
+</dl>
+</blockquote>
+<p>The free-standing metadata service [<a href="#OLAC-Free">OLAC-Free</a>] can be used to see what
+          quality score will be awarded to a given OLAC metadata record. The XML encoding
+          of a record is pasted into a submission form; the service then validates the
+          record. If it is valid, a report of the quality score is generated with comments on what must
+       be done to raise the score to 10. The same quality analysis is shown for a sample
+       record from each participating archive by following the "Sample Record" link on the
+       [<a href="#OLAC-Archives">OLAC-Archives</a>] page.
+       </p>
+<p>The average quality score for all the records provided by a given participating
+          archive can be seen by following the "Metrics" link on the
+          [<a href="#OLAC-Archives">OLAC-Archives</a>] page. The metrics report also shows the breakdown across the
+          collection of all the components that go into the quality score.</p>
+<h2><A name="Other metrics"></A>3. Other metrics</h2>
+<p>Could explain other metrics here.</p>
+<p>And if we introduce deductions for citations issued by peer reviewers, that
+            would need to be explained as a deduction to the average quality score -- e.g.
+            one ponnt per citation..</p>
+</body><a name="References"></a><hr>
+<h2>References</h2>
+<table cellspacing="10">
+<tr valign="top">
+<td width="150">[<a name="OLAC-Archives">OLAC-Archives</a>]</td>
+<td>OLAC: Participating Archives.<br>
+         &lt;<a href="http://www.language-archives.org/archives.php4">http://www.language-archives.org/archives.php4</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-BPR">OLAC-BPR</a>]</td>
+<td>Best Practice Recommendations for Language Resource Description.<br>
+         &lt;<a href="http://www.language-archives.org/REC/bpr.html">http://www.language-archives.org/REC/bpr.html</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-Free">OLAC-Free</a>]</td>
+<td>Free-standing OLAC Metadata.<br>
+         &lt;<a href="http://www.language-archives.org/tools/metadata/freestanding.html">http://www.language-archives.org/tools/metadata/freestanding.html</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-Process">OLAC-Process</a>]</td>
+<td>OLAC Process, Section 2, "Governing ideas".<br>
+         &lt;<a href="http://www.language-archives.org/OLAC/process.html#Governing%20ideas">http://www.language-archives.org/OLAC/process.html#Governing%20ideas</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="OLAC-Usage">OLAC-Usage</a>]</td>
+<td>OLAC Metadata Usage Guidelines.<br>
+         &lt;<a href="http://www.language-archives.org/NOTE/usage.html">http://www.language-archives.org/NOTE/usage.html</a>&gt;</td>
+</tr>
+</table>
+</BODY>
+</HTML>
