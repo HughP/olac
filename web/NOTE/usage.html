@@ -378,7 +378,8 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A resource about English in India:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;
-&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre></td>
+						&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal
+						(island)&lt;/dcterms:spatial&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Creator"></A>Creator
@@ -540,10 +541,11 @@
                      						refinements).
                   </p>
                   <p>Minimal best practice is that every instance of Date (or a refinement) use the
-                     						<i>dcterms:W3CDTF</i> scheme or a value enclosed in square brackets if the value does not
-                     						conform to the encoding scheme.
+                     						<i>dcterms:W3CDTF</i> scheme, or enclose the element value in 
+                     						square brackets if the value does not conform to the encoding scheme (e.g., if it is supplied by 
+                     						the cataloger, is approximate or is in some doubt).
                   </p>
-                  <p>Do not use additional terms (&#8220;recorded on&#8221;, &#8220;donated on&#8221;) in the element text
+                  <p>Do not use additional terms such as &#8220;recorded on&#8221; or &#8220;donated on&#8221; in the element text. 
                      						
                   </p>
                   <p>Do not enter a coded year value and then a mm/dd/yy value in element text.
@@ -567,7 +569,7 @@
                      						date to associate with a resource, a service provider will select the most recent of date
                      						created, issued, or modified.
                   </p>
-                  <p>date of publication may differ from its creation date)</p>
+                  <p>Date of publication may differ from its creation date</p>
                   <p>- &#8216;Available&#8217; as a refinement pertains to Date, not to other aspects of availability
                      						
                   </p>
@@ -576,8 +578,7 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A typical year of publication:</p><pre style="margin-left: 12pt">&lt;dc:date xsi:type="dcterms:W3CDTF"&gt;1992"&lt;/dc:date&gt;</pre><p>A resource modified on October 16, 1996:</p><pre style="margin-left: 12pt">&lt;dcterms:modified xsi:type="dcterms:W3CDTF"&gt;1996-10-16&lt;/dcterms:modified&gt;</pre><p>A resource from approximately 1950:</p><pre style="margin-left: 12pt">&lt;dc:date&gt;circa 1950&lt;/dc:date&gt;
-						</pre></td>
+                  <p>A typical year of publication:</p><pre style="margin-left: 12pt">&lt;dc:date xsi:type="dcterms:W3CDTF"&gt;1992"&lt;/dc:date&gt;</pre><p>A resource modified on October 16, 1996:</p><pre style="margin-left: 12pt">&lt;dcterms:modified xsi:type="dcterms:W3CDTF"&gt;1996-10-16&lt;/dcterms:modified&gt;</pre><p>A resource from approximately 1950:</p><pre style="margin-left: 12pt">&lt;dc:date&gt;circa 1950&lt;/dc:date&gt;</pre><p>A resource for which the date has been supplied by the cataloger from external informaiton:</p><pre style="margin-left: 12pt">&lt;dc:date&gt;[1932]&lt;/dc:date&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Description"></A>Description
@@ -601,17 +602,6 @@
                         <td>tableOfContents&nbsp;&nbsp;</td>
                         <td>
                            <p>A list of subunits of the content of the resource.</p>
-                           <p>The Table of Contents file can be used to describe materials submitted not only computer
-                              								media but also in other media, as much of the metadata about the work itself, which does
-                              								not pertain to the medium of storage, is the same.
-                           </p>
-                           <p>A Table of Contents file is the recommended method for submitters to use to describe the
-                              								materials they are depositing in the archives. It is designed to be human readable (a
-                              								text format which can be read independent of special software), but also to be usable
-                              								for automated import into a computer database.... A paper cover sheet can be used to
-                              								give...descriptive information for materials submitted in paper or other non-computer
-                              								media.
-                           </p>
                         </td>
                      </tr>
                   </table>
@@ -626,16 +616,11 @@
             <tr valign="top">
                <td width="100"><i>Best practices</i></td>
                <td>
-                  <p>Minimal best practice is that a metadata record should contain at least one Description or
-                     						Subject element.
-                  </p>
-                  <p>For computer files, great levels of detail in the file organization and complex coded naming
-                     						schemes for file names are generally less satisfactory than explicit descriptions of the files
-                     						included on a given media unit. Coded file naming schemes are difficult to apply accurately and
-                     						can lead to mistakes in description and potentially to loss of materials actually in the
-                     						collection, because they cannot be identified. For this reason, it is best to explicitly
-                     						describe files (and dependently related sets of files) in a document such as a Table Of Contents
-                     						file.
+                  <p>Minimal best practice is that a metadata record should contain at least one Description (or one of its refinements
+                     						or Subject element. While these are different in purpose and content (see Usage Notes below),
+                     						they both nevertheless give the prospective user some idea of the content of the resource that
+                     						goes beyond the informative potential of just a title alone. Using both Description and subject 
+                     						elements is encouraged.
                   </p>
                </td>
             </tr>
@@ -643,7 +628,16 @@
                <td width="100"><i>Usage Notes</i></td>
                <td>
                   <p>Description may include but is not limited to: an abstract, table of contents, reference to a
-                     						graphical representation of content, or a free-text account of the content. [<a href="#DCMT">DCMT</a>]
+                     						graphical representation of content, or a free-text summary account of the content. [<a href="#DCMT">DCMT</a>]
+                  </p>
+                  <p>Description may also offer an annotation, or a qualitative or evaluative comment about the resource, 
+                     						such as a statement about suitability for a particular application or context.
+                  </p>
+                  <p> Description element is not a "catch-all" category. The Description element should not be confused with 
+                     						Subject. Description contains free-text (prose) statements, while Subject contains subject headings,
+                     						faceted terms, or specific subject descriptors, e.g., Library of Congress Subject Headings, or 
+                     						Linguistics and Language Behavior Abstracts thesaurus descriptors. Description should likewise not 
+                     						be used in place of Extent to contain information solely about the length, duration, or size of a work.
                   </p>
                   <p>No formatting conventions are defined within the text of Description. Service providers may
                      						format the entire Description as a single paragraph, collapsing adjacent white space characters
@@ -655,109 +649,20 @@
                      						interfaces. Service providers are not obliged to search other Description text for the
                      						occurrence of URLs.
                   </p>
-                  <p>Description may include but is not limited to: an abstract, table of contents, reference to a
-                     						graphical representation of content or a free-text account of the content. For the original SIL
-                     						TOC, use this element to map \anno annotation &lt;annotation&gt;, a qualitative or
-                     						evaluative comment about this resource, including judgment about suitability for a particular
-                     						application or context.
-                  </p>
-                  <p>If the description is either an abstract or a table of contents for the resource, that may be
-                     						specified in this element. If the description is other than one of these, leave \descType empty.
-                  </p>
-                  <p>Clarity and consistency in naming are the most important; there is a specific place in the
-                     						description that can be used to give additional identifying information.
-                  </p>
-                  <p>The Item level metadata entry carries the information about each specific work. The work can be a
-                     						stapled paper document, a sound recording on tape, a computer file or several computer files
-                     						that together constitute a single document. One entry can even contain information about a
-                     						sub-collection of like items, given that certain qualifications are met. Some types of materials
-                     						naturally assemble into a sub-collection, such as a group of recordings, texts or photographs in
-                     						a single language or relating to a single community, etc. Such a collection can be documented in
-                     						a single metadata entry, provided that: &#8226; All the materials are of the same access level,
-                     						medium, and type. &#8226; They are documented in more detail in a separate file included with the
-                     						collection, which describes each individual piece in terms appropriate to the matieral&#8212;see
-                     						section 2.4.4. &#8226; If submitted on computer media, all materials are grouped into a single parent
-                     						directory (which may contain subdirectories, as needed).
-                  </p>
-                  <p>Documenting a body of materials as a collection, as is typical with a group of recordings or
-                     						language texts, can be done with simplified documentation in the main TOC file and a
-                     						supplementary documentation file with details for each text or recording. It should be a text
-                     						file, preferably tab delimited or tagged, to facilitate loading into a database. Such a file
-                     						ought to include as much as is known for each text, photograph or recording: &#8226; Label used with
-                     						original (on tape, box, photo or text), if it uniquely identifies the item within the collection
-                     						&#8226; Date of work, in yyyymmdd or the appropriate level of precision &#8226; Title, if there is a
-                     						meaningful title given by the creator &#8226; Title gloss, if useful &#8226; Event or context of recording
-                     						or photograph &#8226; Keyword description of the genre (e.g., procedure, folk tale, description of
-                     						event, etc.) or subject &#8226; Length in hh:mm:ss (for recording) or in word count (for a text) &#8226; For
-                     						recordings or texts o Speaker or writer&#8217;s name, if this is a work of original creation by the
-                     						speaker (a story teller, an original song, etc.) and thus appropriate to credit the creator
-                     						(otherwise, maintain the person&#8217;s privacy) o Speaker age (approximate) o Speaker gender o
-                     						Speaker status or role in community which might be relevant in analyzing a text &#8226; For
-                     						photographs o Photographer&#8217;s name o Identifiable subjects&#8217; names (unless this would constitute a
-                     						violation of privacy as considered in light of the community&#8217;s or person&#8217;s known preferences),
-                     						ages, roles in community
-                  </p>
-                  <p>Some types of materials naturally &#8220;go together&#8221; because they share a lot of identical aspects of
-                     						their descriptions, for example, a group of texts in recorded or written form narrated or
-                     						written by the same language informant, or a set of photographs of a single community or event.
-                     						Think of these groups of related resources as sub-collections. Organizing materials into
-                     						sub-collections helps a great deal in the descriptive task, because each sub-collection can be
-                     						documented in a single OLAC metadata entry. Doing this does not mean that the individual items
-                     						get no individual descriptions. It means that the individual descriptions can be much shorter,
-                     						more specific, and tailored to the characteristics of the materials. The descriptions of the
-                     						individual works should be uniform within the sub-collection, but they don&#8217;t have to be
-                     						OLAC-conformant. Only the single &#8220;parent&#8221; record must be OLAC. The criteria for creating
-                     						sub-collection descriptions are: &#8226; The sub-collection has a single OLAC record, in which the
-                     						\type element is repeated and the second instance contains &#8220;Collection&#8221;. The first instance of
-                     						\type will reflect the actual type of all the resources: text, still image, or sound, for
-                     						example. The name of the collection as a whole is given in this record, as are all the metadata
-                     						contents common to every item in the collection. &#8226; All the materials are of the same access
-                     						level and are from the same language program. Any other metadata that is common to every item in
-                     						the collection can also be documented in the OLAC collection record and need not be repeated in
-                     						the item record. Such things as medium and creator may or may not be the same, but even if they
-                     						are, it is best to document them in the individual record for the particular text (next point).
-                     						&#8226; Each item in the sub-collection is documented in a record in a sub-collection description
-                     						file, which has a set of elements relevant specifically to texts, or to photos, or to whatever
-                     						kind of thing makes up the sub-collection. These need not be OLAC metadata elements, but if a
-                     						needed element corresponds to the meaning and usage of a specific OLAC element, use the OLAC
-                     						element rather than giving it a different label. &#8226; If submitted on computer media, all materials
-                     						are grouped into a single parent directory (which may contain subdirectories, as needed) Whereas
-                     						the OLAC metadata record is based on an external standard, the file used to describe a
-                     						collection can be more flexible, with adjustments particular to the collection itself. Elements
-                     						used are typically text name, creator(s) and some demographic data about them, other significant
-                     						participants , date, location, event or setting (&#8220;occasion&#8221;), literary or musical genre, topic,
-                     						or any other appropriate specialized information. For texts (including sound recording
-                     						versions), it is recommended that this be done in a supplementary Toolbox file using the
-                     						textcat.typ database type definition (the Text_Collection.db is an empty database of this type),
-                     						which can be kept in the same Toolbox project. Another method may be used, such as a
-                     						spreadsheet, though keeping track of multiple versions of the same text gets more complicated in
-                     						a single table or spreadsheet. This sub-collection description file is to be included with the
-                     						main OLAC metadata file when materials are deposited with an archives. You may wish to create a
-                     						new database type, possibly based on textcat.typ, for a collection of another kind of resource
-                     						such as photographs. Where a data elements would be used the same way as an OLAC element, it is
-                     						best to simply use the same OLAC element (which the textcat.typ does), with the same definitions
-                     						and appropriate range sets. More ideas about documenting collections can be found in the
-                     						following article from Notes on Linguistics: Spanne, Joan. 2001. "The linguist&#8217;s role in
-                     						archiving linguistic data resources." Notes on Linguistics 4(1): 4-15.
-                  </p>
-                  <p> The Description element should not be confused with
-                     						Subject. Description contains free-text descriptions, while Subject contains subject headings.
-                  </p>
-                  <p>Description element is not a "catch-all" category. Consider using Format element for extent or
-                     						Subject element. 
-                  </p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A prose description of a resource:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
-						unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
-						up to 30 minutes, originated in North America and were placed to locations overseas (typically
-						Japan). Most participants called family members or close friends. This corpus contains speech
-						data files ONLY, along with the minimal amount of documentation needed to describe the contents
-						and format of the speech files and the software packages needed to uncompress the speech data.
-						&lt;/dc:description&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br>&lt;/dc:description&gt;</pre></td>
+	unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
+	up to 30 minutes, originated in North America and were placed to locations overseas (typically
+	Japan). Most participants called family members or close friends. This corpus contains speech
+	data files ONLY, along with the minimal amount of documentation needed to describe the contents
+	and format of the speech files and the software packages needed to uncompress the speech data.
+	&lt;/dc:description&gt;</pre><p>A contents note for a resource:</p><pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2: Dictionary of 
+	Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in Vietnam;
+	v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Format"></A>Format
@@ -781,25 +686,6 @@
                         <td>medium&nbsp;&nbsp;</td>
                         <td>
                            <p>The material or physical carrier of the resource.</p>
-                           <p>Physical manifestation of an information object or information storage unit, e.g., paper,
-                              								acid-free paper, microfilm, microfiche, 35 mm slide, 16 mm film, audio cassette,
-                              								reel-to-reel sound recording, video cassette, CD-R, Mini-disc, DVD, Digital Audio Tape
-                              								(DAT) or computer hard disk. Sometimes used synonymously with &#8220;format&#8221; in its physical
-                              								sense, but that use of &#8220;format&#8221; has been avoided in this document.
-                           </p>
-                           <p>Published materials which are produced in paper or other non-computer media should be
-                              								archived in that medium.... However, data sets and language texts (including Scripture
-                              								portions) are resource types that are almost always sought in source form for use in
-                              								further linguistic analysis or for later revision, no matter the age of the data or
-                              								text. For such materials, the need is for long term preservation of a computer based
-                              								source form. A non-proprietary, standardized format, such as SFM or XML, is most
-                              								desirable. 
-                           </p>
-                           <p>e.g., paper, acid-free paper, microfilm, microfiche, 35 mm slide, 16 mm film, audio
-                              								cassette, reel-to-reel sound recording, video cassette, CD-R, Mini-disc, DVD, Digital
-                              								Audio Tape (DAT) or computer hard disk. Sometimes used synonymously with &#8220;format&#8221; in its
-                              								physical sense, but that use of &#8220;format&#8221; has been avoided in this document.
-                           </p>
                         </td>
                      </tr>
                   </table>
@@ -830,45 +716,25 @@
             <tr valign="top">
                <td width="100"><i>Usage Notes</i></td>
                <td>
-                  <p>Typically, Format may include the media-type or dimensions of the resource. Format may be used to
-                     						determine the software, hardware or other equipment needed to display or operate the resource.
-                     						Examples of dimensions include size and duration. [<a href="#DCMT">DCMT</a>]
+                  <p>Typically, Format may include the media-type, physical material, and/or dimensions of the resource. 
+                     						Format may be used to determine the software, hardware or other equipment needed to 
+                     						display or operate the resource. 	Examples of dimensions include size and duration. [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>The element content may be left empty, but it would typically be used to add further details
-                     						about the format of the resource, such as the sampling rate for digital recordings, the size of
-                     						computer files, the number of pages and dimensions of a book, the appearance of a physical
-                     						object, and so on. 
-                  </p>
-                  <p>The procedures, media and formats for unpublished materials are very much dependent upon the
-                     						nature of materials and the anticipated uses, both short- and long-term. Table 1 gives
-                     						suggestions for what should be submitted by users, but it only addresses common types of
-                     						materials. If possible, both a source and a presentation form of the work should be submitted. 
-                  </p>
-                  <p>The FORMAT of a computer file refers to the encoding scheme used to represent the data (in 1&#8217;s
-                     						and 0&#8217;s), and relates to the software and/or hardware required to access and use the object.
-                     						Usually represented by the suffix of a computer file name, e.g., WAV or MP3 for sound recording
-                     						objects, TIFF, JPEG, GIF, BMP for images, MPEG for full-motion image streams, DOC for a Word
-                     						document, XML for an eXtensible Markup Language document, SFM for a Standard Format Marked data
-                     						file.
-                  </p>
-                  <p>Web content of a more document-like nature (a specific title, a credited author, and a date),
-                     						such as an electronic working paper series, should be archived, and can usually be handled
-                     						similarly to a print publication. Articles written by SIL authors for electronic journals or
-                     						other formal web publications on other web sites should also be archived. Materials initially
-                     						published in print (or on audio cassette, etc.) and converted for the web should be elsewhere
-                     						included in the archives collection, though the new computer form (PDF, HTML, MP3) might also be
-                     						suitable for maintaining as a presentation form.
-                  </p>
-                  <p>Format, which includes the names of media types such as
-                     						photograph, should not be confused with Type, which categorizes the nature or genre of the
-                     						content of the resource and includes terms that describe general categories, functions, genres,
-                     						or aggregation levels for content.
-                  </p>
-                  <p>Need to differentiate IMT (Internet Media Type code) from a Type code.
+                  <p>If using an Internet Media Type code attribute with a digital object, the element content may be left 
+                     						empty, 
                      						
+                     						but it would typically be used to add further details about the format of the resource, 
+                     						such as the sampling rate for digital recordings, or the size of computer files.
                   </p>
-                  <p>Also for medium and extent information (however, no instance for either DC qualifier was actually
-                     						specified) 
+                  <p>In the case of a physical object, the refinements medium and extent are most applicable. These may respectively
+                     						contain the physical material of the object (e.g., parchment; reel-to-reel tape; 35 mm slide; NTSC 
+                     						encoded VHS cassette),  and the size/duration (e.g. number of pages and dimensions of a book; 
+                     						length of a recording).
+                  </p>
+                  <p>Format, which includes the names of physical media categories such as
+                     						photograph, should not be confused with dc:type, which categorizes the nature or genre of the
+                     						content of the resource based on the mode in which the user experiences or interacts with the resource, 
+                     						and as such includes terms that describe general categories, functions, or aggregation levels for content.
                   </p>
                   <p>OLAC had 5 refinements (cpu, encoding, markup, os, sourcecode) but each of these was used very
                      						little, if at all 
@@ -879,9 +745,9 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>For a digitally encoded dictionary:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
-						&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
-						&lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
-						&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre></td>
+	&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
+	&lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
+	&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;16mm film(add to this)&lt;/dcterms:medium&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Identifier"></A>Identifier
@@ -1938,13 +1804,14 @@
             <td width="150">[<a name="DCMI-Box">DCMI-Box</a>]
             </td>
             <td>DCMI Box
-               			<br>&lt;<a href="http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/">http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</a>&gt;
+               				<br>&lt;<a href="http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/">http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</a>&gt;
             </td>
          </tr>
          <tr valign="top">
             <td width="150">[<a name="DCMI-Period">DCMI-Period</a>]
             </td>
-            <td>DCMI Period <br>&lt;<a href="http://dublincore.org/documents/dcmi-period/">http://dublincore.org/documents/dcmi-period/</a>&gt;
+            <td>DCMI Period
+               			<br>&lt;<a href="http://dublincore.org/documents/dcmi-period/">http://dublincore.org/documents/dcmi-period/</a>&gt;
             </td>
          </tr>
          <tr valign="top">
