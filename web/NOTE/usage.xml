@@ -6,7 +6,7 @@
 		<status code="draft" type="informational"/>
 		<title>OLAC Metadata Usage Guidelines</title>
 		<baseName>usage</baseName>
-		<issued>20071028</issued>
+		<issued>20071031</issued>
 		<previousIssued/>
 		<abstract>
 			<p>This document provides guidelines on the meaning and proper usage of the metadata elements used in the
@@ -357,10 +357,10 @@
 					<p>Minimal best practice is that a record have at least one instance of Date (or one of its
 						refinements).</p>
 					<p>Minimal best practice is that every instance of Date (or a refinement) use the
-						<i>dcterms:W3CDTF</i> scheme, or enclose the element value in 
-						square brackets if the value does not conform to the encoding scheme (e.g., if it is supplied by 
-						the cataloger, is approximate or is in some doubt).</p>
-					<p>Do not use additional terms such as “recorded on” or “donated on” in the element text. 
+						<i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does
+						not conform to the encoding scheme (e.g., if it is supplied by the cataloger, is approximate or
+						is in some doubt).</p>
+					<p>Do not use additional terms such as “recorded on” or “donated on” in the element text.
 						<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
 					<p>Do not enter a coded year value and then a mm/dd/yy value in element text.
 						<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
@@ -381,14 +381,16 @@
 				<definition>An account of the resource.</definition>
 				<comment>
 					<p>Description may include but is not limited to: an abstract, table of contents, reference to a
-						graphical representation of content, or a free-text summary account of the content. <cit>DCMT</cit></p>
-					<p>Description may also offer an annotation, or a qualitative or evaluative comment about the resource, 
-						such as a statement about suitability for a particular application or context.</p>
-					<p> Description element is not a "catch-all" category. The Description element should not be confused with 
-						Subject. Description contains free-text (prose) statements, while Subject contains subject headings,
-						faceted terms, or specific subject descriptors, e.g., Library of Congress Subject Headings, or 
-						Linguistics and Language Behavior Abstracts thesaurus descriptors. Description should likewise not 
-						be used in place of Extent to contain information solely about the length, duration, or size of a work.</p>
+						graphical representation of content, or a free-text summary account of the content.
+						<cit>DCMT</cit></p>
+					<p>Description may also offer an annotation, or a qualitative or evaluative comment about the
+						resource, such as a statement about suitability for a particular application or context.</p>
+					<p> Description element is not a "catch-all" category. The Description element should not be
+						confused with Subject. Description contains free-text (prose) statements, while Subject contains
+						subject headings, faceted terms, or specific subject descriptors, e.g., Library of Congress
+						Subject Headings, or Linguistics and Language Behavior Abstracts thesaurus descriptors.
+						Description should likewise not be used in place of Extent to contain information solely about
+						the length, duration, or size of a work.</p>
 					<p>No formatting conventions are defined within the text of Description. Service providers may
 						format the entire Description as a single paragraph, collapsing adjacent white space characters
 						into a single space.</p>
@@ -411,26 +413,26 @@
 					</dl>
 				</refinements>
 				<bp>
-					<p>Minimal best practice is that a metadata record should contain at least one Description (or one of its refinements
-						or Subject element. While these are different in purpose and content (see Usage Notes below),
-						they both nevertheless give the prospective user some idea of the content of the resource that
-						goes beyond the informative potential of just a title alone. Using both Description and subject 
-						elements is encouraged.</p>
+					<p>Minimal best practice is that a metadata record should contain at least one Description (or one
+						of its refinements or Subject element. While these are different in purpose and content (see
+						Usage Notes below), they both nevertheless give the prospective user some idea of the content of
+						the resource that goes beyond the informative potential of just a title alone. Using both
+						Description and subject elements is encouraged.</p>
 				</bp>
 
 				<examples>
 					<p>A prose description of a resource:</p>
 					<eg>&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
-	unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
-	up to 30 minutes, originated in North America and were placed to locations overseas (typically
-	Japan). Most participants called family members or close friends. This corpus contains speech
-	data files ONLY, along with the minimal amount of documentation needed to describe the contents
-	and format of the speech files and the software packages needed to uncompress the speech data.
-	&lt;/dc:description&gt;</eg>
+						unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
+						up to 30 minutes, originated in North America and were placed to locations overseas (typically
+						Japan). Most participants called family members or close friends. This corpus contains speech
+						data files ONLY, along with the minimal amount of documentation needed to describe the contents
+						and format of the speech files and the software packages needed to uncompress the speech data.
+						&lt;/dc:description&gt;</eg>
 					<p>A contents note for a resource:</p>
-					<eg>&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2: Dictionary of 
-	Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in Vietnam;
-	v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</eg>
+					<eg>&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
+						Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in
+						Vietnam; v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</eg>
 					<p>A reference to an existing on-line description:</p>
 					<eg>&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</eg>
 				</examples>
@@ -438,24 +440,26 @@
 			<element name="Format">
 				<definition>The file format, physical medium, or dimensions of the resource.</definition>
 				<comment>
-					<p>Typically, Format may include the media-type, physical material, and/or dimensions of the resource. 
-						Format may be used to determine the software, hardware or other equipment needed to 
-						display or operate the resource. 	Examples of dimensions include size and duration. <cit>DCMT</cit></p>
-					<p>If using an Internet Media Type code attribute with a digital object, the element content may be left 
-						empty, 
+					<p>Typically, Format may include the media-type, physical material, and/or dimensions of the
+						resource. Format may be used to determine the software, hardware or other equipment needed to
+						display or operate the resource. Examples of dimensions include size and duration.
+						<cit>DCMT</cit></p>
+					<p>If using an Internet Media Type code attribute with a digital object, the element content may be
+						left empty,
 						<!-- This statement implies that the IMT would be included as a coded value attribute, rather than as the text of the element -->
-						but it would typically be used to add further details about the format of the resource, 
-						such as the sampling rate for digital recordings, or the size of computer files.</p>
-					<p>In the case of a physical object, the refinements medium and extent are most applicable. These may respectively
-						contain the physical material of the object (e.g., parchment; reel-to-reel tape; 35 mm slide; NTSC 
-						encoded VHS cassette),  and the size/duration (e.g. number of pages and dimensions of a book; 
-						length of a recording).</p>
-					<p><!-- paraphrase from PARK_IMLS.pdf -->Format, which includes the names of physical media categories such as
-						photograph, should not be confused with dc:type, which categorizes the nature or genre of the
-						content of the resource based on the mode in which the user experiences or interacts with the resource, 
-						and as such includes terms that describe general categories, functions, or aggregation levels for content.</p>
-					<p>OLAC had 5 refinements (cpu, encoding, markup, os, sourcecode) but each of these was used very
-						little, if at all <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+						but it would typically be used to add further details about the format of the resource, such as
+						the sampling rate for digital recordings, or the size of computer files.</p>
+					<p>In the case of a physical object, the refinements medium and extent are most applicable. These
+						may respectively contain the physical material of the object (e.g., parchment; reel-to-reel
+						tape; 35 mm slide; NTSC encoded VHS cassette), and the size/duration (e.g. number of pages and
+						dimensions of a book; length of a recording).</p>
+					<p><!-- paraphrase from PARK_IMLS.pdf -->Format, which includes the names of physical media
+						categories such as photograph, should not be confused with <xref>Type</xref>, which categorizes the nature
+						or genre of the content of the resource based on the mode in which the user experiences or
+						interacts with the resource, and as such includes terms that describe general categories,
+						functions, or aggregation levels for content.</p>
+					<!--<p>OLAC had 5 refinements (cpu, encoding, markup, os, sourcecode) but each of these was used very
+						little, if at all  http://www.language-archives.org/events/olac02/proceedings.pdf    </p> -->
 				</comment>
 				<refinements>
 					<dl>
@@ -488,10 +492,11 @@
 	&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</eg>
 					<p>For a digitally recorded text:</p>
 					<eg>&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
-	&lt;dc:format>Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format>
-	&lt;dcterms:extent>Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent></eg>
+	&lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
+	&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</eg>
 					<p>For 16mm film with sound track</p>
-					<eg>&lt;dcterms:medium&gt;16mm film(add to this)&lt;/dcterms:medium&gt;</eg>
+					<eg>&lt;dcterms:medium&gt;sd., col.;  16mm film&lt;/dcterms:medium&gt;
+	&lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</eg>
 				</examples>
 			</element>
 			<!-- Identifier would probably benefit from a
@@ -502,51 +507,32 @@
 				<comment>
 					<p>In the case of a resource that is not electronically encoded, but is housed in a conventional
 						archive, Identifier may be used to give a local shelf or box number, or whatever scheme is used
-						to locate a resource within the collection.</p>
+						to locate a resource within the collection. </p>
 					<p>Identifiers that begin with "http:" will be interpreted by service providers as URLs and be
-						presented as links in user interfaces. Note that Identifier is to be used only for a URL that
-						retrieves the actual resource; use <xref>Description</xref> for a URL that retrieves just a
-						description of the resource.</p>
+						presented as links in user interfaces. Complete relative link paths with the base server
+						so that the link will be valid outside the search system of the host archives.</p>
+					<p>Identifier is of particular value in enabling other resources to unambiguously refer to the resource
+						in focus in terms of a specific relationship. See <xref>Relation</xref> for best practice and 
+						usage notes in creating	relationship links between resources.</p>
+					<p>A unique identifier that has been assigned to a digital resource by the researcher, a research organization 
+						or department, or an archives or library for internal reference may continue to be useful in identifying the 
+						resource alongside a URI assigned in the context of a digital repository. Such a unique identifier may be 
+						significant for continuity of identification for a digital resource throughout its lifecycle, as other 
+						resources may have used such an identifier in referencing the object prior to the assignment 
+						of the URI later in its lifecycle.</p>
 					<p>Do not specify the "oai:" identifier for the resource itself as a value of Identifier, since it
 						is already given in <tt>&lt;identifier&gt;</tt> in the <tt>&lt;header&gt;</tt>
 						of the <tt>&lt;record&gt;</tt>s returned by the OAI protocol.</p>
-					<!-- Following <p> from OLACSIL.txt -->
-					<p>Filename (including path if on a CD-R or DVD that is being deposited) of file folder of set of
-						files if this is a digital resource. URL for work published online. ISBN for hard-copy
-						publication, if available, or bibliographic citation if not. (Place, publisher, [series and
-						volume] for a monograph; journal title, vol., issue and pages for an article; editor, place,
-						publisher, [series and volume] and pages for book-chapter; name, location and date of conference
-						for a conference paper; degree level and institution for a thesis.)</p>
-					<!-- from OLACSIL_in_Toolbox_Instructions-1 -->
-					<p>The expectation is that all the materials originating from a specific language program will
-						constitute one collection. Where two (or more) separate programs have operated in a single
-						language (using the list of ISO 639-3 identified languages as reference), the Specific
-						Collection Identifier can also include some distinguishing information, such as dialect. For
-						example, a project in the Leemo dialect of the Hadiyya language of Ethiopia would construct a
-						primary identifier as: ETG-hdy_Leemo-001.</p>
-					<p>Alternatively, it might be desirable to gather materials from a single program that serves
-						multiple languages into a single set of records. To indicate a cluster language program, use the
-						same name (or a code) used within the entity to identify the program. The language of any one
-						resource is specified within its particular metadata record. Codes of three letters for other
-						than ISO language codes should be avoided in the Specific Collection Identifier segment (but
-						other code schemas may be okay).</p>
-					<p>For materials that originate from other than language program work, a different identification is
-						needed. This could be an author’s surname for the collection of works by one scholar. It could
-						also be a department name for materials pertaining to a specific department, e.g., SurveyDept.</p>
-					<p>– Many non-unique Identifier URLs: • In a few archives, multiple resources were ‘identified’ with
-						the same URL, usually availability info or a further description, but not the resource itself •
-						Often apparently mistaken as the only place one could put a URL associated with this resource •
-						Sometimes incomplete (relative?) paths given – Some identifiers seemed useful only to the
-						archives, but were not relevant for resource discovery or request for access
-						<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+					<p>Do not use Identifier for a URL intended to direct the searcher to a <xref>Description</xref>, availability 
+						or usage or other <xref>Rights</xref>-related information. A URI may be used in each of those 
+						elements or refinements to link to such information. Likewise, Identifier should not be used to refer to a 
+						general collection site in which the resource is one of many works available.</p>
 				</comment>
 				<refinements>
 					<dl>
 						<dt>bibliographicCitation</dt>
 						<dd>
-							<p>A bibliographic reference for the resource. Comment: Recommended practice is to include
-								sufficient bibliographic detail to identify the resource as unambiguously as possible,
-								whether or not the citation is in a standard form. </p>
+							<p>A bibliographic reference for the resource. </p>
 						</dd>
 					</dl>
 				</refinements>
@@ -561,17 +547,19 @@
 				<bp>
 					<p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when the value is a Uniform
 						Resource Locator (URL).</p>
+					<p>Recommended practice for a bibliographic citation is to include
+						sufficient bibliographic detail to identify the resource as unambiguously as possible,
+						whether or not the citation is in a standard form.</p>
 				</bp>
 
 				<examples>
 					<p>A Uniform Resource Locator for retrieval of an electronically encoded resource:</p>
-					<eg>&lt;dc:identifier
-						xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</eg>
+					<eg>&lt;dc:identifier xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</eg>
 					<p>A local identifier for retrieval within a physical collection:</p>
-					<eg>&lt;dc:identifier&gt;Shelf 12, Box 7&lt;/dc:identifier&gt;</eg>
+					<eg>&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</eg>
 					<p>The citation for a chapter that was published in a book:</p>
 					<eg>&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), Native South
-						American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</eg>
+American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</eg>
 
 				</examples>
 			</element>
