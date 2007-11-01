@@ -6,7 +6,7 @@
       <status code="draft" type="informational"/>
       <title>OLAC metadata quality metrics</title>
       <baseName>metrics</baseName>
-      <issued>20071029</issued>
+      <issued>20071031</issued>
       <previousIssued/>
       <abstract>
          <p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
@@ -59,12 +59,12 @@
                   refinements). Absence of a date in the resource itself does not block achieving this point, since in
                   that case it is recommended best practice for the cataloger to estimate the date.</p>
             </dd>
-            <dt>Agent</dt>
+            <dt>Agent (Contributor, Creator, or Publisher)</dt>
             <dd>
                <p>One point is awarded for the presence of at least one non-empty element that provides an indication of
                   who is behind the resource, whether as Contributor or Creator or Publisher.</p>
             </dd>
-            <dt>About</dt>
+            <dt>About (Subject, Description, or Coverage)</dt>
             <dd>
                <p>One point is awarded for the presence of at least one non-empty element that provides an indication of
                   what the resource is about, whether Subject or Description or Coverage (or any refinement of the
