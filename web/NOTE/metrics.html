@@ -7,7 +7,7 @@
 <meta name="Description" content="Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
             records.">
 <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-<meta name="Date" content="20071031">
+<meta name="Date" content="20071101">
 <STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
@@ -23,7 +23,7 @@
 <table cellspacing="10">
 <tr valign="top">
 <th width="100" align="left">Date&nbsp;issued:</th>
-<td>2007-10-31</td>
+<td>2007-11-01</td>
 </tr>
 <tr valign="top">
 <th align="left">Status of document:</th>
@@ -31,7 +31,7 @@
 </tr>
 <tr valign="top">
 <th align="left">This version:</th>
-<td><a href="http://www.language-archives.org/NOTE/metrics-20071031.html">http://www.language-archives.org/NOTE/metrics-20071031.html</a></td>
+<td><a href="http://www.language-archives.org/NOTE/metrics-20071101.html">http://www.language-archives.org/NOTE/metrics-20071101.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Latest version:</th>
@@ -84,11 +84,13 @@
             reported as 4 stars, and so on.</p>
 <p>The practices in focus are ones that contribute to resource discovery. The score has two major parts: 50% is
             based on the metadata elements that are present and 50% is based on the use of encoding schemes. The
-            elements provide the breadth and depth of the description, while the encoding schemes provide precision for
-            searching. </p>
+            elements provide the breadth of the description, while the encoding schemes
+            provide precision for interoperable searching. </p>
 <p>The element part of the score consists of 4 points awarded for each of four basic metadata elements that
             must be present to give the record minimal breadth of coverage, plus a further point awarded for additional
-            elements that add to the depth of description. These components of the score are awarded as follows:</p>
+            elements that add to the breadth of description. In the descriptions below, a
+            non-empty metadata element is one that supplies a value, whether through
+            element content or through the <i>olac:code</i> attribute. These components of the score are awarded as follows:</p>
 <blockquote>
 <dl>
 <dt><b>Title</b></dt>
@@ -112,17 +114,16 @@
 <dd>
 <p>One point is awarded for the presence of at least one non-empty element that provides an indication of
                   what the resource is about, whether Subject or Description or Coverage (or any refinement of the
-                  latter two). A Subject element that uses an ISO 639-3 code is counted below under "Subject Language"
-                  and does not count toward this point.</p>
+                  latter two). </p>
 </dd>
-<dt><b>Depth</b></dt>
+<dt><b>Breadth</b></dt>
 <dd>
 <p>One-fifth point (up to a maximum of one point) is awarded for each element that is present in addition
-                  to the ones counted above and the ones that hold the four mandatory encoding schemes mentioned below.
-                  That is, the number of additional elements is the total number of element instances in the record
-                  minus the number of points (up to 8) awarded in all other components of the score excluding the point
-                  for "Precision". Thus, this part of the score is whichever is less of 1 or the number of additional
-                  elements divided by 5. Note that in order to get the full score of 10 points, the record must have at
+                  to the 8 that must be present in order to receive the 4 points above for
+                  basic elements and the 4 points that follow for basic encoding schemes.
+                  Thus, this part of the score is (total elements - 8) /
+                  5 or 1, whichever is less.
+                  Note that in order to get the full score of 10 points, a record must have at
                   least 13 elements. </p>
 </dd>
 </dl>
@@ -194,6 +195,9 @@
 <font color="red">
 <p>Write the recommendation document for the ISO639-3 extension.</p>
 <p>Modify the Linguistic-Type extension to be relevant for all resources, including a "not applicable" member.</p>
+<p>The  guard against empty elements should be built into the harvester so that
+         elements having neither element content nor an olac:code value should simply be
+         ignored and not entered into the aggregated database.</p>
 </font><a name="References"></a><hr>
 <h2>References</h2>
 <table cellspacing="10">
