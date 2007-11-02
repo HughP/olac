@@ -10,7 +10,7 @@
       <meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)Steven Bird, University of&#xA;Pennsylvania (mailto:sb@ldc.upenn.edu)">
       <meta name="Description" content="This document provides guidelines on the meaning and proper usage of the metadata elements used in the&#xA;metadata standard of the Open Language Archives Community.">
       <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-      <meta name="Date" content="20071031"><STYLE>
+      <meta name="Date" content="20071101"><STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
           H1    {FONT-SIZE: 24pt }
@@ -24,7 +24,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th width="100" align="left">Date&nbsp;issued:</th>
-            <td>2007-10-31</td>
+            <td>2007-11-01</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -34,7 +34,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/usage-20071031.html">http://www.language-archives.org/NOTE/usage-20071031.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/usage-20071101.html">http://www.language-archives.org/NOTE/usage-20071101.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Latest version:</th>
@@ -223,7 +223,7 @@
                      <tr valign="top">
                         <td>olac:role&nbsp;&nbsp;</td>
                         <td>
-                           <p>The <i>refine</i> attribute is optionally used to specify the role (such as transcriber,
+                           <p>The olac:role code is optionally used to specify the role (such as transcriber,
                               								sponsor, and so on) played by the named entity in the creation of the resource. The role
                               								is expressed by means of a controlled vocabulary; see [<a href="#OLAC-Role">OLAC-Role</a>] for the
                               								definition of the vocabulary. 
@@ -245,8 +245,35 @@
                   <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
                      						contributor.
                   </p>
-                  <p>Enter one name per element instance. Do not enter multiple names in single element instance and
-                     						do not enter spouses or family co-members as a single phrase.
+               </td>
+            </tr>
+            <tr valign="top">
+               <td width="100"><i>Usage Notes</i></td>
+               <td>
+                  <p>A Contributor may be a person, an organization, or a service. Contributor is closely related to
+                     						<a href="#Creator">Creator</a>.  A case for distinguishing the usage of the two elements can be made based on
+                     						the degree of responsibility for the content. The Contributor designation can be used for those 
+                     						entities whose role in the creation of the resource is not great enough to merit 
+                     						recognition as a primary source of the intellectual content. Thus, the Contributor element  
+                     						would be used to identify institutions that sponsored or funded the work, or to
+                     						identify individuals who played a secondary role in the development of the
+                     						resource (e.g., roles such as consultant, depositor, responder). The Creator element 
+                     						would be used to identify individuals or group entities that are primarily responsible 
+                     						for the intellectual content (e.g., roles such as author, performer).
+                  </p>
+                  <p>The application of the olac:role schema with its more precise vocabulary makes drawing 
+                     						a distinction between the less precise concepts of Contributor and Creator of much less 
+                     						significance. Thus, an alternative to making the above distinction between 
+                     						Contributor and Creator is to use only the Contributor element, always specifying the 
+                     						more precise nature of the contribution through the use of the olac:role vocabulary 
+                     						(as is recommended best practice in any case).
+                  </p>
+                  <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related elements. In particular, the olac:role
+                     						"sponsor" can come close to one aspect of participation that a publisher may have in regard to making
+                     						a given resource available to the public. The olac:role "editor" is frequently one of the individual
+                     						tasks that are collectively performed by the publisher of a work. A "sponsor" that is not also the 
+                     						formal publisher of a resource may be entered in a Contributor element (with the proper olac:role
+                     						specified), but the publisher should not be repeated in a Contributor element.
                   </p>
                   <p>Do not use quotation marks to enclose corporate names. If the name is a translation from its
                      						usual form or is not usually given in English, use the lang attribute.
@@ -259,28 +286,9 @@
                </td>
             </tr>
             <tr valign="top">
-               <td width="100"><i>Usage Notes</i></td>
-               <td>
-                  <p>A Contributor may be a person, an organization, or a service. Contributor is closely related to
-                     							<a href="#Creator">Creator</a>. The difference has to do with degree of responsibility for the
-                     						content. The Contributor designation is used for those entities whose role in the creation of
-                     						the resource is not great enough to merit recognition as a primary source of the intellectual
-                     						content. This element may be used to identify institutions that sponsored or funded the work. It
-                     						may be used to identify individuals who played a secondary role in the development of the
-                     						resource. As a rule of thumb, Creator is used when the contribution is such that it would be
-                     						cited in the "author" field of a bibliographic entry, and Contributor is used otherwise.
-                  </p>
-                  <p>Semantic overlap engenders confusion and inaccuracy in the usage of the
-                     						DC metadata elements Creator, Contributor and Publisher.
-                  </p>
-               </td>
-            </tr>
-            <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A generic contributor:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>A funding agency:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution.
-						Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre><p>A corporate name given in a language differing from the majority of the metadata record:</p><pre style="margin-left: 12pt">&lt;dc:contributor xml:lang="ces"&gt;C&#780;eska&#769; akademie ve&#780;d a
-						ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
+                  <p>A generic contributor:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>A funding agency:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre><p>A corporate name given in a language differing from the majority of the metadata record:</p><pre style="margin-left: 12pt">&lt;dc:contributor xml:lang="ces"&gt;C&#780;eska&#769; akademie ve&#780;d a	ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Coverage"></A>Coverage
@@ -363,23 +371,30 @@
                      						temporal period (a period label, date, or date range) or jurisdiction (such as a named
                      						administrative entity). [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>Temporal coverage may be used to specify the date or date range during which a resource</p>
+                  <p>Coverage is related to <a href="#Subject">Subject</a> in having a topical orientation. Coverage in its 
+                     						temporal aspect should not be confused with <a href="#Date">Date</a> or one of its refinements
+                     						(e.g., created, or available). Thus, a data set that was compiled over an extended 
+                     						period of time should be described via <tt>dcterms:created</tt> whose content is a date 
+                     						range, rather than with Coverage or <tt>dcterms:temporal</tt>. A data set (or any kind of resource)
+                     						that contains or addresses historical information would correctly use Coverage or 
+                     						<tt>dcterms:temporal</tt> to specify the date, date range or period in focus.
+                  </p>
                   <p>In the OLAC context, service providers already have a database that maps languages to the
                      						countries in which they are spoken [<a href="#OLAC-Language">OLAC-Language</a>]. Coverage should not be used to
                      						duplicate this information; rather service providers will support searches concerning languages
                      						spoken in a given country by referring to the language database. Coverage should be used
                      						geographically only when the language involved has a wide distribution and the resource focuses
                      						on its use in a particular region or geopolitical jurisdiction, or conversely, when the resource
-                     						deals with a region that encompasses multiple languages. 
+                     						deals with a topic of study in which the region itself is in focus, e.g., multilingualism,
+                     						language polilcy, languages in contact, in a given locale.
                   </p>
+                  <p></p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A resource about English in India:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;
-						&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal
-						(island)&lt;/dcterms:spatial&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre></td>
+                  <p>A resource about English in India:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal	(island)&lt;/dcterms:spatial&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Creator"></A>Creator
@@ -417,8 +432,8 @@
                <td>
                   <p>Recommended best practice is to identify a Creator by means of a name in a form that is ready for
                      						sorting within an index. For the names of persons, this means that the name should be given in
-                     						inverted order with the surname first. For the names of organizations, this means that any
-                     						initial article should be omitted. 
+                     						with the surname first (an "inverted" order for most Western name forms). For the names of 
+                     						organizations, this means that any initial article should be omitted. 
                   </p>
                   <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
                      						creator.
@@ -429,21 +444,26 @@
                <td width="100"><i>Usage Notes</i></td>
                <td>
                   <p>A Creator may be a person, an organization, or a service. Creator is closely related to
-                     							<a href="#Contributor">Contributor</a>. In determining whether an entity is a Creator (as opposed to a
-                     						Contributor), use the same criteria that are followed for deciding that an entity should be
-                     						listed in the "author" slot of a bibliographic reference as a primary source of the intellectual
-                     						content. Entities that do not merit that level of recognition should be treated as Contributors.
+                     						<a href="#Contributor">Contributor</a>. Creator may be differentiated from Contributor based on the degree of
+                     						involvement as a primary source of the intellectual content. In determining whether an entity
+                     						is a Creator (as opposed to a Contributor), consider the role in the creation of the resource, 
+                     						using the same criteria that are followed for deciding that an entity should be
+                     						listed as an "author" in a bibliographic reference of the resource. Entities that do not merit 
+                     						that level of recognition should be treated as Contributors.
                   </p>
-                  <p>Semantic overlap engenders confusion and inaccuracy in the usage of the
-                     						DC metadata elements Creator, Contributor and Publisher.
+                  <p>The application of the olac:role schema with its more precise vocabulary makes drawing 
+                     						a distinction between the less precise concepts of Contributor and Creator of much less 
+                     						significant. Thus, an alternative to making the above distinction between 
+                     						Contributor and Creator is to use only the Contributor element, always specifying the 
+                     						more precise nature of the contribution through the use of the olac:role vocabulary 
+                     						(as is recommended best practice in any case).
                   </p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Bloomfield, Leonard&lt;/dc:creator&gt;</pre><p>An institutional author:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Linguistic Society of America&lt;/dc:creator&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:creator xsi:type="olac:role" olac:code="editor"&gt;Sapir,
-						Edward&lt;/dc:creator&gt;</pre></td>
+                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Bloomfield, Leonard&lt;/dc:creator&gt;</pre><p>An institutional author:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Linguistic Society of America&lt;/dc:creator&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:creator xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:creator&gt;</pre></td>
             </tr>
             <tr valign="top">
                <td width="100"><b><font color="red"><i>To do</i></font></b></td>
@@ -537,42 +557,33 @@
             <tr valign="top">
                <td width="100"><i>Best practices</i></td>
                <td>
-                  <p>Minimal best practice is that a record have at least one instance of Date (or one of its
+                  <p>Recommended minimal best practice is that a record have at least one instance of Date (or one of its
                      						refinements).
                   </p>
-                  <p>Minimal best practice is that every instance of Date (or a refinement) use the
+                  <p>Recommended best practice is that every instance of Date (or a refinement) use the
                      						<i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does
                      						not conform to the encoding scheme (e.g., if it is supplied by the cataloger, is approximate or
-                     						is in some doubt).
-                  </p>
-                  <p>Do not use additional terms such as &#8220;recorded on&#8221; or &#8220;donated on&#8221; in the element text.
-                     						
-                  </p>
-                  <p>Do not enter a coded year value and then a mm/dd/yy value in element text.
-                     						
+                     						is in some doubt). A WSCDTF-conformant value may be for the year alone, for the year and month, or for 
+                     						an exact date. A range of years is also a valid value; in this case both years 
+                     						must be four-digit values and the earliest year should come first. Thus, the element value 
+                     						may match one of the four following patterns: <tt>YYYY</tt>, <tt>YYYY-MM</tt>, 
+                     						<tt>YYYY-MM-DD</tt>, or <tt>YYYY-YYYY</tt>.
                   </p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Usage Notes</i></td>
                <td>
-                  <p>The <i>code</i> attribute is used to hold a standardized encoding of a date. Following
-                     						[<a href="#DCMT">DCMT</a>], OLAC uses the YYYY-MM-DD format as defined in [<a href="#W3CDTF">W3CDTF</a>]. When a month
-                     						or day value is less than 10, use a leading 0 to maintain a two-digit length. The encoded value
-                     						may be for the year alone, for the year and month, or for an exact date. A range of years is
-                     						also a valid value for this attribute; in this case both years must be four-digit values and the
-                     						earliest year should come first. Thus, the encoded value may match one of the four following
-                     						patterns: <tt>YYYY</tt>, <tt>YYYY-MM</tt>, <tt>YYYY-MM-DD</tt>, or <tt>YYYY-YYYY</tt>.
+                  <p>A Date with no refinement will be assumed to be the date of issue (i.e. publication). 
+                     						Date of publication may differ from its creation date; thus it can be helpful to prospective users
+                     						to include more than one kind of Date element (refinement). However, a single resource
+                     						should not have more than one instance of each date refinement, with the possible exception of
+                     						<tt>dcterms:modified</tt>. Where the modification history of a resource is significant, it is 
+                     						appropriate to enter this information in a <a href="#Provenance">Provenance</a> element, which allows 
+                     						for explanation of modifications in a way that <tt>dcterms:modified</tt> does not.
                   </p>
-                  <p>A Date with no refinement will be assumed to be the date of issue (i.e. publication). A single
-                     						resource should not have more than one instance of each date refinement. In selecting a single
-                     						date to associate with a resource, a service provider will select the most recent of date
-                     						created, issued, or modified.
-                  </p>
-                  <p>Date of publication may differ from its creation date</p>
-                  <p>- &#8216;Available&#8217; as a refinement pertains to Date, not to other aspects of availability
-                     						
-                  </p>
+                  <p>&#8216;Available&#8217; as a refinement pertains to Date, not to other aspects of availability.</p>
+                  <p>Do not use additional terms such as &#8220;recorded on&#8221; or &#8220;donated on&#8221; in the element text.</p>
                </td>
             </tr>
             <tr valign="top">
@@ -616,7 +627,7 @@
             <tr valign="top">
                <td width="100"><i>Best practices</i></td>
                <td>
-                  <p>Minimal best practice is that a metadata record should contain at least one Description (or one
+                  <p>Recommended best practice is that a metadata record should contain at least one Description (or one
                      						of its refinements or Subject element. While these are different in purpose and content (see
                      						Usage Notes below), they both nevertheless give the prospective user some idea of the content of
                      						the resource that goes beyond the informative potential of just a title alone. Using both
@@ -657,14 +668,14 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A prose description of a resource:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
-						unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
-						up to 30 minutes, originated in North America and were placed to locations overseas (typically
-						Japan). Most participants called family members or close friends. This corpus contains speech
-						data files ONLY, along with the minimal amount of documentation needed to describe the contents
-						and format of the speech files and the software packages needed to uncompress the speech data.
-						&lt;/dc:description&gt;</pre><p>A contents note for a resource:</p><pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
-						Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in
-						Vietnam; v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre></td>
+   unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
+   up to 30 minutes, originated in North America and were placed to locations overseas (typically
+   Japan). Most participants called family members or close friends. This corpus contains speech
+   data files ONLY, along with the minimal amount of documentation needed to describe the contents
+   and format of the speech files and the software packages needed to uncompress the speech data.
+   &lt;/dc:description&gt;</pre><p>A contents note for a resource:</p><pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
+   Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in
+   Vietnam; v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Format"></A>Format
@@ -723,22 +734,16 @@
                      						display or operate the resource. Examples of dimensions include size and duration.
                      						[<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>If using an Internet Media Type code attribute with a digital object, the element content may be
-                     						left empty,
-                     						
-                     						but it would typically be used to add further details about the format of the resource, such as
-                     						the sampling rate for digital recordings, or the size of computer files.
-                  </p>
                   <p>In the case of a physical object, the refinements medium and extent are most applicable. These
                      						may respectively contain the physical material of the object (e.g., parchment; reel-to-reel
                      						tape; 35 mm slide; NTSC encoded VHS cassette), and the size/duration (e.g. number of pages and
                      						dimensions of a book; length of a recording).
                   </p>
-                  <p>Format, which includes the names of physical media
-                     						categories such as photograph, should not be confused with <a href="#Type">Type</a>, which categorizes the nature
-                     						or genre of the content of the resource based on the mode in which the user experiences or
-                     						interacts with the resource, and as such includes terms that describe general categories,
-                     						functions, or aggregation levels for content.
+                  <p>Format (and its refinement 'medium'), which encompasses the notion of physical media categories 
+                     						such as photograph, should not be confused with <a href="#Type">Type</a>, which categorizes the 
+                     						nature or genre of the content of the resource based on the mode in which the user 
+                     						experiences or interacts with the resource, and as such includes terms that describe general 
+                     						categories, functions, or aggregation levels for content.
                   </p>
                </td>
             </tr>
@@ -746,10 +751,10 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>For a digitally encoded dictionary:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
-	&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
-	&lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
-	&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sd., col.;  16mm film&lt;/dcterms:medium&gt;
-	&lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre></td>
+   &lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
+   &lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
+   &lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
+   &lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Identifier"></A>Identifier
@@ -766,6 +771,10 @@
                      <tr valign="top">
                         <td>bibliographicCitation&nbsp;&nbsp;</td>
                         <td>
+                           <p>A bibliographic reference for the resource. Comment: Recommended practice is to include
+                              								sufficient bibliographic detail to identify the resource as unambiguously as possible,
+                              								whether or not the citation is in a standard form. 
+                           </p>
                            <p>A bibliographic reference for the resource. </p>
                         </td>
                      </tr>
@@ -792,9 +801,9 @@
                   <p>Recommended best practice is to specify the <i>dcterms;URI</i> scheme when the value is a Uniform
                      						Resource Locator (URL).
                   </p>
-                  <p>Recommended practice for a bibliographic citation is to include
-                     						sufficient bibliographic detail to identify the resource as unambiguously as possible,
-                     						whether or not the citation is in a standard form.
+                  <p>Recommended practice for a bibliographic citation is to include sufficient bibliographic detail
+                     						to identify the resource as unambiguously as possible, whether or not the citation is in a
+                     						standard form.
                   </p>
                </td>
             </tr>
@@ -803,31 +812,32 @@
                <td>
                   <p>In the case of a resource that is not electronically encoded, but is housed in a conventional
                      						archive, Identifier may be used to give a local shelf or box number, or whatever scheme is used
-                     						to locate a resource within the collection. 
+                     						to locate a resource within the collection.
                   </p>
                   <p>Identifiers that begin with "http:" will be interpreted by service providers as URLs and be
-                     						presented as links in user interfaces. Complete relative link paths with the base server
-                     						so that the link will be valid outside the search system of the host archives.
+                     						presented as links in user interfaces. Complete relative link paths with the base server so that
+                     						the link will be valid outside the search system of the host archives.
                   </p>
-                  <p>Identifier is of particular value in enabling other resources to unambiguously refer to the resource
-                     						in focus in terms of a specific relationship. See <a href="#Relation">Relation</a> for best practice and 
-                     						usage notes in creating	relationship links between resources.
+                  <p>Identifier is of particular value in enabling other resources to unambiguously refer to the
+                     						resource in focus in terms of a specific relationship. See <a href="#Relation">Relation</a> for best
+                     						practice and usage notes in creating relationship links between resources.
                   </p>
-                  <p>A unique identifier that has been assigned to a digital resource by the researcher, a research organization 
-                     						or department, or an archives or library for internal reference may continue to be useful in identifying the 
-                     						resource alongside a URI assigned in the context of a digital repository. Such a unique identifier may be 
-                     						significant for continuity of identification for a digital resource throughout its lifecycle, as other 
-                     						resources may have used such an identifier in referencing the object prior to the assignment 
-                     						of the URI later in its lifecycle.
+                  <p>A unique identifier that has been assigned to a digital resource by the researcher, a research
+                     						organization or department, or an archives or library for internal reference may continue to be
+                     						useful in identifying the resource alongside a URI assigned in the context of a digital
+                     						repository. Such a unique identifier may be significant for continuity of identification for a
+                     						digital resource throughout its lifecycle, as other resources may have used such an identifier
+                     						in referencing the object prior to the assignment of the URI later in its lifecycle.
                   </p>
                   <p>Do not specify the "oai:" identifier for the resource itself as a value of Identifier, since it
                      						is already given in <tt>&lt;identifier&gt;</tt> in the <tt>&lt;header&gt;</tt>
                      						of the <tt>&lt;record&gt;</tt>s returned by the OAI protocol.
                   </p>
-                  <p>Do not use Identifier for a URL intended to direct the searcher to a <a href="#Description">Description</a>, availability 
-                     						or usage or other <a href="#Rights">Rights</a>-related information. A URI may be used in each of those 
-                     						elements or refinements to link to such information. Likewise, Identifier should not be used to refer to a 
-                     						general collection site in which the resource is one of many works available.
+                  <p>Do not use Identifier for a URL intended to direct the searcher to a <a href="#Description">Description</a>,
+                     						availability or usage or other <a href="#Rights">Rights</a>-related information. A URI may be used in
+                     						each of those elements or refinements to link to such information. Likewise, Identifier should
+                     						not be used to refer to a general collection site in which the resource is one of many works
+                     						available.
                   </p>
                </td>
             </tr>
@@ -990,6 +1000,19 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                      						management procedures.... the archives should not mix materials from different
                      						collections...according to...topical categories.
                   </p>
+                  <p>The most frequently identified of all locally added metadata elements,
+                     						concern provenance information such as: &#8216;contact information&#8217;, &#8216;ordering information&#8217;, and
+                     						&#8216;acquisition.&#8217;
+                  </p>
+                  <p>Unlike a library, which usually organizes works by topic, the archive should organize materials
+                     						by common origin or provenance.... In general, it is best to keep collections together as a
+                     						physical unit (as much as the different types of media permit), with each language program
+                     						collection stored on its own computer media unit (such as CD-R), or all together in adjacent
+                     						paper files. This most easily enables a particular team to see what has been submitted in the
+                     						past and maintains the physical integrity of each collection consistently for archives
+                     						management procedures.... the archives should not mix materials from different
+                     						collections...according to...topical categories.
+                  </p>
                   <p>The most frequently identified all locally added metadata elements,
                      						concern provenance information such as: &#8216;contact information&#8217;, &#8216;ordering information&#8217;, and
                      						&#8216;acquisition.&#8217;
@@ -1087,6 +1110,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   <p>Usually a publisher or the archives itself, sometimes with URL, sometimes URL given in separate
                      						instance of element. Do not use it for host publication information, which should be in
                      						Relation.
+                  </p>
+                  <p>Semantic overlap engenders confusion and inaccuracy in the usage of the
+                     						DC metadata elements Creator, Contributor and Publisher.
                   </p>
                   <p>Semantic overlap engenders confusion and inaccuracy in the usage of the
                      						DC metadata elements Creator, Contributor and Publisher.
@@ -1270,6 +1296,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                      						unambiguous identifier (such as the \primaryid) for the related resource, if possible, or a
                      						standard name for a schema to which this resource conforms, e.g., GOLD: General Ontology for
                      						Linguistic Description.
+                  </p>
+                  <p>Relationship metadata pertains to relationships among independent objects, such as print/analog
+                     						and digital forms of the same content, presentation and source forms, a dissertation and a book
+                     						which came directly from it. This must not be confused with the administrative metadata elements
+                     						that link distinct but dependent parts of a largertaloger-defined field names such as 'digital
+                     						collection,' and 'example issues.' whole.
                   </p>
                   <p>Relationship metadata pertains to relationships among independent objects, such as print/analog
                      						and digital forms of the same content, presentation and source forms, a dissertation and a book
@@ -1488,6 +1520,33 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   <p>Source may be inconsistently mapped onto various
                      						cataloger-defined fields. An area of confusion is the distinction between Source and Relation.
                   </p>
+                  <p>The present resource may be derived from the Source resource in whole or in part. [<a href="#DCMT">DCMT</a>]
+                     						When the Source resource is also available in an on-line archive, recommended best practice is
+                     						to reference it by means of an "oai:" identifier. In this case service providers should
+                     						presented the Source as an active link that retrieves the metadata for that resource. 
+                  </p>
+                  <p> In the legal parlance of intellectual property rights, a "derivative work" is one that is based
+                     						on one or more preexisting works. This includes cases in which a work may be recast,
+                     						transformed, or adapted in any way, such as by translation, abridgement, dramatization,
+                     						recording, transcription, or digital encoding. A work consisting of editorial revisions,
+                     						annotations, elaborations, or other modifications, which, as a whole, represent an original work
+                     						of authorship is also a derivative work [<a href="#Copyright">Copyright</a>].
+                  </p>
+                  <p>This legal definition elucidates the sense of "derived" that is intended in the Dublin Core
+                     						definition of Source. Note, however, that this overlaps with <a href="#Relation">Relation</a>, since the
+                     							<i>isFormatOf</i> and <i>isVersionOf</i> refinements both refer to derivative works in the
+                     						technical sense.
+                  </p>
+                  <p>Use Source (as opposed to Relation) in cases when the present resource has a substantially
+                     						different <a href="#Type">Type</a> or <a href="#Creator">Creator</a> or <a href="#Title">Title</a> than the Source
+                     						resource. When the difference from the original work is only a difference of <a href="#Date">Date</a>
+                     						or <a href="#Format">Format</a> or <a href="#Publisher">Publisher</a> or <a href="#Identifier">Identifier</a> or edition
+                     						designator in the <a href="#Title">Title</a>, then use Relation to encode the relationship to the
+                     						original work.
+                  </p>
+                  <p>Source may be inconsistently mapped onto various
+                     						cataloger-defined fields. An area of confusion is the distinction between Source and Relation.
+                  </p>
                </td>
             </tr>
             <tr valign="top">
@@ -1579,6 +1638,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   <p> The Subject element should not be confused with
                      						Description. Subject contains subject headings, while Description contains free-text
                      						descriptions.
+                  </p>
+                  <p>Avoid mapping the DC Subject element to a variety of
+                     						cataloger-defined natural vocabularies such as 'topic', 'category', and 'keyword.'
                   </p>
                   <p>Avoid mapping the DC Subject element to a variety of
                      						cataloger-defined natural vocabularies such as 'topic', 'category', and 'keyword.'
