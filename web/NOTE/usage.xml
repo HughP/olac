@@ -119,27 +119,28 @@
 				<comment>
 
 					<p>A Contributor may be a person, an organization, or a service. Contributor is closely related to
-						<xref>Creator</xref>.  A case for distinguishing the usage of the two elements can be made based on
-						the degree of responsibility for the content. The Contributor designation can be used for those 
-						entities whose role in the creation of the resource is not great enough to merit 
-						recognition as a primary source of the intellectual content. Thus, the Contributor element  
-						would be used to identify institutions that sponsored or funded the work, or to
-						identify individuals who played a secondary role in the development of the
-						resource (e.g., roles such as consultant, depositor, responder). The Creator element 
-						would be used to identify individuals or group entities that are primarily responsible 
-						for the intellectual content (e.g., roles such as author, performer).</p>
-					<p>The application of the olac:role schema with its more precise vocabulary makes drawing 
-						a distinction between the less precise concepts of Contributor and Creator of much less 
-						significance. Thus, an alternative to making the above distinction between 
-						Contributor and Creator is to use only the Contributor element, always specifying the 
-						more precise nature of the contribution through the use of the olac:role vocabulary 
-						(as is recommended best practice in any case).</p>
-					<p>Contributor and <xref>Publisher</xref> are also somewhat related elements. In particular, the olac:role
-						"sponsor" can come close to one aspect of participation that a publisher may have in regard to making
-						a given resource available to the public. The olac:role "editor" is frequently one of the individual
-						tasks that are collectively performed by the publisher of a work. A "sponsor" that is not also the 
-						formal publisher of a resource may be entered in a Contributor element (with the proper olac:role
-						specified), but the publisher should not be repeated in a Contributor element.</p>
+							<xref>Creator</xref>. A case for distinguishing the usage of the two elements can be made
+						based on the degree of responsibility for the content. The Contributor designation can be used
+						for those entities whose role in the creation of the resource is not great enough to merit
+						recognition as a primary source of the intellectual content. Thus, the Contributor element would
+						be used to identify institutions that sponsored or funded the work, or to identify individuals
+						who played a secondary role in the development of the resource (e.g., roles such as consultant,
+						depositor, responder). The Creator element would be used to identify individuals or group
+						entities that are primarily responsible for the intellectual content (e.g., roles such as
+						author, performer).</p>
+					<p>The application of the olac:role schema with its more precise vocabulary makes drawing a
+						distinction between the less precise concepts of Contributor and Creator of much less
+						significance. Thus, an alternative to making the above distinction between Contributor and
+						Creator is to use only the Contributor element, always specifying the more precise nature of the
+						contribution through the use of the olac:role vocabulary (as is recommended best practice in any
+						case).</p>
+					<p>Contributor and <xref>Publisher</xref> are also somewhat related elements. In particular, the
+						olac:role "sponsor" can come close to one aspect of participation that a publisher may have in
+						regard to making a given resource available to the public. The olac:role "editor" is frequently
+						one of the individual tasks that are collectively performed by the publisher of a work. A
+						"sponsor" that is not also the formal publisher of a resource may be entered in a Contributor
+						element (with the proper olac:role specified), but the publisher should not be repeated in a
+						Contributor element.</p>
 					<p>Do not use quotation marks to enclose corporate names. If the name is a translation from its
 						usual form or is not usually given in English, use the lang attribute.</p>
 					<p>Be consistent with corporate name forms. Names that include a primary unit and subsidiary unit
@@ -152,9 +153,9 @@
 					<dl>
 						<dt>olac:role</dt>
 						<dd>
-							<p>The olac:role code is optionally used to specify the role (such as transcriber,
-								sponsor, and so on) played by the named entity in the creation of the resource. The role
-								is expressed by means of a controlled vocabulary; see <cit>OLAC-Role</cit> for the
+							<p>The olac:role code is optionally used to specify the role (such as transcriber, sponsor,
+								and so on) played by the named entity in the creation of the resource. The role is
+								expressed by means of a controlled vocabulary; see <cit>OLAC-Role</cit> for the
 								definition of the vocabulary. </p>
 						</dd>
 					</dl>
@@ -186,13 +187,13 @@
 					<p> Coverage will typically include spatial location (a place name or geographic coordinates),
 						temporal period (a period label, date, or date range) or jurisdiction (such as a named
 						administrative entity). <cit>DCMT</cit></p>
-					<p>Coverage is related to <xref>Subject</xref> in having a topical orientation. Coverage in its 
-						temporal aspect should not be confused with <xref>Date</xref> or one of its refinements
-						(e.g., created, or available). Thus, a data set that was compiled over an extended 
-						period of time should be described via <tt>dcterms:created</tt> whose content is a date 
-						range, rather than with Coverage or <tt>dcterms:temporal</tt>. A data set (or any kind of resource)
-						that contains or addresses historical information would correctly use Coverage or 
-						<tt>dcterms:temporal</tt> to specify the date, date range or period in focus.</p>
+					<p>Coverage is related to <xref>Subject</xref> in having a topical orientation. Coverage in its
+						temporal aspect should not be confused with <xref>Date</xref> or one of its refinements (e.g.,
+						created, or available). Thus, a data set that was compiled over an extended period of time
+						should be described via <tt>dcterms:created</tt> whose content is a date range, rather than with
+						Coverage or <tt>dcterms:temporal</tt>. A data set (or any kind of resource) that contains or
+						addresses historical information would correctly use Coverage or <tt>dcterms:temporal</tt> to
+						specify the date, date range or period in focus.</p>
 					<p>In the OLAC context, service providers already have a database that maps languages to the
 						countries in which they are spoken <cit>OLAC-Language</cit>. Coverage should not be used to
 						duplicate this information; rather service providers will support searches concerning languages
@@ -201,7 +202,7 @@
 						on its use in a particular region or geopolitical jurisdiction, or conversely, when the resource
 						deals with a topic of study in which the region itself is in focus, e.g., multilingualism,
 						language polilcy, languages in contact, in a given locale.</p>
-					<p></p>
+					<p/>
 				</comment>
 				<refinements>
 					<dl>
@@ -256,18 +257,18 @@
 				<definition>An entity primarily responsible for making the resource.</definition>
 				<comment>
 					<p>A Creator may be a person, an organization, or a service. Creator is closely related to
-						<xref>Contributor</xref>. Creator may be differentiated from Contributor based on the degree of
-						involvement as a primary source of the intellectual content. In determining whether an entity
-						is a Creator (as opposed to a Contributor), consider the role in the creation of the resource, 
-						using the same criteria that are followed for deciding that an entity should be
-						listed as an "author" in a bibliographic reference of the resource. Entities that do not merit 
-						that level of recognition should be treated as Contributors.</p>					
-					<p>The application of the olac:role schema with its more precise vocabulary makes drawing 
-						a distinction between the less precise concepts of Contributor and Creator of much less 
-						significant. Thus, an alternative to making the above distinction between 
-						Contributor and Creator is to use only the Contributor element, always specifying the 
-						more precise nature of the contribution through the use of the olac:role vocabulary 
-						(as is recommended best practice in any case).</p>
+							<xref>Contributor</xref>. Creator may be differentiated from Contributor based on the degree
+						of involvement as a primary source of the intellectual content. In determining whether an entity
+						is a Creator (as opposed to a Contributor), consider the role in the creation of the resource,
+						using the same criteria that are followed for deciding that an entity should be listed as an
+						"author" in a bibliographic reference of the resource. Entities that do not merit that level of
+						recognition should be treated as Contributors.</p>
+					<p>The application of the olac:role schema with its more precise vocabulary makes drawing a
+						distinction between the less precise concepts of Contributor and Creator of much less
+						significant. Thus, an alternative to making the above distinction between Contributor and
+						Creator is to use only the Contributor element, always specifying the more precise nature of the
+						contribution through the use of the olac:role vocabulary (as is recommended best practice in any
+						case).</p>
 
 				</comment>
 				<schemes>
@@ -284,7 +285,7 @@
 				<bp>
 					<p>Recommended best practice is to identify a Creator by means of a name in a form that is ready for
 						sorting within an index. For the names of persons, this means that the name should be given in
-						with the surname first (an "inverted" order for most Western name forms). For the names of 
+						with the surname first (an "inverted" order for most Western name forms). For the names of
 						organizations, this means that any initial article should be omitted. </p>
 					<p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
 						creator.</p>
@@ -308,13 +309,13 @@
 			<element name="Date">
 				<definition>A point or period of time associated with an event in the lifecycle of the resource.</definition>
 				<comment>
-					<p>A Date with no refinement will be assumed to be the date of issue (i.e. publication). 
-						Date of publication may differ from its creation date; thus it can be helpful to prospective users
-						to include more than one kind of Date element (refinement). However, a single resource
-						should not have more than one instance of each date refinement, with the possible exception of
-						<tt>dcterms:modified</tt>. Where the modification history of a resource is significant, it is 
-						appropriate to enter this information in a <xref>Provenance</xref> element, which allows 
-						for explanation of modifications in a way that <tt>dcterms:modified</tt> does not.</p>
+					<p>A Date with no refinement will be assumed to be the date of issue (i.e. publication). Date of
+						publication may differ from its creation date; thus it can be helpful to prospective users to
+						include more than one kind of Date element (refinement). However, a single resource should not
+						have more than one instance of each date refinement, with the possible exception of
+							<tt>dcterms:modified</tt>. Where the modification history of a resource is significant, it
+						is appropriate to enter this information in a <xref>Provenance</xref> element, which allows for
+						explanation of modifications in a way that <tt>dcterms:modified</tt> does not.</p>
 					<p>‘Available’ as a refinement pertains to Date, not to other aspects of availability.</p>
 					<p>Do not use additional terms such as “recorded on” or “donated on” in the element text.</p>
 				</comment>
@@ -365,15 +366,15 @@
 					</dl>
 				</schemes>
 				<bp>
-					<p>Recommended minimal best practice is that a record have at least one instance of Date (or one of its
-						refinements).</p>
+					<p>Recommended minimal best practice is that a record have at least one instance of Date (or one of
+						its refinements).</p>
 					<p>Recommended best practice is that every instance of Date (or a refinement) use the
-						<i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does
-						not conform to the encoding scheme (e.g., if it is supplied by the cataloger, is approximate or
-						is in some doubt). A WSCDTF-conformant value may be for the year alone, for the year and month, or for 
-						an exact date. A range of years is also a valid value; in this case both years 
-						must be four-digit values and the earliest year should come first. Thus, the element value 
-						may match one of the four following patterns: <tt>YYYY</tt>, <tt>YYYY-MM</tt>, 
+							<i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value
+						does not conform to the encoding scheme (e.g., if it is supplied by the cataloger, is
+						approximate or is in some doubt). A WSCDTF-conformant value may be for the year alone, for the
+						year and month, or for an exact date. A range of years is also a valid value; in this case both
+						years must be four-digit values and the earliest year should come first. Thus, the element value
+						may match one of the four following patterns: <tt>YYYY</tt>, <tt>YYYY-MM</tt>,
 						<tt>YYYY-MM-DD</tt>, or <tt>YYYY-YYYY</tt>.</p>
 				</bp>
 
@@ -426,8 +427,8 @@
 				</refinements>
 				<bp>
 
-					<p>Recommended best practice is that a metadata record should contain at least one Description (or one
-						of its refinements or Subject element. While these are different in purpose and content (see
+					<p>Recommended best practice is that a metadata record should contain at least one Description (or
+						one of its refinements or Subject element. While these are different in purpose and content (see
 						Usage Notes below), they both nevertheless give the prospective user some idea of the content of
 						the resource that goes beyond the informative potential of just a title alone. Using both
 						Description and subject elements is encouraged.</p>
@@ -463,11 +464,11 @@
 						tape; 35 mm slide; NTSC encoded VHS cassette), and the size/duration (e.g. number of pages and
 						dimensions of a book; length of a recording).</p>
 					<!-- paraphrase from PARK_IMLS.pdf -->
-					<p>Format (and its refinement 'medium'), which encompasses the notion of physical media categories 
-						such as photograph, should not be confused with <xref>Type</xref>, which categorizes the 
-						nature or genre of the content of the resource based on the mode in which the user 
-						experiences or interacts with the resource, and as such includes terms that describe general 
-						categories, functions, or aggregation levels for content.</p>
+					<p>Format (and its refinement 'medium'), which encompasses the notion of physical media categories
+						such as photograph, should not be confused with <xref>Type</xref>, which categorizes the nature
+						or genre of the content of the resource based on the mode in which the user experiences or
+						interacts with the resource, and as such includes terms that describe general categories,
+						functions, or aggregation levels for content.</p>
 					<!--<p>OLAC had 5 refinements (cpu, encoding, markup, os, sourcecode) but each of these was used very
 						little, if at all  http://www.language-archives.org/events/olac02/proceedings.pdf    </p> -->
 
@@ -586,30 +587,28 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 				<definition>A language of the resource.</definition>
 				<comment>
 					<p>Language is used for a language the resource is in, as opposed to the language it describes (see
-							<xref>Subject.language</xref>). It is related to the audience for the work in that it
+							<xref>Subject.</xref>). It is related to the audience for the work in that it
 						identifies a language that the creator of the resource assumes that its eventual user will
 						understand. When a resource is in more than one language, use a separate Language element for
 						each language.</p>
 					<p>For a work of literature or other monolingual document aimed at the speakers of a particular
 						language, use Language to identify that language. For a sound recording, use Language for the
 						language being spoken in the recording. For a grammatical description, for instance, use
-						Language for the language the grammar is written in; use Subject.language for the language whose
-						grammar is being described. For an annotated text, use Language for the language in which the
-						annotations are made; use Subject.language for the language of the base text that is being
+						Language for the language the grammar is written in; use <xref>Subject</xref> with the ISO639-3 
+						scheme (hereafter referred to as "Subject.language") to specify the language whose grammar 
+						 is being described. For an annotated text, use Language for the language in which the 
+						 annotations are made; use Subject.language for the language of the base text that is being
 						annotated. For a dictionary, use Language for the language in which the definitions are written;
-						use Subject.language for the language whose words are being defined.</p>
-					<!-- Following <p> from OLACSIL.txt -->
-					<p>For scholarly works, this will usually be a major language (English, French, Indonesian, etc.).
-						For vernacular works, it will be the minority language and will usually be the same as the
-						language coded in subject_language. Repeat tag for each code needed for polyglot works. Give the
-						language name in this element, if it is a specific variety of the language as identified using
-						its three-letter ISO 6390-3 identifier, which should be given in \language_code.</p>
-					<!-- Following from Joan Spanne's SIL_Guidelines. -->
-					<p>PLEASE make an effort to use and keep up to date the Ethnologue code identification of
-						collections, rather than using an entity developed code for individual languages, as entity
-						specific codes become confusing or misleading when removed from the immediate entity context.</p>
-					<p>May need to clarify between language name or code and attribute supplying OLAC language code.
-						<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+						use Subject.language for the language whose words are being defined. A bilingual dictionary
+						may have both languages identified in both kinds of elements.</p>
+					<p>For scholarly works, and works intended for a wider audience of communication, Language will usually 
+						be a major language (English, French, Chinese, etc.). For vernacular works in a minority language,
+						Language should contain the code for the minority language, and an appropriate OLAC Linguistic
+						Type (see <xref>Type</xref>) should be selected.</p>
+					<p>Service providers should use the <i>code</i> attribute to support searches by language,
+						and may use the element content in searches by keyword. They also may supply 
+						the default language name in keyword searching when the element content 
+						is missing.</p>
 				</comment>
 				<schemes>
 					<dl>
@@ -617,97 +616,72 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 						<dd>
 							<p>The ISO 639-3 set of three-letter identifiers for the identification of human languages.
 								See <cit>OLAC-Language</cit> for the definition of the vocabulary. </p>
-							<!-- Move to a <bp><p>? -->
-							<p>Recommended best practice is to specify the language via the <i>code</i> attribute while
-								leaving the element content empty. Use the element content only when the controlled
-								vocabulary does not offer an appropriate code, or when further specification is needed,
-								such as to name a specific dialect or to give an alternate name that differs from the
-								default name given by the controlled vocabulary. </p>
-							<p>Service providers should use the <i>code</i> attribute to support searches by language,
-								and may use the element content in searches by keyword. They also may supply the default
-								language name in keyword searching when the element content is missing.</p>
-							<!-- What about md-lang from OLACSIL.txt ? -->
-							<!-- Following <p> from OLACSIL.txt -->
-							<p> \desc The language in which this metadata record is primarily written (not including
-								coded range-set values). Multiple titles (using alternative), descriptions, and subject
-								terms may be given in additional languages to aid in searching; specify the language
-								used for each of those if different from the language specified in this element. </p>
 						</dd>
 					</dl>
 				</schemes>
 				<bp>
-					<p>Minimal best practice is that every record contain at least one Language element.</p>
-					<p>Minimal best practice is that every Language element use the <i>olac:ISO639-3</i> scheme to
-						identify it precisely.</p>
-					<!-- from OLACSIL_in_Toolbox_Instructions-1 -->
-					<p>[For more than one language repeat the] \language and \subject_language [elements], which have
-						sub-elements for ISO code language identifiers.</p>
+					<p>Recommended best practice is that every record contain at least one Language element.
+						For a resource that does not include language content, include a Language element
+						containing the code [zxx] 'No linguistic content'.</p>
+					<p>Recommended best practice is to specify the language via the <i>code</i> attribute while
+						leaving the element content empty. Use the element content only when the controlled
+						vocabulary does not offer an appropriate code, or when further specification is needed,
+						such as to name a specific dialect or to give an alternate name that differs from the
+						default name given by the controlled vocabulary.</p>
 				</bp>
 
 				<examples>
 					<p>A resource in English about the Sikaiana language:</p>
-					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; &lt;dc:subject
-						xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</eg>
+					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
+   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</eg>
 					<p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p>
-					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt; &lt;dc:subject
-						xsi:type="olac:ISO639-3" olac:code="ybb"&gt;Dschang&lt;/dc:language&gt;</eg>
+					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt;
+   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</eg>
 					<p>The <i>American Heritage Dictionary</i>, which is both in and about American English:</p>
-					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; &lt;dc:subject
-						xsi:type="olac:ISO639-3" olac:code="eng"/&gt; &lt;dcterms:spatial&gt;United
-						States&lt;/dcterms:spatial&gt;</eg>
-					<p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p>
-					<eg>&lt;dc:subject xsi:type="olac:language"&gt;Ancient
-					Sumerian&lt;/dc:subject&gt;</eg>
+					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+   &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
+					<p>A resource in the Saracatsan dialect of modern Greek</p>
+					<eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan&lt;/dc:language&gt;</eg>
 				</examples>
 				<todo>
-					<p>Add an example of specifying a dialect.</p>
 					<p>Do we want olac:ISO639-3 (analogous to dcterms:ISO639-2) or olac:language so that we can use it
 						without a code?</p>
 					<p>Write the OLAC-Language document.</p>
 				</todo>
 			</element>
 			<element name="Provenance">
-				<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" -->
+				<!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/. 
+					It is found in "Section 3: Other Elements and Element Refinements" -->
 				<definition>A statement of any changes in ownership and custody of the resource since its creation that
 					are significant for its authenticity, integrity and interpretation.</definition>
 				<comment>
-					<!-- from SIL_Guidelines p. 48 -->
-					<p>PROVENANCE: 1) The individual, department or agency that created, accumulated, maintained and/or
-						used materials (data sources, documents). 2) Information regarding the origin and custodial
-						history of documents or data sources. The Principle of Provenance (also known as “respect des
-						fonds”), a foundational principle of archives management, is that materials of the same
-						provenance must not be intermingled with those of any other provenance. It is the principle of
-						provenance that is the basis for arranging and storing materials by language project (as the
-						original setting of creation and accumulation), rather than extracting and collocating all
-						grammar materials, all anthropology materials, all instances of a shell book, etc. into topical
-						collections in the archives.</p>
-					<!-- from SIL_Guidelines p. 17-->
-
-					<p>Unlike a library, which usually organizes works by topic, the archive should organize materials
-						by common origin or provenance.... In general, it is best to keep collections together as a
-						physical unit (as much as the different types of media permit), with each language program
-						collection stored on its own computer media unit (such as CD-R), or all together in adjacent
-						paper files. This most easily enables a particular team to see what has been submitted in the
-						past and maintains the physical integrity of each collection consistently for archives
-						management procedures.... the archives should not mix materials from different
-						collections...according to...topical categories.</p>
-					<p><!-- from PARK_KO.pdf -->The most frequently identified of all locally added metadata elements,
-						concern provenance information such as: ‘contact information’, ‘ordering information’, and
-						‘acquisition.’</p>
-
-					<p>Unlike a library, which usually organizes works by topic, the archive should organize materials
-						by common origin or provenance.... In general, it is best to keep collections together as a
-						physical unit (as much as the different types of media permit), with each language program
-						collection stored on its own computer media unit (such as CD-R), or all together in adjacent
-						paper files. This most easily enables a particular team to see what has been submitted in the
-						past and maintains the physical integrity of each collection consistently for archives
-						management procedures.... the archives should not mix materials from different
-						collections...according to...topical categories.</p>
-					<p><!-- from PARK_KO.pdf -->The most frequently identified all locally added metadata elements,
-						concern provenance information such as: ‘contact information’, ‘ordering information’, and
-						‘acquisition.’</p>
-
+					<p>The Provenance element is a dcterms element, one of two element-level terms (the other is <xref>RightsHolder</xref>)
+						not specified in the original core set of Dublin Core elements, but nonetheless an element and not a refinement of 
+						some other element. Its correct specification is with the dcterms namespace as shown in the example.</p>
+					<p>Provenance should be distinguished in usage from <xref>Description</xref>. Provenance metadata should be used to 
+						track and/or convey important information regarding the custody and/or management of the resource throughout its history, 
+						which has a bearing upon interpretation of the informational content of the resource, or the upon its artifactual 
+						integrity and authenticity.{A WORK IN PROGRESS}</p>
 				</comment>
+				<bp>
+					<p></p>
+				</bp>
+				<examples>
+					<p>A group of texts and recordings constituting a small collection that has undergone some reorganization by a subsequent handler since original creation:</p>
+					<eg>&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
+   &lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
+   &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
+   &lt;dc:available&gt;2007&lt;/dc:available&gt;
+   &lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
+   transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
+   some also with Spanish free translations.&lt;/dc:description&gt;
+   &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
+   a number of local residents. Body of materials were transferred to branch custody in 1980s, 
+   subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
+   related Chinantec language. Annotations particularly relate to changes in orthographic and tone
+   marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
+				</examples>
 			</element>
 			<element name="Publisher">
 				<definition>An entity responsible for making the resource available.</definition>
@@ -1127,8 +1101,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 
 				<examples>
 					<p>A Library of Congress subject heading:</p>
-					<eg>&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African
-					languages&lt;/dc:subject&gt;</eg>
+					<eg>&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</eg>
+					<p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p>
+					<eg>&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</eg>
 				</examples>
 				<todo>
 					<p>Geographic and temporal aspects of language varieties go in Coverage. Subject is where social
