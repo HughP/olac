@@ -164,8 +164,7 @@
                <p>Be consistent with corporate name forms. Names that include a primary unit and
                   subsidiary unit should be ordered with the primary unit given first. Location
                   should generally be omitted from the name unless location is an integral part of
-                  the proper name of the unit.
-                  <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
+                  the proper name of the unit.</p>
 
             </comment>
             <schemes>
@@ -192,12 +191,13 @@
                <p>A generic contributor:</p>
                <eg>&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</eg>
                <p>A funding agency:</p>
-               <eg>&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. Office of Fellowships and Grants.&lt;/dc:contributor&gt;</eg>
+               <eg>&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
+   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</eg>
                <p>The person who performed a role for which there is not a suitable code:</p>
                <eg>&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</eg>
                <p>A corporate name given in a language differing from the majority of the metadata
                   record:</p>
-               <eg>&lt;dc:contributor xml:lang="ces"&gt;Česká akademie věd a	umění&lt;/dc:contributor&gt;</eg>
+               <eg>&lt;dc:contributor xml:lang="ces"&gt;Česká akademie věd a umění&lt;/dc:contributor&gt;</eg>
             </examples>
          </element>
          <element name="Coverage">
@@ -270,7 +270,7 @@
                <p>A resource about English in India:</p>
                <eg>&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</eg>
                <p>A resource about languages spoken on Guadalcanal:</p>
-               <eg>&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal	(island)&lt;/dcterms:spatial&gt;</eg>
+               <eg>&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</eg>
                <p>A resource about language use in the 19th century:</p>
                <eg>&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</eg>
             </examples>
@@ -413,14 +413,14 @@
 
             <examples>
                <p>A typical year of publication:</p>
-               <eg>&lt;dc:date xsi:type="dcterms:W3CDTF">1992"&lt;/dc:date&gt;</eg>
+               <eg>&lt;dc:date xsi:type="dcterms:W3CDTF">1992&lt;/dc:date&gt;</eg>
                <p>A resource modified on October 16, 1996:</p>
                <eg>&lt;dcterms:modified xsi:type="dcterms:W3CDTF">1996-10-16&lt;/dcterms:modified&gt;</eg>
                <p>A resource from approximately 1950:</p>
-               <eg>&lt;dc:date>circa 1950&lt;/dc:date&gt;</eg>
+               <eg>&lt;dc:date>[circa 1950]&lt;/dc:date&gt;</eg>
                <p>A resource for which the date has been supplied by the cataloger from external
                   informaiton:</p>
-               <eg>&lt;dc:date>[1932]&lt;/dc:date&gt;</eg>
+               <eg>&lt;dcterms:issued>[1932]&lt;/dcterms:issued&gt;</eg>
             </examples>
          </element>
          <element name="Description">
@@ -501,7 +501,6 @@
                   (e.g., parchment; reel-to-reel tape; 35 mm slide; NTSC encoded VHS cassette), and
                   the size/duration (e.g. number of pages and dimensions of a book; length of a
                   recording).</p>
-               <!-- paraphrase from PARK_IMLS.pdf -->
                <p>Format (and its refinement 'medium'), which encompasses the notion of physical
                   media categories such as photograph, should not be confused with
                   <xref>Type</xref>, which categorizes the nature or genre of the content of the
@@ -590,11 +589,6 @@
                <dl>
                   <dt>bibliographicCitation</dt>
                   <dd>
-
-                     <p>A bibliographic reference for the resource. Comment: Recommended practice is
-                        to include sufficient bibliographic detail to identify the resource as
-                        unambiguously as possible, whether or not the citation is in a standard
-                        form. </p>
 
                      <p>A bibliographic reference for the resource. </p>
 
@@ -693,7 +687,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
    &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
                <p>A resource in the Saracatsan dialect of modern Greek</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan&lt;/dc:language&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
             </examples>
             <todo>
                <p>Do we want olac:ISO639-3 (analogous to dcterms:ISO639-2) or olac:language so that
@@ -734,80 +728,37 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
    related Chinantec language. Annotations particularly relate to changes in orthographic and tone
    marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
-            </examples>
-         </element>
-         <element name="Publisher">
-            <definition>An entity responsible for making the resource available.</definition>
-            <comment>
-               <p>Examples of a Publisher include a person, an organization, or a service.
-                  Typically, the name of a Publisher should be used to indicate the entity.
-                     <cit>DCMT</cit></p>
-               <!-- from SIL_Guidelines p. 35 -->
-               <p>Content (documents, web pages—text, graphics, streaming audio and video) created
-                  for and published on the World Wide Web on a sanctioned entity site comprises a
-                  special class of published materials. Web content of a more document-like nature
-                  (a specific title, a credited author, and a date), such as an electronic working
-                  paper series, should be archived, and can usually be handled similarly to a print
-                  publication. Articles written by SIL authors for electronic journals or other
-                  formal web publications on other web sites should also be archived. Materials
-                  initially published in print (or on audio cassette, etc.) and converted for the
-                  web should be elsewhere included in the archives collection, though the new
-                  computer form (PDF, HTML, MP3) might also be suitable for maintaining as a
-                  presentation form.</p>
-               <!-- from SIL_Guidelines p. 35 on advisability of including UNPUBLISHED materials -->
-               <p>Caring for unpublished resources of long term value ... Language data, either in
-                  lexical form (a database) or as a text (with documentation) is more and more
-                  sought after as input for computational linguistic analysis. Descriptions and
-                  analyses are also desirable, if they are of reasonably good quality (e.g.
-                  consultant checked). Translation by-products, such as key terms papers and back
-                  translations, can be very useful to other teams in related languages. Language
-                  surveys and their supporting data are very valuable. Collected texts, recorded
-                  language data and transcriptions, if of sufficiently good quality, are also very
-                  valuable, as are photographs and slides, but the complexities resulting from lack
-                  of context (if not well documented) and ethical considerations add to the
-                  challenges of managing them in the archives .</p>
-               <p>Being selective about what should be archived is important. Selectivity imposes an
-                  extra initial labor cost, but one which pays dividends in the short and long runs.
-                  For the submitter, being selective reduces the amount of material submitted, and
-                  therefore, reduces the burden of describing the material as well. For the
-                  archives, every object has a cost of storage, migration and management, which is
-                  balanced against its short and long term value. Is this a work that will be useful
-                  or informative in the future? Is it unique? Is it something that can no longer be
-                  obtained elsewhere? Is it reasonably good quality? ‘Yes’ to these indicates that a
-                  work is probably worth keeping.</p>
-               <p>Usually a publisher or the archives itself, sometimes with URL, sometimes URL
-                  given in separate instance of element. Do not use it for host publication
-                  information, which should be in
-                  Relation.<!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
-               <p><!-- from Park_KO.pdf -->Semantic overlap engenders confusion and inaccuracy in
-                  the usage of the DC metadata elements Creator, Contributor and Publisher.</p>
-               <p><!-- from Park_KO.pdf -->Semantic overlap engenders confusion and inaccuracy in
-                  the usage of the DC metadata elements Creator, Contributor and Publisher.</p>
-
-            </comment>
-            <bp>
-               <p>Recommended best practice is to identify a Publisher by means of a name in a form
-                  that is ready for sorting within an index. For the names of persons, this means
-                  that the name should be given in inverted order with the surname first. For the
-                  names of organizations, this means that any initial article should be omitted.</p>
-               <p>Copyright statement should be in text of element, not in the ‘code’
-                  <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
-               <p>Rights developments: – With the Access extension on Rights, OLAC is integrating
-                  access and permitted use – Leave the work to the content of the element or a
-                  referral to additional information</p>
-               <p>Additional good practice guidance is needed regarding parameters of protection:
-                  duration of restriction, entity with authority to override, expectations placed on
-                  users <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
-               <p>– Identifier was used (repeated) for what clearly had to be a Source resource URL
-                  (based on contextual content of record) – Source was used to give information on
-                  the linguistic consultant, with lengthy description. The whole would have been
-                  more appropriate in Description element. (Contributor was used also) – Source was
-                  used to specify an entity responsible for development, creation, donation, etc. of
-                  the resource (in one a Ph.D. granting institution is named, another the gov.
-                  agency responsible, others, SIL is named)
-                  <!-- http://www.language-archives.org/events/olac02/proceedings.pdf -->
-               </p>
-            </bp>
+	</examples>
+	</element>
+	<element name="Publisher">
+		<definition>An entity responsible for making the resource available.</definition>
+		<comment>
+		   <p>Examples of a Publisher include a person, an organization, or a service. Typically, the name of a
+		     Publisher should be used to indicate the entity. <cit>DCMT</cit> The Publisher is generally
+		     the business, organization, or sometimes individual who takes responsibility (and provides 
+		     financial and production resources) for putting the resource into a form suitable for making 
+		     it publicly available, whether in multiple hard copies (printing, pressing of a disc, etc), 
+		     by broadcasting (radio, television, webcast), or posting to a public website. A published 
+		     resource may be offered for sale or freely, but in either case, it is released for public use. </p>
+		<p>Many materials that are placed in archival repositories are not formally published in that 
+		     they have not undergone an editorial, composition and production process, involving review,  
+		     modification, and packaging by persons other than the original creator(s). While such items 
+		     may be offered publicly, they are not considered "published" in a formal sense and their  
+		     metadata should not ordinarily specify a publisher.</p>
+		<p>For an entity that has funded the creation or development of the resource in some way, but has not
+		     otherwise participated in its development through editing, composition, production, 
+		     printing, marketing, posting, etc., use the <xref>Contributor</xref> element specifying
+		     the <cit>OLAC-Role</cit> code="sponsor".</p>
+		<p>Be consistent with corporate name forms. Names that include a primary unit and subsidiary unit
+		     should be ordered with the primary unit given first. Location should generally be omitted from
+		     the name unless location is an integral part of the proper name of the unit.</p>
+	</comment>
+	<bp>
+		<p>Recommended best practice is to identify a Publisher by means of a name in a form that is ready
+		     for sorting within an index. For the names of persons, this means that the name should be given
+		     in inverted order with the surname first. For the names of organizations, this means that any
+		     initial article should be omitted.</p>
+	</bp>
 
             <examples>
                <p>A typical publisher:</p>
@@ -815,50 +766,29 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>The URL for a publisher:</p>
                <eg>&lt;dc:publisher
 						xsi:type="dcterms:URI"&gt;http://www.oup.com&lt;/dc:publisher&gt;</eg>
-            </examples>
-         </element>
-         <element name="Relation">
-            <definition>A related resource.</definition>
-            <comment>
-               <p>This element is used to document relationships between resources, for instance,
-                  part-whole relationships, version relationships, dependency relationships, and so
-                  on. When the related resource is also in a participating archive, the reference to
-                  the related resource should be by means of an "oai:" identifier. A Relation that
-                  begins with "oai:" should be presented by service providers as an active link that
-                  retrieves the metadata for that resource.</p>
-               <p>For a required markup definition (like a DTD or Schema) use
-                  <xref>Format.markup</xref> rather than Relation. When the required software or
-                  hardware can be inferred from the <xref>Format</xref> of the resource, do not also
-                  use Relation for this purpose.</p>
-               <p>When the present resource is a derived work, the source resource is typically
-                  indicated by <xref>Source</xref>. However, there are two cases in which
-                  refinements of Relation are used for derived works. The <i>isVersionOf</i>
-                  refinement is used when the present resource is a new version or edition with
-                  added intellectual content that has been developed by the same creators. When the
-                  new version is nothing more than a rendition in a new format, then the
-                     <i>isForrmatOf</i> refinement is used. </p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>Use this element to associate independent but conceptually related materials. Use
-                  the \relationType element to specify the nature of the relationship between the
-                  work described in this record and the work whose ID is given in this element.
-                  Repeat for each related item. Use an unambiguous identifier (such as the
-                  \primaryid) for the related resource, if possible, or a standard name for a schema
-                  to which this resource conforms, e.g., GOLD: General Ontology for Linguistic
-                  Description.</p>
-               <!-- from SIL_Guidelines p. 16 -->
-               <p>Relationship metadata pertains to relationships among independent objects, such as
-                  print/analog and digital forms of the same content, presentation and source forms,
-                  a dissertation and a book which came directly from it. This must not be confused
-                  with the administrative metadata elements that link distinct but dependent parts
-                  of a largertaloger-defined field names such as 'digital collection,' and 'example
-                  issues.' whole.</p>
-               <p>Relationship metadata pertains to relationships among independent objects, such as
-                  print/analog and digital forms of the same content, presentation and source forms,
-                  a dissertation and a book which came directly from it. This must not be confused
-                  with the administrative metadata elements that link distinct but dependent parts
-                  of a largertaloger-defined field names such as 'digital collection,' and 'example
-                  issues.' whole.</p>
-
+     </examples>
+     </element>
+     <element name="Relation">
+	<definition>A related resource.</definition>
+	<comment>
+	   <p>This element is used to document relationships between resources, for instance, part-whole
+	     relationships, version relationships, dependency relationships, and so on. When the related
+	     resource is also in a participating archive, the reference to the related resource should be by
+	     means of an "oai:" identifier. A Relation that begins with "oai:" should be presented by service
+	     providers as an active link that retrieves the metadata for that resource.</p>
+	<p>When the present resource is a derived work, the source resource is typically indicated by
+	     <xref>Source</xref>. However, there are two cases in which refinements of Relation are used
+	     for derived works. The <i>isVersionOf</i> refinement is used when the present resource is a new
+	     version or edition with added intellectual content that has been developed by the same creators.
+	     When the new version is nothing more than a rendition in a new format, then the
+	     <i>isForrmatOf</i> refinement is used. </p>
+	<!-- Following <p> from OLACSIL.txt -->
+	<p>Use this element to associate independent but conceptually related materials. Use the
+	\relationType element to specify the nature of the relationship between the work described in
+	this record and the work whose ID is given in this element. Repeat for each related item. Use an
+	unambiguous identifier (such as the \primaryid) for the related resource, if possible, or a
+	standard name for a schema to which this resource conforms, e.g., GOLD: General Ontology for
+	Linguistic Description.</p>
                <p>“Previously” could utilize “Replaces”
                   <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
                <p><!-- paraphrase from PARK_KO.pdf -->Relation may be inconsistently mapped onto
@@ -963,10 +893,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <eg>&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/dcterms:requires&gt;</eg>
                <p>Links to the component pieces of a collected work:</p>
                <eg>&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/dcterms:hasPart&gt;
-						&lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
-						&lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
-						&lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
-						&lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</eg>
+   &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
+   &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
+   &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
+   &lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</eg>
+                <p>Link to a specification of a schema to which the resource conforms:</p>
+                <eg>&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</eg>
             </examples>
             <todo>
                <p>Do we need a scheme for olac:OAI to represent an OLAC OAI identifier? Or should we
