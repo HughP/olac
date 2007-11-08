@@ -629,8 +629,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </todo>
          </element>
          <element name="Provenance">
-            <!-- Provenance is not in "Section 2: The Dublin Core Metadata Element Set" at http://dublincore.org/documents/dcmi-terms/. 
-					It is found in "Section 3: Other Elements and Element Refinements" -->
             <definition>A statement of any changes in ownership and custody of the resource since its creation that are
                significant for its authenticity, integrity and interpretation.</definition>
             <comment>
@@ -701,18 +699,18 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <definition>A related resource.</definition>
             <comment>
                <p>This element is used to document relationships between resources, for instance, part-whole
-                  relationships, version relationships, dependency relationships, and so on. When the related resource
-                  is also in a participating archive, the reference to the related resource should be by means of an
-                  "oai:" identifier. A Relation that begins with "oai:" should be presented by service providers as an
-                  active link that retrieves the metadata for that resource.</p>
+                  relationships, version relationships, dependency relationships, and so on</p>
                <p>When the present resource is a derived work, the source resource is typically indicated by
                      <xref>Source</xref>. However, there are two cases in which refinements of Relation are used for
                   derived works. The <i>isVersionOf</i> refinement is used when the present resource is a new version or
                   edition with added intellectual content that has been developed by the same creators. When the new
                   version is nothing more than a rendition in a new format, then the <i>isForrmatOf</i> refinement is
                   used. </p>
-               <p><!-- paraphrase from PARK_KO.pdf -->Relation may be inconsistently mapped onto various
-                  cataloger-defined fields. Do not use Relation interchangeably with ca</p>
+               <p>Metadata that is migrated from the records of a collector or depositor or an earlier repository 
+                  system might make use of an identifier assigned at that earlier stage in specifying relationship information. 
+                  Relationships metadata using such internal identifiers in their referencing will be made more useful if they 
+                  are updated to the OAI identifier at such a time as the metadata for the related resource is also migrated
+                  or uploaded to the OAI compliant system.</p>
             </comment>
             <refinements>
                <dl>
@@ -785,19 +783,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </schemes>
             <bp>
                <p>When the related resource is also held in a participating archive, recommended best practice is to
-                  identify the related resource by means of its OAI identifier. </p>
-               <!-- from OLACSIL_in_Toolbox_Instructions-1 -->
-               <p>In general, element properties—the labels, definitions, and range sets, should not be changed.
-                  However, two of the properties that may be changed are the font used for a specific field, and the
-                  language properties assigned to the field. This is the way that a field can be made to use a different
-                  (Unicode compliant) font and specific rules for word breaks, etc. that differ from those applied to
-                  other fields.A good candidate for customizing this way is the \title field, or the \alternative field.
-                  Keep in mind that all instances of that field will use the same font. The font should be a Unicode
-                  compliant font, not a legacy font that substitutes some characters with other characters (characters
-                  with different meanings, not just different representations). A custom font that has been developed to
-                  render Unicode characters better than or not available in generic Unicode fonts like Arial Unicode MS
-                  or Doulos SIL may be used. Be sure to document the font itself as a resource, and include it among the
-                  computer files of your collection. If these are foreign concepts, then don’t worry about this.</p>
+                  identify the related resource by means of its OAI identifier. A Relation that begins with "oai:" will typically
+                  be presented by service providers as an active link that retrieves the metadata for that resource.</p>
+               <p>If the related resource is not cataloged in the system of a participating archive, recommended best practice 
+                   is to identify the related resource through a standard unique identifier, ideally a Uniform Resource Identifier, if the 
+                   related resource is available online. In such an instance, the <tt>xsi:type</tt> 
+                   should be used to specify the schema <i>dcterms:URI</i>.</p>
             </bp>
 
             <examples>
@@ -823,53 +814,44 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p> Typically, a Rights element will contain a rights management statement for the resource, or reference
                   a service providing such information. Rights information often encompasses Intellectual Property
                   Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions
-                  can be made about the status of these and other rights with respect to the resource. <cit>DCMT</cit></p>
-               <!-- from SIL_Guidelines p. 12 -->
-               <p>Copyrights are also inherent in primary linguistic and cultural research materials, such as stories,
-                  descriptions, songs or art work, which researcher collect in the course of their work. The rights, in
-                  most cases, belong to the creator—not the researcher or SIL—or, in some cases, to the language
-                  community (as a legal entity). Intellectual property law as it applies to community cultural property
-                  is not yet well-defined and is beyond the scope of these guidelines. However, documenting the creators
-                  of such works and the conditions under which they came into the hands of an SIL worker are critical
-                  steps in archiving these valuable works. Only with this information about their origins can SIL follow
-                  through on its intention to respect the intellectual property rights of vernacular language
-                  communities in which we work.</p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>Specify a license, access conditions (for the public) or rights holders specific to this item. A
-                  rights holder may be the publisher, if the author assigned rights to the work in a publication
-                  contract, or a member of a language community if the work is that person’s creative initiative and
-                  he/she was not in the employ of an entity language project. (Do not include SIL International, an SIL
-                  entity or a WO, as the appropriate authority is assumed based on the primary id.) If the Rights
-                  element is absent, no assumptions can be made about the status of these and other rights with respect
-                  to the resource.</p>
-               <!-- from SIL_Guidelines p.26-->
-               <p>Texts and recordings are collected by a language worker often based on an assumption of private use
-                  for research. However, they are the intellectual property of someone else. The original writer or
-                  speaker, or perhaps the language community as a body, might want to assert ownership if texts or
-                  recordings are used for a purpose besides the original collector’s private study. To publish or
-                  otherwise distribute these works should have the approval of the owner—the creator. Because of this,
-                  special documentation is needed in an archives context. For language texts it is wise to document the
-                  speaker’s name, basic demographic information , the context in which collecting took place, and the
-                  date.</p>
-               <!-- from SIL_Guidelines p.26-->
-               <p>Photographs, similarly, are usually taken in a context assuming private use, unless a media person
-                  explicitly states other intentions. Though the photograph is the intellectual property of the
-                  photographer, publication of a photograph with identifiable persons should take into consideration
-                  their privacy rights and preferences.</p>
+                  can be made about the status of these and other rights with respect to the resource. <cit>Copyright</cit></p>
+               <p>A rights management statement that contains a license or directs a potential user to a license statement
+                  that specifies conditions and granted permissions should use the <i>dcterms:license</i> refinement. 
+                  The <i>dcterms:accessRights</i> refinement should be used to document conditions under which access 
+                  to the resource is granted. In either case, a statement may be included directly within the metadata, or 
+                  a URI reference to the statement or a service may be given. Examples of license statements can
+                  be found at Creative Commons <cit>CC</cit>.</p>
+               <p>Use <xref>Rights Holder</xref> to specify a person or corporate body (organization, legally constituted entity
+                  representing a group or community), rather than Rights.</p>
+               <p>Copyright is inherent in primary linguistic and cultural research materials, such as stories,
+                  descriptions, songs or art work, which researchers collect in the course of their work. The rights, in
+                  most cases, belong to the creator—not the researcher or his organization or sponsor—or, in some cases, 
+                  to the language community (if it may be constituted as a legal entity). Intellectual property law as it 
+                  applies to personal or community cultural property is beyond the scope of these notes. However, 
+                  documenting the creators of such works,  the conditions under which they came into the hands 
+                  of the researcher, and any known conditions on use (generally non-commercial use) are critical 
+                  aspects of archiving.  To publish or otherwise distribute such works should have the approval of the 
+                  owner. Only with information about the origins and conditions of collecting can the holding repository or
+                  interested researchers make use of such resources in ways that respect the rights and sensibilities of those
+                  whose languages and communities are documented.</p>
+               <p>A fundamental right of a creator is the right to be associated with his or her creation (whether verbal, textual, 
+                  visual, etc.), regardless of the retention or subsequent assignment of additional rights (to display,
+                  distribute copies, modify). Upholding this right must be balanced with a person's right to privacy with regard
+                  to identifying information (including the use of photographs). Demographic data about a creator, contributor
+                  or research participant, along with identifying information, is often included in research data. Identifying 
+                  information may be removed prior to deposit, or as a condition of release, or a Rights element may document 
+                  a statement of permission to use a resource or parts of a resource in a particular way that may otherwise have been 
+                  an infringement of privacy.</p>
             </comment>
             <refinements>
                <dl>
                   <dt>accessRights</dt>
                   <dd>
-                     <p>Information about who can access the resource or an indication of its security status. Comment:
-                        Access Rights may include information regarding access or restrictions based on privacy,
-                        security or other regulations. </p>
+                     <p>Information about who can access the resource or an indication of its security status.</p>
                   </dd>
                   <dt>license</dt>
                   <dd>
-                     <p>A legal document giving official permission to do something with the resource. Comment:
-                        Recommended best practice is to identify the license using a URI. Examples of such licenses can
-                        be found at http://creativecommons.org/licenses/. </p>
+                     <p>A legal document giving official permission to do something with the resource.</p>
                   </dd>
                </dl>
             </refinements>
@@ -879,7 +861,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </todo>
          </element>
          <element name="Rights Holder">
-            <!-- Rights Holder is not in this order in the DCMI listing at http://dublincore.org/documents/dcmi-terms/.  It is found in "Section 3: Other Elements and Element Refinements" (in alphabetical order). -->
             <definition>A person or organization owning or managing rights over the resource.</definition>
             <comment>
                <p>Use the URI or name of the Rights Holder to indicate the entity.</p>
@@ -890,10 +871,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <definition>The resource from which the described resource is derived.</definition>
             <comment>
                <!-- Move to <bp><p>? -->
-               <p>The present resource may be derived from the Source resource in whole or in part. <cit>DCMT</cit> When
-                  the Source resource is also available in an on-line archive, recommended best practice is to reference
-                  it by means of an "oai:" identifier. In this case service providers should presented the Source as an
-                  active link that retrieves the metadata for that resource. </p>
+               <p>The present resource may be derived from the Source resource in whole or in part. <cit>DCMT</cit> </p>
                <p> In the legal parlance of intellectual property rights, a "derivative work" is one that is based on
                   one or more preexisting works. This includes cases in which a work may be recast, transformed, or
                   adapted in any way, such as by translation, abridgement, dramatization, recording, transcription, or
@@ -903,36 +881,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>This legal definition elucidates the sense of "derived" that is intended in the Dublin Core definition
                   of Source. Note, however, that this overlaps with <xref>Relation</xref>, since the <i>isFormatOf</i>
                   and <i>isVersionOf</i> refinements both refer to derivative works in the technical sense.</p>
-               <p>Use Source (as opposed to Relation) in cases when the present resource has a substantially different
-                     <xref>Type</xref> or <xref>Creator</xref> or <xref>Title</xref> than the Source resource. When the
-                  difference from the original work is only a difference of <xref>Date</xref> or <xref>Format</xref> or
-                     <xref>Publisher</xref> or <xref>Identifier</xref> or edition designator in the <xref>Title</xref>,
-                  then use Relation to encode the relationship to the original work.</p>
-               <p><!-- paraphrase from PARK_KO.pdf -->Source may be inconsistently mapped onto various cataloger-defined
-                  fields. An area of confusion is the distinction between Source and Relation.</p>
-               <p>The present resource may be derived from the Source resource in whole or in part. <cit>DCMT</cit> When
-                  the Source resource is also available in an on-line archive, recommended best practice is to reference
-                  it by means of an "oai:" identifier. In this case service providers should presented the Source as an
-                  active link that retrieves the metadata for that resource. </p>
-               <p> In the legal parlance of intellectual property rights, a "derivative work" is one that is based on
-                  one or more preexisting works. This includes cases in which a work may be recast, transformed, or
-                  adapted in any way, such as by translation, abridgement, dramatization, recording, transcription, or
-                  digital encoding. A work consisting of editorial revisions, annotations, elaborations, or other
-                  modifications, which, as a whole, represent an original work of authorship is also a derivative work
-                     <cit>Copyright</cit>.</p>
-               <p>This legal definition elucidates the sense of "derived" that is intended in the Dublin Core definition
-                  of Source. Note, however, that this overlaps with <xref>Relation</xref>, since the <i>isFormatOf</i>
-                  and <i>isVersionOf</i> refinements both refer to derivative works in the technical sense.</p>
-               <p>Use Source (as opposed to Relation) in cases when the present resource has a substantially different
-                     <xref>Type</xref> or <xref>Creator</xref> or <xref>Title</xref> than the Source resource. When the
-                  difference from the original work is only a difference of <xref>Date</xref> or <xref>Format</xref> or
-                     <xref>Publisher</xref> or <xref>Identifier</xref> or edition designator in the <xref>Title</xref>,
-                  then use Relation to encode the relationship to the original work.</p>
-               <p><!-- paraphrase from PARK_KO.pdf -->Source may be inconsistently mapped onto various cataloger-defined
-                  fields. An area of confusion is the distinction between Source and Relation.</p>
-
-
+               <p>Use Source (as opposed to one of the above two Relation refinements) in cases when the 
+                  present resource has a substantially different <xref>Type</xref> or <xref>Creator</xref> or 
+                  <xref>Title</xref> than the Source resource. When the difference from the original work is only a 
+                  difference of <xref>Date</xref> or <xref>Format</xref> or <xref>Publisher</xref> or <xref>Identifier</xref> 
+                  or edition, then use Relation (or the appropriate refinement) to encode the relationship to the original work.</p>
             </comment>
+            
             <schemes>
                <dl>
                   <dt>dcterms:URI</dt>
@@ -951,10 +906,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</eg>
                <p>Source for data extracted from a published source:</p>
                <eg>&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests of the
-						British Solomon Islands, by T. C. Whitmore. Oxford University Press,
-						1966.&lt;/dc:source&gt;</eg>
+   British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.&lt;/dc:source&gt;</eg>
             </examples>
          </element>
+         
          <element name="Subject">
             <definition>The topic of the resource.</definition>
             <comment>
@@ -965,8 +920,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   Subject contains subject headings, while Description contains free-text descriptions.</p>
                <p><!-- paraphrase from PARK_KO.pdf -->Avoid mapping the DC Subject element to a variety of
                   cataloger-defined natural vocabularies such as 'topic', 'category', and 'keyword.'</p>
-               <p><!-- paraphrase from PARK_KO.pdf -->Avoid mapping the DC Subject element to a variety of
-                  cataloger-defined natural vocabularies such as 'topic', 'category', and 'keyword.'</p>
             </comment>
             <schemes>
                <dl>
@@ -975,11 +928,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                      <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
                            <xref>Language</xref> for a complete discussion (with examples) of using this scheme.</p>
                      <!-- Move to a <bp><p>? -->
-                     <p>Recommended best practice is to specify the language via the <i>code</i> attribute while leaving
-                        the element content empty. Use the element content only when the controlled vocabulary does not
-                        offer an appropriate code, or when further specification is needed, such as to name a specific
-                        dialect or to give an alternate name that differs from the default name given by the controlled
-                        vocabulary. </p>
                      <p>Service providers should use the <i>code</i> attribute to support searches by language, and may
                         use the element content in searches by keyword. They also may supply the default language name
                         in keyword searching when the element content is missing.</p>
@@ -995,16 +943,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>Recommended best practice is that a metadata record should contain at least one Description or Subject
                   element.</p>
                <p>When the subject is a human language, recommended best practice is to use the <i>olac:ISO639-3</i>
-                  scheme to identify it precisely.</p>
+                  scheme to identify it precisely. Specify the language via the <i>code</i> attribute while leaving
+                  the element content empty. Use the element content only when the controlled vocabulary does not
+                  offer an appropriate code, or when further specification is needed, such as to name a specific
+                  dialect or to give an alternate name that differs from the default name given by the controlled
+                  vocabulary. </p>
                <p>When the subject matter falls within the field of linguistics, recommended best practice is to use the
                      <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
-               <p><!-- Following <p> from OLACSIL.txt -->Recommended best practice is to select a value from a
-                  controlled vocabulary or formal classification scheme, such as: DDC, or LCSH. Use to indicate topic or
-                  type of resource if not identified in other elements, e.g., Health book, Optimized phonological
-                  description, Language survey; Anthropology field notes; also use topical words such as Tone; Verb
-                  structure; Kinship.</p>
-               <p>Element should be repeated for multiple subject terms
-                  <!-- http://www.language-archives.org/events/olac02/proceedings.pdf --></p>
             </bp>
 
             <examples>
@@ -1018,17 +963,20 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   dimensions of language varieties would go. Add an example.</p>
             </todo>
          </element>
+         
          <element name="Title">
             <definition>A name given to the resource.</definition>
             <comment>
                <p>Typically, a Title will be a name by which the resource is formally known. <cit>DCMT</cit></p>
-               <p>A translation of the title can be supplied in a second Title element. Use the <i>lang</i> attribute to
-                  identify the language of these elements.</p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>[Can be] a name given to a work to identify it if a formal title is not used, such as for a data set
-                  or collection of texts. For a formal title, this is generally in the language in which the work is
-                  written or recorded. If the title is in a language different from the language identified in \md-lang,
-                  note the language of the title in the \titleLang field.</p>
+               <p>A translation of the title can be supplied in a <i>dcterms:alternative</i> element. Use the <i>lang</i> attribute to
+                  identify the language of the metadata content.</p>
+               <p>The Title can be a name given to a work to identify it if a formal title is not used, such as for a data set
+                  or collection of texts. A formal title (for catalogers, the title as found on a primary source of information), 
+                  is generally expected to be in the language in which the work is written or recorded. If the title is in 
+                  a language different from the language identified in a <xref>Language</xref> element, use the 
+                  <tt>lang</tt> attribute to specify the language in which the Title is actually given. {This guidance should then
+                  mean that the second example below should not employ the xsi:type with olac:code (or a lang attribute) 
+                  in the main title, but should only use it in the alternate}</p>
             </comment>
             <refinements>
                <dl>
@@ -1039,19 +987,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   </dd>
                </dl>
             </refinements>
-            <schemes>
-               <dl>
-                  <dt/>
-                  <!-- Empty definition term. -->
-                  <dd>
-                     <!-- Move to <bp><p>? -->
-                     <p>The <i>refine</i> attribute may optionally be used for a single refinement supported by
-                           <cit>DC-Q</cit>. The value <i>alternative</i> indicates a form of the title that is used as a
-                        substitute or alternative to the formal title of the resource. This qualifier can include
-                        abbreviated titles as well as translations. </p>
-                  </dd>
-               </dl>
-            </schemes>
             <bp>
                <p>Recommended best practice is that every record must have an instance of the Title element.</p>
                <p>Recommended best practice is that only one instance of Title, namely the original title, be
@@ -1062,11 +997,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>A typical title:</p>
                <eg>&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</eg>
                <p>A vernacular title with translation:</p>
-               <eg>&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa
-						diana&lt;/dc:title&gt; &lt;dcterms:alternative xml:lang="eng" &gt;The road to
-						good reading&lt;/dcterms:alternative&gt;</eg>
+               <eg>&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
+   &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
+               <p>A parallel title, as typically employed for a diglot work:</p>
+               <eg>&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</eg>
             </examples>
          </element>
+         
          <!-- Type:   i Exhibited perhaps the most different archivespecific
       		interpretations of its use
       		i Evidence of different vocabularies for type used
@@ -1088,13 +1025,21 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <definition>The nature or genre of the resource.</definition>
             <comment>
                <p> Type includes terms describing general categories, functions, genres, or aggregation levels for
-                  content. To describe the physical or digital manifestation of the resource, use the
+                  content. The DCMIType vocabulary specifies a controlled vocabulary to be used to with Type. These relate to
+                  the intended use or mode of perception by a user, e.g., whether it is read (as text), viewed (as image), heard, etc.
+                  Thus, a computer image file of a text (such as a scanned document) is type 'text', not type 'image', because the
+                  common use involves reading text. To describe the physical or digital manifestation of the resource, use the
                   <xref>Format</xref> element. <cit>DCMT</cit></p>
-               <!-- Following <p> from OLACSIL.txt -->
-               <p>Select from the closed range of resource types; some have subtypes further specified. This relates to
-                  the intended use or mode of perception by a user, e.g., a computer image file of a text (such as a
-                  scanned document) is type 'text', not type 'image'. The list here contains all the DCMI:Type
-                  vocabulary terms and the terms of HIS: RMR_mode where those differ from DCMI:Type</p>
+               <p></p>
+               <p>Linguistic Type schema should only be used in a Type element if a resource represents one
+                  of the structural types in the range set. The element may be repeated if a resource represents
+                  more than one linguistic type. So, for example, a primary text accompanied by a lexicon of
+                  vocabulary items would be described as both a primary text and a lexicon. </p>
+               <!-- <p>In the case of a primary text
+                  (or collection of such texts), adequate description of a linguistic resource will require that 
+                  Linguistic Type be specified in conjunction with the Discourse Type extension of the Type element, or the Linguistic
+                  extension of the Subject element. For example, a narrative text might be described as both a
+                  primary text (OLAC Linguistic Type) and a narrative (OLAC Discourse Type). </p> -->
             </comment>
             <schemes>
                <dl>
@@ -1108,15 +1053,11 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                      <p>The nature or genre of the content of the resource from a linguistic standpoint
                            <cit>OLAC-Linguistic-Type</cit>. For a resource that is information in or about a language,
                         use this scheme to identify what kind of information it is from a linguistic standpoint.</p>
-                     <!-- Following <p> from OLACSIL.txt -->
-                     <p>Linguistic Type extension of the Type element should only be used if a resource represents one
-                        of the structural types in the range set. The element may be repeated if a resource represents
-                        more than one linguistic type. So, for example, a primary text accompanied by a lexicon of
-                        vocabulary items would be described as both a primary text and a lexicon. In many cases,
-                        adequate description of a linguistic resource will require that the Linguistic Type extension be
-                        used in conjunction with the Discourse Type extension of the Type element, or the Linguistic
-                        extension of the Subject element. For example, a narrative text might be described as both a
-                        primary text (OLAC Linguistic Type) and a narrative (OLAC Discourse Type).</p>
+                  </dd>
+                  <dt>olac:discourse-type</dt>
+                  <!-- Omitted at this level of usage guidance? -->
+                  <dd>
+                     <p></p>
                   </dd>
                </dl>
             </schemes>
@@ -1128,9 +1069,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </bp>
 
             <examples>
-               <p>The resource is a video
-                  recording:<!-- Is "video recording" really a Type and not Format (because 'photograph' was an example of Format according to Jung-ran Park.)? Need examples to contrast Format and Type. --></p>
-               <eg>&lt;dc:type xsi:type="dcterms:DCMIType">MovingImage&lt;/cd:type&gt;</eg>
+               <p>The resource is a video recording, stored as a MPEG:</p>
+               <eg>&lt;dc:type xsi:type="dcterms:DCMIType">MovingImage&lt;/cd:type&gt;
+    &lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</eg>
+               <p>The resource is a video recording, recorded on Super-8 film:</p>
+               <eg>&lt;dc:type xsi:type="dcterms:DCMIType">MovingImage&lt;/cd:type&gt;
+    &lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</eg>
             </examples>
             <todo>
                <p>The following is leftover from 2002; do we still want it? For a resource that is a software tool,
@@ -1146,9 +1090,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    </todo>
    <references>
       <ref abbrev="Copyright">Section 101, Definitions, Copyright Law of the United States of America and Related Laws
-         Contained in Title 17 of the United States
-            Code.<br/>&lt;<url>http://www.loc.gov/copyright/title17/92chap1.html#101</url>&gt;</ref>
-
+         Contained in Title 17 of the United States Code.
+          <br/>&lt;<url>http://www.loc.gov/copyright/title17/92chap1.html#101</url>&gt;</ref>
+      
+      <ref abbrev="CC">Creative Commons
+         <br/>&lt;<url>http://creativecommons.org/licenses/</url>&gt;</ref>
+      
       <ref abbrev="DCMT">Dublin Core Metadata Terms.
          <br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
 
