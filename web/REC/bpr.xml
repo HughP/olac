@@ -3,19 +3,21 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="draft" type="recommendation"/>
+      <status code="proposed" type="recommendation"/>
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
-      <issued>20071107</issued>
+      <issued>20071114</issued>
       <previousIssued/>
       <abstract>
          <p>This document expresses the consensus of the Open Language Archives Community on best
             practice recommendations for language resource description using the OLAC metadata
             standard <cit>OLAC-Metadata</cit>.</p>
       </abstract>
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven
-         Bird, University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>)</editors>
-      <copyright>2007 Gary Simons (SIL International) and Steven Bird (University of Pennsylvania)</copyright>
+      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)
+         <br/>Steven Bird, University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>)
+         <br/>Joan Spanne, SIL International (<url>mailto:joan_spanne@sil.org</url>)</editors>
+      <copyright>2007 Gary Simons (SIL International), Steven Bird (University of Pennsylvania), and
+      Joan Spanne (SIL International)</copyright>
 
       <changes/>
    </header>
@@ -41,11 +43,9 @@
       <section>
          <heading>Recommendations</heading>
          <p>The following are the OLAC recommendations on best practices for describing language
-            resources. Two levels of practice are distinguished: "minimal best practices" are those
-            that must be followed to attain a basic level of good quality, while "recommended best
-            practices" are those that contribute to achieving the highest quality. Follow the "more"
-            links to see the fuller treatment with definitions, usage notes, and examples in
-               <cit>OLAC-Usage</cit>.</p>
+            resources.  Follow the "more"
+            link to see the fuller discussion of an element in
+            <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
          <recommendations href="../NOTE/usage.xml"/>
       </section>
 
