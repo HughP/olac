@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified">
+
+   <xs:include schemaLocation="ISO639-3.xsd"/> 
+
+  <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="dc.xsd"/>
+
+  <xs:annotation>
+    <xs:appinfo>
+      <olac-extension xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension.xsd">
+        <shortName>ISO639-3</shortName>
+        <longName>Code for Identifying Languages</longName>
+        <versionDate>2007-11-14</versionDate>
+        <description>Provides codes for identifying all known languages, both living and
+           extinct, from the international standard ISO 639-3.</description>
+        <appliesTo>language</appliesTo>
+        <appliesTo>subject</appliesTo>
+        <documentation>http://www.language-archives.org/REC/language.html</documentation>
+      </olac-extension>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:complexType name="language">
+    <xs:complexContent mixed="true">
+      <xs:extension base="dc:SimpleLiteral">
+        <xs:attribute name="code" type="ISO639-3" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+<!-- The enumeration of the codes is incorporated by the <xs:include> at the beginning of this file
+
+  <xs:simpleType name="olac-language">
+    <xs:restriction base="xs:string">
+       ...
+    </xs:restriction>
+  </xs:simpleType>
+
+-->  
+
+</xs:schema>
+
