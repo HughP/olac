@@ -461,12 +461,13 @@
       <table width="95%" align="center" cellspacing="12">
          <tr valign="top">
                <td width="100">
-                  <i>Best practices</i>
+                  <i>Best&#160;practice&#160;</i>
                </td>
                <td>
                   <xsl:apply-templates select="bp/*"/>
                </td>
          </tr>
+         <xsl:if test="examples/*">
          <tr valign="top">
             <td width="100">
                <i>Examples</i>
@@ -475,6 +476,7 @@
                <xsl:apply-templates select="examples/*"/>
             </td>
          </tr>
+         </xsl:if>
       </table>
    </xsl:template>
   <xsl:template match="element">
@@ -526,7 +528,7 @@
        <xsl:if test="bp">
           <tr valign="top">
           <td width="100">
-             <i>Best practices</i>
+             <i>Best&#160;practice&#160;</i>
           </td>
           <td>
                    <xsl:apply-templates select="bp/*"/>
@@ -534,7 +536,7 @@
        </tr></xsl:if>
        <tr valign="top">
         <td width="100">
-          <i>Usage Notes</i>
+           <i>Usage&#160;notes&#160;</i>
         </td>
         <td>
           <xsl:apply-templates select="comment/*"/>

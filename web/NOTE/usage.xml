@@ -28,85 +28,97 @@
             document. </p>
          <p>Section 2 below describes the usage of the attributes that may be used on metadata elements. Section 3 then
             describes usage in the OLAC context for the fifteen core elements of the Dublin Core metadata set. Section 4
-            describes other elements that may be used..</p>
+            describes other elements that may be used.</p>
       </section>
       <section>
          <heading>All elements</heading>
-         <p>Four attributes&#8212;<i>refine, code, scheme,</i> and <i>lang</i>&#8212;are used throughout the XML
-            implementation of the metadata elements. A fifth attribute, <i>langs,</i> is used on complete metadata
-            records. These are described in turn below.</p>
-         <p> Some elements in the OLAC metadata set use the <i>refine</i> attribute to identify element refinements.
-            These qualifiers make the meaning of an element narrower or more specific. A refined element shares the
-            meaning of the unqualified element, but with a more restricted scope <cit>DC-Q</cit>. When an element does
-            use a <i>refine</i> attribute, the possible values for the attribute are restricted to a specified
-            controlled vocabulary.</p>
-         <p>Some elements in the OLAC metadata set use the <i>code</i> attribute to hold metadata values that are taken
-            from a specific encoding scheme. The attribute value is always a precise value taken from a controlled
-            vocabulary or a formal notation that is described in another OLAC document. As a result, all service
-            providers are able to interpret uniformly the meaning of any <i>code</i> value. The terms of a controlled
-            vocabulary are also incorporated into the XML schema for OLAC metadata; thus every <i>code</i> value is
-            tested for validity when the OLAC registration server tests a data provider for conformance to OLAC
-            standards <cit>OLAC-Registration</cit>. For elements that have a <i>code</i> attribute, the element content
-            may also be used to specify a freeform elaboration of the coded value.</p>
-         <p>Every element in the OLAC metadata set may use the <i>scheme</i> attribute. It specifies a standardized name
-            for the scheme that constrains how the text in the content of the element is encoded. A scheme may be a
-            controlled vocabulary or a formal notation. Recommended best practice is to confine the value of
-            <i>scheme</i> to the label for one of the encoding schemes registered with the Dublin Core Metadata
-            Initiative <cit>DCMI-Registry</cit>. Members of the OLAC community who want to use an unregistered scheme
-            should submit it for registration <cit>DCMI-Submit</cit>. When OLAC data providers are tested for
-            conformance to OLAC recommended best practice, only the value of the <i>scheme</i> attribute is tested for
-            inclusion in the list of registered schemes. OLAC does not test the actual element content for conformance
-            to the scheme; a service provider for a subcommunity that has developed a particular scheme could perform
-            such a test. </p>
-         <p>Every element in the OLAC metadata set may use the <i>lang</i> attribute. It specifies the language in which
-            the text in the content of the element is written. The value for the attribute comes from the controlled
-            vocabulary defined by <cit>OLAC-Language</cit>. By default, the <i>lang</i> attribute has the value "en",
-            for English. Whenever the language of the element content is other than English, recommended best practice
-            is to use the <i>lang</i> attribute to identify the language. By using multiple instances of the metadata
+         <p>OLAC metadata is an application of the Dublin Core metadata element set as
+            defined in <cit>DCMT</cit>. The most fundamental requirement on best practice
+            in OLAC is that each element should be used in a way that conforms to its
+            definition in <cit>DCMT</cit>. This document therefore repeats those
+            definitions and offers usage notes and examples to help the reader understand
+            best use of the elements.</p>
+         <p>Eight of the elements in the Dublin Core metadata set define refinements that narrow the
+            meaning of the element. A refinement shares the
+            meaning of the generic element, but with a more restricted scope. When the
+            more restricted meaning applies, it is
+            recommended best practice to use the refined version of an element rather than
+            the generic one. This document lists the refinements that are possible for
+            each element.</p>
+         <p>In theory, every element in the metadata set may use the <i>xsi:type</i>
+            attribute to specify an encoding scheme that defines a controlled vocabulary
+            or a controlled syntax for its values. This document lists possible encoding
+            schemes for eleven of the elements, whether defined by <cit>DCMT</cit> or 
+            <cit>OLAC-Extensions</cit>. In the case of the OLAC extensions, the controlled
+            value goes in the <i>olac:code</i> attribute (with the element content being
+            available for an optional freeform elaboration of the coded value), while in the case of DCMI
+            encoding schemes the controlled value goes in the element content. When one of these encoding schemes is applicable,
+            it is recommended best practice to use it since this adds a precision to the
+            value of the element that can be exploited
+            to improve accuracy in searching and to provide domain-specific services.
+            Subcommunities may follow the extension mechanism defined in section 5 of
+            <cit>OLAC-Metadata</cit> to define new encoding schemes.</p>
+         <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies the language in which
+            the text in the content of the element is written. The value for the attribute
+            should be a three-letter code from the ISO 639-3 controlled
+            vocabulary as defined in <cit>OLAC-Language</cit>. In the absence of an
+            <i>xml:lang</i> attribute, the element content is assumed to be in
+            English (unless it is from a DCMI encoding scheme).  Whenever the language of the element content is other than English, recommended best practice
+            is to use the <i>xml:lang</i> attribute to identify the language. By using
+            multiple instances of a metadata
             elements tagged for different languages, data providers may offer their metadata records in multiple
             languages. </p>
-         <p>The <i>langs</i> attribute is used on the <tt>&lt;olac&gt;</tt> element&#8212;the container for
-            all the metadata elements of a given metadata record. It lists the languages in which the metadata record is
-            designed to be read. This attribute holds a space-delimited list of language codes from the
-               <cit>OLAC-Language</cit> controlled vocabulary. By default, this attribute has the value "en", for
-            English, indicating that the record is aimed only at English readers. If an explicit value is given for the
-            attribute, then the record is aimed at readers of all the languages listed.</p>
-         <p>Service providers should use this information in order to offer localized views of the metadata. When a
-            metadata record lists only one language, then all elements should be displayed (regardless of their
-            individual languages), unless the user has requested to suppress all records in that language. When a
-            metadata record has multiple alternative languages, the user should be able to select one and have display
-            of elements in the other languages suppressed. An element in a language not included in the list of
-            alternatives should always be displayed (for instance, the vernacular title of a work).</p>
-         <p>In a given metadata record, every element is optional and every element except the
-            <tt>&lt;title&gt;</tt> element is repeatable.</p>
+         <p>In the formal definition of the metadata standard <cit>OLAC-Metadata</cit>,
+            every element and refinement is optional and repeatable. However, recommended
+            best practice (as described below for particular elements and in
+            <cit>OLAC-BP</cit>) requires that certain elements be present in order to give
+         a basic breadth of description for a language resource. Recommended best practice
+         also requires that one particular element (namely, <xref>Title</xref>) not be
+            repeated. Since all other elements and refinements are repeatable, multiple
+            values for an element or refinement should be given in multiple instances of
+            the XML element rather than being listed in a single instance. This makes it
+            possible for service providers to build search indexes on the individual
+            values.</p>
+         <p>To summarize, the following are recommended best practices that apply to all elements:</p>
          <element name="All elements">
             <definition><!-- Don't use. Just a trick to make export to RED/bpr.xml work. --></definition>
             <comment><!-- Ditto. --></comment>
             <bp>
                <p>Recommended best practice is for the value of each metadata element to conform to the definition of
-                  that element as given by <cit>DCMI</cit>.</p>
+                  that element as given in <cit>DCMT</cit>.</p>
                <p>When the meaning of a particular element in a metadata record fits the definition of a refinement,
-                  recommended best practice is to use the refinement rather than the generic element.</p>
+               recommended best practice is to use the refinement rather than the generic element.</p>
+               <p>When possible, recommended best practice is to use the <i>xsi:type</i>
+                  attribute to specify an encoding scheme for adding precision to the
+                  value of the element.</p>
                <p>Whenever the language of the element content is other than English, recommended best practice is to
                   use the <i>xml:lang</i> attribute with a value from <cit>ISO639-3</cit> to identify the language.</p>
-               <p>When a resource has more than one value for a particular metadata element, recommended best practice
-                  is to use a separate instance of the metadata element for each instance rather than listing all the
+               <p>When a resource has more than one value for a particular metadata
+                  element or refinement, recommended best practice
+                  is to use a separate instance of the element or refinement for each
+                  value rather than listing all the
                   values in a single instance.</p>
             </bp>
-            <examples><!-- I think we want to put these here --></examples>
+            <examples><!-- This is implemented in the stylesheet if we want to give
+               examples --></examples>
          </element>
 
       </section>
       <section>
-         <heading>Individual elements</heading>
-         <p>Each of the core elements of the Dublin Core metadata set is described in one of the following subsections.
-            The heading gives the name of the element; the element is then described under six subheadings.
+         <heading>Core elements</heading>
+         <p>Each of the fifteen core elements of the Dublin Core metadata set is described in one of the following subsections.
+            These elements are defined in the <url>http://purl.org/dc/elements/1.1/</url>
+            namespace for which the prefix <tt>dc:</tt> is used in the examples.</p>
+         <p>Each subsection heading gives the name of an element; the element is then described under six subheadings.
                <i>Definition</i> is the definition for the element as given by the Dublin Core Metadata Initiative
-               <cit>DCMT</cit>. <i>Refinements</i> lists the refined element names (from the <i>dcterms</i> namespace)
+               <cit>DCMT</cit>. <i>Refinements</i> lists the refined element names 
             that may be used in place of the generic element name to specify a more precise meaning for the metadata
-            item. The refinement definitions are copied from <cit>DCMT</cit>. <i>Schemes</i> lists the encoding schemes
+            item. The refinement definitions are copied from <cit>DCMT</cit>. All of the
+            refinements are defined within the
+            <url>http://purl.org/dc/terms/</url> namespace for which the prefix <tt>dcterms:</tt> is
+            used in the examples. <i>Schemes</i> lists the encoding schemes
             that may be used with this element (or its refinements) as the value of the <i>xsi:type</i> attribute.
-               <i>Best practices</i> lists the best practices for the use of this element that are recommended by the
+               <i>Best practice</i> lists the best practices for the use of this element that are recommended by the
             OLAC community <cit>OLAC-BP</cit>. <i>Usage notes</i> offers additional notes for the OLAC community on how
             to use the element in the context of describing language resources. <i>Examples</i> shows samples of
             properly encoded elements and sample refinements.</p>
@@ -487,7 +499,7 @@
                <dl>
                   <dt>dcterms:IMT</dt>
                   <dd>
-                     <p>The Internet media type of the resource.<cit>IMT</cit>.</p>
+                     <p>The Internet media type of the resource <cit>IMT</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -555,7 +567,7 @@
                <dl>
                   <dt>dcterms:URI</dt>
                   <dd>
-                     <p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p>
+                     <p>A Uniform Resource Identifier <cit>URI</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -579,7 +591,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <definition>A language of the resource.</definition>
             <comment>
                <p>Language is used for a language the resource is in, as opposed to the language it describes (see
-                     <xref>Subject.</xref>). It is related to the audience for the work in that it identifies a language
+                     <xref>Subject</xref>). It is related to the audience for the work in that it identifies a language
                   that the creator of the resource assumes that its eventual user will understand. When a resource is in
                   more than one language, use a separate Language element for each language.</p>
                <p>For a work of literature or other monolingual document aimed at the speakers of a particular language,
@@ -632,41 +644,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
                <p>A resource in the Saracatsan dialect of modern Greek</p>
                <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
-            </examples>
-            <todo>
-               <p>Do we want olac:ISO639-3 (analogous to dcterms:ISO639-2) or olac:language so that we can use it
-                  without a code?</p>
-               <p>Write the OLAC-Language document.</p>
-            </todo>
-         </element>
-         <element name="Provenance">
-            <definition>A statement of any changes in ownership and custody of the resource since its creation that are
-               significant for its authenticity, integrity and interpretation.</definition>
-            <comment>
-               <p>The Provenance element is a dcterms element, one of two element-level terms (the other is
-                     <xref>RightsHolder</xref>) not specified in the original core set of Dublin Core elements, but
-                  nonetheless an element and not a refinement of some other element. Its correct specification is with
-                  the dcterms namespace as shown in the example.</p>
-               <p>Provenance should be distinguished in usage from <xref>Description</xref>. Provenance metadata should
-                  be used to track and/or convey important information regarding the custody and/or management of the
-                  resource throughout its history, which has a bearing upon interpretation of the informational content
-                  of the resource, or the upon its artifactual integrity and authenticity.{A WORK IN PROGRESS}</p>
-            </comment>
-            <examples>
-               <p>A group of texts and recordings constituting a small collection that has undergone some reorganization
-                  by a subsequent handler since original creation:</p>
-               <eg>&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
-   &lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
-   &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
-   &lt;dc:available&gt;2007&lt;/dc:available&gt;
-   &lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
-   transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
-   some also with Spanish free translations.&lt;/dc:description&gt;
-   &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
-   a number of local residents. Body of materials were transferred to branch custody in 1980s, 
-   subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
-   related Chinantec language. Annotations particularly relate to changes in orthographic and tone
-   marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
             </examples>
          </element>
          <element name="Publisher">
@@ -788,7 +765,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <dl>
                   <dt>dcterms:URI</dt>
                   <dd>
-                     <p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p>
+                     <p>A Uniform Resource Identifier <cit>URI</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -874,13 +851,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>Mention Creative Commons in the usage notes and give an example of a CC license statement.</p>
             </todo>
          </element>
-         <element name="Rights Holder">
-            <definition>A person or organization owning or managing rights over the resource.</definition>
-            <comment>
-               <p>Use the URI or name of the Rights Holder to indicate the entity.</p>
-            </comment>
-
-         </element>
          <element name="Source">
             <definition>The resource from which the described resource is derived.</definition>
             <comment>
@@ -908,7 +878,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <dl>
                   <dt>dcterms:URI</dt>
                   <dd>
-                     <p>A URI Uniform Resource Identifier.<cit>URI</cit>.</p>
+                     <p>A Uniform Resource Identifier <cit>URI</cit>.</p>
                   </dd>
                </dl>
             </schemes>
@@ -924,7 +894,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.&lt;/dc:source&gt;</eg>
             </examples>
          </element>
-
          <element name="Subject">
             <definition>The topic of the resource.</definition>
             <comment>
@@ -985,7 +954,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                
             </examples>
          </element>
-
          <element name="Title">
             <definition>A name given to the resource.</definition>
             <comment>
@@ -1015,8 +983,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>Recommended best practice is that every record must have an instance of the Title element. When the
                   resource does not have an inherent title, the cataloger should supply a descriptive title and enclose
                   it in square brackets.</p>
-               <p>Recommended best practice is that only one instance of Title, namely the original title, be
-                  unqualified. All others (<i>e.g.</i> translations) should be specified as the Alternative
+               <p>Recommended best practice is that only one instance of the unqualified
+                  Title element, namely, for the original title.
+                  All others (<i>e.g.</i> translations) should be specified as the Alternative
                refinement.</p>
             </bp>
 
@@ -1030,7 +999,6 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <eg>&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</eg>
             </examples>
          </element>
-
          <!-- Type:   i Exhibited perhaps the most different archivespecific
       		interpretations of its use
       		i Evidence of different vocabularies for type used
@@ -1112,11 +1080,52 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </todo>
          </element>
       </section>
+      <section>
+         <heading>Other elements</heading>
+         <p>The following subsections describe other elements that have been defined by
+            the Dublin Core Metadata Initiative <cit>DCMT</cit>. They are defined within the
+            <url>http://purl.org/dc/terms/</url> namespace for which the prefix <tt>dcterms:</tt> is
+         used in the examples.</p>
+         <element name="Provenance">
+            <definition>A statement of any changes in ownership and custody of the resource since its creation that are
+               significant for its authenticity, integrity and interpretation.</definition>
+            <comment>
+               <p>The Provenance element is a dcterms element, one of two element-level terms (the other is
+                  <xref>RightsHolder</xref>) not specified in the original core set of Dublin Core elements, but
+                  nonetheless an element and not a refinement of some other element. Its correct specification is with
+                  the dcterms namespace as shown in the example.</p>
+               <p>Provenance should be distinguished in usage from <xref>Description</xref>. Provenance metadata should
+                  be used to track and/or convey important information regarding the custody and/or management of the
+                  resource throughout its history, which has a bearing upon interpretation of the informational content
+                  of the resource, or the upon its artifactual integrity and authenticity.{A WORK IN PROGRESS}</p>
+            </comment>
+            <examples>
+               <p>A group of texts and recordings constituting a small collection that has undergone some reorganization
+                  by a subsequent handler since original creation:</p>
+               <eg>&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
+                  &lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
+                  &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
+                  &lt;dc:available&gt;2007&lt;/dc:available&gt;
+                  &lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
+                  transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
+                  some also with Spanish free translations.&lt;/dc:description&gt;
+                  &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
+                  a number of local residents. Body of materials were transferred to branch custody in 1980s, 
+                  subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
+                  related Chinantec language. Annotations particularly relate to changes in orthographic and tone
+                  marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
+            </examples>
+         </element>
+         <element name="Rights Holder">
+            <definition>A person or organization owning or managing rights over the resource.</definition>
+            <comment>
+               <p>Use the URI or name of the Rights Holder to indicate the entity.</p>
+            </comment>
+         </element>
+         
+      </section>
+      
    </body>
-   <todo>
-      <p>There is not yet a provision for handling subject categorization by linguistic (genetic) classification.</p>
-      <p>Rights.software has been left in limbo. It may be possible to unify it with Rights.</p>
-   </todo>
    <references>
       <ref abbrev="AACR2r">Anglo-American Cataloguing Rules, 2nd ed., 2002 revision. Ottawa and Chicago:
       Canadian Library Association and American Library Association, 2002-.</ref>
@@ -1125,37 +1134,22 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
          Contained in Title 17 of the United States Code.
             <br/>&lt;<url>http://www.loc.gov/copyright/title17/92chap1.html#101</url>&gt;</ref>
 
-      <ref abbrev="CC">Creative Commons <br/>&lt;<url>http://creativecommons.org/licenses/</url>&gt;</ref>
+      <ref abbrev="CC">Creative Commons Licenses.<br/>&lt;<url>http://creativecommons.org/licenses/</url>&gt;</ref>
 
       <ref abbrev="DCMT">Dublin Core Metadata Terms.
          <br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
 
-      <ref abbrev="DC-Q">Dublin Core
-            Qualifiers.<br/>&lt;<url>http://dublincore.org/documents/2000/07/11/DCMT-qualifiers/</url>&gt;</ref>
+      <ref abbrev="DCMI-Box">DCMI Box Encoding Scheme: specification of the spatial limits of a place, and methods for encoding this in a text string.
+         <br/>&lt;<url>http://dublincore.org/documents/dcmi-box/</url>&gt;</ref>
 
-      <ref abbrev="DCQ-HTML">Recording qualified Dublin Core metadata in HTML meta
-            elements.<br/>&lt;<url>http://dublincore.org/documents/2000/08/15/dcq-html/</url>&gt;</ref>
+      <ref abbrev="DCMI-Period">DCMI Period Encoding Scheme: specification of the limits of a time interval, and methods for encoding this in a text string.<br/>&lt;<url>http://dublincore.org/documents/dcmi-period/</url>&gt;</ref>
 
-      <ref abbrev="DCMI-Registry">DCMI Open Metadata
-            Registry.<br/>&lt;<url>http://wip.dublincore.org:8080/registry/Registry</url>&gt;</ref>
-
-      <ref abbrev="DCMI-Submit">DCMI Open Metadata Registry: Submit a Scheme for
-            Registration.<br/>&lt;<url>http://wip.dublincore.org:8080/registry/authServlet?req_type=newscheme&amp;lang=enUS</url>&gt;</ref>
-
-      <ref abbrev="DCMI-Box">DCMI Box
-         <br/>&lt;<url>http://dublincore.org/documents/2000/07/11/dcmi-type-vocabulary/</url>&gt;</ref>
-
-      <ref abbrev="DCMI-Period">DCMI Period <br/>&lt;<url>http://dublincore.org/documents/dcmi-period/</url>&gt;</ref>
-
-      <ref abbrev="DCMI-Point">DCMI Point <br/>&lt;<url>http://dublincore.org/documents/dcmi-point/</url>&gt;</ref>
+      <ref abbrev="DCMI-Point">DCMI Point Encoding Scheme: a point location in space, and methods for encoding this in a text string. <br/>&lt;<url>http://dublincore.org/documents/dcmi-point/</url>&gt;</ref>
 
       <ref abbrev="DCMI-Type">DCMI Type Vocabulary.
             <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
 
-      <ref abbrev="IANA-CS">Internet Character Sets.<br/>
-            &lt;<url>http://www.isi.edu/in-notes/iana/assignments/character-sets</url>&gt;</ref>
-
-      <ref abbrev="IMT">IMT <br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
+      <ref abbrev="IMT">MIME Media Types.<br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
       
       <ref abbrev="ISO3166">ISO 3166: Codes for the representation of names of countries. 
          <br/>&lt;<url>http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm</url>&gt;</ref>
@@ -1163,14 +1157,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
       <ref abbrev="ISO639-3">ISO 639: Codes for the representation of names of languages - Part 3: Alpha-3 code for
          comprehensive coverage of languages.<br/> &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
 
-      <ref abbrev="URI">URI <br/>&lt;<url>http://www.ietf.org/rfc/rfc2396.txt</url>&gt;</ref>
+      <ref abbrev="URI">Uniform Resource Identifiers (URI): Generic Syntax.
+         <br/>&lt;<url>http://www.ietf.org/rfc/rfc2396.txt</url>&gt;</ref>
 
-      <ref abbrev="MIME">Internet Media
-            Types.<br/>&lt;<url>http://www.isi.edu/in-notes/iana/assignments/media-types/media-types</url>&gt;</ref>
-
-      <ref abbrev="OAI">Open Archives Initiative. <br/>&lt;<url>http://www.openarchives.org/</url>&gt;</ref>
-
-      <ref abbrev="OLAC-BP">Best Practice Recommendations for Language Resource
+     <ref abbrev="OLAC-BP">Best Practice Recommendations for Language Resource
             Description.<br/>&lt;<url>http://www.language-archives.org/REC/bpr.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Linguistic-Field">OLAC Linguistic Subject
@@ -1183,22 +1173,19 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
          Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Language">OLAC Language
-         Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
+         Vocabulary.<br/>&lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Role">OLAC Role
-         Vocabulary.<br/>&lt;<url>http://www.language-archives.org/OLAC/???</url>&gt;</ref>
+         Vocabulary.<br/>&lt;<url>http://www.language-archives.org/REC/role.html</url>&gt;</ref>
 
-      <ref abbrev="TGN">Getty Thesaurus of Geographical
-            Terms.<br/>&lt;<url>http://www.getty.edu/research/tools/vocabulary/tgn/index.html</url>&gt;</ref>
+      <ref abbrev="TGN">Getty Thesaurus of Geographic
+            Names.<br/>&lt;<url>http://www.getty.edu/research/tools/vocabulary/tgn/index.html</url>&gt;</ref>
 
-      <ref abbrev="OLAC-WP">White Paper on Establishing an Infrastructure for Open Language
-            Archiving<br/>&lt;<url>http://www.language-archives.org/docs/white-paper.html</url>&gt;</ref>
-
+      <ref abbrev="OLAC-Extensions">Recommended metadata extensions.
+         <br/>&lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref>
+      
       <ref abbrev="W3CDTF">Date and Time Formats, W3C
          Note.<br/>&lt;<url>http://www.w3.org/TR/NOTE-datetime</url>&gt;</ref>
-
-      <ref abbrev="OAI-DC">Schema for OAI implementation of Dublin Core
-            metadata.<br/>&lt;<url>http://www.openarchives.org/OAI/1.1/dc.xsd</url>&gt;</ref>
 
    </references>
 </OLAC_doc>
