@@ -28,3 +28,6 @@ indexes: $(INDEXES)
 rsync:
 	rsync $(RSYNC_OPTS) . $(WEB)
 
+rsync_top:
+	rsync $(RSYNC_OPTS) *.html $(WEB)
+
