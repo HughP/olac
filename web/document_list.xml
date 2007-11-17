@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
-       Last updated: 4 April 2006 -->
+       Last updated: 17 Nov 2007 -->
 <documents>
   <list>
     <document href="OLAC/metadata.xml"/>
@@ -10,17 +10,21 @@
     <document href="OLAC/olacms.xml"/>
     <document href="OLAC/protocol.xml"/>
     <document href="REC/access.xml"/>
-    <document href="REC/discourse.xml"/>
+     <document href="REC/bpr.xml"/>
+     <document href="REC/discourse.xml"/>
     <document href="REC/field.xml"/>
     <document href="REC/language.xml"/>
     <document href="REC/olac-extensions.xml"/>
     <document href="REC/role.xml"/>
     <document href="REC/type.xml"/>
-    <document href="NOTE/query.xml"/>
-    <document href="NOTE/viser.xml"/>
-    <document href="NOTE/third-party-extensions.xml"/>
-    <document href="NOTE/olac_display.xml"/>
-    <document href="NOTE/toolbox.xml"/>
+     <document href="NOTE/metrics.xml"/>
+     <document href="NOTE/olac_display.xml"/>
+     <document href="NOTE/query.xml"/>
+     <document href="NOTE/third-party-extensions.xml"/>
+     <document href="NOTE/toolbox.xml"/>
+     <document href="NOTE/usage.xml"/>
+     <document href="NOTE/viser.xml"/>
+     
   </list>
   <textBlocks>
     <typeIntro>

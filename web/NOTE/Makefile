@@ -11,8 +11,10 @@ QUERY   = query-20021102.html query-20030729.html
 VISER   = viser-20021102.html viser-20030729.html
 THIRD   = third-party-extensions-20021204.html
 TOOLBOX = toolbox-20060928.html
+USAGE   = usage-20071115.html
+METRICS = metrics-20071117.html
 
-HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD) $(TOOLBOX)
+HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD) $(TOOLBOX) $(USAGE) $(METRICS)
 
 
 ### Build
@@ -27,6 +29,9 @@ all: $(HTML)
 	$(LATEST) viser                   20030729
 	$(LATEST) third-party-extensions  20021204
 	$(LATEST) toolbox                 20060928
+	$(LATEST) usage                   20071115
+	$(LATEST) metrics                 20071117
+
 
 .xml.html:
 	$(XSLT) -in $< -xsl $(OLAC_XSL) > $@
