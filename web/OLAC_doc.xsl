@@ -315,7 +315,7 @@
     </table>
     <blockquote>
       <small>
-        <xsl:text>Copyright &#169; </xsl:text>
+        <xsl:text disable-output-escaping="yes">Copyright &amp;copy; </xsl:text>
         <xsl:value-of select="copyright"/>
         <xsl:text>. This material may be distributed and repurposed subject to the terms and conditions set forth in the </xsl:text>
         <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License</a>
