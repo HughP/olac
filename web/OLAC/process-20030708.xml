@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="OLAC_doc.xsl" type="text/xsl"?>
-<!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
+<?xml-stylesheet href="../OLAC_doc.xsl" type="text/xsl"?>
+<!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
   <header> 
-    <status code="adopted" type="standard"/> 
+    <status code="adopted" type="standard" endDate="20060405" supersededBy="process"/> 
       <title>OLAC Process</title><baseName>process</baseName> 
       <issued>20030708</issued><previousIssued>20030625</previousIssued> 
       <abstract> 

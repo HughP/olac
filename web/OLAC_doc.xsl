@@ -3,7 +3,7 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 12 Sept 2007
+     Last modified: 17 Nov 2007
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -208,7 +208,7 @@
           <xsl:apply-templates select="status"/>
         </td>
       </tr>
-      <xsl:if test="status/@endDate">
+      <xsl:if test="status/@endDate  and not(status/@supersededBy = baseName)">
         <tr valign="top">
           <th width="100" align="left">
             <xsl:choose>
@@ -257,7 +257,7 @@
           </a>
         </td>
       </tr>
-      <xsl:if test="not(status[@endDate])">
+      <xsl:if test="not(status[@endDate]) or status/@supersededBy = baseName">
         <tr valign="top">
           <th align="left">Latest version:</th>
           <td>
@@ -325,10 +325,13 @@
   </xsl:template>
   <xsl:template match="status">
     <i>
-      <xsl:if test="@endDate">
-        <xsl:text>Former </xsl:text>
+      <xsl:if test="@endDate and @code='adopted'">
+        <xsl:text>Retired </xsl:text>
       </xsl:if>
-      <xsl:choose>
+        <xsl:if test="@endDate and @code!='adopted'">
+            <xsl:text>Former </xsl:text>
+        </xsl:if>
+        <xsl:choose>
         <xsl:when test="@code='draft'">
           <xsl:text>Draft </xsl:text>
         </xsl:when>
@@ -375,9 +378,14 @@
         <xsl:if test="@code != 'adopted'">
           <xsl:text>This document was withdrawn from the OLAC document process.</xsl:text>
         </xsl:if>
-        <xsl:if test="@code = 'adopted'">
-          <xsl:text>This document is now retired.</xsl:text>
-        </xsl:if>
+          <xsl:if test="@code = 'adopted' and @supersededBy">
+              <xsl:text>This document was once adopted by the community, but has now been superseded</xsl:text>
+              <xsl:if test="@supersededBy=../baseName"> by a revised version.</xsl:if>
+              <xsl:if test="@supersededBy!=../baseName"> by another document.</xsl:if>
+          </xsl:if>
+          <xsl:if test="@code = 'adopted' and not(@supersededBy)">
+              <xsl:text>This document was once adopted by the community, but is now obsolete.</xsl:text>
+          </xsl:if>
       </xsl:when>
       <xsl:otherwise>
         <xsl:if test="@code='draft'">
