@@ -4,7 +4,7 @@
 
 DTD for OLAC documents
 Gary Simons, SIL International, 16 Feb 2001
-Last modified: 13 Sept 2007
+Last modified: 16 Sept 2007
 -->
 <!ELEMENT OLAC_doc (header, body, todo?, references?)>
 <!--Header information for the document-->
@@ -15,6 +15,14 @@ Last modified: 13 Sept 2007
    @endDate (optional) = Date withdrawn, retired, or superseded. Format is: yyyymmdd
    @supersededBy (optional) = baseName of document that superseded it
    -->
+<!-- The @code list stops at adopted state.  Retired and withdrawn are not in the code
+       list because we want to keep track of the highest status attained by the document.
+       A value for @endDate indicates that it is retired (when @code='adopted')  or withdrawn (otherwise).
+       For retired, the value of @supersededBy distinguishes the three cases:
+          @supersededBy is absent: retired because of obsolesence
+          @supersededBy = value of baseName: there is a new version of the same document
+          @supersededBy = any other value: superseded by a different document 
+-->
 <!ELEMENT status EMPTY>
 <!ATTLIST status
    code (draft | proposed | candidate | adopted) #REQUIRED

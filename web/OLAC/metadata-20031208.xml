@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="OLAC_doc.xsl"?>
-<!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
+<?xml-stylesheet type="text/xsl" href="../OLAC_doc.xsl"?>
+<!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
   <header> 
-    <status code="adopted" type="standard"/> 
-      <title>OLAC Metadata</title> <baseName>metadata</baseName> 
-      <issued>20031208</issued> <previousIssued>20030531</previousIssued> 
+    <status code="adopted" type="standard"  endDate="20060405" supersededBy="metadata" /> 
+      <title>OLAC Metadata</title> 
+      <baseName>metadata</baseName> 
+      <issued>20031208</issued> 
+      <previousIssued>20030531</previousIssued> 
       <abstract> 
         <p>This document defines the format used by the Open Language
           Archives Community <cit>OLAC</cit> for the interchange of metadata within the
