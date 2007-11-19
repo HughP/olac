@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
+<?xml-stylesheet href="document_headers.xsl" type="text/xsl"?>
+
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
        Last updated: 17 Nov 2007 -->
@@ -17,6 +19,7 @@
     <document href="REC/olac-extensions.xml"/>
     <document href="REC/role.xml"/>
     <document href="REC/type.xml"/>
+
      <document href="NOTE/metrics.xml"/>
      <document href="NOTE/olac_display.xml"/>
      <document href="NOTE/query.xml"/>
@@ -24,7 +27,7 @@
      <document href="NOTE/toolbox.xml"/>
      <document href="NOTE/usage.xml"/>
      <document href="NOTE/viser.xml"/>
-     
+
   </list>
   <textBlocks>
     <typeIntro>
