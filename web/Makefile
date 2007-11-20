@@ -20,13 +20,13 @@ notes:
 	$(MAKE) -C NOTE all
 
 indexes: $(INDEXES)
-	$(XSLT) -in document_list.xml -xsl document_headers.xsl > document_headers.xml
+#	$(XSLT) -in document_list.xml -xsl document_headers.xsl > document_headers.xml
 	$(XSLT) -in document_list.xml -xsl document_index.xsl > documents.html
 	$(XSLT) -in document_list.xml -xsl documents_by_status.xsl > documents_by_status.html
 	$(XSLT) -in document_list.xml -xsl documents_by_date.xsl > documents_by_date.html
 
-rsync:
-	rsync $(RSYNC_OPTS) . $(WEB)
+rsync_docs:
+	rsync $(RSYNC_OPTS) OLAC REC NOTE documents*.html $(WEB)
 
 rsync_top:
 	rsync $(RSYNC_OPTS) *.html $(WEB)
