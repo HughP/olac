@@ -22,4 +22,4 @@ fi
 ### Link latest doc
 
 ln -s -f $doc-$date.xml $doc.xml
-ln -s -f ../$doc-$date.html $doc.html
+ln -s -f $doc-$date.html $doc.html
