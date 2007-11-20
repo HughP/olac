@@ -21,5 +21,5 @@ fi
 
 ### Link latest doc
 
-ln -s -f $doc-$date.xml $doc.xml
-ln -s -f $doc-$date.html $doc.html
+cp -f $doc-$date.xml $doc.xml
+cp -f $doc-$date.html $doc.html
