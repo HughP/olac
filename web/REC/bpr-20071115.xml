@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="proposed" type="recommendation"/>
+      <status code="draft" type="recommendation"/>
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
       <issued>20071115</issued>
