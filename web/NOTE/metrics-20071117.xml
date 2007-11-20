@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="proposed" type="informational"/>
+      <status code="draft" type="informational"/>
       <title>OLAC Metadata Quality Metrics</title>
       <baseName>metrics</baseName>
       <issued>20071117</issued>
