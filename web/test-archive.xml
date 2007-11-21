@@ -79,7 +79,7 @@
 				<olac:olac>
 					<dc:title>Test Archive.</dc:title>
 					<dc:creator>Evans, Nicholas D.</dc:creator>
-					<dc:date xsi:type="dcterms:W3CDTF">2007</dc:date>
+					<dc:date xsi:type="dct:W3CDTF">2007</dc:date>
 					<dc:subject>Kayardild grammar</dc:subject>
 					<dc:subject olac:code="x-sil-GYD" xsi:type="olac:language">Kayardild</dc:subject>
 					<dc:subject olac:code="en" xsi:type="olac:language">English</dc:subject>
