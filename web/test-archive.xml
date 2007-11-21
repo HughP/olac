@@ -106,7 +106,7 @@
 					<dc:subject>Kayardild dictionary and thesaurus</dc:subject>
 					<dc:subject olac:code="x-sil-GYD" xsi:type="olac:language">Kayardild</dc:subject>
 					<dc:description>Kayardild dictionary and thesaurus (ISBN 0646119966) </dc:description>
-					<dcterms:abstract>This is a test archive.</dcterms:abstract>
+					<dct:abstract>This is a test archive.</dct:abstract>
 					<dc:publisher>Parkville, Vic., Australia. University of Melbourne, Dept. of Linguistics
 						and Language Studies.</dc:publisher>
 					<dc:contributor olac:code="researcher" xsi:type="olac:role">Nicholas Evans</dc:contributor>
