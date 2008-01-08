@@ -92,6 +92,7 @@
                <LI><A href="#Rights Holder">Rights Holder</A></LI>
             </UL>
          </LI>
+         <LI><A href="#Granularity of metadata application">Granularity of metadata application</A></LI>
       </ol>
       <blockquote><a href="#References">References</a><br></blockquote>
       <hr>
@@ -241,19 +242,15 @@
             <tr valign="top">
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
-                  <p>A Contributor may be a person, an organization, or a service--any entity that has sufficient involvement 
-                                       in the creation or development of the resource to warrant explicit identification. Contributor is closely
-                     related to
-                                       <a href="#Creator">Creator</a>. While a case for distinguishing the usage of the two elements can be made based on
-                                       the degree of responsibility for the content, the application of the olac:role schema to the Contributor
-                     element, using 
-                                       its more precise vocabulary for the nature of the contribution made by the entity identified, makes drawing
-                     a 
-                                       distinction between the less precise concepts of Contributor and Creator much less significant. Thus, it
-                     is 
-                                       more straightforward to consider Creator to be a refinement of the Contributor element. See the discussion
-                     
-                                       of <a href="#Creator">Creator</a> for more on this point.
+                  <p>A Contributor may be a person, an organization, or a service--any entity that has sufficient
+                                       involvement in the creation or development of the resource to warrant explicit identification.
+                                       Contributor is closely related to <a href="#Creator">Creator</a>. While a case for distinguishing the usage of
+                                       the two elements can be made based on the degree of responsibility for the content, the application of
+                                       the olac:role schema to the Contributor element, using its more precise vocabulary for the nature of
+                                       the contribution made by the entity identified, makes drawing a distinction between the less precise
+                                       concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
+                                       consider Creator to be a refinement of the Contributor element. See the discussion of
+                                       <a href="#Creator">Creator</a> for more on this point.
                   </p>
                   <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related elements. In particular, the
                                        olac:role "sponsor" can come close to one aspect of participation that a publisher may have in regard
@@ -285,7 +282,9 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:contributor&gt;</pre><p>A funding agency:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
-   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in a language differing from the majority of the metadata record:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" xml:lang="ces"&gt;C&#780;eska&#769; 
+   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in a language differing from the majority of the
+                                       metadata record:
+                  </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" xml:lang="ces"&gt;C&#780;eska&#769; 
    akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
             </tr>
          </table>
@@ -393,14 +392,11 @@
                                        which they are generally spoken [<a href="#OLAC-Language">OLAC-Language</a>]. Coverage need not be used to duplicate this
                                        information; rather service providers will support searches concerning languages spoken in a given
                                        country by referring to the language database. Coverage should be used geographically when the
-                                       language in general has a different or wider distribution than the language as treated or represented in
-                     the 
-                                       resource, that is, the resource focuses on some aspect of the language(s) (or language community) within
-                     a 
-                                       particular sub-region or geopolitical jurisdiction. It should also be used when the resource deals with
-                     a topic of 
-                                       study in which the location or region itself is in focus, <i>e.g.</i>, multilingualism, language policy, languages in contact,
-                                       in a given locale.
+                                       language in general has a different or wider distribution than the language as treated or represented
+                                       in the resource, that is, the resource focuses on some aspect of the language(s) (or language
+                                       community) within a particular sub-region or geopolitical jurisdiction. It should also be used when
+                                       the resource deals with a topic of study in which the location or region itself is in focus,
+                                       <i>e.g.</i>, multilingualism, language policy, languages in contact, in a given locale.
                   </p>
                   <p></p>
                </td>
@@ -409,12 +405,14 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A resource about English in India:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;
-   &lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre><p>A resource involving a diaspora group from a language community:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;&#8220;Como Se Hayan&#8221;: Zapotec Indigenous Migrant Expressions of Belonging&lt;/dc:title&gt;
-   &lt;dc:coverage&gt;Los Angeles, California&lt;/dc:coverage&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A data set covering a period of time, relating to a particular community, collected over a span of time:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer community in transition&lt;/dc:title&gt;
-   &lt;dcterms:temporal xsi:type="dcterms:Period" start="1950" end="2006"/&gt;
-   &lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;San Ildefonso, Cape (cape)&lt;/dcterms:spatial&gt;
-   &lt;dcterms:created xsi:type=dcterms:Period start="1962" end="2006"/&gt;</pre></td>
+&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre><p>A resource involving a diaspora group from a language community:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;&#8220;Como Se Hayan&#8221;: Zapotec Indigenous Migrant Expressions of Belonging&lt;/dc:title&gt;
+&lt;dc:coverage&gt;Los Angeles, California&lt;/dc:coverage&gt;
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A data set covering a period of time, relating to a particular community, collected over a span of
+                                       time:
+                  </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer community in transition&lt;/dc:title&gt;
+&lt;dcterms:temporal xsi:type="dcterms:Period" start="1950" end="2006"/&gt;
+&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;San Ildefonso, Cape (cape)&lt;/dcterms:spatial&gt;
+&lt;dcterms:created xsi:type=dcterms:Period start="1962" end="2006"/&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Creator"></A>Creator
@@ -440,9 +438,8 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>Recommended best practice is to use the Contributor element described above instead, except in cases
-                                       where there is significant creative involvement by the person or organization, but there is no suitable
-                     
-                                       [<a href="#OLAC-Role">OLAC-Role</a>] refinement term.
+                                       where there is significant creative involvement by the person or organization, but there is no
+                                       suitable [<a href="#OLAC-Role">OLAC-Role</a>] refinement term.
                   </p>
                </td>
             </tr>
@@ -450,20 +447,19 @@
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
                   <p>A Creator may be a person, an organization, or a service. Creator is closely related to
-                                       <a href="#Contributor">Contributor</a>. OLAC recommendation is that Creator be viewed semantically as a 
-                                       <i>refinement</i> of Contributor, though it retains its status as an element for backward compatibility. 
-                                       In this view, Creator is another kind of Contributor role, still rather generic, but strongly indicative
-                     of significant
-                                       involvement in the creation of the resource. Thus, Creator is appropriate to use in cases where the entity
-                                       to be identified has significant involvement as a primary source of the resource, but in such a way that
-                     
-                                       none of the role terms available in the <i>olac:role</i> scheme is a suitable description of that involvement. 
-                                       Examples are an artist (sculptor, carver, weaver) or a modeler.
+                                          <a href="#Contributor">Contributor</a>. OLAC recommendation is that Creator be viewed semantically as a
+                                          <i>refinement</i> of Contributor, though it retains its status as an element for backward
+                                       compatibility. In this view, Creator is another kind of Contributor role, still rather generic, but
+                                       strongly indicative of significant involvement in the creation of the resource. Thus, Creator is
+                                       appropriate to use in cases where the entity to be identified has significant involvement as a primary
+                                       source of the resource, but in such a way that none of the role terms available in the
+                                       <i>olac:role</i> scheme is a suitable description of that involvement. Examples are an artist
+                                       (sculptor, carver, weaver) or a modeler.
                   </p>
-                  <p>The semantic demotion of the Creator element to being an equivalent of a refinement of Contributor 
-                                       has support in the wider community. The DCMI Library Application Profile [<a href="#DC-Lib">DC-Lib</a>] make this 
-                                       recommendation. In view of this treatment, if Creator is used, it should be used without a role refinement
-                                       term.
+                  <p>The semantic demotion of the Creator element to being an equivalent of a refinement of Contributor has
+                                       support in the wider community. The DCMI Library Application Profile [<a href="#DC-Lib">DC-Lib</a>] make this
+                                       recommendation. In view of this treatment, if Creator is used, it should be used without a role
+                                       refinement term.
                   </p>
                </td>
             </tr>
@@ -1546,11 +1542,11 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>The resource is a video recording, stored as a MPEG:</p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
-    &lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</pre><p>The resource is a video recording of a story teller relating a traditional story, recorded on Super-8
+&lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</pre><p>The resource is a video recording of a story teller relating a traditional story, recorded on Super-8
                                        film::
                   </p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
-   &lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;
-   &lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre></td>
+&lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;
+&lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre></td>
             </tr>
             <tr valign="top">
                <td width="100"><b><font color="red"><i>To do</i></font></b></td>
@@ -1609,17 +1605,17 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   <p>A group of texts and recordings constituting a small collection that has undergone some reorganization
                                        by a subsequent handler since original creation:
                   </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
-                  &lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
-                  &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
-                  &lt;dc:available&gt;2007&lt;/dc:available&gt;
-                  &lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
-                  transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
-                  some also with Spanish free translations.&lt;/dc:description&gt;
-                  &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
-                  a number of local residents. Body of materials were transferred to branch custody in 1980s, 
-                  subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
-                  related Chinantec language. Annotations particularly relate to changes in orthographic and tone
-                  marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
+&lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
+&lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
+&lt;dc:available&gt;2007&lt;/dc:available&gt;
+&lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
+   transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
+   some also with Spanish free translations.&lt;/dc:description&gt;
+ &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
+   a number of local residents. Body of materials were transferred to branch custody in 1980s, 
+   subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
+   related Chinantec language. Annotations particularly relate to changes in orthographic and tone
+   marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Rights Holder"></A>Rights Holder
@@ -1652,6 +1648,61 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td></td>
             </tr>
          </table>
+         <h2><A name="Granularity of metadata application"></A>5. Granularity of metadata application
+         </h2>
+         <p>Determining the right degree of detail to apply at the level of an OLAC resource description involves multiple factors.
+                     The level of description appropriate for harvesting and inclusion in an aggregate catalog may be different (typically
+                     less) than the level of description desirable for the catalog of a specific institution's repository.
+         </p>
+         <p>For a resource that has been published in some form, the unit or grouping of publication usually corresponds
+                     to the appropriate unit of description for the OLAC record. However, many archival resources have not been formally
+                     published. For unpublished papers presenting findings of research, these closely parallel their published counterparts,
+                     and consitute similar kinds of units for archival description.
+         </p>
+         <p>For primary source materials (recordings, transcribed texts, data sets) the foremost factor in determining 
+                     an appropriate unit of aggregation and description will be their provenance: does a particular body of resources
+            
+                     have a shared provenance, or were they placed together at some point in time well after their creation 
+                     (possibly by the repository itself)? If the latter, was there some coherent organizing principle or intermediate
+            stage of
+                     development that is still relevant for the proper understanding and use of the resources, or would the grouping be
+            
+                     motivated more by convenience of handling? Situations of shared provenance that constitute a collective unit or collection
+                     for description purposes will be distinguished by the high degree of commonality of metadata elements, 
+                     <i>e.g.</i>, same researcher(s), author(s), subject language(s), content (or analysis) language(s), approximate date, 
+                     coverage, linguistic type, general description. Other metadata elements that are also important for resource 
+                     discovery but that may differ at this level (<i>e.g.</i>, discourse type) can be repeated at the OLAC description 
+                     level for as many types as are prominently included. Further characteristics, such as topic, additional contributors,
+            
+                     event specifics, particular discourse type, can be documented at a finer level of granularity by creating
+                     a second level of "collection description" which includes more detail on the individual units (specific recordings
+            or texts), 
+                     included as a part of the collection in an expanded, structured contents description. This is the level that aligns
+            
+                     with the session level detail of [<a href="#IMDI">IMDI</a>] description.
+         </p>
+         <p> TO DO: Add another sentence relating OLAC and IMDI (IMDI website down)</p>
+         <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects of descriptions may be 
+                     quite unique to the collection of materials in hand. For example, it could be valuable to document the 
+                     orthography used for a given written text (whether transcription or original writing) in a collection where 
+                     different orthographies are represented. It is at this second level that the description becomes something 
+                     of its own creative endeavor, as the collection's compiler or the archivist creating this level of description seeks
+            to offer
+                     additional detail in an organized way that will enhance the utility of the collection for future researchers.
+         </p>
+         <p>Materials without a common provenance generally should not be grouped either within the repository 
+                     or for OLAC description.
+         </p>
+         <p>The timing of acquisition of materials, whether they are received as a group at one point in time or 
+                     accrue (are submitted to the repository) over a period of time, is a second significant factor in determining the
+            
+                     units of grouping for OLAC level description. Materials that are collected together and organized by some
+                     knowledgeable person (perhaps the original researcher, perhaps not) may properly constitute a single collection
+                     (as a single unit of OLAC description) with a complex secondary level of collection description. Yet those same materials,
+                     had they been deposited periodically over time, might just as well constitute numerous smaller units each with its
+            own
+                     OLAC level descriptive record.
+         </p>
       </body><a name="References"></a><hr>
       <h2>References</h2>
       <table cellspacing="10">
@@ -1680,7 +1731,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <td width="150">[<a name="DC-Lib">DC-Lib</a>]
             </td>
             <td>DCMI - Library Application Profile.<br>&lt;
-                        <a href="http://dublincore.org/documents/library-application-profile/index.shtml#creator">http://dublincore.org/documents/library-application-profile/index.shtml#creator</a>&gt;
+                           <a href="http://dublincore.org/documents/library-application-profile/index.shtml#creator">http://dublincore.org/documents/library-application-profile/index.shtml#creator</a>&gt;
             </td>
          </tr>
          <tr valign="top">
@@ -1716,6 +1767,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </td>
             <td>Dublin Core Metadata Terms.
                         <br>&lt;<a href="http://dublincore.org/documents/dcmi-terms/">http://dublincore.org/documents/dcmi-terms/</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
+            <td width="150">[<a name="IMDI">IMDI</a>]
+            </td>
+            <td>ISLE Metadata Initiative. <br>&lt;<a href="http://www.mpi.nl/ISLE/">http://www.mpi.nl/ISLE/</a>&gt;
             </td>
          </tr>
          <tr valign="top">
