@@ -3,6 +3,7 @@ use OLAC::DB;
 print "Cleaning up...\n";
 $db = new OLAC::DB("/home/olac/.dbinfo_olac2");
 $dbh = $db->{dbh};
+$dbh->{'AutoCommit'} = 0;
 
 $sth = $dbh->prepare("select Element_ID from METADATA_ELEM where Item_ID=?");
 $sth2 = $dbh->prepare("delete from METADATA_ELEM where Element_ID=?");
@@ -17,6 +18,7 @@ foreach $archiveid (@$res) {
     $sth4->bind_param(1,$archiveid);
     $sth4->execute;
 }
+$dbh->commit();
 $t2 = time;
 ($sec, $min, $hour) = gmtime($t2 - $t1);
 printf "(elapsed time: %02d:%02d:%02d)\n", $hour, $min, $sec;
@@ -38,6 +40,7 @@ foreach $itemid (@$res) {
     $sth3->bind_param(1,$itemid);
     $sth3->execute;
 }
+$dbh->commit();
 $t2 = time;
 ($sec, $min, $hour) = gmtime($t2 - $t1);
 printf "(elapsed time: %02d:%02d:%02d)\n", $hour, $min, $sec;
@@ -69,6 +72,7 @@ foreach $tup (@$res) {
 	$sth3->execute;
     }
 }
+$dbh->commit();
 $t2 = time;
 ($sec, $min, $hour) = gmtime($t2 - $t1);
 printf "(elapsed time: %02d:%02d:%02d)\n", $hour, $min, $sec;
