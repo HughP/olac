@@ -24,13 +24,17 @@ LD_LIBRARY_PATH=/ldc/lib
 export LD_LIBRARY_PATH
 
 # admin email address
-ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
+#ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
+ADMIN_EMAIL="sb@csse.unimelb.edu.au Gary_Simons@sil.org haejoong@ldc.upenn.edu"
 
 # which php?
 PHP=/pkg/ldc/freebsd/pkg/php-5.0.3/bin/php
 
 # xml dump directory
 XMLDUMPDIR=$ODIR
+
+# static record pages directory
+SRECDIR=/ldc/web/language-archives/static-records
 
 #########################
 # DO NOT EDIT FROM HERE #
@@ -48,7 +52,9 @@ CWD=`pwd`; cd $ODIR
 
 new_records=`grep "new record(s)" $TMP_LOG | awk '{sum+=$1} END {print sum}'`
 if [ ${new_records:-0} -gt 0 ] ; then
-    (   echo
+    (
+        (
+        echo
 	echo "Updating search database..."
 	echo
         cd ../../tools/reports/lib
@@ -61,14 +67,22 @@ if [ ${new_records:-0} -gt 0 ] ; then
 	cd ..
 	echo "  - Generating report..."
 	$PHP generateReports.php
-    ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
+	)
 
-    echo
-    echo "Creating an XML dump..."
-    echo
-    dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
-    ./olacaxmldump.py > $dumpnam
-    ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
+        echo
+        echo "Creating an XML dump and static record pages..."
+        echo
+        dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
+	PATH=/ldc/app/i386/pkg/sqlite-3.3.5/bin:/ldc/app/i386/pkg/mysql-5.0.22/bin:$PATH ./olacaxmldump.py /home/olac/.my.cnf.olac2 $dumpnam $SRECDIR
+        ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
+	(
+	cd $SRECDIR
+	find . -name "*.xml" | sort | sed -E -e 's@^./(.*)@<li><a href="./\1">\1</a>@' > index.html
+	)
+	
+	/ldc/bin/python2.4 /web/language-archives/devel/olac07/compute_olac_metrics.py
+
+    ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 fi
 
 
