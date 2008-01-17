@@ -2,6 +2,7 @@ use OLAC::DB;
 use Net::HTTP;
 use XML::Parser;
 use DBI;
+use URI::Escape;
 use vars ('@ISA');
 
 
@@ -443,6 +444,7 @@ sub _Start_rt {
     $resumptionToken = '';
 }
 sub _End_rt {
+    $resumptionToken = URI::Escape::uri_escape($resumptionToken);
     switch_handlers(\&_s_main, \&_e_main, \&_c_main);
 }
 sub _Char_rt {
