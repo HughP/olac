@@ -11,7 +11,7 @@
   <xs:annotation>
     <xs:appinfo>
       <olac-extension xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension.xsd">
-        <shortName>ISO639-3</shortName>
+        <shortName>Language</shortName>
         <longName>Code for Identifying Languages</longName>
         <versionDate>2007-11-14</versionDate>
         <description>Provides codes for identifying all known languages, both living and
