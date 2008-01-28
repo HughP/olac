@@ -10,7 +10,7 @@
 
   <xs:annotation>
     <xs:appinfo>
-      <olac-extension xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension.xsd">
+      <olac-extension xmlns="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">
         <shortName>Language</shortName>
         <longName>Code for Identifying Languages</longName>
         <versionDate>2007-11-14</versionDate>
