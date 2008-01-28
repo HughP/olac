@@ -43,10 +43,10 @@
     <oai:description>
       <olac-archive
         type="institutional"
-        xmlns="http://www.language-archives.org/OLAC/1.0/olac-archive"
+        xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
         xsi:schemaLocation="
-        http://www.language-archives.org/OLAC/1.0/olac-archive
-        http://www.language-archives.org/OLAC/1.0/olac-archive.xsd">
+        http://www.language-archives.org/OLAC/1.1/olac-archive
+        http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac-archive.xsd">
         <archiveURL>http://www.cs.mu.oz.au/research/lt/kayardild/</archiveURL>
         <curator>Baden Hughes</curator>
         <curatorTitle/>
@@ -69,8 +69,8 @@
     
     <oai:metadataFormat>
     	<oai:metadataPrefix>olac</oai:metadataPrefix>
-    	<oai:schema>http://www.language-archives.org/OLAC/1.0/olac.xsd</oai:schema>
-    	<oai:metadataNamespace>http://www.language-archives.org/OLAC/1.0/ </oai:metadataNamespace>
+    	<oai:schema>http://www.language-archives.org/OLAC/1.1/olac.xsd</oai:schema>
+    	<oai:metadataNamespace>http://www.language-archives.org/OLAC/1.1/ </oai:metadataNamespace>
     </oai:metadataFormat>
     
   </ListMetadataFormats>
