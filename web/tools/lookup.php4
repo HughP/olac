@@ -10,6 +10,8 @@
 #   <oai-id>  OAI record identifier
 #
 # changes:
+#   2008-01-28  fixed an sql query because it didn't pick up all
+#               metadata elements -HL
 #   2004-11-10  set character encoding to UTF-8 - HL
 #   2003-02-28  use olac2 - HL
 #   2003-02-26  revised for OLAC 1.0 with "display" format - HL
@@ -116,18 +118,27 @@ $oai_info = <<<END
 </tr>
 END;
 
+#$tab = $DB->sql("
+#   select ed.Label as TagLabel, ed2.Label as DcTag,
+#           Lang, Content, ex.Label as Type, cd.Label as Code
+#    from   ELEMENT_DEFN ed, ELEMENT_DEFN ed2,
+#           METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd 
+#    where  Item_ID=$answer[Item_ID]
+#    and    ed2.Tag_ID = ed.DcElement
+#    and    me.Extension_ID=ex.Extension_ID
+#    and    me.Extension_ID=cd.Extension_ID
+#    and    (cd.Code='' or me.Code=cd.Code)
+#    and    me.Tag_ID = ed.Tag_ID
+#    order by ed.Rank");
 $tab = $DB->sql("
-    select ed.Label as TagLabel, ed2.Label as DcTag,
-           Lang, Content, ex.Label as Type, cd.Label as Code
-    from   ELEMENT_DEFN ed, ELEMENT_DEFN ed2,
-           METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd 
-    where  Item_ID=$answer[Item_ID]
-    and    ed2.Tag_ID = ed.DcElement
-    and    me.Extension_ID=ex.Extension_ID
-    and    me.Extension_ID=cd.Extension_ID
-    and    (cd.Code='' or me.Code=cd.Code)
-    and    me.Tag_ID = ed.Tag_ID
-    order by ed.Rank");
+	select ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content, me.Type Type, cd.Label Code
+	from METADATA_ELEM me
+	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
+	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
+	left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+	where Item_ID=$answer[Item_ID]
+	order by ed.Rank
+");
 $DB->saw_error() and error_page("Query failed");
 
 $prev_field = "";
