@@ -16,7 +16,7 @@
 
   <!-- This document is valid according to both of the following schemas:
        http://www.openarchives.org/OAI/2.0/static-repository.xsd
-       http://www.language-archives.org/OLAC/1.0/static-repository.xsd
+       http://www.language-archives.org/OLAC/1.1/static-repository.xsd
   -->
 
 
@@ -31,8 +31,7 @@
     <oai:description>
       <oai-identifier
         xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
-        xsi:schemaLocation="
-          http://www.openarchives.org/OAI/2.0/oai-identifier
+        xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier
           http://www.openarchives.org/OAI/2.0/oai-identifier.xsd">
         <scheme>oai</scheme>
         <repositoryIdentifier>kayardild.lt.cs.mu.oz.au</repositoryIdentifier>
@@ -44,8 +43,7 @@
       <olac-archive
         type="institutional"
         xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
-        xsi:schemaLocation="
-        http://www.language-archives.org/OLAC/1.1/olac-archive
+        xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
         http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac-archive.xsd">
         <archiveURL>http://www.cs.mu.oz.au/research/lt/kayardild/</archiveURL>
         <curator>Baden Hughes</curator>
@@ -86,8 +84,8 @@
           <dc:title>A grammar of Kayardild. With comparative notes on Tangkic.</dc:title>
           <dc:creator>Evans, Nicholas D.</dc:creator>
           <dc:subject>Kayardild grammar</dc:subject>
-          <dc:subject xsi:type="olac:language" olac:code="x-sil-GYD">Kayardild</dc:subject>
-          <dc:subject xsi:type="olac:language" olac:code="en">English</dc:subject>
+          <dc:subject xsi:type="olac:language" olac:code="gyd"/>
+          <dc:language xsi:type="olac:language" olac:code="eng"/>
           <dc:description>Kayardild Grammar (ISBN 3110127954)</dc:description>
           <dc:publisher>Berlin - Mouton de Gruyter</dc:publisher>
           <dc:contributor xsi:type="olac:role" olac:code="author">Nicholas Evans</dc:contributor>
@@ -108,7 +106,7 @@
           <dc:title>Kayardild dictionary and thesaurus : a vocabulary of the language of the Bentinck Islanders, North-West Queensland </dc:title>
           <dc:creator>Nicholas Evans</dc:creator>
           <dc:subject>Kayardild dictionary and thesaurus</dc:subject>
-          <dc:subject xsi:type="olac:language" olac:code="x-sil-GYD">Kayardild</dc:subject>
+          <dc:subject xsi:type="olac:language" olac:code="gyd"/>
           <dc:description>Kayardild dictionary and thesaurus (ISBN 0646119966) </dc:description>
           <dc:publisher>Parkville, Vic., Australia. University of Melbourne, Dept. of Linguistics and Language Studies.</dc:publisher>
           <dc:contributor xsi:type="olac:role" olac:code="researcher">Nicholas Evans</dc:contributor>
