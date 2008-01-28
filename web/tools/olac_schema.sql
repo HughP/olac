@@ -1,3 +1,15 @@
+##################################################################
+#   MySQL Schema for database used by OLAC metadata harvester    #
+#   Open Language Archives Community                             #
+#   http://www.language-archives.org/tools/olac_schema.sql       #
+##################################################################
+#
+# CHANGES 2006-03-31 GS:
+#
+# Added DCMI elements and refinements to ELEMENT_DEFN that have
+# been added since 2003. See comment "Added 2006-03-31" below for 
+# for beginning of list of new items.
+#
 #
 # CHANGES 2003-05-16 HL:
 #
@@ -181,9 +193,8 @@ insert into ELEMENT_DEFN values (1300,1300,   0,1300, 'subject',     'Subject');
 insert into ELEMENT_DEFN values (1400,1400,   0,   0, 'title',       'Title');
 insert into ELEMENT_DEFN values (1500,1500,   0,1500, 'type',        'Type');
 
-insert into ELEMENT_DEFN values (1401,1400,   0,  1,  'alternative',     'Alternative Title');
-insert into ELEMENT_DEFN values ( 501, 500,   0, 501, 'tableOfContents', 'Table Of Contents');
-insert into ELEMENT_DEFN values ( 502, 500,   0, 502, 'abstract',        'Abstract');
+insert into ELEMENT_DEFN values ( 201, 200,   0, 201, 'spatial',         'Spatial Coverage');
+insert into ELEMENT_DEFN values ( 202, 200,   0, 202, 'temporal',        'Temporal Coverage');
 insert into ELEMENT_DEFN values ( 401, 400,   0, 401, 'created',         'Created');
 insert into ELEMENT_DEFN values ( 402, 400,   0, 402, 'valid',           'Valid');
 insert into ELEMENT_DEFN values ( 403, 400,   0, 403, 'available',       'Available');
@@ -192,6 +203,8 @@ insert into ELEMENT_DEFN values ( 405, 400,   0, 405, 'modified',        'Modifi
 insert into ELEMENT_DEFN values ( 406, 400,   0, 406, 'dateAccepted',    'Date Accepted');
 insert into ELEMENT_DEFN values ( 407, 400,   0, 407, 'dateCopyrighted', 'Date Copyrighted');
 insert into ELEMENT_DEFN values ( 408, 400,   0, 408, 'dateSubmitted',   'Date Submitted');
+insert into ELEMENT_DEFN values ( 501, 500,   0, 501, 'tableOfContents', 'Table Of Contents');
+insert into ELEMENT_DEFN values ( 502, 500,   0, 502, 'abstract',        'Abstract');
 insert into ELEMENT_DEFN values ( 601, 600,   0, 601, 'extent',          'Extent');
 insert into ELEMENT_DEFN values ( 602, 600,   0, 602, 'medium',          'Medium');
 insert into ELEMENT_DEFN values (1001,1000,1002,1001, 'isVersionOf',     'Is Version Of');
@@ -207,8 +220,23 @@ insert into ELEMENT_DEFN values (1010,1000,1009,1010, 'references',      'Refere
 insert into ELEMENT_DEFN values (1011,1000,1012,1011, 'isFormatOf',      'Is Format Of');
 insert into ELEMENT_DEFN values (1012,1000,1011,1012, 'hasFormat',       'Has Format');
 insert into ELEMENT_DEFN values (1013,1000,1000,1013, 'conformsTo',      'Conforms To');
-insert into ELEMENT_DEFN values ( 201, 200,   0, 201, 'spatial',         'Spatial Coverage');
-insert into ELEMENT_DEFN values ( 202, 200,   0, 202, 'temporal',        'Temporal Coverage');
+insert into ELEMENT_DEFN values (1401,1400,   0,   1, 'alternative',     'Alternative Title');
+
+# Added 2006-03-31
+
+insert into ELEMENT_DEFN values (1600,1600,   0,1600, 'accrualMethod',   'Accrual Method');
+insert into ELEMENT_DEFN values (1610,1610,   0,1610, 'accrualPolicy',   'Accrual Policy');
+insert into ELEMENT_DEFN values (1620,1620,   0,1620, 'accrualPeriodicity', 'Accrual Periodicity');
+insert into ELEMENT_DEFN values (1700,1700,   0,  50, 'audience',        'Audience');
+insert into ELEMENT_DEFN values (1800,1800,   0, 750, 'instructionalMethod', 'Instructional Method');
+insert into ELEMENT_DEFN values (1900,1900,   0,1900, 'provenance',      'Provenance');
+insert into ELEMENT_DEFN values (2000,2000,   0,1150, 'rightsHolder',    'Rights Holder');
+
+insert into ELEMENT_DEFN values (1101,1100,   0,1101, 'accessRights',    'Access Rights');
+insert into ELEMENT_DEFN values ( 701, 700,   0, 701, 'bibliographicCitation', 'Bibliographic Citation');
+insert into ELEMENT_DEFN values (1701,1700,   0,  51, 'educationLevel',  'Audience Education Level');
+insert into ELEMENT_DEFN values (1102,1100,   0,1102, 'license',         'License');
+insert into ELEMENT_DEFN values (1702,1700,   0,  52, 'mediator',        'Mediator');
 
 
 ##################################################################
@@ -365,4 +393,5 @@ create table EXTENSION (
 
 insert into EXTENSION (Type,NS) values ('','');
 update EXTENSION set Extension_ID=0;
+
 
