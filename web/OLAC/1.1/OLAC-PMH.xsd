@@ -8,7 +8,7 @@
         elementFormDefault="qualified"
         attributeFormDefault="unqualified">
 
-  <!-- OLAC: changes marked - Steven Bird 2002-12-14 -->
+  <!-- OLAC: changes marked - Steven Bird 2002-12-14 (v 1.0), Gary Simons 2008-01-26 (v 1.1) -->
   <!-- modifications of OAI-PMH to restrict it to OLAC metadata -->
   <!-- This file is used by static repositories -->
 
@@ -26,7 +26,7 @@
 
 	<!-- OLAC: import schemas -->
 	<import namespace="http://www.language-archives.org/OLAC/1.1/"
-	   schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1//olac.xsd"/>
+	   schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac.xsd"/>
 	<import namespace="http://www.language-archives.org/OLAC/1.1/olac-archive"
 	   schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac-archive.xsd"/>
 	<import namespace="http://www.openarchives.org/OAI/2.0/oai-identifier"
@@ -263,8 +263,9 @@
 	<complexType name="metadataFormatType">
 		<sequence>
 			<element name="metadataPrefix" type="oai:metadataPrefixType" fixed="olac"/>
-			<element name="schema" type="anyURI" fixed="http://www.language-archives.org/OLAC/1.0/olac.xsd"/>
-			<element name="metadataNamespace" type="anyURI" fixed="http://www.language-archives.org/OLAC/1.0/"/>
+			<element name="schema" type="anyURI" fixed="http://www.language-archives.org/OLAC/1.1/olac.xsd"/>
+			<element name="metadataNamespace" type="anyURI"
+			   fixed="http://www.language-archives.org/OLAC/1.1/"/>
 		</sequence>
 	</complexType>
 	<simpleType name="metadataPrefixType">
