@@ -10,7 +10,7 @@
 
   <!-- OLAC: import OLAC version of OAI-PMH -->
   <xs:import namespace="http://www.openarchives.org/OAI/2.0/"
-      schemaLocation="http://www.language-archives.org/OLAC/1.0/OLAC-PMH.xsd"/>
+      schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/OLAC-PMH.xsd"/>
 
   <xs:element name="Repository" type="sr:repo"/>
 
