@@ -1,10 +1,10 @@
 <schema targetNamespace="http://www.openarchives.org/OAI/2.0/"
         xmlns="http://www.w3.org/2001/XMLSchema"
         xmlns:oai="http://www.openarchives.org/OAI/2.0/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
         xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
         xmlns:olac-archive="http://www.language-archives.org/OLAC/1.1/olac-archive"
-	xmlns:oai-identifier="http://www.openarchives.org/OAI/2.0/oai-identifier"
+        xmlns:oai-identifier="http://www.openarchives.org/OAI/2.0/oai-identifier"
         elementFormDefault="qualified"
         attributeFormDefault="unqualified">
 
