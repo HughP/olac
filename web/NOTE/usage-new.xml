@@ -12,16 +12,17 @@
          <p>This document provides guidelines on the meaning and proper usage of the metadata elements used in the
             metadata standard of the Open Language Archives Community.</p>
       </abstract>
-      <editors>Gary Simons, SIL International and Graduate Institute of Applied
-         Linguistics (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) <br/>Joan Spanne, SIL International
+      <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
+            (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and University of
+         Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) <br/>Joan Spanne, SIL International
             (<url>mailto:joan_spanne@sil.org</url>)</editors>
-      <copyright>2007 Gary Simons (SIL International and Graduate Institute of Applied
-         Linguistics), Steven Bird (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL
-         International)</copyright>
-      <changes><p>In section 3, many points clarified regarding individual elements:
-         distinction between Creator and Contributor, application of Coverage versus
-         Description for place of origin versus place of recording, [more to come].
-         Section 5 on the granularity or resources was added.</p></changes>
+      <copyright>2007 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
+         (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL International)</copyright>
+      <changes>
+         <p>In section 3, many points clarified regarding individual elements: distinction between Creator and
+            Contributor, application of Coverage versus Description for place of origin versus place of recording, [more
+            to come]. Section 5 on the granularity of resources was added.</p>
+      </changes>
    </header>
    <!-- N.B. Style used throughout document for aspects of markup:
              DC elements are simply capitalized
@@ -42,10 +43,9 @@
             document. </p>
          <p>Section 2 below describes the usage of the attributes that may be used on metadata elements. Section 3 then
             describes usage in the OLAC context for the fifteen core elements of the Dublin Core metadata set. Section 4
-            describes other elements that may be used. Section 5 concludes with remarks
-            about the granularity of resources; that is, it addresses the question of what
-         size of thing (from file up to entire corpus) is treated as an item in an OLAC
-         repository.</p>
+            describes other elements that may be used. Section 5 concludes with remarks about the granularity of
+            resources; that is, it addresses the question of what size of thing (from file up to entire corpus) is
+            treated as an item in an OLAC repository.</p>
       </section>
       <section>
          <heading>All elements</heading>
@@ -104,7 +104,7 @@
                examples --></examples>
          </element>
       </section>
-      
+
       <section>
          <heading>Core elements</heading>
          <p>Each of the fifteen core elements of the Dublin Core metadata set is described in one of the following
@@ -130,17 +130,18 @@
                   involvement in the creation or development of the resource to warrant explicit identification.
                   Contributor is closely related to <xref>Creator</xref>. While a case for distinguishing the usage of
                   the two elements can be made based on the degree of responsibility for the content, the application of
-                  the <i>olac:role</i> schema to the Contributor element, with its more precise vocabulary for the nature of
-                  the contribution made by the entity identified, makes drawing a distinction between the less precise
-                  concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
+                  the <i>olac:role</i> schema to the Contributor element, with its more precise vocabulary for the
+                  nature of the contribution made by the entity identified, makes drawing a distinction between the less
+                  precise concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
                   consider Creator to be a refinement of the Contributor element. See the discussion of
                   <xref>Creator</xref> for more on this point.</p>
                <p>Contributor and <xref>Publisher</xref> are also somewhat related elements. In particular, the
-                  <i>olac:role</i> "sponsor" can come close to one aspect of participation that a publisher may have in regard
-                  to making a given resource available to the public. The <i>olac:role</i> "editor" is frequently one of the
-                  individual tasks that are collectively performed by the publisher of a work. A "sponsor" that is not
-                  also the formal publisher of a resource may be entered in a Contributor element (with the proper
-                  <i>olac:role</i> specified), but the publisher should not be repeated in a Contributor element.</p>
+                     <i>olac:role</i> "sponsor" can come close to one aspect of participation that a publisher may have
+                  in regard to making a given resource available to the public. The <i>olac:role</i> "editor" is
+                  frequently one of the individual tasks that are collectively performed by the publisher of a work. A
+                  "sponsor" that is not also the formal publisher of a resource may be entered in a Contributor element
+                  (with the proper <i>olac:role</i> specified), but the publisher should not be repeated in a
+                  Contributor element.</p>
                <p>The entry element for a personal name will vary according to conventions used in a given location and
                   with a given language. General practice among librarians is to select as the entry element that part
                   of the name under which the person would normally be listed in an authoritative alphabetical list in
@@ -160,9 +161,10 @@
                <dl>
                   <dt>olac:role</dt>
                   <dd>
-                     <p>The <i>olac:role</i> scheme is optionally used to specify the role (such as transcriber, sponsor, and so
-                        on) played by the named entity in the creation of the resource. The role is expressed by means
-                        of a controlled vocabulary; see <cit>OLAC-Role</cit> for the definition of the vocabulary. </p>
+                     <p>The <i>olac:role</i> scheme is optionally used to specify the role (such as transcriber,
+                        sponsor, and so on) played by the named entity in the creation of the resource. The role is
+                        expressed by means of a controlled vocabulary; see <cit>OLAC-Role</cit> for the definition of
+                        the vocabulary. </p>
                   </dd>
                </dl>
             </schemes>
@@ -246,8 +248,7 @@
                   </dd>
                   <dt>dcterms:Point</dt>
                   <dd>
-                     <p>Identifies a point in space using its geographic coordinates
-                        <cit>DCMI-Point</cit>.</p>
+                     <p>Identifies a point in space using its geographic coordinates <cit>DCMI-Point</cit>.</p>
                   </dd>
                   <dt>dcterms:TGN</dt>
                   <dd>
@@ -295,17 +296,16 @@
             <definition>An entity primarily responsible for making the resource.</definition>
             <comment>
                <p>A Creator may be a person, an organization, or a service. Creator is closely related to
-                     <xref>Contributor</xref>. OLAC recommendation is that Creator be viewed semantically as a
-                     <i>refinement</i> of Contributor, though it retains its status as an element for backward
-                  compatibility. In this view, Creator is another kind of Contributor role, still rather generic, but
-                  strongly indicative of significant involvement in the creation of the resource. Thus, Creator is
+                  <xref>Contributor</xref>.  Creator, though still rather generic, is to be understood as being
+                  strongly indicative of significant involvement in the creation of the resource. OLAC recommendation is 
+                  that Creator be viewed semantically as a <i>refinement</i> of Contributor, though it retains 
+                  its status (and therefore its syntax) as an element for backward compatibility.  Thus, Creator is
                   appropriate to use in cases where the entity to be identified has significant involvement as a primary
-                  source of the resource, but in such a way that none of the role terms available in the
+                  originator of the resource, but in such a way that none of the role terms available in the
                   <i>olac:role</i> scheme is a suitable description of that involvement. Examples are an artist
                   (sculptor, carver, weaver) or a modeler.</p>
-               <p>The semantic demotion of the Creator element as being an equivalent of a refinement of Contributor has
-                  support in the wider community. The DCMI's Library Application Profile
-                  <cit>DC-Lib</cit> make this
+               <p>The semantic redefinition of the Creator element as being equivalent to a refinement of Contributor has
+                  support in the wider community. The DCMI's Library Application Profile <cit>DC-Lib</cit> make this
                   recommendation. In view of this treatment, if Creator is used, it should be used without a role
                   refinement term.</p>
             </comment>
@@ -318,7 +318,7 @@
 
             <examples>
                <p>A weaver of a basket resource:</p>
-               <eg>&lt;dc:creator&gt;Datsolalee (weaver)&lt;/dc:creator&gt;</eg>
+               <eg>&lt;dc:creator&gt;Datsolalee&lt;/dc:creator&gt;</eg>
             </examples>
          </element>
 
@@ -1125,7 +1125,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
    marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
             </examples>
          </element>
-         
+
          <element name="Rights Holder">
             <definition>A person or organization owning or managing rights over the resource.</definition>
             <comment>
@@ -1135,50 +1135,53 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 
       </section>
 
-   <section>
-      <heading>Granularity of resources</heading>
-      <p>Determining the right degree of detail to apply at the level of an OLAC resource description involves multiple factors.
-         The level of description appropriate for harvesting and inclusion in an aggregate catalog may be different (typically
-         less) than the level of description desirable for the catalog of a specific institution's repository.</p>
-      <p>For a resource that has been published in some form, the unit or grouping of publication usually corresponds
-         to the appropriate unit of description for the OLAC record. However, many archival resources have not been formally
-         published. For unpublished papers presenting findings of research, these closely parallel their published counterparts,
-         and consitute similar kinds of units for archival description.</p>
-      <p>For primary source materials (recordings, transcribed texts, data sets) the foremost factor in determining 
-         an appropriate unit of aggregation and description will be their provenance: does a particular body of resources 
-         have a shared provenance, or were they placed together at some point in time well after their creation 
-         (possibly by the repository itself)? If the latter, was there some coherent organizing principle or intermediate stage of
-         development that is still relevant for the proper understanding and use of the resources, or would the grouping be 
-         motivated more by convenience of handling? Situations of shared provenance that constitute a collective unit or collection
-         for description purposes will be distinguished by the high degree of commonality of metadata elements, 
-         <i>e.g.</i>, same researcher(s), author(s), subject language(s), content (or analysis) language(s), approximate date, 
-         coverage, linguistic type, general description. Other metadata elements that are also important for resource 
-         discovery but that may differ at this level (<i>e.g.</i>, discourse type) can be repeated at the OLAC description 
-         level for as many types as are prominently included. Further characteristics, such as topic, additional contributors, 
-         event specifics, particular discourse type, can be documented at a finer level of granularity by creating
-         a second level of "collection description" which includes more detail on the individual units (specific recordings or texts), 
-         included as a part of the collection in an expanded, structured contents description. This is the level that aligns 
-         with the session level detail of <cit>IMDI</cit> description.</p>
-      <p> TO DO: Add another sentence relating OLAC and IMDI (IMDI website down)</p>
-      <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects of descriptions may be 
-         quite unique to the collection of materials in hand. For example, it could be valuable to document the 
-         orthography used for a given written text (whether transcription or original writing) in a collection where 
-         different orthographies are represented. It is at this second level that the description becomes something 
-         of its own creative endeavor, as the collection's compiler or the archivist creating this level of description seeks to offer
-         additional detail in an organized way that will enhance the utility of the collection for future researchers.</p> 
-      <p>Materials without a common provenance generally should not be grouped either within the repository 
-         or for OLAC description.</p>
-      <p>The timing of acquisition of materials, whether they are received as a group at one point in time or 
-         accrue (are submitted to the repository) over a period of time, is a second significant factor in determining the 
-         units of grouping for OLAC level description. Materials that are collected together and organized by some
-         knowledgeable person (perhaps the original researcher, perhaps not) may properly constitute a single collection
-         (as a single unit of OLAC description) with a complex secondary level of collection description. Yet those same materials,
-         had they been deposited periodically over time, might just as well constitute numerous smaller units each with its own
-         OLAC level descriptive record.</p>
-      
-   </section>
-      
-      
+      <section>
+         <heading>Granularity of resources</heading>
+         <p>Determining the right degree of detail to apply at the level of an OLAC resource description involves
+            multiple factors. The level of description appropriate for harvesting and inclusion in an aggregate catalog
+            may be different (typically less) than the level of description desirable for the catalog of a specific
+            institution's repository.</p>
+         <p>For a resource that has been published in some form, the unit or grouping of publication usually corresponds
+            to the appropriate unit of description for the OLAC record. However, many archival resources have not been
+            formally published. For unpublished papers presenting findings of research, these closely parallel their
+            published counterparts, and consitute similar kinds of units for archival description.</p>
+         <p>For primary source materials (recordings, transcribed texts, data sets) the foremost factor in determining
+            an appropriate unit of aggregation and description will be their provenance: does a particular body of
+            resources have a shared provenance, or were they placed together at some point in time well after their
+            creation (possibly by the repository itself)? If the latter, was there some coherent organizing principle or
+            intermediate stage of development that is still relevant for the proper understanding and use of the
+            resources, or would the grouping be motivated more by convenience of handling? Situations of shared
+            provenance that constitute a collective unit or collection for description purposes will be distinguished by
+            the high degree of commonality of metadata elements, <i>e.g.</i>, same researcher(s), author(s), subject
+            language(s), content (or analysis) language(s), approximate date, coverage, linguistic type, general
+            description. Other metadata elements that are also important for resource discovery but that may differ at
+            this level (<i>e.g.</i>, discourse type) can be repeated at the OLAC description level for as many types as
+            are prominently included. Further characteristics, such as topic, additional contributors, event specifics,
+            particular discourse type, can be documented at a finer level of granularity by creating a second level of
+            "collection description" which includes more detail on the individual units (specific recordings or texts),
+            included as a part of the collection in an expanded, structured contents description. This is the level that
+            aligns with the session level detail of <cit>IMDI</cit> description.</p>
+         <p> TO DO: Add another sentence relating OLAC and IMDI (IMDI website down)</p>
+         <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects of descriptions may
+            be quite unique to the collection of materials in hand. For example, it could be valuable to document the
+            orthography used for a given written text (whether transcription or original writing) in a collection where
+            different orthographies are represented. It is at this second level that the description becomes something
+            of its own creative endeavor, as the collection's compiler or the archivist creating this level of
+            description seeks to offer additional detail in an organized way that will enhance the utility of the
+            collection for future researchers.</p>
+         <p>Materials without a common provenance generally should not be grouped either within the repository or for
+            OLAC description.</p>
+         <p>The timing of acquisition of materials, whether they are received as a group at one point in time or accrue
+            (are submitted to the repository) over a period of time, is a second significant factor in determining the
+            units of grouping for OLAC level description. Materials that are collected together and organized by some
+            knowledgeable person (perhaps the original researcher, perhaps not) may properly constitute a single
+            collection (as a single unit of OLAC description) with a complex secondary level of collection description.
+            Yet those same materials, had they been deposited periodically over time, might just as well constitute
+            numerous smaller units each with its own OLAC level descriptive record.</p>
+
+      </section>
+
+
    </body>
    <references>
       <ref abbrev="AACR2r">Anglo-American Cataloguing Rules, 2nd ed., 2002 revision. Ottawa and Chicago: Canadian
@@ -1191,7 +1194,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
       <ref abbrev="CC">Creative Commons Licenses.<br/>&lt;<url>http://creativecommons.org/licenses/</url>&gt;</ref>
 
       <ref abbrev="DC-Lib">DC-Library Application Profile.
-         <br/>&lt;<url>http://dublincore.org/documents/library-application-profile/index.shtml#creator</url>&gt;</ref>
+            <br/>&lt;<url>http://dublincore.org/documents/library-application-profile/index.shtml#creator</url>&gt;</ref>
 
       <ref abbrev="DCMT">Dublin Core Metadata Terms.
          <br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
@@ -1209,7 +1212,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
 
       <ref abbrev="IMT">MIME Media Types.<br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
-      
+
       <ref abbrev="IMDI">ISLE Metadata Initiative. <br/>&lt;<url>http://www.mpi.nl/ISLE/</url>&gt;</ref>
 
       <ref abbrev="ISO3166">ISO 3166: Codes for the representation of names of countries.
