@@ -6,7 +6,7 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Quality Metrics</title>
       <baseName>metrics</baseName>
-      <issued>20080128</issued>
+      <issued>20080130</issued>
       <previousIssued>20071117</previousIssued>
       <abstract>
          <p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
@@ -114,9 +114,16 @@
                <p>One point is awarded for appropriate use of the <i>olac:language</i> encoding scheme
                      <cit>OLAC-Language</cit> with the Subject element to precisely identify the language that the
                   resource is about. The notion of subject language is not relevant to every language resource. When the
-                  linguistic type of a resource is "primary_text" or "not_applicable" it is not required to have a
-                  subject language, and this point is awarded automatically. Otherwise, there must be at least one
-                  Subject element using the <i>olac:language</i> encoding scheme in order to earn the point. </p>
+                  linguistic type of a resource is "primary_text" it is not required to have a
+                  subject language, and this point is awarded automatically. (Until the
+                  problem mentioned above under Linguistic Type is solved by creating a more general
+                  Language Resource Type vocabulary, the point will also be awarded
+                  automatically when there is no instance of <i>olac:linguistic-type</i>. This means that a resource other than
+                  a primary text for which subject language is truly not applicable will
+                  lose the point for Linguistic Type, but not be doubly penalized in the
+                  point for Subject Language.) When the linguistic type has any other value, there must be at least one
+                  Subject element using the <i>olac:language</i> encoding scheme in order
+                  to earn this point. </p>
             </dd>
             <dt>DCMI Type</dt>
             <dd>
