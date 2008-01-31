@@ -8,7 +8,7 @@ Last modified: 16 Sept 2007
 -->
 <!ELEMENT OLAC_doc (header, body, todo?, references?)>
 <!--Header information for the document-->
-<!ELEMENT header (status, title, baseName, issued, previousIssued, abstract, editors, copyright, changes)>
+<!ELEMENT header (status, title, baseName, issued, previousIssued, supersedes?, abstract, editors, copyright, changes)>
 <!--The status of the document. 
    @code = furthest stage in life cycle
    @type = type of document
@@ -41,6 +41,8 @@ Last modified: 16 Sept 2007
 <!ELEMENT issued (#PCDATA)>
 <!--Date issued for previous version-->
 <!ELEMENT previousIssued (#PCDATA)>
+<!--The date of the Adopted version which this one will supersede when Adopted-->
+<!ELEMENT supersedes (#PCDATA)>
 <!--An abstract for the document-->
 <!ELEMENT abstract (p)>
 <!--Paragraph-->
