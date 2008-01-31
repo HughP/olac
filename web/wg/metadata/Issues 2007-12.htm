@@ -86,7 +86,7 @@ div.Section1
  @list l0
 	{mso-list-id:-119;
 	mso-list-type:simple;
-	mso-list-template-ids:-1286027366;}
+	mso-list-template-ids:1545111218;}
 @list l0:level1
 	{mso-level-number-format:bullet;
 	mso-level-style-link:"List Bullet";
@@ -416,13 +416,23 @@ Creator vs. Contributor<o:p></o:p></i></p>
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'>Clearly a <span class=GramE>consensus,</span> and it
-aligns with the DC consensus that has demoted Creator to being a refinement in
-the semantic model (though it is retained as an element for backward
-compatibility). Our usage notes should document and endorse the
-Contributor-only approach, while also permitting the use of both (saying that
-in keeping with the new DC semantics, Creator may be <span class=SpellE>dumbed</span>-down
-to Contributor by applications).<o:p></o:p></span></p>
+style='font-size:10.0pt'>We seem to have a consensus that the Creator vs. Contributor
+distinction is confusing and that our usage notes need to do better at
+explaining. The DCMI has also run into this problem. They have not deprecated
+Creator, so in order to maintain compatibility with the mainstream, neither
+should <span class=GramE>we.</span><span style='mso-spacerun:yes'>  </span>However,
+they have come to the conclusion that Creator is a kind of Contributor (as
+indicated in the latest version of the <a
+href="http://dublincore.org/documents/dcmi-terms/">DCMI Metadata Terms</a>,
+issued 2008-01-14) and that a vocabulary to refine roles is applicable only to
+Contributor (as indicated in the <a
+href="http://dublincore.org/documents/library-application-profile/">Library
+Application Profile</a>). Our usage notes have been revised to permit <span
+class=SpellE>olac<span class=GramE>:role</span></span> only on Contributor and
+to explain that Creator still has a place for compatibility with common metadata
+practice (such as for the author of articles in the <a
+href="http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_Application_Profile"><span
+class=SpellE>Eprints</span> Application Profile</a>).<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -543,31 +553,18 @@ class=SpellE><i style='mso-bidi-font-style:normal'>hasTranscript</i></span> and
 <span class=SpellE><i style='mso-bidi-font-style:normal'>isTranscriptOf</i></span><i
 style='mso-bidi-font-style:normal'> </i>pair.</span></span><span
 style='font-size:10.0pt'> The trick is how to implement it.<span
-style='mso-spacerun:yes'>  </span>We would be adding to the set of markup
-elements defined by Dublin Core.<span style='mso-spacerun:yes'>  </span>To this
-point, all of our metadata extensions have been in attribute values.<span
-style='mso-spacerun:yes'>  </span>This would require defining new elements in
-the schema that would be in the <span class=SpellE><i style='mso-bidi-font-style:
-normal'>olac</i></span> namespace. We will look into that as we develop the
-next version of the document.<span style='mso-spacerun:yes'>  </span>There are
-three issues to resolve:<o:p></o:p></span></p>
-
-<p class=MsoListBullet style='mso-list:l3 level1 lfo7'><![if !supportLists]><span
-style='font-size:10.0pt'><span style='mso-list:Ignore'>1.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
-style='font-size:10.0pt'>Implementing the new refinements in the XML schema<o:p></o:p></span></p>
-
-<p class=MsoListBullet style='mso-list:l3 level1 lfo7'><![if !supportLists]><span
-style='font-size:10.0pt'><span style='mso-list:Ignore'>2.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
-style='font-size:10.0pt'>Is it adequate for the only documentation of a
-metadata extension to be in a Note, or do we need a Recommendation document to
-parallel the other extension recommendations?<o:p></o:p></span></p>
-
-<p class=MsoListBullet style='mso-list:l3 level1 lfo7'><![if !supportLists]><span
-style='font-size:10.0pt'><span style='mso-list:Ignore'>3.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
-style='font-size:10.0pt'>Do we need any other relations?<o:p></o:p></span></p>
+style='mso-spacerun:yes'>  </span>Since these are refinements, we would be
+adding to the set of markup elements defined by the DC schema for expressing
+qualified Dublin Core in XML (which is what we are following).<span
+style='mso-spacerun:yes'>  </span>To this point, all of our metadata extensions
+have been as encoding schemes that are used in attribute values.<span
+style='mso-spacerun:yes'>  </span>We therefore could not implement this without
+a significant departure from the constraints we have followed to this point. The
+DCMI is working on a major revision of their guidelines for expressing
+qualified DC in XML which will provide an easy way for us to add refinements. Thus
+we want to hold off and handle this kind of change in a future round of more
+radical changes in which we would align with the <span class=SpellE>DCMI’s</span>
+new guidelines after they come out.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -578,12 +575,12 @@ style='mso-bidi-font-weight:normal'>3. <a name=Enhancements></a>Enhancements<o:p
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'>Is this the right time to suggest an enhancement of
-OLAC-linguistic-type to include more <span class=SpellE>finegrained</span>
-details, e.g. Extensive dictionary/ large wordlist/ wordlist Grammatical
-description/ grammar sketch Making this distinction will help as we may be
-looking to establish a documentation index from these metadata, in order to
-know that language XXX has YYY amount of information available about it.
-(Nicholas <span class=SpellE>Thieberger</span> 4-Dec-2007)<o:p></o:p></span></p>
+OLAC-linguistic-type to include more fine-grained details, e.g. Extensive
+dictionary/ large wordlist/ wordlist Grammatical description/ grammar sketch
+Making this distinction will help as we may be looking to establish a
+documentation index from these metadata, in order to know that language XXX has
+YYY amount of information available about it. (Nicholas <span class=SpellE>Thieberger</span>
+4-Dec-2007)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
@@ -727,11 +724,11 @@ style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 style='font-size:10.0pt;mso-bidi-font-weight:bold'>I agree with the intuition
 that 500 [records for individual files in a corpus] is too many, but one seems
 like too few. Under a scenario where I'm looking for anything on language X,
-this might seem reasonable but what if, for example, I'm looking for extensive materials
-from some particular genre. Then, I would want those 500 texts broken down by
-genre and I would want to have them all bunched together. I don't know what the
-right balance is here, but this strikes me as shifting the balance too much
-towards the language-based search. But, I wonder what people who run big
+this might seem reasonable but what if, for example, I'm looking for extensive
+materials from some particular genre. Then, I would want those 500 texts broken
+down by genre and I would want to have them all bunched together. I don't know
+what the right balance is here, but this strikes me as shifting the balance too
+much towards the language-based search. But, I wonder what people who run big
 archives think about this. ... Something I would find useful here is specific
 recommendations for mapping records using the IMDI session-corpus model to the
 OLAC model.<o:p></o:p></span></p>
@@ -745,8 +742,8 @@ somewhere there shouldn't be (<span class=SpellE>i</span>) an enumeration of
 representative example search scenarios for the data and service provider to
 consult as a kind of &quot;cheat sheet&quot; guiding them as to how to approach
 granularity, (ii) a discussion of what the canonical service provider is in the
-OLAC context, and (iii) a discussion of what kinds of records a service provider
-should expect from a data provider. (Jeff Good 16-Dec-2007)<o:p></o:p></span></p>
+OLAC context, and (iii) a discussion of what kinds of records a service
+provider should expect from a data provider. (Jeff Good 16-Dec-2007)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><b><span
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></b></p>
@@ -760,7 +757,8 @@ style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'>This issue is clearly relevant for OLAC Metadata Usage
-Guidelines. We will add an introductory section that addresses this issue.<o:p></o:p></span></p>
+Guidelines. We have added a new section to the document on “Granularity of
+Resources.”<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -823,35 +821,36 @@ style='font-size:10.0pt'>We want to show people how to add narrowing or
 clarifying notes about specific language varieties. I get this sort of note often
 at AILLA - people will pick the closest ISO code, but add a note explaining how
 the code is quite right. We all know the codes need to be revised, but that
-will take a long time. It is good for people to make these notes a part of their
-OLAC records, though, both to encourage their colleagues to think about them
-and so that code revisers can find them. Maybe something like this:<o:p></o:p></span></p>
+will take a long time. It is good for people to make these notes a part of
+their OLAC records, though, both to encourage their colleagues to think about
+them and so that code revisers can find them. Maybe something like this:<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-lang=FR style='font-size:10.0pt;mso-ansi-language:FR'><span
-style='mso-spacerun:yes'>   </span>&lt;<span class=SpellE>dc:subject</span> <span
-class=SpellE>xsi:type</span>=&quot;olac:ISO639-3&quot; <span class=SpellE>olac:code</span>=&quot;<span
-class=SpellE>zab</span>&quot;&gt;<o:p></o:p></span></p>
+style='font-size:10.0pt'><span style='mso-spacerun:yes'>   </span>&lt;<span
+class=SpellE>dc<span class=GramE>:subject</span></span> <span class=SpellE>xsi:type</span>=&quot;olac:ISO639-3&quot;
+<span class=SpellE>olac:code</span>=&quot;<span class=SpellE>zab</span>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
+style='font-size:10.0pt'><span style='mso-spacerun:yes'>        </span></span><span
+lang=FR style='font-size:10.0pt;mso-ansi-language:FR'>Tlacolula de Matamoros
+Zapotec. Ethnologue designation: San Juan Guelavía<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 lang=FR style='font-size:10.0pt;mso-ansi-language:FR'><span
-style='mso-spacerun:yes'>        </span><span class=SpellE>Tlacolula</span> de
-Matamoros <span class=SpellE>Zapotec</span>. Ethnologue <span class=SpellE>designation</span>:
-San Juan <span class=SpellE>Guelavía</span><o:p></o:p></span></p>
+style='mso-spacerun:yes'>        </span></span><span class=SpellE><span
+style='font-size:10.0pt'>Zapotec</span></span><span style='font-size:10.0pt'> (<span
+class=SpellE>zab</span>), but this includes many varieties, including <span
+class=SpellE>Tlacolula</span> de<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'><span style='mso-spacerun:yes'>        </span><span
-class=SpellE>Zapotec</span> (<span class=SpellE>zab</span>), but this includes
-many varieties, including <span class=SpellE>Tlacolula</span> de<o:p></o:p></span></p>
-
-<p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'><span style='mso-spacerun:yes'>        </span><span
-class=GramE>Matamoros <span class=SpellE>Zapotec</span>.</span> Also known as:
-Valley <span class=SpellE>Zapotec</span>, <span class=SpellE>Tlacolula</span>
-Valley <span class=SpellE>Zapotec</span>,<o:p></o:p></span></p>
+style='font-size:10.0pt'><span style='mso-spacerun:yes'>        </span><st1:City
+w:st="on"><st1:place w:st="on"><span class=GramE>Matamoros</span></st1:place></st1:City><span
+class=GramE> <span class=SpellE>Zapotec</span>.</span> Also known as: Valley <span
+class=SpellE>Zapotec</span>, <span class=SpellE>Tlacolula</span> Valley <span
+class=SpellE>Zapotec</span>,<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'><span style='mso-spacerun:yes'>        </span><span
@@ -918,10 +917,10 @@ style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 class=GramE><span style='font-size:10.0pt'>Agreed.</span></span><span
 style='font-size:10.0pt'><span style='mso-spacerun:yes'>  </span>Both Language
-and Subject should be mentioned in the discussion of <span class=SpellE><i
+and Subject are now mentioned in the discussion of <span class=SpellE><i
 style='mso-bidi-font-style:normal'>xml<span class=GramE>:lang</span></i></span><i
-style='mso-bidi-font-style:normal'> </i>in order to clarify distinguish the three
-places in which language codes can be used.<o:p></o:p></span></p>
+style='mso-bidi-font-style:normal'> </i>in order to clarify distinguish the
+three places in which language codes can be used.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -988,8 +987,8 @@ style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'>A good example illustrated the difference between
-coverage and the place created is a map of Mexico (what is covered) that was produced
-in California (not coverage). (Heidi Johnson 8-Jan-2008)<o:p></o:p></span></p>
+coverage and the place created is a map of Mexico (what is covered) that was
+produced in California (not coverage). (Heidi Johnson 8-Jan-2008)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -1001,10 +1000,10 @@ Coverage<o:p></o:p></i></p>
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'>We agree with Helen’s comments and will remove the
+style='font-size:10.0pt'>We agree with Helen’s comments and have removed the
 mention of service providers making inferences based on known
-language-to-country mappings.<span style='mso-spacerun:yes'>  </span>We also
-expand the last two examples to include Subject as well.<o:p></o:p></span></p>
+language-to-country mappings.<span style='mso-spacerun:yes'>  </span>We have also
+expanded the last two examples to include Subject as well.<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><o:p>&nbsp;</o:p></p>
 
@@ -1146,14 +1145,15 @@ point.<span style='mso-spacerun:yes'>  </span>It would be sufficient for this
 fact to be documented inside the resource, such as in an introduction to the
 corpus, in much the same way that an author uses the Preface to explain where
 the book was written. Thus, I think the answer for this issue is to include
-some discussion like the above in the usage notes for Coverage. (Gary Simons 14-Dec-2007)<o:p></o:p></span></p>
+some discussion like the above in the usage notes for Coverage. (Gary Simons
+14-Dec-2007)<o:p></o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'>There needs to be an example of using the Description field
-for the Place Created data, in the cases where that's relevant (e.g.
+style='font-size:10.0pt'>There needs to be an example of using the Description
+field for the Place Created data, in the cases where that's relevant (e.g.
 recordings.) Or could we get an extension of Description for this? (Heidi
 Johnson 8-Jan-2008)<o:p></o:p></span></p>
 
@@ -1168,7 +1168,7 @@ for Place Element<o:p></o:p></i></p>
 style='font-size:10.0pt'><o:p>&nbsp;</o:p></span></p>
 
 <p class=MsoNormal style='mso-layout-grid-align:none;text-autospace:none'><span
-style='font-size:10.0pt'>We will add to the usage notes for Coverage to explain
+style='font-size:10.0pt'>We have added to the usage notes for Coverage to explain
 how it relates to point of collection, and how Description can be used to add
 location-related details that do not relate to spatial topic.<o:p></o:p></span></p>
 
