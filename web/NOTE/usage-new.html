@@ -143,13 +143,19 @@
                         of [<a href="#OLAC-Metadata">OLAC-Metadata</a>] to define new encoding schemes.
          </p>
          <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies the language in which
-                        the text in the content of the element is written. The value for the attribute should be a three-letter code
+                        the text in the content of the element (the metadata itself) is written. The value for the attribute should be
+            a three-letter code
                         from the ISO 639-3 controlled vocabulary as defined in [<a href="#OLAC-Language">OLAC-Language</a>]. In the absence of an
                            <i>xml:lang</i> attribute, the element content is assumed to be in English (unless it is from a DCMI
                         encoding scheme). Whenever the language of the element content is other than English, recommended best
                         practice is to use the <i>xml:lang</i> attribute to identify the language. By using multiple instances of a
                         metadata elements tagged for different languages, data providers may offer their metadata records in
-                        multiple languages. 
+                        multiple languages. The use of  the <i>xml:lang</i> attribute should not be confused with the use of
+                        the <i>olac:ISO639-3</i> scheme with <a href="#Language">Language</a> and <a href="#Subject">Subject</a> (expressed 
+                        using xsi:type="olac:ISO639-3" and olac:code="somecode" in the element tag) that should be used to 
+                        specify, respectively, the content language and the subject of the resource itself. In fact, the <i>xml:lang</i> attribute
+                        may be used within these elements, as well, to specify an alternative name of the identified language,
+                        given in the language specified in <i>xml:lang</i>.
          </p>
          <p>In the formal definition of the metadata standard [<a href="#OLAC-Metadata">OLAC-Metadata</a>], every element and refinement is
                         optional and repeatable. However, recommended best practice (as described below for particular elements and
@@ -236,9 +242,7 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>Recommended best practice is to identify a Contributor by means of a name in a form that is ready for
-                                       sorting within an index. For the names of persons, this means that the name should be given with the
-                                       usual entry element first (<i>i.e.</i>, an "inverted" order for most Western name forms where the
-                                       surname is the usual entry element). For the names of organizations, this means that any initial
+                                       sorting within an index.  For the names of organizations, this means that any initial
                                        article should be omitted. 
                   </p>
                   <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
@@ -256,33 +260,40 @@
                                        the <i>olac:role</i> schema to the Contributor element, with its more precise vocabulary for the
                                        nature of the contribution made by the entity identified, makes drawing a distinction between the less
                                        precise concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
-                                       consider Creator to be a refinement of the Contributor element. See the discussion of
-                                       <a href="#Creator">Creator</a> for more on this point.
+                                       consider Creator to be a refinement of the Contributor element, or even deprecate the use of 
+                                       the Creator element altogether. The latter choice may be made by individual archives, but 
+                                       OLAC usage will continue to support Creator as a valid element. See the discussion of
+                                       <a href="#Creator">Creator</a> for more on its use.
                   </p>
                   <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related elements. In particular, the
                                           <i>olac:role</i> "sponsor" can come close to one aspect of participation that a publisher may have
-                                       in regard to making a given resource available to the public. The <i>olac:role</i> "editor" is
-                                       frequently one of the individual tasks that are collectively performed by the publisher of a work. A
-                                       "sponsor" that is not also the formal publisher of a resource may be entered in a Contributor element
-                                       (with the proper <i>olac:role</i> specified), but the publisher should not be repeated in a
-                                       Contributor element.
+                                       in regard to making a given resource available to the public. The <i>olac:role</i> "editor" can encompass
+                                       a spectrum of tasks individual tasks (content editing, copy editing, graphic layout and composition, etc.)
+                                       that are collectively performed by the publisher of a work. A "sponsor" that is not also the formal 
+                                       publisher of a resource may be entered in a Contributor element (with the proper <i>olac:role</i> specified), 
+                                       but the publisher should not be repeated in a Contributor element.
                   </p>
-                  <p>The entry element for a personal name will vary according to conventions used in a given location and
-                                       with a given language. General practice among librarians is to select as the entry element that part
-                                       of the name under which the person would normally be listed in an authoritative alphabetical list in
-                                       his or her own language or country of residence or primary activity. If the entry element is a
-                                       surname, follow the surname with a comma. If the entry element is the "first name" or "given name," do
+                  <p>The form of a personal name should follow the form in which the person's name would normally be listed in 
+                                       an authoritative alphabetical list in his or her own language or country of residence or primary 
+                                       activity, <i>e.g.</i> "FamilyName, GivenName" for an English speaker. If the first element is the
+                                       family name, follow the family name with a comma. If the first element is the given name, do
                                        not follow it with a comma. Consult the Anglo-American Cataloguing Rules, 2nd ed., rev.,
                                        [<a href="#AACR2r">AACR2r</a>] chapter 22 for additional guidance in determining entry elements and the normal
                                        ordering and forms of names based on language and country, as well as other name characteristics.
                   </p>
-                  <p>Be consistent with corporate name forms. Names that include a primary unit and subsidiary unit should
-                                       be ordered with the primary unit given first. Location should generally be omitted from the name
-                                       unless location is an integral part of the proper name of the unit. More guidance on the forms of
+                  <p>Be consistent with corporate name forms (names of institutions and other corporate bodies). 
+                                       Names that include a primary unit and subsidiary unit should be ordered with the primary unit 
+                                       given first. Location should generally be omitted from the name unless location is an integral 
+                                       part of the proper name of the unit. More guidance on the forms of
                                        corporate names may be found in [<a href="#AACR2r">AACR2r</a>], chapter 24.
                   </p>
                   <p>Do not use quotation marks to enclose corporate names. If the name is a translation from its usual
                                        form or is not usually given in English, use the <tt>lang</tt> attribute on the element.
+                  </p>
+                  <p>In general, if there is no suitable role in the <i>olac:role</i> scheme, no additional information regarding
+                                       the particular role of the contributor should be included in content of the element, as this 
+                                       would have the effect of making separate indexed forms for the same person based on engaging in different
+                                       kinds of contributory activities.
                   </p>
                </td>
             </tr>
@@ -290,7 +301,7 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:contributor&gt;</pre><p>A funding agency:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
-   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in a language differing from the majority of the
+   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in a language differing from the majority of the
                                        metadata record:
                   </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" xml:lang="ces"&gt;C&#780;eska&#769; 
    akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
@@ -390,7 +401,7 @@
                   <p>Coverage is related to <a href="#Subject">Subject</a> in having a topical orientation. Coverage in its temporal
                                        aspect should not be confused with <a href="#Date">Date</a> or one of its refinements (<i>e.g.</i>, created,
                                        or available). Thus, a data set that was compiled over an extended period of time should be described
-                                       via <tt>dcterms:created</tt> whose content is a date range, rather than with Coverage or
+                                       via a <tt>dcterms:created</tt> element whose content is a date range, rather than with Coverage or
                                           <tt>dcterms:temporal</tt>. A data set (or any kind of resource) that contains or addresses
                                        historical information would correctly use Coverage or <tt>dcterms:temporal</tt> to specify the date,
                                        date range or period in focus.
@@ -456,26 +467,36 @@
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
                   <p>A Creator may be a person, an organization, or a service. Creator is closely related to
-                                       <a href="#Contributor">Contributor</a>.  Creator, though still rather generic, is to be understood as being
-                                       strongly indicative of significant involvement in the creation of the resource. OLAC recommendation is 
-                                       that Creator be viewed semantically as a <i>refinement</i> of Contributor, though it retains 
-                                       its status (and therefore its syntax) as an element for backward compatibility.  Thus, Creator is
+                                          <a href="#Contributor">Contributor</a>. Creator, though still rather generic, is to be understood as being
+                                       strongly indicative of significant involvement in the creation of the resource. OLAC recommendation is
+                                       that Creator be viewed semantically as a <i>refinement</i> of Contributor, though it retains its
+                                       status (and therefore its syntax) as an element for backward compatibility. Thus, Creator is
                                        appropriate to use in cases where the entity to be identified has significant involvement as a primary
                                        originator of the resource, but in such a way that none of the role terms available in the
-                                       <i>olac:role</i> scheme is a suitable description of that involvement. Examples are an artist
+                                          <i>olac:role</i> scheme is a suitable description of that involvement. Examples are an artist
                                        (sculptor, carver, weaver) or a modeler.
                   </p>
-                  <p>The semantic redefinition of the Creator element as being equivalent to a refinement of Contributor has
-                                       support in the wider community. The DCMI's Library Application Profile [<a href="#DC-Lib">DC-Lib</a>] make this
+                  <p>The semantic redefinition of the Creator element as being equivalent to a refinement of Contributor
+                                       has support in the wider community. The DCMI's Library Application Profile [<a href="#DC-Lib">DC-Lib</a>] make this
                                        recommendation. In view of this treatment, if Creator is used, it should be used without a role
                                        refinement term.
+                  </p>
+                  <p>A participating OLAC repository may decide to deprecate the use of Creator, in favor of 
+                                       exclusively using Contributor. Such a decision would not conflict with OLAC recommended 
+                                       best practice, but it should be recognized that other metadata schemas and application profiles
+                                       built on the Dublin Core foundation may use Creator (and possibly require a Creator element), so
+                                       that crosswalks between OLAC and another metadata schema may involve the mapping of certain
+                                       OLAC Contributor roles to the Creator element in the other schema.
+                  </p>
+                  <p>Additional information about the proper form of entry for a personal name or a corporate name
+                                       may be found under the <a href="#Contributor">Contributor</a> element.
                   </p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A weaver of a basket resource:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Datsolalee&lt;/dc:creator&gt;</pre></td>
+                  <p>A weaver of a basket or textile resource that accompanies a description of its making:</p><pre style="margin-left: 12pt">&lt;dc:creator&gt;Datsolalee&lt;/dc:creator&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Date"></A>Date
@@ -760,10 +781,10 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>For a digitally encoded dictionary:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
-   &lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
-   &lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
-   &lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
-   &lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre></td>
+&lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
+&lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
+&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
+&lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Identifier"></A>Identifier
@@ -849,7 +870,7 @@
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A Uniform Resource Locator for retrieval of an electronically encoded resource:</p><pre style="margin-left: 12pt">&lt;dc:identifier xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</pre><p>A local identifier for retrieval within a physical collection:</p><pre style="margin-left: 12pt">&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</pre><p>The citation for a chapter that was published in a book:</p><pre style="margin-left: 12pt">&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), Native South
-American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</pre></td>
+   American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Language"></A>Language
@@ -928,12 +949,21 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
+<<<<<<< .mine
+                  <p>A resource in English about the Sikaiana language:</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</pre><p>A French-Icelandic dictionary, described for an audience where the French names are preferred.</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra" xml:lang="fra"&gt;fran&ccedil;ais&lt;/dc:language&gt;
+&lt;dc:language xsi:type="olac:ISO639-3" olac:code="isl" xml:lang="fra"&gt;islandais&lt;/dc:language&gt;</pre><p>The <i>American Heritage Dictionary</i>, which is both in and about American English:
+                  </p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+&lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
+=======
                   <p>A resource in English about the Sikaiana language:</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt; 
    &lt;dc:subject xsi:type="olac:language" olac:code="sky"/&gt;</pre><p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="fra"/&gt;
    &lt;dc:subject xsi:type="olac:language" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</pre><p>The <i>American Heritage Dictionary</i>, which is both in and about American English:
                   </p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
    &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
    &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
+>>>>>>> .r352
             </tr>
          </table>
          <h3><A name="Publisher"></A>Publisher
@@ -1157,10 +1187,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A link to a required font:</p><pre style="margin-left: 12pt">&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/dcterms:requires&gt;</pre><p>Links to the component pieces of a collected work:</p><pre style="margin-left: 12pt">&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/dcterms:hasPart&gt;
-   &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
-   &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
-   &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
-   &lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</pre><p>Link to a specification of a schema to which the resource conforms:</p><pre style="margin-left: 12pt">&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</pre></td>
+&lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
+&lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
+&lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
+&lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</pre><p>Link to a specification of a schema to which the resource conforms:</p><pre style="margin-left: 12pt">&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</pre></td>
             </tr>
             <tr valign="top">
                <td width="100"><b><font color="red"><i>To do</i></font></b></td>
@@ -1391,11 +1421,8 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   </p>
                   <p>To describe the spatial or temporal topic of the resource, use the <a href="#Coverage">Coverage</a> element.
                   </p>
-                  <p> The Subject element should not be confused with Description.
-                                       Subject contains subject headings, while Description contains free-text descriptions.
-                  </p>
-                  <p>Avoid mapping the DC Subject element to a variety of
-                                       cataloger-defined natural vocabularies such as 'topic', 'category', and 'keyword.'
+                  <p>The Subject element should not be confused with Description. Subject contains subject headings or 
+                                       concise individual topic terms, while Description contains free-text, prose descriptions.
                   </p>
                </td>
             </tr>
@@ -1403,11 +1430,17 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A Library of Congress subject heading:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</pre><p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</pre><p>A resource on multilingual education in Uganda involving national, regional and local languages.</p><pre style="margin-left: 12pt">&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
+<<<<<<< .mine
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
+=======
    &lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
    &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
    &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
+>>>>>>> .r352
    ...
-   &lt;dcterms:spacial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spacial&gt;</pre></td>
+&lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Title"></A>Title
@@ -1475,7 +1508,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A typical title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre><p>A vernacular title with translation:</p><pre style="margin-left: 12pt">&lt;dc:title xsi:type="olac:language" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
-   &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre><p>A parallel title, as typically employed for a diglot work:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre></td>
+&lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre><p>A parallel title, as typically employed for a diglot work:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Type"></A>Type
@@ -1617,18 +1650,19 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td>
                   <p>A group of texts and recordings constituting a small collection that has undergone some reorganization
                                        by a subsequent handler since original creation:
-                  </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
-&lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
+                  </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Gardner, Richard&lt;/dc:contributor&gt;
+&lt;dc:contributor xsi:type="olac:role" olac:code="annotator"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
 &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
 &lt;dc:available&gt;2007&lt;/dc:available&gt;
-&lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts were originally 
-   transcribed using a variety of othographic conventions, some with interlinear analytical transcriptions,
-   some also with Spanish free translations.&lt;/dc:description&gt;
- &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with the assistance of 
-   a number of local residents. Body of materials were transferred to branch custody in 1980s, 
-   subsequently organized, collated and annotated by J.L. Anderson, a researcher in a closely 
-   related Chinantec language. Annotations particularly relate to changes in orthographic and tone
-   marking conventions over the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
+&lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts 
+   were originally transcribed using a variety of othographic conventions, some with interlinear
+   analytical transcriptions, some also with Spanish free translations.&lt;/dc:description&gt;
+&lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with 
+   the assistance of a number of local residents. Body of materials were transferred to 
+   branch custody in 1980s, subsequently organized, collated and annotated by 
+   J.L. Anderson, a researcher in a closely related Chinantec language. Annotations 
+   particularly relate to changes in orthographic and tone marking conventions over 
+   the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Rights Holder"></A>Rights Holder
@@ -1684,13 +1718,15 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                         language(s), content (or analysis) language(s), approximate date, coverage, linguistic type, general
                         description. Other metadata elements that are also important for resource discovery but that may differ at
                         this level (<i>e.g.</i>, discourse type) can be repeated at the OLAC description level for as many types as
-                        are prominently included. Further characteristics, such as topic, additional contributors, event specifics,
-                        particular discourse type, can be documented at a finer level of granularity by creating a second level of
-                        "collection description" which includes more detail on the individual units (specific recordings or texts),
-                        included as a part of the collection in an expanded, structured contents description. This is the level that
-                        aligns with the session level detail of [<a href="#IMDI">IMDI</a>] description.
+                        are prominently included. Alternatively, the collection may be divided into sub-collections
+                        by discourse genre, or other significant feature. The sub-collections can then be treated in distinct OLAC
+                        records. Further characteristics, such as topic, additional contributors, and event specifics, can be
+                        documented at a finer level of granularity by creating a second level of "collection description" 
+                        which includes more detail on the individual units (specific recordings or texts), included
+                        as a part of the (sub-)collection in an expanded, structured contents description document. This second level
+            
+                        of description typically aligns with the session level detail of [<a href="#IMDI">IMDI</a>] description.
          </p>
-         <p> TO DO: Add another sentence relating OLAC and IMDI (IMDI website down)</p>
          <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects of descriptions may
                         be quite unique to the collection of materials in hand. For example, it could be valuable to document the
                         orthography used for a given written text (whether transcription or original writing) in a collection where
@@ -1708,7 +1744,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                         knowledgeable person (perhaps the original researcher, perhaps not) may properly constitute a single
                         collection (as a single unit of OLAC description) with a complex secondary level of collection description.
                         Yet those same materials, had they been deposited periodically over time, might just as well constitute
-                        numerous smaller units each with its own OLAC level descriptive record.
+                        numerous smaller units, each with its own OLAC level descriptive record.
          </p>
       </body><a name="References"></a><hr>
       <h2>References</h2>
