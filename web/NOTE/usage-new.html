@@ -10,7 +10,7 @@
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;            (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne and University of&#xA;         Pennsylvania (mailto:sb@ldc.upenn.edu) Joan Spanne, SIL International&#xA;            (mailto:joan_spanne@sil.org)">
       <meta name="Description" content="This document provides guidelines on the meaning and proper usage of the metadata elements used in the&#xA;            metadata standard of the Open Language Archives Community.">
       <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-      <meta name="Date" content="20080115"><STYLE>
+      <meta name="Date" content="20080130"><STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
           H1    {FONT-SIZE: 24pt }
@@ -24,7 +24,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th width="100" align="left">Date&nbsp;issued:</th>
-            <td>2008-01-15</td>
+            <td>2008-01-30</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -33,7 +33,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/usage-20080115.html">http://www.language-archives.org/NOTE/usage-20080115.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/usage-20080130.html">http://www.language-archives.org/NOTE/usage-20080130.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Latest version:</th>
@@ -71,7 +71,7 @@
             </td>
          </tr>
       </table>
-      <blockquote><small>Copyright &copy; 2007 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
+      <blockquote><small>Copyright &copy; 2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
                      (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small></blockquote>
       <hr>
       <h3>Table of contents</h3>
@@ -415,7 +415,7 @@
 &lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre><p>A resource involving a diaspora group from a language community:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;&#8220;Como Se Hayan&#8221;: Zapotec Indigenous Migrant
    Expressions of Belonging&lt;/dc:title&gt;
 &lt;dc:coverage&gt;Los Angeles, California&lt;/dc:coverage&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A data set covering a period of time, relating to a particular community, collected over a span of
+&lt;dc:subject xsi:type="olac:language" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A data set covering a period of time, relating to a particular community, collected over a span of
                                        time:
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer 
    community in transition&lt;/dc:title&gt;
@@ -870,9 +870,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td>
                   <table cellpadding="4">
                      <tr valign="top">
-                        <td>olac:ISO639-3&nbsp;&nbsp;</td>
+                        <td>olac:language&nbsp;&nbsp;</td>
                         <td>
-                           <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
+                           <p>The set of two- and three-letter identifiers from ISO 639 for the
+                                                      identification of individual human languages. See
                                                          [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary. 
                            </p>
                         </td>
@@ -887,7 +888,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                                        that does not include language content, include a Language element containing the code <tt>zxx</tt>
                                        for "No linguistic content."
                   </p>
-                  <p>Recommended best practice is to use the <i>olac:ISO639-3</i> scheme to identify the Language
+                  <p>Recommended best practice is to use the <i>olac:language</i> scheme to identify the Language
                                        precisely. Specify the language in the <i>olac:code</i> attribute while leaving the element content
                                        empty. Use the element content only when the controlled vocabulary does not offer an appropriate code,
                                        or when further specification is needed, such as to name a specific dialect or to give an alternate
@@ -927,12 +928,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A resource in English about the Sikaiana language:</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</pre><p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</pre><p>The <i>American Heritage Dictionary</i>, which is both in and about American English:
-                  </p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-   &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
+                  <p>A resource in English about the Sikaiana language:</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt; 
+   &lt;dc:subject xsi:type="olac:language" olac:code="sky"/&gt;</pre><p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="fra"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</pre><p>The <i>American Heritage Dictionary</i>, which is both in and about American English:
+                  </p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
+   &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Publisher"></A>Publisher
@@ -1337,10 +1338,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td>
                   <table cellpadding="4">
                      <tr valign="top">
-                        <td>olac:ISO639-3&nbsp;&nbsp;</td>
+                        <td>olac:language&nbsp;&nbsp;</td>
                         <td>
-                           <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
-                                                         <a href="#Language">Language</a> for a complete discussion (with examples) of using this scheme.
+                           <p>The set of two- and three-letter identifiers from ISO 639 for the
+                                                      identification of individual human languages. See
+                                                      [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary
+                                                      and see the <a href="#Language">Language</a> element for a complete discussion (with
+                                                      examples) of using this scheme.
                            </p>
                            <p>Service providers should use the <i>code</i> attribute to support searches by language, and may
                                                       use the element content in searches by keyword. They also may supply the default language name
@@ -1368,7 +1372,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                                        resource that goes beyond the informative potential of just a title alone. Using all of these elements
                                        is encouraged.
                   </p>
-                  <p>When the subject is a human language, recommended best practice is to use the <i>olac:ISO639-3</i>
+                  <p>When the subject is a human language, recommended best practice is to use the <i>olac:language</i>
                                        scheme to identify it precisely. Specify the language in the <i>olac:code</i> attribute while leaving
                                        the element content empty. Use the element content only when the controlled vocabulary does not offer
                                        an appropriate code, or when further specification is needed, such as to name a specific dialect or to
@@ -1399,9 +1403,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <td width="100"><i>Examples</i></td>
                <td>
                   <p>A Library of Congress subject heading:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</pre><p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p><pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</pre><p>A resource on multilingual education in Uganda involving national, regional and local languages.</p><pre style="margin-left: 12pt">&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
    ...
    &lt;dcterms:spacial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spacial&gt;</pre></td>
             </tr>
@@ -1470,7 +1474,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A typical title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre><p>A vernacular title with translation:</p><pre style="margin-left: 12pt">&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
+                  <p>A typical title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre><p>A vernacular title with translation:</p><pre style="margin-left: 12pt">&lt;dc:title xsi:type="olac:language" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
    &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre><p>A parallel title, as typically employed for a diglot work:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre></td>
             </tr>
          </table>
