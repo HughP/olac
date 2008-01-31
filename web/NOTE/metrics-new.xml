@@ -12,8 +12,9 @@
          <p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
             records.</p>
       </abstract>
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)</editors>
-      <copyright>2008 Gary Simons (SIL International)</copyright>
+      <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
+         (<url>mailto:gary_simons@sil.org</url>)</editors>
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics)</copyright>
       <changes>
          <p>Removed the proposal to add a "not_applicable" term to the Linguistic Data Type vocabulary in favor of
             changing to a Language Resource Type vocabulary in the next round of metadata development.</p>

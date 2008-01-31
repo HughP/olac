@@ -3,7 +3,7 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 17 Nov 2007
+     Last modified: 30 Jan 2008
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -257,6 +257,28 @@
           </a>
         </td>
       </tr>
+       <xsl:if test="supersedes">
+          <tr valign="top">
+             <th align="left">
+                <xsl:choose>
+                   <xsl:when test="@status='adopted'">Supersedes:</xsl:when>
+                   <xsl:otherwise>Will supersede:</xsl:otherwise>
+                </xsl:choose>
+             </th>
+             <td>
+                <a>
+                   <xsl:attribute name="href"><xsl:value-of
+                   select="$baseURL"/><xsl:value-of
+                   select="baseName"/><xsl:text>-</xsl:text><xsl:value-of select="supersedes"/><xsl:text>.html</xsl:text></xsl:attribute>
+                   <xsl:value-of select="$baseURL"/>
+                   <xsl:value-of select="baseName"/>
+                   <xsl:text>-</xsl:text>
+                   <xsl:value-of select="supersedes"/>
+                   <xsl:text>.html</xsl:text>
+                </a>
+             </td>
+          </tr>
+       </xsl:if>
       <xsl:if test="not(status[@endDate]) or status/@supersededBy = baseName">
         <tr valign="top">
           <th align="left">Latest version:</th>
