@@ -6,7 +6,7 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20080115</issued>
+      <issued>20080130</issued>
       <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the metadata elements used in the
@@ -16,7 +16,7 @@
             (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and University of
          Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) <br/>Joan Spanne, SIL International
             (<url>mailto:joan_spanne@sil.org</url>)</editors>
-      <copyright>2007 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
          (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL International)</copyright>
       <changes>
          <p>In section 3, many points clarified regarding individual elements: distinction between Creator and
@@ -276,7 +276,7 @@
                <eg>&lt;dc:title&gt;“Como Se Hayan”: Zapotec Indigenous Migrant
    Expressions of Belonging&lt;/dc:title&gt;
 &lt;dc:coverage&gt;Los Angeles, California&lt;/dc:coverage&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="zpu"/&gt;</eg>
+&lt;dc:subject xsi:type="olac:language" olac:code="zpu"/&gt;</eg>
                <!-- example resource URI: http://www.allacademic.com/meta/p114114_index.html -->
                <p>A resource about language use in the 19th century:</p>
                <eg>&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</eg>
@@ -621,9 +621,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </comment>
             <schemes>
                <dl>
-                  <dt>olac:ISO639-3</dt>
+                  <dt>olac:language</dt>
                   <dd>
-                     <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
+                     <p>The set of two- and three-letter identifiers from ISO 639 for the
+                        identification of individual human languages. See
                            <cit>OLAC-Language</cit> for the definition of the vocabulary. </p>
                   </dd>
                </dl>
@@ -632,7 +633,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>Recommended best practice is that every record contain at least one Language element. For a resource
                   that does not include language content, include a Language element containing the code <tt>zxx</tt>
                   for "No linguistic content."</p>
-               <p>Recommended best practice is to use the <i>olac:ISO639-3</i> scheme to identify the Language
+               <p>Recommended best practice is to use the <i>olac:language</i> scheme to identify the Language
                   precisely. Specify the language in the <i>olac:code</i> attribute while leaving the element content
                   empty. Use the element content only when the controlled vocabulary does not offer an appropriate code,
                   or when further specification is needed, such as to name a specific dialect or to give an alternate
@@ -641,17 +642,17 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 
             <examples>
                <p>A resource in English about the Sikaiana language:</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt; 
+   &lt;dc:subject xsi:type="olac:language" olac:code="sky"/&gt;</eg>
                <p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="fra"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</eg>
                <p>The <i>American Heritage Dictionary</i>, which is both in and about American English:</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
    &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
                <p>A resource in the Saracatsan dialect of modern Greek</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
             </examples>
          </element>
          <element name="Publisher">
@@ -915,10 +916,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
             </comment>
             <schemes>
                <dl>
-                  <dt>olac:ISO639-3</dt>
+                  <dt>olac:language</dt>
                   <dd>
-                     <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
-                           <xref>Language</xref> for a complete discussion (with examples) of using this scheme.</p>
+                     <p>The set of two- and three-letter identifiers from ISO 639 for the
+                        identification of individual human languages. See
+                        <cit>OLAC-Language</cit> for the definition of the vocabulary
+                        and see the <xref>Language</xref> element for a complete discussion (with
+                        examples) of using this scheme.</p>
                      <!-- Move to a <bp><p>? -->
                      <p>Service providers should use the <i>code</i> attribute to support searches by language, and may
                         use the element content in searches by keyword. They also may supply the default language name
@@ -938,7 +942,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   resource that goes beyond the informative potential of just a title alone. Using all of these elements
                   is encouraged.</p>
 
-               <p>When the subject is a human language, recommended best practice is to use the <i>olac:ISO639-3</i>
+               <p>When the subject is a human language, recommended best practice is to use the <i>olac:language</i>
                   scheme to identify it precisely. Specify the language in the <i>olac:code</i> attribute while leaving
                   the element content empty. Use the element content only when the controlled vocabulary does not offer
                   an appropriate code, or when further specification is needed, such as to name a specific dialect or to
@@ -954,9 +958,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <eg>&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</eg>
                <p>A resource on multilingual education in Uganda involving national, regional and local languages.</p>
                <eg>&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
+   &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
    ...
    &lt;dcterms:spacial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spacial&gt;</eg>
 
@@ -1002,7 +1006,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                <p>A typical title:</p>
                <eg>&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</eg>
                <p>A vernacular title with translation:</p>
-               <eg>&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
+               <eg>&lt;dc:title xsi:type="olac:language" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
    &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
                <p>A parallel title, as typically employed for a diglot work:</p>
                <eg>&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</eg>
