@@ -659,29 +659,15 @@
 
             <examples>
                <p>A resource in English about the Sikaiana language:</p>
-<<<<<<< .mine
                <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
 &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</eg>
                <p>A French-Icelandic dictionary, described for an audience where the French names are preferred.</p>
                <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra" xml:lang="fra"&gt;français&lt;/dc:language&gt;
 &lt;dc:language xsi:type="olac:ISO639-3" olac:code="isl" xml:lang="fra"&gt;islandais&lt;/dc:language&gt;</eg>
-=======
-               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt; 
-   &lt;dc:subject xsi:type="olac:language" olac:code="sky"/&gt;</eg>
-               <p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p>
-               <eg>&lt;dc:language xsi:type="olac:language" olac:code="fra"/&gt;
-   &lt;dc:subject xsi:type="olac:language" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</eg>
->>>>>>> .r352
                <p>The <i>American Heritage Dictionary</i>, which is both in and about American English:</p>
-<<<<<<< .mine
                <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
 &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
-=======
-               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
-   &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
->>>>>>> .r352
                <p>A resource in the Saracatsan dialect of modern Greek</p>
                <eg>&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
             </examples>
@@ -987,15 +973,9 @@
                <eg>&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</eg>
                <p>A resource on multilingual education in Uganda involving national, regional and local languages.</p>
                <eg>&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
-<<<<<<< .mine
 &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
 &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
-=======
-   &lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
-   &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
-   &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
->>>>>>> .r352
    ...
 &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</eg>
 
