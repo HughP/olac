@@ -5,8 +5,6 @@
 #
 # ChangeLog:
 #
-# 2006-07-10 Baden Hughes <badenh@csse.unimelb.edu.au>
-#	* added statistics tracking
 # 2005-03-20 Baden Hughes <badenh@cs.mu.oz.au>
 #	* added supporting documentation
 # 2005-01-05 Baden Hughes <badenh@cs.mu.oz.au> 
@@ -16,7 +14,7 @@
 #	* revised previous version (/tools/search.php4) to use new database
 #	* use /tools/lookup/lookup-OLAC1.0.php4 for record lookup
 #
-# CVS Info: $Header: /cvsroot/olac/olac_suite/mu_tools/search/search.php,v 1.10 2005/03/21 19:44:50 badenh Exp $
+# CVS Info: $Header: /cvsroot/olac/olac_suite/mu_tools/search/search.php,v 1.12 2006/03/28 03:51:22 badenh Exp $
 ######################################################################
 
 include "searchInclude.php";
@@ -115,7 +113,7 @@ return $formString;
 }
 
 ?>
-<?php
+<?
 
 ######
 # Returns HTML to create the banner (form)
@@ -135,6 +133,12 @@ $banner =
 </HEAD>
 
 <BODY>
+
+<p>
+All linguists are no doubt familiar with the difficulty of finding 
+information relevant to their research. The Open Language Archives Community 
+is dedicated to collecting information about language resources and making 
+it available from a single search.
 
 <table>
 <tr>
@@ -289,14 +293,12 @@ if ($content=="") { $content=$row['Code']; }
 
 foreach ($queryTokens as $tok)
 {
+   $tok = str_replace("(", "\(", $tok);
    # Case insensitive matching of query keywords
-   $content = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $content );
-   $moreInfo = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $moreInfo );
+   $content = eregi_replace($tok, "<em>\\0</em>", $content );
+   $moreInfo = eregi_replace($tok, "<em>\\0</em>", $moreInfo );
    # Case insensitive matching of query keywords
-   $row['TagName'] = ereg_replace( sql_regcase($tok), 
-	"<em>\\0</em>", $row['TagName'] );
+   $row['TagName'] = eregi_replace($tok, "<em>\\0</em>", $row['TagName'] );
 }
 
 # If the content of the matching tag itself is longer than the maximum
@@ -1486,6 +1488,9 @@ function modeItem()
 			. "&queryTerms=$stringQuery"
 			. "&phrasemode=$_GET[phrasemode]"
 			. "&allmode=$_GET[allmode]") );
+  $result = preg_replace('{<script [^>]*urchin\.js.*?</script>}', '', $result);
+  $result = preg_replace('{_uacct[^;]*?;}', '', $result);
+  $result = preg_replace('{urchinTracker[^;]*?;}', '', $result);
 
   $search = array('/<\/?(BODY|HTML)>/i',
                   '/<HEAD>.*<\/HEAD>/si');
