@@ -31,10 +31,6 @@
 
 # Write the submitted metadata to a temporary file
 
-  $tmpfile = tempnam("tmp", '');
-  $tmpfile = "$tmpfile.xml";
-  $fd = fopen($tmpfile, 'w');
-
   ########## Force use of standard OLAC schema
   ##
   $olacns = "http://www.language-archives.org/OLAC/1.0/";
@@ -44,7 +40,8 @@
   preg_match("{^(.*<(([^/][^:]*):)?olac\s*)([^>]*)(>.*)$}s",$metadata,$group);
   $body1 = $group[1];
   $body2 = $group[4];  # atts of olac tag
-  $body3 = $group[5];
+  $body3 = $group[5];	
+
   if ($group[3]) {
     $nssuffix = ":$group[3]";
   } else {
@@ -84,9 +81,13 @@
     $body2 .= ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"';
 
   $metadata = "$body1 $body2$body3";
+
   ##
   ##############################
 
+  $tmpfile = tempnam("tmp", '');
+  $tmpfile = "$tmpfile.xml";
+  $fd = fopen($tmpfile, 'w');
   fputs($fd, $metadata);
   fclose($fd);
   chmod($tmpfile, 0644);
@@ -106,9 +107,24 @@
 
   if (!$result) { # The record is valid
 
+	if ($_POST["action"] == "Analyze") {
+		$getrecord_header = '<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/  http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2007-08-08T00:00:00Z</responseDate><request></request><GetRecord><record><header><identifier></identifier><datestamp>2007-08-08</datestamp></header><metadata>';
+		$getrecord_footer = '</metadata></record></GetRecord></OAI-PMH>';
+
+		$metadata = preg_replace('/<olac/', $getrecord_header."<olac", $metadata);
+		$metadata .= $getrecord_footer;
+		$fd = fopen($tmpfile, 'w');
+		fputs($fd, $metadata);
+		fclose($fd);
+		chmod($tmpfile, 0644);
+
+		$xsl = "http://www.language-archives.org/metadata_sample.xsl";
+	} else {
+		$xsl = "http://www.language-archives.org/tools/metadata/metadata.xsl";
+	}
+
 # Set up the XSLT processor
 
-  $xsl     = "http://www.language-archives.org/tools/metadata/metadata.xsl";
   #$java    = "/pkg/j/j2sdk1.4.0/bin/java";
   #$xalan   = "/mnt/unagi/ldc/wwwhome/jakarta-tomcat-3.2.3-sb/lib/xalan.jar";
   #$xerces  = "/pkg/x/xerces-2_0_1/xercesImpl.jar";
@@ -117,7 +133,8 @@
 # Transform output
 
   #$command = "$xslt -IN $tmpfile";
-  $command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xalan $tmpfile $xsl";
+  #$command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xalan $tmpfile $xsl";
+  $command = "/usr/local/bin/xsltproc $xsl $tmpfile";
   exec($command, $result);
   
 # Return the HTML page
