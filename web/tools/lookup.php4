@@ -10,6 +10,7 @@
 #   <oai-id>  OAI record identifier
 #
 # changes:
+#   2008-02-06  added GA script; added search terms -HL
 #   2008-01-28  fixed an sql query because it didn't pick up all
 #               metadata elements -HL
 #   2004-11-10  set character encoding to UTF-8 - HL
@@ -131,11 +132,12 @@ END;
 #    and    me.Tag_ID = ed.Tag_ID
 #    order by ed.Rank");
 $tab = $DB->sql("
-	select ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content, me.Type Type, cd.Label Code
+	select ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content, me.Type Type, me.Code Code, lc.LangID, lc.Name LangName
 	from METADATA_ELEM me
 	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
 	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
-	left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+	#left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+        left join LanguageCodes lc on me.Code=lc.LangID
 	where Item_ID=$answer[Item_ID]
 	order by ed.Rank
 ");
@@ -147,6 +149,7 @@ $meta_description = "";
 $meta_keywords = "";
 $body .= "<p><table cellspacing=0 cellpadding=2 border=0>\n";
 $body .= "<tr><td colspan=3><b>Metadata</b></td></tr>\n";
+$search_terms = array();
 
 foreach ($tab as $answer) {
     $tag = $meta_name = $answer[DcTag];
@@ -163,6 +166,10 @@ foreach ($tab as $answer) {
     if ($answer[Content]) {
         $value .= $padding . $answer[Content];
         $padding = ' ';
+    } else {
+	if ($answer['Type'] == 'language' && $answer['Code']) {
+		$value .= $padding . $answer['LangName'];
+	}
     }
     if ($answer[TagLabel] != $answer[DcTag]) {
         $value .= $padding . "[$answer[TagLabel]]";
@@ -177,6 +184,7 @@ foreach ($tab as $answer) {
     $body .= "&nbsp;</i></td><td></td><td>$value</td></tr>\n";
 
     $meta_name = "DC." . ereg_replace(" .*", "", $meta_name);
+    if ($meta_name == "DC.Description") $meta_name="Description";
     $meta .= "<meta name=\"$meta_name\" content=\"$meta_content\">\n";
 
     switch ($tag) {
@@ -195,10 +203,41 @@ foreach ($tab as $answer) {
     }
 
     $prev_field = $tag;
+
+    if ($answer['Type'] == 'language' && $answer['LangID']) {
+	array_push($search_terms, "iso639_" . $answer['LangID']);
+    } else if (($answer['Type'] == 'linguistic-type' ||
+		$answer['Type'] == 'linguistic-field' ||
+		$answer['Type'] == 'discourse-type') &&
+		$answer['Code']) {
+	array_push($search_terms, "olac_" . $answer['Code']);
+    } else if ($answer['Type'] == 'DCMIType' && $answer['Content']) {
+	array_push($search_terms, "dcmi_" . $answer['Content']);
+    }
 }
+
+
+if ($search_terms) {
+	sort($search_terms);
+	$s = implode(" ", $search_terms);
+	$search_info = <<<END
+<tr>
+  <td colspan=3><br><p><b>Search Info</b></td>
+</tr>
+<tr>
+  <td class=lookup><i>Terms&nbsp;</i></td>
+  <td></td>
+  <td>$s</td>
+</tr>
+END;
+} else {
+	$search_info = "";
+}
+
 
 $body .= $olac_info;
 $body .= $oai_info;
+$body .= $search_info;
 $body .= "</table>\n";
 
 if ($meta_description && $meta_keywords) {
@@ -222,5 +261,10 @@ if ($meta_description && $meta_keywords) {
 
 <?=$body?>
 
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-427085-3";
+urchinTracker();
+</script>
 </BODY>
 </HTML>
