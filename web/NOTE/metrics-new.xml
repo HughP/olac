@@ -4,7 +4,7 @@
 <OLAC_doc>
    <header>
       <status code="proposed" type="informational"/>
-      <title>OLAC Metadata Quality Metrics</title>
+      <title>OLAC Metadata Metrics</title>
       <baseName>metrics</baseName>
       <issued>20080207</issued>
       <previousIssued>20071117</previousIssued>
