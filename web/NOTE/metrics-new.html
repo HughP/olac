@@ -8,9 +8,9 @@
       <TITLE>OLAC Metadata Quality Metrics</TITLE>
       <meta name="Title" content="OLAC Metadata Quality Metrics">
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;         (mailto:gary_simons@sil.org)">
-      <meta name="Description" content="Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata&#xA;            records.">
+      <meta name="Description" content="Explains the metrics that are implemented on the OLAC web site for summarizing&#xA;            the coverage of the participating archives and for evaluating the quality of their metadata&#xA;            records.">
       <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-      <meta name="Date" content="20080130"><STYLE>
+      <meta name="Date" content="20080207"><STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
           H1    {FONT-SIZE: 24pt }
@@ -24,7 +24,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th width="100" align="left">Date&nbsp;issued:</th>
-            <td>2008-01-30</td>
+            <td>2008-02-07</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -33,7 +33,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/metrics-20080130.html">http://www.language-archives.org/NOTE/metrics-20080130.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/metrics-20080207.html">http://www.language-archives.org/NOTE/metrics-20080207.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Latest version:</th>
@@ -46,7 +46,8 @@
          <tr valign="top">
             <th align="left">Abstract:</th>
             <td>
-               <p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
+               <p>Explains the metrics that are implemented on the OLAC web site for summarizing
+                  the coverage of the participating archives and for evaluating the quality of their metadata
                               records.
                </p>
             </td>
@@ -62,8 +63,10 @@
          <tr valign="top">
             <th align="left">Changes since previous version:</th>
             <td>
-               <p>Removed the proposal to add a "not_applicable" term to the Linguistic Data Type vocabulary in favor of
-                              changing to a Language Resource Type vocabulary in the next round of metadata development.
+               <p>In section 2, removed the proposal to add a "not_applicable" term to the Linguistic Data Type vocabulary in favor of
+                              changing to a Language Resource Type vocabulary in the next round of metadata
+                              development. Added section 3 describing all the other metrics beyond the
+                              quality score.
                </p>
             </td>
          </tr>
@@ -88,18 +91,22 @@
                         OLAC employs to achieve its vision. "OLAC also conducts automated review based on peer consensus regarding
                         best practice" (see core value statements in [<a href="#OLAC-Process">OLAC-Process</a>]). 
          </p>
-         <p>This note explains the automated system that is implemented on the OLAC web site for evaluating the quality
-                        of metadata records. The peer consensus regarding best practice is expressed in [<a href="#OLAC-BPR">OLAC-BPR</a>] and
-                        further elucidated in [<a href="#OLAC-Usage">OLAC-Usage</a>]. 
+         <p>Section 2 of this note explains the automated system that is implemented on the OLAC web site for evaluating the quality
+                        of metadata records. Section 3 explains the other metrics that are reported in
+                        the [<a href="#OLAC-Metrics">OLAC-Metrics</a>] reports to support comparison of size and coverage
+                        of collections in addition to aspects of metadata quality and usage.
          </p>
          <h2><A name="The quality score"></A>2. The quality score
          </h2>
-         <p>Many of the best practice recommendations for resource description cannot be automatically checked for
+         <p>The peer consensus regarding best practice is expressed in [<a href="#OLAC-BPR">OLAC-BPR</a>] and
+                        further elucidated in [<a href="#OLAC-Usage">OLAC-Usage</a>]. 
+                        Many of the best practice recommendations for resource description cannot be automatically checked for
                         conformance; however, there are many that can be. As an aid to creating descriptive metadata that meet the
                         latter set of recommendations, OLAC has implemented an automated metadata quality score. Each metadata
                         record receives a score in the range of 0 to 10 based on the presence or absence of recommended practices.
                         In some contexts the score is reported as a number in this range; in others it is summarized graphically as
-                        a rating of 1 to 5 stars. That is, any score above 9 is reported as 5 stars, scores in the range of 7 to 9
+                        a rating of 1 to 5 stars. That is, any score of 9 or higher is reported as 5 stars, scores in the range of 7 to
+            9
                         are reported as 4 stars, and so on.
          </p>
          <p>The practices in focus for the evaluation of metadata quality are ones that contribute to resource
@@ -173,7 +180,7 @@
                <dt><b>Linguistic Type</b></dt>
                <dd>
                   <p>One point is awarded for the presence of at least one Type element that uses the
-                                          <i>olac:linguistic-type</i> encoding scheme [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] to precisely identify
+                                          <i>olac:linguistic-type</i> encoding scheme [<a href="#OLAC-Type">OLAC-Type</a>] to precisely identify
                                        the type of the resource from a linguistic point of view. Such a metadata element is relevant to the
                                        majority of OLAC records, but not to all. The remedy that has been identified is to extend the
                                        Linguistic Data Type vocabulary to a generally applicable Language Resource Type vocabulary that will
@@ -230,13 +237,186 @@
          </p>
          <h2><A name="Other metrics"></A>3. Other metrics
          </h2>
-         <p><i>Forthcoming.</i> When the metrics and comparative metrics pages are complete, explain other metrics
-                     here.
+         <p>The [<a href="#OLAC-Metrics">OLAC-Metrics</a>] page reports a set of metrics that summarize
+                        the size and coverage of each participating archive as well as the quality of their metadata
+                        records. The "OLAC Archive Metrics" tab reports the metrics for the
+                        participating archive that has been selected from the drop down list. The
+                        "Comparative Archive Metrics" tab shows the summary statistics for all
+                        participating archives in a single table. When first opened, the rows of the
+                        table are in alphabetical order of the archive names. The rows can be
+                        reordered to reflect their rank with respect to a particular metric by
+                        clicking in the column header for that metric. Clicking again reverses the
+                        order.
          </p>
+         <p>When "ALL ARCHIVES" is selected, the Summary Statistics table begins with
+                        the following three metrics that apply only to the OLAC catalog as a whole; when an individual
+                        archive is selected, these metrics are absent.
+         </p>
+         <blockquote>
+            <dl>
+               <dt><b>Number of Archives</b></dt>
+               <dd>
+                  <p>The total number of metadata repositories that are currently being harvested by the
+                                    OLAC aggregator. A complete enumeration of the participating archives is
+                                    given on the [<a href="#OLAC-Archives">OLAC-Archives</a>] page.
+                  </p>
+               </dd>
+               <dt><b>Archives with Fresh Metadata</b></dt>
+               <dd>
+                  <p>The number (and percentage) of participating archives that have updated
+                                 their metadata repositories within the past twelve months.
+                  </p>
+               </dd>
+               <dt><b>Archives with Five-star Metadata</b></dt>
+               <dd>
+                  <p>The number (and percentage) of participating archives for which the
+                                    average metadata quality score  is 9 or
+                                    higher (see <a href="#The quality score">The quality score</a>).
+                  </p>
+               </dd>
+            </dl>
+         </blockquote>
+         <p>The following metrics summarize the size and coverage of 
+                        the selected archive (or of all archives when that is selected):
+         </p>
+         <blockquote>
+            <dl>
+               <dt><b>Number of Resources</b></dt>
+               <dd>
+                  <p>The total number of metadata records in the repository of the selected archive.</p>
+               </dd>
+               <dt><b>Number of Resources Online</b></dt>
+               <dd>
+                  <p>The number of records from the selected archive describing resources
+                                    that are accessible
+                                    online; that is, they have an Identifier element whose value is a URL
+                                    beginning with <tt>http:</tt>, <tt>https:</tt>, or <tt>ftp:</tt>.
+                  </p>
+               </dd>
+               <dt><b>Distinct Languages</b></dt>
+               <dd>
+                  <p>The number of distinct languages that are covered within the selected
+                                       archive's collection; that is, the number of distinct code values that
+                                       are used from the <i>olac:language</i> encoding scheme
+                                       [<a href="#OLAC-Language">OLAC-Language</a>], whether with the Language element or the
+                                       Subject element.
+                  </p>
+               </dd>
+               <dt><b>Distinct Linguistic Subfields</b></dt>
+               <dd>
+                  <p>The number of distinct linguistic subfields that occur as subject
+                                    classifications within the selected
+                                    archive's collection; that is, the number of distinct code values that
+                                    are used from the <i>olac:linguistic-field</i> encoding scheme
+                                    [<a href="#OLAC-Field">OLAC-Field</a>].
+                  </p>
+               </dd>
+               <dt><b>Distinct Linguistic Types</b></dt>
+               <dd>
+                  <p>The number of distinct linguistic data types (e.g. <i>primary_text</i> versus
+                                    <i>lexicon</i> versus <i>language_description</i>) that occur within the selected
+                                    archive's collection; that is, the number of distinct code values that
+                                    are used from the <i>olac:linguistic-type</i> encoding scheme
+                                    [<a href="#OLAC-Type">OLAC-Type</a>].
+                  </p>
+               </dd>
+               <dt><b>Distinct DCMI Types</b></dt>
+               <dd>
+                  <p>The number of distinct DCMI resource types (e.g. <i>Text, Sound,
+                                       MovingImage, Software,</i> and so on)  that occur within the selected
+                                    archive's collection; that is, the number of distinct values that
+                                    are used from the <i>dcterms:DCMIType</i> encoding scheme
+                                    [<a href="#DCMI-Type">DCMI-Type</a>].
+                  </p>
+               </dd>
+            </dl>
+         </blockquote>
+         <p>The following metrics summarize aspects of metadata quality for the selected
+                        archive (or for all archives when that is selected):
+         </p>
+         <blockquote>
+            <dl>
+               <dt><b>Average Elements Per Record</b></dt>
+               <dd>
+                  <p>The average number of elements (including refinements from the <i>dcterms</i>
+                                    namespace) per metadata record.
+                  </p>
+               </dd>
+               <dt><b>Average Encoding Schemes Per Record</b></dt>
+               <dd>
+                  <p>The average number of elements 
+                                    per metadata record that use the  <i>xsi:type</i> attribute to specify an
+                                    encoding scheme for expressing the value.
+                  </p>
+               </dd>
+               <dt><b>Average Metadata Quality Score</b></dt>
+               <dd>
+                  <p>The average of the quality score for all the metadata records in the
+                                    selected archive (see <a href="#The quality score">The quality score</a>); the maximum value is
+                                    10.
+                  </p>
+               </dd>
+               <dt><b>Date of Latest Update</b></dt>
+               <dd>
+                  <p>The date on which the archive last updated its metadata repository.
+                                    It is computed as the most recent of the <tt>&lt;datestamp&gt;</tt> values
+                                    that occur in the headers of
+                                    the metadata records as returned by the OAI-PMH protocol.
+                  </p>
+               </dd>
+            </dl>
+         </blockquote>
+         <p>The OLAC Archive Metrics page continues with a Metadata Usage summary consisting of four
+                     histograms:
+         </p>
+         <blockquote>
+            <dl>
+               <dt><b>Core Components</b></dt>
+               <dd>
+                  <p>This histogram reports the use of core metadata components as
+                                    recommended by [<a href="#OLAC-BPR">OLAC-BPR</a>]. The eight lines correspond to the eight
+                                    components of <a href="#The quality score">The quality score</a> that awarded as full points
+                                    for the presence or absence of a recommended element or encoding scheme.
+                                    The length of a bar represents the percentage of metadata records that
+                                    contain that metadata component. 
+                  </p>
+               </dd>
+               <dt><b>Element Usage</b></dt>
+               <dd>
+                  <p>This histogram lists all of the metadata elements in the Dublin Core
+                                     scheme. The length of a bar represents the total number of times a given
+                                    element has been used within the records of the selected archive. It is the
+                                    count of element uses (not records that use the element); thus the 
+                                    counts exceed the total number of resources in the archive for elements
+                                    that occur multiple times per record.
+                  </p>
+               </dd>
+               <dt><b>Refinement Usage</b></dt>
+               <dd>
+                  <p>This histogram lists all of the defined refinements to metadata elements in the Dublin Core
+                                     scheme. The length of a bar represents the total number of times a given
+                                    refinement has been used within the records of the selected archive. It is the
+                                    count of refinement uses (not records that use the refinement); thus the 
+                                    counts exceed the total number of resources in the archive for refinements
+                                    that occur multiple times per record.
+                  </p>
+               </dd>
+               <dt><b>Encoding Scheme Usage</b></dt>
+               <dd>
+                  <p>This histogram lists all of the encoding schemes that may occur as the
+                                    value of the <i>xsi:type</i> attribute.
+                                    The length of a bar represents the total number of times a given
+                                    encoding scheme has been used within the records of the selected archive. It is the
+                                    count of encoding scheme uses (not records that use the encoding scheme); thus the 
+                                    counts exceed the total number of resources in the archive for encoding schemes
+                                    that occur multiple times per record.
+                  </p>
+               </dd>
+            </dl>
+         </blockquote>
       </body>
       <hr>
       <h2><font color="red">To do</font></h2><font color="red">
-         <p>Incorporate the Metadata Quality Advisor into the Freestanding Metadata Service.</p>
          <p>The guard against empty elements should be built into the harvester so that elements having neither element
                      content nor an olac:code value should simply be ignored and not entered into the aggregated database.
          </p></font><a name="References"></a><hr>
@@ -264,6 +444,13 @@
             </td>
          </tr>
          <tr valign="top">
+            <td width="150">[<a name="OLAC-Field">OLAC-Field</a>]
+            </td>
+            <td>OLAC Linguistic Subject Vocabulary.<br>
+                        &lt;<a href="http://www.language-archives.org/REC/field.html">http://www.language-archives.org/REC/field.html</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
             <td width="150">[<a name="OLAC-Free">OLAC-Free</a>]
             </td>
             <td>Free-standing OLAC Metadata.<br>
@@ -278,10 +465,10 @@
             </td>
          </tr>
          <tr valign="top">
-            <td width="150">[<a name="OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>]
+            <td width="150">[<a name="OLAC-Metrics">OLAC-Metrics</a>]
             </td>
-            <td>OLAC Linguistic Data Type Vocabulary.<br>
-                           &lt;<a href="http://www.language-archives.org/REC/type.html">http://www.language-archives.org/REC/type.html</a>&gt;
+            <td>OLAC Archive Metrics and Comparative Archive Metrics.<br>
+                        &lt;<a href="http://www.language-archives.org/archives-new.php/metrics/">http://www.language-archives.org/archives-new.php/metrics/</a>&gt;
             </td>
          </tr>
          <tr valign="top">
@@ -289,6 +476,13 @@
             </td>
             <td>OLAC Process, Section 2, "Governing ideas".<br>
                            &lt;<a href="http://www.language-archives.org/OLAC/process.html#Governing%20ideas">http://www.language-archives.org/OLAC/process.html#Governing%20ideas</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
+            <td width="150">[<a name="OLAC-Type">OLAC-Type</a>]
+            </td>
+            <td>OLAC Linguistic Data Type Vocabulary.<br>
+                           &lt;<a href="http://www.language-archives.org/REC/type.html">http://www.language-archives.org/REC/type.html</a>&gt;
             </td>
          </tr>
          <tr valign="top">
