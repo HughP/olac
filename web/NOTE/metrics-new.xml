@@ -6,18 +6,21 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Quality Metrics</title>
       <baseName>metrics</baseName>
-      <issued>20080130</issued>
+      <issued>20080207</issued>
       <previousIssued>20071117</previousIssued>
       <abstract>
-         <p>Explains the metrics that are implemented on the OLAC web site for evaluating the quality of metadata
+         <p>Explains the metrics that are implemented on the OLAC web site for summarizing
+            the coverage of the participating archives and for evaluating the quality of their metadata
             records.</p>
       </abstract>
       <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
          (<url>mailto:gary_simons@sil.org</url>)</editors>
       <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics)</copyright>
       <changes>
-         <p>Removed the proposal to add a "not_applicable" term to the Linguistic Data Type vocabulary in favor of
-            changing to a Language Resource Type vocabulary in the next round of metadata development.</p>
+         <p>In section 2, removed the proposal to add a "not_applicable" term to the Linguistic Data Type vocabulary in favor of
+            changing to a Language Resource Type vocabulary in the next round of metadata
+            development. Added section 3 describing all the other metrics beyond the
+            quality score.</p>
       </changes>
    </header>
    <body>
@@ -29,19 +32,22 @@
             on the quality of the metadata that describe it. Ensuring quality through peer review is a core value that
             OLAC employs to achieve its vision. "OLAC also conducts automated review based on peer consensus regarding
             best practice" (see core value statements in <cit>OLAC-Process</cit>). </p>
-         <p>This note explains the automated system that is implemented on the OLAC web site for evaluating the quality
-            of metadata records. The peer consensus regarding best practice is expressed in <cit>OLAC-BPR</cit> and
-            further elucidated in <cit>OLAC-Usage</cit>. </p>
+         <p>Section 2 of this note explains the automated system that is implemented on the OLAC web site for evaluating the quality
+            of metadata records. Section 3 explains the other metrics that are reported in
+            the <cit>OLAC-Metrics</cit> reports to support comparison of size and coverage
+            of collections in addition to aspects of metadata quality and usage.</p>
 
       </section>
       <section>
          <heading>The quality score</heading>
-         <p>Many of the best practice recommendations for resource description cannot be automatically checked for
+         <p>The peer consensus regarding best practice is expressed in <cit>OLAC-BPR</cit> and
+            further elucidated in <cit>OLAC-Usage</cit>. 
+            Many of the best practice recommendations for resource description cannot be automatically checked for
             conformance; however, there are many that can be. As an aid to creating descriptive metadata that meet the
             latter set of recommendations, OLAC has implemented an automated metadata quality score. Each metadata
             record receives a score in the range of 0 to 10 based on the presence or absence of recommended practices.
             In some contexts the score is reported as a number in this range; in others it is summarized graphically as
-            a rating of 1 to 5 stars. That is, any score above 9 is reported as 5 stars, scores in the range of 7 to 9
+            a rating of 1 to 5 stars. That is, any score of 9 or higher is reported as 5 stars, scores in the range of 7 to 9
             are reported as 4 stars, and so on.</p>
          <p>The practices in focus for the evaluation of metadata quality are ones that contribute to resource
             discovery. The score has two major parts: 50% is based on the metadata elements that are present and 50% is
@@ -103,7 +109,7 @@
             <dt>Linguistic Type</dt>
             <dd>
                <p>One point is awarded for the presence of at least one Type element that uses the
-                     <i>olac:linguistic-type</i> encoding scheme <cit>OLAC-Linguistic-Type</cit> to precisely identify
+                     <i>olac:linguistic-type</i> encoding scheme <cit>OLAC-Type</cit> to precisely identify
                   the type of the resource from a linguistic point of view. Such a metadata element is relevant to the
                   majority of OLAC records, but not to all. The remedy that has been identified is to extend the
                   Linguistic Data Type vocabulary to a generally applicable Language Resource Type vocabulary that will
@@ -154,14 +160,127 @@
       </section>
       <section>
          <heading>Other metrics</heading>
-         <p><i>Forthcoming.</i> When the metrics and comparative metrics pages are complete, explain other metrics
-         here.</p>
+         <p>The <cit>OLAC-Metrics</cit> page reports a set of metrics that summarize
+            the size and coverage of each participating archive as well as the quality of their metadata
+            records. The "OLAC Archive Metrics" tab reports the metrics for the
+            participating archive that has been selected from the drop down list. The
+            "Comparative Archive Metrics" tab shows the summary statistics for all
+            participating archives in a single table. When first opened, the rows of the
+            table are in alphabetical order of the archive names. The rows can be
+            reordered to reflect their rank with respect to a particular metric by
+            clicking in the column header for that metric. Clicking again reverses the
+            order.</p>
+         <p>When "ALL ARCHIVES" is selected, the Summary Statistics table begins with
+            the following three metrics that apply only to the OLAC catalog as a whole; when an individual
+            archive is selected, these metrics are absent.</p>
+         <dl>
+            <dt>Number of Archives</dt>
+            <dd><p>The total number of metadata repositories that are currently being harvested by the
+               OLAC aggregator. A complete enumeration of the participating archives is
+               given on the <cit>OLAC-Archives</cit> page.</p></dd>
+            <dt>Archives with Fresh Metadata</dt>
+            <dd><p>The number (and percentage) of participating archives that have updated
+            their metadata repositories within the past twelve months.</p></dd>
+            <dt>Archives with Five-star Metadata</dt>
+            <dd><p>The number (and percentage) of participating archives for which the
+               average metadata quality score  is 9 or
+               higher (see <xref>The quality score</xref>).</p></dd>
+         </dl>
+         <p>The following metrics summarize the size and coverage of 
+            the selected archive (or of all archives when that is selected):</p>
+         <dl>
+            <dt>Number of Resources</dt>
+            <dd><p>The total number of metadata records in the repository of the selected archive.</p></dd>
+            <dt>Number of Resources Online</dt>
+            <dd><p>The number of records from the selected archive describing resources
+               that are accessible
+               online; that is, they have an Identifier element whose value is a URL
+               beginning with <tt>http:</tt>, <tt>https:</tt>, or <tt>ftp:</tt>.</p></dd>
+            <dt>Distinct Languages</dt>
+            <dd>
+               <p>The number of distinct languages that are covered within the selected
+                  archive's collection; that is, the number of distinct code values that
+                  are used from the <i>olac:language</i> encoding scheme
+                  <cit>OLAC-Language</cit>, whether with the Language element or the
+                  Subject element.</p></dd>
+            <dt>Distinct Linguistic Subfields</dt>
+            <dd><p>The number of distinct linguistic subfields that occur as subject
+               classifications within the selected
+               archive's collection; that is, the number of distinct code values that
+               are used from the <i>olac:linguistic-field</i> encoding scheme
+               <cit>OLAC-Field</cit>.</p></dd>
+            <dt>Distinct Linguistic Types</dt>
+            <dd><p>The number of distinct linguistic data types (e.g. <i>primary_text</i> versus
+               <i>lexicon</i> versus <i>language_description</i>) that occur within the selected
+               archive's collection; that is, the number of distinct code values that
+               are used from the <i>olac:linguistic-type</i> encoding scheme
+               <cit>OLAC-Type</cit>.</p></dd>
+            <dt>Distinct DCMI Types</dt>
+            <dd><p>The number of distinct DCMI resource types (e.g. <i>Text, Sound,
+               MovingImage, Software,</i> and so on)  that occur within the selected
+               archive's collection; that is, the number of distinct values that
+               are used from the <i>dcterms:DCMIType</i> encoding scheme
+               <cit>DCMI-Type</cit>.</p></dd>
+         </dl>
+         <p>The following metrics summarize aspects of metadata quality for the selected
+            archive (or for all archives when that is selected):</p>
+         <dl>
+            <dt>Average Elements Per Record</dt>
+            <dd><p>The average number of elements (including refinements from the <i>dcterms</i>
+               namespace) per metadata record.</p></dd>
+            <dt>Average Encoding Schemes Per Record</dt>
+            <dd><p>The average number of elements 
+               per metadata record that use the  <i>xsi:type</i> attribute to specify an
+               encoding scheme for expressing the value.</p></dd>
+            <dt>Average Metadata Quality Score</dt>
+            <dd><p>The average of the quality score for all the metadata records in the
+               selected archive (see <xref>The quality score</xref>); the maximum value is
+               10.</p></dd>
+            <dt>Date of Latest Update</dt>
+            <dd><p>The date on which the archive last updated its metadata repository.
+               It is computed as the most recent of the <tt>&lt;datestamp&gt;</tt> values
+               that occur in the headers of
+               the metadata records as returned by the OAI-PMH protocol.</p></dd>
+         </dl>
+         <p>The OLAC Archive Metrics page continues with a Metadata Usage summary consisting of four
+         histograms:</p>
+         <dl>
+            <dt>Core Components</dt>
+            <dd><p>This histogram reports the use of core metadata components as
+               recommended by <cit>OLAC-BPR</cit>. The eight lines correspond to the eight
+               components of <xref>The quality score</xref> that awarded as full points
+               for the presence or absence of a recommended element or encoding scheme.
+               The length of a bar represents the percentage of metadata records that
+               contain that metadata component. </p></dd>
+            <dt>Element Usage</dt>
+            <dd><p>This histogram lists all of the metadata elements in the Dublin Core
+                scheme. The length of a bar represents the total number of times a given
+               element has been used within the records of the selected archive. It is the
+               count of element uses (not records that use the element); thus the 
+               counts exceed the total number of resources in the archive for elements
+               that occur multiple times per record.</p></dd>
+            <dt>Refinement Usage</dt>
+            <dd><p>This histogram lists all of the defined refinements to metadata elements in the Dublin Core
+                scheme. The length of a bar represents the total number of times a given
+               refinement has been used within the records of the selected archive. It is the
+               count of refinement uses (not records that use the refinement); thus the 
+               counts exceed the total number of resources in the archive for refinements
+               that occur multiple times per record.</p></dd>
+            <dt>Encoding Scheme Usage</dt>
+            <dd><p>This histogram lists all of the encoding schemes that may occur as the
+               value of the <i>xsi:type</i> attribute.
+               The length of a bar represents the total number of times a given
+               encoding scheme has been used within the records of the selected archive. It is the
+               count of encoding scheme uses (not records that use the encoding scheme); thus the 
+               counts exceed the total number of resources in the archive for encoding schemes
+               that occur multiple times per record.</p></dd>
+         </dl>
+         
       </section>
 
 
    </body>
    <todo>
-      <p>Incorporate the Metadata Quality Advisor into the Freestanding Metadata Service.</p>
       <p>The guard against empty elements should be built into the harvester so that elements having neither element
          content nor an olac:code value should simply be ignored and not entered into the aggregated database.</p>
    </todo>
@@ -177,8 +296,12 @@
             &lt;<url>http://www.language-archives.org/REC/bpr.html</url>&gt;</ref>
       <ref abbrev="OLAC-Free">Free-standing OLAC Metadata.<br/>
             &lt;<url>http://www.language-archives.org/tools/metadata/freestanding.html</url>&gt;</ref>
-      <ref abbrev="OLAC-Linguistic-Type">OLAC Linguistic Data Type Vocabulary.<br/>
+      <ref abbrev="OLAC-Field">OLAC Linguistic Subject Vocabulary.<br/>
+         &lt;<url>http://www.language-archives.org/REC/field.html</url>&gt;</ref>
+      <ref abbrev="OLAC-Type">OLAC Linguistic Data Type Vocabulary.<br/>
             &lt;<url>http://www.language-archives.org/REC/type.html</url>&gt;</ref>
+      <ref abbrev="OLAC-Metrics">OLAC Archive Metrics and Comparative Archive Metrics.<br/>
+         &lt;<url>http://www.language-archives.org/archives-new.php/metrics/</url>&gt;</ref>
       <ref abbrev="OLAC-Process">OLAC Process, Section 2, "Governing ideas".<br/>
             &lt;<url>http://www.language-archives.org/OLAC/process.html#Governing%20ideas</url>&gt;</ref>
       <ref abbrev="OLAC-Usage">OLAC Metadata Usage Guidelines.<br/>
