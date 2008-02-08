@@ -6,7 +6,7 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20080130</issued>
+      <issued>20080208</issued>
       <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the metadata elements used in the
@@ -75,8 +75,8 @@
             practice is to use the <i>xml:lang</i> attribute to identify the language. By using multiple instances of a
             metadata elements tagged for different languages, data providers may offer their metadata records in
             multiple languages. The use of  the <i>xml:lang</i> attribute should not be confused with the use of
-            the <i>olac:ISO639-3</i> scheme with <xref>Language</xref> and <xref>Subject</xref> (expressed 
-            using xsi:type="olac:ISO639-3" and olac:code="somecode" in the element tag) that should be used to 
+            the <i>olac:language</i> scheme with <xref>Language</xref> and <xref>Subject</xref> (expressed 
+            using xsi:type="olac:language" and olac:code="somecode" in the element tag) that should be used to 
             specify, respectively, the content language and the subject of the resource itself. In fact, the <i>xml:lang</i> attribute
             may be used within these elements, as well, to specify an alternative name of the identified language,
             given in the language specified in <i>xml:lang</i>.</p>
@@ -277,7 +277,7 @@
 
             <examples>
                <p>A resource about English in India:</p>
-               <eg>&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;
+               <eg>&lt;dc:subject xsi:type="olac:language" olac:code="en"/&gt;
 &lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</eg>
                <p>A resource about languages spoken on Guadalcanal:</p>
                <eg>&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</eg>
@@ -622,7 +622,7 @@
                <p>For a work of literature or other monolingual document aimed at the speakers of a particular language,
                   use Language to identify that language. For a sound recording, use Language for the language being
                   spoken in the recording. For a grammatical description, for instance, use Language for the language
-                  the grammar is written in; use <xref>Subject</xref> with the ISO639-3 scheme (hereafter referred to as
+                  the grammar is written in; use <xref>Subject</xref> with the <i>olac:language</i> scheme (hereafter referred to as
                   "Subject.language") to specify the language whose grammar is being described. For an annotated text,
                   use Language for the language in which the annotations are made; use Subject.language for the language
                   of the base text that is being annotated. For a dictionary, use Language for the language in which the
@@ -659,17 +659,17 @@
 
             <examples>
                <p>A resource in English about the Sikaiana language:</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt; 
+&lt;dc:subject xsi:type="olac:language" olac:code="sky"/&gt;</eg>
                <p><i>Frönsk-islenzk ordabok ; Dictionnaire français-islandais</i>, a French-Icelandic dictionary, 
                   described for an audience where the French names are preferred. (A system could also display the
                   French name of the language based on just the code in the metadata, if a service that maps the 
                   codes to French names were available.)</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra" xml:lang="fra"&gt;français&lt;/dc:language&gt;
-&lt;dc:language xsi:type="olac:ISO639-3" olac:code="isl" xml:lang="fra"&gt;islandais&lt;/dc:language&gt;</eg>
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="fra" xml:lang="fra"&gt;français&lt;/dc:language&gt;
+&lt;dc:language xsi:type="olac:language" olac:code="isl" xml:lang="fra"&gt;islandais&lt;/dc:language&gt;</eg>
                <p>The <i>American Heritage Dictionary</i>, which is both in and about American English:</p>
-               <eg>&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+               <eg>&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
+&lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
 &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</eg>
                <p>A resource in the Saracatsan dialect of modern Greek</p>
                <eg>&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</eg>
@@ -976,9 +976,9 @@
                <eg>&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</eg>
                <p>A resource on multilingual education in Uganda involving national, regional and local languages.</p>
                <eg>&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
-&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
+&lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
+&lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
+&lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
    ...
 &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</eg>
 
