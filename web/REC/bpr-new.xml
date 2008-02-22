@@ -6,7 +6,7 @@
       <status code="proposed" type="recommendation"/>
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
-      <issued>20080130</issued>
+      <issued>20080221</issued>
       <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document expresses the consensus of the Open Language Archives Community on best
@@ -14,12 +14,12 @@
             standard <cit>OLAC-Metadata</cit>.</p>
       </abstract>
       <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
-         (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and University of
-         Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) 
-         <br/>Joan Spanne, SIL International (<url>mailto:joan_spanne@sil.org</url>)</editors>
-      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
-         (University of Melbourne and University of Pennsylvania), and
-      Joan Spanne (SIL International)</copyright>
+            (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and
+         University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) <br/>Joan Spanne, SIL
+         International (<url>mailto:joan_spanne@sil.org</url>)</editors>
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics),
+         Steven Bird (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL
+         International)</copyright>
 
       <changes/>
    </header>
@@ -45,9 +45,8 @@
       <section>
          <heading>Recommendations</heading>
          <p>The following are the OLAC recommendations on best practices for describing language
-            resources.  Follow the "more"
-            link to see the fuller discussion of an element in
-            <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
+            resources. Follow the "more" link to see the fuller discussion of an element in
+               <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
          <recommendations href="../NOTE/usage.xml"/>
       </section>
 
