@@ -725,8 +725,9 @@
                <p>Recommended best practice is that every record contain at least one Language
                   element. For a resource that does not include language content, include a Language
                   element containing the code <tt>zxx</tt> for “No linguistic content.”</p>
-               <p>Recommended best practice is to use the <i>olac:language</i> scheme to identify
-                  the Language precisely. Specify the language in the <i>olac:code</i> attribute
+               <p>Recommended best practice is to use the <i>olac:language</i> scheme with the
+                  Language element to identify an individual language
+                  precisely. Specify the language in the <i>olac:code</i> attribute
                   while leaving the element content empty. Use the element content only when the
                   controlled vocabulary does not offer an appropriate code, or when further
                   specification is needed, such as to name a specific dialect or to give an
@@ -1065,8 +1066,9 @@
                   that goes beyond the informative potential of just a title alone. Using all of
                   these elements is encouraged.</p>
 
-               <p>When the subject is a human language, recommended best practice is to use the
-                     <i>olac:language</i> scheme to identify it precisely. Specify the language in
+               <p>When the subject is a human language, recommended best practice is to use the 
+                  <i>olac:language</i> scheme with the Subject element to identify an individual language
+                  precisely. . Specify the language in
                   the <i>olac:code</i> attribute while leaving the element content empty. Use the
                   element content only when the controlled vocabulary does not offer an appropriate
                   code, or when further specification is needed, such as to name a specific dialect
