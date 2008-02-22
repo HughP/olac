@@ -21,7 +21,10 @@
          University of Pennsylvania)</copyright>
 
       <changes>
-         <p>The name of the extension was changed back to <i>olac:language</i>.</p>
+         <p>The name of the extension was changed back to <i>olac:language</i>. Expands
+            the vocabulary to valid codes from all part of ISO 639 and describes the
+            normalization process and the validation service that will be performed by
+         OLAC.</p>
       </changes>
    </header>
    <body>
@@ -93,53 +96,53 @@
             to Part 3 codes except in the case of around 20 languages for which Part 2 has both a
             "bibliographic" code and a "terminological" code. Part 3 matches the terminological set;
             thus any bibliographic code is normalized to its terminological equivalent. The OLAC
-            harvester also normalizes the case of language codes to lower case.  Thus the following
-            six elements are recognized as equivalent ways of specifying the German language:</p>
+            harvester also normalizes language codes supplied in upper case to their lower case
+            equivalents.</p>
+         <p>Following the extension mechanism defined in <cit>OLAC-Metadata</cit>, a language
+            identifier is expressed as the value of the <tt>olac:code</tt> attribute and the
+            extension <tt>olac:language</tt> is named in the <tt>xsi:type</tt> attribute. A language
+            identifier may be used with the <tt>&lt;dc:language&gt;</tt> element to identify
+            a language that a resource is written or spoken in.   Thus the following
+            six elements are recognized as equivalent ways of specifying a document
+            written in the German language:</p>
          <eg>&lt;dc:language xsi:type="olac:language" olac:code="de"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="deu"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="ger"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="DE"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="DEU"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="GER"/&gt;</eg>
-         <p>All of the above are normalized by the OLAC harvester to the following:</p>
+         <p>All of the above are normalized by the OLAC harvester to the equivalent
+            lower-case Part 3 identifier:</p>
          <eg>&lt;dc:language xsi:type="olac:language" olac:code="deu"/&gt;</eg>
-         <p>
-            
-            This includes both individual language identifiers and
-            macrolanguage identifiers <cit>ISO639-Macro</cit>. At any time the valid code set is the
-            complete set of codes (both active and retired) that is downloadable from
-            <cit>ISO639-3</cit>; the use of retired codes is deprecated, but not disallowed.</p>
-         <p>Following the extension mechanism defined in <cit>OLAC-Metadata</cit>, a language
-            identifier is expressed as the value of the <tt>olac:code</tt> attribute and the
-            extension <tt>olac:language</tt> is named in the <tt>xsi:type</tt> attribute. A language
-            identifier may be used with the <tt>&lt;dc:language&gt;</tt> element to identify
-            a language that a resource is written or spoken in. Similarly, a language identifier may
+          <p>Similarly, a language identifier may
             be used with the <tt>&lt;dc:subject&gt;</tt> element to identify a language that
-            a resource is about. In both cases, free text in the element content may be used to
-            identify the specific variety of the language. For instance, the following indicates
-            that a resource is written in Japanese:</p>
-         <eg>&lt;dc:language xsi:type="olac:language" olac:code="jpn"/&gt;</eg>
-         <p>While the following indicates that a resource is sbout the Lau language of Solomon
-            Islands, and specifically, the Suafa dialect:</p>
+            a resource is about. In both the Language element and the Subject element, free text in the element content may be used to
+            identify the specific variety of the language. For instance, the following
+            indicates that a resource is about the Lau language of Solomon
+            Islands and, specifically, the Suafa dialect:</p>
          <eg>&lt;dc:subject xsi:type="olac:language" olac:code="llu"&gt;Suafa dialect&lt;/dc:subject&gt;</eg>
          <p>The formal definition of the vocabulary is in the following XML schema which conforms to
             the conventions for an OLAC metadata extension as defined in <cit>OLAC-Metadata</cit>:</p>
          <blockquote>
             <p>
-               <url>http://www.language-archives.org/OLAC/1.1/olac-ISO639-3.xsd</url>
+               <url>http://www.language-archives.org/OLAC/1.1/olac-language.xsd</url>
             </p>
          </blockquote>
-         <p>That schema in turn includes another schema that contains only the simple type that
-            enumerates all the recognized code values, namely, </p>
-         <blockquote>
-            <p>
-               <url>http://www.language-archives.org/OLAC/1.1/ISO639-3.xsd</url>
+         <p>The schema requires only that the code value be a string of two or three
+            letters, either upper case or lower case. Validity of the actual identifiers
+            used in metadata is not tested as a precondition for harvesting, but is
+            tested periodically by a service on the OLAC site. The latter approach is
+            needed because individual identifiers may be retired from active use by the
+            ISO 639-3 Registration Authority; the validation service thus alerts participating archives
+            to identifiers in their metadata records that are no longer valid and relays the
+            instructions given by the ISO 639-3/RA as to the appropriate remedy. In
+            addition to flagging retired identifiers, the validation service also flags
+            identifiers that are undefined or for
+            local use as errors, and those that are collective or for macrolanguages as
+            less than best practice. See <cit>ISO639-Scope</cit> for the definition of
+            local use, collective, and macrolanguage.
             </p>
-         </blockquote>
-         <p>The latter schema provides a complete list of all language identifiers recognized by
-            OLAC. Each enumerated value provides both a code (in the <tt>value</tt> attribute) and
-            an associated language name (in the <tt>&lt;annotation&gt;</tt> element) that
-            can be used for display purposes.</p>
+         
       </section>
       <section>
          <heading>Looking up the language for a code</heading>
@@ -208,8 +211,8 @@
       <ref abbrev="ISO639-3">Codes for the Representation of Names of Languages-Part 3: Alpha-3 code
          for comprehensive coverage of
          languages.<br/>&lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
-      <ref abbrev="ISO639-Macro">"Macrolanguages," in Scope of Denotation for Language
-            Identifiers.<br/>&lt;<url>http://www.sil.org/iso639-3/scope.asp#M</url>&gt;</ref>
+      <ref abbrev="ISO639-Scope">Scope of Denotation for Language
+            Identifiers.<br/>&lt;<url>http://www.sil.org/iso639-3/scope.asp</url>&gt;</ref>
 
 
 
