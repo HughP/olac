@@ -402,10 +402,10 @@
                                        historical information would correctly use Coverage or <tt>dcterms:temporal</tt> to specify the date,
                                        date range or period in focus.
                   </p>
-                  <p>Coverage should be used geographically when the language variety in focus in the resource
-                                       has a different or narrower distribution than the language has in general. It should also be used when
-                                       the resource deals with a topic of study in which the location or region itself is in focus,
-                                       <i>e.g.</i>, multilingualism, language policy, languages in contact, in a given locale.
+                  <p>Coverage should be used geographically when the language variety in focus in the resource has a
+                                       different or narrower distribution than the language has in general. It should also be used when the
+                                       resource deals with a topic of study in which the location or region itself is in focus, <i>e.g.</i>,
+                                       multilingualism, language policy, languages in contact, in a given locale.
                   </p>
                   <p>Geospatial coordinates are appropriate Coverage metadata for a text recording when they identify the
                                        location where the exemplified speech variety is spoken. Typically this coincides with the location
@@ -413,7 +413,6 @@
                                        is spoken (such as in a laboratory setting), then information about the circumstances of collection
                                        would be included in the Description element. 
                   </p>
-                  <p></p>
                </td>
             </tr>
             <tr valign="top">
@@ -921,32 +920,31 @@
                                        that the creator of the resource assumes that its eventual user will understand. When a resource is in
                                        more than one language, use a separate Language element for each language.
                   </p>
-                  <p>For a resource of a particular Linguistic Type (see <a href="#Type">Type</a>), the uses of the Language
-                                       element and the <a href="#Subject">Subject</a> element with the <i>olac:language</i> scheme (hereafter
-                                       referred to as &#8220;Subject.language&#8221;) can be generally described as follows:
+                  <p>For a resource of a particular [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] (see <a href="#Type">Type</a>), the uses of the Language
+                                       element and the <a href="#Subject">Subject</a> element with the <i>olac:language</i> scheme (hereafter referred
+                                       to as &#8220;Subject.language&#8221;) can be generally described as follows:
                   </p>
                   <ul>
                      <li>
-                        <p>For Linguistic type Primary text: use the Language element to specify the language of the text. In
-                                             addition, if it is annotated, use a second Language element to specify the language in which the annotations
-                                             are made, as well as a Subject.language element repeating the language of the text, which is (in effect)
-                           the 
-                                             "subject" of the annotations.
+                        <p>For Linguistic type Primary text: use the Language element to specify the language of the text.
+                                                   In addition, if it is annotated, use a second Language element to specify the language in which
+                                                   the annotations are made, as well as a Subject.language element repeating the language of the
+                                                   text, which is (in effect) the "subject" of the annotations.
                         </p>
                      </li>
                      <li>
-                        <p>For Linguistic type Lexicon: use Language for the language in which the definitions are written; use 
-                                                Subject.language for the language whose words are being defined. A bilingual dictionary 
-                                                may have both languages identified in both kinds of elements.
+                        <p>For Linguistic type Lexicon: use Language for the language in which the definitions are written;
+                                                   use Subject.language for the language whose words are being defined. A bilingual dictionary may
+                                                   have both languages identified in both kinds of elements.
                         </p>
                      </li>
                      <li>
                         <p>For Linguistic type Language description: use Language for the language the description is
-                                                written in, and use Subject.language to specify the language being described. In addition, if the resource
-                                                contains fairly extensive examples (i.e., full sentence-length examples, at a minimum) in the language
-                           
-                                                being described, as might be the case with an extensive grammatical description, it might also be 
-                                                appropriate to use a Language element containing the language being described, as well.
+                                                   written in, and use Subject.language to specify the language being described. In addition, if
+                                                   the resource contains fairly extensive examples (i.e., full sentence-length examples, at a
+                                                   minimum) in the language being described, as might be the case with an extensive grammatical
+                                                   description, it might also be appropriate to use a Language element containing the language
+                                                   being described, as well.
                         </p>
                      </li>
                   </ul>
@@ -1413,10 +1411,10 @@
                                        of just a title alone. Using all of these elements is encouraged.
                   </p>
                   <p>When the subject is a human language, recommended best practice is to use the <i>olac:language</i>
-                                       scheme with the Subject element to identify an individual language precisely. Specify the language
-                                       in the <i>olac:code</i> attribute while leaving the element content empty. Use the element content
-                                       only when the controlled vocabulary does not offer an appropriate code, or when further specification
-                                       is needed, such as to name a specific dialect or to give an alternate name that differs from the
+                                       scheme with the Subject element to identify an individual language precisely. Specify the language in
+                                       the <i>olac:code</i> attribute while leaving the element content empty. Use the element content only
+                                       when the controlled vocabulary does not offer an appropriate code, or when further specification is
+                                       needed, such as to name a specific dialect or to give an alternate name that differs from the
                                        reference name given by the controlled vocabulary. 
                   </p>
                   <p>When the subject matter falls within the field of linguistics, recommended best practice is to use the
@@ -1430,38 +1428,37 @@
                   <p>Typically, a Subject will be expressed as keywords, key phrases or classification codes that describe
                                        a topic of the resource. [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>For a resource of a particular Linguistic Type (see <a href="#Type">Type</a>), the uses of the Subject element 
-                                       with the <i>olac:language</i> scheme (hereafter referred to as &#8220;Subject.language&#8221;) and the 
-                                       <a href="#Language">Language</a> element can be generally described as follows:
+                  <p>For a resource of a particular Linguistic Type (see <a href="#Type">Type</a>), the uses of the Subject
+                                       element with the <i>olac:language</i> scheme (hereafter referred to as &#8220;Subject.language&#8221;) and the
+                                          <a href="#Language">Language</a> element can be generally described as follows:
                   </p>
                   <ul>
                      <li>
-                        <p>For Linguistic type Primary text: use the Language element to specify the language of the text. In
-                                                addition, if it is annotated, use a second Language element to specify the language in which the annotations
-                                                are made, as well as a Subject.language element repeating the language of the text, which is (in effect)
-                           the 
-                                                "subject" of the annotations.
+                        <p>For Linguistic type Primary text: use the Language element to specify the language of the text.
+                                                   In addition, if it is annotated, use a second Language element to specify the language in which
+                                                   the annotations are made, as well as a Subject.language element repeating the language of the
+                                                   text, which is (in effect) the "subject" of the annotations.
                         </p>
                      </li>
                      <li>
-                        <p>For Linguistic type Lexicon: use Language for the language in which the definitions are written; use 
-                                                Subject.language for the language whose words are being defined. A bilingual dictionary 
-                                                may have both languages identified in both kinds of elements.
+                        <p>For Linguistic type Lexicon: use Language for the language in which the definitions are written;
+                                                   use Subject.language for the language whose words are being defined. A bilingual dictionary may
+                                                   have both languages identified in both kinds of elements.
                         </p>
                      </li>
                      <li>
                         <p>For Linguistic type Language description: use Language for the language the description is
-                                                written in, and use Subject.language to specify the language being described. In addition, if the resource
-                                                contains fairly extensive examples (i.e., full sentence-length examples, at a minimum) in the language
-                           
-                                                being described, as might be the case with an extensive grammatical description, it might also be 
-                                                appropriate to use a Language element containing the language being described, as well.
+                                                   written in, and use Subject.language to specify the language being described. In addition, if
+                                                   the resource contains fairly extensive examples (i.e., full sentence-length examples, at a
+                                                   minimum) in the language being described, as might be the case with an extensive grammatical
+                                                   description, it might also be appropriate to use a Language element containing the language
+                                                   being described, as well.
                         </p>
                      </li>
                   </ul>
-                  <p>Use of the <i>olac:language</i> scheme with Subject is also appropriate for works that are not of 
-                                       any particular <i>olac:linguistic-type</i>, but do treat a language or languages (or the communities
-                                       of their users) as a topic of study.
+                  <p>Use of the <i>olac:language</i> scheme with Subject is also appropriate for works that are not of any
+                                       particular <i>olac:linguistic-type</i>, but do treat a language or languages (or the communities of
+                                       their users) as a topic of study.
                   </p>
                   <p>To describe the spatial or temporal topic of the resource, use the <a href="#Coverage">Coverage</a> element.
                   </p>
@@ -1517,8 +1514,8 @@
                                        it in square brackets.
                   </p>
                   <p>Recommended best practice is that only one instance of the unqualified Title element, namely, for the
-                                       original title. See the <i>usage</i> section for a discussion of the exception to this rule. All others 
-                                       (<i>e.g.</i> translations) should be specified as the Alternative refinement.
+                                       original title. See the <i>usage</i> section for a discussion of the exception to this rule. All
+                                       others (<i>e.g.</i> translations) should be specified as the Alternative refinement.
                   </p>
                </td>
             </tr>
@@ -1531,18 +1528,18 @@
                                           <i>xml:lang</i> attribute to identify the language of the metadata content using an identifier from
                                           [<a href="#OLAC-Language">OLAC-Language</a>].
                   </p>
-                  <p>A formal title (for catalogers, the title as found on a primary source of information), is generally 
-                                       expected to be in the language in which the work is written or recorded. If the title is in a language 
+                  <p>A formal title (for catalogers, the title as found on a primary source of information), is generally
+                                       expected to be in the language in which the work is written or recorded. If the title is in a language
                                        different from the language identified in a <a href="#Language">Language</a> element, use the <i>xml:lang</i>
                                        attribute on Title to specify the language in which the title is actually given.
                   </p>
-                  <p>In the case of a polyglot work, where the text is given in two or more languages in some kind of 
-                                       parallel format (whether facing columns or pages, or separate but approximately equal sections),
-                                       and the title on the title page (or equivalent) is given in the multiple text languages, it is permissible
-                                       to repeat the Title element. In such a case, it will be expected that there will also be multiple 
-                                       <a href="#Language">Language</a> elements, and that each of the Title elements will also carry an <i>xml:lang</i>
-                                       attribute that specifies the language of the title as given in that element instance.  This is the only
-                                       approved use of repeated instances of the Title element.
+                  <p>In the case of a polyglot work, where the text is given in two or more languages in some kind of
+                                       parallel format (whether facing columns or pages, or separate but approximately equal sections), and
+                                       the title on the title page (or equivalent) is given in the multiple text languages, it is permissible
+                                       to repeat the Title element. In such a case, it will be expected that there will also be multiple
+                                          <a href="#Language">Language</a> elements, and that each of the Title elements will also carry an
+                                       <i>xml:lang</i> attribute that specifies the language of the title as given in that element instance.
+                                       This is the only approved use of repeated instances of the Title element.
                   </p>
                   <p>The Title can be a name given to a work to identify it if a formal title is not used, such as for a
                                        data set or collection of texts.
