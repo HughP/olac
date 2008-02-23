@@ -12,9 +12,9 @@
         <shortName>linguistic-field</shortName>
         <longName>Code for Linguistic Field</longName>
         <versionDate>2003-01-21</versionDate>
-        <description>These codes describe the content of a resource as
-        relevant to a particular subfield of linguistic science.</description>
-        <appliesTo>subject</appliesTo>
+         <description>Provides a controlled vocabulary for describing the subject matter of a resource as
+        relevant to a particular subfield of linguistics.</description>
+        <appliesTo>dc:subject</appliesTo>
         <documentation>http://www.language-archives.org/REC/field.html</documentation>
       </olac-extension>
     </xs:appinfo>

@@ -12,9 +12,8 @@
         <shortName>role</shortName>
         <longName>Code for Participant Roles</longName>
         <versionDate>2003-08-27</versionDate>
-        <description>Provides a controlled vocabulary for identifying the role of a Creator or Contributor more precisely. The vocabulary identifies approximately twenty roles that are common in the development of language resources.</description>
-        <appliesTo>creator</appliesTo>
-        <appliesTo>contributor</appliesTo>
+        <description>Provides a controlled vocabulary for identifying the role of a Contributor more precisely. The vocabulary identifies approximately twenty roles that are common in the development of language resources.</description>
+        <appliesTo>dc:contributor</appliesTo>
         <documentation>http://www.language-archives.org/REC/role.html</documentation>
       </olac-extension>
     </xs:appinfo>

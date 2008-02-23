@@ -622,7 +622,15 @@
         <xsl:value-of select="@name"/>
       </xsl:variable>
       <xsl:variable name="schema">
-        <xsl:value-of select="@href"/>
+         <xsl:choose>
+            <xsl:when test="starts-with(@href, '..')">
+               <xsl:value-of select="concat('http://www.language-archives.org',
+                  substring-after(@href, '..'))"/>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="@href"/>
+            </xsl:otherwise>
+         </xsl:choose>
       </xsl:variable>
       <xsl:variable name="ns">
         <xsl:value-of select="concat(@ns, ':')"/>
