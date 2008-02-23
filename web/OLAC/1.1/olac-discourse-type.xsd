@@ -15,8 +15,8 @@
         <description>Provides a controlled vocabulary for identifying approximately ten discourse types.
             It is used with Type to identify the genre of a language resource (particularly a primary text).
             It may also be used with Subject to identify a work as being about a particular genre.</description>
-        <appliesTo>type</appliesTo>
-        <appliesTo>subject</appliesTo>
+        <appliesTo>dc:type</appliesTo>
+        <appliesTo>dc:subject</appliesTo>
         <documentation>http://www.language-archives.org/REC/discourse.html</documentation>
       </olac-extension>
     </xs:appinfo>

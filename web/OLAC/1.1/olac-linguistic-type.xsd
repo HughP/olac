@@ -12,8 +12,8 @@
         <shortName>linguistic-type</shortName>
         <longName>Code for Linguistic Data Types</longName>
         <versionDate>2002-12-12</versionDate>
-        <description>Provides a broad classification of the nature of the resource from a linguistic point of view (namely, as a lexicon, a primary text, a data set, or a language description).</description>
-        <appliesTo>type</appliesTo>
+        <description>Provides a broad classification of the nature of the resource from a linguistic point of view (namely, as a lexicon, a primary text, or a language description).</description>
+        <appliesTo>dc:type</appliesTo>
         <documentation>http://www.language-archives.org/REC/type.html</documentation>
       </olac-extension>
     </xs:appinfo>
