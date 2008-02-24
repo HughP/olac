@@ -10,7 +10,7 @@
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;            (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne and University of&#xA;         Pennsylvania (mailto:sb@ldc.upenn.edu) Joan Spanne, SIL International&#xA;            (mailto:joan_spanne@sil.org)">
       <meta name="Description" content="This document provides guidelines on the meaning and proper usage of the metadata elements used in the&#xA;            metadata standard of the Open Language Archives Community.">
       <meta name="Publisher" content="OLAC (Open Language Archives Community)">
-      <meta name="Date" content="20080222"><STYLE>
+      <meta name="Date" content="20080223"><STYLE>
           BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
                               FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
           H1    {FONT-SIZE: 24pt }
@@ -24,7 +24,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th width="100" align="left">Date&nbsp;issued:</th>
-            <td>2008-02-22</td>
+            <td>2008-02-23</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -33,7 +33,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/usage-20080222.html">http://www.language-archives.org/NOTE/usage-20080222.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/usage-20080223.html">http://www.language-archives.org/NOTE/usage-20080223.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Latest version:</th>
@@ -145,8 +145,11 @@
                         of [<a href="#OLAC-Metadata">OLAC-Metadata</a>] to define new encoding schemes.
          </p>
          <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies the language in which
-                        the text in the content of the element (the metadata itself) is written. The value for the attribute should
-                        be a three-letter code from the ISO 639-3 controlled vocabulary as defined in [<a href="#OLAC-Language">OLAC-Language</a>]. In
+                        the text within the content of the metadata element is written. Though the
+                        [<a href="#XML-lang">XML-lang</a>] specification permits a wider range of values for this attribute, it is recommended for purposes of
+                        interoperation in the OLAC context that only identifiers that conform to the [<a href="#OLAC-Language">OLAC-Language</a>]
+                        specification be used. The OLAC harvester
+                        normalizes values of <i>xml:lang</i> in the way described in [<a href="#OLAC-Language">OLAC-Language</a>]. In
                         the absence of an <i>xml:lang</i> attribute, the element content is assumed to be in English (unless it is a
                         coded value from an encoding scheme). Whenever the language of the element content is other than English,
                         recommended best practice is to use the <i>xml:lang</i> attribute to identify the language. By using
@@ -243,8 +246,7 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>Recommended best practice is to identify a Contributor by means of a name in a form that is ready for
-                                       sorting within an index. For the names of organizations, this means that any initial article should be
-                                       omitted. 
+                                       sorting within an alphabetical index. 
                   </p>
                   <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
                                        Contributor.
@@ -254,52 +256,68 @@
             <tr valign="top">
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
-                  <p>A Contributor may be a person, an organization, or a service&#8212;any entity that has sufficient
-                                       involvement in the creation or development of the resource to warrant explicit identification.
-                                       Contributor is closely related to <a href="#Creator">Creator</a>. While a case for distinguishing the usage of
-                                       the two elements can be made based on the degree of responsibility for the content, the application of
-                                       the <i>olac:role</i> schema to the Contributor element, with its more precise vocabulary for the
-                                       nature of the contribution made by the entity identified, makes drawing a distinction between the less
-                                       precise concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
-                                       consider Creator to be a refinement of the Contributor element, or even deprecate the use of the
-                                       Creator element altogether. The latter choice may be made by individual archives, but OLAC usage will
-                                       continue to support Creator as a valid element. See the discussion of <a href="#Creator">Creator</a> for more on
-                                       its use.
+                  <p>A Contributor may be a person, an organization, or a
+                                       service&#8212;any entity that has sufficient involvement in the
+                                       creation or development of the resource to warrant explicit
+                                       identification. Contributor is closely related to <a href="#Creator">Creator</a>.
+                                       While a case for distinguishing the usage of the two elements can be
+                                       made based on the degree of responsibility for the content, the
+                                       application of the <i>olac:role</i> schema to the Contributor element,
+                                       with its more precise vocabulary for the nature of the contribution made
+                                       by the entity identified, makes drawing a distinction between the less
+                                       precise concepts of Contributor and Creator much less significant. Thus,
+                                       it is more straightforward to consider Creator to be a refinement of the
+                                       Contributor element, or even deprecate the use of the Creator element
+                                       altogether. The latter choice may be made by individual archives, but
+                                       OLAC usage will continue to support Creator as a valid element. See the
+                                       discussion of <a href="#Creator">Creator</a> for more on its use.
                   </p>
-                  <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related elements. In particular, the
-                                          <i>olac:role</i> &#8220;sponsor&#8221; can come close to one aspect of participation that a publisher may have
-                                       in regard to making a given resource available to the public. The <i>olac:role</i> &#8220;editor&#8221; can
-                                       encompass a spectrum of tasks that are collectively performed by the publisher of a work. A sponsor or
-                                       editor that is not also the formal publisher of a resource may be entered in a Contributor element
-                                       (with the proper <i>olac:role</i> specified), but the publisher should not be repeated in a
-                                       Contributor element.
+                  <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related
+                                       elements. In particular, the <i>olac:role</i> &#8220;sponsor&#8221; can come close
+                                       to one aspect of participation that a publisher may have in regard to
+                                       making a given resource available to the public. The <i>olac:role</i>
+                                       &#8220;editor&#8221; can encompass a spectrum of tasks that are collectively
+                                       performed by the publisher of a work. A sponsor or editor that is not
+                                       also the formal publisher of a resource may be entered in a Contributor
+                                       element (with the proper <i>olac:role</i> specified), but the publisher
+                                       should not be repeated in a Contributor element.
                   </p>
-                  <p>The form of a personal name should follow the form in which the person's name would normally be listed
-                                       in an authoritative alphabetical list in his or her own language or country of residence or primary
-                                       activity, <i>e.g.</i> &#8220;FamilyName, GivenName&#8221; for an English speaker. If the first element is the
-                                       family name, follow the family name with a comma. If the first element is the given name, do not
-                                       follow it with a comma. Consult the Anglo-American Cataloguing Rules, 2nd ed., rev., [<a href="#AACR2r">AACR2r</a>]
-                                       chapter 22 for additional guidance in determining entry elements and the normal ordering and forms of
-                                       names based on language and country, as well as other name characteristics.
+                  <p>The form of a personal name should follow the form in which the person's
+                                       name would normally be listed in an alphabetical index in
+                                       his or her own language or country of residence,
+                                          <i>e.g.</i> &#8220;FamilyName, GivenName&#8221; for an English speaker. If the
+                                       first element is the family name, follow the family name with a comma.
+                                       If the first element is the given name, do not follow it with a comma.
+                                       Consult the Anglo-American Cataloguing Rules, 2nd ed., rev.,
+                                       [<a href="#AACR2r">AACR2r</a>] chapter 22 for additional guidance in determining
+                                        the normal ordering and forms of names based on
+                                       language and country, as well as other name characteristics.
                   </p>
-                  <p>Be consistent with corporate name forms (names of institutions and other corporate bodies). Names that
-                                       include a primary unit and subsidiary unit should be ordered with the primary unit given first.
-                                       Location should generally be omitted from the name unless location is an integral part of the proper
-                                       name of the unit. Do not use quotation marks to enclose corporate names. If the name is a translation
-                                       from its usual form or is not usually given in English, use the <i>xml:lang</i> attribute on the
-                                       element. More guidance on the forms of corporate names may be found in [<a href="#AACR2r">AACR2r</a>], chapter 24.
+                  <p>The form of a corporate name (e.g., name of an institution or
+                                       organization or any other corporate body) should also be ready for
+                                       sorting in an alphabetical index. This means that an initial article
+                                       should be omitted. In cases where a
+                                       hierarchy present, list the parts of the hierarchy from largest to
+                                       smallest, separated by period (full stop) and space. 
+                                       Location should generally be omitted from the name unless location is an
+                                       integral part of the proper name of the unit. Do not use quotation marks
+                                       to enclose corporate names. If the name is a translation from its usual
+                                       form or is not usually given in English, use the <i>xml:lang</i>
+                                       attribute on the element. More guidance on the forms of corporate names
+                                       may be found in [<a href="#AACR2r">AACR2r</a>], chapter 24.
                   </p>
-                  <p>In general, if there is no suitable role in the <i>olac:role</i> scheme, no additional information
-                                       regarding the particular role of the contributor should be included in content of the element, as this
-                                       would have the effect of making separate indexed forms for the same person based on engaging in
-                                       different kinds of contributory activities.
+                  <p>In general, if there is no suitable role in the <i>olac:role</i> scheme,
+                                       no additional information regarding the particular role of the
+                                       contributor should be included in content of the element, as this would
+                                       have the effect of making separate indexed forms for the same person
+                                       based on engaging in different kinds of contributory activities.
                   </p>
                </td>
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:contributor&gt;</pre><p>A funding agency:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
+                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:contributor&gt;</pre><p>A funding agency with a hierarchical corporate name:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
    Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in the Czech language:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" xml:lang="ces"&gt;C&#780;eska&#769; 
    akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
             </tr>
@@ -484,8 +502,9 @@
                                        and another metadata schema may involve the mapping of certain OLAC Contributor roles to the Creator
                                        element in the other schema.
                   </p>
-                  <p>Additional information about the proper form of entry for a personal name or a corporate name may be
-                                       found under the <a href="#Contributor">Contributor</a> element.
+                  <p>See the <a href="#Contributor">Contributor</a> element for information about the
+                                       proper form for a personal name or a corporate name.
+                                       
                   </p>
                </td>
             </tr>
@@ -1940,6 +1959,14 @@
             </td>
             <td>Date and Time Formats, W3C
                         Note.<br>&lt;<a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
+            <td width="150">[<a name="XML-lang">XML-lang</a>]
+            </td>
+            <td>Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C
+                        Recommendation 16 August 2006. Section 2.12, Language
+                        Identification.<br>&lt;<a href="http://www.w3.org/TR/REC-xml#sec-lang-tag">http://www.w3.org/TR/REC-xml#sec-lang-tag</a>&gt;
             </td>
          </tr>
       </table>
