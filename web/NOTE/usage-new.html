@@ -145,12 +145,11 @@
                         of [<a href="#OLAC-Metadata">OLAC-Metadata</a>] to define new encoding schemes.
          </p>
          <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies the language in which
-                        the text within the content of the metadata element is written. Though the
-                        [<a href="#XML-lang">XML-lang</a>] specification permits a wider range of values for this attribute, it is recommended for purposes of
-                        interoperation in the OLAC context that only identifiers that conform to the [<a href="#OLAC-Language">OLAC-Language</a>]
-                        specification be used. The OLAC harvester
-                        normalizes values of <i>xml:lang</i> in the way described in [<a href="#OLAC-Language">OLAC-Language</a>]. In
-                        the absence of an <i>xml:lang</i> attribute, the element content is assumed to be in English (unless it is a
+                        the text within the content of the metadata element is written. Though the [<a href="#XML-lang">XML-lang</a>] specification
+                        permits a wider range of values for this attribute, it is recommended for purposes of interoperation in the
+                        OLAC context that only identifiers that conform to the [<a href="#OLAC-Language">OLAC-Language</a>] specification be used. The
+                        OLAC harvester normalizes values of <i>xml:lang</i> in the way described in [<a href="#OLAC-Language">OLAC-Language</a>]. In the
+                        absence of an <i>xml:lang</i> attribute, the element content is assumed to be in English (unless it is a
                         coded value from an encoding scheme). Whenever the language of the element content is other than English,
                         recommended best practice is to use the <i>xml:lang</i> attribute to identify the language. By using
                         multiple instances of a metadata elements tagged for different languages, data providers may offer their
@@ -256,61 +255,47 @@
             <tr valign="top">
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
-                  <p>A Contributor may be a person, an organization, or a
-                                       service&#8212;any entity that has sufficient involvement in the
-                                       creation or development of the resource to warrant explicit
-                                       identification. Contributor is closely related to <a href="#Creator">Creator</a>.
-                                       While a case for distinguishing the usage of the two elements can be
-                                       made based on the degree of responsibility for the content, the
-                                       application of the <i>olac:role</i> schema to the Contributor element,
-                                       with its more precise vocabulary for the nature of the contribution made
-                                       by the entity identified, makes drawing a distinction between the less
-                                       precise concepts of Contributor and Creator much less significant. Thus,
-                                       it is more straightforward to consider Creator to be a refinement of the
-                                       Contributor element, or even deprecate the use of the Creator element
-                                       altogether. The latter choice may be made by individual archives, but
-                                       OLAC usage will continue to support Creator as a valid element. See the
-                                       discussion of <a href="#Creator">Creator</a> for more on its use.
+                  <p>A Contributor may be a person, an organization, or a service&#8212;any entity that has sufficient
+                                       involvement in the creation or development of the resource to warrant explicit identification.
+                                       Contributor is closely related to <a href="#Creator">Creator</a>. While a case for distinguishing the usage of
+                                       the two elements can be made based on the degree of responsibility for the content, the application of
+                                       the <i>olac:role</i> schema to the Contributor element, with its more precise vocabulary for the
+                                       nature of the contribution made by the entity identified, makes drawing a distinction between the less
+                                       precise concepts of Contributor and Creator much less significant. Thus, it is more straightforward to
+                                       consider Creator to be a refinement of the Contributor element, or even deprecate the use of the
+                                       Creator element altogether. The latter choice may be made by individual archives, but OLAC usage will
+                                       continue to support Creator as a valid element. See the discussion of <a href="#Creator">Creator</a> for more on
+                                       its use.
                   </p>
-                  <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related
-                                       elements. In particular, the <i>olac:role</i> &#8220;sponsor&#8221; can come close
-                                       to one aspect of participation that a publisher may have in regard to
-                                       making a given resource available to the public. The <i>olac:role</i>
-                                       &#8220;editor&#8221; can encompass a spectrum of tasks that are collectively
-                                       performed by the publisher of a work. A sponsor or editor that is not
-                                       also the formal publisher of a resource may be entered in a Contributor
-                                       element (with the proper <i>olac:role</i> specified), but the publisher
-                                       should not be repeated in a Contributor element.
+                  <p>Contributor and <a href="#Publisher">Publisher</a> are also somewhat related elements. In particular, the
+                                          <i>olac:role</i> &#8220;sponsor&#8221; can come close to one aspect of participation that a publisher may have
+                                       in regard to making a given resource available to the public. The <i>olac:role</i> &#8220;editor&#8221; can
+                                       encompass a spectrum of tasks that are collectively performed by the publisher of a work. A sponsor or
+                                       editor that is not also the formal publisher of a resource may be entered in a Contributor element
+                                       (with the proper <i>olac:role</i> specified), but the publisher should not be repeated in a
+                                       Contributor element.
                   </p>
-                  <p>The form of a personal name should follow the form in which the person's
-                                       name would normally be listed in an alphabetical index in
-                                       his or her own language or country of residence,
-                                          <i>e.g.</i> &#8220;FamilyName, GivenName&#8221; for an English speaker. If the
-                                       first element is the family name, follow the family name with a comma.
-                                       If the first element is the given name, do not follow it with a comma.
-                                       Consult the Anglo-American Cataloguing Rules, 2nd ed., rev.,
-                                       [<a href="#AACR2r">AACR2r</a>] chapter 22 for additional guidance in determining
-                                        the normal ordering and forms of names based on
-                                       language and country, as well as other name characteristics.
+                  <p>The form of a personal name should follow the form in which the person's name would normally be listed
+                                       in an alphabetical index in his or her own language or country of residence, <i>e.g.</i> &#8220;FamilyName,
+                                       GivenName&#8221; for an English speaker. If the first element is the family name, follow the family name
+                                       with a comma. If the first element is the given name, do not follow it with a comma. Consult the
+                                       Anglo-American Cataloguing Rules, 2nd ed., rev., [<a href="#AACR2r">AACR2r</a>] chapter 22 for additional guidance
+                                       in determining the normal ordering and forms of names based on language and country, as well as other
+                                       name characteristics.
                   </p>
-                  <p>The form of a corporate name (e.g., name of an institution or
-                                       organization or any other corporate body) should also be ready for
-                                       sorting in an alphabetical index. This means that an initial article
-                                       should be omitted. In cases where a
-                                       hierarchy present, list the parts of the hierarchy from largest to
-                                       smallest, separated by period (full stop) and space. 
-                                       Location should generally be omitted from the name unless location is an
-                                       integral part of the proper name of the unit. Do not use quotation marks
-                                       to enclose corporate names. If the name is a translation from its usual
-                                       form or is not usually given in English, use the <i>xml:lang</i>
-                                       attribute on the element. More guidance on the forms of corporate names
-                                       may be found in [<a href="#AACR2r">AACR2r</a>], chapter 24.
+                  <p>The form of a corporate name (e.g., name of an institution or organization or any other corporate
+                                       body) should also be ready for sorting in an alphabetical index. This means that an initial article
+                                       should be omitted. In cases where a hierarchy present, list the parts of the hierarchy from largest to
+                                       smallest, separated by period (full stop) and space. Location should generally be omitted from the
+                                       name unless location is an integral part of the proper name of the unit. Do not use quotation marks to
+                                       enclose corporate names. If the name is a translation from its usual form or is not usually given in
+                                       English, use the <i>xml:lang</i> attribute on the element. More guidance on the forms of corporate
+                                       names may be found in [<a href="#AACR2r">AACR2r</a>], chapter 24.
                   </p>
-                  <p>In general, if there is no suitable role in the <i>olac:role</i> scheme,
-                                       no additional information regarding the particular role of the
-                                       contributor should be included in content of the element, as this would
-                                       have the effect of making separate indexed forms for the same person
-                                       based on engaging in different kinds of contributory activities.
+                  <p>In general, if there is no suitable role in the <i>olac:role</i> scheme, no additional information
+                                       regarding the particular role of the contributor should be included in content of the element, as this
+                                       would have the effect of making separate indexed forms for the same person based on engaging in
+                                       different kinds of contributory activities.
                   </p>
                </td>
             </tr>
@@ -502,9 +487,8 @@
                                        and another metadata schema may involve the mapping of certain OLAC Contributor roles to the Creator
                                        element in the other schema.
                   </p>
-                  <p>See the <a href="#Contributor">Contributor</a> element for information about the
-                                       proper form for a personal name or a corporate name.
-                                       
+                  <p>See the <a href="#Contributor">Contributor</a> element for information about the proper form for a personal name or
+                                       a corporate name. 
                   </p>
                </td>
             </tr>
@@ -939,9 +923,9 @@
                                        that the creator of the resource assumes that its eventual user will understand. When a resource is in
                                        more than one language, use a separate Language element for each language.
                   </p>
-                  <p>For a resource of a particular [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] (see <a href="#Type">Type</a>), the uses of the Language
-                                       element and the <a href="#Subject">Subject</a> element with the <i>olac:language</i> scheme (hereafter referred
-                                       to as &#8220;Subject.language&#8221;) can be generally described as follows:
+                  <p>For a resource of a particular [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] (see <a href="#Type">Type</a>), the uses of
+                                       the Language element and the <a href="#Subject">Subject</a> element with the <i>olac:language</i> scheme
+                                       (hereafter referred to as &#8220;Subject.language&#8221;) can be generally described as follows:
                   </p>
                   <ul>
                      <li>
@@ -1554,10 +1538,11 @@
                   </p>
                   <p>In the case of a polyglot work, where the text is given in two or more languages in some kind of
                                        parallel format (whether facing columns or pages, or separate but approximately equal sections), and
-                                       the title on the title page (or equivalent) is given in the multiple text languages, it is permissible
-                                       to repeat the Title element. In such a case, it will be expected that there will also be multiple
-                                          <a href="#Language">Language</a> elements, and that each of the Title elements will also carry an
-                                       <i>xml:lang</i> attribute that specifies the language of the title as given in that element instance.
+                                       the title on the title page (or equivalent) is given in the multiple text languages (what librarians
+                                       typically call "parallel titles"), it is permissible to repeat the Title element. In such a case, 
+                                       it will be expected that there will also be multiple <a href="#Language">Language</a> elements, 
+                                       and that each of the Title elements will also carry an <i>xml:lang</i> 
+                                       attribute that specifies the language of the title as given in that element instance.
                                        This is the only approved use of repeated instances of the Title element.
                   </p>
                   <p>The Title can be a name given to a work to identify it if a formal title is not used, such as for a
@@ -1568,8 +1553,12 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A typical title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre><p>A vernacular title with translation:</p><pre style="margin-left: 12pt">&lt;dc:title xsi:type="olac:language" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
-&lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre><p>A parallel title, as typically employed for a diglot work:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre></td>
+                  <p>A typical title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;A grammar of the Nggela language&lt;/dc:title&gt;</pre><p>A vernacular title with a translated title:</p><pre style="margin-left: 12pt">&lt;dc:title xml:lang="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
+&lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre><p>A work with parallel titles, as typically employed for a diglot work:</p><pre style="margin-left: 12pt">&lt;dc:title xml:lang="amc"&gt;Xunivaun jau yohipahonni&lt;/dc:title&gt;
+&lt;dc:title xml:lang="spa"&gt;Cuentos de nuestros antepasados&lt;/dc:title&gt;
+&lt;dc:language xsi:type="olac:language" olac:code="amc"/&gt;
+&lt;dc:language xsi:type="olac:language" olac:code="spa"/&gt;
+</pre></td>
             </tr>
          </table>
          <h3><A name="Type"></A>Type
@@ -1964,9 +1953,8 @@
          <tr valign="top">
             <td width="150">[<a name="XML-lang">XML-lang</a>]
             </td>
-            <td>Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C
-                        Recommendation 16 August 2006. Section 2.12, Language
-                        Identification.<br>&lt;<a href="http://www.w3.org/TR/REC-xml#sec-lang-tag">http://www.w3.org/TR/REC-xml#sec-lang-tag</a>&gt;
+            <td>Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C Recommendation 16 August 2006.
+                        Section 2.12, Language Identification.<br>&lt;<a href="http://www.w3.org/TR/REC-xml#sec-lang-tag">http://www.w3.org/TR/REC-xml#sec-lang-tag</a>&gt;
             </td>
          </tr>
       </table>
