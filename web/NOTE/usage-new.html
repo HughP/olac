@@ -64,11 +64,12 @@
          <tr valign="top">
             <th align="left">Changes since previous version:</th>
             <td>
-               <p>In section 3, many points clarified regarding individual elements, particularly Creator,
-                              Contributor, Coverage, Description, Language, and Subject, in response to review by
+               <p>In section 2, paragraph on <i>xml:lang</i> was significantly updated. In section 3, many points clarified regarding individual elements, particularly 
+                              Contributor, Coverage, Creator, Language,  Subject, and Title.   Examples expanded and added. Section 5 on the
+                  granularity of
+                              resources was added. The changes were in response to review comments by the
                               Metadata Working Group (see <a href="http://www.language-archives.org/wg/metadata/Issues%0A               2007-12.htm">http://www.language-archives.org/wg/metadata/Issues
-                                    2007-12.htm</a>). Examples expanded and added. Section 5 on the granularity of
-                              resources was added.
+                                    2007-12.htm</a> for a collection of the comments and responses).
                </p>
             </td>
          </tr>
@@ -153,7 +154,7 @@
          </p>
          <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies
                         the language in which the text within the content of the metadata element is written.
-                        Though the [<a href="#XML-lang">XML-lang</a>] specification permits a wider range of values for this
+                        Though the [<a href="#XML-Lang">XML-Lang</a>] specification permits a wider range of values for this
                         attribute, it is recommended for purposes of interoperation in the OLAC context that
                         only identifiers that conform to the [<a href="#OLAC-Language">OLAC-Language</a>] specification be used. The
                         OLAC harvester normalizes values of <i>xml:lang</i> in the way described in
@@ -302,14 +303,14 @@
                   </p>
                   <p>The form of a personal name should follow the form in which the person's name
                                        would normally be listed in an alphabetical index in his or her own language or
-                                       country of residence, <i>e.g.</i> &#8220;FamilyName, GivenName&#8221; for an English speaker.
+                                       country of residence, <i>e.g.,</i> &#8220;FamilyName, GivenName&#8221; for an English speaker.
                                        If the first element is the family name, follow the family name with a comma. If
                                        the first element is the given name, do not follow it with a comma. Consult the
                                        Anglo-American Cataloguing Rules, 2nd ed., rev., [<a href="#AACR2r">AACR2r</a>] chapter 22 for
                                        additional guidance in determining the normal ordering and forms of names based on
                                        language and country, as well as other name characteristics.
                   </p>
-                  <p>The form of a corporate name (e.g., name of an institution or organization or any
+                  <p>The form of a corporate name (<i>e.g.,</i> name of an institution or organization or any
                                        other corporate body) should also be ready for sorting in an alphabetical index.
                                        This means that an initial article should be omitted. In cases where a hierarchy
                                        present, list the parts of the hierarchy from largest to smallest, separated by
@@ -331,9 +332,11 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:contributor&gt;</pre><p>A funding agency with a hierarchical corporate name:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
-   Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>An institutional contributor whose name is given in the Czech language:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" xml:lang="ces"&gt;C&#780;eska&#769; 
-   akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
+                  <p>A personal author:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author"&gt;Bloomfield, 
+   Leonard&lt;/dc:contributor&gt;</pre><p>An editor:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="editor"&gt;Sapir, 
+   Edward&lt;/dc:contributor&gt;</pre><p>A funding agency with a hierarchical corporate name:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian 
+   Institution. Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre><p>The person who performed a role for which there is not a suitable code:</p><pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre><p>An institutional author whose name is given in the Czech language:</p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="author" 
+   xml:lang="ces"&gt;C&#780;eska&#769; akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Coverage"></A>Coverage
@@ -431,7 +434,7 @@
                   </p>
                   <p>Coverage is related to <a href="#Subject">Subject</a> in having a topical orientation.
                                        Coverage in its temporal aspect should not be confused with <a href="#Date">Date</a> or
-                                       one of its refinements (<i>e.g.</i>, created, or available). Thus, a data set that
+                                       one of its refinements (<i>e.g.,</i> created, or available). Thus, a data set that
                                        was compiled over an extended period of time should be described via a
                                           <tt>dcterms:created</tt> element whose content is a date range, rather than
                                        with Coverage or <tt>dcterms:temporal</tt>. A data set (or any kind of resource)
@@ -441,7 +444,7 @@
                   <p>Coverage should be used geographically when the language variety in focus in the
                                        resource has a different or narrower distribution than the language has in
                                        general. It should also be used when the resource deals with a topic of study in
-                                       which the location or region itself is in focus, <i>e.g.</i>, multilingualism,
+                                       which the location or region itself is in focus, <i>e.g.,</i> multilingualism,
                                        language policy, languages in contact, in a given locale.
                   </p>
                   <p>Geospatial coordinates are appropriate Coverage metadata for a text recording when
@@ -464,9 +467,12 @@
                                        collected over a span of time:
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer 
    community in transition&lt;/dc:title&gt;
-&lt;dcterms:temporal xsi:type="dcterms:Period"&gt;start=1950; end=2006;&lt;/dcterms:temporal&gt;
-&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;San Ildefonso, Cape (cape)&lt;/dcterms:spatial&gt;
-&lt;dcterms:created xsi:type=dcterms:Period&gt;start=1962; end=2006;&lt;/dcterms:created&gt;</pre></td>
+&lt;dcterms:temporal xsi:type="dcterms:Period"&gt;start=1950; end=2006;
+   &lt;/dcterms:temporal&gt;
+&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;San Ildefonso, Cape (cape)
+   &lt;/dcterms:spatial&gt;
+&lt;dcterms:created xsi:type=dcterms:Period&gt;start=1962; end=2006;
+   &lt;/dcterms:created&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Creator"></A>Creator
@@ -512,7 +518,7 @@
                                        is appropriate to use in cases where the entity to be identified has significant
                                        involvement as a primary originator of the content, but in such a way that none
                                        of the role terms available in the <i>olac:role</i> scheme is a suitable
-                                       description of that involvement. Examples are <i>artist</i> (e.g., sculptor, carver, weaver)
+                                       description of that involvement. Examples are <i>artist</i> (<i>e.g.,</i> sculptor, carver, weaver)
                                        or <i>modeler</i>.
                   </p>
                   <p>A participating OLAC repository need not be concerned about the fact that other metadata
@@ -567,7 +573,7 @@
                      <tr valign="top">
                         <td>dcterms:dateAccepted&nbsp;&nbsp;</td>
                         <td>
-                           <p>Date of acceptance of the resource (<i>e.g.</i> of thesis by university
+                           <p>Date of acceptance of the resource (<i>e.g.,</i> of thesis by university
                                                       department, of article by journal, etc.).
                            </p>
                         </td>
@@ -581,14 +587,14 @@
                      <tr valign="top">
                         <td>dcterms:dateSubmitted&nbsp;&nbsp;</td>
                         <td>
-                           <p>Date of submission of the resource (<i>e.g.</i> thesis, articles, etc.).
+                           <p>Date of submission of the resource (<i>e.g.,</i> thesis, article, etc.).
                            </p>
                         </td>
                      </tr>
                      <tr valign="top">
                         <td>dcterms:issued&nbsp;&nbsp;</td>
                         <td>
-                           <p>Date of formal issuance (<i>e.g.</i>, publication) of the resource.
+                           <p>Date of formal issuance (<i>e.g.,</i> publication) of the resource.
                            </p>
                         </td>
                      </tr>
@@ -637,7 +643,8 @@
                   </p>
                   <p>Recommended best practice is that every instance of Date (or one of its
                                        refinements) use the <i>dcterms:W3CDTF</i> scheme, or enclose the element value in
-                                       square brackets if the value does not conform to the encoding scheme (<i>e.g.</i>,
+                                       square brackets if the value does not conform to the encoding scheme
+                                       (<i>e.g.,</i>
                                        if it is supplied by the cataloger, is approximate, or is in some doubt). 
                   </p>
                </td>
@@ -733,7 +740,7 @@
                   <p> Description element is not a &#8220;catch-all&#8221; category. The Description element should
                                        not be confused with Subject. Description contains free-text (prose) statements,
                                        while Subject contains subject headings, faceted terms, or specific subject
-                                       descriptors, <i>e.g.</i>, Library of Congress Subject Headings, or Linguistics and
+                                       descriptors, <i>e.g.,</i> Library of Congress Subject Headings, or Linguistics and
                                        Language Behavior Abstracts thesaurus descriptors. Description should likewise not
                                        be used in place of Extent to contain information solely about the length,
                                        duration, or size of a work.
@@ -753,15 +760,17 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A prose description of a resource:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
-   unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
-   up to 30 minutes, originated in North America and were placed to locations overseas (typically
-   Japan). Most participants called family members or close friends. This corpus contains speech
-   data files ONLY, along with the minimal amount of documentation needed to describe the contents
-   and format of the speech files and the software packages needed to uncompress the speech data.
-   &lt;/dc:description&gt;</pre><p>A contents note for a resource:</p><pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
-   Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in
-   Vietnam; v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre></td>
+                  <p>A prose description of a resource:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 
+   120 unscripted telephone conversations between native speakers of Japanese. 
+   All calls, which lasted up to 30 minutes, originated in North America and 
+   were placed to locations overseas (typically Japan). Most participants called 
+   family members or close friends. This corpus contains speech data files 
+   ONLY, along with the minimal amount of documentation needed to describe the 
+   contents and format of the speech files and the software packages needed 
+   to uncompress the speech data.&lt;/dc:description&gt;</pre><p>A contents note for a resource:</p><pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; 
+   v. 2: Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; 
+   v. 4: Dictionary of Khmu in Vietnam; v. 5: Dictionary of Khmu in Thailand
+   &lt;/dcterms:tableOfContents&gt;</pre><p>A reference to an existing on-line description:</p><pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Format"></A>Format
@@ -822,8 +831,8 @@
                   </p>
                   <p>In the case of a physical object, the refinements medium and extent are most
                                        applicable. These may respectively contain the physical material of the object
-                                          (<i>e.g.</i>, parchment; reel-to-reel tape; 35 mm slide; NTSC encoded VHS
-                                       cassette), and the size/duration (<i>e.g.</i> number of pages and dimensions of a
+                                          (<i>e.g.,</i> parchment; reel-to-reel tape; 35 mm slide; NTSC encoded VHS
+                                       cassette), and the size/duration (<i>e.g.,</i> number of pages and dimensions of a
                                        book; length of a recording).
                   </p>
                   <p>Format (and its refinement 'medium'), which encompasses the notion of physical
@@ -841,7 +850,7 @@
                   <p>For a digitally encoded dictionary:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
 &lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre><p>For a digitally recorded text:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
 &lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
-&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
+&lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M.&lt;/dcterms:extent&gt;</pre><p>For 16mm film with sound track</p><pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
 &lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre></td>
             </tr>
          </table>
@@ -934,8 +943,10 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>A Uniform Resource Locator for retrieval of an electronically encoded resource:</p><pre style="margin-left: 12pt">&lt;dc:identifier xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</pre><p>A local identifier for retrieval within a physical collection:</p><pre style="margin-left: 12pt">&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</pre><p>The citation for a chapter that was published in a book:</p><pre style="margin-left: 12pt">&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), Native South
-   American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</pre></td>
+                  <p>A Uniform Resource Locator for retrieval of an electronically encoded resource:</p><pre style="margin-left: 12pt">&lt;dc:identifier xsi:type="dcterms:URI"
+   &gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</pre><p>A local identifier for retrieval within a physical collection:</p><pre style="margin-left: 12pt">&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</pre><p>The citation for a chapter that was published in a book:</p><pre style="margin-left: 12pt">&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), 
+   Native South American discourse, 237-306. Berlin: Mouton. 
+   &lt;dcterms:bibliographicCitation&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Language"></A>Language
@@ -975,12 +986,7 @@
                                        element containing the code <tt>zxx</tt> for &#8220;No linguistic content.&#8221;
                   </p>
                   <p>Recommended best practice is to use the <i>olac:language</i> scheme with the
-                                       Language element to identify an individual language precisely. Specify the
-                                       language in the <i>olac:code</i> attribute while leaving the element content
-                                       empty. Use the element content only when the controlled vocabulary does not offer
-                                       an appropriate code, or when further specification is needed, such as to name a
-                                       specific dialect or to give an alternate name that differs from the reference name
-                                       given by the controlled vocabulary.
+                                       Language element to identify an individual language precisely. 
                   </p>
                </td>
             </tr>
@@ -988,10 +994,21 @@
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
                   <p>Language is used for a language the resource is in, as opposed to the language it
-                                       describes (see <a href="#Subject">Subject</a>). It is related to the audience for the work
-                                       in that it identifies a language that the creator of the resource assumes that its
-                                       eventual user will understand. When a resource is in more than one language, use a
+                                       describes (see <a href="#Subject">Subject</a>). When a resource is in more than one language, use a
                                        separate Language element for each language.
+                  </p>
+                  <p>Best practice is to specify a
+                                       language code in the <i>olac:code</i> attribute. The element content is
+                                       typically left
+                                       empty. When the controlled vocabulary does not offer
+                                       an appropriate code, the element content may be used to identify the
+                                       language. It may be used in addition to the code to supply further
+                                       specificity, such as to
+                                       give a note about the particular variety or to name a
+                                       specific dialect. Element content may also be used to give an alternate name that differs from the reference
+                     name
+                                       given by the controlled vocabulary or to give the name of the language
+                                       in another language.
                   </p>
                   <p>For a resource of a particular [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] (see
                                        <a href="#Type">Type</a>), the uses of the Language element and the <a href="#Subject">Subject</a>
@@ -1000,7 +1017,7 @@
                   </p>
                   <ul>
                      <li>
-                        <p>For Linguistic type Primary text: use the Language element to specify the
+                        <p>For linguistic type <i>primary_text:</i> use the Language element to specify the
                                                    language of the text. In addition, if it is annotated, use a second Language
                                                    element to specify the language in which the annotations are made, as well
                                                    as a Subject.language element repeating the language of the text, which is
@@ -1008,20 +1025,22 @@
                         </p>
                      </li>
                      <li>
-                        <p>For Linguistic type Lexicon: use Language for the language in which the
+                        <p>For linguistic type <i>lexicon:</i> use Language for the language in which the
                                                    definitions are written; use Subject.language for the language whose words
                                                    are being defined. A bilingual dictionary may have both languages identified
                                                    in both kinds of elements.
                         </p>
                      </li>
                      <li>
-                        <p>For Linguistic type Language description: use Language for the language the
+                        <p>For linguistic type <i>language_description:</i> use Language for the language the
                                                    description is written in, and use Subject.language to specify the language
                                                    being described. In addition, if the resource contains fairly extensive
-                                                   examples (i.e., full sentence-length examples, at a minimum) in the language
-                                                   being described, as might be the case with an extensive grammatical
-                                                   description, it might also be appropriate to use a Language element
-                                                   containing the language being described, as well.
+                                                   examples in the language
+                                                   being described (<i>e.g.,</i> many sentence-length examples as might be
+                                                   the case in an extensive grammatical
+                                                   description), it is appropriate to add a Language element
+                                                   for the language being described in order to convey the presence
+                                                   of content in that language.
                         </p>
                      </li>
                   </ul>
@@ -1052,7 +1071,7 @@
                                        English:
                   </p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
-&lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
+&lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;US&lt;/dcterms:spatial&gt;</pre><p>A resource in the Saracatsan dialect of modern Greek</p><pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:language" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Publisher"></A>Publisher
@@ -1475,8 +1494,9 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>Source for a digital encoding of a manuscript in a participating archive:</p><pre style="margin-left: 12pt">&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</pre><p>Source for data extracted from a published source:</p><pre style="margin-left: 12pt">&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests of the
-   British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.&lt;/dc:source&gt;</pre></td>
+                  <p>Source for a digital encoding of a manuscript in a participating archive:</p><pre style="margin-left: 12pt">&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</pre><p>Source for data extracted from a published source:</p><pre style="margin-left: 12pt">&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests 
+   of the British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.
+   &lt;/dc:source&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Subject"></A>Subject
@@ -1497,17 +1517,18 @@
                <td>
                   <table cellpadding="4">
                      <tr valign="top">
+                        <td>dcterms:LCSH&nbsp;&nbsp;</td>
+                        <td>
+                           <p>The set of labeled concepts specified by the Library of Congress Subject Headings.</p>
+                        </td>
+                     </tr>
+                     <tr valign="top">
                         <td>olac:language&nbsp;&nbsp;</td>
                         <td>
                            <p>The set of two- and three-letter identifiers from ISO 639 for the
                                                       identification of individual human languages. See [<a href="#OLAC-Language">OLAC-Language</a>]
                                                       for the definition of the vocabulary and see the <a href="#Language">Language</a>
                                                       element for a complete discussion (with examples) of using this scheme.
-                           </p>
-                           <p>Service providers should use the <i>code</i> attribute to support searches
-                                                      by language, and may use the element content in searches by keyword. They
-                                                      also may supply the default language name in keyword searching when the
-                                                      element content is missing.
                            </p>
                         </td>
                      </tr>
@@ -1534,12 +1555,7 @@
                   </p>
                   <p>When the subject is a human language, recommended best practice is to use the
                                           <i>olac:language</i> scheme with the Subject element to identify an individual
-                                       language precisely. Specify the language in the <i>olac:code</i> attribute while
-                                       leaving the element content empty. Use the element content only when the
-                                       controlled vocabulary does not offer an appropriate code, or when further
-                                       specification is needed, such as to name a specific dialect or to give an
-                                       alternate name that differs from the reference name given by the controlled
-                                       vocabulary. 
+                                       language precisely. 
                   </p>
                   <p>When the subject matter falls within the field of linguistics, recommended best
                                        practice is to use the <i>olac:linguistic-field</i> scheme to identify the
@@ -1553,46 +1569,21 @@
                   <p>Typically, a Subject will be expressed as keywords, key phrases or classification
                                        codes that describe a topic of the resource. [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>For a resource of a particular Linguistic Type (see <a href="#Type">Type</a>), the uses
-                                       of the Subject element with the <i>olac:language</i> scheme (hereafter referred to
-                                       as &#8220;Subject.language&#8221;) and the <a href="#Language">Language</a> element can be generally
-                                       described as follows:
-                  </p>
-                  <ul>
-                     <li>
-                        <p>For Linguistic type Primary text: use the Language element to specify the
-                                                   language of the text. In addition, if it is annotated, use a second Language
-                                                   element to specify the language in which the annotations are made, as well
-                                                   as a Subject.language element repeating the language of the text, which is
-                                                   (in effect) the "subject" of the annotations.
-                        </p>
-                     </li>
-                     <li>
-                        <p>For Linguistic type Lexicon: use Language for the language in which the
-                                                   definitions are written; use Subject.language for the language whose words
-                                                   are being defined. A bilingual dictionary may have both languages identified
-                                                   in both kinds of elements.
-                        </p>
-                     </li>
-                     <li>
-                        <p>For Linguistic type Language description: use Language for the language the
-                                                   description is written in, and use Subject.language to specify the language
-                                                   being described. In addition, if the resource contains fairly extensive
-                                                   examples (i.e., full sentence-length examples, at a minimum) in the language
-                                                   being described, as might be the case with an extensive grammatical
-                                                   description, it might also be appropriate to use a Language element
-                                                   containing the language being described, as well.
-                        </p>
-                     </li>
-                  </ul>
-                  <p>Use of the <i>olac:language</i> scheme with Subject is also appropriate for works
-                                       that are not of any particular <i>olac:linguistic-type</i>, but do treat a
-                                       language or languages (or the communities of their users) as a topic of study.
+                  <p>The usage notes for <a href="#Language">Language</a> are also relevant to Subject 
+                                       when a human language is a subject of the resource. In particular, those
+                                       notes discuss how
+                                       element content may be used in conjunction with the <i>olac:language</i>
+                                       scheme and how the
+                                       <i>olac:language</i> scheme is used with Subject for resources of
+                                       different linguistic types. 
+                                       It is also appropriate to use the <i>olac:language</i> scheme with Subject for works
+                                       that are not of any particular <i>olac:linguistic-type</i>, but that do treat a
+                                       language (or a community of its users) as a topic of study.
                   </p>
                   <p>To describe the spatial or temporal topic of the resource, use the
                                        <a href="#Coverage">Coverage</a> element.
                   </p>
-                  <p>The Subject element should not be confused with Description. Subject contains
+                  <p>The Subject element should not be confused with <a href="#Description">Description</a>. Subject contains
                                        subject headings or concise individual topic terms, while Description contains
                                        free-text, prose descriptions.
                   </p>
@@ -1610,7 +1601,8 @@
 &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
    ...
-&lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</pre></td>
+   &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</pre><p>See also the examples for <a href="#Language">Language</a></p>
+               </td>
             </tr>
          </table>
          <h3><A name="Title"></A>Title
@@ -1649,10 +1641,10 @@
                                        element. When the resource does not have an inherent title, the cataloger should
                                        supply a descriptive title and enclose it in square brackets.
                   </p>
-                  <p>Recommended best practice is that only one instance of the unqualified Title
-                                       element, namely, for the original title. See the <i>usage</i> section for a
-                                       discussion of the exception to this rule. All others (<i>e.g.</i> translations)
-                                       should be specified as the Alternative refinement.
+                  <p>Recommended best practice is that there be only one instance of the unqualified Title
+                                       element, namely, for the original title (except in the case of parallel
+                                       titles on a diglot work).  All other titles (<i>e.g.,</i> translations)
+                                       should be specified as the <i>dcterms:alternative</i> refinement.
                   </p>
                </td>
             </tr>
@@ -1666,8 +1658,7 @@
                                        element. Use the <i>xml:lang</i> attribute to identify the language of the
                                        metadata content using an identifier from [<a href="#OLAC-Language">OLAC-Language</a>].
                   </p>
-                  <p>A formal title (for catalogers, the title as found on a primary source of
-                                       information), is generally expected to be in the language in which the work is
+                  <p>The title is generally expected to be in the language in which the work is
                                        written or recorded. If the title is in a language different from the language
                                        identified in a <a href="#Language">Language</a> element, use the <i>xml:lang</i> attribute
                                        on Title to specify the language in which the title is actually given.
@@ -1696,6 +1687,14 @@
 &lt;dc:language xsi:type="olac:language" olac:code="amc"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="spa"/&gt;
 </pre></td>
+            </tr>
+            <tr valign="top">
+               <td width="100"><b><font color="red"><i>To do</i></font></b></td>
+               <td><font color="red">
+                     <p>Does the final usage note pertain to a supplied title (in brackets)? 
+                                    If so, that should be made clear and, if not, that needs to be worked in.  And
+                                    then we need an example of a supplied title.
+                     </p></font></td>
             </tr>
          </table>
          <h3><A name="Type"></A>Type
@@ -1761,7 +1760,7 @@
                   <p> Type includes terms describing general categories, functions, genres, or
                                        aggregation levels for content. The DCMIType vocabulary specifies a controlled
                                        vocabulary to be used to with Type. These relate to the intended use or mode of
-                                       perception by a user, <i>e.g.</i>, whether it is read (as text), viewed (as
+                                       perception by a user, <i>e.g.,</i> whether it is read (as text), viewed (as
                                        image), heard, etc. Thus, a computer image file of a text (such as a scanned
                                        document) is type 'text', not type 'image', because the common use involves
                                        reading text. To describe the physical or digital manifestation of the resource,
@@ -1847,19 +1846,23 @@
                <td>
                   <p>A group of texts and recordings constituting a small collection that has undergone
                                        some reorganization by a subsequent handler since original creation:
-                  </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Gardner, Richard&lt;/dc:contributor&gt;
-&lt;dc:contributor xsi:type="olac:role" olac:code="annotator"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
+                  </p><pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Gardner, 
+   Richard&lt;/dc:contributor&gt;
+&lt;dc:contributor xsi:type="olac:role" olac:code="annotator"&gt;Anderson, Judi 
+   Lynn&lt;/dc:contributor&gt;
 &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
 &lt;dc:available&gt;2007&lt;/dc:available&gt;
-&lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the texts. Texts 
-   were originally transcribed using a variety of othographic conventions, some with interlinear
-   analytical transcriptions, some also with Spanish free translations.&lt;/dc:description&gt;
-&lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed with 
-   the assistance of a number of local residents. Body of materials were transferred to 
-   branch custody in 1980s, subsequently organized, collated and annotated by 
-   J.L. Anderson, a researcher in a closely related Chinantec language. Annotations 
-   particularly relate to changes in orthographic and tone marking conventions over 
-   the years of collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
+&lt;dc:description&gt;Collection of 23 texts, with original recordings of 17 of the 
+   texts. Texts were originally transcribed using a variety of othographic 
+   conventions, some with interlinear analytical transcriptions, some also 
+   with Spanish free translations.&lt;/dc:description&gt;
+&lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed 
+   with the assistance of a number of local residents. Body of materials 
+   were transferred to branch custody in 1980s, subsequently organized, 
+   collated and annotated by J.L. Anderson, a researcher in a closely 
+   related Chinantec language. Annotations particularly relate to changes 
+   in orthographic and tone marking conventions over the years of 
+   collection and as compared to current practices.&lt;/dcterms:provenance&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Rights Holder"></A>Rights Holder
@@ -1915,10 +1918,10 @@
                         and use of the resources, or would the grouping be motivated more by convenience of
                         handling? Situations of shared provenance that constitute a collective unit or
                         collection for description purposes will be distinguished by the high degree of
-                        commonality of metadata elements, <i>e.g.</i>, same researcher(s), author(s), subject
+                        commonality of metadata elements, <i>e.g.,</i> same researcher(s), author(s), subject
                         language(s), content (or analysis) language(s), approximate date, coverage, linguistic
                         type, general description. Other metadata elements that are also important for resource
-                        discovery but that may differ at this level (<i>e.g.</i>, discourse type) can be
+                        discovery but that may differ at this level (<i>e.g.,</i> discourse type) can be
                         repeated at the OLAC description level for as many types as are prominently included.
                         Alternatively, the collection may be divided into sub-collections by discourse genre, or
                         other significant feature. The sub-collections can then be treated in distinct OLAC
@@ -2113,7 +2116,7 @@
             </td>
          </tr>
          <tr valign="top">
-            <td width="150">[<a name="XML-lang">XML-lang</a>]
+            <td width="150">[<a name="XML-Lang">XML-Lang</a>]
             </td>
             <td>Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C
                         Recommendation 16 August 2006. Section 2.12, Language
