@@ -6,7 +6,7 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20080227</issued>
+      <issued>20080228</issued>
       <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the metadata
@@ -1052,8 +1052,8 @@
                <eg>&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</eg>
                <p>Source for data extracted from a published source:</p>
                <eg>&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests 
-   of the British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.
-   &lt;/dc:source&gt;</eg>
+   of the British Solomon Islands, by T. C. Whitmore. Oxford University 
+   Press, 1966.&lt;/dc:source&gt;</eg>
             </examples>
          </element>
          <element name="Subject">
@@ -1142,15 +1142,15 @@
                   written or recorded. If the title is in a language different from the language
                   identified in a <xref>Language</xref> element, use the <i>xml:lang</i> attribute
                   on Title to specify the language in which the title is actually given.</p>
-               <p>In the case of a polyglot work, where the text is given in two or more languages
+               <p>The only approved use of repeated instances of the Title element is in the case 
+                  of a polyglot work, where the text is given in two or more languages
                   in some kind of parallel format (whether facing columns or pages, or separate but
-                  approximately equal sections), and the title on the title page (or equivalent) is
-                  given in the multiple text languages (what librarians typically call "parallel
-                  titles"), it is permissible to repeat the Title element. In such a case, it will
-                  be expected that there will also be multiple <xref>Language</xref> elements, and
-                  that each of the Title elements will also carry an <i>xml:lang</i> attribute that
-                  specifies the language of the title as given in that element instance. This is the
-                  only approved use of repeated instances of the Title element.</p>
+                  approximately equal sections) and the title on the title page (or equivalent) is
+                  given in each of the text languages.  This is what librarians refer to
+                  as “parallel titles.”  In this case, it is permissible to repeat the Title element. It will
+                  be expected that there are also  multiple <xref>Language</xref> elements, and
+                  that each of the Title elements carries an <i>xml:lang</i> attribute that
+                  specifies a language given in one of the Language elements. </p>
                <p>The Title can be a name given to a work to identify it if a formal title is not
                   used, such as for a data set or collection of texts.</p>
             </comment>
@@ -1179,7 +1179,7 @@
                <eg>&lt;dc:title&gt;A grammar of the Nggela language&lt;/dc:title&gt;</eg>
                <p>A vernacular title with a translated title:</p>
                <eg>&lt;dc:title xml:lang="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
-&lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
+&lt;dcterms:alternative xml:lang="eng"&gt;The road to good reading&lt;/dcterms:alternative&gt;</eg>
                <p>A work with parallel titles, as typically employed for a diglot work:</p>
                <eg>&lt;dc:title xml:lang="amc"&gt;Xunivaun jau yohipahonni&lt;/dc:title&gt;
 &lt;dc:title xml:lang="spa"&gt;Cuentos de nuestros antepasados&lt;/dc:title&gt;
@@ -1316,10 +1316,10 @@
    with Spanish free translations.&lt;/dc:description&gt;
 &lt;dcterms:provenance&gt;Collection of texts recorded by Gardner, transcribed 
    with the assistance of a number of local residents. Body of materials 
-   were transferred to branch custody in 1980s, subsequently organized, 
-   collated and annotated by J.L. Anderson, a researcher in a closely 
-   related Chinantec language. Annotations particularly relate to changes 
-   in orthographic and tone marking conventions over the years of 
+   were transferred to custody of SIL Mexico Branch in 1980s, subsequently 
+   organized,  collated and annotated by J. L. Anderson, a researcher in a 
+   closely related Chinantec language. Annotations particularly relate to 
+   changes in orthographic and tone marking conventions over the years of 
    collection and as compared to current practices.&lt;/dcterms:provenance&gt;</eg>
             </examples>
          </element>
@@ -1329,6 +1329,7 @@
             <comment>
                <p>Use the URI or name of the Rights Holder to indicate the entity.</p>
             </comment>
+            <todo><p>Missing example</p></todo>
          </element>
 
       </section>
@@ -1340,12 +1341,12 @@
             harvesting and inclusion in an aggregate catalog may be different (typically less) than
             the level of description desirable for the catalog of a specific institution's
             repository.</p>
-         <p>For a resource that has been published in some form, the unit or grouping of publication
-            usually corresponds to the appropriate unit of description for the OLAC record. However,
+         <p>For a resource that has been published in some form, the appropriate unit of
+            description for the OLAC record is the unit of the publication itself. However,
             many archival resources have not been formally published. For unpublished papers
-            presenting findings of research, these closely parallel their published counterparts,
-            and consitute similar kinds of units for archival description.</p>
-         <p>For primary source materials (recordings, transcribed texts, data sets) the foremost
+            presenting findings of research, these closely parallel typical publications,
+            and constitute comparable units for archival description.</p>
+         <p>For primary source materials (<i>e.g.,</i> recordings, transcribed texts, data sets) the foremost
             factor in determining an appropriate unit of aggregation and description will be their
             provenance: does a particular body of resources have a shared provenance, or were they
             placed together at some point in time well after their creation (possibly by the
@@ -1384,7 +1385,7 @@
             person (perhaps the original researcher, perhaps not) may properly constitute a single
             collection (as a single unit of OLAC description) with a complex secondary level of
             collection description. Yet those same materials, had they been deposited periodically
-            over time, might just as well constitute numerous smaller units, each with its own OLAC
+            over time, might just as well constitute numerous smaller collections, each with its own OLAC
             level descriptive record.</p>
 
       </section>
