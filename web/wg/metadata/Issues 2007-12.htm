@@ -40,7 +40,7 @@ next version of the documents.</P>
 HREF="#ConcluCreator">Conclusion</A>]</LI>
 <LI> <A HREF="#Relation">Relation</A> [<A
 HREF="#ConcluRelation">Conclusion</A>]</LI>
-<LI> <A HREF="#Enhancements">Enhancements</A> [<A
+   <LI> <A HREF="#Enhancements">Enhancements to Linguistic Type</A> [<A
 HREF="#ConcluEnhancements">Conclusion</A>]</LI>
 <LI> <A HREF="#Granularity">Granularity Recommendation</A> [<A
 HREF="#ConcluGranularity">Conclusion</A>]</LI>
@@ -84,9 +84,11 @@ issued 2008-01-14) and that a vocabulary to refine roles is applicable only to
 Contributor (as indicated in the
 <A HREF="http://dublincore.org/documents/library-application-profile/">Library
 Application Profile</A>). Our usage notes have therefore been revised to permit
-olac:role only on Contributor and to explain that Creator still has a place for
-compatibility with common metadata practice (such as for the author of articles
-in the
+<i>olac:role</i> only on Contributor and to explain that Creator should be used only when
+   the role vocabulary has no suitable more specific role.  The OLAC-to-Simple-DC
+   crosswalk in the OLAC Aggregator will be updated to map Contributor roles like <i>author</i> to a Creator
+   element (so as to maintain interoperability with more general metadata standards like
+ the
 <A
  HREF="http://www.ukoln.ac.uk/repositories/digirep/index/Eprints_Application_Profile">Eprints
 Application Profile</A>).</P>
@@ -144,7 +146,7 @@ we would align with the DCMI&#146;s new guidelines after they come out. We are
 thinking of that as a version 2.0 revision of OLAC metadata. In the meantime,
 our immediate goal is a version 1.1 revision which will have minimal
 disruption.</P>
-<H2>3. <A NAME="Enhancements"></A>Enhancements</H2>
+<H2>3. <A NAME="Enhancements"></A>Enhancements to Linguistic Type</H2>
 <P>Is this the right time to suggest an enhancement of OLAC-linguistic-type to
 include more fine-grained details, e.g. Extensive dictionary/ large wordlist/
 wordlist Grammatical description/ grammar sketch Making this distinction will
@@ -155,7 +157,7 @@ available about it. (Nicholas Thieberger 4-Dec-2007) </P>
 should do whatever we can to support the development of a documentation index;
 that could turn out to be the single most useful thing OLAC has ever done.
 (Heidi Johnson 5-Dec-2007)</P>
-<P><A NAME="ConcluEnhancements"></A><I>Conclusion: Enhancements</I></P>
+   <P><A NAME="ConcluEnhancements"></A><I>Conclusion: Enhancements to Linguistic Type</I></P>
 <P>Agreed. This will take the form of a new version of the Recommendation on
 <A HREF="http://www.language-archives.org/REC/type.html">OLAC Linguistic Data
 Type Vocabulary</A>. That is too extensive a change for version 1.1, and so we
@@ -280,21 +282,32 @@ though, both to encourage their colleagues to think about them and so that code
 revisers can find them. Maybe something like this:</P>
 <BLOCKQUOTE><PRE>
 &#160;&#160;&lt;dc:subject xsi:type=&quot;olac:ISO639-3&quot; olac:code=&quot;zab&quot;&gt;
-<BR>&#160;&#160;&#160;&#160; Tlacolula de Matamoros Zapotec. Ethnologue designation: San Juan Guelav&iacute;a 
-<BR>&#160;&#160;&#160;&#160; Zapotec (zab), but this includes many varieties, including Tlacolula de 
-<BR>&#160;&#160;&#160;&#160; Matamoros Zapotec. Also known as: Valley Zapotec, Tlacolula Valley Zapotec, 
-<BR>&#160;&#160;&#160;&#160; but these names also include other language varieties.
-<BR>&#160;&#160;&lt;/dc:subject&gt;</PRE>
+&#160;&#160;&#160;&#160; Tlacolula de Matamoros Zapotec. Ethnologue designation: San Juan Guelav&iacute;a 
+&#160;&#160;&#160;&#160; Zapotec (zab), but this includes many varieties, including Tlacolula de 
+&#160;&#160;&#160;&#160; Matamoros Zapotec. Also known as: Valley Zapotec, Tlacolula Valley Zapotec, 
+&#160;&#160;&#160;&#160; but these names also include other language varieties.
+&#160;&#160;&lt;/dc:subject&gt;</PRE>
 </BLOCKQUOTE>
 <P>The note is one that Brook Danielle Lillehaugen, one of my model depositors,
 pastes into every metadata form. (Heidi Johnson 8-Jan-2008) </P>
 <P><A NAME="ConcluSubjectLanguage"></A><I>Conclusion: Element Content of
 Subject Language</I></P>
-<P>There are two different issues here.&#160; The first regards distinguishing
-the semantics of alternate names versus variety names in the text content. ...
+<P>There are two different issues here.&#160; The first regards clarifying the nature of
+   the text content. The first comment points out that there are two main uses of the text
+   content (for an alternate
+   name or for a variety name) and asks if there should be a way to distinguish these
+   two cases. This can be done by means of the wording of the text content; the
+   most straightforward approach is to add the word "dialect" after the name in the case
+   of a variety name.  An example like this is given in the document.
+   Other cases of indicating a variety, such as "Women's speech,"
+   don't involve a name at all and so do not pose a problem.  Still other cases of using
+   the content (like the note that Heidi Johnson gives above as an example)
+   can include multiple names, including both alternate names and variety
+   names.
 </P>
-<P>The second has to do with when to identify a language with Langauge vs.
-Subject. ...</P>
+<P>The second issue has to do with when to identify a language with Language versus
+    with Subject. The usage note for Language has been substantially expanded to clarify
+    various cases. </P>
 <H2>6. <A NAME="SubjLginLangAttribute"></A>Reference to Subject Language in
 xml:lang Attribute</H2>
 <P>In the opening discussion of practices that apply to all elements, the
