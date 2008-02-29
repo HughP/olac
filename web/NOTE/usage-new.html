@@ -430,7 +430,7 @@
 &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;IN&lt;/dcterms:spatial&gt;</pre><p>A resource about languages spoken on Guadalcanal:</p><pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre><p>A resource involving a diaspora group from a language community:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;&#8220;Como Se Hayan&#8221;: Zapotec Indigenous Migrant
    Expressions of Belonging&lt;/dc:title&gt;
 &lt;dc:coverage&gt;Los Angeles, California&lt;/dc:coverage&gt;
-&lt;dc:subject xsi:type="olac:language" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A data set covering a period of time, relating to a particular community, collected over a span of
+&lt;dc:subject xsi:type="olac:language" olac:code="zpu"/&gt;</pre><p>A resource about language use in the 19th century:</p><pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre><p>A dataset covering a period of time, relating to a particular community, collected over a span of
                                        time:
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer 
    community in transition&lt;/dc:title&gt;
@@ -1483,9 +1483,8 @@
                         <td>dcterms:alternative&nbsp;&nbsp;</td>
                         <td>
                            <p>Any form of the title used as a substitute or alternative to the formal title of the resource.
-                                                      Comment: This qualifier can include an abbreviated or shortened title, a "cover title" that differs
-                              
-                                                      from the formal title, or a translated title. 
+                                                      Comment: This qualifier can include an abbreviated or shortened title, a "cover title" that
+                                                      differs from the formal title, or a translated title. 
                            </p>
                         </td>
                      </tr>
@@ -1502,8 +1501,8 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>Recommended best practice is that every record must have an instance of the Title element. When the
-                                       resource does not have a formal title, the cataloger should supply a descriptive title and enclose
-                                       it in square brackets.
+                                       resource does not have a formal title, the cataloger should supply a descriptive title and enclose it
+                                       in square brackets.
                   </p>
                   <p>Recommended best practice is that there be only one instance of the unqualified Title element, namely,
                                        for the original title (except in the case of parallel titles on a diglot work). All other titles
@@ -1518,30 +1517,31 @@
                   </p>
                   <p>Normally the title of a resource is given to the resource by its creator, be that an author, artist,
                                        photographer, or compiler (as the creator of a collection). For a resource that has no formal title
-                                       given by its creator, the cataloger or archivist should give the work some brief descriptive label as 
+                                       given by its creator, the cataloger or archivist should give the work some brief descriptive label as
                                        a title. Such a supplied title is typically enclosed in square brackets.
                   </p>
-                  <p>A related use of square brackets is for supplying additional information where, in the opinion of 
-                                       the cataloger, the title itself needs additional clarifying information, or where the formal title
+                  <p>A related use of square brackets is for supplying additional information where, in the opinion of the
+                                       cataloger, the title itself needs additional clarifying information, or where the formal title
                                        contains a typographical or factual error. In such a case, the formal title is transcribed as given,
                                        with additional or corrective information supplied in square brackets.
                   </p>
                   <p>The title is generally expected to be in the language in which the work is written or recorded. If the
                                        title is in a language different from the language identified in a <a href="#Language">Language</a> element, use
-                                       the <i>xml:lang</i> attribute on the Title element to specify the language in which the title is actually given.
+                                       the <i>xml:lang</i> attribute on the Title element to specify the language in which the title is
+                                       actually given.
                   </p>
                   <p>A translation of the title is supplied in a <i>dcterms:alternative</i> element. Use the
                                        <i>xml:lang</i> attribute to identify the language of the translated title using an identifier from
-                                       [<a href="#OLAC-Language">OLAC-Language</a>].
+                                          [<a href="#OLAC-Language">OLAC-Language</a>].
                   </p>
                   <p>The only approved use of repeated instances of the Title element is in the case of a polyglot work,
                                        where the text is given in two or more languages in some kind of parallel format (whether facing
-                                       columns or pages, or roughly equal, separate sections) and the title on the title page (or
-                                       equivalent source of information on/in the resource itself) is given in each of the text languages. 
-                                       This is what librarians refer to as &#8220;parallel titles.&#8221; In this case, it is permissible to repeat the 
-                                       Title element. It will be expected that there are also multiple <a href="#Language">Language</a> elements, 
-                                       and that each of the Title elements carries an <i>xml:lang</i> attribute that specifies a language 
-                                       that is also given in one of the Language elements. 
+                                       columns or pages, or roughly equal, separate sections) and the title on the title page (or equivalent
+                                       source of information on/in the resource itself) is given in each of the text languages. This is what
+                                       librarians refer to as &#8220;parallel titles.&#8221; In this case, it is permissible to repeat the Title element.
+                                       It will be expected that there are also multiple <a href="#Language">Language</a> elements, and that each of the
+                                       Title elements carries an <i>xml:lang</i> attribute that specifies a language that is also given in
+                                       one of the Language elements. 
                   </p>
                </td>
             </tr>
@@ -1553,8 +1553,8 @@
 &lt;dc:title xml:lang="spa"&gt;Cuentos de nuestros antepasados&lt;/dc:title&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="amc"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="spa"/&gt;</pre><p>A work (a photograph) without a formal title, for which the cataloger has supplied a title:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;[J.P. Harrington with three Tule Indians, making dictaphone records of language and
-   songs of the Cuna, in the Smithsonian Institution]&lt;/dc:title&gt;</pre><p>A title of a work to which the cataloger added some information to clarify the nature of the 
-                                       resource (originally cataloged in a system prior to the addition of <i>linguistic-type</i>):
+   songs of the Cuna, in the Smithsonian Institution]&lt;/dc:title&gt;</pre><p>A title of a work to which the cataloger added some information to clarify the nature of the resource
+                                       (originally cataloged in a system prior to the addition of <i>linguistic-type</i>):
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Subanon [language texts]&lt;/dc:title&gt;</pre></td>
             </tr>
          </table>
@@ -1617,13 +1617,18 @@
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
                   <p> Type includes terms describing general categories, functions, genres, or aggregation levels for
-                                       content. The DCMIType vocabulary specifies a controlled vocabulary to be used to with Type. These
+                                       content. [<a href="#The DCMI-Type">The DCMI-Type</a>] vocabulary specifies a controlled vocabulary to be used to with Type. These
                                        relate to the intended use or mode of perception by a user, <i>e.g.,</i> whether it is read (as text),
                                        viewed (as image), heard, etc. Thus, a computer image file of a text (such as a scanned document) is
                                        type 'text', not type 'image', because the common use involves reading text. To describe the physical
                                        or digital manifestation of the resource, use the <a href="#Format">Format</a> element. [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p></p>
+                  <p>The [<a href="#DCMI-Type">DCMI-Type</a>] 'collection' should be used in conjunction with one or more 
+                                       other applicable type terms to represent the nature of the resource as an aggregate of specific,
+                                       but closely related resources, resources which could also stand on their own but were grouped
+                                       together as a unit by their creator or a subsequent compiler. See the section Granularity 
+                                       of resources below for more discussion.
+                  </p>
                   <p>Linguistic Type schema should only be used in a Type element if a resource represents one of the
                                        structural types in the range set. The element may be repeated if a resource represents more than one
                                        linguistic type. So, for example, a primary text accompanied by a lexicon of vocabulary items would be
@@ -1636,10 +1641,22 @@
                <td>
                   <p>The resource is a video recording, stored as a MPEG:</p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
 &lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</pre><p>The resource is a video recording of a story teller relating a traditional story, recorded on Super-8
-                                       film::
+                                       film:
                   </p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
 &lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;
-&lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre></td>
+&lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre><p>The resource is a collection of texts:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Historia araona: Narrada por Bani Huali&lt;/dc:title&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Collection&lt;/cd:type&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Text&lt;/cd:type&gt;
+&lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;</pre><p>A database resource (offering multiple user formats) that also integrates textual 
+                                       reports and embedded photographs:
+                  </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer 
+   community in transition&lt;/dc:title&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Dataset&lt;/cd:type&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Text&lt;/cd:type&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;StillImage&lt;/cd:type&gt;
+&lt;dc:format xsi:type="dcterms:IMT"&gt;application/msaccess&lt;/dc:format&gt;
+&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
+&lt;dc:format xsi:type="dcterms:IMT"&gt;text/csv&lt;/dc:format&gt;</pre></td>
             </tr>
             <tr valign="top">
                <td width="100"><b><font color="red"><i>To do</i></font></b></td>
@@ -1756,31 +1773,40 @@
          <p>Determining the right degree of detail to apply at the level of an OLAC resource description involves
                         multiple factors. The level of description appropriate for harvesting and inclusion in an aggregate catalog
                         may be different (typically less) than the level of description desirable for the catalog of a specific
-                        institution's repository.
+                        institution's repository. The following discussion is aimed at assisting an OLAC archivist distinguish 
+                        where these differing levels may be a factor.
          </p>
-         <p>For a resource that has been published in some form, the appropriate unit of description for the OLAC record
-                        is the unit of the publication itself. However, many archival resources have not been formally published.
-                        For unpublished papers presenting findings of research, these closely parallel typical publications, and
-                        constitute comparable units for archival description.
+         <p>For a resource that has been published in some form, the appropriate unit of description for the OLAC 
+                        record is the unit of the publication itself. However, many archival resources have not been formally
+                        published. For unpublished papers presenting findings of research, these closely parallel typical 
+                        publications, and constitute comparable units for archival description.
          </p>
-         <p>For primary source materials (<i>e.g.,</i> recordings, transcribed texts, data sets) the foremost factor in
-                        determining an appropriate unit of aggregation and description will be their provenance: does a particular
-                        body of resources have a shared provenance, or were they placed together at some point in time well after
-                        their creation (possibly by the repository itself)? If the latter, was there some coherent organizing
+         <p>The question of the right level of granularity in description presents itself most significantly when
+                        handling the description of a <i>collection</i>. (See <a href="#Type">Type</a>). For primary source 
+                        materials (<i>e.g.,</i> recordings, transcribed texts, data sets) the foremost factor in determining 
+                        an appropriate unit of aggregation and description, that is, an appropriate collection grouping,
+                        will be their <a href="#Provenance">Provenance</a>: whether a particular body of resources have a shared 
+                        provenance, or were instead placed together at some point in time well after their creation 
+                        (possibly by the repository itself). If the latter, possibly there was some coherent organizing 
                         principle or intermediate stage of development that is still relevant for the proper understanding and use
-                        of the resources, or would the grouping be motivated more by convenience of handling? Situations of shared
-                        provenance that constitute a collective unit or collection for description purposes will be distinguished by
-                        the high degree of commonality of metadata elements, <i>e.g.,</i> same researcher(s), author(s), subject
-                        language(s), content (or analysis) language(s), approximate date, coverage, linguistic type, general
-                        description. Other metadata elements that are also important for resource discovery but that may differ at
+                        of the resources. Materials without a common provenance generally should not be made to 
+                        constitute a collection and should not be described collectively in an OLAC description.
+         </p>
+         <p>Situations of shared provenance that constitute a collection for arrangement and description 
+                        purposes will be distinguished by the high degree of commonality of metadata elements, 
+                        <i>e.g.,</i> same researcher(s), author(s), subject language(s), content (or analysis) 
+                        language(s), approximate date, coverage, linguistic type, general description. Other 
+                        metadata elements that may also be important for resource discovery but that may differ at
                         this level (<i>e.g.,</i> discourse type) can be repeated at the OLAC description level for as many types as
                         are prominently included. Alternatively, the collection may be divided into sub-collections by discourse
-                        genre, or other significant feature. The sub-collections can then be treated in distinct OLAC records.
-                        Further characteristics, such as topic, additional contributors, and event specifics, can be documented at a
-                        finer level of granularity by creating a second level of &#8220;collection description&#8221; which includes more detail
-                        on the individual units (specific recordings or texts), included as a part of the (sub-)collection in an
-                        expanded, structured contents description document. This second level of description typically aligns with
-                        the session level detail of [<a href="#IMDI">IMDI</a>] description.
+                        genre, speaker, or other significant feature. The sub-collections can then be treated in distinct 
+                        OLAC records (and related to the whole through the relationships 'isPartOf' / 'hasPart').
+         </p>
+         <p>Further characteristics, such as topic, additional contributors, and event specifics, can be  
+                        documented at a finer level of granularity by creating a second level of &#8220;collection description&#8221; 
+                        which includes more detail on the individual units (specific recordings or texts), included 
+                        as a part of the (sub-)collection in an expanded, structured contents description document. 
+                        This finer level of description typically aligns with the session level detail of [<a href="#IMDI">IMDI</a>] description.
          </p>
          <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects of descriptions may
                         be quite unique to the collection of materials in hand. For example, it could be valuable to document the
@@ -1789,9 +1815,6 @@
                         of its own creative endeavor, as the collection's compiler or the archivist creating this level of
                         description seeks to offer additional detail in an organized way that will enhance the utility of the
                         collection for future researchers.
-         </p>
-         <p>Materials without a common provenance generally should not be grouped either within the repository or for
-                        OLAC description.
          </p>
          <p>The timing of acquisition of materials, whether they are received as a group at one point in time or accrue
                         (are submitted to the repository) over a period of time, is a second significant factor in determining the
