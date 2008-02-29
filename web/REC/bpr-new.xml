@@ -6,7 +6,7 @@
       <status code="proposed" type="recommendation"/>
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
-      <issued>20080228</issued>
+      <issued>20080229</issued>
       <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document expresses the consensus of the Open Language Archives Community on best
@@ -58,10 +58,9 @@
       <ref abbrev="DCMT">DCMI Metadata
             Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
 
-      <ref abbrev="ISO639-3">ISO 639: Codes for the representation of names of languages - Part 3:
-         Alpha-3 code for comprehensive coverage of languages.<br/>
-            &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
-
+      <ref abbrev="OLAC-Language">OLAC Language
+         Extension.<br/>&lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
+      
       <ref abbrev="OLAC-Metadata">OLAC
             Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
 
