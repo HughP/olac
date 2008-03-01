@@ -1086,7 +1086,7 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>Recommended best practice is to identify a Publisher by means of a name in a form
-                                       that is ready for sorting within an index. .
+                                       that is ready for sorting within an index.
                   </p>
                </td>
             </tr>
@@ -1114,7 +1114,7 @@
                                        way, but has not otherwise participated in its development through editing,
                                        composition, production, printing, marketing, posting, etc., use the
                                           <a href="#Contributor">Contributor</a> element specifying the [<a href="#OLAC-Role">OLAC-Role</a>]
-                                       code="sponsor".
+                                       as <i>sponsor</i>.
                   </p>
                   <p>The name of the publisher should be given in a form that is ready for sorting
                                        within an index. See the usage notes above on <a href="#Contributor">Contributor</a> for a
@@ -1305,7 +1305,10 @@
 &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
 &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
 &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
-&lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</pre><p>Link to a specification of a schema to which the resource conforms:</p><pre style="margin-left: 12pt">&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</pre></td>
+&lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</pre><p>An XML document that conforms to the TEI Lite DTD:</p><pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
+&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;
+  http://www.tei-c.org/Guidelines/Customization/Lite/DTD/teixlite.dtd
+  &lt;/dcterms:conformsTo&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Rights"></A>Rights
@@ -1352,7 +1355,7 @@
                                        often encompasses Intellectual Property Rights (IPR), Copyright, and various
                                        Property Rights. If the Rights element is absent, no assumptions can be made about
                                        the status of these and other rights with respect to the resource.
-                                       [<a href="#Copyright">Copyright</a>]
+                                    
                   </p>
                   <p>A rights management statement that contains a license or directs a potential user
                                        to a license statement that specifies conditions and granted permissions should
@@ -1362,15 +1365,16 @@
                                        the metadata, or a URI reference to the statement or a service may be given.
                                        Examples of license statements can be found at Creative Commons [<a href="#CC">CC</a>].
                   </p>
-                  <p>Use <a href="#Rights Holder">Rights Holder</a> to specify a person or corporate body
-                                       (organization, legally constituted entity representing a group or community),
-                                       rather than Rights.
+                  <p>Use <a href="#Rights Holder">Rights Holder</a> (rather than Rights) to specify a person or corporate body
+                                       (organization, legally constituted entity representing a group or
+                                       community) that holds the rights to the resource.
+                                    
                   </p>
                   <p>Copyright is inherent in primary linguistic and cultural research materials, such
                                        as stories, descriptions, songs or art work, which researchers collect in the
                                        course of their work. The rights, in most cases, belong to the creator&#8212;not the
-                                       researcher or his organization or sponsor&#8212;or, in some cases, to the language
-                                       community (if it may be constituted as a legal entity). Intellectual property law
+                                       researcher or sponsor&#8212;or, in some cases, to the language
+                                       community (particularly, if it is constituted as a legal entity). Intellectual property law
                                        as it applies to personal or community cultural property is beyond the scope of
                                        these notes. However, documenting the creators of such works, the conditions under
                                        which they came into the hands of the researcher, and any known conditions on use
@@ -1397,15 +1401,16 @@
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
-               <td></td>
-            </tr>
-            <tr valign="top">
-               <td width="100"><b><font color="red">
-                        <p><i>To do</i></p></font></b></td>
-               <td><font color="red">
-                     <p>Mention Creative Commons in the usage notes and give an example of a CC license
-                                          statement.
-                     </p></font></td>
+               <td>
+                  <p>A description of the terms of use:</p><pre style="margin-left: 12pt">&lt;dc:rights&gt;The Surrey Syncretisms Database can be accessed without 
+   cost. Users agree not to pass on the Database to third parties and  
+   to properly acknowledge the Surrey Syncretism Database as the source 
+   of information in publications or manuscripts that make use of its 
+   data.&lt;/dc:rights&gt;</pre><p>Instructions on how to get access:</p><pre style="margin-left: 12pt">&lt;dcterms:accessRights&gt;Apply in writing for permission to use this 
+   resource.&lt;/dcterms:accessRights&gt;</pre><p>A resource made available under the Creative Commons Attribution-ShareAlike
+                                       license:
+                  </p><pre style="margin-left: 12pt">&lt;dcterms:license&gt;http://creativecommons.org/licenses/by-sa/3.0/
+   &lt;/dcterms:license&gt;</pre></td>
             </tr>
          </table>
          <h3><A name="Source"></A>Source
@@ -1580,7 +1585,8 @@
 &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
    ...
-   &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</pre><p>See also the examples for <a href="#Language">Language</a></p>
+   &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</pre><p>See also the examples for <a href="#Language">Language</a>.
+                  </p>
                </td>
             </tr>
          </table>
@@ -1677,8 +1683,9 @@
 &lt;dc:language xsi:type="olac:language" olac:code="amc"/&gt;
 &lt;dc:language xsi:type="olac:language" olac:code="spa"/&gt;</pre><p>A work (a photograph) without a formal title, for which the cataloger has supplied
                                        a title:
-                  </p><pre style="margin-left: 12pt">&lt;dc:title&gt;[J.P. Harrington with three Tule Indians, making dictaphone records of language and
-   songs of the Cuna, in the Smithsonian Institution]&lt;/dc:title&gt;</pre><p>A title of a work to which the cataloger added some information to clarify the
+                  </p><pre style="margin-left: 12pt">&lt;dc:title&gt;[J.P. Harrington with three Tule Indians, making 
+   dictaphone records of language and songs of the Cuna,
+   in the Smithsonian Institution]&lt;/dc:title&gt;</pre><p>A title of a work to which the cataloger added some information to clarify the
                                        nature of the resource (originally cataloged in a system prior to the addition of
                                           <i>linguistic-type</i>):
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Subanon [language texts]&lt;/dc:title&gt;</pre></td>
@@ -1745,23 +1752,25 @@
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
                   <p> Type includes terms describing general categories, functions, genres, or
-                                       aggregation levels for content. [<a href="#The DCMI-Type">The DCMI-Type</a>] vocabulary specifies a
+                                       aggregation levels for content. The [<a href="#DCMI-Type">DCMI-Type</a>] vocabulary specifies a
                                        controlled vocabulary to be used to with Type. These relate to the intended use or
                                        mode of perception by a user, <i>e.g.,</i> whether it is read (as text), viewed
                                        (as image), heard, etc. Thus, a computer image file of a text (such as a scanned
-                                       document) is type 'text', not type 'image', because the common use involves
+                                       document) is type <i>Text</i>, not type <i>Image</i>, because the common use involves
                                        reading text. To describe the physical or digital manifestation of the resource,
                                        use the <a href="#Format">Format</a> element. [<a href="#DCMT">DCMT</a>]
                   </p>
-                  <p>The [<a href="#DCMI-Type">DCMI-Type</a>] 'collection' should be used in conjunction with one or
+                  <p>The DCMI type <i>Collection</i> should be used in conjunction with one or
                                        more other applicable type terms to represent the nature of the resource as an
                                        aggregate of specific, but closely related resources, resources which could also
                                        stand on their own but were grouped together as a unit by their creator or a
                                        subsequent compiler. See  <a href="#Granularity of resources">Granularity of resources</a> below for more
                                        discussion.
                   </p>
-                  <p>Linguistic Type schema should only be used in a Type element if a resource
-                                       represents one of the structural types in the range set. The element may be
+                  <p>Whereas the DCMI Type scheme should be relevant to all resources,
+                                       include a Type element with
+                                       the [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] scheme only if a resource
+                                       represents one of the structural types covered in that vocabulary. The element may be
                                        repeated if a resource represents more than one linguistic type. So, for example,
                                        a primary text accompanied by a lexicon of vocabulary items would be described as
                                        both a primary text and a lexicon. 
@@ -1771,12 +1780,12 @@
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
                <td>
-                  <p>The resource is a video recording, stored as a MPEG:</p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
+                  <p>The resource is a video recording, stored in MPEG format:</p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
 &lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</pre><p>The resource is a video recording of a story teller relating a traditional story,
                                        recorded on Super-8 film:
                   </p><pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
 &lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;
-&lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre><p>The resource is a collection of texts:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Historia araona: Narrada por Bani Huali&lt;/dc:title&gt;
+&lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre><p>The resource is a collection of written texts:</p><pre style="margin-left: 12pt">&lt;dc:title&gt;Historia araona: Narrada por Bani Huali&lt;/dc:title&gt;
 &lt;dc:type xsi:type="dcterms:DCMIType"&gt;Collection&lt;/cd:type&gt;
 &lt;dc:type xsi:type="dcterms:DCMIType"&gt;Text&lt;/cd:type&gt;
 &lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;</pre><p>A database resource (offering multiple user formats) that also integrates textual
@@ -1784,19 +1793,22 @@
                   </p><pre style="margin-left: 12pt">&lt;dc:title&gt;Agta Demographic Database: chronicle of a hunter-gatherer 
    community in transition&lt;/dc:title&gt;
 &lt;dc:type xsi:type="dcterms:DCMIType"&gt;Dataset&lt;/cd:type&gt;
-&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Text&lt;/cd:type&gt;
-&lt;dc:type xsi:type="dcterms:DCMIType"&gt;StillImage&lt;/cd:type&gt;
 &lt;dc:format xsi:type="dcterms:IMT"&gt;application/msaccess&lt;/dc:format&gt;
 &lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
-&lt;dc:format xsi:type="dcterms:IMT"&gt;text/csv&lt;/dc:format&gt;</pre></td>
+&lt;dc:format xsi:type="dcterms:IMT"&gt;text/csv&lt;/dc:format&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;Text&lt;/cd:type&gt;
+&lt;dc:type xsi:type="dcterms:DCMIType"&gt;StillImage&lt;/cd:type&gt;</pre></td>
             </tr>
          </table>
          <h2><A name="Other elements"></A>4. Other elements
          </h2>
          <p>The following subsections describe other elements that have been defined by the Dublin
-                        Core Metadata Initiative [<a href="#DCMT">DCMT</a>]. They are defined within the
+                        Core Metadata Initiative [<a href="#DCMT">DCMT</a>]. They were not specified in the original core set of
+                        Dublin Core elements, but have been subsequently defined as elements in their
+                        own right (rather than being refinements of 
+                        other elements).They are defined within the
                            <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a> namespace for which the prefix <tt>dcterms:</tt>
-                        is used in the examples.
+                        is used in the examples below.
          </p>
          <h3><A name="Provenance"></A>Provenance
          </h3>
@@ -1822,17 +1834,12 @@
             <tr valign="top">
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
-                  <p>The Provenance element is a dcterms element, one of two element-level terms (the
-                                       other is <a href="#RightsHolder">RightsHolder</a>) not specified in the original core set of
-                                       Dublin Core elements, but nonetheless an element and not a refinement of some
-                                       other element. Its correct specification is with the dcterms namespace as shown in
-                                       the example.
-                  </p>
                   <p>Provenance should be distinguished in usage from <a href="#Description">Description</a>.
-                                       Provenance metadata should be used to track and/or convey important information
-                                       regarding the custody and/or management of the resource throughout its history,
-                                       which has a bearing upon interpretation of the informational content of the
-                                       resource, or the upon its artifactual integrity and authenticity.
+                                       Provenance metadata should be used to track or convey important information
+                                       regarding the custody and/or management of the resource throughout its
+                                       history. Include any information that 
+                                       has a bearing on interpreting content of the
+                                       resource or upon its artifactual integrity and authenticity.
                   </p>
                </td>
             </tr>
@@ -1887,38 +1894,47 @@
             </tr>
             <tr valign="top">
                <td width="100"><i>Examples</i></td>
-               <td></td>
-            </tr>
-            <tr valign="top">
-               <td width="100"><b><font color="red">
-                        <p><i>To do</i></p></font></b></td>
-               <td><font color="red">
-                     <p>Missing example</p></font></td>
+               <td>
+                  <p>Name of the copyright holder:</p><pre style="margin-left: 12pt">&lt;dcterms:rightsHolder&gt;	Copyright Regents of the University of California&lt;/dcterms:rightsHolder&gt;</pre></td>
             </tr>
          </table>
          <h2><A name="Granularity of resources"></A>5. Granularity of resources
          </h2>
-         <p>Determining the right degree of detail to apply at the level of an OLAC resource
-                        description involves multiple factors. The level of description appropriate for
-                        harvesting and inclusion in an aggregate catalog may be different (typically less) than
-                        the level of description desirable for the catalog of a specific institution's
-                        repository. The following discussion is aimed at assisting an OLAC archivist distinguish
-                        where these differing levels may be a factor.
+         <p>Determining the right level for units to be described as language resources in
+                        the OLAC context involves multiple factors. The level of unit appropriate for
+                        inclusion in an aggregated catalog like OLAC's may be different (typically higher) than
+                        the level desirable for the catalog of a specific institution's
+                        holdings, which in turn is typically higher than the level desirable for
+                        describing the detailed
+                        contents of a resource. Section 6 of the [<a href="#OLAC-Repositories">OLAC-Repositories</a>] standard
+                        establishes the following basic guideline regarding the granularity of the
+                        records in an OLAC repository:  
+                        &#8220;A metadata repository should not degrade the 'signal-to-noise ratio' for
+                        language resource discovery.&#8221; At one extreme, describing an entire
+                        institutional archive in one record does not give enough granularity; but at
+                        the other extreme, providing a descriptive record for every digital file or
+                        every piece of paper gives too much.
+                        The following discussion is aimed at assisting an OLAC
+                        participant to find the right level of description.
          </p>
          <p>For a resource that has been published in some form, the appropriate unit of description
-                        for the OLAC record is the unit of the publication itself. However, many archival
+                        for the OLAC record is the unit of the publication itself. In this case,
+                        granularity does not really pose a problem. However, many archival
                         resources have not been formally published. For unpublished papers presenting findings
-                        of research, these closely parallel typical publications, and constitute comparable
+                        of research, these closely parallel typical publications, and can be treated
+                        in a comparable way as 
                         units for archival description.
          </p>
-         <p>The question of the right level of granularity in description presents itself most
-                        significantly when handling the description of a <i>collection</i> (see
-                        <a href="#Type">Type</a>). For primary source materials (<i>e.g.,</i> recordings, transcribed
-                        texts, data sets) the foremost factor in determining an appropriate unit of aggregation
-                        and description, that is, an appropriate collection grouping, will be their
-                           <a href="#Provenance">Provenance</a>: whether a particular body of resources have a shared
-                        provenance, or were instead placed together at some point in time well after their
-                        creation (possibly by the repository itself). If the latter, possibly there was some
+         <p>Granularity poses the greatest problem with primary source materials (<i>e.g.,</i> recordings,
+                        transcriptions, annotations, notes,
+                        data sets). The typical practice of archivists is to gather such materials
+                        into collections, which in turn become the primary unit of archival description
+                        (<i>i.e.,</i> the result is resources of type <i>collection</i>; see
+                           <a href="#Type">Type</a>).  The foremost factor in determining what materials
+                        belong together as a single collection is their
+                           <a href="#Provenance">Provenance</a>. In the typical case, the collected resources have a shared
+                        provenance.  In other cases, they may have been placed together at some point in time well after their
+                        creation (possibly by the archive itself). If the latter, there should be some
                         coherent organizing principle or intermediate stage of development that is still
                         relevant for the proper understanding and use of the resources. Materials without a
                         common provenance generally should not be made to constitute a collection and should not
@@ -1926,40 +1942,25 @@
          </p>
          <p>Situations of shared provenance that constitute a collection for arrangement and
                         description purposes will be distinguished by the high degree of commonality of metadata
-                        elements, <i>e.g.,</i> same researcher(s), author(s), subject language(s), content (or
-                        analysis) language(s), approximate date, coverage, linguistic type, general description.
+                        elements, <i>e.g.,</i> same researcher(s), author(s), subject language(s),
+                        content language(s), approximate dates, coverage, linguistic type.
                         Other metadata elements that may also be important for resource discovery but that may
-                        differ at this level (<i>e.g.,</i> discourse type) can be repeated at the OLAC
-                        description level for as many types as are prominently included. Alternatively, the
+                        differ for items in the collection (<i>e.g.,</i> format or discourse type) can be repeated at the OLAC
+                        description level for as many values as are present in the collection. Alternatively, the
                         collection may be divided into sub-collections by discourse genre, speaker, or other
                         significant feature. The sub-collections can then be treated in distinct OLAC records
-                        (and related to the whole through the relationships 'isPartOf' / 'hasPart').
+                        (and related to the whole through the  <i>isPartOf</i> and <i>hasPart</i>
+                        relationships; see <a href="#Relation">Relation</a>).
          </p>
-         <p>Further characteristics, such as topic, additional contributors, and event specifics,
-                        can be documented at a finer level of granularity by creating a second level of
-                        &#8220;collection description&#8221; which includes more detail on the individual units (specific
-                        recordings or texts), included as a part of the (sub-)collection in an expanded,
-                        structured contents description document. This finer level of description typically
+         <p>Further characteristics of individual items within a collection (such as
+                        topic, additional contributors, event specifics, extent, format)
+                        can be documented at a finer level of granularity by creating a 
+                        &#8220;collection description&#8221; as a structured document that is included within the
+                        collection. The Object Reuse and Exchange standard currently under development
+                        by the Open Archives Initiative [<a href="#OAI-ORE">OAI-ORE</a>] would offer an alternative of
+                        handling such descriptions as a different kind of harvestable metadata in the OAI-PMH context. This finer level
+            of description typically
                         aligns with the session level detail of [<a href="#IMDI">IMDI</a>] description.
-         </p>
-         <p>Some OLAC elements may be applicable at this secondary level, but other possible aspects
-                        of descriptions may be quite unique to the collection of materials in hand. For example,
-                        it could be valuable to document the orthography used for a given written text (whether
-                        transcription or original writing) in a collection where different orthographies are
-                        represented. It is at this second level that the description becomes something of its
-                        own creative endeavor, as the collection's compiler or the archivist creating this level
-                        of description seeks to offer additional detail in an organized way that will enhance
-                        the utility of the collection for future researchers.
-         </p>
-         <p>The timing of acquisition of materials, whether they are received as a group at one
-                        point in time or accrue (are submitted to the repository) over a period of time, is a
-                        second significant factor in determining the units of grouping for OLAC level
-                        description. Materials that are collected together and organized by some knowledgeable
-                        person (perhaps the original researcher, perhaps not) may properly constitute a single
-                        collection (as a single unit of OLAC description) with a complex secondary level of
-                        collection description. Yet those same materials, had they been deposited periodically
-                        over time, might just as well constitute numerous smaller collections, each with its own
-                        OLAC level descriptive record.
          </p>
       </body><a name="References"></a><hr>
       <h2>References</h2>
@@ -1976,14 +1977,6 @@
             </td>
             <td>Creative Commons
                            Licenses.<br>&lt;<a href="http://creativecommons.org/licenses/">http://creativecommons.org/licenses/</a>&gt;
-            </td>
-         </tr>
-         <tr valign="top">
-            <td width="150">[<a name="Copyright">Copyright</a>]
-            </td>
-            <td>Section 101, Definitions, Copyright Law of the United States of
-                        America and Related Laws Contained in Title 17 of the United States Code.
-                           <br>&lt;<a href="http://www.loc.gov/copyright/title17/92chap1.html#101">http://www.loc.gov/copyright/title17/92chap1.html#101</a>&gt;
             </td>
          </tr>
          <tr valign="top">
@@ -2034,8 +2027,8 @@
          <tr valign="top">
             <td width="150">[<a name="IMDI">IMDI</a>]
             </td>
-            <td>ISLE Metadata Initiative.
-                        <br>&lt;<a href="http://www.mpi.nl/ISLE/">http://www.mpi.nl/ISLE/</a>&gt;
+            <td>  IMDI [ISLE Metadata Initiative] Metadata Elements for Session Descriptions. 
+                        <br>&lt;<a href="http://www.mpi.nl/ISLE/documents/draft/ISLE_MetaData_2.5.pdf">http://www.mpi.nl/ISLE/documents/draft/ISLE_MetaData_2.5.pdf</a>&gt;
             </td>
          </tr>
          <tr valign="top">
@@ -2048,8 +2041,15 @@
          <tr valign="top">
             <td width="150">[<a name="ISO3166">ISO3166</a>]
             </td>
-            <td>ISO 3166: Codes for the representation of names of countries.
+            <td>ISO 3166: Codes for the Representation of Names of Countries.
                            <br>&lt;<a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm">http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
+            <td width="150">[<a name="OAI-ORE">OAI-ORE</a>]
+            </td>
+            <td>Open Archives Initiative
+                        Object Reuse and Exchange.<br>&lt;<a href="http://www.openarchives.org/ore/">http://www.openarchives.org/ore/</a>&gt;
             </td>
          </tr>
          <tr valign="top">
@@ -2069,7 +2069,7 @@
          <tr valign="top">
             <td width="150">[<a name="OLAC-Extensions">OLAC-Extensions</a>]
             </td>
-            <td>Recommended metadata extensions.
+            <td>Recommended Metadata Extensions.
                            <br>&lt;<a href="http://www.language-archives.org/REC/olac-extensions.html">http://www.language-archives.org/REC/olac-extensions.html</a>&gt;
             </td>
          </tr>
@@ -2099,6 +2099,13 @@
             </td>
             <td>OLAC
                            Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;
+            </td>
+         </tr>
+         <tr valign="top">
+            <td width="150">[<a name="OLAC-Repositories">OLAC-Repositories</a>]
+            </td>
+            <td>OLAC Repositories.
+                        <br>&lt;<a href="http://www.language-archives.org/OLAC/repositories.html">http://www.language-archives.org/OLAC/repositories.html</a>&gt;
             </td>
          </tr>
          <tr valign="top">
