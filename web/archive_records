@@ -46,7 +46,7 @@ function archives()
 {
     global $DB;
 
-    $tab = $DB->sql("select RepositoryIdentifier from OLAC_ARCHIVE");
+    $tab = $DB->sql("select RepositoryIdentifier from OLAC_ARCHIVE order by RepositoryIdentifier");
     if (! $tab) {
       print "No repositories!";
       exit;
@@ -92,7 +92,7 @@ if ($archiveid) {
   if ($tab) foreach ($tab as $row) {
     $output .= <<<END
 <p>$count.
-<a href="http://www.language-archives.org/tools/lookup.php4?identifier=$row[OaiIdentifier]">$row[OaiIdentifier]</a>
+<a href="http://www.language-archives.org/item/$row[OaiIdentifier]">$row[OaiIdentifier]</a>
 END;
 
     $record_ids[$row[Item_ID]] = 1;
