@@ -9,7 +9,7 @@
 #
 ######################################################################
 
-require_once("../lib/php/OLACDB.php");
+require_once("/web/language-archives/lib/php/OLACDB.php");
 $DB = new OLACDB("olac2");
 ?>
 
@@ -70,12 +70,17 @@ function archives()
 </form>
 
 <?
-if ($_GET[archive]) {
+$archiveid = $_GET[archive];
+if (!$archiveid) {
+	$arr = explode('?', $_SERVER["REQUEST_URI"]);
+	$archiveid = basename($arr[0]);
+}
+if ($archiveid) {
   $tab = $DB->sql("
     select Item_ID, OaiIdentifier
     from   ARCHIVED_ITEM, OLAC_ARCHIVE
     where  ARCHIVED_ITEM.Archive_ID = OLAC_ARCHIVE.Archive_ID
-    and    OLAC_ARCHIVE.RepositoryIdentifier = '$_GET[archive]'
+    and    OLAC_ARCHIVE.RepositoryIdentifier = '$archiveid'
     ORDER BY OaiIdentifier");
   $DB->saw_error() and die("Query failed");
 
@@ -95,7 +100,7 @@ END;
   }
 
   $records = sizeof($record_ids);
-  print "<hr><h2>$records record(s) from $_GET[archive]</h2>";
+  print "<hr><h2>$records record(s) from $archiveid</h2>";
   print $output;
 }
 
