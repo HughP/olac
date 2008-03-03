@@ -202,7 +202,7 @@ Enter a single search term, to be matched against any OLAC field:
 Enter the OAI identifier for a record in any OLAC archive:
 
 <p>
-<form action="http://www.language-archives.org/tools/lookup.php4" method="get">
+<form name="lookupform" action="javascript:window.location.href='/item/'+document.lookupform.identifier.value;">
 <input type="text" size="16" maxlength="80"  name="identifier" value="">
 <input type="submit">
 </form>
