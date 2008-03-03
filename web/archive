@@ -3,6 +3,9 @@
 # Synopsis: Display the archive informaion from the olac database.
 #
 # ChangeLog:
+#
+# 2008-03-03  use repository identifier to search the db
+#             obtain repository id from path info -HL
 # 
 # 2005-01-19  Steven Bird  <sb@ldc.upenn.edu>
 #	* change URL of repository explorer
@@ -80,11 +83,12 @@ function get_archive_info($id)
     foreach ($tab2 as $v) {
 	$o["OLAC MS version(s)"] .= "$v[SchemaName] ";
     }
+    $o["Records in archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
     $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
     $o["Last harvested"] = $r[LastHarvested];
 
     # added by SB on 2004-01-23:
-    $o["Score card"] = "<a href=\"tools/reports/archiveReportCard.php?archive=$id\">experimental service</a>";
+    $o["Metrics"] = "<a href=\"/metrics/$id\">experimental service</a>";
 
     return $o;
 }
