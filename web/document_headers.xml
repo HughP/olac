@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <document-headers>
-
    <header href="REC/bpr.xml">
-      <status code="draft" type="recommendation"/>
-      <issued>20071115</issued>
+      <status code="proposed" type="recommendation"/>
+      <issued>20080229</issued>
       <title>Best Practice Recommendations for Language Resource Description</title>
    </header>
    <header href="NOTE/usage.xml">
-      <status code="draft" type="informational"/>
-      <issued>20071115</issued>
+      <status code="proposed" type="informational"/>
+      <issued>20080229</issued>
       <title>OLAC Metadata Usage Guidelines</title>
-   </header>
-   <header href="REC/olac-extensions.xml">
-      <status code="proposed" type="recommendation"/>
-      <issued>20021130</issued>
-      <title>Recommended metadata extensions</title>
    </header>
    <header href="REC/language.xml">
       <status code="proposed" type="recommendation"/>
-      <issued>20071114</issued>
+      <issued>20080222</issued>
       <title>OLAC Language Extension</title>
    </header>
+   <header href="REC/olac-extensions.xml">
+      <status code="candidate" type="recommendation"/>
+      <issued>20080222</issued>
+      <title>Recommended metadata extensions</title>
+   </header>
    <header href="NOTE/metrics.xml">
-      <status code="draft" type="informational"/>
-      <issued>20071117</issued>
-      <title>OLAC Metadata Quality Metrics</title>
-   </header>   
+      <status code="proposed" type="informational"/>
+      <issued>20080207</issued>
+      <title>OLAC Metadata Metrics</title>
+   </header>
    <header href="NOTE/toolbox.xml">
       <status code="draft" type="implementation"/>
       <issued>20060928</issued>
