@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <document-headers>
-   <header href="NOTE/metrics.xml">
-      <status code="draft" type="informational"/>
-      <issued>20071117</issued>
-      <title>OLAC Metadata Quality Metrics</title>
-   </header>
+
    <header href="REC/bpr.xml">
       <status code="draft" type="recommendation"/>
       <issued>20071115</issued>
@@ -15,11 +11,21 @@
       <issued>20071115</issued>
       <title>OLAC Metadata Usage Guidelines</title>
    </header>
+   <header href="REC/olac-extensions.xml">
+      <status code="proposed" type="recommendation"/>
+      <issued>20021130</issued>
+      <title>Recommended metadata extensions</title>
+   </header>
    <header href="REC/language.xml">
-      <status type="recommendation" code="proposed"/>
+      <status code="proposed" type="recommendation"/>
       <issued>20071114</issued>
       <title>OLAC Language Extension</title>
    </header>
+   <header href="NOTE/metrics.xml">
+      <status code="draft" type="informational"/>
+      <issued>20071117</issued>
+      <title>OLAC Metadata Quality Metrics</title>
+   </header>   
    <header href="NOTE/toolbox.xml">
       <status code="draft" type="implementation"/>
       <issued>20060928</issued>
@@ -29,7 +35,7 @@
       <status code="draft" type="informational"/>
       <issued>20060515</issued>
       <title>Specifications for an OLAC metadata display format and an OLAC-to-OAI_DC
-         crosswalk</title>
+      crosswalk</title>
    </header>
    <header href="REC/discourse.xml">
       <status code="candidate" type="recommendation"/>
@@ -74,12 +80,10 @@
    <header href="NOTE/viser.xml">
       <status code="draft" type="implementation"/>
       <issued>20030729</issued>
-      <title>Viser: A virtual service provider for displaying selected OLAC
-      metadata</title>
+      <title>Viser: A virtual service provider for displaying selected OLAC metadata</title>
    </header>
    <header href="OLAC/protocol.xml">
-      <status code="proposed" type="standard" endDate="20021211"
-         supersededBy="repositories"/>
+      <status code="proposed" endDate="20021211" supersededBy="repositories" type="standard"/>
       <issued>20021209</issued>
       <title> OLAC Protocol for Metadata Harvesting</title>
    </header>
@@ -88,18 +92,13 @@
       <issued>20021204</issued>
       <title>Third Party Extensions</title>
    </header>
-   <header href="REC/olac-extensions.xml">
-      <status code="proposed" type="recommendation"/>
-      <issued>20021130</issued>
-      <title>Recommended metadata extensions</title>
-   </header>
    <header href="REC/access.xml">
-      <status code="draft" type="recommendation" endDate="20030618"/>
+      <status code="draft" endDate="20030618" type="recommendation"/>
       <issued>20021119</issued>
       <title>OLAC Access Vocabulary</title>
    </header>
    <header href="OLAC/olacms.xml">
-      <status code="proposed" type="standard" endDate="20021211" supersededBy="metadata"/>
+      <status code="proposed" endDate="20021211" supersededBy="metadata" type="standard"/>
       <issued>20011022</issued>
       <title>OLAC Metadata Set</title>
    </header>
