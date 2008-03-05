@@ -24,8 +24,9 @@
             points clarified regarding individual elements, particularly Contributor, Coverage,
             Creator, Language, Subject, and Title. Examples expanded and added. Section 5 on the
             granularity of resources was added. The changes were in response to review comments by
-            the Metadata Working Group (see <url>http://www.language-archives.org/wg/metadata/Issues
-               2007-12.htm</url> for a collection of the comments and responses).</p>
+            the Metadata Working Group (see
+            <url>http://www.language-archives.org/wg/metadata/Issues-2007-12.htm</url> for a 
+            record of the comments and responses).</p>
       </changes>
    </header>
    <!-- N.B. Style used throughout document for aspects of markup:
@@ -367,9 +368,8 @@
             <bp>
                <p>Recommended best practice is to use the Contributor element instead of Creator,
                   except in cases where there is significant creative involvement by the person or
-                  organization and there is no suitable refinement term 
-                  from the <i>olac:role</i> scheme to use
-                  with Contributor.</p>
+                  organization and there is no suitable refinement term from the <i>olac:role</i>
+                  scheme to use with Contributor.</p>
             </bp>
 
             <examples>
@@ -789,11 +789,12 @@
                <p>For an entity that has funded the creation or development of the resource in some
                   way, but has not otherwise participated in its development through editing,
                   composition, production, printing, marketing, posting, etc., use the
-                     <xref>Contributor</xref> element specifying the <cit>OLAC-Role</cit>
-                  as <i>sponsor</i>.</p>
+                     <xref>Contributor</xref> element specifying the <cit>OLAC-Role</cit> as
+                     <i>sponsor</i>.</p>
                <p>The name of the publisher should be given in a form that is ready for sorting
                   within an index. See the usage notes above on <xref>Contributor</xref> for a
-                  discussion of the form that should be used for personal names and for corporate names.</p>
+                  discussion of the form that should be used for personal names and for corporate
+                  names.</p>
             </comment>
             <bp>
                <p>Recommended best practice is to identify a Publisher by means of a name in a form
@@ -938,8 +939,7 @@
                   resource, or reference a service providing such information. Rights information
                   often encompasses Intellectual Property Rights (IPR), Copyright, and various
                   Property Rights. If the Rights element is absent, no assumptions can be made about
-                  the status of these and other rights with respect to the resource.
-               </p>
+                  the status of these and other rights with respect to the resource. </p>
                <p>A rights management statement that contains a license or directs a potential user
                   to a license statement that specifies conditions and granted permissions should
                   use the <i>dcterms:license</i> refinement. The <i>dcterms:accessRights</i>
@@ -947,24 +947,22 @@
                   resource is granted. In either case, a statement may be included directly within
                   the metadata, or a URI reference to the statement or a service may be given.
                   Examples of license statements can be found at Creative Commons <cit>CC</cit>.</p>
-               <p>Use <xref>Rights Holder</xref> (rather than Rights) to specify a person or corporate body
-                  (organization, legally constituted entity representing a group or
-                  community) that holds the rights to the resource.
-               </p>
+               <p>Use <xref>Rights Holder</xref> (rather than Rights) to specify a person or
+                  corporate body (organization, legally constituted entity representing a group or
+                  community) that holds the rights to the resource. </p>
                <p>Copyright is inherent in primary linguistic and cultural research materials, such
                   as stories, descriptions, songs or art work, which researchers collect in the
                   course of their work. The rights, in most cases, belong to the creator—not the
-                  researcher or sponsor—or, in some cases, to the language
-                  community (particularly, if it is constituted as a legal entity). Intellectual property law
-                  as it applies to personal or community cultural property is beyond the scope of
-                  these notes. However, documenting the creators of such works, the conditions under
-                  which they came into the hands of the researcher, and any known conditions on use
-                  (generally non-commercial use) are critical aspects of archiving. To publish or
-                  otherwise distribute such works should have the approval of the owner. Only with
-                  information about the origins and conditions of collecting can the holding
-                  repository or interested researchers make use of such resources in ways that
-                  respect the rights and sensibilities of those whose languages and communities are
-                  documented.</p>
+                  researcher or sponsor—or, in some cases, to the language community (particularly,
+                  if it is constituted as a legal entity). Intellectual property law as it applies
+                  to personal or community cultural property is beyond the scope of these notes.
+                  However, documenting the creators of such works, the conditions under which they
+                  came into the hands of the researcher, and any known conditions on use (generally
+                  non-commercial use) are critical aspects of archiving. To publish or otherwise
+                  distribute such works should have the approval of the owner. Only with information
+                  about the origins and conditions of collecting can the holding repository or
+                  interested researchers make use of such resources in ways that respect the rights
+                  and sensibilities of those whose languages and communities are documented.</p>
                <p>A fundamental right of a creator is the right to be associated with his or her
                   creation (whether verbal, textual, visual, etc.), regardless of the retention or
                   subsequent assignment of additional rights (to display, distribute copies,
@@ -1214,22 +1212,21 @@
                   controlled vocabulary to be used to with Type. These relate to the intended use or
                   mode of perception by a user, <i>e.g.,</i> whether it is read (as text), viewed
                   (as image), heard, etc. Thus, a computer image file of a text (such as a scanned
-                  document) is type <i>Text</i>, not type <i>Image</i>, because the common use involves
-                  reading text. To describe the physical or digital manifestation of the resource,
-                  use the <xref>Format</xref> element. <cit>DCMT</cit></p>
-               <p>The DCMI type <i>Collection</i> should be used in conjunction with one or
-                  more other applicable type terms to represent the nature of the resource as an
+                  document) is type <i>Text</i>, not type <i>Image</i>, because the common use
+                  involves reading text. To describe the physical or digital manifestation of the
+                  resource, use the <xref>Format</xref> element. <cit>DCMT</cit></p>
+               <p>The DCMI type <i>Collection</i> should be used in conjunction with one or more
+                  other applicable type terms to represent the nature of the resource as an
                   aggregate of specific, but closely related resources, resources which could also
                   stand on their own but were grouped together as a unit by their creator or a
-                  subsequent compiler. See  <xref>Granularity of resources</xref> below for more
+                  subsequent compiler. See <xref>Granularity of resources</xref> below for more
                   discussion.</p>
-               <p>Whereas the DCMI Type scheme should be relevant to all resources,
-                  include a Type element with
-                  the <cit>OLAC-Linguistic-Type</cit> scheme only if a resource
-                  represents one of the structural types covered in that vocabulary. The element may be
-                  repeated if a resource represents more than one linguistic type. So, for example,
-                  a primary text accompanied by a lexicon of vocabulary items would be described as
-                  both a primary text and a lexicon. </p>
+               <p>Whereas the DCMI Type scheme should be relevant to all resources, include a Type
+                  element with the <cit>OLAC-Linguistic-Type</cit> scheme only if a resource
+                  represents one of the structural types covered in that vocabulary. The element may
+                  be repeated if a resource represents more than one linguistic type. So, for
+                  example, a primary text accompanied by a lexicon of vocabulary items would be
+                  described as both a primary text and a lexicon. </p>
                <!-- <p>In the case of a primary text
                   (or collection of such texts), adequate description of a linguistic resource will require that 
                   Linguistic Type be specified in conjunction with the Discourse Type extension of the Type element, or the Linguistic
@@ -1252,16 +1249,17 @@
                   </dd>
                   <dt>olac:discourse-type</dt>
                   <dd>
-                     <p>The genre of the content of the resource as representing a particular type of discourse <cit>OLAC-Discourse</cit>.</p>
+                     <p>The genre of the content of the resource as representing a particular type
+                        of discourse <cit>OLAC-Discourse</cit>.</p>
                   </dd>
                </dl>
             </schemes>
             <bp>
                <p>Recommended best practice is that every record should contain at least one Type
                   element that uses the <i>dcterms:DCMIType</i> scheme.</p>
-               <p>Recommended best practice is that every record for which it is applicable should contain at least one Type
-                  element that uses the <i>olac:linguistic-type</i> scheme to identify its
-                  linguistic data type. </p>
+               <p>Recommended best practice is that every record for which it is applicable should
+                  contain at least one Type element that uses the <i>olac:linguistic-type</i> scheme
+                  to identify its linguistic data type. </p>
             </bp>
 
             <examples>
@@ -1300,10 +1298,9 @@
       <section>
          <heading>Other elements</heading>
          <p>The following subsections describe other elements that have been defined by the Dublin
-            Core Metadata Initiative <cit>DCMT</cit>. They were not specified in the original core set of
-            Dublin Core elements, but have been subsequently defined as elements in their
-            own right (rather than being refinements of 
-            other elements).They are defined within the
+            Core Metadata Initiative <cit>DCMT</cit>. They were not specified in the original core
+            set of Dublin Core elements, but have been subsequently defined as elements in their own
+            right (rather than being refinements of other elements).They are defined within the
                <url>http://purl.org/dc/terms/</url> namespace for which the prefix <tt>dcterms:</tt>
             is used in the examples below.</p>
          <element name="Provenance">
@@ -1312,10 +1309,9 @@
             <comment>
                <p>Provenance should be distinguished in usage from <xref>Description</xref>.
                   Provenance metadata should be used to track or convey important information
-                  regarding the custody and/or management of the resource throughout its
-                  history. Include any information that 
-                  has a bearing on interpreting content of the
-                  resource or upon its artifactual integrity and authenticity.</p>
+                  regarding the custody and/or management of the resource throughout its history.
+                  Include any information that has a bearing on interpreting content of the resource
+                  or upon its artifactual integrity and authenticity.</p>
             </comment>
             <examples>
                <p>A group of texts and recordings constituting a small collection that has undergone
@@ -1355,62 +1351,57 @@
 
       <section>
          <heading>Granularity of resources</heading>
-         <p>Determining the right level for units to be described as language resources in
-            the OLAC context involves multiple factors. The level of unit appropriate for
-            inclusion in an aggregated catalog like OLAC's may be different (typically higher) than
-            the level desirable for the catalog of a specific institution's
-            holdings, which in turn is typically higher than the level desirable for
-            describing the detailed
-            contents of a resource. Section 6 of the <cit>OLAC-Repositories</cit> standard
-            establishes the following basic guideline regarding the granularity of the
-            records in an OLAC repository:  
-            “A metadata repository should not degrade the 'signal-to-noise ratio' for
-            language resource discovery.” At one extreme, describing an entire
-            institutional archive in one record does not give enough granularity; but at
-            the other extreme, providing a descriptive record for every digital file or
-            every piece of paper gives too much.
-            The following discussion is aimed at assisting an OLAC
-            participant to find the right level of description.</p>
+         <p>Determining the right level for units to be described as language resources in the OLAC
+            context involves multiple factors. The level of unit appropriate for inclusion in an
+            aggregated catalog like OLAC's may be different (typically higher) than the level
+            desirable for the catalog of a specific institution's holdings, which in turn is
+            typically higher than the level desirable for describing the detailed contents of a
+            resource. Section 6 of the <cit>OLAC-Repositories</cit> standard establishes the
+            following basic guideline regarding the granularity of the records in an OLAC
+            repository: “A metadata repository should not degrade the 'signal-to-noise ratio' for
+            language resource discovery.” At one extreme, describing an entire institutional archive
+            in one record does not give enough granularity; but at the other extreme, providing a
+            descriptive record for every digital file or every piece of paper gives too much. The
+            following discussion is aimed at assisting an OLAC participant to find the right level
+            of description.</p>
          <p>For a resource that has been published in some form, the appropriate unit of description
-            for the OLAC record is the unit of the publication itself. In this case,
-            granularity does not really pose a problem. However, many archival
-            resources have not been formally published. For unpublished papers presenting findings
-            of research, these closely parallel typical publications, and can be treated
-            in a comparable way as 
-            units for archival description.</p>
-         <p>Granularity poses the greatest problem with primary source materials (<i>e.g.,</i> recordings,
-            transcriptions, annotations, notes,
-            data sets). The typical practice of archivists is to gather such materials
-            into collections, which in turn become the primary unit of archival description
-            (<i>i.e.,</i> the result is resources of type <i>collection</i>; see
-               <xref>Type</xref>).  The foremost factor in determining what materials
-            belong together as a single collection is their
-               <xref>Provenance</xref>. In the typical case, the collected resources have a shared
-            provenance.  In other cases, they may have been placed together at some point in time well after their
-            creation (possibly by the archive itself). If the latter, there should be some
-            coherent organizing principle or intermediate stage of development that is still
-            relevant for the proper understanding and use of the resources. Materials without a
-            common provenance generally should not be made to constitute a collection and should not
-            be described collectively in an OLAC description.</p>
+            for the OLAC record is the unit of the publication itself. In this case, granularity
+            does not really pose a problem. However, many archival resources have not been formally
+            published. For unpublished papers presenting findings of research, these closely
+            parallel typical publications, and can be treated in a comparable way as units for
+            archival description.</p>
+         <p>Granularity poses the greatest problem with primary source materials (<i>e.g.,</i>
+            recordings, transcriptions, annotations, notes, data sets). The typical practice of
+            archivists is to gather such materials into collections, which in turn become the
+            primary unit of archival description (<i>i.e.,</i> the result is resources of type
+               <i>collection</i>; see <xref>Type</xref>). The foremost factor in determining what
+            materials belong together as a single collection is their <xref>Provenance</xref>. In
+            the typical case, the collected resources have a shared provenance. In other cases, they
+            may have been placed together at some point in time well after their creation (possibly
+            by the archive itself). If the latter, there should be some coherent organizing
+            principle or intermediate stage of development that is still relevant for the proper
+            understanding and use of the resources. Materials without a common provenance generally
+            should not be made to constitute a collection and should not be described collectively
+            in an OLAC description.</p>
          <p>Situations of shared provenance that constitute a collection for arrangement and
             description purposes will be distinguished by the high degree of commonality of metadata
-            elements, <i>e.g.,</i> same researcher(s), author(s), subject language(s),
-            content language(s), approximate dates, coverage, linguistic type.
-            Other metadata elements that may also be important for resource discovery but that may
-            differ for items in the collection (<i>e.g.,</i> format or discourse type) can be repeated at the OLAC
-            description level for as many values as are present in the collection. Alternatively, the
-            collection may be divided into sub-collections by discourse genre, speaker, or other
+            elements, <i>e.g.,</i> same researcher(s), author(s), subject language(s), content
+            language(s), approximate dates, coverage, linguistic type. Other metadata elements that
+            may also be important for resource discovery but that may differ for items in the
+            collection (<i>e.g.,</i> format or discourse type) can be repeated at the OLAC
+            description level for as many values as are present in the collection. Alternatively,
+            the collection may be divided into sub-collections by discourse genre, speaker, or other
             significant feature. The sub-collections can then be treated in distinct OLAC records
-            (and related to the whole through the  <i>isPartOf</i> and <i>hasPart</i>
-            relationships; see <xref>Relation</xref>).</p>
-         <p>Further characteristics of individual items within a collection (such as
-            topic, additional contributors, event specifics, extent, format)
-            can be documented at a finer level of granularity by creating a 
-            “collection description” as a structured document that is included within the
-            collection. The Object Reuse and Exchange standard currently under development
-            by the Open Archives Initiative <cit>OAI-ORE</cit> would offer an alternative of
-            handling such descriptions as a different kind of harvestable metadata in the OAI-PMH context. This finer level of description typically
-            aligns with the session level detail of <cit>IMDI</cit> description.</p>
+            (and related to the whole through the <i>isPartOf</i> and <i>hasPart</i> relationships;
+            see <xref>Relation</xref>).</p>
+         <p>Further characteristics of individual items within a collection (such as topic,
+            additional contributors, event specifics, extent, format) can be documented at a finer
+            level of granularity by creating a “collection description” as a structured document
+            that is included within the collection. The Object Reuse and Exchange standard currently
+            under development by the Open Archives Initiative <cit>OAI-ORE</cit> would offer an
+            alternative of handling such descriptions as a different kind of harvestable metadata in
+            the OAI-PMH context. This finer level of description typically aligns with the session
+            level detail of <cit>IMDI</cit> description.</p>
          <!-- GS: I've commented out the following two paragraphs.  The first seems to go beyond
             structured metadata, and the second seems not to help with the question, "What
             do I do with what I have today?"  The point seems to be more like, At some
@@ -1444,7 +1435,7 @@
       <ref abbrev="AACR2r">Anglo-American Cataloguing Rules, 2nd ed., 2002 revision. Ottawa and
          Chicago: Canadian Library Association and American Library Association, 2002-.</ref>
 
-<!--  <ref abbrev="Copyright">Section 101, Definitions, Copyright Law of the United States of
+      <!--  <ref abbrev="Copyright">Section 101, Definitions, Copyright Law of the United States of
          America and Related Laws Contained in Title 17 of the United States Code.
             <br/>&lt;<url>http://www.loc.gov/copyright/title17/92chap1.html#101</url>&gt;</ref>
 -->
@@ -1475,8 +1466,9 @@
       <ref abbrev="IMT">MIME Media
             Types.<br/>&lt;<url>http://www.iana.org/assignments/media-types/</url>&gt;</ref>
 
-      <ref abbrev="IMDI">  IMDI [ISLE Metadata Initiative] Metadata Elements for Session Descriptions. 
-         <br/>&lt;<url>http://www.mpi.nl/ISLE/documents/draft/ISLE_MetaData_2.5.pdf</url>&gt;</ref>
+      <ref abbrev="IMDI"> IMDI [ISLE Metadata Initiative] Metadata Elements for Session
+         Descriptions.
+            <br/>&lt;<url>http://www.mpi.nl/ISLE/documents/draft/ISLE_MetaData_2.5.pdf</url>&gt;</ref>
 
       <ref abbrev="ISO3166">ISO 3166: Codes for the Representation of Names of Countries.
             <br/>&lt;<url>http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm</url>&gt;</ref>
@@ -1484,14 +1476,14 @@
       <ref abbrev="URI">Uniform Resource Identifiers (URI): Generic Syntax.
             <br/>&lt;<url>http://www.ietf.org/rfc/rfc2396.txt</url>&gt;</ref>
 
-      <ref abbrev="OAI-ORE">Open Archives Initiative
-         Object Reuse and Exchange.<br/>&lt;<url>http://www.openarchives.org/ore/</url>&gt;</ref>
-      
+      <ref abbrev="OAI-ORE">Open Archives Initiative Object Reuse and
+            Exchange.<br/>&lt;<url>http://www.openarchives.org/ore/</url>&gt;</ref>
+
       <ref abbrev="OLAC-BP">Best Practice Recommendations for Language Resource
             Description.<br/>&lt;<url>http://www.language-archives.org/REC/bpr.html</url>&gt;</ref>
-      
+
       <ref abbrev="OLAC-Discourse">OLAC Discourse Type Vocabulary.
-         <br/>&lt;<url>http://www.language-archives.org/REC/discourse.html</url>&gt;</ref>
+            <br/>&lt;<url>http://www.language-archives.org/REC/discourse.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Linguistic-Field">OLAC Linguistic Subject
             Vocabulary.<br/>&lt;<url>http://www.language-archives.org/REC/field.htmll</url>&gt;</ref>
@@ -1503,7 +1495,7 @@
             Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Language">OLAC Language
-         Extension.<br/>&lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
+            Extension.<br/>&lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
 
       <ref abbrev="OLAC-Role">OLAC Role
             Vocabulary.<br/>&lt;<url>http://www.language-archives.org/REC/role.html</url>&gt;</ref>
@@ -1513,10 +1505,10 @@
 
       <ref abbrev="OLAC-Extensions">Recommended Metadata Extensions.
             <br/>&lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref>
-      
+
       <ref abbrev="OLAC-Repositories">OLAC Repositories.
-         <br/>&lt;<url>http://www.language-archives.org/OLAC/repositories.html</url>&gt;</ref>
-      
+            <br/>&lt;<url>http://www.language-archives.org/OLAC/repositories.html</url>&gt;</ref>
+
       <ref abbrev="W3CDTF">Date and Time Formats, W3C
             Note.<br/>&lt;<url>http://www.w3.org/TR/NOTE-datetime</url>&gt;</ref>
 
