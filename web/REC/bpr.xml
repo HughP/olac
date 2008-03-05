@@ -3,21 +3,23 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="draft" type="recommendation"/>
+      <status code="proposed" type="recommendation"/>
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
-      <issued>20071115</issued>
-      <previousIssued/>
+      <issued>20080229</issued>
+      <previousIssued>20071115</previousIssued>
       <abstract>
          <p>This document expresses the consensus of the Open Language Archives Community on best
             practice recommendations for language resource description using the OLAC metadata
             standard <cit>OLAC-Metadata</cit>.</p>
       </abstract>
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)
-         <br/>Steven Bird, University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>)
-         <br/>Joan Spanne, SIL International (<url>mailto:joan_spanne@sil.org</url>)</editors>
-      <copyright>2007 Gary Simons (SIL International), Steven Bird (University of Pennsylvania), and
-      Joan Spanne (SIL International)</copyright>
+      <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
+            (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne and
+         University of Pennsylvania (<url>mailto:sb@ldc.upenn.edu</url>) <br/>Joan Spanne, SIL
+         International (<url>mailto:joan_spanne@sil.org</url>)</editors>
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics),
+         Steven Bird (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL
+         International)</copyright>
 
       <changes/>
    </header>
@@ -43,9 +45,8 @@
       <section>
          <heading>Recommendations</heading>
          <p>The following are the OLAC recommendations on best practices for describing language
-            resources.  Follow the "more"
-            link to see the fuller discussion of an element in
-            <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
+            resources. Follow the "more" link to see the fuller discussion of an element in
+               <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
          <recommendations href="../NOTE/usage.xml"/>
       </section>
 
@@ -57,10 +58,9 @@
       <ref abbrev="DCMT">DCMI Metadata
             Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref>
 
-      <ref abbrev="ISO639-3">ISO 639: Codes for the representation of names of languages - Part 3:
-         Alpha-3 code for comprehensive coverage of languages.<br/>
-            &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
-
+      <ref abbrev="OLAC-Language">OLAC Language
+         Extension.<br/>&lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
+      
       <ref abbrev="OLAC-Metadata">OLAC
             Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
 
