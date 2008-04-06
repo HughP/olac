@@ -221,9 +221,9 @@ def check_urls(archive_id=None):
     con = connect_to_db()
     cur = con.cursor()
     if archive_id is None:
-        cur.execute("select Element_ID, Content from METADATA_ELEM me where Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()")
+        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join INTEGRITY_CHECK ic on me.Element_ID=ic.Element_ID where Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()")
     else:
-        cur.execute("select Element_ID, Content from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Archive_ID=ai.Archive_ID and ai.Archive_ID=%s and Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()", archive_id)
+        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID left join INTEGRITY_CHECK ic on me.Element_ID=ic.Element_ID where ai.Archive_ID=%s and Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()", archive_id)
     for row in cur.fetchall():
         url = pat.search(row[1]).group(1)
         log('checking: %s' % url)
@@ -233,7 +233,11 @@ def check_urls(archive_id=None):
             if not res:
                 sqls.append("insert into INTEGRITY_CHECK (Element_ID, Problem_Code) values (%d, 'RNA')" % row[0])
         elif url.startswith('http'):
-            res = http_check(url)
+            try:
+                res = http_check(url)
+            except ValueError, e:
+                log("%s" % e)
+                continue
             if res != '200':
                 if res == '404':
                     sqls.append("insert into INTEGRITY_CHECK (Element_ID, Problem_Code) values (%d, 'RNF')" % row[0])
