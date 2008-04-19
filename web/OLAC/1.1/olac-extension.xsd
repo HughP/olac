@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XML Spy v4.3 (http://www.xmlspy.com) by Gary Simons (SIL International) -->
-<xs:schema targetNamespace="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema targetNamespace="http://www.language-archives.org/OLAC/1.1/olac-extension"
+   xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- Summary Documentation for an OLAC Extension
        See: http://wwww.language-archives.org/OLAC/metadata.html -->
 	<xs:element name="olac-extension">
@@ -17,21 +18,21 @@
 	</xs:element>
 	<xs:simpleType name="DCElementNames">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="contributor"/>
-			<xs:enumeration value="coverage"/>
-			<xs:enumeration value="creator"/>
-			<xs:enumeration value="date"/>
-			<xs:enumeration value="description"/>
-			<xs:enumeration value="format"/>
-			<xs:enumeration value="identifier"/>
-			<xs:enumeration value="language"/>
-			<xs:enumeration value="publisher"/>
-			<xs:enumeration value="relation"/>
-			<xs:enumeration value="rights"/>
-			<xs:enumeration value="source"/>
-			<xs:enumeration value="subject"/>
-			<xs:enumeration value="title"/>
-			<xs:enumeration value="type"/>
+		   <xs:enumeration value="dc:contributor"/>
+		   <xs:enumeration value="dc:coverage"/>
+		   <xs:enumeration value="dc:creator"/>
+		   <xs:enumeration value="dc:date"/>
+		   <xs:enumeration value="dc:description"/>
+		   <xs:enumeration value="dc:format"/>
+		   <xs:enumeration value="dc:identifier"/>
+		   <xs:enumeration value="dc:language"/>
+		   <xs:enumeration value="dc:publisher"/>
+		   <xs:enumeration value="dc:relation"/>
+		   <xs:enumeration value="dc:rights"/>
+		   <xs:enumeration value="dc:source"/>
+		   <xs:enumeration value="dc:subject"/>
+		   <xs:enumeration value="dc:title"/>
+		   <xs:enumeration value="dc:type"/>
 		</xs:restriction>
 	</xs:simpleType>
 </xs:schema>
