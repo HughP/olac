@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XML Spy v4.3 (http://www.xmlspy.com) by Gary Simons (SIL International) -->
-<xs:schema targetNamespace="http://www.language-archives.org/OLAC/1.1/olac-extension"
-   xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema targetNamespace="http://www.language-archives.org/OLAC/1.1/"
+   xmlns="http://www.language-archives.org/OLAC/1.1/" 
+   xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!-- Summary Documentation for an OLAC Extension
        See: http://wwww.language-archives.org/OLAC/metadata.html -->
 	<xs:element name="olac-extension">
