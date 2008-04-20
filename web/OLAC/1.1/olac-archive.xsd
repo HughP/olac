@@ -5,12 +5,14 @@
    xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
    <xs:annotation>
-      <xs:documentation> Schema for the OLAC Archive Description, Version 1.0 Steven Bird,
-         2002-12-10 Schema validated at http://www.w3.org/2001/03/webdata/xsv XSV 2.2-1 of
-         2002/12/01 21:59:33 OLAC Archive Description semantics available at:
-         http://www.language-archives.org/OLAC/protocol.html 2002-05-20: added length restrictions
-         (varchar255) 2002-12-10: added shortLocation, changed to version 1.0 2003-09-23:
-         shortLocation made obligatory (as per OLAC Repositories) </xs:documentation>
+      <xs:documentation> Schema for the OLAC Archive Description, Version 1.1, Steven Bird and Gary Simons
+         OLAC Archive Description semantics described in section 3 of:
+             http://www.language-archives.org/OLAC/repositories.html
+         2002-05-20: added length restrictions (varchar255) 
+         2002-12-10: added shortLocation, changed to version 1.0 
+         2003-09-23: shortLocation made obligatory (as per OLAC Repositories)
+         2008-04-19: changes for version 1.1, currentAsOf attribute, participant, and archivalSubmissionPolicy
+      </xs:documentation>
    </xs:annotation>
 
    <xs:element name="olac-archive" type="olac-archive"/>
@@ -37,6 +39,8 @@
                      <xs:enumeration value="personal"/>
                   </xs:restriction>
                </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="currentAsOf" type="xs:date" use="required">
             </xs:attribute>
          </xs:restriction>
       </xs:complexContent>
