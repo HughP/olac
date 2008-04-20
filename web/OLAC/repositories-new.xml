@@ -167,11 +167,13 @@
             date format <cit>W3CDTF</cit> which is a ten character string in the
             following format:
             <tt>YYYY-MM-DD</tt> (e.g., 2008-04-19). </p>
-         <p>These are the elements within an OLAC archive description:</p>
+         <p>These are the elements that occur within an OLAC archive description, listed
+            in the order in which they must appear:</p>
          <dl>
             <dt>archiveURL</dt>
             <dd>
-               <p><i>Optional.</i> The home page of the archive on the Web. This is the
+               <p><i>Optional.</i> The home page of the archive on the Web. It may omitted
+                  only if the archive does not have a web page. This is the
                   home page for human visitors, not the base URL for harvesting.</p>
             </dd>
             <dt>institution</dt>
@@ -275,8 +277,10 @@
       &lt;archiveURL&gt;http://www.ethnologue.com&lt;/archiveURL&gt;
       &lt;institution&gt;SIL International&lt;/institution&gt;
       &lt;institutionURL&gt;http://www.sil.org&lt;/institutionURL&gt;
-      &lt;participant name="Raymond G. Gordon, Jr." title="Ethnologue Editor"
-         email="mailto:editor_ethnologue@sil.org"/&gt;
+      &lt;participant name="M. Paul Lewis" role="Ethnologue Editor"
+      email="mailto:editor_ethnologue@sil.org"/&gt;
+      &lt;participant name="Gary Simons" role="Dynamic repository implementer"
+      email="mailto:gary_simons@sil.org"/&gt;
       &lt;shortLocation&gt;Dallas, USA&lt;/shortLocation&gt;
       &lt;location&gt;7500 W. Camp Wisdom Rd., Dallas, TX 75236, U.S.A.&lt;/location&gt;
       &lt;synopsis&gt;The Ethnologue repository gives a metadata record for every

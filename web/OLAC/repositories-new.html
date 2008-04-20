@@ -223,12 +223,15 @@
                         following format:
                         <tt>YYYY-MM-DD</tt> (e.g., 2008-04-19). 
          </p>
-         <p>These are the elements within an OLAC archive description:</p>
+         <p>These are the elements that occur within an OLAC archive description, listed
+                        in the order in which they must appear:
+         </p>
          <blockquote>
             <dl>
                <dt><b>archiveURL</b></dt>
                <dd>
-                  <p><i>Optional.</i> The home page of the archive on the Web. This is the
+                  <p><i>Optional.</i> The home page of the archive on the Web. It may omitted
+                                       only if the archive does not have a web page. This is the
                                        home page for human visitors, not the base URL for harvesting.
                   </p>
                </dd>
@@ -257,7 +260,7 @@
                                        for the OLAC community and it creates a subscription to the
                                        automatically generated report on usage and quality metrics for the
                                        archive that is emailed quarterly. Thus anyone at the institution who
-                                       wants to receive this report should be listed as a participant.
+                                       wishes to receive this report should be listed as a participant.
                                        
                   </p>
                   <blockquote>
@@ -330,16 +333,17 @@
                <dd>
                   <p><i>Optional.</i> A single paragraph (of arbitrary length) describing
                                        the institution's policy toward accepting archival submissions. The
-                                       presence of this elements indicates that the repository is an archive
+                                       presence of this element indicates that the repository is an archive
                                        that accepts submissions of materials for long-term preservation. The
-                                       element content should describe the collection policy of the archive (e.g. what kinds
+                                       element content should describe the collection policy of the archive
+                                       (e.g., what kinds
                                        of materials are accepted from whom under what terms) so that a person
                                        looking for a place to archive a set of language resources may determine whether it
                                        would be appropriate to contact the curator about making a submission. A
                                        repository that does not accept materials for long-term preservation must not use this
                                        element. All institutions that provide an archival submission policy are
                                        listed with their policy statement in a page aimed at assisting those
-                                       looking for a place to archive language resources they have created:
+                                       looking for a place to archive language resources:
                                        
                                        <a href="http://www.language-archives.org/submission-policies.php">http://www.language-archives.org/submission-policies.php</a>.
                   </p>
@@ -356,8 +360,10 @@
       &lt;archiveURL&gt;http://www.ethnologue.com&lt;/archiveURL&gt;
       &lt;institution&gt;SIL International&lt;/institution&gt;
       &lt;institutionURL&gt;http://www.sil.org&lt;/institutionURL&gt;
-      &lt;participant name="Raymond G. Gordon, Jr." title="Ethnologue Editor"
-         email="mailto:editor_ethnologue@sil.org"/&gt;
+      &lt;participant name="M. Paul Lewis" role="Ethnologue Editor"
+      email="mailto:editor_ethnologue@sil.org"/&gt;
+      &lt;participant name="Gary Simons" role="Dynamic repository implementer"
+      email="mailto:gary_simons@sil.org"/&gt;
       &lt;shortLocation&gt;Dallas, USA&lt;/shortLocation&gt;
       &lt;location&gt;7500 W. Camp Wisdom Rd., Dallas, TX 75236, U.S.A.&lt;/location&gt;
       &lt;synopsis&gt;The Ethnologue repository gives a metadata record for every
