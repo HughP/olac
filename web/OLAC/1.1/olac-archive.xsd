@@ -22,15 +22,20 @@
          <xs:restriction base="xs:anyType">
             <xs:sequence>
                <xs:element minOccurs="0" name="archiveURL" type="xs:anyURI"/>
-               <xs:element name="curator" type="varchar255"/>
-               <xs:element minOccurs="0" name="curatorTitle" type="varchar255"/>
-               <xs:element minOccurs="0" name="curatorEmail" type="mailto"/>
                <xs:element name="institution" type="varchar255"/>
                <xs:element minOccurs="0" name="institutionURL" type="xs:anyURI"/>
+               <xs:element minOccurs="1" maxOccurs="unbounded" name="participant">
+                  <xs:complexType>
+                     <xs:attribute name="name" type="varchar255" use="required"/>
+                     <xs:attribute name="role" type="varchar255" use="required"/>
+                     <xs:attribute name="email" type="mailto" use="required"/>
+                  </xs:complexType>
+               </xs:element>
                <xs:element name="shortLocation" type="varchar50"/>
                <xs:element minOccurs="0" name="location" type="block"/>
                <xs:element name="synopsis" type="block"/>
                <xs:element name="access" type="block"/>
+               <xs:element minOccurs="0" name="archivalSubmissionPolicy" type="block"></xs:element>
             </xs:sequence>
             <xs:attribute name="type" use="required">
                <xs:simpleType>
