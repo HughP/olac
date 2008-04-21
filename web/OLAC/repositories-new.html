@@ -70,7 +70,11 @@
                               the attribute for <tt>currentAsOf</tt> is added; the elements for
                               <tt>&lt;curator&gt;</tt>, <tt>&lt;curatorTitle&gt;</tt>, and <tt>&lt;curatorEmail&gt;</tt> are replaced
                               by a single, repeatable <tt>&lt;participant&gt;</tt> element; and an optional
-                              <tt>&lt;archivalSubmissionPolicy&gt;</tt> element is added.
+                              <tt>&lt;archivalSubmissionPolicy&gt;</tt> element is added. One of these
+                              changes manifests itself in a new requirement 2 in the requirements on both
+                              static and dynamic repositories, namely, that the person
+                              associated with the <tt>&lt;adminEmail&gt;</tt> must be identified in
+                              a <tt>&lt;participant&gt;</tt> element.
                            
                </p>
             </td>
@@ -402,6 +406,12 @@
                </p>
             </li>
             <li>
+               <p>Include a <tt>&lt;participant&gt;</tt> element within the
+                                 <tt>&lt;olac-archive&gt;</tt> description with an email address that
+                                 exactly matches the <tt>&lt;adminEmail&gt;</tt> within the <tt>&lt;Identify&gt;</tt> element.
+               </p>
+            </li>
+            <li>
                <p>Contain the following element within its
                                        <tt>&lt;ListMetadataFormats&gt;</tt> element:
                </p><pre style="margin-left: 12pt">&lt;oai:metadataFormat&gt;
@@ -462,6 +472,13 @@
                <p>The <tt>Identify</tt> response must include an
                                        <tt>&lt;oai-identifier&gt;</tt> description and an
                                        <tt>&lt;olac-archive&gt;</tt> description.
+               </p>
+            </li>
+            <li>
+               <p>Include a <tt>&lt;participant&gt;</tt> element within the
+                                 <tt>&lt;olac-archive&gt;</tt> description with an email address that
+                                 exactly matches the <tt>&lt;adminEmail&gt;</tt> within the
+                                 <tt>Identify</tt> response.
                </p>
             </li>
             <li>
