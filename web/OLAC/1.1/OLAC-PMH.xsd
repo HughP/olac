@@ -26,9 +26,9 @@
 
 	<!-- OLAC: import schemas -->
 	<import namespace="http://www.language-archives.org/OLAC/1.1/"
-	   schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac.xsd"/>
+	   schemaLocation="http://www.language-archives.org/OLAC/1.1/olac.xsd"/>
 	<import namespace="http://www.language-archives.org/OLAC/1.1/olac-archive"
-	   schemaLocation="http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/OLAC/1.1/olac-archive.xsd"/>
+	   schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive.xsd"/>
 	<import namespace="http://www.openarchives.org/OAI/2.0/oai-identifier"
 		schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier.xsd"/>
 	<import namespace="http://purl.org/dc/elements/1.1/"
