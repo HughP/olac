@@ -1,3 +1,24 @@
+##################################################################
+#   MySQL Schema for database used by OLAC metadata harvester    #
+#   Open Language Archives Community                             #
+#   http://www.language-archives.org/tools/olac_schema.sql       #
+##################################################################
+#
+# CHANGES 2008-05-06 HL:
+#
+# Added SampleIdentifier column to the OLAC_ARCHIVE table
+#
+# CHANGES 2008-05-05 HL:
+#
+# Added tables for integrity checks. (See
+# http://olac.wiki.soruceforge.net/Integrity.)
+#
+# CHANGES 2006-03-31 GS:
+#
+# Added DCMI elements and refinements to ELEMENT_DEFN that have
+# been added since 2003. See comment "Added 2006-03-31" below for 
+# for beginning of list of new items.
+#
 #
 # CHANGES 2003-05-16 HL:
 #
@@ -54,6 +75,7 @@
 # Archive_ID          : 
 # RepositoryName      : Human readable name of the archive 
 # RepositoryIdentifier : The unique identifier for the archive used in oai identifiers 
+# SampleIdentifier
 # BaseURL             : The base URL of the data provider 
 # OaiVersion          : The version of the OAI protocol that is supported 
 # FirstHarvested      : Date of first successful harvest 
@@ -86,6 +108,7 @@ create table OLAC_ARCHIVE (
 	Copyright		varchar(255),
 	RepositoryName		varchar(255) not null,
 	RepositoryIdentifier	varchar(50) not null,
+	SampleIdentifier	varchar(255),
 	BaseURL			varchar(255) not null,
 	OaiVersion		varchar(10) not null,
 	FirstHarvested		date,
@@ -181,9 +204,8 @@ insert into ELEMENT_DEFN values (1300,1300,   0,1300, 'subject',     'Subject');
 insert into ELEMENT_DEFN values (1400,1400,   0,   0, 'title',       'Title');
 insert into ELEMENT_DEFN values (1500,1500,   0,1500, 'type',        'Type');
 
-insert into ELEMENT_DEFN values (1401,1400,   0,  1,  'alternative',     'Alternative Title');
-insert into ELEMENT_DEFN values ( 501, 500,   0, 501, 'tableOfContents', 'Table Of Contents');
-insert into ELEMENT_DEFN values ( 502, 500,   0, 502, 'abstract',        'Abstract');
+insert into ELEMENT_DEFN values ( 201, 200,   0, 201, 'spatial',         'Spatial Coverage');
+insert into ELEMENT_DEFN values ( 202, 200,   0, 202, 'temporal',        'Temporal Coverage');
 insert into ELEMENT_DEFN values ( 401, 400,   0, 401, 'created',         'Created');
 insert into ELEMENT_DEFN values ( 402, 400,   0, 402, 'valid',           'Valid');
 insert into ELEMENT_DEFN values ( 403, 400,   0, 403, 'available',       'Available');
@@ -192,6 +214,8 @@ insert into ELEMENT_DEFN values ( 405, 400,   0, 405, 'modified',        'Modifi
 insert into ELEMENT_DEFN values ( 406, 400,   0, 406, 'dateAccepted',    'Date Accepted');
 insert into ELEMENT_DEFN values ( 407, 400,   0, 407, 'dateCopyrighted', 'Date Copyrighted');
 insert into ELEMENT_DEFN values ( 408, 400,   0, 408, 'dateSubmitted',   'Date Submitted');
+insert into ELEMENT_DEFN values ( 501, 500,   0, 501, 'tableOfContents', 'Table Of Contents');
+insert into ELEMENT_DEFN values ( 502, 500,   0, 502, 'abstract',        'Abstract');
 insert into ELEMENT_DEFN values ( 601, 600,   0, 601, 'extent',          'Extent');
 insert into ELEMENT_DEFN values ( 602, 600,   0, 602, 'medium',          'Medium');
 insert into ELEMENT_DEFN values (1001,1000,1002,1001, 'isVersionOf',     'Is Version Of');
@@ -207,8 +231,23 @@ insert into ELEMENT_DEFN values (1010,1000,1009,1010, 'references',      'Refere
 insert into ELEMENT_DEFN values (1011,1000,1012,1011, 'isFormatOf',      'Is Format Of');
 insert into ELEMENT_DEFN values (1012,1000,1011,1012, 'hasFormat',       'Has Format');
 insert into ELEMENT_DEFN values (1013,1000,1000,1013, 'conformsTo',      'Conforms To');
-insert into ELEMENT_DEFN values ( 201, 200,   0, 201, 'spatial',         'Spatial Coverage');
-insert into ELEMENT_DEFN values ( 202, 200,   0, 202, 'temporal',        'Temporal Coverage');
+insert into ELEMENT_DEFN values (1401,1400,   0,   1, 'alternative',     'Alternative Title');
+
+# Added 2006-03-31
+
+insert into ELEMENT_DEFN values (1600,1600,   0,1600, 'accrualMethod',   'Accrual Method');
+insert into ELEMENT_DEFN values (1610,1610,   0,1610, 'accrualPolicy',   'Accrual Policy');
+insert into ELEMENT_DEFN values (1620,1620,   0,1620, 'accrualPeriodicity', 'Accrual Periodicity');
+insert into ELEMENT_DEFN values (1700,1700,   0,  50, 'audience',        'Audience');
+insert into ELEMENT_DEFN values (1800,1800,   0, 750, 'instructionalMethod', 'Instructional Method');
+insert into ELEMENT_DEFN values (1900,1900,   0,1900, 'provenance',      'Provenance');
+insert into ELEMENT_DEFN values (2000,2000,   0,1150, 'rightsHolder',    'Rights Holder');
+
+insert into ELEMENT_DEFN values (1101,1100,   0,1101, 'accessRights',    'Access Rights');
+insert into ELEMENT_DEFN values ( 701, 700,   0, 701, 'bibliographicCitation', 'Bibliographic Citation');
+insert into ELEMENT_DEFN values (1701,1700,   0,  51, 'educationLevel',  'Audience Education Level');
+insert into ELEMENT_DEFN values (1102,1100,   0,1102, 'license',         'License');
+insert into ELEMENT_DEFN values (1702,1700,   0,  52, 'mediator',        'Mediator');
 
 
 ##################################################################
@@ -365,4 +404,56 @@ create table EXTENSION (
 
 insert into EXTENSION (Type,NS) values ('','');
 update EXTENSION set Extension_ID=0;
+
+
+##################################################################
+# Table                : INTEGRITY_PROBLEM
+# Description of table : List of possible integrity problems.
+#
+# Problem_Code         : 3-letter code for a problem
+# Applies_To           : 'I' for Archive Item, 'E' for Metadata Element
+# Severity             : 'E' for Error, 'W' for Warning
+# Label
+# Description
+##################################################################
+
+create table INTEGRITY_PROBLEM (
+	Problem_Code		char(3) not null,
+	Applies_To		char(1) not null,
+	Severity		char(1) not null,
+	Label			varchar(40) not null,
+	Description		varchar(255) not null,
+
+	primary key (Problem_Code)
+);
+
+insert into INTEGRITY_PROBLEM values ('RNF','E','E','Resource Not Found','An attempt to follow the link yields a 404 (Resource not found) error.');
+insert into INTEGRITY_PROBLEM values ('RNA','E','W','Resource Not Available','An attempt to follow the link failed for a reason other than a 404 (Resource not found) error.');
+insert into INTEGRITY_PROBLEM values ('NSI','E','E','No Such Item','The combined OLAC catalog does not contain an entry with the given OAI identifier.');
+insert into INTEGRITY_PROBLEM values ('BSI','I','E','Bad Sample Identifier','The sampleIdentifier specified in the Identify response is not present in the repository.');
+insert into INTEGRITY_PROBLEM values ('BLT','E','E','Bad Linguistic Type','The value supplied for olac:linguistic-type is not defined in the vocabulary.');
+insert into INTEGRITY_PROBLEM values ('BDT','E','E','Bad DCMI Type','The value supplied for dcterms:DCMIType is not defined in the vocabulary.');
+insert into INTEGRITY_PROBLEM values ('BLC','E','E','Bad Language Code','The value supplied for olac:language is not defined in the ISO 639 code set.');
+insert into INTEGRITY_PROBLEM values ('SLC','E','W','Suboptimal Language Code','The value supplied for olac:language is a recognized code from ISO 639, but it is not best practice since it is retired or represents a collection of languages.');
+
+##################################################################
+# Table                : INTEGRITY_CHECK
+# Description of table : Result of integrity checks
+#
+# Object_ID            : Either Archived Item ID or Metadata Element ID
+# Applies_To           : 'I' for Archive Item, 'E' for Metadata Element
+# Problem_Code         : 3-letter code from INTEGRITY_PROBLEM
+# IntigrityChecked     : The last date when the problem was recorded
+##################################################################
+
+create table INTEGRITY_CHECK (
+	Object_ID		int,
+	Applies_To		char(1),
+	Problem_Code		char(3),
+	IntegrityChecked	date,
+
+	primary key (Object_ID, Applies_To, Problem_Code),
+	foreign key (Problem_Code) references INTEGRITY_PROBLEM (Problem_Code),
+	key (Problem_Code)
+);
 
