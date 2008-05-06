@@ -141,6 +141,7 @@ package OLAC::OAI_Identify;
 
     # from <Identify><oai:description><oai-identifier>
     repositoryIdentifier => RepositoryIdentifier,
+    sampleIdentifier     => SampleIdentifier,
 
     # from <OAI-PMH>
     responseDate         => LastHarvested,
@@ -170,6 +171,7 @@ sub new {
         Synopsis => '',
         Access => '',
 	RepositoryIdentifier => '',
+        SampleIdentifier => '',
 	LastHarvested => ''
     );
 
@@ -508,22 +510,28 @@ sub new {
 
 sub harvest {
     my $self = shift;
+    my $db = $self->{db};
     foreach my $tup (@{$self->{archive_list}}) {
 	my $url = $tup->[1];
 	print "========================================\n";
 	print "Harvesting from $url\n";
+        $db->{dbh}->begin_work;
 	my ($arcid, $lastdate) = $self->proc_Identify($url);
 	unless ($arcid) {
 	    print "Harvest aborted.\n";
+            $db->{dbh}->rollback;
 	    next;
 	}
 	my $from = $lastdate if $lastdate;
+	#$url =~ s/http:\/\//http:\/\/www.language-archives.org\/tools\/eth15filter.php\//;
 	my $rcount = $self->proc_ListRecords($arcid, $url, $from);
 	my $since = $lastdate ? "since $lastdate" : "(first harvest)";
 	if (defined($rcount)) {
 	    print "$rcount new record(s) $since\n";
+            $db->{dbh}->commit;
 	} else {
 	    print "Harvest incomplete.\n";
+            $db->{dbh}->rollback;
 	}
 	print "\n";
     }
@@ -613,6 +621,7 @@ sub purge {
 	map {delete $h{$_};} @$res;
     }
 
+    $db->{dbh}->begin_work;
     foreach my $aid (keys %h) {
 	my $repoid = $h{$aid}[0];
 	my $baseurl = $h{$aid}[1];
@@ -629,6 +638,7 @@ sub purge {
 		("delete from METADATA_ELEM where Item_ID='$iid'");
 	}
     }
+    $db->{dbh}->commit;
 }
 
 1;
