@@ -4,6 +4,10 @@
 #   http://www.language-archives.org/tools/olac_schema.sql       #
 ##################################################################
 #
+# CHANGES 2008-05-06 HL:
+#
+# Added SampleIdentifier column to the OLAC_ARCHIVE table
+#
 # CHANGES 2008-05-05 HL:
 #
 # Added tables for integrity checks. (See
@@ -71,6 +75,7 @@
 # Archive_ID          : 
 # RepositoryName      : Human readable name of the archive 
 # RepositoryIdentifier : The unique identifier for the archive used in oai identifiers 
+# SampleIdentifier
 # BaseURL             : The base URL of the data provider 
 # OaiVersion          : The version of the OAI protocol that is supported 
 # FirstHarvested      : Date of first successful harvest 
@@ -103,6 +108,7 @@ create table OLAC_ARCHIVE (
 	Copyright		varchar(255),
 	RepositoryName		varchar(255) not null,
 	RepositoryIdentifier	varchar(50) not null,
+	SampleIdentifier	varchar(255),
 	BaseURL			varchar(255) not null,
 	OaiVersion		varchar(10) not null,
 	FirstHarvested		date,
