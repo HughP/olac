@@ -430,7 +430,7 @@ create table INTEGRITY_PROBLEM (
 insert into INTEGRITY_PROBLEM values ('RNF','E','E','Resource Not Found','An attempt to follow the link yields a 404 (Resource not found) error.');
 insert into INTEGRITY_PROBLEM values ('RNA','E','W','Resource Not Available','An attempt to follow the link failed for a reason other than a 404 (Resource not found) error.');
 insert into INTEGRITY_PROBLEM values ('NSI','E','E','No Such Item','The combined OLAC catalog does not contain an entry with the given OAI identifier.');
-insert into INTEGRITY_PROBLEM values ('BSI','I','E','Bad Sample Identifier','The sampleIdentifier specified in the Identify response is not present in the repository.');
+insert into INTEGRITY_PROBLEM values ('BSI','A','E','Bad Sample Identifier','The sampleIdentifier specified in the Identify response is not present in the repository.');
 insert into INTEGRITY_PROBLEM values ('BLT','E','E','Bad Linguistic Type','The value supplied for olac:linguistic-type is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BDT','E','E','Bad DCMI Type','The value supplied for dcterms:DCMIType is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BLC','E','E','Bad Language Code','The value supplied for olac:language is not defined in the ISO 639 code set.');
@@ -440,19 +440,17 @@ insert into INTEGRITY_PROBLEM values ('SLC','E','W','Suboptimal Language Code','
 # Table                : INTEGRITY_CHECK
 # Description of table : Result of integrity checks
 #
-# Object_ID            : Either Archived Item ID or Metadata Element ID
-# Applies_To           : 'I' for Archive Item, 'E' for Metadata Element
+# Object_ID            : Archive ID, Archived Item ID or Metadata Element ID
 # Problem_Code         : 3-letter code from INTEGRITY_PROBLEM
 # IntigrityChecked     : The last date when the problem was recorded
 ##################################################################
 
 create table INTEGRITY_CHECK (
 	Object_ID		int,
-	Applies_To		char(1),
 	Problem_Code		char(3),
 	IntegrityChecked	date,
 
-	primary key (Object_ID, Applies_To, Problem_Code),
+	primary key (Object_ID, Problem_Code),
 	foreign key (Problem_Code) references INTEGRITY_PROBLEM (Problem_Code),
 	key (Problem_Code)
 );
