@@ -447,6 +447,7 @@ insert into INTEGRITY_PROBLEM values ('SLC','E','W','Suboptimal Language Code','
 
 create table INTEGRITY_CHECK (
 	Object_ID		int,
+	Value			varchar(255),
 	Problem_Code		char(3),
 	IntegrityChecked	date,
 
