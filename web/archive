@@ -41,6 +41,7 @@ function get_archive_info($id)
 		     where  RepositoryIdentifier='$id'");
     if (! $tab) {
       print "Invalid archive id: $id";
+      echo "\n</body>\n</html>";
       exit;
     }
     $archiveid = $tab[0]['Archive_ID'];
@@ -88,7 +89,7 @@ function get_archive_info($id)
     $o["Last harvested"] = $r[LastHarvested];
 
     # added by SB on 2004-01-23:
-    $o["Metrics"] = "<a href=\"/metrics/$id\">experimental service</a>";
+    $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
 
     return $o;
 }
