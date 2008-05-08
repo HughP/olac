@@ -231,11 +231,12 @@ def check_urls(archive_id=None):
     for row in cur.fetchall():
         url = pat.search(row[1]).group(1)
         log('checking: %s' % url)
-        sqls = ["delete from INTEGRITY_CHECK where Object_ID=%d and (Problem_Code='RNA' or Problem_Code='RNF')" % row[0]]
+        sqls = [("delete from INTEGRITY_CHECK where Object_ID=%s and (Problem_Code='RNA' or Problem_Code='RNF')", (row[0],))]
         if url.startswith('ftp'):
             res = ftp_check(url)
             if not res:
-                sqls.append("insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%d, 'RNA')" % row[0])
+                sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNA')"
+                sqls.append((sql,row))
         elif url.startswith('http'):
             try:
                 res = http_check(url)
@@ -244,13 +245,16 @@ def check_urls(archive_id=None):
                 continue
             if res != '200':
                 if res == '404':
-                    sqls.append("insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%d, 'RNF')" % row[0])
+                    sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNF')"
+                    sqls.append((sql, row))
                 else:
-                    sqls.append("insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%d, 'RNA')" % row[0])
+                    sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNA')"
+                    sqls.append((sql, row))
         else:
-            sqls.append("insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%d, 'RNF')" % row[0])
-        for sql in sqls:
-            cur.execute(sql)
+            sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNF')"
+            sqls.append((sql, row))
+        for sql, args in sqls:
+            cur.execute(sql, args)
         con.commit()
     cur.close()
     con.close()
@@ -264,12 +268,12 @@ def check_broken_reference(archive_id=None):
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='NSI'",
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, Content, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID",
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='NSI'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai2 on me.Item_ID=ai2.Item_ID left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID and ai2.Archive_ID=%s" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, Content, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai2 on me.Item_ID=ai2.Item_ID left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID and ai2.Archive_ID=%s" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
@@ -300,12 +304,12 @@ def check_bad_sample_identifier(archive_id=None):
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BSI'",
-            "insert into INTEGRITY_CHECK select oa.Archive_ID, 'BSI', now() from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null"
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select oa.Archive_ID, SampleIdentifier, 'BSI' from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null"
             ]
     else:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BSI' and Object_ID=%d" % archive_id,
-            "insert into INTEGRITY_CHECK select oa.Archive_ID, 'BSI', now() from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null and oa.Archive_ID=%d" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select oa.Archive_ID, SampleIdentifier, 'BSI' from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null and oa.Archive_ID=%d" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
@@ -324,20 +328,20 @@ def check_invalid_code(archive_id=None):
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BLT'",
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='linguistic-type' and cd.Code is null",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='linguistic-type' and cd.Code is null",
             "delete from INTEGRITY_CHECK where Problem_Code='BDT'",
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='DCMIType' and cd.Code is null",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='DCMIType' and cd.Code is null",
             "delete from INTEGRITY_CHECK where Problem_Code='BLC'",
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='language' and cd.Code is null",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='language' and cd.Code is null",
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLT'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='linguistic-type' and cd.Code is null" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='linguistic-type' and cd.Code is null" % archive_id,
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BDT'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='DCMIType' and cd.Code is null" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='DCMIType' and cd.Code is null" % archive_id,
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLC'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='language' and cd.Code is null" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='language' and cd.Code is null" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
@@ -354,12 +358,12 @@ def check_language_code(archive_id=None):
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='SLC'",
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'SLC' from METADATA_ELEM me, RetiredLanguageCodes rlc where me.Type='language' and me.Code=rlc.Code"
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from METADATA_ELEM me, RetiredLanguageCodes rlc where me.Type='language' and me.Code=rlc.Code"
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='SLC'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) select distinct Element_ID, 'SLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, RetiredLanguageCodes rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Code" % archive_id
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, RetiredLanguageCodes rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Code" % archive_id
             ]
     for sql in sqls:
         cur.execute(sql)
@@ -376,4 +380,4 @@ if __name__ == '__main__':
     check_invalid_code()
     check_language_code()
     # takes several hours
-    check_urls()
+    #check_urls()
