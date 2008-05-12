@@ -1,0 +1,43 @@
+<html>
+<header>
+<title>Archive Integrity Checks</title>
+<link rel="stylesheet" type="text/css" href="/olac.css">
+</header>
+<body>
+<hr>
+<table cellpadding=10>
+<tr><td><a href="/"><img src="/images/olac100.gif" border=0></a></td>
+<td><h1>Integrity Checks: $repoid</h1></td></tr>
+</table>
+<hr>
+#if $errors or $warnings
+<p>(Click <a href="$repoid/download">here</a> to download as a file.)
+#end if
+#if $errors
+<p>The following errors have been detected in the metadata for this archive. Their presence counts against the Overall Rating for the archive.<p>
+<table border=1>
+<tr><th>Error</th><th>Offending Value</th><th>Record ID</th></tr>
+#for $row in $errors
+<tr>
+<td>$row[0]</td>
+<td>$row[3]</td>
+<td>$row[4]</td>
+</tr>
+#end for
+</table>
+#end if
+#if $warnings
+<p>The follwoing potential problems have been detected and should be looked into. They are not severe enough to count against the archive's Overall Rating.</p>
+<table border=1>
+<tr><th>Error</th><th>Offending Value</th><th>Record ID</th></tr>
+#for $row in $warnings
+<tr>
+<td>$row[0]</td>
+<td>$row[3]</td>
+<td>$row[4]</td>
+</tr>
+#end for
+</table>
+#end if
+</body>
+</html>
