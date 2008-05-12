@@ -138,6 +138,8 @@ package OLAC::OAI_Identify;
     location             => Location,
     synopsis             => Synopsis,
     access               => Access,
+    archivalSubmissionPolicy => ArchivalSubmissionPolicy,
+    currentAsOf          => CurrentAsOf,
 
     # from <Identify><oai:description><oai-identifier>
     repositoryIdentifier => RepositoryIdentifier,
@@ -170,10 +172,14 @@ sub new {
         Location => '',
         Synopsis => '',
         Access => '',
+        ArchivalSubmissionPolicy => '',
 	RepositoryIdentifier => '',
         SampleIdentifier => '',
-	LastHarvested => ''
+	LastHarvested => '',
+        CurrentAsOf => ''
     );
+
+    @participants = ();
 
     my $self = $class->SUPER::new
 	(baseURL  => $baseURL,
@@ -190,6 +196,7 @@ sub new {
 		 $record{error});
 	} else {
 	    $self->{hash} = \%record;
+	    $self->{participants} = \@participants;
 	}
     }
 
@@ -215,7 +222,16 @@ sub _Start
 	$skip_all = 1;
 	return;
     }
-
+    elsif ($tag eq "participant") {
+        if (exists($att{"name"}) && exists($att{"role"}) && exists($att{"email"})) {
+            push @participants, [$att{"name"}, $att{"role"}, $att{"email"}];
+	}
+    }
+    elsif ($tag eq "olac-archive") {
+        if (exists($att{"currentAsOf"})) {
+            $record{"CurrentAsOf"} = $att{"currentAsOf"};
+        }
+    }
     $saved_tag = $tab{$tag};
 }
 
@@ -227,15 +243,14 @@ sub _End
 
     if ($skip_all) {
 	undef $skip_all if $skip_all_list{$tag};
-	return;
     }
     elsif ($saved_tag) {
 	OLAC::Utils::trim $saved_content;
 	# put it in %record
 	$record{$saved_tag} = $saved_content;
-	# unset the flag
-	undef $saved_tag;
-	undef $saved_content;
+        # unset the flag
+        undef $saved_tag;
+        undef $saved_content;
     }
 }
 
@@ -546,6 +561,7 @@ sub proc_Identify
     my $response = new OLAC::OAI_Identify($url);
     return undef if $response->{err};
     my $rec = $response->{hash};
+    my $par = $response->{participants};
 
     # check existence of the repo
     my $sql = "select * from OLAC_ARCHIVE where RepositoryIdentifier='$rec->{RepositoryIdentifier}' and BaseURL='$rec->{BaseURL}'";
@@ -562,6 +578,7 @@ sub proc_Identify
 	$archive_id = $r->{Archive_ID};
 	$last_harvested = $r->{LastHarvested};
 	$db->update('OLAC_ARCHIVE', $rec, "Archive_ID='$archive_id'");
+        $db->updateParticipant($par, $archive_id);
     } else {    # if not, create new one
 	$rec->{FirstHarvested} = $rec->{LastHarvested};
 	$archive_id = $db->insert('OLAC_ARCHIVE', $rec);
