@@ -34,7 +34,7 @@ sub _connect {
 	my $user = <FH>;   OLAC::Utils::trim $user;
 	my $pass = <FH>;   OLAC::Utils::trim $pass;
 	$self->{dbh} = DBI->connect("dbi:mysql:$dbname", $user, $pass,
-				    {PrintError=>1, AutoCommit=>1});
+				    {PrintError=>0, AutoCommit=>1});
 	if (DBI->errstr) {
 	    $self->{err} = OLAC::Error->new
 		('db error', "can't connect", DBI->errstr);
@@ -86,6 +86,25 @@ sub update {
     my $res = $self->{dbh}->do($self->{sql}) if $set;
     $self->{err} = $self->{dbh}->errstr;
     return $res;
+}
+
+sub updateParticipant {
+    my ($self, $record, $archiveid) = @_;
+    $self->{sql} = "delete from ARCHIVE_PARTICIPANT where Archive_ID=$archiveid";
+    $self->{dbh}->do($self->{sql});
+    foreach my $row (@$record) {
+        my $name = $row->[0];
+        my $role = $row->[1];
+        my $email = $row->[2];
+        $name =~ s/\'/\'\'/g;
+        $name =~ s/\\/\\\\/g;
+        $role =~ s/\'/\'\'/g;
+        $role =~ s/\\/\\\\/g;
+        $email =~ s/\'/\'\'/g;
+        $email =~ s/\\/\\\\/g;
+        $self->{sql} = "insert ignore into ARCHIVE_PARTICIPANT values ($archiveid, '$name', '$role', '$email')";
+        $self->{dbh}->do($self->{sql});
+    }
 }
 
 #-------------------- ODB --------------------------------------------
@@ -349,14 +368,13 @@ sub getTable_GetRecord {
     my $metadata;
 
     $metadata = $self->{dbh}->selectall_arrayref
-	("
-select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label
-from METADATA_ELEM me
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-where Item_ID='$archived_item->{Item_ID}'
-	");
+	("select TagName,Lang,Content,me.Extension_ID,cd.Code, " .
+	 "       ex.Label,cd.Label " .
+	 "from METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd " .
+	 "where Item_ID='$archived_item->{Item_ID}' " .
+	 "and me.Extension_ID=ex.Extension_ID " .
+	 "and me.Extension_ID=cd.Extension_ID " .
+	 "and (cd.Code='' or me.Code=cd.Code) ");
 
     return ($header, $metadata);
 }
@@ -444,27 +462,25 @@ sub getTable_ListRecords {
     #####
     # prepare query for $meta
     $query = "
-select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label, Item_ID
-from METADATA_ELEM me
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
+select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
+       ex.Label, cd.Label, Item_ID
+from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
+where  me.Extension_ID=ex.Extension_ID
+and    me.Extension_ID=cd.Extension_ID
+and    (cd.Code='' or me.Code=cd.Code) ";
 
-    $conj = "where";
     if ($request->{next}) {
 	my $first = $header->[0]->[2];
 	my $last = $header->[199]->[2];
-	$query .= "$conj Item_ID >= $first and Item_ID <= $last ";
-        $conj = "and";
+	$query .= "and Item_ID >= $first and Item_ID <= $last ";
     }
     if ($request->{from}) {
 	$f = "DateStamp >= '$request->{from}'";
-	$query .= "$conj $f ";
-        $conj = "and";
+	$query .= "and $f ";
     }
     if ($request->{until}) {
 	$u = "DateStamp <= '$request->{until}'";
-	$query .= "$conj $u ";
+	$query .= "and $u ";
     }
     $query .= "order by Item_ID";
 
@@ -519,12 +535,13 @@ sub getTable_Query {
     foreach my $item (@$header) {
 	# prepare query for $meta
 	$query = "
-select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label
-from METADATA_ELEM me
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-where Item_ID=$item->[2]";
+select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
+       ex.Label, cd.Label, Item_ID
+from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
+where  Item_ID=$item->[2]
+and    me.Extension_ID=ex.Extension_ID
+and    me.Extension_ID=cd.Extension_ID
+and    (cd.Code='' or me.Code=cd.Code) ";
 
 	$meta1 = $self->{dbh}->selectall_arrayref($query);
 	push (@$meta, $meta1);
