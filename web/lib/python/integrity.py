@@ -236,23 +236,23 @@ def check_urls(archive_id=None):
             res = ftp_check(url)
             if not res:
                 sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNA')"
-                sqls.append((sql,row))
+                sqls.append((sql,(row[0],url)))
         elif url.startswith('http'):
             try:
                 res = http_check(url)
-            except ValueError, e:
+            except Exception, e:
                 log("%s" % e)
                 continue
             if res != '200':
                 if res == '404':
                     sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNF')"
-                    sqls.append((sql, row))
+                    sqls.append((sql, (row[0],url)))
                 else:
                     sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNA')"
-                    sqls.append((sql, row))
+                    sqls.append((sql, (row[0],url)))
         else:
             sql = "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) values (%s, %s, 'RNF')"
-            sqls.append((sql, row))
+            sqls.append((sql, (row[0],url)))
         for sql, args in sqls:
             cur.execute(sql, args)
         con.commit()
@@ -380,4 +380,4 @@ if __name__ == '__main__':
     check_invalid_code()
     check_language_code()
     # takes several hours
-    #check_urls()
+    check_urls()
