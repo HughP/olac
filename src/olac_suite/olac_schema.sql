@@ -96,7 +96,7 @@ create table OLAC_ARCHIVE (
 	Archive_ID		int auto_increment not null,
 	ArchiveURL		varchar(255),
 	AdminEmail		varchar(255),
-	Curator			varchar(255) not null,
+	Curator			varchar(255),
 	CuratorTitle		varchar(255),
 	CuratorEmail		varchar(255),
 	Institution		varchar(255) not null,
@@ -105,6 +105,7 @@ create table OLAC_ARCHIVE (
 	Location		text,
 	Synopsis		text,
 	Access			text,
+	ArchivalSubmissionPolicy	text,
 	Copyright		varchar(255),
 	RepositoryName		varchar(255) not null,
 	RepositoryIdentifier	varchar(50) not null,
@@ -113,8 +114,26 @@ create table OLAC_ARCHIVE (
 	OaiVersion		varchar(10) not null,
 	FirstHarvested		date,
 	LastHarvested		date,
+	CurrentAsOf		date,
 	primary key (Archive_ID));
  
+
+##################################################################
+# Table               : ARCHIVE_PARTICIPANT
+#
+# Name
+# Role
+# Email
+##################################################################
+
+create table ARCHIVE_PARTICIPANT (
+	Archive_ID		int,
+	Name			varchar(64),
+	Role			varchar(32),
+	Email			varchar(128),
+	primary key (Archive_ID, Role, Email),
+	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID)
+);
 
 ##################################################################
 # Table               : SCHEMA_VERSION
@@ -137,6 +156,11 @@ insert into SCHEMA_VERSION values ('',
   '1.0',
   'http://www.language-archives.org/OLAC/1.0/',
   'http://www.language-archives.org/OLAC/1.0/olac.xsd');
+
+insert into SCHEMA_VERSION values('',
+  '1.1',
+  'http://www.language-archives.org/OLAC/1.1/',
+  'http://www.language-archives.org/OLAC/1.1/olac.xsd');
 
 
 ##################################################################
