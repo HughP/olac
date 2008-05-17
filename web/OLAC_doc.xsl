@@ -11,6 +11,7 @@
    <xsl:output doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"
       doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1" method="html"
       version="4.0"/>
+    <xsl:include href="Google_Analytics.xsl"/>
    <xsl:strip-space elements="*"/>
    <xsl:preserve-space elements="eg"/>
    <xsl:variable name="baseURL">
@@ -196,12 +197,8 @@
                </table>
                <br/>
             </xsl:if>
-            <xsl:apply-templates select="todo|references"/>
-            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-            <script type="text/javascript">
-            _uacct = "UA-427085-3";
-            urchinTracker();
-            </script>
+             <xsl:apply-templates select="todo|references"/>
+             <xsl:call-template name="GA-script"/>
          </BODY>
       </HTML>
    </xsl:template>
