@@ -1,6 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"><HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
-<META http-equiv="Content-Type" content="text/html; charset=UTF-16">
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>Specifications for an OLAC metadata display format and an OLAC-to-OAI_DC
         crosswalk</TITLE>
 <meta name="Title" content="Specifications for an OLAC metadata display format and an OLAC-to-OAI_DC
@@ -8,16 +9,11 @@
 <meta name="Creator" content="Gary Simons, SIL International
         (mailto:gary_simons@sil.org)">
 <meta name="Description" content="Specifies OLAC_Display, the OLAC metadata display format implemented by the OLAC Aggregator service. This format is a reader-friendly view of OLAC metadata that incorporates attribute values into the element content and translates coded values into display labels. The document further specifies the transformation from OLAC_Display format to OAI_DC format. ">
-<meta name="Publisher" content="OLAC (Open Language Archives Community)">
+<meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20060515">
-<STYLE>
-          BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
-                              FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
-          H1    {FONT-SIZE: 24pt }
-          H2    {FONT-SIZE: 18pt }
-          H3    {FONT-SIZE: 16pt }
-
-        </STYLE>
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
+               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+            </STYLE>
 </HEAD>
 <BODY>
 <hr>
@@ -25,63 +21,72 @@
         crosswalk</H1>
 <table cellspacing="10">
 <tr valign="top">
-<th width="100" align="left">Date&nbsp;issued:</th>
-<td>2006-05-15</td>
+<th align="left" width="100">Date&nbsp;issued:</th><td>2006-05-15</td>
 </tr>
 <tr valign="top">
-<th align="left">Status of document:</th>
-<td><i>Draft Informational Note. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
+<th align="left">Status of document:</th><td><i>Draft Informational Note. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
 </tr>
 <tr valign="top">
-<th align="left">This version:</th>
-<td><a href="http://www.language-archives.org/NOTE/olac_display-20060515.html">http://www.language-archives.org/NOTE/olac_display-20060515.html</a></td>
+<th align="left">This version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display-20060515.html">http://www.language-archives.org/NOTE/olac_display-20060515.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Latest version:</th>
-<td><a href="http://www.language-archives.org/NOTE/olac_display.html">http://www.language-archives.org/NOTE/olac_display.html</a></td>
+<th align="left">Latest version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display.html">http://www.language-archives.org/NOTE/olac_display.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Previous&nbsp;version:</th>
-<td><a href="http://www.language-archives.org/NOTE/olac_display-20030215.html">http://www.language-archives.org/NOTE/olac_display-20030215.html</a></td>
+<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display-20030215.html">http://www.language-archives.org/NOTE/olac_display-20030215.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Abstract:</th>
-<td>
+<th align="left">Abstract:</th><td>
 <p>Specifies OLAC_Display, the OLAC metadata display format implemented by the OLAC Aggregator service. This format is a reader-friendly view of OLAC metadata that incorporates attribute values into the element content and translates coded values into display labels. The document further specifies the transformation from OLAC_Display format to OAI_DC format. </p>
 </td>
 </tr>
 <tr valign="top">
-<th align="left">Editors:</th>
-<td><editors>Gary Simons, SIL International
-        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors></td>
+<th align="left">Editors:</th><td>
+<editors>Gary Simons, SIL International
+        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors>
+</td>
 </tr>
 <tr valign="top">
-<th align="left">Changes since previous version:</th>
-<td>
+<th align="left">Changes since previous version:</th><td>
 <p>Updated to use ISO 639-3 language codes. The format for extensions (like <tt>olac:language</tt>) in which the <tt>olac:code</tt> has primary status is extended to include the code in brackets at the end of the metadata string. In the OAI_DC version, the bracketted refinement is moved to first position so as not to interfere with the bracketted code value at the end.</p>
 </td>
 </tr>
 </table>
-<blockquote><small>Copyright © 2006 Gary Simons
-      (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a rel="license" href="http://creativecommons.org/licenses/by-sa/2.5/">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small></blockquote>
+<blockquote>
+<small>Copyright &copy; 2006 Gary Simons
+      (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons
+               Attribution-ShareAlike 2.5 License</a>.</small>
+</blockquote>
 <hr>
 <h3>Table of contents</h3>
 <ol>
-<LI><A href="#Introduction">Introduction</A></LI>
-<LI><A href="#Display format strategy">Display format strategy</A></LI>
-<LI><A href="#Examples of OLAC_Display format">Examples of  OLAC_Display format</A></LI>
-<LI><A href="#An OLAC-to-OAI_DC crosswalk">An OLAC-to-OAI_DC crosswalk</A></LI>
+<LI>
+<A href="#Introduction">Introduction</A>
+</LI>
+<LI>
+<A href="#Display format strategy">Display format strategy</A>
+</LI>
+<LI>
+<A href="#Examples of OLAC_Display format">Examples of  OLAC_Display format</A>
+</LI>
+<LI>
+<A href="#An OLAC-to-OAI_DC crosswalk">An OLAC-to-OAI_DC crosswalk</A>
+</LI>
 </ol>
-<blockquote><a href="#References">References</a><br></blockquote>
+<blockquote>
+<a href="#References">References</a>
+<br>
+</blockquote>
 <hr>
 <body>
-<h2><A name="Introduction"></A>1. Introduction</h2>
+<h2>
+<A name="Introduction"></A>1. Introduction</h2>
 <p>In order to improve recall and precision in searching, the OLAC metadata format [<a href="#OLAC-Metadata">OLAC-Metadata</a>] defines an extension method (involving the <tt>xsi:type</tt> and <tt>olac:code</tt> attributes) to support resource description using community-defined controlled vocabularies. Service providers may use these attributes to perform precise searches. However, service providers  need to be able to display metadata records to users in a manner that shows all available  information in an easy-to-read form. This means that information from these attributes must be combined with the element content to produce a display of all information pertaining to a metadata element. It also requires that coded attribute values (such as three-letter language codes) be translated into friendly display forms.</p>
 <p>Transforming OLAC metadata records into such a display format is a non-trivial task that each service provider should not have to implement independently. Thus the OLAC Aggregator [<a href="#OLACA">OLACA</a>] offers such a translation service. It supports a metadata format named OLAC_Display. When metadata are harvested using this metadata prefix, the content of any metadata element that uses an extension contains a reader-friendly view of  the information expressed by means of the extension. For instance,</p>
-<pre style="margin-left: 12pt">http://www.language-archives.org/cgi-bin/olaca2.pl?
+<pre style="margin-left: 12pt">http://www.language-archives.org/cgi-bin/olaca3.pl?
    verb=GetRecord&amp;metadataPrefix=olac&amp;identifier=oai:ethnologue.com:AAA</pre>
 <p>will retrieve the metadata in OLAC format as specified in [<a href="#OLAC-Metadata">OLAC-Metadata</a>], whereas</p>
-<pre style="margin-left: 12pt">http://www.language-archives.org/cgi-bin/olaca2.pl?
+<pre style="margin-left: 12pt">http://www.language-archives.org/cgi-bin/olaca3.pl?
    verb=GetRecord&amp;metadataPrefix=olac_display&amp;identifier=oai:ethnologue.com:AAA</pre>
 <p>retrieves the same metadata record in the reader-friendly format specified in this document.</p>
 <p>In order to participate in the wider Open Archives Initiative (OAI) community of service providers, OLAC data providers must also publish their metadata
@@ -94,7 +99,8 @@
         [<a href="#Day2001">Day2001</a>] for other examples of crosswalks and pointers to discussions
         of crosswalking issues.</p>
 <p>It turns out that implementing an OLAC-to-OAI_DC crosswalk involves the same kind of transformation of attribute values that is involved in generating the reader-friendly OLAC_Display format. The final section of this paper describes additional transformations performed by the OLAC Aggregator to achieve an OLAC-to-OAI_DC crosswalk. In addition to documenting the  transformation made by the community's centralized OLAC-to-OAI_DC crosswalk, this note can be used as a specification by those who implement an OLAC-to-OAI_DC crosswalk in their own data provider.</p>
-<h2><A name="Display format strategy"></A>2. Display format strategy</h2>
+<h2>
+<A name="Display format strategy"></A>2. Display format strategy</h2>
 <p>The XML schema that implements  OLAC metadata  uses six
         devices for recording information:</p>
 <ol>
@@ -133,14 +139,12 @@
 <blockquote>
 <table cellpadding="4">
 <tr valign="top">
-<td>Label&nbsp;&nbsp;</td>
-<td>
+<td>Label&nbsp;&nbsp;</td><td>
 <p>The display label for the extension</p>
 </td>
 </tr>
 <tr valign="top">
-<td>CodeStatus&nbsp;&nbsp;</td>
-<td>
+<td>CodeStatus&nbsp;&nbsp;</td><td>
 <p>Whether the code is primary or secondary</p>
 </td>
 </tr>
@@ -149,27 +153,25 @@
 <p>The display labels for the code values are specified in  <tt>olac:label</tt> attributes in the XML schema that enumerates the list of possible code values.</p>
 <p> The
          OLAC_Display format provides the extension information both as  attribute values and as display strings incorporated into the element content.  Thus, the schema for the <tt>olac_display</tt> metadata format supported by the OLAC Aggregator is identical to the schema for the <tt>olac</tt> metadata format. In this way, services that harvest records from the OLAC Aggregator in OLAC_Display format can still use the  attribute values to support high recall and precision in queries, and at the same time have the convenience of all the attribute information being incorporated into the element content in a reader-friendly view.</p>
-<h2><A name="Examples of OLAC_Display format"></A>3. Examples of  OLAC_Display format</h2>
+<h2>
+<A name="Examples of OLAC_Display format"></A>3. Examples of  OLAC_Display format</h2>
 <p>This section illustrates a number of OLAC metadata elements and their equivalents in OLAC_Display format. The examples use the following extensions with the two required parameters defined as follows:</p>
 <blockquote>
 <table cellpadding="4">
 <tr valign="top">
-<td>olac:language&nbsp;&nbsp;</td>
-<td>
+<td>olac:language&nbsp;&nbsp;</td><td>
 <pre style="margin-left: 12pt">Label:      NULL
 CodeStatus: primary</pre>
 </td>
 </tr>
 <tr valign="top">
-<td>olac:role&nbsp;&nbsp;</td>
-<td>
+<td>olac:role&nbsp;&nbsp;</td><td>
 <pre style="margin-left: 12pt">Label:      NULL
 CodeStatus: secondary</pre>
 </td>
 </tr>
 <tr valign="top">
-<td>software:os&nbsp;&nbsp;</td>
-<td>
+<td>software:os&nbsp;&nbsp;</td><td>
 <pre style="margin-left: 12pt">Label:      Operating system:
 CodeStatus: primary</pre>
 </td>
@@ -188,19 +190,26 @@ CodeStatus: primary</pre>
 &lt;dc:creator xsi:type"olac:role" olac:code="editor"&gt;Sapir, Edward (editor)&lt;/dc:creator&gt;
 &lt;dcterms:requires xsi:type"software:os"&gt;Operating system: Windows 95 or higher&lt;/dcterms:requires&gt;
 &lt;dcterms:requires xsi:type"software:os" olac:code="win2k"&gt;Operating system: Windows 2000 [win2k]&lt;/dcterms:requires&gt;</pre>
-<h2><A name="An OLAC-to-OAI_DC crosswalk"></A>4. An OLAC-to-OAI_DC crosswalk</h2>
+<h2>
+<A name="An OLAC-to-OAI_DC crosswalk"></A>4. An OLAC-to-OAI_DC crosswalk</h2>
 <p>The OLAC Aggregator also supports the OAI_DC metadata format. It functions as an OLAC-to-OAI_DC crosswalk since it harvests only OLAC metadata and performs the transformation to OAI_DC upon request. Transforming a metadata record from OLAC format to  OLAC_Display format goes most of the way toward implementing the OLAC-to-OAI_DC crosswalk. Three further changes are made to transform an OLAC_Display element to an OAI_DC element:</p>
 <ol>
 <li>
-<p><i>Remove all the attributes.</i></p>
+<p>
+<i>Remove all the attributes.</i>
+</p>
 <p>This can be done without loss of information since the information in the attributes is already incorporated into the element content.</p>
 </li>
 <li>
-<p><i>"Dumb-down" refined element names to their unqualified equivalent.</i></p>
+<p>
+<i>"Dumb-down" refined element names to their unqualified equivalent.</i>
+</p>
 <p>For each element from the <tt>dcterms</tt> namespace, the tag name is converted to the tag name for the corresponding unqualified element from the <tt>dc</tt> namespace (as defined in [<a href="#DC-Q">DC-Q</a>]).</p>
 </li>
 <li>
-<p><i>Preserve the refined element names in the element content.</i></p>
+<p>
+<i>Preserve the refined element names in the element content.</i>
+</p>
 <p>For each element that has been "dumbed-down", preserve the original element name in a bracketed phrase prepended to the element content.</p>
 </li>
 </ol>
@@ -219,35 +228,35 @@ CodeStatus: primary</pre>
 <p>Section 6 of OLAC-Metadata and the schema for documenting an extension need to add the two pieces of information for controlling the display format: extension label and whether the code is primary or secondary.</p>
 <p>The implementation of olac_display and oai_dc in OLACA needs to be brought into line with this.  Does OLACA read the extension documentation from the XSD files, or should we just load the necessary information via INSERT statements in the database DDL?</p>
 <p>The second-to-last paragraph of section 2 says that olac:label is used in the XML schema for the extension to give the display labels for the codes.  This isn't true yet.</p>
-</font><a name="References"></a><hr>
+</font><a name="References"></a>
+<hr>
 <h2>References</h2>
 <table cellspacing="10">
 <tr valign="top">
-<td width="150">[<a name="Day2001">Day2001</a>]</td>
-<td>Day, Michael. Mapping between metadata formats. UK
+<td width="150">[<a name="Day2001">Day2001</a>]</td><td>Day, Michael. Mapping between metadata formats. UK
       Office for Library and Information
       Networking.<br>&lt;<a href="http://www.ukoln.ac.uk/metadata/interoperability/">http://www.ukoln.ac.uk/metadata/interoperability/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="DC-Q">DC-Q</a>]</td>
-<td>Dublin Core Qualifiers.<br>&lt;<a href="http://dublincore.org/documents/dcmes-qualifiers/">http://dublincore.org/documents/dcmes-qualifiers/</a>&gt;</td>
+<td width="150">[<a name="DC-Q">DC-Q</a>]</td><td>Dublin Core Qualifiers.<br>&lt;<a href="http://dublincore.org/documents/dcmes-qualifiers/">http://dublincore.org/documents/dcmes-qualifiers/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OAI_DC">OAI_DC</a>]</td>
-<td>Dublin Core Metadata Element Set, Version 1.1:
+<td width="150">[<a name="OAI_DC">OAI_DC</a>]</td><td>Dublin Core Metadata Element Set, Version 1.1:
       Reference Description.
       <br>&lt;<a href="http://dublincore.org/documents/1999/07/02/dces/">http://dublincore.org/documents/1999/07/02/dces/</a>&gt;<br>XML
       schema for OAI implementation of Dublin Core
       metadata.<br>&lt;<a href="http://www.openarchives.org/OAI/1.1/dc.xsd">http://www.openarchives.org/OAI/1.1/dc.xsd</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLACA">OLACA</a>]</td>
-<td>OLAC Aggregator Service.<br>&lt;<a href="http://www.language-archives.org/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
+<td width="150">[<a name="OLACA">OLACA</a>]</td><td>OLAC Aggregator Service.<br>&lt;<a href="http://www.language-archives.org/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td>
-<td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
+<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td><td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
 </tr>
 </table>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+            _uacct = "UA-427085-3";
+            urchinTracker();
+            </script>
 </BODY>
 </HTML>

@@ -1,5 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Metadata Set</TITLE>
@@ -12,14 +12,9 @@
           framework of the Open Archives Initiative OAI.">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20010616">
-<STYLE>
-          BODY       { MARGIN:10px; BACKGROUND: white; COLOR: navy; 
-                              FONT-FAMILY: sans-serif; FONT-SIZE: 12pt }
-          H1    {FONT-SIZE: 24pt }
-          H2    {FONT-SIZE: 18pt }
-          H3    {FONT-SIZE: 16pt }
-
-        </STYLE>
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
+               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+            </STYLE>
 </HEAD>
 <BODY>
 <hr>
@@ -69,7 +64,8 @@
 <blockquote>
 <small>Copyright &copy; 2001 Gary
       Simons (SIL International) and Steven Bird (University of
-      Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons Attribution-ShareAlike 2.5 License</a>.</small>
+      Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons
+               Attribution-ShareAlike 2.5 License</a>.</small>
 </blockquote>
 <hr>
 <h3>Table of contents</h3>
@@ -82,77 +78,6 @@
 </LI>
 <LI>
 <A href="#Elements">Elements</A>
-<UL>
-<LI>
-<A href="#Contributor">Contributor</A>
-</LI>
-<LI>
-<A href="#Coverage">Coverage</A>
-</LI>
-<LI>
-<A href="#Creator ">Creator </A>
-</LI>
-<LI>
-<A href="#Date">Date</A>
-</LI>
-<LI>
-<A href="#Description">Description</A>
-</LI>
-<LI>
-<A href="#Format">Format</A>
-</LI>
-<LI>
-<A href="#Format.cpu">Format.cpu</A>
-</LI>
-<LI>
-<A href="#Format.encoding">Format.encoding</A>
-</LI>
-<LI>
-<A href="#Format.markup">Format.markup</A>
-</LI>
-<LI>
-<A href="#Format.os">Format.os</A>
-</LI>
-<LI>
-<A href="#Format.sourcecode">Format.sourcecode</A>
-</LI>
-<LI>
-<A href="#Identifier">Identifier</A>
-</LI>
-<LI>
-<A href="#Language">Language</A>
-</LI>
-<LI>
-<A href="#Publisher">Publisher</A>
-</LI>
-<LI>
-<A href="#Relation">Relation</A>
-</LI>
-<LI>
-<A href="#Rights">Rights</A>
-</LI>
-<LI>
-<A href="#Source">Source</A>
-</LI>
-<LI>
-<A href="#Subject">Subject</A>
-</LI>
-<LI>
-<A href="#Subject.language">Subject.language</A>
-</LI>
-<LI>
-<A href="#Title">Title</A>
-</LI>
-<LI>
-<A href="#Type">Type</A>
-</LI>
-<LI>
-<A href="#Type.data">Type.data</A>
-</LI>
-<LI>
-<A href="#Type.functionality">Type.functionality</A>
-</LI>
-</UL>
 </LI>
 </ol>
 <blockquote>
@@ -253,17 +178,25 @@
 <p>In a given metadata record, every element is optional and every
         element is repeatable.</p>
 <h3>
-<A name="Contributor"></A>Contributor</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Contributor </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An entity responsible for making contributions to the
           content of the resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Contributor include a person, an organization, or a
             service. Typically, the name of a Contributor should be used to indicate the
             entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
@@ -283,19 +216,6 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>refine</i> attribute is optionally used to specify the role
-            (such as transcriber, sponsor, funder, and so on) played by the named entity in
-            the creation of the resource. The role is expressed by means of a controlled
-            vocabulary; see [<a href="#OLAC-Role">OLAC-Role</a>] for the definition of the vocabulary. </p>
-<p>Service providers are not required to make use of role
-            information. Most typically, they would use it in displays of metadata
-            information to show the roles that are made explicit in the metadata. They
-            could also give access to it in searches. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
-</td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A generic contributor:</p>
 <pre style="margin-left: 12pt">&lt;contributor&gt;Smith, John L.&lt;/contributor&gt;</pre>
@@ -309,17 +229,25 @@
 </tr>
 </table>
 <h3>
-<A name="Coverage"></A>Coverage</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Coverage </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The extent or scope of the content of the resource.
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p> Coverage will typically include spatial location (a place name or
             geographic coordinates), temporal period (a period label, date, or date range)
             or jurisdiction (such as a named administrative entity). Recommended best
@@ -330,13 +258,14 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need help from our librarians and archivists here. How do we
             want to recommend using this element? I suspect we will want to modify the
             above comment from DCMI. Since our database of the 6,800+ languages of the
@@ -348,17 +277,25 @@
 </tr>
 </table>
 <h3>
-<A name="Creator "></A>Creator </h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Creator</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An entity primarily responsible for making the content of
           the resource. </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Creator include a person, an organization, or a
             service. Typically, the name of a Creator should be used to indicate the
             entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
@@ -376,19 +313,6 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>refine</i> attribute is optionally used to specify the role
-            (such as author, editor, translator, and so on) played by the named entity in
-            the creation of the resource. The role is expressed by means of a controlled
-            vocabulary; see [<a href="#OLAC-Role">OLAC-Role</a>] for the definition of the vocabulary. </p>
-<p>Service providers are not required to make use of role
-            information. Most typically, they would use it in displays of metadata
-            information to show the roles that are made explicit in the metadata. They
-            could also give access to it in searches. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
-</td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A personal author:</p>
 <pre style="margin-left: 12pt">&lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;</pre>
@@ -399,52 +323,41 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Develop the controlled vocabulary and write the OLAC-Role
             document.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Date"></A>Date</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Date </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A date associated with an event in the life cycle of the
           resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Use a coded value (see below) when possible, since that guarantees
             that a service provider can do a straight alphanumeric sort to put collections
             of metadata descriptions in correct chronological order. The element content
             may always be used to express date-related values or comments that cannot be
             fitted into the encoding standard.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute is used to hold a standardized encoding
-            of a date. Following [<a href="#DCMES1.1">DCMES1.1</a>], OLAC uses the YYYY-MM-DD format as
-            defined in [<a href="#W3CDTF">W3CDTF</a>]. When a month or day value is less than 10, use a
-            leading 0 to maintain a two-digit length. The encoded value may be for the year
-            alone, for the year and month, or for an exact date. A range of years is also a
-            valid value for this attribute; in this case both years must be four-digit
-            values and the earliest year should come first. Thus, the encoded value may
-            match one of the four following patterns: <tt>YYYY</tt>, <tt>YYYY-MM</tt>,
-            <tt>YYYY-MM-DD</tt>, or <tt>YYYY-YYYY</tt>.</p>
-<p>The <i>refine</i> attribute is optionally used to refine the
-            meaning of the date using values from a controlled vocabulary (for instance,
-            date of creation versus date of issue versus date of modification, and so on).
-            The vocabulary for refinements to Date is defined in [<a href="#DC-Q">DC-Q</a>]. </p>
-<p>A Date with no refinement will be assumed to be the date of issue
-            (i.e. publication). A single resource should not have more than one instance of
-            each date refinement. In selecting a single date to associate with a resource,
-            a service provider will select the most recent of date created, issued, or
-            modified.</p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -459,16 +372,24 @@
 </tr>
 </table>
 <h3>
-<A name="Description"></A>Description</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Description</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An account of the content of the resource. </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Description may include but is not limited to: an abstract, table
             of contents, reference to a graphical representation of content, or a free-text
             account of the content. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
@@ -482,9 +403,6 @@
             providers are not obliged to search other Description text for the occurrence
             of URLs.</p>
 </td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
@@ -503,44 +421,40 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>[<a href="#DC-Q">DC-Q</a>] defines two refinements for Description: table of
             contents and abstract. Do we want to introduce this?</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Format"></A>Format</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Format </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The physical or digital manifestation of the resource.
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, Format may include the media-type or dimensions of the
             resource. Format may be used to determine the software, hardware or other
             equipment needed to display or operate the resource. Examples of dimensions
             include size and duration. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a precise
-            identification of the format using a controlled vocabulary. This is especially
-            important for digital resources since service providers may use this
-            information to match data resources with the software tools that are
-            appropriate for manipulating them. See [<a href="#OLAC-Format">OLAC-Format</a>] for the
-            definition of the vocabulary. </p>
-<p>The element content may be left empty, but it would typically be
-            used to add further details about the format of the resource, such as the
-            sampling rate for digital recordings, the size of computer files, the number of
-            pages and dimensions of a book, the appearance of a physical object, and so on.
-            </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -554,7 +468,11 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need to develop the vocabulary for Format. It should be based
             on the list of Internet Media Types [<a href="#MIME">MIME</a>] but we will still want our
             own vocabulary document at least for the purpose of explaining and exemplifying
@@ -567,29 +485,26 @@
 </tr>
 </table>
 <h3>
-<A name="Format.cpu"></A>Format.cpu</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>CPU Requirement</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The CPU required to use a software resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
-<p>This element is used in the description of executable programs to
-            identify the kind of CPU that is needed to run them.</p>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a precise
-            identification of the required CPU using a controlled vocabulary. See
-            [<a href="#OLAC-CPU">OLAC-CPU</a>] for the definition of the vocabulary. </p>
-<p>The element content is typically left empty, but it can be used to
-            add further details about the hardware required for running the resource. These
-            could go beyond CPU details to include memory, disk, and so on. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
+<p>This element is used in the description of executable programs to
+            identify the kind of CPU that is needed to run them.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -602,23 +517,35 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need to develop the vocabulary for CPU.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Format.encoding"></A>Format.encoding</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Character Encoding</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An encoded character set used by a digital resource.
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>For a resource that is a digitally encoded text, Format.encoding
             names the encoded character set it uses. For a resource that is a font,
             Format.encoding names an encoded character set that it is able to render. For a
@@ -629,23 +556,14 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to identify the character
-            set using a controlled vocabulary. See [<a href="#OLAC-Encoding">OLAC-Encoding</a>] for the
-            definition of the vocabulary. </p>
-<p>The OLAC recommended best practice is to specify the encoding via
-            the <i>code</i> attribute while leaving the element content empty. Use the
-            element content only when the controlled vocabulary does not offer an
-            appropriate code, or when further explanation about a custom encoding is
-            needed. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
-</td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need to develop the controlled vocabulary for Format.encoding.
             The IANA registry of character set names [<a href="#IANA-CS">IANA-CS</a>] could be used as a
             starting point, but we will need to innovate beyond this. For instance, we will
@@ -655,16 +573,24 @@
 </tr>
 </table>
 <h3>
-<A name="Format.markup"></A>Format.markup</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Markup Scheme</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A markup scheme used by a digital resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>For a resource that is a text file including markup, Format.markup
             identifies the markup system it uses, such as the SGML DTD, the XML Schema, the
             set of Standard Format markers, and the like. For a resource that is a
@@ -681,13 +607,14 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Do we want to go a step further and have markup schemes be
             deposited at OLAC so that we can try to avoid duplicate ids for the same DTD?
             They could have identifiers like <tt>oai:olac:markup:...</tt> and be defined as
@@ -698,30 +625,27 @@
 </tr>
 </table>
 <h3>
-<A name="Format.os"></A>Format.os</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Operating System Requirement</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An operating system required to use a software
           resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
-<p>This element is used in the description of executable programs to
-            identify the operating system environment that is needed to run them.</p>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a precise
-            identification of the required operating system using a controlled vocabulary.
-            See [<a href="#OLAC-OS">OLAC-OS</a>] for the definition of the vocabulary. </p>
-<p>The element content would typically be left empty, but it can be
-            used to add further details about the specific operating system version that is
-            required, or about other system software components that are required. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
+<p>This element is used in the description of executable programs to
+            identify the operating system environment that is needed to run them.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -733,36 +657,37 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need to develop the vocabulary for OS.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Format.sourcecode"></A>Format.sourcecode</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Source Code Language</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A programming language of software distributed in source
           form. </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
-<p>Identifies a programming language used by software that is
-            distributed in source code form.</p>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a precise
-            identification of the programming language using a controlled vocabulary. See
-            [<a href="#OLAC-Sourcecode">OLAC-Sourcecode</a>] for the definition of the vocabulary. </p>
-<p>The element content would typically be left empty, but it can be
-            used to add further details about the particular version or dialect that was
-            used. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
+<p>Identifies a programming language used by software that is
+            distributed in source code form.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -775,23 +700,35 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>We need to develop the vocabulary for Sourcecode.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Identifier"></A>Identifier</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Resource Identifier </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An unambiguous reference to the resource within a given
           context.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Recommended best practice is to identify the resource by means of
             a string or number conforming to a globally-known formal identification system.
             Example formal identification systems include the Uniform Resource Identifier
@@ -814,9 +751,6 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A Uniform Resource Locator for retrieval of an electronically
             encoded resource:</p>
@@ -827,17 +761,25 @@
 </tr>
 </table>
 <h3>
-<A name="Language"></A>Language</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Audience Language </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A language of the intellectual content of the
           resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Language is used for a language the resource is in, as opposed to
             the language it describes (see <a href="#Subject.language">Subject.language</a>). It is related to
             the audience for the work in that it identifies a language that the creator of
@@ -854,24 +796,6 @@
             language of the base text that is being annotated. For a bilingual dictionary,
             use Language for the language in which the definitions are written; use
             Subject.language for the language whose words are being defined.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a precise
-            identification of the language using a controlled vocabulary. See
-            [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary. </p>
-<p>The OLAC recommended best practice is to specify the language via
-            the <i>code</i> attribute while leaving the element content empty. Use the
-            element content only when the controlled vocabulary does not offer an
-            appropriate code, or when further specification is needed, such as to name a
-            specific dialect or to give an alternate name that differs from the default
-            name given by the controlled vocabulary. </p>
-<p>Service providers should use the <i>code</i> attribute to support
-            searches by language, and may use the element content in searches by keyword.
-            They also may supply the default language name in keyword searching when the
-            element content is missing.</p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -893,24 +817,36 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Add an example of specifying a dialect.</p>
 <p>Write the OLAC-Language document.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Publisher"></A>Publisher</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Publisher</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>An entity responsible for making the resource available
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Publisher include a person, an organization, or a
             service. Typically, the name of a Publisher should be used to indicate the
             entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
@@ -922,9 +858,6 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical publisher:</p>
 <pre style="margin-left: 12pt">&lt;publisher&gt;Oxford University Press&lt;/publisher&gt;</pre>
@@ -932,16 +865,24 @@
 </tr>
 </table>
 <h3>
-<A name="Relation"></A>Relation</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Relation </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A reference to a related resource. </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>This element is used to document relationships between resources.
             When the related resource is also in a participating archive, the reference to
             the related resource should be by means of an "oai:" identifier. A Relation
@@ -957,15 +898,6 @@
             a rendition in a new format, then the <i>isForrmatOf</i> refinement is used.
             </p>
 <p></p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>refine</i> attribute should be used to refine the nature of
-            the relationship using values from a controlled vocabulary (for instance, is
-            replaced by, requires, is part of, and so on). The vocabulary for refinements
-            to Relation is defined in [<a href="#DC-Q">DC-Q</a>]. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -987,17 +919,25 @@
 </tr>
 </table>
 <h3>
-<A name="Rights"></A>Rights</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Rights Management </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>Information about rights held in and over the resource.
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p> Typically, a Rights element will contain a rights management
             statement for the resource, or reference a service providing such information.
             Rights information often encompasses Intellectual Property Rights (IPR),
@@ -1007,37 +947,39 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to make a summary
-            statement about rights using a controlled vocabulary. If the coded value
-            adequately documents the rights management issues, leave the element content
-            empty. Otherwise, use the content to add the relevant details. See
-            [<a href="#OLAC-Rights">OLAC-Rights</a>] for the definition of the vocabulary. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
-</td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Write the OLAC-Rights document.</p>
 <p>Add examples after we work out the controlled vocabulary.</p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Source"></A>Source</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Source </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A reference to a resource from which the present resource
           is derived.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>The present resource may be derived from the Source resource in
             whole or in part. [<a href="#DCMES1.1">DCMES1.1</a>] When the Source resource is also
             available in an on-line archive, recommended best practice is to reference it
@@ -1067,9 +1009,6 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>Source for a digital encoding of a manuscript in a participating
             archive:</p>
@@ -1082,16 +1021,24 @@
 </tr>
 </table>
 <h3>
-<A name="Subject"></A>Subject</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Subject and Keywords </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The topic of the content of the resource.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, a Subject will be expressed as keywords, key phrases or
             classification codes that describe a topic of the resource. Recommended best
             practice is to select a value from a controlled vocabulary or formal
@@ -1099,13 +1046,14 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
-</tr>
-<tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Need help here from our librarians and archivists. Is there a
             controlled vocabulary we want to recommend, or should we just recommend
             freeform use of keywords?</p>
@@ -1113,26 +1061,27 @@
 </tr>
 </table>
 <h3>
-<A name="Subject.language"></A>Subject.language</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Subject Language </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A language which the content of the resource describes or
           discusses.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
-<p>See <a href="#Language">Language</a> for a complete discussion (with
-            examples) of using the Language and Subject.language elements.</p>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>As with the <a href="#Language">Language</a> element, a <i>code</i> attribute
-            is used to identify the language precisely. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
+<p>See <a href="#Language">Language</a> for a complete discussion (with
+            examples) of using the Language and Subject.language elements.</p>
 </td>
 </tr>
 <tr valign="top">
@@ -1140,25 +1089,30 @@
 </tr>
 </table>
 <h3>
-<A name="Title"></A>Title</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Title</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>A name given to the resource. </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, a Title will be a name by which the resource is
             formally known. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
 <p>A translation of the title can be supplied in a second Title
             element. Use the <i>lang</i> attribute to identify the language of these
             elements.</p>
 </td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>Only  <i>lang</i> and  <i>scheme</i> (see section 2).  </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
@@ -1171,31 +1125,29 @@
 </tr>
 </table>
 <h3>
-<A name="Type"></A>Type</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Resource Type </td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The nature or genre of the content of the resource.
           </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p> Type includes terms describing general categories, functions,
             genres, or aggregation levels for content. To describe the physical or digital
             manifestation of the resource, use the <a href="#Format">Format</a> element.
             [<a href="#DCMES1.1">DCMES1.1</a>]</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to identify the type
-            using the Dublin Core Types controlled vocabulary [<a href="#DC-Type">DC-Type</a>]. The
-            element content is typically left empty. Use the element content only when the
-            controlled vocabulary does not offer an appropriate type, or when further
-            specification is needed.</p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -1206,37 +1158,30 @@
 </tr>
 </table>
 <h3>
-<A name="Type.data"></A>Type.data</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>Linguistic Data Type</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>The nature or genre of the content of the resource from a
           linguistic standpoint.</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>For a resource that is information in or about a language,
             Type.data identifies what kind of information it is from a linguistic
             standpoint. For a resource that is a software tool, Type.data identifies what
             kind of information it processes. Service providers may use this information to
             match data files with software tools that might be applied to them.</p>
-</td>
-</tr>
-<tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to identify the
-            linguistic data type using a controlled vocabulary. See [<a href="#OLAC-Data">OLAC-Data</a>]
-            for the definition of the vocabulary. The vocabulary uses a two-level coding
-            system. There are three primary types &mdash;<i>transcription, annotation,</i>
-            and<i>description</i>&mdash; each of which have a number of subtypes. </p>
-<p>The OLAC recommended best practice is to specify the encoding via
-            the <i>code</i> attribute while leaving the element content empty. Use the
-            element content only when the controlled vocabulary does not offer an
-            appropriate code, or when further explanation about a custom encoding is
-            needed. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
 </td>
 </tr>
 <tr valign="top">
@@ -1248,47 +1193,47 @@
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Write the OLAC-Data document. </p>
 </font></td>
 </tr>
 </table>
 <h3>
-<A name="Type.functionality"></A>Type.functionality</h3>
-<table cellspacing="12" align="center" width="95%">
-<tr valign="top">
-<td width="100"><i>Name</i></td><td>The functionality of a software resource.</td>
-</tr>
+<A name=""></A>
+</h3>
+<table align="center" cellspacing="12" width="95%">
 <tr valign="top">
 <td width="100"><i>Definition</i></td><td>Software Functionality</td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Comments</i></td><td>
-<p>This element is used with resources that are software applications
-            to classify what they are used for.</p>
+<td width="100"><i>Refinements</i></td><td>
+<p>There are no refinements for this element.</p>
 </td>
 </tr>
 <tr valign="top">
-<td width="100"><i>Attributes</i></td><td>
-<p>The <i>code</i> attribute should be used to identify the
-            linguistic data type using a controlled vocabulary. See
-            [<a href="#OLAC-Functionality">OLAC-Functionality</a>] for the definition of the vocabulary. The
-            vocabulary uses a two-level coding system. There are three primary types
-            &mdash;<i>transcription, annotation,</i> and<i>description</i>&mdash; each of
-            which have a number of subtypes. </p>
-<p>The OLAC recommended best practice is to specify the encoding via
-            the <i>code</i> attribute while leaving the element content empty. Use the
-            element content only when the controlled vocabulary does not offer an
-            appropriate code, or when further explanation about a custom encoding is
-            needed. </p>
-<p>Also  <i>lang</i> and  <i>scheme</i> (see section 2).  </p>
+<td width="100"><i>Schemes</i></td><td>
+<p>There are no encoding schemes for this element.</p>
+</td>
+</tr>
+<tr valign="top">
+<td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
+<p>This element is used with resources that are software applications
+            to classify what they are used for.</p>
 </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td></td>
 </tr>
 <tr valign="top">
-<td width="100"><b><font color="red"><i>To do</i></font></b></td><td><font color="red">
+<td width="100"><b><font color="red">
+<p>
+<i>To do</i>
+</p>
+</font></b></td><td><font color="red">
 <p>Write the OLAC-Functionality document. We may want to base it on
             the HLT Survey <a href="http://cslu.cse.ogi.edu/HLTsurvey/">http://cslu.cse.ogi.edu/HLTsurvey/</a> as advocated by
             the ACL/DFKI Natural Language Software Registry.</p>
@@ -1400,5 +1345,9 @@
       Note.<br>&lt;<a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a>&gt;</td>
 </tr>
 </table>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+            _uacct = "UA-427085-3";
+            urchinTracker();
+            </script>
 </BODY>
 </HTML>
