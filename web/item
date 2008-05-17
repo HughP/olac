@@ -10,6 +10,7 @@
 #   <oai-id>  OAI record identifier
 #
 # changes:
+#   2008-05-16  modify GA script to include tracker for ArchiveID -SB
 #   2008-03-03  obtain item identifier from the path info as well -HL
 #   2008-02-06  added GA script; added search terms -HL
 #   2008-01-28  fixed an sql query because it didn't pick up all
@@ -101,7 +102,8 @@ function tokenizeQuery($queryString)
 $itemid=$_GET['identifier'];
 if (!$itemid) {
 	$arr = explode('?', $_SERVER["REQUEST_URI"]);
-	$itemid = basename($arr[0]);
+	$arr = explode('/oai:', $arr[0]);
+	$itemid = "oai:" . $arr[1];
 }
 $itemid or draw_form();
 
@@ -112,9 +114,14 @@ $tab = $DB->sql("
     from   OLAC_ARCHIVE OA, ARCHIVED_ITEM AI
     where  AI.OaiIdentifier = '$itemid'
     and    OA.Archive_ID = AI.Archive_ID");
-$DB->saw_error() and error_page("Query failed");
-$tab or error_page("Record not found");
-
+if ($DB->saw_error()) {
+    header("HTTP/1.0 500 Internal Server Error");
+    error_page("Query failed");
+}
+if (!$tab) {
+    header("HTTP/1.0 404 Not Found");
+    error_page("Record not found");
+}
 $body = "<h2>OLAC Record: $itemid</h2>\n";
 
 $answer = $tab[0];
@@ -158,6 +165,17 @@ $oai_info = <<<END
   <td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
 </tr>
 END;
+
+$analytics = <<<END
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-427085-3";
+urchinTracker();
+urchinTracker('archive_item_visits/$answer[Archive_ID]');
+</script>
+END;
+
+$analytics_link = "onClick=\"javascript:urchinTracker('archive_outgoing_link/$answer[Archive_ID]')\"";
 
 #$tab = $DB->sql("
 #   select ed.Label as TagLabel, ed2.Label as DcTag,
@@ -216,7 +234,7 @@ foreach ($tab as $answer) {
     }
 	
     $meta_content = $value;
-    $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\">\\1</a>", $value);
+    $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\" $analytics_link>\\1</a>", $value);
     $body .= "<tr><td class=lookup><i>";
     if ($tag != $prev_field) {
         $body .= "$tag:";
@@ -258,7 +276,8 @@ foreach ($tab as $answer) {
 
 
 if ($search_terms) {
-	sort($search_terms);
+        sort($search_terms);
+	$search_terms = array_unique($search_terms);
 	$s = implode(" ", $search_terms);
 	$search_info = <<<END
 <tr>
@@ -308,12 +327,8 @@ foreach( $queryTokens as $tok )
     $body = eregi_replace($tok, "<em>\\0</em>", $body );
 }
 echo $body;
+echo $analytics;
 ?>
 
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-<script type="text/javascript">
-_uacct = "UA-427085-3";
-urchinTracker();
-</script>
 </BODY>
 </HTML>
