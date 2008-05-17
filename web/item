@@ -171,11 +171,11 @@ $analytics = <<<END
 <script type="text/javascript">
 _uacct = "UA-427085-3";
 urchinTracker();
-urchinTracker('archive_item_visits/$answer[Archive_ID]');
+urchinTracker('archive_item_hits/$answer[Archive_ID]');
 </script>
 END;
 
-$analytics_link = "onClick=\"javascript:urchinTracker('archive_outgoing_link/$answer[Archive_ID]')\"";
+$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[Archive_ID]')\"";
 
 #$tab = $DB->sql("
 #   select ed.Label as TagLabel, ed2.Label as DcTag,
