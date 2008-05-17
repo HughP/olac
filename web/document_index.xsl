@@ -4,11 +4,12 @@
      Stylesheet for generating the main OLAC document index (by type)
 
      G. Simons, 10 Sept 2002
-     Last revised: 6 April 2006
+     Last revised: 17 May 2008
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
   <xsl:include href="OLAC_doc_functions.xsl"/>
+  <xsl:include href="Google_Analytics.xsl"/>
   <xsl:strip-space elements="*"/>
   <xsl:variable name="doc-headers" select="document('document_headers.xml')"/>
   <xsl:template match="/documents">
@@ -83,6 +84,7 @@ http://www.language-archives.org/documents.html<br/>Latest update: <xsl:for-each
             <xsl:call-template name="format-date"/>
           </xsl:for-each>
         </div>
+        <xsl:call-template name="GA-script"/>
       </BODY>
     </HTML>
   </xsl:template>
