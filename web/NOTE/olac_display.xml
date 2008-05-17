@@ -26,10 +26,10 @@
 			<heading>Introduction</heading>
 			<p>In order to improve recall and precision in searching, the OLAC metadata format <cit>OLAC-Metadata</cit> defines an extension method (involving the <tt>xsi:type</tt> and <tt>olac:code</tt> attributes) to support resource description using community-defined controlled vocabularies. Service providers may use these attributes to perform precise searches. However, service providers  need to be able to display metadata records to users in a manner that shows all available  information in an easy-to-read form. This means that information from these attributes must be combined with the element content to produce a display of all information pertaining to a metadata element. It also requires that coded attribute values (such as three-letter language codes) be translated into friendly display forms.</p>
 			<p>Transforming OLAC metadata records into such a display format is a non-trivial task that each service provider should not have to implement independently. Thus the OLAC Aggregator <cit>OLACA</cit> offers such a translation service. It supports a metadata format named OLAC_Display. When metadata are harvested using this metadata prefix, the content of any metadata element that uses an extension contains a reader-friendly view of  the information expressed by means of the extension. For instance,</p>
-			<eg>http://www.language-archives.org/cgi-bin/olaca2.pl?
+			<eg>http://www.language-archives.org/cgi-bin/olaca3.pl?
    verb=GetRecord&amp;metadataPrefix=olac&amp;identifier=oai:ethnologue.com:AAA</eg>
 			<p>will retrieve the metadata in OLAC format as specified in <cit>OLAC-Metadata</cit>, whereas</p>
-			<eg>http://www.language-archives.org/cgi-bin/olaca2.pl?
+			<eg>http://www.language-archives.org/cgi-bin/olaca3.pl?
    verb=GetRecord&amp;metadataPrefix=olac_display&amp;identifier=oai:ethnologue.com:AAA</eg>
 			<p>retrieves the same metadata record in the reader-friendly format specified in this document.</p>
 			<p>In order to participate in the wider Open Archives Initiative (OAI) community of service providers, OLAC data providers must also publish their metadata

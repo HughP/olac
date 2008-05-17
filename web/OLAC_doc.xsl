@@ -197,6 +197,11 @@
                <br/>
             </xsl:if>
             <xsl:apply-templates select="todo|references"/>
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+            <script type="text/javascript">
+            _uacct = "UA-427085-3";
+            urchinTracker();
+            </script>
          </BODY>
       </HTML>
    </xsl:template>
