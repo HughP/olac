@@ -10,7 +10,7 @@
 #   <oai-id>  OAI record identifier
 #
 # changes:
-#   2008-05-16  modify GA script to include tracker for ArchiveID -SB
+#   2008-05-16  modify GA script to include tracker for ArchiveURL -SB
 #   2008-03-03  obtain item identifier from the path info as well -HL
 #   2008-02-06  added GA script; added search terms -HL
 #   2008-01-28  fixed an sql query because it didn't pick up all
@@ -171,11 +171,11 @@ $analytics = <<<END
 <script type="text/javascript">
 _uacct = "UA-427085-3";
 urchinTracker();
-urchinTracker('archive_item_hits/$answer[Archive_ID]');
+urchinTracker('archive_item_hits/$answer[RepositoryIdentifier]');
 </script>
 END;
 
-$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[Archive_ID]')\"";
+$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[RepositoryIdentifier]')\"";
 
 #$tab = $DB->sql("
 #   select ed.Label as TagLabel, ed2.Label as DcTag,
