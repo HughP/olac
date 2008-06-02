@@ -42,10 +42,23 @@ from
 where
     ai.Archive_ID=%s and me.Item_ID=ai.Item_ID and
     ic.Problem_Code=ip.Problem_Code and
-    ((ip.Applies_To='I' and ic.Object_ID=ai.Item_ID) or
-     (ip.Applies_To='E' and ic.Object_ID=me.Element_ID))
-order by ic.Problem_Code
+    ip.Applies_To='I' and ic.Object_ID=ai.Item_ID
+
+union
+
+select
+    Label, ic.Problem_Code, Severity, Value, ai.OaiIdentifier
+from
+    ARCHIVED_ITEM ai, METADATA_ELEM me,
+    INTEGRITY_CHECK ic, INTEGRITY_PROBLEM ip
+where
+    ai.Archive_ID=%s and me.Item_ID=ai.Item_ID and
+    ic.Problem_Code=ip.Problem_Code and
+    ip.Applies_To='E' and ic.Object_ID=me.Element_ID
+
+order by Problem_Code
 """
+
     sql2 = """\
 select
     Label, ic.Problem_Code, Severity, Value, Value
@@ -56,7 +69,7 @@ where
     ip.Applies_To='A' and ic.Object_ID=%s
 order by ic.Problem_Code
 """
-    cur.execute(sql1, archive_id)
+    cur.execute(sql1, (archive_id,archive_id))
     tab1 = cur.fetchall()
     cur.execute(sql2, archive_id)
     tab2 = cur.fetchall()
