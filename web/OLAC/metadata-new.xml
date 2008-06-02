@@ -6,7 +6,7 @@
       <status code="candidate" type="standard"/>
       <title>OLAC Metadata</title>
       <baseName>metadata</baseName>
-      <issued>20080130</issued>
+      <issued>20080531</issued>
       <previousIssued>20060405</previousIssued>
       <supersedes>20060405</supersedes>
       <abstract>
@@ -20,12 +20,15 @@
       <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
          (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University of Melbourne
          and University of Pennsylvania (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors>
-      <copyright>2006 Gary Simons (SIL International and Graduate Institute of Applied
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied
          Linguistics) and Steven Bird (University of
          Melbourne and University of Pennsylvania)</copyright>
       <changes>
-         <p>This is a candidate draft describing use of the version 1.1 revision of the OLAC
-            metadata schema.</p>
+         <p>This revision of the document incorporates the upgrade
+             from version 1.0 to version 1.1 of the OLAC
+            metadata schema. The primary change in that upgrade
+            involves the upgrade of the <cit>OLAC-Language</cit>
+             vocabulary from "x-" style codes to ISO 639 codes.</p>
       </changes>
    </header> 
   <body> 
@@ -50,10 +53,17 @@
 <p>The OLAC metadata set is based on the Dublin Core (DC) metadata set and uses
         all fifteen elements defined in that standard. (The
         rationale for following DC is discussed in the OLAC white paper
-        <cit>OLAC-WP</cit>.) To provide greater precision in resource description, OLAC follows the DC recommendation for qualifying elements by means of element refinements or encoding schemes. The
-authorative definition of all DC elements, refinements, and schemes is found
-in <cit>DCMT</cit>.</p> 
-      <p>The qualifiers recommended by DC are applicable across a wide range of resources. However, the language resource
+        <cit>OLAC-WP</cit>.) To provide greater precision in resource description, 
+    OLAC follows the DC recommendation for qualifying elements by means of 
+    element refinements or encoding schemes. The
+    authoritative definition of all DC elements, refinements, and schemes is found
+    in <cit>DCMT</cit>. </p>
+    <p>The present document specifies only the formal (syntactic)
+        requirements on OLAC metadata description. It does not provide a complete set of advice 
+    about what the metadata elements, refinements, and schemes mean or about how they should be used. 
+    Such advice is supplied in an OLAC informational note <cit>OLAC-Usage</cit>.
+</p> 
+    <p>The qualifiers recommended by DC are applicable across a wide range of resources. However, the language resource
         community has a number of resource description requirements that
         are not met by these general standards. In order to meet these
         needs, members of OLAC have developed community-specific
@@ -135,11 +145,25 @@ definition of the current element by the type definition named in its
 value.  In this example, <tt>dcterms:W3C-DTF</tt> resolves to
 the definition for a complex type named W3C-DTF in the XML schema
 that defines the <tt>dcterms</tt> namespace.</p>
-
-<p> Any element may also use the <tt>xml:lang</tt> attribute to indicate the language of the element content. For instance, the following represents a title in the Lau language of Solomon Islands and its translation into English:</p><eg><![CDATA[<title xml:lang="x-sil-LLU">Na tala 'uria na idulaa diana</title>
-<dcterms:alternative xml:lang="en">The path to good reading</dcterms:alternative>]]></eg><p>Values of the<tt> xml:lang</tt> attribute are controlled by the Internet Engineering Task Force standard, "Tags for the Identification of Languages" <cit>RFC1766</cit>. That standard includes approximately 140 two-letter codes from the ISO standard for language identification <cit>ISO639</cit>. It also reserves the prefix <tt>x-</tt> for specifying user-defined language codes.  In order to provide codes for all known languages, OLAC uses this mechanism to define codes for more than 7,000  languages, both living and extinct. See <cit>OLAC-Language</cit> for the complete definition of the  language codes used by OLAC. By using multiple instances of the metadata elements tagged for different languages, data providers may offer a metadata record in multiple languages. </p> 
-       
-       
+       <p> Any element may also use the <tt>xml:lang</tt>
+                attribute to indicate the language of the element
+                content. Though the <cit>XML-Lang</cit> specification
+           permits a wider range of values for this attribute, it is recommended for purposes of interoperation in the
+           OLAC context that only identifiers that conform to the <cit>OLAC-Language</cit> specification be used. 
+           The vocabulary of recommended language identifiers consists of all active codes for individual languages
+           from any part of ISO 639; see the code tables at the
+           <cit>ISO639-3</cit> web site. For instance, the following represents a
+                title in the Lau language of Solomon Islands
+                (identified by its ISO 639-3 code) and its
+                translation into English (identified by its ISO 639-1 code):</p>
+<eg><![CDATA[<title xml:lang="llu">Na tala 'uria na idulaa diana</title>
+<dcterms:alternative xml:lang="en">The path to good reading</dcterms:alternative>]]></eg>
+            <p>By using multiple instances of the metadata elements
+                tagged for different languages, data providers may
+                offer a metadata record in multiple languages. If no
+                <i>xml:lang</i> attribute is given, a service provider
+            may infer that the language of the element content is
+            English.</p> 
        
 </section>
 
@@ -166,7 +190,7 @@ describing a resource about the Dschang language of Cameroon:</p>
 
 <eg><![CDATA[1. <subject>Dschang</subject>
 2. <subject xsi:type="olac:language">Dschang</subject>
-3. <subject xsi:type="olac:language" olac:code="x-sil-BAN"/>]]></eg>
+3. <subject xsi:type="olac:language" olac:code="ybb"/>]]></eg>
 
 <p>All metadata extensions that have been adopted by OLAC
 as recommended best practice are defined in the <tt>olac</tt>
@@ -391,11 +415,17 @@ on the OLAC website in <cit>OLAC-Extensions</cit> or
   <references> 
     
     
-    <ref abbrev="DCMT">DCMI Metadata Terms.<br/>&lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref> 
-    <ref abbrev="DCXML">Guidelines for implementing Dublin Core in XML.<br/>&lt;<url>http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</url>&gt;</ref><ref abbrev="DC-Schemas">XML schemas to support the "Guidelines for implementing DC in XML" recommendation.<br/>&lt;<url>http://dublincore.org/schemas/xmls/</url>&gt;</ref>
+    <ref abbrev="DCMT">DCMI Metadata Terms.<br/>
+        &lt;<url>http://dublincore.org/documents/dcmi-terms/</url>&gt;</ref> 
+    <ref abbrev="DCXML">Guidelines for implementing Dublin Core in XML.<br/>
+        &lt;<url>http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</url>&gt;</ref><ref abbrev="DC-Schemas">XML schemas to support the "Guidelines for implementing DC in XML" recommendation.<br/>&lt;<url>http://dublincore.org/schemas/xmls/</url>&gt;</ref>
     
     <ref abbrev="OAI">Open Archives Initiative.
-      <br/>&lt;<url>http://www.openarchives.org/</url>&gt;</ref><ref abbrev="OLAC-Process">OLAC Process.<br/>&lt;<url>http://www.language-archives.org/OLAC/process.html</url>&gt;</ref><ref abbrev="OLAC-Extensions">Recommended metadata extensions.<br/>&lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref> 
+      <br/>&lt;<url>http://www.openarchives.org/</url>&gt;</ref>
+    <ref abbrev="OLAC-Process">OLAC Process.<br/>
+        &lt;<url>http://www.language-archives.org/OLAC/process.html</url>&gt;</ref>
+      <ref abbrev="OLAC-Extensions">Recommended metadata extensions.<br/>
+          &lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref> 
     <ref abbrev="OLAC">Open Language Archives Community.
       <br/>&lt;<url>http://www.language-archives.org/</url>&gt;</ref> 
     
@@ -410,13 +440,27 @@ on the OLAC website in <cit>OLAC-Extensions</cit> or
     
     <ref abbrev="OLAC-Third-Party">Third Party Extensions.<br/>
 &lt;<url>http://www.language-archives.org/NOTE/third-party-extensions.html</url>&gt;</ref>
-    
+      <ref abbrev="OLAC-Usage">OLAC Metadata Usage Guidelines.<br/>
+          &lt;<url>http://www.language-archives.org/NOTE/usage.html</url>&gt;</ref>
     <ref abbrev="OLAC-WP">White Paper on Establishing an Infrastructure for
       Open Language
       Archiving<br/>&lt;<url>http://www.language-archives.org/docs/white-paper.html</url>&gt;</ref>
     
-  <ref abbrev="HP2000">Heery, Rachel and Manjula Patel, 2000. Application profiles: mixing and matching metadata schemas. Ariadne, Issue 25.<br/>&lt;<url>http://www.ariadne.ac.uk/issue25/app-profiles/</url>&gt;</ref><ref abbrev="RFC1766">Tags for the Identification of Languages.<br/>&lt;<url>http://www.ietf.org/rfc/rfc1766.txt</url>&gt;</ref><ref abbrev="ISO639">Codes for the 
-Representation of Names
-of Languages.<br/>&lt;<url>http://lcweb.loc.gov/standards/iso639-2/langhome.html</url>&gt;</ref><ref abbrev="XMLS">XML Schema, Part 1: Structures.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-1/</url>&gt;</ref><ref abbrev="XMLSP">XML Schema, Part 0: Primer.<br/>&lt;<url>http://www.w3.org/TR/xmlschema-0/</url>&gt;</ref></references>
+  <ref abbrev="HP2000">Heery, Rachel and Manjula Patel, 2000. Application profiles: mixing and 
+      matching metadata schemas. Ariadne, Issue 25.<br/>
+      &lt;<url>http://www.ariadne.ac.uk/issue25/app-profiles/</url>&gt;</ref>
+      <ref abbrev="ISO639-3">Codes for the Representation of Names&#x2014;Part 3: 
+          Alpha-3 code for comprehensive coverage of languages.<br/>
+          &lt;<url>http://www.sil.org/iso639-3/</url>&gt;</ref>
+  <ref abbrev="XMLS">XML Schema, Part 1: Structures.<br/>
+      &lt;<url>http://www.w3.org/TR/xmlschema-1/</url>&gt;</ref>
+  <ref abbrev="XMLSP">XML Schema, Part 0: Primer.<br/>
+      &lt;<url>http://www.w3.org/TR/xmlschema-0/</url>&gt;</ref>
+      
+  <ref abbrev="XML-Lang">Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C Recommendation 16 August 2006.
+          Section 2.12, Language Identification.<br/>
+      &lt;<url>http://www.w3.org/TR/REC-xml#sec-lang-tag</url>&gt;</ref>
+      
+  </references>
 </OLAC_doc>
 

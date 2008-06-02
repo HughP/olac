@@ -10,7 +10,7 @@
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;            (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne and University of&#xA;         Pennsylvania (mailto:sb@ldc.upenn.edu) ">
       <meta name="Description" content="This document defines the standards OLAC archives must follow in implementing a metadata repository. ">
       <meta content="OLAC (Open Language Archives Community)" name="Publisher">
-      <meta name="Date" content="20080513"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
+      <meta name="Date" content="20080531"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
                FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
             </STYLE></HEAD>
    <BODY>
@@ -19,7 +19,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th align="left" width="100">Date&nbsp;issued:</th>
-            <td>2008-05-13</td>
+            <td>2008-05-31</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -28,7 +28,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/OLAC/repositories-20080513.html">http://www.language-archives.org/OLAC/repositories-20080513.html</a></td>
+            <td><a href="http://www.language-archives.org/OLAC/repositories-20080531.html">http://www.language-archives.org/OLAC/repositories-20080531.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Will supersede:</th>
@@ -70,7 +70,8 @@
                               in a new requirement 2 in the requirements on both static and dynamic repositories, namely, that the person
                               associated with the <tt>&lt;adminEmail&gt;</tt> must be identified in a
                                  <tt>&lt;participant&gt;</tt> element. Finally, the guidelines concerning relevance and 
-                              granularity have been revised.
+                              granularity have been revised to define the standard for
+                              granularity in terms of shared provenance.
                </p>
             </td>
          </tr>
@@ -459,61 +460,80 @@
          </ol>
          <h2><A name="Guidelines concerning relevance and granularity"></A>6. Guidelines concerning relevance and granularity
          </h2>
-         <p>When a request is made to register a metadata repository with OLAC, it is first tested for conformance to
-                        the requirements listed in the sections above. When these are met, the registration request is reviewed by
-                        the OLAC Council (see [<a href="#OLAC-Process">OLAC-Process</a>]) before final acceptance. The role of the Council in the
-                        registration process is to ensure that all registered archives meet the following guidelines concerning
-                        relevance and granularity.
+         <p>When a request is made to register a metadata
+                            repository with OLAC, it is first tested for
+                            conformance to the requirements listed in the sections
+                            above. When these are met, the registration request is
+                            reviewed by the OLAC Council (see
+                            [<a href="#OLAC-Process">OLAC-Process</a>]) before final acceptance. The
+                            role of the Council in the registration process is to
+                            ensure that all registered archives meet the following
+                            guidelines concerning relevance and granularity.
          </p>
-         <p>Regarding relevance, in order to be eligible for registration as an OLAC archive:</p>
-         <ul>
-            <li>
-               <p>The metadata repository must catalog language resources.</p>
-            </li>
-         </ul>
-         <p>Regarding the granularity of repositories, a repository is meant to catalog all the holdings of an archive,
-                        rather than having separate repositories for each of the collections within an archive. Thus,
+         <p>Regarding relevance, in order to be eligible for
+                            registration as an OLAC archive:
          </p>
          <ul>
             <li>
-               <p>A given institution or individual should typically publish the metadata for all its resources in a
-                                    single repository. 
-               </p>
-            </li>
-            <li>
-               <p>An exception is appropriate when distinct collections are managed in separate databases and because of this
-                                    require distinct software for implementing separate repositories.
+               <p>The metadata repository must catalog language
+                                          resources.
                </p>
             </li>
          </ul>
-         <p>Regarding the granularity of the records in a repository, the basic guideline is this:</p>
+         <p>Regarding the granularity of repositories, a repository
+                            is meant to catalog all the holdings of an archive,
+                            rather than having separate repositories for each of
+                            the collections within an archive. Thus,
+         </p>
          <ul>
             <li>
-               <p>A metadata repository should treat resources with a single provenance--produced by a single
-                                     origin or source--as constituting a single unit with respect to OLAC metadata and should, 
-                                     therefore, describe them within a single record.
+               <p>A given institution or individual should
+                                          typically publish the metadata for all its
+                                          resources in a single repository. 
+               </p>
+            </li>
+            <li>
+               <p>An exception is appropriate when distinct
+                                          collections are managed in separate databases
+                                          and because of this require distinct software
+                                          for implementing separate repositories.
                </p>
             </li>
          </ul>
-         <p>For published resources, the publication unit typically constitutes the appropriate 
-                        unit for the OLAC metadata record. (For a published work, its provenance includes the act of 
-                        publication, though publication is not typically considered in terms of provenance). For unpublished 
-                        papers presenting findings of research, these closely parallel typical publication works, and can be 
-                        treated at a comparable level in an OLAC metadata record.
+         <p>Regarding the granularity of the records in a
+                            repository, the basic guideline is this:
          </p>
-         <p>The Principle of Provenance is the guiding principle underlying the higher level organization
-                        of most archives. Using this principle, the archives are organized into collections, and sometimes 
-                        sub-collections, containing distinct series and sub-series, that reflect the original order developed
-                        by the creator of the materials within the context of their creation. The collection, for example, of a 
-                        single field trip may contain a large number of distinct components, the separate pieces of documentation that
-            
-                        comprise the records of a number of distinct linguistic events (each with recording, transcription, 
-                        translation, annotation, etc.). However, these components are not the units for description at the OLAC 
-                        level.  It is the unit of the collection that forms the basic unit for OLAC description, as well.
+         <ul>
+            <li>
+               <p>A metadata repository should treat resources
+                                          with a single provenance as constituting a single
+                                          unit with respect to OLAC metadata and should,
+                                          therefore, describe them within a single
+                                          record.
+               </p>
+            </li>
+         </ul>
+         <p>For published resources, the publication unit typically
+                            constitutes the appropriate unit for the OLAC metadata
+                            record. For
+                            unpublished papers presenting findings of research,
+                            these closely parallel typical publication works, and
+                            can be treated at a comparable level in an OLAC
+                            metadata record. For primary
+                            source materials (<i>e.g.,</i> recordings,
+                            transcriptions, annotations, notes, data sets), the
+                            typical practice of archivists is to gather such
+                            materials into collections based on shared
+                            provenance&#8212;this is, based on having a common origin and
+                            history. These collections are then the
+                            primary units for description  in  OLAC
+                            metadata records.
          </p>
-         <p>See Section 5 of the OLAC Metadata Usage Guidelines [<a href="#OLAC-Usage">OLAC-Usage</a>], for a more 
-                        in-depth discussion of the principle of provenance as applied to collections and metadata 
-                        within the OLAC context.
+         <p>See Section 5 of the OLAC Metadata Usage Guidelines
+                                [<a href="#OLAC-Usage">OLAC-Usage</a>], for a more in-depth
+                            discussion of the principle of provenance as applied
+                            to collections and metadata within the OLAC
+                        context.
          </p>
       </body><a name="References"></a><hr>
       <h2>References</h2>
@@ -588,6 +608,8 @@
                         Note.<br>&lt;<a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a>&gt;
             </td>
          </tr>
-      </table>
-   </BODY>
+      </table><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
+          _uacct = "UA-427085-3";
+          urchinTracker();
+      </script></BODY>
 </HTML>
