@@ -10,7 +10,7 @@
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;            (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne and University of&#xA;         Pennsylvania (mailto:sb@ldc.upenn.edu) Joan Spanne, SIL International&#xA;            (mailto:joan_spanne@sil.org)">
       <meta name="Description" content="This document provides guidelines on the meaning and proper usage of the metadata elements used in the&#xA;            metadata standard of the Open Language Archives Community.">
       <meta content="OLAC (Open Language Archives Community)" name="Publisher">
-      <meta name="Date" content="20080513"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
+      <meta name="Date" content="20080531"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
                FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
             </STYLE></HEAD>
    <BODY>
@@ -19,7 +19,7 @@
       <table cellspacing="10">
          <tr valign="top">
             <th align="left" width="100">Date&nbsp;issued:</th>
-            <td>2008-05-13</td>
+            <td>2008-05-31</td>
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
@@ -28,7 +28,7 @@
          </tr>
          <tr valign="top">
             <th align="left">This version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/usage-20080513.html">http://www.language-archives.org/NOTE/usage-20080513.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/usage-20080531.html">http://www.language-archives.org/NOTE/usage-20080531.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Latest version:</th>
@@ -36,7 +36,7 @@
          </tr>
          <tr valign="top">
             <th align="left">Previous&nbsp;version:</th>
-            <td><a href="http://www.language-archives.org/NOTE/usage-20071115.html">http://www.language-archives.org/NOTE/usage-20071115.html</a></td>
+            <td><a href="http://www.language-archives.org/NOTE/usage-20080229.html">http://www.language-archives.org/NOTE/usage-20080229.html</a></td>
          </tr>
          <tr valign="top">
             <th align="left">Abstract:</th>
@@ -59,7 +59,7 @@
          <tr valign="top">
             <th align="left">Changes since previous version:</th>
             <td>
-               <p>In section 5, the section was slightly revised to reflect a revision of the statement from the OLAC Repositories
+               <p>Section 5 was revised to reflect a revision of the statement from the OLAC Repositories
                               standard regarding the basic guideline on granularity being based on the principle of provenance.
                </p>
             </td>
@@ -1684,10 +1684,16 @@
             <tr valign="top">
                <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td>
                <td>
-                  <p>Provenance should be distinguished in usage from <a href="#Description">Description</a>. Provenance metadata should
-                                       be used to track or convey important information regarding the custody and/or management of the
-                                       resource throughout its history. Include any information that has a bearing on interpreting content of
-                                       the resource or upon its artifactual integrity and authenticity.
+                  <p>Provenance should be distinguished in usage from
+                                                 <a href="#Description">Description</a>. Provenance metadata should
+                                             be used to track or convey important information
+                                             regarding the custody or management of the resource
+                                             throughout its history, beginning with its creation.
+                                             Include any information that has a bearing on
+                                             interpreting content of the resource or upon its
+                                             artifactual integrity and authenticity. In the case of a
+                                             collection, provenance has to do with the origin of the
+                                             collection as a whole and its history as a collection.
                   </p>
                </td>
             </tr>
@@ -1748,64 +1754,134 @@
          </table>
          <h2><A name="Granularity of resources"></A>5. Granularity of resources
          </h2>
-         <p>Determining the right level for units to be described as language resources in the OLAC context involves
-                        multiple factors. The level of unit appropriate for inclusion in an aggregated catalog like OLAC's may be
-                        different (typically higher) than the level desirable for the catalog of a specific institution's holdings,
-                        which in turn is typically higher than the level desirable for describing the detailed contents of a
-                        resource. Section 6 of the [<a href="#OLAC-Repositories">OLAC-Repositories</a>] standard establishes the following basic guideline
-                        regarding the granularity of the records in an OLAC repository: &#8220;A metadata repository should treat 
-                        resources with a single provenance--produced by a single origin or source--as constituting a single 
-                        unit with respect to OLAC metadata and should, therefore, describe them within a single record.&#8221; 
-                        The following discussion is aimed at assisting an OLAC participant to find the right level of description.
+         <p>Determining the right level for units to be described
+                            as language resources in the OLAC context involves
+                            multiple factors. The level of unit appropriate for
+                            inclusion in an aggregated catalog like OLAC's may be
+                            different (typically higher) than the level desirable
+                            for the catalog of a specific institution's holdings,
+                            which in turn is typically higher than the level
+                            desirable for describing the detailed contents of a
+                            resource. Section 6 of the
+                            [<a href="#OLAC-Repositories">OLAC-Repositories</a>] standard establishes the
+                            following basic guideline regarding the granularity of
+                            the records in an OLAC repository:
          </p>
-         <p>For a resource that has been published in some form, the appropriate unit of description for the OLAC record
-                        is the unit of the publication itself, though a collective work (<i>e.g.</i> a feschrift) may warrant separate 
-                        records for the separate papers contained within it, in addition to the record for the collective work (and 
-                        related to the whole through the <i>isPartOf</i> and <i>hasPart</i> relationships; see <a href="#Relation">Relation</a>).
-                        In general, the OLAC record parallels a citable source. Thus, for published works, granularity 
-                        does not really pose a problem. However, many archival resources have not been formally published. 
-                        For unpublished papers presenting findings of research, these closely parallel typical publications, 
-                        and can be treated in a comparable way as units for archival description.
+         <blockquote>
+            <p>A metadata
+                               repository should treat resources with a single
+                               provenance as constituting a single unit with respect
+                               to OLAC metadata and should, therefore, describe them
+                               within a single record.
+            </p>
+         </blockquote>
+         <p>The following discussion is
+                            aimed at assisting an OLAC participant to find the
+                            right level of description.
          </p>
-         <p>Granularity poses the greatest problem with primary source materials (<i>e.g.,</i> recordings,
-                        transcriptions, annotations, notes, data sets). The typical practice of archivists is to gather such
-                        materials into collections, which in turn become the primary unit of archival description (<i>i.e.,</i> the
-                        result is resources of type <i>collection</i>; see <a href="#Type">Type</a>).
+         <p>For a resource that has been published in some form,
+                            the appropriate unit of description for the OLAC
+                            record is the unit of the publication itself. A
+                            collective work (<i>e.g.,</i> a festschrift) may warrant
+                            separate records for the separate papers contained
+                            within it (which should be related to the record for the work
+                            as a whole through the <i>isPartOf</i> and
+                            <i>hasPart</i> relationships; see
+                            <a href="#Relation">Relation</a>). In general, the OLAC record
+                            parallels a citable source. Thus, for published works,
+                            granularity does not really pose a problem. However,
+                            many archival resources have not been formally
+                            published. Unpublished papers that present findings of
+                            research closely parallel typical publications and can
+                            be treated in a comparable way as units for archival
+                            description.
          </p>
-         <p>The foremost factor in determining what materials belong together as a single 
-                        collection is their <a href="#Provenance">Provenance</a>. In the typical case, the collected resources 
-                        have a common provenance, that is, source or origin, which includes facets of
-                        who is responsible, as well as when and where. The source could be a single researcher or 
-                        a research team, in the context of a single trip, or a series of related trips. It could also be a project 
-                        that draws together materials from disparate sources for a single new research purpose, thus 
-                        creating a new collection based on a secondary use of the materials.
+         <p>Granularity poses the greatest problem with primary
+                            source materials (<i>e.g.,</i> recordings,
+                            transcriptions, annotations, notes, data sets). The
+                            typical practice of archivists is to gather such
+                            materials into collections, which in turn become the
+                            primary units of archival description (<i>i.e.,</i> the
+                            result is resources of DCMI type <i>collection;</i> see
+                            <a href="#Type">Type</a>). The collection, for example, of a
+                            single field trip may contain a large number of
+                            distinct components&#8212;the separate pieces of
+                            documentation that comprise the records of a number of
+                            distinct linguistic events (each with recording,
+                            transcription, translation, annotation, etc.).
+                            However, these components are not the units for
+                            description at the OLAC level. It is the unit of the
+                            collection that forms the basic unit for OLAC
+                            description.
          </p>
-         <p>In other cases, materials may have been placed together at some point in time well 
-                        after their creation, possibly by the archive itself. If this has occured, there should be
-                        some coherent organizing principle or intermediate stage of development that is still relevant for the
-                        proper understanding and use of the resources. Materials without a common provenance generally should not be
-                        made to constitute a collection and should not be described collectively in an OLAC description.
+         <p>The foremost factor in determining what materials
+                            belong together as a single collection is their
+                                <a href="#Provenance">Provenance</a>. In the typical case, the
+                            collected resources have a common provenance, that is,
+                            they have a common origin and history. Common origin
+                            includes who was responsible for collecting the
+                            materials, as well as when and where they were
+                            collected. It could be a
+                            single researcher or a research team, either in the context
+                            of a single trip or a series of related trips. It
+                            could also be a project that draws together materials
+                            from disparate sources for a single new research
+                            purpose, thus creating a new collection based on a
+                            secondary use of the materials. Common history is also
+                            relevant; the fact that the set of resources has been
+                            moved or changed hands or processed as a whole since
+                            it was originally collected helps to establish
+                            its identity as a single unit for archival
+                            description. 
          </p>
-         <p>Situations of shared provenance that constitute a collection for arrangement and description purposes will
-                        be distinguished by the high degree of commonality of metadata elements, <i>e.g.,</i> same researcher(s),
-                        author(s), subject language(s), content language(s), approximate dates, coverage, linguistic type. Other
-                        metadata elements that may also be important for resource discovery but that may differ for items in the
-                        collection (<i>e.g.,</i> format or discourse type) can be repeated at the OLAC description level for as many
-                        values as are significantly present in the collection. Alternatively, the collection may be divided into sub-collections
-                        by discourse genre, speaker, or other significant feature. The sub-collections can then be treated in
-                        distinct OLAC records (and related to the whole through the <i>isPartOf</i> and <i>hasPart</i>
-                        relationships; see <a href="#Relation">Relation</a>).
+         <p>In other cases, materials may have been placed together
+                            at some point in time well after their creation,
+                            possibly by the archive itself. If this has occurred,
+                            there should be some coherent organizing principle or
+                            intermediate stage of development that is still
+                            relevant for the proper understanding and use of the
+                            resources. Materials without a common provenance
+                            generally should not be made to constitute a
+                            collection and should not be described collectively in
+                            an OLAC description.
          </p>
-         <p>A collection is generally described in greater detail through the use of a "finding aid" that 
-                        gives the details of organization and highlights features of interest. Further characteristics of 
-                        individual items within a collection (such as topic, additional contributors, event specifics, extent, 
-                        format) are be documented at a finer level of granularity by creating such a collection description. 
-                        This should also be included as a part of the collection, preferrably as a structured document or 
-                        metadata set. The Object Reuse and Exchange standard currently under development by the 
-                        Open Archives Initiative [<a href="#OAI-ORE">OAI-ORE</a>] offers an alternative means of handling such 
-                        descriptions as a different kind of harvestable metadata in the OAI-PMH context. 
-                        This finer level of description typically aligns with the session level detail of [<a href="#IMDI">IMDI</a>]
-                        description.
+         <p>Situations of shared provenance that constitute a
+                            collection for arrangement and description purposes
+                            will be distinguished by the high degree of
+                            commonality of metadata elements, <i>e.g.,</i> same
+                            researcher(s), author(s), subject language(s), content
+                            language(s), approximate dates, coverage, linguistic
+                            type. Other metadata elements that may also be
+                            important for resource discovery but that may differ
+                            for items in the collection (<i>e.g.,</i> format or
+                            discourse type) can be repeated at the OLAC
+                            description level for as many values as are
+                            significantly present in the collection.
+                            Alternatively, the collection may be divided into
+                            sub-collections by discourse genre, speaker, or other
+                            significant feature. The sub-collections can then be
+                            treated in distinct OLAC records (and related to the
+                            whole through the <i>isPartOf</i> and <i>hasPart</i>
+                            relationships; see <a href="#Relation">Relation</a>).
+         </p>
+         <p>A collection is generally described in greater detail
+                            through the use of a "finding aid" that gives the
+                            details of organization and highlights features of
+                            interest. Further characteristics of individual items
+                            within a collection (such as topic, additional
+                            contributors, event specifics, extent, format) are
+                            documented at a finer level of granularity by creating
+                            such a collection description. This should also be
+                            included as a part of the collection, preferably as a
+                            structured document or metadata set. The Object Reuse
+                            and Exchange standard currently under development by
+                            the Open Archives Initiative [<a href="#OAI-ORE">OAI-ORE</a>] offers
+                            a means of handling such descriptions as a different
+                            kind of harvestable metadata in the OAI-PMH context.
+                            The session-level detail of [<a href="#IMDI">IMDI</a>]
+                            description typically aligns with the finer level of
+                            description in OAI-ORE rather than the level of Dublin Core
+                            description in OAI-PMH. 
          </p>
       </body><a name="References"></a><hr>
       <h2>References</h2>
