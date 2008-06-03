@@ -26,7 +26,7 @@ ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
 PHP=/pkg/ldc/freebsd/pkg/php-5.0.3/bin/php
 
 # xml dump directory
-XMLDUMPDIR=$ODIR
+XMLDUMPDIR=/web/language-archives/xmldump
 
 # static record pages directory
 SRECDIR=/ldc/web/language-archives/static-records
