@@ -471,7 +471,16 @@
                <xsl:if test="@type='informational' or @type='experimental'">
                   <xsl:text>note; </xsl:text>
                </xsl:if>
-               <xsl:text>full adoption is awaiting successful implementation.  The version that is submitted for final review and adoption may incorporate changes based on experience gained in implementation.</xsl:text>
+               <xsl:text>full adoption is awaiting successful
+                   implementation.  The version that is ultimately
+                   adopted may incorporate changes based on feedback
+                   from implementers. </xsl:text>
+                <xsl:if test="../supersedes">
+                    <xsl:text>Anyone working on a new implementation 
+                        should follow this version of the document
+                        rather than the one it will supersede when
+                        adopted. </xsl:text>
+                </xsl:if>
             </xsl:if>
             <xsl:if test="@code='adopted'">
                <xsl:if test="@type='standard'">
