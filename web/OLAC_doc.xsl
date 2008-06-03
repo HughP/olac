@@ -3,10 +3,10 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 30 Jan 2008
+     Last modified: 2 June 2008
 -->
 <xsl:stylesheet version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd"
+   xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
    <xsl:output doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"
       doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1" method="html"
@@ -678,7 +678,7 @@
       </xsl:for-each>
    </xsl:template>
    <xsl:template match="extensions">
-      <xsl:for-each select="extension">
+       <xsl:for-each select="extension">
          <xsl:variable name="extName">
             <xsl:value-of select="@name"/>
          </xsl:variable>

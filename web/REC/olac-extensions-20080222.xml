@@ -3,7 +3,7 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="candidate" type="recommendation"/>
+      <status code="proposed" type="recommendation"/>
       <title>Recommended metadata extensions</title>
       <baseName>olac-extensions</baseName>
       <issued>20080222</issued>
@@ -17,11 +17,11 @@
          Linguistics (<url>mailto:gary_simons@sil.org</url>) <br/>Steven Bird, University
          of Melbourne and University of Pennsylvania
          (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors>
-      <copyright>2006 Gary Simons (SIL International and Graduate Institute of Applied
+      <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied
          Linguistics) and Steven Bird (University of Melbourne and University of
          Pennsylvania)</copyright>
       <changes><p>Minor changes to bring the extension descriptions and the references up
-         to date.</p></changes>
+         to date for OLAC metadata version 1.1.</p></changes>
    </header>
    <body>
       <section>
