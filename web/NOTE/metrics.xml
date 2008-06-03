@@ -6,8 +6,8 @@
       <status code="proposed" type="informational"/>
       <title>OLAC Metadata Metrics</title>
       <baseName>metrics</baseName>
-      <issued>20080207</issued>
-      <previousIssued>20071117</previousIssued>
+      <issued>20080421</issued>
+      <previousIssued>20080207</previousIssued>
       <abstract>
          <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
             coverage of the participating archives and for evaluating the quality of their metadata
@@ -17,10 +17,9 @@
             (<url>mailto:gary_simons@sil.org</url>)</editors>
       <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics)</copyright>
       <changes>
-         <p>In section 2, removed the proposal to add a "not_applicable" term to the Linguistic Data
-            Type vocabulary in favor of changing to a Language Resource Type vocabulary in the next
-            round of metadata development. Added section 3 describing all the other metrics beyond
-            the quality score.</p>
+         <p>Section 3 on <xref>Overall rating</xref> has been added. In section 4,
+            "Archives with Fresh Metadata" takes into account the new <i>currentAsOf</i>
+            attribute of the OLAC archive description.</p>
       </changes>
    </header>
    <body>
@@ -34,7 +33,9 @@
             vision. "OLAC also conducts automated review based on peer consensus regarding best
             practice" (see core value statements in <cit>OLAC-Process</cit>). </p>
          <p>Section 2 of this note explains the automated system that is implemented on the OLAC web
-            site for evaluating the quality of metadata records. Section 3 explains the other
+            site for evaluating the quality of metadata records. Section 3 explains the
+            derivation of the overall quality rating as a score of 0 to 5 stars.
+            Section 4 explains the other
             metrics that are reported in the <cit>OLAC-Metrics</cit> reports to support comparison
             of size and coverage of collections in addition to aspects of metadata quality and
             usage.</p>
@@ -48,10 +49,7 @@
             are many that can be. As an aid to creating descriptive metadata that meet the latter
             set of recommendations, OLAC has implemented an automated metadata quality score. Each
             metadata record receives a score in the range of 0 to 10 based on the presence or
-            absence of recommended practices. In some contexts the score is reported as a number in
-            this range; in others it is summarized graphically as a rating of 1 to 5 stars. That is,
-            any score of 9 or higher is reported as 5 stars, scores in the range of 7 to 9 are
-            reported as 4 stars, and so on.</p>
+            absence of recommended practices. </p>
          <p>The practices in focus for the evaluation of metadata quality are ones that contribute
             to resource discovery. The score has two major parts: 50% is based on the metadata
             elements that are present and 50% is based on the use of encoding schemes. The elements
@@ -175,6 +173,32 @@
             go into the quality score.</p>
       </section>
       <section>
+         <heading>Overall rating</heading>
+         <p>The overall metadata quality is summarized graphically as a rating of 0 to 5
+         stars. The overall rating is computed as a base rating minus a penalty if the
+         metadata are known to contain integrity violations.</p>
+         <p>The base rating is computed from the average of <xref>The quality
+         score</xref> for all records in the repository, The average quality score
+            ranges from 0 to 10 and is
+            converted to stars by dividing by 2 and rounding to the
+            nearest whole number. Thus, an average quality 
+            score of 9 or higher converts to 5 stars, scores in the range of 7 to 9
+            convert to 4 stars, and so on.</p>
+         <p>In the absence of known integrity problems, the base rating is reported as the
+            overall rating. If integrity problems have been detected, one star is
+            subtracted from the overall rating. The following integrity violations are
+            detected automatically:</p>
+         <ul>
+            <li><p>A reference to a URL that fails to return a resource</p></li>
+            <li><p>A reference to a record with an oai: identifier that does not exist</p></li>
+            <li><p>An invalid value for a controlled vocabulary</p></li>
+         </ul>
+         <p>The list of known integrity violations for the archive with identifier
+            <i>archive-id</i> is found at:</p>
+         <eg>http://www.language-archives.org/checks/archive-id</eg>
+      </section>
+      
+      <section>
          <heading>Other metrics</heading>
          <p>The <cit>OLAC-Metrics</cit> page reports a set of metrics that summarize the size and
             coverage of each participating archive as well as the quality of their metadata records.
@@ -197,12 +221,17 @@
             <dt>Archives with Fresh Metadata</dt>
             <dd>
                <p>The number (and percentage) of participating archives that have updated their
-                  metadata repositories within the past twelve months.</p>
+                  metadata repositories within the past twelve months. A repository is
+                  counted as having been updated within the past twelve months if either the
+                  <i>currentAsOf </i>date in the OLAC archive description (see section 3
+                  of <cit>OLAC-Repositories</cit>) is within the past twelve months or the
+               most recent datestamp for an individual metadata record is within the past
+               twelve months.</p>
             </dd>
             <dt>Archives with Five-star Metadata</dt>
             <dd>
-               <p>The number (and percentage) of participating archives for which the average
-                  metadata quality score is 9 or higher (see <xref>The quality score</xref>).</p>
+               <p>The number (and percentage) of participating archives that receive the
+                  top score for overall metadata quality (see <xref>Overall rating</xref>).</p>
             </dd>
          </dl>
          <p>The following metrics summarize the size and coverage of the selected archive (or of all
@@ -343,6 +372,8 @@
             &lt;<url>http://www.language-archives.org/metrics/</url>&gt;</ref>
       <ref abbrev="OLAC-Process">OLAC Process, Section 2, "Governing ideas".<br/>
             &lt;<url>http://www.language-archives.org/OLAC/process.html#Governing%20ideas</url>&gt;</ref>
+      <ref abbrev="OLAC-Repositories">OLAC Repositories.<br/>
+         &lt;<url>http://www.language-archives.org/OLAC/repositories.html</url>&gt;</ref>
       <ref abbrev="OLAC-Usage">OLAC Metadata Usage Guidelines.<br/>
             &lt;<url>http://www.language-archives.org/NOTE/usage.html</url>&gt;</ref>
 
