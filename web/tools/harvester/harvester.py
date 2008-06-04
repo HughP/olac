@@ -105,6 +105,19 @@ class DBI(Logger):
             sql = 'insert into OLAC_ARCHIVE %s values %s' % (fields,values)
             self.cur.execute(sql, [r[1] for r in L])
             archiveid = self.cur.lastrowid
+
+        sql = "select Name,Role,Email from ARCHIVE_PARTICIPANT where Archive_ID=%s"
+        self.cur.execute(sql, archiveid)
+        L = sorted(self.cur.fetchall())
+        M = sorted([tuple(r) for r in record['participants']])
+        if L != M:
+            sql = "delete from ARCHIVE_PARTICIPANT where Archive_ID=%s"
+            self.cur.execute(sql, archiveid)
+            sql = "insert ignore into ARCHIVE_PARTICIPANT values (%s,%s,%s,%s)"
+            for name, role, email in M:
+                self.cur.execute(sql, (archiveid, name, role, email))
+            self.log("participant list has changed")
+    
         self.archiveid = archiveid
         self.repoid = repoid
         self.newRecordCount = 0
@@ -243,27 +256,35 @@ class Identify:
     Fields can be accessed by the XML element name.
     """
     def __init__(self, xmldata):
-        self.data = xmldata
-        self.archiveType = None
-        self.currentAsOf = None
-        if 'olac-archive' in self.data:
-            for schema, name, vschema, v in self.data['olac-archive'][1]:
-                if name == 'type':
-                    self.archiveType = v
-                elif name == 'currentAsOf':
-                    self.currentAsOf = v
-        
+        archiveType = None
+        currentAsOf = None
+        participants = []
+        self.data = {}
+        for name, atts, contents in xmldata:
+            if name == 'olac-archive':
+                for schema, attname, vschema, v in atts:
+                    if attname == 'type':
+                        archiveType = v
+                    elif attname == 'currentAsOf':
+                        currentAsOf = v
+            elif name == 'participant':
+                h = dict([(f,v) for _,f,_,v in atts])
+                participants.append([h['name'],h['role'],h['email']])
+            else:
+                self.data[name] = ''.join(contents)
+        self.data['type'] = archiveType
+        self.data['archiveType'] = archiveType
+        self.data['currentAsOf'] = currentAsOf
+        try:
+            self.data['oaiVersion'] = self.data['protocolVersion']
+        except KeyError:
+            self.data['oaiVersion'] = None
+        self.data['participants'] = participants
+            
     def __getitem__(self, key):
         if key in self.data:
-            return ''.join(self.data[key][2])
-        elif key in ('type', 'archiveType'):
-            return self.archiveType
-        elif key == 'currentAsOf':
-            return self.currentAsOf
-        elif key == 'oaiVersion':
-            if 'protocolVersion' in self.data:
-                return ''.join(self.data['protocolVersion'][2])
-            
+            return self.data[key]
+
     
 class Record:
     """
@@ -430,21 +451,21 @@ class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
         self.reset()
 
     def reset(self):
-        self.data = {}
-        self.names = []
+        self.data = []
+        self.stack = []
         self.ns = Namespace()
         
     def startElement(self, tag, attrs):
         schema, name, atts = self.ns.push(tag, attrs)
-        self.names.append(name)
-        self.data[name] = [name, atts, []]
+        self.data.append([name, atts, []])
+        self.stack.append(len(self.data)-1)
 
     def characters(self, content):
-        self.data[self.names[-1]][-1].append(content)
+        self.data[self.stack[-1]][-1].append(content)
 
     def endElement(self, tag):
         schema, name = self.ns.resolve(tag)
-        self.names.pop()
+        self.stack.pop()
         self.ns.pop()
 
     def endDocument(self):

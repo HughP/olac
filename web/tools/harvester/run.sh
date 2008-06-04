@@ -45,7 +45,7 @@ CWD=`pwd`; cd $ODIR
 ( $OVESTER 2>&1 ;  $PYTHON $ODIR/cleanup.py -c $MYCNF ) | \
 	/usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 
-new_records=`grep "updated records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
+new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
 if [ ${new_records:-0} -gt 0 ] ; then
     (
         (
