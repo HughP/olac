@@ -3,71 +3,7 @@
 #   Open Language Archives Community                             #
 #   http://www.language-archives.org/tools/olac_schema.sql       #
 ##################################################################
-#
-# CHANGES 2008-05-06 HL:
-#
-# Added SampleIdentifier column to the OLAC_ARCHIVE table
-#
-# CHANGES 2008-05-05 HL:
-#
-# Added tables for integrity checks. (See
-# http://olac.wiki.soruceforge.net/Integrity.)
-#
-# CHANGES 2006-03-31 GS:
-#
-# Added DCMI elements and refinements to ELEMENT_DEFN that have
-# been added since 2003. See comment "Added 2006-03-31" below for 
-# for beginning of list of new items.
-#
-#
-# CHANGES 2003-05-16 HL:
-#
-#	* CODE_DEFN: Extension_ID is a key of EXTENSION, not OLAC_EXTENSION
-#
-# CHANGES 2003-02-25 HL:
-#
-# METADATA_ELEM.Type varchar(30) --> varchar(20)
-# EXTENSION.Extension_ID int not null --> int auto_increment not null
-# added EXTENSION.Label
-# METADATA_ELEM.Extension_ID=0 by default
-#   and METADATA_ELEM.Code='' by default
-#   meaning no extension and no code
-#
-# CHANGES 2003-02-21 HL:
-#
-# in ELEMENT_DEFN.TagName
-#   Requires -> requires
-#   Replaces -> replaces
-# METADATA_ELEM.Type added
-#
-# CHANGES 2003-02-19 HL:  based on olac2_schema-20030120.sql
-#
-# OLAC_EXTENSION --> EXTENSION  (<olac-extension> is harvested)
-#
-# CHANGES 2003-01-20 SB:
-#
-# OLAC_ARCHIVE:shortLocation - added
-# OLAC_ARCHIVE:curator - not null
-# OLAC_ARCHIVE:institution - not null
-# SCHEMA_VERSION - only version 1.0 supported
-# METADATA_ELEM - Refine/Scheme -> Extension_ID
-# ELEMENT_DEFN - removed all refined DC elements
-# ELEMENT_DEFN:RefineVocab - deleted
-# ELEMENT_DEFN:CodeVocab - deleted
-# OLAC_VOCAB -> OLAC_EXTENSION
-# VOCAB_TERM - deleted
-#
-# CHANGES 2003-02-05 SB:
-#
-# consistent capitalization of field names
-# OLAC_EXTENSION - names changed, e.g. OLAC-Role -> olac:role
-# INVERSE_DEFN - deleted
-# ELEMENT_DEFN:Tag_ID - int -> smallint
-# ELEMENT_DEFN:DcElement - added
-# ELEMENT_DEFN:InverseElement - added
-# ELEMENT_DEFN - insert statements modified with new fields
-# ELEMENT_DEFN - added qualified DC elements
-# CODE_DEFN - created (was VOCAB_TERM)
+
 
 ##################################################################
 # Table               : OLAC_ARCHIVE
@@ -108,14 +44,17 @@ create table OLAC_ARCHIVE (
 	ArchivalSubmissionPolicy	text,
 	Copyright		varchar(255),
 	RepositoryName		varchar(255) not null,
-	RepositoryIdentifier	varchar(50) not null,
+	RepositoryIdentifier	varchar(50) not null unique,
 	SampleIdentifier	varchar(255),
 	BaseURL			varchar(255) not null,
 	OaiVersion		varchar(10) not null,
 	FirstHarvested		date,
 	LastHarvested		date,
+	ArchiveType		varchar(64),
 	CurrentAsOf		date,
-	primary key (Archive_ID));
+	ts			timstamp default current_timestamp on update current_timestamp,
+	primary key (Archive_ID)
+) engine=innodb, charset=utf8;
  
 
 ##################################################################
@@ -133,7 +72,7 @@ create table ARCHIVE_PARTICIPANT (
 	Email			varchar(128),
 	primary key (Archive_ID, Role, Email),
 	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID)
-);
+) engine=innodb, charset=utf8;
 
 ##################################################################
 # Table               : SCHEMA_VERSION
@@ -150,7 +89,7 @@ create table SCHEMA_VERSION (
 	SchemaName		varchar(10),
 	Xmlns			varchar(255) not null,
 	SchemaURL		varchar(255) not null
-	);
+) engine=innodb, charset=utf8;
 
 insert into SCHEMA_VERSION values ('',
   '1.0',
@@ -179,13 +118,15 @@ create table ARCHIVED_ITEM (
 	DateStamp		date not null,
 	Archive_ID		int,
 	Schema_ID		int,
+	ts			timestamp default current_timestamp on update current_timestamp,
 	primary key (Item_ID),
 	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID)
         on delete set null
         on update cascade,
 	foreign key (Schema_ID) references SCHEMA_VERSION (Schema_ID)
         on delete set null
-        on update cascade);
+        on update cascade
+) engine=innodb, charset=utf8;
  
 create index ARCHIVED_ITEM_INDEX on ARCHIVED_ITEM (Archive_ID, Schema_ID);
 
@@ -209,7 +150,8 @@ create table ELEMENT_DEFN (
 	Rank			smallint not null,
 	TagName			varchar(255) not null,
 	Label			varchar(255) not null,
-	primary key (Tag_ID));
+	primary key (Tag_ID)
+) engine=innodb, charset=utf8;
  
 
 insert into ELEMENT_DEFN values ( 100, 100,   0, 100, 'contributor', 'Contributor');
@@ -275,6 +217,60 @@ insert into ELEMENT_DEFN values (1702,1700,   0,  52, 'mediator',        'Mediat
 
 
 ##################################################################
+# Table               : EXTENSION
+# Description         : 
+#
+# Extension_ID        : 
+# Type                : The name of the controlled vocabulary
+#                       (<olac-extension><shortName>)
+# DefiningSchema      : The location of the XML Schema for the vocabulary
+# NS                  : The XML namespace for this vocabulary
+# NSPresix            : A namespace prefix for the namespace
+# NSSchema            : XML Schema URL for the namespace
+# Label               : A label for Type
+# LongName            : The long of the controlled vocabulary 
+# VersionDate         : The version date
+# Description         : A prose description of the vocabulary
+# AppliesTo           : A list of DC Elements this extension applies to
+# Documentation       : URL for the documentation
+# 
+# This table will be populated by reading the <extension> elements
+# from http://www.language-archives.org/REC/olac-extensions.xml
+# to discover the schema location, then reading the schema and
+# parsing the <olac-extension> element.
+#
+# !!! PROBLEM - appliesTo is a repeatable XML element
+#     SOLUTION 1. use comma-separated string
+#
+# !!! PROBLEM - the schema doesn't provide labels for Type
+#     SOLUTION 1. Label <- Type
+#
+##################################################################
+
+create table EXTENSION (
+	Extension_ID		int auto_increment not null,
+
+	Type			varchar(20) not null,
+	DefiningSchema		varchar(255),
+	NS			varchar(255) not null,
+	NSPrefix		varchar(20),
+	NSSchema		varchar(255),
+
+	Label			varchar(50),
+	LongName		varchar(50),
+        VersionDate             date,
+        Description             varchar(255),
+        AppliesTo               varchar(255),
+        Documentation           varchar(255),
+
+	primary key (Extension_ID)
+) engine=innodb, charset=utf8;
+
+insert into EXTENSION (Type,NS) values ('','');
+update EXTENSION set Extension_ID=0;
+
+
+##################################################################
 # Table               : METADATA_ELEM
 # Description         : 
 # Element_ID          : 
@@ -301,7 +297,7 @@ create table METADATA_ELEM (
     Type            varchar(20),
     Code            varchar(255) default '',
     Item_ID         int,
-    Tag_ID          int,
+    Tag_ID          smallint,
 	primary key (Element_ID),
 	foreign key (Extension_ID) references EXTENSION (Extension_ID)
         on delete set null 
@@ -311,7 +307,8 @@ create table METADATA_ELEM (
         on update cascade,
 	foreign key (Tag_ID) references ELEMENT_DEFN (Tag_ID)
         on delete set null
-        on update cascade);
+        on update cascade
+) engine=innodb, charset=utf8;
 
 create index METADATA_ELEM_INDEX on METADATA_ELEM (Item_ID, Tag_ID);
 
@@ -371,64 +368,10 @@ create table CODE_DEFN (
 	Label           varchar(255),
         primary key (Extension_ID, Code),
 	foreign key (Extension_ID) references EXTENSION (Extension_ID)
-        on delete set null
-        on update cascade);
+        on update cascade
+) engine=innodb, charset=utf8;
 
 insert into CODE_DEFN (Extension_ID, Code, Label) values (0, '', '');
-
-##################################################################
-# Table               : EXTENSION
-# Description         : 
-#
-# Extension_ID        : 
-# Type                : The name of the controlled vocabulary
-#                       (<olac-extension><shortName>)
-# DefiningSchema      : The location of the XML Schema for the vocabulary
-# NS                  : The XML namespace for this vocabulary
-# NSPresix            : A namespace prefix for the namespace
-# NSSchema            : XML Schema URL for the namespace
-# Label               : A label for Type
-# LongName            : The long of the controlled vocabulary 
-# VersionDate         : The version date
-# Description         : A prose description of the vocabulary
-# AppliesTo           : A list of DC Elements this extension applies to
-# Documentation       : URL for the documentation
-# 
-# This table will be populated by reading the <extension> elements
-# from http://www.language-archives.org/REC/olac-extensions.xml
-# to discover the schema location, then reading the schema and
-# parsing the <olac-extension> element.
-#
-# !!! PROBLEM - appliesTo is a repeatable XML element
-#     SOLUTION 1. use comma-separated string
-#
-# !!! PROBLEM - the schema doesn't provide labels for Type
-#     SOLUTION 1. Label <- Type
-#
-##################################################################
-
-create table EXTENSION (
-	Extension_ID		int auto_increment not null,
-
-	Type			varchar(20) not null,
-	DefiningSchema		varchar(255),
-	NS			varchar(255) not null,
-	NSPrefix		varchar(20),
-	NSSchema		varchar(255),
-
-	Label			varchar(50),
-	LongName		varchar(50),
-        VersionDate             date,
-        Description             varchar(255),
-        AppliesTo               varchar(255),
-        Documentation           varchar(255),
-
-	primary key (Extension_ID)
-);
-
-insert into EXTENSION (Type,NS) values ('','');
-update EXTENSION set Extension_ID=0;
-
 
 ##################################################################
 # Table                : INTEGRITY_PROBLEM
@@ -449,7 +392,7 @@ create table INTEGRITY_PROBLEM (
 	Description		varchar(255) not null,
 
 	primary key (Problem_Code)
-);
+) engine=innodb, charset=utf8;
 
 insert into INTEGRITY_PROBLEM values ('RNF','E','E','Resource Not Found','An attempt to follow the link yields a 404 (Resource not found) error.');
 insert into INTEGRITY_PROBLEM values ('RNA','E','W','Resource Not Available','An attempt to follow the link failed for a reason other than a 404 (Resource not found) error.');
@@ -478,5 +421,116 @@ create table INTEGRITY_CHECK (
 	primary key (Object_ID, Problem_Code),
 	foreign key (Problem_Code) references INTEGRITY_PROBLEM (Problem_Code),
 	key (Problem_Code)
-);
+) engine=innodb, charset=utf8;
 
+##################################################################
+# Table                : ARCHIVES
+#
+# Archive_ID           : A unique ID.
+#                        NOTE: This field has nothing to do with the
+#                        Archive_ID of the OLAC_ARCHIVE table.
+# type                 : Dynamic | Gateway | ...
+# ID                   : OAI repository identifier
+##################################################################
+
+create table ARCHIVES (
+	Archive_ID		int(11) auto_increment,
+	type			varchar(20),
+	ID			varchar(50) not null,
+	BASEURL			varchar(255) not null,
+	contactEmail		varchar(255),
+	dateApproved		date,
+	primary key (Archive_ID)
+) engine=innodb, charset=utf8;
+
+##################################################################
+# Table                : Metrics
+#
+##################################################################
+
+create table Metrics (
+	archive_id		int(11),
+	num_resources		int(11),
+	num_online_resources	int(11),
+	num_languages		int(11),
+	num_linguistic_fields	int(11),
+	num_linguistic_types	int(11),
+	num_dcmi_types		int(11),
+	metadata_quality	float,
+	avg_num_elements	float,
+	std_num_elements	float,
+	avg_xsi_types		float,
+	last_updated		date,
+	integrity_problems	int(11),
+	primary key  (archive_id)
+) engine=innodb, charset=utf8;
+
+##################################################################
+# Table                : MetricsElementUsage
+#
+##################################################################
+
+create table MetricsElementUsage (
+	archive_id		int(11),
+	tag_id			int(11),
+	cnt			int(11),
+	primary key (archive_id, tag_id),
+	key tag_id (tag_id)
+) engine=innodb, charset=utf8;
+
+##################################################################
+# Table                : MetricsElementUsage
+#
+##################################################################
+
+create table MetricsEncodingSchemes (
+	Archive_ID		int(11),
+	Type			varchar(20),
+	Count			int(11)
+) engine=innodb, charset=utf8;
+
+##################################################################
+# Table                : MetricsQualityScore
+#
+##################################################################
+
+create table MetricsQualityScore (
+	Item_ID			int(11),
+	title			float,
+	date			float,
+	agent			float,
+	about			float,
+	depth			float,
+	content_language	float,
+	linguistic_type		float,
+	subject_language	float,
+	dcmi_type		float,
+	prec			float,
+	primary key (Item_ID)
+) engine=innodb, charset=utf8;
+
+##################################################################
+# Table                : LanguageCodes
+# Description          : Ethnologue 15th Ed.  This is slightly different
+#                        from ISO 639-3 in the sense that ISO 639-3 is
+#                        more complete.  The table data can be downloaded
+#                        from the Ethnologue web site.
+##################################################################
+
+create table LanguageCodes (
+	LangID			char(3),
+	CountryID		char(2),
+	LangStatus		char(1),
+	Name			varchar(75),
+	KEY (LangID),
+	KEY (Name)
+) engine=innodb, charset=utf8;
+
+# This command can be modified and used to populate the LanguageCodes table
+# from the data file downloaded from the Ethnologue web site. Make sure that
+# the character encoding of the data file is UTF-8. Also check what kind of
+# newline character(s) is being used in the data file.
+#
+#   load data infile "LanguageCodes.tab" into table LanguageCodes
+#        fields terminated by '\t' ignore 14 lines;
+#
