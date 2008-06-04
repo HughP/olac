@@ -1,9 +1,8 @@
 import sys
+import os
 import MySQLdb
+from optionparser import OptionParser
 
-coninfo = {"read_default_file":"~/.my.cnf", "db":"olac2"}
-con = MySQLdb.connect(**coninfo)
-cur = con.cursor()
 
 sqls = [
     "delete from Metrics",
@@ -148,6 +147,50 @@ sqls = [
     "update Metrics set integrity_problems=(select count(*) from INTEGRITY_CHECK) where archive_id=-1",
     ]
 
-for sql in sqls:
-    cur.execute(sql)
-con.commit();
+
+if __name__ == "__main__":
+    usageString = """\
+Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
+
+    options:
+
+      -h          print this message and exit
+      -c <mycnf>  mycnf file
+      -H <host>   hostname of the mysql server
+      -d <db>     name of the olac database
+
+""" % {"prog":os.path.basename(sys.argv[0])}
+    
+    def usage(msg=None):
+        print >>sys.stderr, usageString
+        if msg:
+            print >>sys.stderr, "ERROR:", msg
+            print >>sys.stderr
+        sys.exit(1)
+        
+    op = OptionParser(
+        "*-h",
+        "-c:",
+        "*-H:",
+        "*-d:",
+        )
+    try:
+        op.parse(sys.argv[1:])
+    except OptionParser.ParseError, e:
+        usage(e.message)
+    if op.get('-h'): usage()
+    
+    mycnf = op.getOne('-c')
+    host = op.getOne('-H')
+    db = op.getOne('-d')
+
+    coninfo = {"read_default_file":mycnf}
+    if host: coninfo["host"] = host
+    if db: coninfo["db"] = db
+    
+    con = MySQLdb.connect(**coninfo)
+    cur = con.cursor()
+
+    for sql in sqls:
+        cur.execute(sql)
+    con.commit();
