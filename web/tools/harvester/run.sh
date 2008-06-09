@@ -13,10 +13,15 @@ HARVEST_LOG=harvest_log.txt
 MYCNF=/home/olac/.my.cnf.olac2
 
 # ovester directory
-ODIR=/ldc/web/language-archives/tools/harvester
-
+case `dirname $0` in
+    /*) ODIR=`dirname $0` ;;
+    *)  ODIR=`pwd`/`dirname $0` ;;
+esac
 
 PYTHON=/ldc/bin/python2.4
+PYMODS=/web/language-archives/lib/python
+PYTHONPATH=$PYMODS
+export PYTHONPATH
 
 # admin email address
 ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
