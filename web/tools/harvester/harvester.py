@@ -146,6 +146,7 @@ class DBI(Logger):
         self.newRecordCount = 0
         self.updatedRecordCount = 0
         self.recordCount = 0
+        self.deletedRecordCount = 0
         self.con.commit()
 
     def processRecord(self, record):
@@ -171,6 +172,7 @@ class DBI(Logger):
                 self.cur.execute(sql, itemid)
                 sql = "delete from ARCHIVED_ITEM where Item_ID=%s"
                 self.cur.execute(sql, itemid)
+                self.deleteRecordCount += 1
             else:
                 # --> update
                 sql = "update ARCHIVED_ITEM set " \
@@ -251,7 +253,8 @@ class DBI(Logger):
     def counts(self):
         return self.recordCount, \
                self.newRecordCount, \
-               self.updatedRecordCount
+               self.updatedRecordCount, \
+               self.deletedRecordCount
 
     def repositoryId(self):
         return self.repoid
@@ -771,10 +774,11 @@ def harvest(url, con, full=False):
         now = datetime.datetime.now()
         if h.harvest():
             update_last_harvested(con, dbi.archiveId(), now)
-            rc, nrc, urc = dbi.counts()
+            rc, nrc, urc, drc = dbi.counts()
             h.log("processed %d records (this may include retries)" % rc)
             h.log("new records: %d" % nrc)
             h.log("updated records: %d" % urc)
+            h.log("deleted records: %d" % drc)
             con.commit()
         else:
             con.rollback()
