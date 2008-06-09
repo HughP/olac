@@ -80,7 +80,8 @@ if [ ${new_records:-0} -gt 0 ] ; then
 	find . -name "*.xml" | sort | sed -E -e 's@^./(.*)@<li><a href="./\1">\1</a>@' > index.html
 	)
 	
-	$PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
+	/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF
+	/usr/bin/lockf /tmp/olac.metrics.lock $PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
 
     ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 fi
