@@ -1,10 +1,19 @@
+import sys
+import os
 import re
 import urlparse
 import socket
 import time
 import OpenSSL
 import MySQLdb
-from curl import *
+try:
+    from optionparser import OptionParser
+except ImportError:
+    print >>sys.stderr, """
+Can't find the 'optionparser' module, which can be obtained from here:
+http://olac.svn.sourceforge.net/viewvc/*checkout*/web/lib/python/optionparser.py
+"""
+    sys.exit(1)
 
 __all__ = [
     "check_urls",
@@ -210,19 +219,14 @@ class HttpChecker:
         return data
 
 
-def connect_to_db():
-    con = MySQLdb.connect(read_default_file="/home/olac/.my.cnf")
-    return con
-
 #
 # RNF, RNA
 #
-def check_urls(archive_id=None):
+def check_urls(con, archive_id=None):
     ftp_check = FtpChecker()
     http_check = HttpChecker()
 
     pat = re.compile(r"((?:f|ht)tps?://\S+)")
-    con = connect_to_db()
     cur = con.cursor()
     if archive_id is None:
         cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join INTEGRITY_CHECK ic on me.Element_ID=ic.Object_ID where Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()")
@@ -257,127 +261,258 @@ def check_urls(archive_id=None):
             cur.execute(sql, args)
         con.commit()
     cur.close()
-    con.close()
 
 #
 # NSI
 #
-def check_broken_reference(archive_id=None):
-    con = connect_to_db()
+def check_broken_reference(con, archive_id=None):
     cur = con.cursor()
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='NSI'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, Content, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID",
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, Content, 'NSI'
+            from METADATA_ELEM me
+              left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier
+            where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID is null
+            """,
             ]
     else:
         sqls = [
-            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='NSI'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, Content, 'NSI' from METADATA_ELEM me left join ARCHIVED_ITEM ai2 on me.Item_ID=ai2.Item_ID left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID and ai2.Archive_ID=%s" % archive_id,
+            """\
+            delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='NSI'
+            """ % archive_id,
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, Content, 'NSI'
+            from METADATA_ELEM me
+              left join ARCHIVED_ITEM ai2 on me.Item_ID=ai2.Item_ID
+              left join ARCHIVED_ITEM ai on me.Content=ai.OaiIdentifier
+            where me.Content regexp '^oai:[^:]+:[^:]+$' and ai.Item_ID is null and ai2.Archive_ID=%s
+            """ % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
     con.commit()
     cur.close()
-    con.close()
+
 
 #
 # NUI (obsolete)
 #
-def check_non_unique_identifier():
+def check_non_unique_identifier(con):
     return
-    con = connect_to_db()
     cur = con.cursor()
     sql = "update ARCHIVED_ITEM ai, (select Item_ID from ARCHIVED_ITEM group by Item_ID having count(*)>1) x set Problem_Code='NUI', IntegrityChecked=now() where ai.Item_ID=x.Item_ID"
     cur.execute(sql)
     con.commit()
     cur.close()
-    con.close()
+
 
 #
 # BSI
 #
-def check_bad_sample_identifier(archive_id=None):
-    con = connect_to_db()
+def check_bad_sample_identifier(con, archive_id=None):
     cur = con.cursor()
 
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BSI'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select oa.Archive_ID, SampleIdentifier, 'BSI' from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null"
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select oa.Archive_ID, SampleIdentifier, 'BSI'
+            from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier
+            where oa.SampleIdentifier is not null and ai.Item_ID is null
+            """,
             ]
     else:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BSI' and Object_ID=%d" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select oa.Archive_ID, SampleIdentifier, 'BSI' from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier where oa.SampleIdentifier is not null and ai.Item_ID is null and oa.Archive_ID=%d" % archive_id,
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select oa.Archive_ID, SampleIdentifier, 'BSI'
+            from OLAC_ARCHIVE oa left join ARCHIVED_ITEM ai on oa.SampleIdentifier=ai.OaiIdentifier
+            where oa.SampleIdentifier is not null and ai.Item_ID is null and oa.Archive_ID=%d
+            """ % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
     con.commit()
     cur.close()
-    con.close()
+
 
 #
 #
 # BLT, BDT, BLC
 #
-def check_invalid_code(archive_id=None):
-    con = connect_to_db()
+def check_invalid_code(con, archive_id=None):
     cur = con.cursor()
 
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='BLT'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='linguistic-type' and cd.Code is null",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BLT'
+            from METADATA_ELEM me
+              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+            where me.Type='linguistic-type' and cd.Code is null
+            """,
+            
             "delete from INTEGRITY_CHECK where Problem_Code='BDT'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='DCMIType' and cd.Code is null",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BDT'
+            from METADATA_ELEM me
+              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+            where me.Type='DCMIType' and cd.Code is null
+            """,
+            
             "delete from INTEGRITY_CHECK where Problem_Code='BLC'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='language' and cd.Code is null",
+            #"insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='language' and cd.Code is null",
+            
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BLC'
+            from METADATA_ELEM me
+              left join ISO_639_3 lc on me.Code=lc.Id
+              left join ISO_639_3 lc2 on me.Code=lc2.Part2B
+              left join ISO_639_3 lc4 on me.Code=lc4.Part1
+            where me.Type='language' and lc.Id is null and lc2.Id is null and lc4.Id is null
+            """,
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLT'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='linguistic-type' and cd.Code is null" % archive_id,
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BLT'
+            from METADATA_ELEM me
+              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+              left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
+            where ai.Archive_ID=%d and me.Type='linguistic-type' and cd.Code is null
+            """ % archive_id,
+            
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BDT'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BDT' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='DCMIType' and cd.Code is null" % archive_id,
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BDT'
+            from METADATA_ELEM me
+              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+              left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
+            where ai.Archive_ID=%d and me.Type='DCMIType' and cd.Code is null
+            """ % archive_id,
+            
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLC'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Archive_ID=ai.Archive_ID where ai.Archive_ID=%d and me.Type='language' and cd.Code is null" % archive_id,
+            #"insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID where ai.Archive_ID=%d and me.Type='language' and cd.Code is null" % archive_id,
+            """\
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Code, 'BLC'
+            from METADATA_ELEM me
+              left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
+              left join ISO_639_3 lc on me.Code=lc.Id
+              left join ISO_639_3 lc2 on me.Code=lc2.Part2B
+              left join ISO_639_3 lc4 on me.Code=lc4.Part1
+            where ai.Archive_ID=%d and me.Type='language' and lc.Id is null and lc2.Id is null and lc4.Id is null
+            """ % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
     con.commit()
     cur.close()
-    con.close()
 
 #
 # SLC
 #
-def check_language_code(archive_id=None):
-    con = connect_to_db()
+def check_language_code(con, archive_id=None):
     cur = con.cursor()
     if archive_id is None:
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='SLC'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from METADATA_ELEM me, RetiredLanguageCodes rlc where me.Type='language' and me.Code=rlc.Code"
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from METADATA_ELEM me, ISO_639_3_Retirements rlc where me.Type='language' and me.Code=rlc.Id",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where me.Type='language' and me.Code=mlc.M_Id",
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='SLC'" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, RetiredLanguageCodes rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Code" % archive_id
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Retirements rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
     con.commit()
     cur.close()
-    con.close()
 
 
 if __name__ == '__main__':
-    # takes just several minutes
-    check_broken_reference()
-    check_non_unique_identifier()
-    check_bad_sample_identifier()
-    check_invalid_code()
-    check_language_code()
-    # takes several hours
-    check_urls()
+    usageString = """\
+Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
+
+    options:
+
+      -h          print this message and exit
+      -c <mycnf>  mycnf file
+      -H <host>   hostname of the mysql server
+      -d <db>     name of the olac database
+      -a <repoid> check only the archive specified by the repository ID
+      -u          resource-not-found/-available checks only
+                  (by defaults, these checks are excluded)
+
+""" % {"prog":os.path.basename(sys.argv[0])}
+    
+    def usage(msg=None):
+        print >>sys.stderr, usageString
+        if msg:
+            print >>sys.stderr, "ERROR:", msg
+            print >>sys.stderr
+        sys.exit(1)
+        
+    op = OptionParser(
+        "*-h",
+        "-c:",
+        "*-H:",
+        "*-d:",
+        "*-a:",
+        "*-u",
+        )
+    try:
+        op.parse(sys.argv[1:])
+    except OptionParser.ParseError, e:
+        usage(e.message)
+    if op.get('-h'): usage()
+    
+    mycnf = op.getOne('-c')
+    host = op.getOne('-H')
+    db = op.getOne('-d')
+
+    opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
+    if host: opts["host"] = host
+    if db: opts["db"] = db
+    con = MySQLdb.connect(**opts)
+
+    repoid = op.getOne('-a')
+    if repoid:
+        cur = con.cursor()
+        cur.execute("select Archive_ID from OLAC_ARCHIVE " \
+                    "where RepositoryIdentifier=%s", repoid)
+        if cur.rowcount == 0:
+            msg = "archive by the repository ID doesn't exist: %s" % repoid
+            log(msg)
+            sys.stderr.write(msg + "\n")
+            cur.close()
+            con.close()
+            sys.exit(1)
+        else:
+            archive_id = cur.fetchone()[0]
+    else:
+        archive_id = None
+
+    if op.getOne('-u'):
+        check_urls(con, archive_id)
+    else:
+        check_broken_reference(con, archive_id)
+        check_bad_sample_identifier(con, archive_id)
+        check_invalid_code(con, archive_id)
+        check_language_code(con, archive_id)
