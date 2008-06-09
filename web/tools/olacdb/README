@@ -18,7 +18,7 @@ http://www.ethnolotue.com and http://www.sil.org.
   $ sed 1d iso-639-3-macrolanguages_20080218.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Macrolanguages
   $ sed 1d iso-639-3_Retirements_20080529.tab | \
-	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Retirements
+	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Retirements -e latin-1
 
 
 Finally, populate the EXTENSION table with OLAC extensions.  Use "-n 1.0" to
