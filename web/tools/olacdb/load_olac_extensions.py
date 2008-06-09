@@ -20,7 +20,7 @@ http://olac.svn.sourceforge.net/viewvc/*checkout*/web/lib/python/optionparser.py
 
 if __name__ == "__main__":
     usageString = """\
-Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
+Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] -n <ver>
 
     options:
 
@@ -28,6 +28,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
       -c <mycnf>  mycnf file
       -H <host>   hostname of the mysql server
       -d <db>     name of the olac database
+      -n <ver>    OLAC version (=1.0|1.1)
 
 """ % {"prog":os.path.basename(sys.argv[0])}
     
@@ -43,6 +44,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
         "-c:",
         "*-H:",
         "*-d:",
+        "-n:",
         )
     try:
         op.parse(sys.argv[1:])
@@ -53,7 +55,11 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
     mycnf = op.getOne('-c')
     host = op.getOne('-H')
     db = op.getOne('-d')
-
+    ver = op.getOne('-n')
+    if ver not in ("1.0", "1.1"):
+        msg = "invalid OLAC version: %s" % `ver`
+        usage(msg)
+        
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
@@ -74,7 +80,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
                 'linguistic-field',
                 'linguistic-type',
                 'role'):
-        url = "http://www.language-archives.org/OLAC/1.1/olac-%s.xsd" % xsd
+        url = "http://www.language-archives.org/OLAC/%s/olac-%s.xsd" % (ver,xsd)
         xml = parse(urllib2.urlopen(url))
         record = {}
         for tagName, dbFieldName in fields.items():
@@ -86,9 +92,9 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
                     record[dbFieldName] = e.firstChild.nodeValue.strip()
         record['Type'] = xsd
         record['DefiningSchema'] = url
-        record['NS'] = 'http://www.language-archives.org/OLAC/1.1/'
+        record['NS'] = 'http://www.language-archives.org/OLAC/%s/' % ver
         record['NSPrefix'] = 'olac'
-        record['NSSchema'] = 'http://www.language-archives.org/OLAC/1.1/olac.xsd'
+        record['NSSchema'] = 'http://www.language-archives.org/OLAC/%s/olac.xsd' % ver
 
         codes = []
         for e in xml.getElementsByTagName("xs:enumeration"):
