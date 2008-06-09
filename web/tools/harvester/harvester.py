@@ -10,7 +10,14 @@ import tempfile
 import MySQLdb
 import pycurl
 from curl import *
-from optionparser import OptionParser
+try:
+    from optionparser import OptionParser
+except ImportError:
+    print >>sys.stderr, """
+Can't find the 'optionparser' module, which can be obtained from here:
+http://olac.svn.sourceforge.net/viewvc/*checkout*/web/lib/python/optionparser.py
+"""
+    sys.exit(1)
 
 XSI_SCHEMA = 'http://www.w3.org/2001/XMLSchema-instance'
 
@@ -54,6 +61,21 @@ class DBI(Logger):
         self.extids = dict([((r[0],r[1]), r[2]) for r in self.cur.fetchall()])
         self.extids[None,None] = self.extids['','']
 
+        # ISO 639-1 table
+        sql = "select Part1, Id from ISO_639_3 where Part1 is not null"
+        self.cur.execute(sql)
+        self.ISO_639_1 = dict([r for r in self.cur.fetchall()])
+
+        # ISO 639-2B table
+        sql = "select Part2B, Id from ISO_639_3 where Part2B is not null"
+        self.cur.execute(sql)
+        self.ISO_639_2B = dict([r for r in self.cur.fetchall()])
+
+        # ISO 639-2T table
+        #sql = "select Part2T, Id from ISO_639_3 where Part2T is not null"
+        #self.cur.execute(sql)
+        #self.ISO_639_2T = dict([r for r in self.cur.fetchall()])
+        
     def processIdentify(self, record):
         dbrecord = {}
         dbfields = {}
@@ -180,11 +202,29 @@ class DBI(Logger):
                 except KeyError:
                     # this is a new extension
                     # --> add it
-                    sql = "insert ignore into EXTENSION (Type, NS) values (%s, %s)"
-                    self.cur.execute(sql, (extType, extSchema))
+                    sql = "insert ignore into EXTENSION (Type, NS, NSSchema) values (%s, %s, %s)"
+                    try:
+                        self.cur.execute(sql, (extType, extSchema, extSchema.location()))
+                    except Exception, e:
+                        self.log("")
+                        self.log("db error: error while executing a query")
+                        self.log("db error: query:  %s" % sql)
+                        self.log("db error: error:  %s" % e)
+                        self.log("")
+                        raise
                     extid = self.cur.lastrowid
                     self.extids[extSchema, extType] = extid
 
+                # translate ISO 639-1/2B codes to 639-3 equivalets
+                # NOTE: what about ISO 639-2T?
+                if extType == 'language':
+                    #if extCode in self.ISO_639_2T:
+                    #    extCode = self.ISO_639_2T[extCode]
+                    if extCode in self.ISO_639_2B:
+                        extCode = self.ISO_639_2B[extCode]
+                    elif extCode in self.ISO_639_1:
+                        extCode = self.ISO_639_1[extCode]
+                        
                 sql = "insert into METADATA_ELEM " \
                       "(TagName, Content, Extension_ID, Type, Code, Item_ID, Tag_ID) " \
                       "values (%s, %s, %s, %s, %s, %s, %s)"
@@ -332,22 +372,89 @@ class Record:
     def datestamp(self):
         return self.datestamp_
 
+
+class Schema:
+    def __init__(self, uri, loc=None):
+        self.uri_ = uri
+        self.loc_ = loc
+
+    def __str__(self):
+        return self.uri_
+
+    def __hash__(self):
+        return hash(self.uri_)
+
+    def __cmp__(self, v):
+        if isinstance(v,Schema):
+            return cmp(self.uri_,v.uri_)
+        else:
+            return cmp(self.uri_,v)
+
+    def __eq__(self, v):
+        if isinstance(v,Schema):
+            return self.uri_ == v.uri_
+        else:
+            return self.uri_ == v
+    
+    def uri(self):
+        return self.uri_
+
+    def location(self):
+        return self.loc_
+
+    def setLocation(self, loc):
+        self.loc_ = loc
+
+
+class Environment:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, dic={}):
+        self.stack.append(dic)
+
+    def pop(self):
+        if self.stack:
+            self.stack.pop()
+
+    def toDict(self):
+        h = {}
+        for h1 in self.stack:
+            h.update(h1)
+        return h
+    
+    def __setitem__(self, name, value):
+        if self.stack:
+            self.stack[-1][name] = value
+
+    def __getitem__(self, name):
+        for i in range(len(self.stack)-1,-1,-1):
+            h = self.stack[i]
+            if name in h:
+                return h[name]
+
+    def __contains__(self, name):
+        for i in range(len(self.stack)-1,-1,-1):
+            if name in self.stack[i]:
+                return True
+        return False
+
     
 class Namespace:
     """
     Namespace object keeps track of the XML namespaces in an XML document.
     """
     def __init__(self):
-        self.nsStack = []
+        self.schemaLocs = Environment()
+        self.schemas = Environment()
 
     def push(self, tag, attrs):
         """
         Process namespace-related attributes and return unused attributes.
         """
         prefixDict = {}
-        schemaLocation = {}
         schemaLocationCands = []
-        rest = {}
+        rest = {}   # unprocessed attributes
         for att in attrs.getNames():
             if att == 'xmlns':
                 prefixDict[0] = attrs.getValue(att)
@@ -359,20 +466,19 @@ class Namespace:
                 schemaLocationCands.append((prefix,attrs.getValue(att)))
             else:
                 rest[att] = attrs.getValue(att)
-        h = self.prefixes()
+        self.schemaLocs.push()
         for prefix, s in schemaLocationCands:
             if (prefix in prefixDict and prefixDict[prefix] == XSI_SCHEMA) or \
-               (prefix in h and h[prefix] == XSI_SCHEMA):
+               (prefix in self.schemas and self.schemas[prefix] == XSI_SCHEMA):
                 L = s.strip().split()
-                try:
-                    for i in range(0,len(L),2):
-                        schemaLocation[L[i]] = L[i+1]
-                except IndexError:
-                    # the value of xsi:schemaLocation is invalid
-                    # there must be an even number of tokens
-                    pass
-                break
-        self.nsStack.append((prefixDict,schemaLocation))
+                # in case len(L) is an odd number
+                if len(L)/2*2 != len(L): L.append(None)
+                for i in range(0,len(L),2):
+                    self.schemaLocs[L[i]] = L[i+1]
+        self.schemas.push()
+        for prefix, schema in prefixDict.items():
+            schemaObj = Schema(schema, self.schemaLocs[schema])
+            self.schemas[prefix] = schemaObj
 
         atts = []
         elSchema, elName = self.resolve(tag)
@@ -381,7 +487,7 @@ class Namespace:
                 schema, att = self.resolve(att)
             else:
                 schema = elSchema
-            if schema is not None and schema in XSI_SCHEMA and att=='type':
+            if schema is not None and str(schema) in XSI_SCHEMA and att=='type':
                 vSchema, v = self.resolve(v)
             else:
                 vSchema = None
@@ -389,33 +495,20 @@ class Namespace:
         return elSchema, elName, atts
     
     def pop(self):
-        self.nsStack.pop()
+        self.schemaLocs.pop()
+        self.schemas.pop()
 
     def find(self, prefix):
-        for i in range(len(self.nsStack)-1,-1,-1):
-            if prefix in self.nsStack[i][0]:
-                return self.nsStack[i][0][prefix]
+        return self.schemas[prefix]
 
     def findSchemeLocation(self, schema):
-        for i in range(len(self.nsStack)-1,-1,-1):
-            if schema in self.nsStack[i][1]:
-                return self.nsStack[i][1][schema]
+        return self.schemaLocs[schema]
 
     def prefixes(self):
-        h = {}
-        for i in range(len(self.nsStack)-1,-1,-1):
-            for k,v in self.nsStack[i][0].items():
-                if k not in h:
-                    h[k] = v
-        return h
+        return self.schemas.toDict()
 
     def schemaLocations(self):
-        h = {}
-        for i in range(len(self.nsStack)-1,-1,-1):
-            for k,v in self.nsStack[i][1].items():
-                if k not in h:
-                    h[k] = v
-        return h
+        return self.schemaLocs.toDict()
 
     def resolve(self, qname):
         if ':' in qname:
@@ -464,7 +557,7 @@ class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
         self.data[self.stack[-1]][-1].append(content)
 
     def endElement(self, tag):
-        schema, name = self.ns.resolve(tag)
+        #schema, schemaLoc, name = self.ns.resolve(tag)
         self.stack.pop()
         self.ns.pop()
 
@@ -641,8 +734,8 @@ def make_connection():
 
 def update_last_harvested(con, archiveid, now):
     cur = con.cursor()
-    sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
-    cur.execute(sql, (archiveid, now))
+    sql = "update OLAC_ARCHIVE set LastHarvested=now() where Archive_ID=%s"
+    cur.execute(sql, archiveid)
     con.commit()
     cur.close()
 
@@ -655,16 +748,17 @@ def harvest(url, con, full=False):
         now = datetime.datetime.now()
         if h.harvest():
             update_last_harvested(con, dbi.archiveId(), now)
+            rc, nrc, urc = dbi.counts()
+            h.log("processed %d records (this may include retries)" % rc)
+            h.log("new records: %d" % nrc)
+            h.log("updated records: %d" % urc)
+            con.commit()
+        else:
+            con.rollback()
     except:
         msg = traceback.format_exc()
         msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
         h.log(msg)
-
-    repoid = dbi.repositoryId()
-    rc, nrc, urc = dbi.counts()
-    h.log("processed %d records (this may include retries)" % rc)
-    h.log("new records: %d" % nrc)
-    h.log("updated records: %d" % urc)
 
 def harvest_single(url, mycnf, host=None, db=None, full=False):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
@@ -672,6 +766,7 @@ def harvest_single(url, mycnf, host=None, db=None, full=False):
     if db: opts["db"] = db
     con = MySQLdb.connect(**opts)
     harvest(url, con, full)
+    con.close()
 
 def harvest_all(mycnf, host=None, db=None, full=False, numProc=5):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
