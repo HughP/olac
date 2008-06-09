@@ -42,6 +42,7 @@ class DBI(Logger):
         self.recordCount = 0
         self.newRecordCount = 0
         self.updatedRecordCount = 0
+        self.deletedRecordCount = 0
         self.repoid = None
         self.archiveid = None
         
@@ -149,6 +150,7 @@ class DBI(Logger):
 
     def processRecord(self, record):
         self.recordCount += 1
+
         try:
             schemaid = self.olacschema[record.olacSchema()]
         except KeyError:
@@ -162,29 +164,40 @@ class DBI(Logger):
         flagUpdateMetadata = False
         if self.cur.rowcount > 0:
             # record with the same id exists
-            # --> update
             itemid = self.cur.fetchone()[0]
-            sql = "update ARCHIVED_ITEM set " \
-                  "OaiIdentifier=%s,DateStamp=%s,Archive_ID=%s,Schema_ID=%s " \
-                  "where Item_ID=%s"
-            args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
-            self.cur.execute(sql, args)
-            if self.cur.rowcount > 0:
-                self.updatedRecordCount += 1
-                flagUpdateMetadata = True
+            if record.deleted():
+                # --> delete
                 sql = "delete from METADATA_ELEM where Item_ID=%s"
                 self.cur.execute(sql, itemid)
+                sql = "delete from ARCHIVED_ITEM where Item_ID=%s"
+                self.cur.execute(sql, itemid)
+            else:
+                # --> update
+                sql = "update ARCHIVED_ITEM set " \
+                      "OaiIdentifier=%s,DateStamp=%s,Archive_ID=%s,Schema_ID=%s " \
+                      "where Item_ID=%s"
+                args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
+                self.cur.execute(sql, args)
+                if self.cur.rowcount > 0:
+                    self.updatedRecordCount += 1
+                    flagUpdateMetadata = True
+                    sql = "delete from METADATA_ELEM where Item_ID=%s"
+                    self.cur.execute(sql, itemid)
         else:
-            # new record
-            # --> insert
-            args = (oaiid, record.datestamp(), self.archiveid, schemaid)
-            sql = "insert into ARCHIVED_ITEM " \
-                  "(OaiIdentifier, DateStamp, Archive_ID, Schema_ID) " \
-                  "values (%s, %s, %s, %s)"
-            self.cur.execute(sql, args)
-            itemid = self.cur.lastrowid
-            flagUpdateMetadata = True
-            self.newRecordCount += 1
+            if record.deleted():
+                # do nothing
+                pass
+            else:
+                # new record
+                # --> insert
+                args = (oaiid, record.datestamp(), self.archiveid, schemaid)
+                sql = "insert into ARCHIVED_ITEM " \
+                      "(OaiIdentifier, DateStamp, Archive_ID, Schema_ID) " \
+                      "values (%s, %s, %s, %s)"
+                self.cur.execute(sql, args)
+                itemid = self.cur.lastrowid
+                flagUpdateMetadata = True
+                self.newRecordCount += 1
         
         if flagUpdateMetadata:
             for row in record.metadataElements():
@@ -338,6 +351,13 @@ class Record:
         self.oaiId_ = self._extract(header, 'name', 'identifier', 'body')
         self.datestamp_ = self._extract(header, 'name', 'datestamp', 'body')
 
+        self.deleted_ = False
+        header_atts = self._extract(header, 'name', 'header', 'attributes')
+        for attns, att, xsiTypeNs, attval in header_atts:
+            if att == 'status' and attval == 'deleted':
+                self.deleted_ = True
+                break
+
     def _extract(self, L, searchField, searchValue, returnField):
         fields = ["schema", "name", "attributes", "body"]
         try:
@@ -372,7 +392,10 @@ class Record:
     def datestamp(self):
         return self.datestamp_
 
+    def deleted(self):
+        return self.deleted_
 
+    
 class Schema:
     def __init__(self, uri, loc=None):
         self.uri_ = uri
