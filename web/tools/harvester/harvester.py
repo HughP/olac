@@ -43,6 +43,13 @@ class DBI(Logger):
         self.newRecordCount = 0
         self.updatedRecordCount = 0
         self.deletedRecordCount = 0
+        self.ignoredRecordCount = 0
+        self.recordCount0 = 0
+        self.newRecordCount0 = 0
+        self.updatedRecordCount0 = 0
+        self.deletedRecordCount0 = 0
+        self.ignoredRecordCount0 = 0
+
         self.repoid = None
         self.archiveid = None
         
@@ -143,14 +150,21 @@ class DBI(Logger):
     
         self.archiveid = archiveid
         self.repoid = repoid
+        self.recordCount = 0
         self.newRecordCount = 0
         self.updatedRecordCount = 0
-        self.recordCount = 0
         self.deletedRecordCount = 0
+        self.ignoredRecordCount = 0
+        self.recordCount0 = 0
+        self.newRecordCount0 = 0
+        self.updatedRecordCount0 = 0
+        self.deletedRecordCount0 = 0
+        self.ignoredRecordCount0 = 0
+
         self.con.commit()
 
     def processRecord(self, record):
-        self.recordCount += 1
+        self.recordCount0 += 1
 
         try:
             schemaid = self.olacschema[record.olacSchema()]
@@ -172,7 +186,7 @@ class DBI(Logger):
                 self.cur.execute(sql, itemid)
                 sql = "delete from ARCHIVED_ITEM where Item_ID=%s"
                 self.cur.execute(sql, itemid)
-                self.deleteRecordCount += 1
+                self.deleteRecordCount0 += 1
             else:
                 # --> update
                 sql = "update ARCHIVED_ITEM set " \
@@ -181,14 +195,16 @@ class DBI(Logger):
                 args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
                 self.cur.execute(sql, args)
                 if self.cur.rowcount > 0:
-                    self.updatedRecordCount += 1
+                    self.updatedRecordCount0 += 1
                     flagUpdateMetadata = True
                     sql = "delete from METADATA_ELEM where Item_ID=%s"
                     self.cur.execute(sql, itemid)
+                else:
+                    self.ignoredRecordCount0 += 1
         else:
             if record.deleted():
                 # do nothing
-                pass
+                self.ignoredRecordCount0 += 1
             else:
                 # new record
                 # --> insert
@@ -199,7 +215,7 @@ class DBI(Logger):
                 self.cur.execute(sql, args)
                 itemid = self.cur.lastrowid
                 flagUpdateMetadata = True
-                self.newRecordCount += 1
+                self.newRecordCount0 += 1
         
         if flagUpdateMetadata:
             for row in record.metadataElements():
@@ -248,13 +264,14 @@ class DBI(Logger):
             
         self.count += 1
         if self.count % 100 == 0:
-            self.con.commit()
+            self.commit()
             
     def counts(self):
         return self.recordCount, \
                self.newRecordCount, \
                self.updatedRecordCount, \
-               self.deletedRecordCount
+               self.deletedRecordCount, \
+               self.ignoredRecordCount
 
     def repositoryId(self):
         return self.repoid
@@ -268,9 +285,20 @@ class DBI(Logger):
             self.cur.execute(sql, self.archiveid)
             return self.cur.fetchone()[0]
         
-    def __del__(self):
+    def commit(self):
         # NOTE: make sure that this gets called
         self.con.commit()
+        self.recordCount += self.recordCount0
+        self.newRecordCount += self.newRecordCount0
+        self.updatedRecordCount += self.updatedRecordCount0
+        self.deletedRecordCount += self.deletedRecordCount0
+        self.ignoredRecordCount += self.ignoredRecordCount0
+        self.recordCount0 = 0
+        self.newRecordCount0 = 0
+        self.updatedRecordCount0 = 0
+        self.deletedRecordCount0 = 0
+        self.ignoredRecordCount0 = 0
+
 
 ##
 ##
@@ -728,7 +756,6 @@ class Harvester(Logger):
         url = self.request.Identify()
         self.log("fetching and processing: %s" % url)
         if not self._download(handler, url, 2):
-            self.log("harvest failed")
             return False
 
         if self.fullHarvest:
@@ -742,10 +769,8 @@ class Harvester(Logger):
             url = urls.pop()
             self.log("fetching and processing: %s" % url)
             if not self._download(handler, url, 3):
-                self.log("harvest failed")
                 return False
 
-        self.log("harvest successful")
         return True
 
 
@@ -758,30 +783,27 @@ def make_connection():
                            host="dbm", db="olac2",
                            use_unicode=True, charset="utf8")
 
-def update_last_harvested(con, archiveid, now):
-    cur = con.cursor()
-    sql = "update OLAC_ARCHIVE set LastHarvested=now() where Archive_ID=%s"
-    cur.execute(sql, archiveid)
-    con.commit()
-    cur.close()
-
 def harvest(url, con, full=False):
-    dbi = DBI(con)
-
-    h = Harvester(url, dbi, full)
-
     try:
+        dbi = DBI(con)
+        h = Harvester(url, dbi, full)
         now = datetime.datetime.now()
         if h.harvest():
-            update_last_harvested(con, dbi.archiveId(), now)
-            rc, nrc, urc, drc = dbi.counts()
-            h.log("processed %d records (this may include retries)" % rc)
-            h.log("new records: %d" % nrc)
-            h.log("updated records: %d" % urc)
-            h.log("deleted records: %d" % drc)
-            con.commit()
+            h.log("harvest successful")
+            sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
+            cur = con.cursor()
+            cur.execute(sql, (now, dbi.archiveId()))
+            cur.close()
         else:
-            con.rollback()
+            h.log("harvest failed")
+        dbi.commit()
+        rc, nrc, urc, drc, irc = dbi.counts()
+        h.log("processed %d records (this may include retries)" % rc)
+        h.log("new records: %d" % nrc)
+        h.log("updated records: %d" % urc)
+        h.log("deleted records: %d" % drc)
+        h.log("ignored records: %d" % irc)
+
     except:
         msg = traceback.format_exc()
         msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
