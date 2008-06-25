@@ -107,7 +107,7 @@ def displayAsTsv(req, repo_id, errors, warnings):
     req.headers_out['Content-Disposition'] = 'attachement; filename=%s' % filename
     req.send_http_header()
     for row in errors:
-        req.write("\t".join(row[1:5]) + "\n")
+        req.write("\t".join(row[1:5]) + "\r\n")
     for row in warnings:
-        req.write("\t".join(row[1:5]) + "\n")
+        req.write("\t".join(row[1:5]) + "\r\n")
     return apache.OK
