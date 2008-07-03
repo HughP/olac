@@ -52,7 +52,7 @@ create table OLAC_ARCHIVE (
 	LastHarvested		date,
 	ArchiveType		varchar(64),
 	CurrentAsOf		date,
-	ts			timstamp default current_timestamp on update current_timestamp,
+	ts			timestamp default current_timestamp on update current_timestamp,
 	primary key (Archive_ID)
 ) engine=innodb, charset=utf8;
  
