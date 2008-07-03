@@ -85,7 +85,7 @@ class OptionParser:
                         else:
                             return x[1]
                         
-def get_options():
+def example():
     usageString = """\
 Usage: %s [-g|-h] -pencil A -lined B -fast C -careful D -docs L1 -scribes L2
 
