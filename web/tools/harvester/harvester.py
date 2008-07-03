@@ -587,6 +587,8 @@ class Namespace:
         return schema, name
 
 
+class HandlerError(Exception): pass
+
 class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
     """
     Calls identifyHandler with an Identify object (defined above)
@@ -601,25 +603,42 @@ class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
         self.data = []
         self.stack = []
         self.ns = Namespace()
+        self.names = []
+        self.error = {}
         
     def startElement(self, tag, attrs):
         schema, name, atts = self.ns.push(tag, attrs)
+        self.names.append(name)
         self.data.append([name, atts, []])
         self.stack.append(len(self.data)-1)
+        if name == 'error':
+            self.error = {}
+            for _, attNam, _, attVal in atts:
+                if attNam == 'code':
+                    self.error['code'] = attVal
 
     def characters(self, content):
         self.data[self.stack[-1]][-1].append(content)
+        if self.names[-1] == 'error':
+            if 'message' in self.error:
+                self.error['message'] += content
+            else:
+                self.error['message'] = content
 
     def endElement(self, tag):
         #schema, schemaLoc, name = self.ns.resolve(tag)
         self.stack.pop()
         self.ns.pop()
+        self.names.pop()
 
     def endDocument(self):
         self.log("parsing Identify response done")
-        self.log("processing Identify response")
-        identify = Identify(self.data)
-        self.identifyHandler(identify)
+        if self.data[0][0] != 'OAI-PMH':
+            raise HandlerError("invalid Identify response")
+        else:
+            self.log("processing Identify response")
+            identify = Identify(self.data)
+            self.identifyHandler(identify)
 
             
 class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
@@ -637,6 +656,7 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
         self.flag = False
         self.names = []
         self.ns = Namespace()
+        self.error = {}
         
     def startElement(self, tag, attrs):
         schema, name, atts = self.ns.push(tag, attrs)
@@ -656,6 +676,11 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
             self.flag = True
         elif name == 'resumptionToken':
             self.resumptionToken = ''
+        elif name == 'error':
+            self.error = {}
+            for _, attNam, _, attVal in atts:
+                if attNam == 'code':
+                    self.error['code'] = attVal
         elif self.flag:
             self.build[-1].append([(schema,name,atts)])
 
@@ -665,6 +690,11 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
                 self.build[-1][-1].append(content)
         elif self.names[-1] == 'resumptionToken':
             self.resumptionToken += content
+        elif self.names[-1] == 'error':
+            if 'message' in self.error:
+                self.error['message'] += content
+            else:
+                self.error['message'] = content
             
     def endElement(self, tag):
         schema, name = self.ns.resolve(tag)
@@ -729,8 +759,8 @@ class Harvester(Logger):
     def _httpStatus(self, data):
         code = data.split()[1]
         if code != '200' and code !='302':
-            self.log("http error: %s" % code)
-            raise StopFetching()
+            self.log("http error %s; continue nevertheless" % code)
+            #raise StopFetching()
 
     def _download(self, handler, url, retry):
         parser = StreamParser(handler)
@@ -748,7 +778,10 @@ class Harvester(Logger):
             else:
                 parser.close()
                 return False
-
+        except HandlerError, e:
+            self.log("error: %s" %e)
+            return False
+        
     def harvest(self):
         self.log("harvester running on %s" % os.uname()[1])
         self.log("harvesting from %s" % self.request.baseUrl())
@@ -756,6 +789,12 @@ class Harvester(Logger):
         url = self.request.Identify()
         self.log("fetching and processing: %s" % url)
         if not self._download(handler, url, 2):
+            return False
+        if handler.error:
+            if 'message' in handler.error:
+                self.log('OAI-PMH Error: %(code)s: %(message)s' % handler.error)
+            else:
+                self.log('OAI-PMH Error: %(code)s' % handler.error)
             return False
 
         if self.fullHarvest:
@@ -770,6 +809,13 @@ class Harvester(Logger):
             self.log("fetching and processing: %s" % url)
             if not self._download(handler, url, 3):
                 return False
+            if handler.error:
+                if 'message' in handler.error:
+                    self.log('OAI-PMH Error: %(code)s: %(message)s' % handler.error)
+                else:
+                    self.log('OAI-PMH Error: %(code)s' % handler.error)
+                if handler.error['code'] != 'noRecordsMatch':
+                    return False
 
         return True
 
