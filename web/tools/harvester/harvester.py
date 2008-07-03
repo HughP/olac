@@ -330,7 +330,7 @@ class Request:
         else:
             url += "&metadataPrefix=%s" % self.metadataPrefix
             if fromDate:
-                url += "&from=%s" % fromDate.strftime("%Y-%m-%dT%H:%M:%SZ")
+                url += "&from=%s" % fromDate.strftime("%Y-%m-%d")
         return url
 
 
