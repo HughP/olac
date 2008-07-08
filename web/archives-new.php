@@ -174,7 +174,7 @@ for full details on any archive follow the link on the right.
 <li> <a href="/register/archive.html">Register an archive</a>
 <li> <a href="/register/archive_list.php4">Machine readable list of registered archives</a>
 <li> <a href="/metrics/">Metrics report on all archives</a>
-<li> <a href="/metrics/index.php/compare">Comparative archive metrics</a>
+<li> <a href="/metrics/compare">Comparative archive metrics</a>
 
 <p>
 <hr>
