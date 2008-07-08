@@ -25,6 +25,18 @@
      exit;
      }
 
+# obtain OLAC version
+
+  if ($_POST["version"] == "OLAC 1.0")
+    $version = 1.0;
+  else if ($_POST["version"] == "OLAC 1.1")
+    $version = 1.1;
+  else {
+    echo "<p>invalid OLAC version: $_POST[version]</p>";
+    echo "<p>please go back and specify the correct version</p>";
+    exit;
+  } 
+
 # PHP changed " to \"; change it back
 
   $metadata = ereg_replace('\\\"', '"', $HTTP_POST_VARS['metadata']);
@@ -33,8 +45,12 @@
 
   ########## Force use of standard OLAC schema
   ##
-  $olacns = "http://www.language-archives.org/OLAC/1.0/";
+  if ($version == 1.0)
+    $olacns = "http://www.language-archives.org/OLAC/1.0/";
+  else if ($version == 1.1)
+    $olacns = "http://www.language-archives.org/OLAC/1.1/";
   $olacxsd = $olacns . "olac.xsd";
+  
 
   ## find namespace prefix for olac tag
   preg_match("{^(.*<(([^/][^:]*):)?olac\s*)([^>]*)(>.*)$}s",$metadata,$group);
@@ -53,6 +69,16 @@
   if (preg_match("/xmlns$nssuffix\s*=\s*(\"|')\s*([^\"' \t\n]*)/",
                  $body2, $group)) {
     $ns = $group[2];
+
+    # if olac namespace is specified override the initial setting by user
+    if (preg_match("{.*/1\.0/?}", $ns)) {
+      $version = 1.0;
+      $olacns = $ns;
+    } else if (preg_match("{.*/1\.1/?}", $ns)) {
+      $version = 1.1;
+      $olacns = $ns;
+    }
+    $olacxsd = $olacns . "olac.xsd";
   } else {
     $body2 = "xmlns$nssuffix=\"$olacns\" $body2";
     $ns = $olacns;
@@ -120,7 +146,10 @@
 
 		$xsl = "http://www.language-archives.org/metadata_sample.xsl";
 	} else {
-		$xsl = "http://www.language-archives.org/tools/metadata/metadata.xsl";
+		if ($version == 1.0)
+			$xsl = "http://www.language-archives.org/tools/metadata/metadata.xsl";
+		else if ($version == 1.1)
+			$xsl = "http://www.language-archives.org/tools/metadata/metadata11.xsl";
 	}
 
 # Set up the XSLT processor
