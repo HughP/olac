@@ -71,7 +71,8 @@
         <cit>OLAC-Process</cit>) as recommended best practice for language
         resource description. These recommended qualifiers are listed in
         <cit>OLAC-Extensions</cit> and the manner of using them in resource
-        description is documented below in <xref>Using OLAC extensions</xref>.</p></section><section> 
+        description is documented below in <xref>Using OLAC extensions</xref>.</p></section>
+      <section> 
       <heading>The metadata format</heading> 
        
       <p>The XML implementation of OLAC metadata follows the
@@ -115,7 +116,7 @@ root element.  Accordingly, the above record can be simplified as
 follows:
 </p>
 
-<eg><![CDATA[<olac:olac xmlns="http://purl.org/dc/elements/1.1/">
+<eg><![CDATA[<olac:olac>
    <creator>Bloomfield, Leonard</creator>
    <date>1933</date>
    <title>Language</title>
@@ -340,7 +341,7 @@ Third-party extensions may define attributes to hold coded values
 subcommunity service providers.
 However, a third-party extension cannot use the
 <tt>olac:code</tt> attribute, and any new attributes
-defined by a third-party extension are not validated or used standard OLAC services.</p>
+defined by a third-party extension are not validated or used by standard OLAC services.</p>
 
 <p>
 In order to be listed on the OLAC website <cit>OLAC-Third-Party</cit>, a third-party extension
