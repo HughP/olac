@@ -71,9 +71,9 @@ available at http://www.gnu.org/licenses/gpl.txt).
       <xsl:if test="@xsi:type"><xsl:value-of select="concat(' xsi:type=', $dq, @xsi:type, $dq )"/></xsl:if>
        <xsl:if test="@olac10:code"><xsl:value-of select="concat(' olac:code=', $dq, @olac10:code, $dq )"/></xsl:if>
        <xsl:if test="@olac11:code"><xsl:value-of select="concat(' olac:code=', $dq, @olac11:code, $dq )"/></xsl:if>
-      <xsl:text>&gt;</xsl:text>
       <xsl:choose>
-         <xsl:when test="text()"><xsl:value-of select="concat( text(), '&lt;/', name(), '>')"/></xsl:when>
+          <xsl:when test="text()"><xsl:value-of select="concat(
+              '&gt;', text(), '&lt;/', name(), '>')"/></xsl:when>
          <xsl:otherwise>/></xsl:otherwise>
       </xsl:choose>
       <br/>
