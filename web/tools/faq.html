@@ -1,93 +1,192 @@
-<!DOCTYPE HTML PUBLIC "-//SoftQuad//DTD HoTMetaL PRO 5.0::19980907::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
  
-<HTML>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/> 
+    <title>OLAC Implementers' FAQ</title>
+    <link href="../olac.css" rel="stylesheet" type="text/css"/> 
+    <style type="text/css">
+        body { counter-reset: question; }
+        H3.Question:before { /* Autonumber questions in FAQ */
+        counter-increment: question;  /* Add 1 to question counter */
+        content: counter(question) ". "; }
+        
+        H3.Question  {font-style:italic; }
+    </style>
+    <meta content="OLAC Implementers' FAQ" name="Title"/> 
+    <meta
+ content="Frequently asked questions about implenting a metadata
+ repository to participate in OLAC (Open Language Archives Community)."
+ name="Description"/> 
+     <meta
+ content="OLAC, Open Language Archives Community, OAI, 
+ Open Archives Initiative, language resource, metadata, metadata repository, 
+ static repositoy, dynamic repository, controlled vocabulary, Dublin Core"
+ name="Keywords"/> 
+     <meta content="2008-07-11" name="Date"/> 
+</head>
  
-<HEAD>
-<META CONTENT="text/html; charset=UTF-8" HTTP-EQUIV="content-type"> 
-<TITLE>OLAC Implementers' FAQ</TITLE>
-<LINK HREF="../olac.css" REL="stylesheet" TYPE="text/css"> 
-<META CONTENT="OLAC Metadata Set" NAME="Title"> 
-<META
- CONTENT="Frequently asked questions about the Open Language Archives Community, OLAC, an international partnership of institutions and individuals who are creating a worldwide virtual library of language resources by: (i) developing consensus on best current practice for the digital archiving of language resources, and (ii) developing a network of interoperating repositories and services for housing and accessing such resources."
- NAME="Description"> 
-<META
- CONTENT="OLAC, Open Language Archives Community, OAI, Open Archives Initiative, language resource, metadata, OLACMS, controlled vocabulary, Dublin Core"
- NAME="Keywords"> 
-<META CONTENT="20010612" NAME="Date"> 
-</HEAD>
- 
-<BODY BGCOLOR="white">
-<HR>
-<TABLE CELLPADDING="10">
-<TR>
-<TD> <A HREF="http://www.language-archives.org/">
-<IMG BORDER="0" SRC="http://www.language-archives.org/images/olac100.gif"> </A>
-</TD>
-<TD VALIGN="middle"> <H1> <FONT COLOR="0x00004a">OLAC Implementers' FAQ</FONT> 
-</H1>
-</TD>
-</TR>
-</TABLE>
-<HR>
-<H2>Answers to Frequently Asked Questions about Implementing an OLAC Data
-Provider</H2>
-<OL>
-<LI>What are the possible approaches to implementing an OLAC metadata
-repository?</LI>
-<LI>How do I decide what to treat as an individual item?</LI>
-<LI>Where can I find good examples of sample metadata records?</LI>
-</OL>
-<H4>Implementing a static repository</H4>
-<OL START="4">
-<LI>Where can I find sample code for generating a static repository from a
-database?</LI>
-<LI>How would I create and maintain a static repository by hand?</LI>
-<LI>How do I test whether my repository is valid?</LI>
-<LI>Where do I put my repository when it is ready to publish?</LI>
-<LI>How do I register it with OLAC?</LI>
-<LI>What do I do when I want to update the information in my repository?</LI>
-</OL>
-<H4>Implementing a dynamic repository</H4>
-<OL START="10">
-<LI>Where can I find sample code for implementing a dynamic repository?</LI>
-<LI>How do resumption tokens work?</LI>
-<LI>How do I test my repository to make sure it works?</LI>
-<LI>Why aren't my changes being harvested?</LI>
-</OL>
-<H4>General questions</H4>
-<P>The following questions are answered in the general FAQ:</P>
-<OL>
-<LI> <A HREF="../documents/faq.html#1">What is the Open Language Archives
-Community?</A> </LI>
-<LI> <A HREF="../documents/faq.html#2">What is a language resource?</A> </LI>
-<LI> <A HREF="../documents/faq.html#3">What is language resource discovery?</A>
-</LI>
-<LI> <A HREF="../documents/faq.html#4">What is metadata?</A> </LI>
-<LI> <A HREF="../documents/faq.html#5">What is the OLAC Metadata Set?</A> </LI>
-<LI> <A HREF="../documents/faq.html#6">How is OLAC metadata disseminated?</A> 
-</LI>
-<LI> <A HREF="../documents/faq.html#7">Who can benefit from using OLAC
-metadata?</A> </LI>
-<LI> <A HREF="../documents/faq.html#8">What is meant by <I>Open</I> in the
-context of Open Language Archives? </A> </LI>
-<LI> <A HREF="../documents/faq.html#9">How does a language archive join
-OLAC?</A> </LI>
-<LI> <A HREF="../documents/faq.html#10">Can an individual or small archive join
-OLAC without bothering with formats and protocols?</A> </LI>
-<LI> <A HREF="../documents/faq.html#11">How are language standards like the TEI
-represented in OLAC?</A> </LI>
-<LI> <A HREF="../documents/faq.html#12">How do I contribute new proposals for
-OLAC metadata?</A> </LI>
-</OL>
-<HR>
-<H3> <A NAME="1"></A>1. Question?</H3>
-<P>Answer</P>
-<H3> <A NAME="2"></A>2. etc.?</H3>
-<P>...</P>
-<HR>
-<P><FONT SIZE="-2"> <A
-HREF="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary
-Simons</A> </FONT> </P>
-</BODY>
-</HTML>
+<body bgcolor="white">
+<hr/>
+<table cellpadding="10">
+<tr>
+<td> <a href="http://www.language-archives.org/">
+<img border="0" alt="OLAC logo"
+    src="http://www.language-archives.org/images/olac100.gif"/> </a>
+</td>
+<td valign="middle"> 
+    <h1> <font color="0x00004a">OLAC Implementers' FAQ</font> 
+</h1>
+</td>
+</tr>
+</table>
+<hr/>
+<h2>Answers to Frequently Asked Questions about Implementing an OLAC
+    Metadata Repository</h2>
+    <ol>
+        <li><a href="#archive">Is it required that a
+            metadata repository describe an archive?</a></li>
+    <li><a href="#record">What do the records in an OLAC metadata repository represent?</a></li> 
+    <li><a href="#granularity">How do I decide what to treat as an individual item?</a></li>
+    <li><a href="#database">How do I create records for a web database?</a></li>    
+    <li><a href="#examples">Where can I find good examples of sample metadata records?</a></li>
+    <li><a href="#approaches">What are the possible approaches to implementing an OLAC metadata
+    repository?</a></li>
+</ol>
+<h4>Implementing a static repository</h4>
+<ol start="7">
+    <li><a href="#sample1">Where can I find sample code for generating a static repository from a
+database?</a></li>
+    <li><a href="#manual">How would I create and maintain a static repository by hand?</a></li>
+    <li><a href="#test1">How do I test whether my static repository is valid?</a></li>
+    <li><a href="#publish">Where do I put my static repository when it is ready to publish?</a></li>
+</ol>
+<h4>Implementing a dynamic repository</h4>
+<ol start="11">
+    <li><a href="#sample2">Where can I find sample code for implementing a dynamic repository?</a></li>
+    <li><a href="#tokens">What are resumption tokens and how do they work?</a></li>
+    <li><a href="#test2">How do I test my dynamic repository to make sure it works?</a></li>
+</ol>
+<h4>Registering and updating a repository</h4>
+    <ol start="14">
+        <li><a href="#register">How do I register my repository with OLAC?</a></li>
+        <li><a href="#update">What do I do when I want to update the information in my repository?</a></li>
+        <li><a href="#changes">Why aren't my changes being harvested?</a></li>
+    </ol>
+    
+    <h4>General questions</h4>
+<p>The following questions are answered elsewhere in the general OLAC FAQ:</p>
+<ol>
+<li> <a href="../documents/faq.html#1">What is the Open Language Archives
+Community?</a> </li>
+<li> <a href="../documents/faq.html#2">What is a language resource?</a> </li>
+<li> <a href="../documents/faq.html#3">What is language resource discovery?</a>
+</li>
+<li> <a href="../documents/faq.html#4">What is metadata?</a> </li>
+<li> <a href="../documents/faq.html#5">What is the OLAC Metadata Set?</a> </li>
+<li> <a href="../documents/faq.html#6">How is OLAC metadata disseminated?</a> 
+</li>
+<li> <a href="../documents/faq.html#7">Who can benefit from using OLAC
+metadata?</a> </li>
+<li> <a href="../documents/faq.html#8">What is meant by <i>Open</i> in the
+context of Open Language Archives? </a> </li>
+<li> <a href="../documents/faq.html#9">How does a language archive join
+OLAC?</a> </li>
+<li> <a href="../documents/faq.html#10">Can an individual or small archive join
+OLAC without bothering with formats and protocols?</a> </li>
+<li> <a href="../documents/faq.html#11">How are language standards like the TEI
+represented in OLAC?</a> </li>
+<li> <a href="../documents/faq.html#12">How do I contribute new proposals for
+OLAC metadata?</a> </li>
+</ol>
+<hr/>
+    <h3 class="Question"><a name="archive">Is it required that a
+        metadata repository describe an archive?</a></h3>
+    <p>In the prototypical case, a participating institution is an
+        archive that curates language resources.  In this case, the OLAC metadata
+        repository it implements is a catalog of its archival
+        holdings. (Participants that operate such archives can be
+        identified by the presence of the
+        <i>&lt;archivalSubmissionPolicy&gt;</i> element in the 
+        <i>&lt;olac-archive&gt;</i> description that is part of the
+        Identify response of their repository.)  But operating an archive is not a
+        requirement. The mission of OLAC is to create a "worldwide
+        virtual library of language resources" and anyone who can
+        contribute useful information to the catalog of known language
+        resources is invited to do so. This may include contributions
+        from individuals rather than institutions.  It may also
+        include metadata repositories that are indexes to language resources
+        supplied by others or that describe entry points into an online
+        database of language-related information.</p>
+    <h3 class="Question"><a name="record">What do the records in an OLAC
+        metadata repository represent?</a></h3> 
+    <p>Each record in an OLAC metadata repository represents a <a
+        href="../documents/faq.html#2">language resource</a> that the
+        participating archive wants to inform the world about. The
+        resource could be a physical object like a book, a CD-ROM, a
+        wax cylinder or a box of unpublished field notes. In such
+        cases, the metadata record allows potential users to discover
+        that the resource exists. When the resource is a digital
+        object that is posted on the web (such as a document, a corpus
+        of recordings, a database or a software program), then the metadata record can
+        go a step further to provide access to the resource by supplying the URL in the
+        <i>&lt;dc:identifier&gt;</i> element. The record need not describe
+        resource that the contributor actually has under archival
+        control. For instance, a record could be an annotated
+        bibliography entry in which the contributor has added value to the
+        basic citations by supplying a description and subject
+        classification. Or a record could describe a web page that is
+        an index page giving links to language resources that are
+        posted on other web
+        sites. </p>
+    <h3 class="Question"><a name="granularity">How do I decide what to treat
+        as an individual item?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="database">How do I create records
+        for a web database?</a></h3>    
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="examples">Where can I find good examples of sample metadata records?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="approaches">What are the possible approaches to implementing an OLAC metadata
+        repository?</a></h3>
+    <p>Forthcoming.</p>
+    
+    <!-- Static repository -->
+    <h2>Implementing a static repository</h2>
+    <h3 class="Question"><a name="sample1">Where can I find sample code for generating a static repository from a
+        database?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="manual">How would I create and maintain a static repository by hand?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="test1">How do I test whether my
+        static repository is valid?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="publish">Where do I put my repository when it is ready to publish?</a></h3>
+    <p>Forthcoming.</p>
+    
+    <!-- Dynamic repository -->
+    <h2>Implementing a dynamic repository</h2>
+    <h3 class="Question"><a name="sample2">Where can I find sample code for implementing a dynamic repository?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="tokens">What are resumption tokens and how do they work?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="test2">How do I test my dynamic repository to make sure it works?</a></h3>
+    <p>Forthcoming.</p>
+    
+    <!-- Registering and updating -->
+ <h2>Registering and updating a repository</h2>
+    <h3 class="Question"><a name="register">How do I register my
+        repository with OLAC?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="update">What do I do when I want to update the information in my repository?</a></h3>
+    <p>Forthcoming.</p>
+    <h3 class="Question"><a name="changes">Why aren't my changes being harvested?</a></h3>
+    <p>Forthcoming.</p>
+
+<hr/>
+<p><font size="-2"> <a
+href="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary
+Simons</a> </font> </p>
+</body>
+</html>
  
