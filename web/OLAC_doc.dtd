@@ -15,6 +15,9 @@ Last modified: 16 Sept 2007
    @endDate (optional) = Date withdrawn, retired, or superseded. Format is: yyyymmdd
    @supersededBy (optional) = baseName of document that superseded it
    -->
+<!-- Use @supersededBy without an @endDate to signal that a document
+is in the process of being superseded. Add this only when the
+Candidate version that will superseded it has been released. -->
 <!-- The @code list stops at adopted state.  Retired and withdrawn are not in the code
        list because we want to keep track of the highest status attained by the document.
        A value for @endDate indicates that it is retired (when @code='adopted')  or withdrawn (otherwise).
