@@ -3,11 +3,15 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="proposed" type="recommendation"/>
+       <status code="candidate" type="recommendation"/>
+       <!-- Promoted to Candidate on 2008-07-16 -->
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
-      <issued>20080229</issued>
-      <previousIssued>20071115</previousIssued>
+      <issued>20080711</issued>
+       <!-- N.B. The HREF in the <recommendations> element needs to be
+       updated to usage-new.xml to generate a version based on work in
+       progress. -->
+       <previousIssued>20080229</previousIssued>
       <abstract>
          <p>This document expresses the consensus of the Open Language Archives Community on best
             practice recommendations for language resource description using the OLAC metadata
@@ -20,12 +24,12 @@
       <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics),
          Steven Bird (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL
          International)</copyright>
-
-      <changes/>
+      <changes><p>Fixes problem in numbering and clarifies that using
+          an encoding scheme means using a value from the scheme.</p> </changes>
    </header>
-   <body>
-
-      <section>
+    <body>
+        
+        <section>
          <heading>Introduction</heading>
          <p>This document expresses the consensus of the Open Language Archives Community on best
             practices for describing language resources using the OLAC metadata standard
@@ -47,7 +51,7 @@
          <p>The following are the OLAC recommendations on best practices for describing language
             resources. Follow the "more" link to see the fuller discussion of an element in
                <cit>OLAC-Usage</cit> including definition, usage notes, and examples.</p>
-         <recommendations href="../NOTE/usage.xml"/>
+         <recommendations href="../NOTE/usage-20080711.xml"/>
       </section>
 
 

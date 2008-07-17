@@ -1,17 +1,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Metadata</TITLE>
 <meta name="Title" content="OLAC Metadata">
-<meta name="Creator" content="Gary Simons, SIL International
-        (mailto:gary_simons@sil.org)Steven Bird, University of Melbourne and University of
-        Pennsylvania (mailto:sb@csse.unimelb.edu.au)">
-<meta name="Description" content="This document defines the format used by the Open Language
-          Archives Community OLAC for the interchange of metadata within the
-          framework of the Open Archives Initiative OAI. The metadata set is based on the complete set of  Dublin Core metadata terms DCMT, but the format allows for the use of extensions to express  community-specific qualifiers. ">
+<meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics
+         (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne
+         and University of Pennsylvania (mailto:sb@csse.unimelb.edu.au)">
+<meta name="Description" content="This document defines the format used by the Open Language Archives Community
+               OLAC for the interchange of metadata within the framework of the
+            Open Archives Initiative OAI. The metadata set is based on the
+            complete set of Dublin Core metadata terms DCMT, but the format
+            allows for the use of extensions to express community-specific qualifiers.
+         ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
-<meta name="Date" content="20060405">
+<meta name="Date" content="20080531">
 <STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
                FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
             </STYLE>
@@ -21,45 +24,60 @@
 <H1>OLAC Metadata</H1>
 <table cellspacing="10">
 <tr valign="top">
-<th align="left" width="100">Date&nbsp;issued:</th><td>2006-04-05</td>
+<th align="left" width="100">Date&nbsp;issued:</th><td>2008-05-31</td>
 </tr>
 <tr valign="top">
-<th align="left">Status of document:</th><td><i>Standard. </i>This document describes a standard that is currently followed by OLAC archives and services.</td>
+<th align="left">Status of document:</th><td><i>Candidate Standard. </i>This document is on track to be accepted by the community as a  standard; full adoption is awaiting successful
+                   implementation.  The version that is ultimately
+                   adopted may incorporate changes based on feedback
+                   from implementers. Anyone working on a new implementation 
+                        should follow this version of the document
+                        rather than the one it will supersede when
+                        adopted. </td>
 </tr>
 <tr valign="top">
-<th align="left">This version:</th><td><a href="http://www.language-archives.org/OLAC/metadata-20060405.html">http://www.language-archives.org/OLAC/metadata-20060405.html</a></td>
+<th align="left">This version:</th><td><a href="http://www.language-archives.org/OLAC/metadata-20080531.html">http://www.language-archives.org/OLAC/metadata-20080531.html</a></td>
+</tr>
+<tr valign="top">
+<th align="left">Will supersede:</th><td><a href="http://www.language-archives.org/OLAC/metadata-20060405.html">http://www.language-archives.org/OLAC/metadata-20060405.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Latest version:</th><td><a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/OLAC/metadata-20031208.html">http://www.language-archives.org/OLAC/metadata-20031208.html</a></td>
+<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/OLAC/metadata-20060405.html">http://www.language-archives.org/OLAC/metadata-20060405.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Abstract:</th><td>
-<p>This document defines the format used by the Open Language
-          Archives Community [<a href="#OLAC">OLAC</a>] for the interchange of metadata within the
-          framework of the Open Archives Initiative [<a href="#OAI">OAI</a>]. The metadata set is based on the complete set of  Dublin Core metadata terms [<a href="#DCMT">DCMT</a>], but the format allows for the use of extensions to express  community-specific qualifiers. </p>
+<p>This document defines the format used by the Open Language Archives Community
+               [<a href="#OLAC">OLAC</a>] for the interchange of metadata within the framework of the
+            Open Archives Initiative [<a href="#OAI">OAI</a>]. The metadata set is based on the
+            complete set of Dublin Core metadata terms [<a href="#DCMT">DCMT</a>], but the format
+            allows for the use of extensions to express community-specific qualifiers.
+         </p>
 </td>
 </tr>
 <tr valign="top">
 <th align="left">Editors:</th><td>
-<editors>Gary Simons, SIL International
-        (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)<br>Steven Bird, University of Melbourne and University of
-        Pennsylvania (<a href="mailto:sb@csse.unimelb.edu.au">mailto:sb@csse.unimelb.edu.au</a>)</editors>
+<editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
+         (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>) <br>Steven Bird, University of Melbourne
+         and University of Pennsylvania (<a href="mailto:sb@csse.unimelb.edu.au">mailto:sb@csse.unimelb.edu.au</a>)</editors>
 </td>
 </tr>
 <tr valign="top">
 <th align="left">Changes since previous version:</th><td>
-<p>Updated to support the current versions of Dublin Core schemas by pointing (in section 3 and references) to the latest DC versions at <tt>dublincore.org</tt> rather than to older copies stored on the OLAC site.</p>
+<p>This revision of the standard incorporates the upgrade
+             from version 1.0 to version 1.1 of the OLAC
+            metadata schema. The primary change in that upgrade
+            involves the upgrade of the [<a href="#OLAC-Language">OLAC-Language</a>]
+             vocabulary from "x-" style codes to ISO 639 codes.</p>
 </td>
 </tr>
 </table>
 <blockquote>
-<small>Copyright &copy; 2006 Gary
-      Simons (SIL International) and Steven Bird (University of
-      Melbourne and University of
-        Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons
+<small>Copyright &copy; 2008 Gary Simons (SIL International and Graduate Institute of Applied
+         Linguistics) and Steven Bird (University of
+         Melbourne and University of Pennsylvania). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons
                Attribution-ShareAlike 2.5 License</a>.</small>
 </blockquote>
 <hr>
@@ -108,9 +126,16 @@
 <p>The OLAC metadata set is based on the Dublin Core (DC) metadata set and uses
         all fifteen elements defined in that standard. (The
         rationale for following DC is discussed in the OLAC white paper
-        [<a href="#OLAC-WP">OLAC-WP</a>].) To provide greater precision in resource description, OLAC follows the DC recommendation for qualifying elements by means of element refinements or encoding schemes. The
-authorative definition of all DC elements, refinements, and schemes is found
-in [<a href="#DCMT">DCMT</a>].</p>
+        [<a href="#OLAC-WP">OLAC-WP</a>].) To provide greater precision in resource description, 
+    OLAC follows the DC recommendation for qualifying elements by means of 
+    element refinements or encoding schemes. The
+    authoritative definition of all DC elements, refinements, and schemes is found
+    in [<a href="#DCMT">DCMT</a>]. </p>
+<p>The present document specifies only the formal (syntactic)
+        requirements on OLAC metadata description. It does not provide a complete set of advice 
+    about what the metadata elements, refinements, and schemes mean or about how they should be used. 
+    Such advice is supplied in an OLAC informational note [<a href="#OLAC-Usage">OLAC-Usage</a>].
+</p>
 <p>The qualifiers recommended by DC are applicable across a wide range of resources. However, the language resource
         community has a number of resource description requirements that
         are not met by these general standards. In order to meet these
@@ -143,21 +168,21 @@ DC) developed by the DC Architecture Working Group for implementing qualified DC
 <ul>
 <li>
 <p>Schema:
-            <a href="http://www.language-archives.org/OLAC/1.0/olac.xsd">http://www.language-archives.org/OLAC/1.0/olac.xsd</a>
+            <a href="http://www.language-archives.org/OLAC/1.1/olac.xsd">http://www.language-archives.org/OLAC/1.1/olac.xsd</a>
 </p>
 </li>
 <li>
-<p>Example: <a href="http://www.language-archives.org/OLAC/1.0/olac.xml%0A            ">http://www.language-archives.org/OLAC/1.0/olac.xml
+<p>Example: <a href="http://www.language-archives.org/OLAC/1.1/olac.xml%0A            ">http://www.language-archives.org/OLAC/1.1/olac.xml
             </a>
 </p>
 </li>
 </ul>
-<p>The container for an OLAC metadata record is the element <tt>&lt;olac&gt;</tt>, which is defined in a namespace called "<tt>http://www.language-archives.org/OLAC/1.0/</tt>". In the sample record that follows, the namespace prefix <tt>olac</tt> is used, and the DC namespace is declared to  be the default so that the metadata element tags need not be prefixed.  For instance, the following is a valid OLAC metadata record:</p>
-<pre style="margin-left: 12pt">&lt;olac:olac xmlns:olac="http://www.language-archives.org/OLAC/1.0/"
+<p>The container for an OLAC metadata record is the element <tt>&lt;olac&gt;</tt>, which is defined in a namespace called "<tt>http://www.language-archives.org/OLAC/1.1/</tt>". In the sample record that follows, the namespace prefix <tt>olac</tt> is used, and the DC namespace is declared to  be the default so that the metadata element tags need not be prefixed.  For instance, the following is a valid OLAC metadata record:</p>
+<pre style="margin-left: 12pt">&lt;olac:olac xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
    xmlns="http://purl.org/dc/elements/1.1/"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.language-archives.org/OLAC/1.0/ 
-      http://www.language-archives.org/OLAC/1.0/olac.xsd"&gt;
+   xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/ 
+      http://www.language-archives.org/OLAC/1.1/olac.xsd"&gt;
    &lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;
    &lt;date&gt;1933&lt;/date&gt;
    &lt;title&gt;Language&lt;/title&gt;
@@ -169,7 +194,7 @@ removed from the individual OLAC records and put on the
 root element.  Accordingly, the above record can be simplified as
 follows:
 </p>
-<pre style="margin-left: 12pt">&lt;olac:olac xmlns="http://purl.org/dc/elements/1.1/"&gt;
+<pre style="margin-left: 12pt">&lt;olac:olac&gt;
    &lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;
    &lt;date&gt;1933&lt;/date&gt;
    &lt;title&gt;Language&lt;/title&gt;
@@ -178,7 +203,7 @@ follows:
 <p>An example of an OLAC static repository is found at:</p>
 <blockquote>
 <p>
-<a href="http://www.language-archives.org/OLAC/1.0/static-repository.xml">http://www.language-archives.org/OLAC/1.0/static-repository.xml</a>
+<a href="http://www.language-archives.org/OLAC/1.1/static-repository.xml">http://www.language-archives.org/OLAC/1.1/static-repository.xml</a>
 </p>
 </blockquote>
 <p>In addition to these core DC metadata elements, a record may use DC qualifiers
@@ -199,10 +224,25 @@ definition of the current element by the type definition named in its
 value.  In this example, <tt>dcterms:W3C-DTF</tt> resolves to
 the definition for a complex type named W3C-DTF in the XML schema
 that defines the <tt>dcterms</tt> namespace.</p>
-<p> Any element may also use the <tt>xml:lang</tt> attribute to indicate the language of the element content. For instance, the following represents a title in the Lau language of Solomon Islands and its translation into English:</p>
-<pre style="margin-left: 12pt">&lt;title xml:lang="x-sil-LLU"&gt;Na tala 'uria na idulaa diana&lt;/title&gt;
+<p> Any element may also use the <tt>xml:lang</tt>
+                attribute to indicate the language of the element
+                content. Though the [<a href="#XML-Lang">XML-Lang</a>] specification
+           permits a wider range of values for this attribute, it is recommended for purposes of interoperation in the
+           OLAC context that only identifiers that conform to the [<a href="#OLAC-Language">OLAC-Language</a>] specification be used. 
+           The vocabulary of recommended language identifiers consists of all active codes for individual languages
+           from any part of ISO 639; see the code tables at the
+           [<a href="#ISO639-3">ISO639-3</a>] web site. For instance, the following represents a
+                title in the Lau language of Solomon Islands
+                (identified by its ISO 639-3 code) and its
+                translation into English (identified by its ISO 639-1 code):</p>
+<pre style="margin-left: 12pt">&lt;title xml:lang="llu"&gt;Na tala 'uria na idulaa diana&lt;/title&gt;
 &lt;dcterms:alternative xml:lang="en"&gt;The path to good reading&lt;/dcterms:alternative&gt;</pre>
-<p>Values of the<tt> xml:lang</tt> attribute are controlled by the Internet Engineering Task Force standard, "Tags for the Identification of Languages" [<a href="#RFC1766">RFC1766</a>]. That standard includes approximately 140 two-letter codes from the ISO standard for language identification [<a href="#ISO639">ISO639</a>]. It also reserves the prefix <tt>x-</tt> for specifying user-defined language codes.  In order to provide codes for all known languages, OLAC uses this mechanism to define codes for more than 7,000  languages, both living and extinct. See [<a href="#OLAC-Language">OLAC-Language</a>] for the complete definition of the  language codes used by OLAC. By using multiple instances of the metadata elements tagged for different languages, data providers may offer a metadata record in multiple languages. </p>
+<p>By using multiple instances of the metadata elements
+                tagged for different languages, data providers may
+                offer a metadata record in multiple languages. If no
+                <i>xml:lang</i> attribute is given, a service provider
+            may infer that the language of the element content is
+            English.</p>
 <h2>
 <A name="Using OLAC extensions"></A>4. Using OLAC extensions</h2>
 <p>The <tt>xsi:type</tt> mechanism 
@@ -223,7 +263,7 @@ qualified. For instance, the following are three steps in the migration of
 describing a resource about the Dschang language of Cameroon:</p>
 <pre style="margin-left: 12pt">1. &lt;subject&gt;Dschang&lt;/subject&gt;
 2. &lt;subject xsi:type="olac:language"&gt;Dschang&lt;/subject&gt;
-3. &lt;subject xsi:type="olac:language" olac:code="x-sil-BAN"/&gt;</pre>
+3. &lt;subject xsi:type="olac:language" olac:code="ybb"/&gt;</pre>
 <p>All metadata extensions that have been adopted by OLAC
 as recommended best practice are defined in the <tt>olac</tt>
 namespace schema. See [<a href="#OLAC-Extensions">OLAC-Extensions</a>] for the complete list of
@@ -276,11 +316,11 @@ example.org) would define a new XML schema as follows:
             attributeFormDefault="qualified"&gt;
 
   &lt;xs:import namespace="http://purl.org/dc/elements/1.1/"
-    schemaLocation="http://www.language-archives.org/OLAC/1.0/dc.xsd"/&gt;
+    schemaLocation="http://www.language-archives.org/OLAC/1.1/dc.xsd"/&gt;
 
   &lt;xs:annotation&gt;
     &lt;xs:appinfo&gt;
-      &lt;olac-extension xmlns="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd"&gt;
+      &lt;olac-extension xmlns="http://www.language-archives.org/OLAC/1.1/olac-extension.xsd"&gt;
         &lt;shortName&gt;role&lt;/shortName&gt;
         &lt;longName&gt;Code for My Specialized Roles&lt;/longName&gt;
         &lt;versionDate&gt;2002-08-16&lt;/versionDate&gt;
@@ -332,13 +372,13 @@ record using the desired metadata element can be created as follows: </p>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;olac:olac xmlns="http://purl.org/dc/elements/1.1/"
            xmlns:dcterms="http://purl.org/dc/terms/"
-           xmlns:olac="http://www.language-archives.org/OLAC/1.0/"
+           xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
            xmlns:example="http://www.example.org/"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://www.example.org/
                http://www.example.org/example.xsd
-             http://www.language-archives.org/OLAC/1.0/
-               http://www.language-archives.org/OLAC/1.0/olac.xsd"&gt;
+             http://www.language-archives.org/OLAC/1.1/
+               http://www.language-archives.org/OLAC/1.1/olac.xsd"&gt;
 
 &lt;!-- Third party extension --&gt;
 
@@ -358,7 +398,7 @@ Third-party extensions may define attributes to hold coded values
 subcommunity service providers.
 However, a third-party extension cannot use the
 <tt>olac:code</tt> attribute, and any new attributes
-defined by a third-party extension are not validated or used standard OLAC services.</p>
+defined by a third-party extension are not validated or used by standard OLAC services.</p>
 <p>
 In order to be listed on the OLAC website [<a href="#OLAC-Third-Party">OLAC-Third-Party</a>], a third-party extension
 must be germane to the mission of OLAC, and it
@@ -390,7 +430,7 @@ element is defined
 in:</p>
 <blockquote>
 <p>
-<a href="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd">http://www.language-archives.org/OLAC/1.0/olac-extension.xsd</a>
+<a href="http://www.language-archives.org/OLAC/1.1/olac-extension.xsd">http://www.language-archives.org/OLAC/1.1/olac-extension.xsd</a>
 </p>
 </blockquote>
 <p>The
@@ -460,21 +500,25 @@ on the OLAC website in [<a href="#OLAC-Extensions">OLAC-Extensions</a>] or
 <h2>References</h2>
 <table cellspacing="10">
 <tr valign="top">
-<td width="150">[<a name="DCMT">DCMT</a>]</td><td>DCMI Metadata Terms.<br>&lt;<a href="http://dublincore.org/documents/dcmi-terms/">http://dublincore.org/documents/dcmi-terms/</a>&gt;</td>
+<td width="150">[<a name="DCMT">DCMT</a>]</td><td>DCMI Metadata Terms.<br>
+        &lt;<a href="http://dublincore.org/documents/dcmi-terms/">http://dublincore.org/documents/dcmi-terms/</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="DC-Schemas">DC-Schemas</a>]</td><td>XML schemas to support the "Guidelines for implementing DC in XML" recommendation.<br>&lt;<a href="http://dublincore.org/schemas/xmls/">http://dublincore.org/schemas/xmls/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="DCXML">DCXML</a>]</td><td>Guidelines for implementing Dublin Core in XML.<br>&lt;<a href="http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/">http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</a>&gt;</td>
+<td width="150">[<a name="DCXML">DCXML</a>]</td><td>Guidelines for implementing Dublin Core in XML.<br>
+        &lt;<a href="http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/">http://dublincore.org/documents/2003/04/02/dc-xml-guidelines/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="HP2000">HP2000</a>]</td><td>Heery, Rachel and Manjula Patel, 2000. Application profiles: mixing and matching metadata schemas. Ariadne, Issue 25.<br>&lt;<a href="http://www.ariadne.ac.uk/issue25/app-profiles/">http://www.ariadne.ac.uk/issue25/app-profiles/</a>&gt;</td>
+<td width="150">[<a name="HP2000">HP2000</a>]</td><td>Heery, Rachel and Manjula Patel, 2000. Application profiles: mixing and 
+      matching metadata schemas. Ariadne, Issue 25.<br>
+      &lt;<a href="http://www.ariadne.ac.uk/issue25/app-profiles/">http://www.ariadne.ac.uk/issue25/app-profiles/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="ISO639">ISO639</a>]</td><td>Codes for the 
-Representation of Names
-of Languages.<br>&lt;<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.html">http://lcweb.loc.gov/standards/iso639-2/langhome.html</a>&gt;</td>
+<td width="150">[<a name="ISO639-3">ISO639-3</a>]</td><td>Codes for the Representation of Names&mdash;Part 3: 
+          Alpha-3 code for comprehensive coverage of languages.<br>
+          &lt;<a href="http://www.sil.org/iso639-3/">http://www.sil.org/iso639-3/</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OAI">OAI</a>]</td><td>Open Archives Initiative.
@@ -485,18 +529,20 @@ of Languages.<br>&lt;<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.h
       <br>&lt;<a href="http://www.language-archives.org/">http://www.language-archives.org/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Extensions">OLAC-Extensions</a>]</td><td>Recommended metadata extensions.<br>&lt;<a href="http://www.language-archives.org/REC/olac-extensions.html">http://www.language-archives.org/REC/olac-extensions.html</a>&gt;</td>
+<td width="150">[<a name="OLAC-Extensions">OLAC-Extensions</a>]</td><td>Recommended metadata extensions.<br>
+          &lt;<a href="http://www.language-archives.org/REC/olac-extensions.html">http://www.language-archives.org/REC/olac-extensions.html</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Language">OLAC-Language</a>]</td><td>OLAC Language
       Vocabulary.<br>&lt;<a href="http://www.language-archives.org/REC/language.html">http://www.language-archives.org/REC/language.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Process">OLAC-Process</a>]</td><td>OLAC Process.<br>&lt;<a href="http://www.language-archives.org/OLAC/process.html">http://www.language-archives.org/OLAC/process.html</a>&gt;</td>
+<td width="150">[<a name="OLAC-Process">OLAC-Process</a>]</td><td>OLAC Process.<br>
+        &lt;<a href="http://www.language-archives.org/OLAC/process.html">http://www.language-archives.org/OLAC/process.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Repositories">OLAC-Repositories</a>]</td><td>OLAC Repositories.<br>
-<br>&lt;<a href="http://www.language-archives.org/OLAC/repositories.html">http://www.language-archives.org/OLAC/repositories.html</a>&gt;</td>
+<td width="150">[<a name="OLAC-Repositories">OLAC-Repositories</a>]</td><td>OLAC Repositories.
+      <br>&lt;<a href="http://www.language-archives.org/OLAC/repositories.html">http://www.language-archives.org/OLAC/repositories.html</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Role">OLAC-Role</a>]</td><td>OLAC Role
@@ -507,23 +553,31 @@ of Languages.<br>&lt;<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.h
 &lt;<a href="http://www.language-archives.org/NOTE/third-party-extensions.html">http://www.language-archives.org/NOTE/third-party-extensions.html</a>&gt;</td>
 </tr>
 <tr valign="top">
+<td width="150">[<a name="OLAC-Usage">OLAC-Usage</a>]</td><td>OLAC Metadata Usage Guidelines.<br>
+          &lt;<a href="http://www.language-archives.org/NOTE/usage.html">http://www.language-archives.org/NOTE/usage.html</a>&gt;</td>
+</tr>
+<tr valign="top">
 <td width="150">[<a name="OLAC-WP">OLAC-WP</a>]</td><td>White Paper on Establishing an Infrastructure for
       Open Language
       Archiving<br>&lt;<a href="http://www.language-archives.org/docs/white-paper.html">http://www.language-archives.org/docs/white-paper.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="RFC1766">RFC1766</a>]</td><td>Tags for the Identification of Languages.<br>&lt;<a href="http://www.ietf.org/rfc/rfc1766.txt">http://www.ietf.org/rfc/rfc1766.txt</a>&gt;</td>
+<td width="150">[<a name="XML-Lang">XML-Lang</a>]</td><td>Extensible Markup Language (XML) 1.0 (Fourth Edition), W3C Recommendation 16 August 2006.
+          Section 2.12, Language Identification.<br>
+      &lt;<a href="http://www.w3.org/TR/REC-xml#sec-lang-tag">http://www.w3.org/TR/REC-xml#sec-lang-tag</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="XMLS">XMLS</a>]</td><td>XML Schema, Part 1: Structures.<br>&lt;<a href="http://www.w3.org/TR/xmlschema-1/">http://www.w3.org/TR/xmlschema-1/</a>&gt;</td>
+<td width="150">[<a name="XMLS">XMLS</a>]</td><td>XML Schema, Part 1: Structures.<br>
+      &lt;<a href="http://www.w3.org/TR/xmlschema-1/">http://www.w3.org/TR/xmlschema-1/</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="XMLSP">XMLSP</a>]</td><td>XML Schema, Part 0: Primer.<br>&lt;<a href="http://www.w3.org/TR/xmlschema-0/">http://www.w3.org/TR/xmlschema-0/</a>&gt;</td>
+<td width="150">[<a name="XMLSP">XMLSP</a>]</td><td>XML Schema, Part 0: Primer.<br>
+      &lt;<a href="http://www.w3.org/TR/xmlschema-0/">http://www.w3.org/TR/xmlschema-0/</a>&gt;</td>
 </tr>
 </table>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
-            _uacct = "UA-427085-3";
-            urchinTracker();
-            </script>
+          _uacct = "UA-427085-3";
+          urchinTracker();
+      </script>
 </BODY>
 </HTML>

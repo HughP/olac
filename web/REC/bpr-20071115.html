@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.0/olac-extension.xsd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>Best Practice Recommendations for Language Resource Description</TITLE>
@@ -145,37 +145,33 @@
 </h3>
 <OL START="1">
 <LI>
-<p>Recommended best practice is for the value of each metadata element to conform to
-                  the definition of that element as given in [<a href="#DCMT">DCMT</a>].</p>
+<p>Recommended best practice is for the value of each metadata element to conform to the definition of
+                  that element as given in [<a href="#DCMT">DCMT</a>].</p>
 </LI>
 </OL>
 <OL START="2">
 <LI>
-<p>When the meaning of a particular element in a metadata record fits the definition
-                  of a refinement, recommended best practice is to use the refinement rather than
-                  the generic element.</p>
+<p>When the meaning of a particular element in a metadata record fits the definition of a refinement,
+                  recommended best practice is to use the refinement rather than the generic element.</p>
 </LI>
 </OL>
 <OL START="3">
 <LI>
-<p>When applicable, recommended best practice is to use the <i>xsi:type</i> attribute
-                  to specify an encoding scheme so as to express the value of the element with
-                  precision.</p>
+<p>When applicable, recommended best practice is to use the <i>xsi:type</i> attribute to specify an
+                  encoding scheme so as to express the value of the element with precision.</p>
 </LI>
 </OL>
 <OL START="4">
 <LI>
-<p>Whenever the language of the element content is other than English, recommended
-                  best practice is to use the <i>xml:lang</i> attribute with a value from
-                     [<a href="#OLAC-Language">OLAC-Language</a>] to identify the language.</p>
+<p>Whenever the language of the element content is other than English, recommended best practice is to
+                  use the <i>xml:lang</i> attribute with a value from [<a href="#OLAC-Language">OLAC-Language</a>] to identify the language.</p>
 </LI>
 </OL>
 <OL START="5">
 <LI>
-<p>When a resource has more than one value for a particular metadata element or
-                  refinement, recommended best practice is to use a separate instance of the element
-                  or refinement for each value rather than listing all the values in a single
-                  instance.</p>
+<p>When a resource has more than one value for a particular metadata element or refinement, recommended
+                  best practice is to use a separate instance of the element or refinement for each value rather than
+                  listing all the values in a single instance.</p>
 </LI>
 </OL>
 <h3>
@@ -183,14 +179,14 @@
 </h3>
 <OL START="6">
 <LI>
-<p>Recommended best practice is to identify a Contributor by means of a name in a
-                  form that is ready for sorting within an alphabetical index. </p>
+<p>Recommended best practice is to identify a Contributor by means of a name in a form that is ready for
+                  sorting within an alphabetical index. </p>
 </LI>
 </OL>
 <OL START="7">
 <LI>
-<p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the
-                  role of the Contributor.</p>
+<p>Recommended best practice is to use a value from the <i>olac:role</i> scheme to indicate the role of the
+                  Contributor.</p>
 </LI>
 </OL>
 <h3>
@@ -198,17 +194,17 @@
 </h3>
 <OL START="3">
 <LI>
-<p>Recommended best practice is that a metadata record should contain at least one
-                  Coverage (or one of its refinements) or Description (or one of its refinements) or
-                  Subject element in order to give the prospective user some idea of the content of
-                  the resource that goes beyond the informative potential of just a title alone.
-                  Using all of these elements is encouraged.</p>
+<p>Recommended best practice is that a metadata record should contain at least one Coverage (or one of
+                  its refinements) or Description (or one of its refinements) or Subject element in order to give the
+                  prospective user some idea of the content of the resource that goes beyond the informative potential
+                  of just a title alone. Using all of these elements is encouraged.</p>
 </LI>
 </OL>
 <OL START="4">
 <LI>
-<p>In the case of spatial coverage, recommended best practice is to use an encoding
-                  scheme to give precise geocoding of the resource.</p>
+<p>In the case of spatial coverage, recommended best
+                   practice is to use a value from an encoding scheme to give
+                  precise geocoding of the resource.</p>
 </LI>
 </OL>
 <h3>
@@ -216,10 +212,9 @@
 </h3>
 <OL START="5">
 <LI>
-<p>Recommended best practice is to use the Contributor element instead of Creator,
-                  except in cases where there is significant creative involvement by the person or
-                  organization and there is no suitable refinement term from the <i>olac:role</i>
-                  scheme to use with Contributor.</p>
+<p>Recommended best practice is to use the Contributor element instead of Creator, except in cases where
+                  there is significant creative involvement by the person or organization and there is no suitable
+                  refinement term from the <i>olac:role</i> scheme to use with Contributor.</p>
 </LI>
 </OL>
 <h3>
@@ -227,16 +222,18 @@
 </h3>
 <OL START="6">
 <LI>
-<p>Recommended best practice is that a record have at least one instance of Date (or
-                  one of its refinements).</p>
+<p>Recommended best practice is that a record have at least one instance of Date (or one of its
+                  refinements).</p>
 </LI>
 </OL>
 <OL START="7">
 <LI>
-<p>Recommended best practice is that every instance of Date (or one of its
-                  refinements) use the <i>dcterms:W3CDTF</i> scheme, or enclose the element value in
-                  square brackets if the value does not conform to the encoding scheme (<i>e.g.,</i>
-                  if it is supplied by the cataloger, is approximate, or is in some doubt). </p>
+<p>Recommended best practice is that every instance of
+                   Date (or one of its refinements) use a value
+                   matching the
+                     <i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does not
+                  conform to the encoding scheme (<i>e.g.,</i> if it is supplied by the cataloger, is approximate, or is
+                  in some doubt). </p>
 </LI>
 </OL>
 <h3>
@@ -244,11 +241,10 @@
 </h3>
 <OL START="8">
 <LI>
-<p>Recommended best practice is that a metadata record should contain at least one
-                  Description (or one of its refinements) or Coverage (or one of its refinements) or
-                  Subject element in order to give the prospective user some idea of the content of
-                  the resource that goes beyond the informative potential of just a title alone.
-                  Using all of these elements is encouraged.</p>
+<p>Recommended best practice is that a metadata record should contain at least one Description (or one of
+                  its refinements) or Coverage (or one of its refinements) or Subject element in order to give the
+                  prospective user some idea of the content of the resource that goes beyond the informative potential
+                  of just a title alone. Using all of these elements is encouraged.</p>
 </LI>
 </OL>
 <h3>
@@ -256,8 +252,8 @@
 </h3>
 <OL START="9">
 <LI>
-<p>In the case of a digital resource, recommended best practice is to express the
-                  Format using a MIME type from the <i>dcterms:IMT</i> scheme. </p>
+<p>In the case of a digital resource, recommended best practice is to express the Format using a MIME
+                  type value from the <i>dcterms:IMT</i> scheme. </p>
 </LI>
 </OL>
 <h3>
@@ -265,8 +261,8 @@
 </h3>
 <OL START="10">
 <LI>
-<p>When the value of Identifier is a Uniform Resource Locator (URL), recommended best
-                  practice is to specify the <i>dcterms:URI</i> scheme.</p>
+<p>When the value of Identifier is a Uniform Resource Locator (URL), recommended best practice is to
+                  specify the <i>dcterms:URI</i> scheme.</p>
 </LI>
 </OL>
 <h3>
@@ -274,15 +270,15 @@
 </h3>
 <OL START="11">
 <LI>
-<p>Recommended best practice is that every record contain at least one Language
-                  element. For a resource that does not include language content, include a Language
-                  element containing the code <tt>zxx</tt> for &ldquo;No linguistic content.&rdquo;</p>
+<p>Recommended best practice is that every record contain at least one Language element. For a resource
+                  that does not include language content, include a Language element containing the code <tt>zxx</tt>
+                  for &ldquo;No linguistic content.&rdquo;</p>
 </LI>
 </OL>
 <OL START="12">
 <LI>
-<p>Recommended best practice is to use the <i>olac:language</i> scheme with the
-                  Language element to identify an individual language precisely. </p>
+<p>Recommended best practice is to use a value from the <i>olac:language</i> scheme with the Language element to
+                  identify an individual language precisely. </p>
 </LI>
 </OL>
 <h3>
@@ -290,8 +286,8 @@
 </h3>
 <OL START="13">
 <LI>
-<p>Recommended best practice is to identify a Publisher by means of a name in a form
-                  that is ready for sorting within an index.</p>
+<p>Recommended best practice is to identify a Publisher by means of a name in a form that is ready for
+                  sorting within an index.</p>
 </LI>
 </OL>
 <h3>
@@ -299,18 +295,18 @@
 </h3>
 <OL START="14">
 <LI>
-<p>When the related resource is also held in a participating archive, recommended
-                  best practice is to identify the related resource by means of its OAI identifier.
-                  A Relation that begins with &ldquo;oai:&rdquo; will typically be presented by service
-                  providers as an active link that retrieves the metadata for that resource.</p>
+<p>When the related resource is also held in a participating archive, recommended best practice is to
+                  identify the related resource by means of its OAI identifier. A Relation that begins with &ldquo;oai:&rdquo; will
+                  typically be presented by service providers as an active link that retrieves the metadata for that
+                  resource.</p>
 </LI>
 </OL>
 <OL START="15">
 <LI>
-<p>If the related resource is not cataloged in the system of a participating archive,
-                  recommended best practice is to identify the related resource through a standard
-                  unique identifier. If the related resource is available online, specify the
-                     <i>dcterms:URI</i> scheme and give a stable Uniform Resource Locator (URL).</p>
+<p>If the related resource is not cataloged in the system of a participating archive, recommended best
+                  practice is to identify the related resource through a standard unique identifier. If the related
+                  resource is available online, specify the <i>dcterms:URI</i> scheme and give a stable Uniform Resource
+                  Locator (URL).</p>
 </LI>
 </OL>
 <h3>
@@ -326,25 +322,25 @@
 </h3>
 <OL START="17">
 <LI>
-<p>Recommended best practice is that a metadata record should contain at least one
-                  Subject or Coverage (or one of its refinements) or Description element (or one of
-                  its refinements) in order to give the prospective user some idea of the content of
-                  the resource that goes beyond the informative potential of just a title alone.
-                  Using all of these elements is encouraged.</p>
+<p>Recommended best practice is that a metadata record should contain at least one Subject or Coverage
+                  (or one of its refinements) or Description element (or one of its refinements) in order to give the
+                  prospective user some idea of the content of the resource that goes beyond the informative potential
+                  of just a title alone. Using all of these elements is encouraged.</p>
 </LI>
 </OL>
 <OL START="18">
 <LI>
-<p>When the subject is a human language, recommended best practice is to use the
-                     <i>olac:language</i> scheme with the Subject element to identify an individual
-                  language precisely. </p>
+<p>When the subject is a human language, recommended
+                   best practice is to use a value from the <i>olac:language</i>
+                  scheme with the Subject element to identify an individual language precisely. </p>
 </LI>
 </OL>
 <OL START="19">
 <LI>
-<p>When the subject matter falls within the field of linguistics, recommended best
-                  practice is to use the <i>olac:linguistic-field</i> scheme to identify the
-                  subfield.</p>
+<p>When the subject matter falls within the field of
+                   linguistics, recommended best practice is to use a
+                   value from the
+                     <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
 </LI>
 </OL>
 <h3>
@@ -352,17 +348,16 @@
 </h3>
 <OL START="20">
 <LI>
-<p>Recommended best practice is that every record must have an instance of the Title
-                  element. When the resource does not have a formal title, the cataloger should
-                  supply a descriptive title and enclose it in square brackets.</p>
+<p>Recommended best practice is that every record must have an instance of the Title element. When the
+                  resource does not have a formal title, the cataloger should supply a descriptive title and enclose it
+                  in square brackets.</p>
 </LI>
 </OL>
 <OL START="21">
 <LI>
-<p>Recommended best practice is that there be only one instance of the unqualified
-                  Title element, namely, for the original title (except in the case of parallel
-                  titles on a diglot work). All other titles (<i>e.g.,</i> translations) should be
-                  specified as the <i>dcterms:alternative</i> refinement.</p>
+<p>Recommended best practice is that there be only one instance of the unqualified Title element, namely,
+                  for the original title (except in the case of parallel titles on a diglot work). All other titles
+                     (<i>e.g.,</i> translations) should be specified as the <i>dcterms:alternative</i> refinement.</p>
 </LI>
 </OL>
 <h3>
@@ -370,15 +365,18 @@
 </h3>
 <OL START="22">
 <LI>
-<p>Recommended best practice is that every record should contain at least one Type
-                  element that uses the <i>dcterms:DCMIType</i> scheme.</p>
+<p>Recommended best practice is that every record
+                   should contain at least one Type element that uses
+                   a value from the
+                     <i>dcterms:DCMIType</i> scheme to identify the
+                    nature or genre of the content of the resource.</p>
 </LI>
 </OL>
 <OL START="23">
 <LI>
-<p>Recommended best practice is that every record for which it is applicable should
-                  contain at least one Type element that uses the <i>olac:linguistic-type</i> scheme
-                  to identify its linguistic data type. </p>
+<p>Recommended best practice is that every record for which it is applicable should contain at least one
+                  Type element that uses a value from the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.
+               </p>
 </LI>
 </OL>
 </body>
@@ -405,8 +403,8 @@
 </tr>
 </table>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">
-            _uacct = "UA-427085-3";
-            urchinTracker();
-            </script>
+          _uacct = "UA-427085-3";
+          urchinTracker();
+      </script>
 </BODY>
 </HTML>

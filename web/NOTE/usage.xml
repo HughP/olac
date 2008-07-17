@@ -3,11 +3,12 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="proposed" type="informational"/>
+       <status code="candidate" type="informational"/>
+       <!-- Promoted to Candidate on 2008-07-16 -->
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
-      <issued>20080531</issued>
-       <previousIssued>20080229</previousIssued>
+      <issued>20080711</issued>
+       <previousIssued>20080531</previousIssued>
       <abstract>
          <p>This document provides guidelines on the meaning and proper usage of the metadata elements used in the
             metadata standard of the Open Language Archives Community.</p>
@@ -19,8 +20,13 @@
       <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied Linguistics), Steven Bird
          (University of Melbourne and University of Pennsylvania), and Joan Spanne (SIL International)</copyright>
       <changes>
-         <p>Section 5 was revised to reflect a revision of the statement from the OLAC Repositories
-            standard regarding the basic guideline on granularity being based on the principle of provenance.</p>
+         <p>Minor improvements resulting from review by OLAC Council prior to promotion to Candidate
+             status: in best practice recommendations involving use of
+             an encoding scheme the wording is expanded to say "use a
+             value from", better example with Subject for a language
+             lacking a language code, and discussion of <i>xml:lang</i> under
+             Title brought into line with best practice recommendation
+         in section 2.</p>
       </changes>
    </header>
    <!-- N.B. Style used throughout document for aspects of markup:
@@ -185,7 +191,7 @@
             <bp>
                <p>Recommended best practice is to identify a Contributor by means of a name in a form that is ready for
                   sorting within an alphabetical index. </p>
-               <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
+               <p>Recommended best practice is to use a value from the <i>olac:role</i> scheme to indicate the role of the
                   Contributor.</p>
             </bp>
             <examples>
@@ -271,7 +277,8 @@
                   its refinements) or Description (or one of its refinements) or Subject element in order to give the
                   prospective user some idea of the content of the resource that goes beyond the informative potential
                   of just a title alone. Using all of these elements is encouraged.</p>
-               <p>In the case of spatial coverage, recommended best practice is to use an encoding scheme to give
+               <p>In the case of spatial coverage, recommended best
+                   practice is to use a value from an encoding scheme to give
                   precise geocoding of the resource.</p>
             </bp>
 
@@ -406,7 +413,9 @@
             <bp>
                <p>Recommended best practice is that a record have at least one instance of Date (or one of its
                   refinements).</p>
-               <p>Recommended best practice is that every instance of Date (or one of its refinements) use the
+               <p>Recommended best practice is that every instance of
+                   Date (or one of its refinements) use a value
+                   matching the
                      <i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does not
                   conform to the encoding scheme (<i>e.g.,</i> if it is supplied by the cataloger, is approximate, or is
                   in some doubt). </p>
@@ -528,7 +537,7 @@
             </schemes>
             <bp>
                <p>In the case of a digital resource, recommended best practice is to express the Format using a MIME
-                  type from the <i>dcterms:IMT</i> scheme. </p>
+                  type value from the <i>dcterms:IMT</i> scheme. </p>
             </bp>
             <examples>
                <p>For a digitally encoded dictionary:</p>
@@ -667,7 +676,7 @@
                <p>Recommended best practice is that every record contain at least one Language element. For a resource
                   that does not include language content, include a Language element containing the code <tt>zxx</tt>
                   for “No linguistic content.”</p>
-               <p>Recommended best practice is to use the <i>olac:language</i> scheme with the Language element to
+               <p>Recommended best practice is to use a value from the <i>olac:language</i> scheme with the Language element to
                   identify an individual language precisely. </p>
             </bp>
 
@@ -908,7 +917,6 @@
          <element name="Source">
             <definition>The resource from which the described resource is derived.</definition>
             <comment>
-               <!-- Move to <bp><p>? -->
                <p>The present resource may be derived from the Source resource in whole or in part. <cit>DCMT</cit>
                </p>
                <p> In the legal parlance of intellectual property rights, a “derivative work” is one that is based on
@@ -976,8 +984,7 @@
                   <dd>
                      <p>The set of two- and three-letter identifiers from ISO 639 for the identification of individual
                         human languages. See <cit>OLAC-Language</cit> for the definition of the vocabulary and see the
-                           <xref>Language</xref> element for a complete discussion (with examples) of using this scheme.</p>
-                     <!-- Move to a <bp><p>? -->
+                        <xref>Language</xref> element for a complete discussion (with examples) of using this scheme.</p>
                   </dd>
                   <dt>olac:linguistic-field</dt>
                   <dd>
@@ -991,9 +998,12 @@
                   (or one of its refinements) or Description element (or one of its refinements) in order to give the
                   prospective user some idea of the content of the resource that goes beyond the informative potential
                   of just a title alone. Using all of these elements is encouraged.</p>
-               <p>When the subject is a human language, recommended best practice is to use the <i>olac:language</i>
+               <p>When the subject is a human language, recommended
+                   best practice is to use a value from the <i>olac:language</i>
                   scheme with the Subject element to identify an individual language precisely. </p>
-               <p>When the subject matter falls within the field of linguistics, recommended best practice is to use the
+               <p>When the subject matter falls within the field of
+                   linguistics, recommended best practice is to use a
+                   value from the
                      <i>olac:linguistic-field</i> scheme to identify the subfield.</p>
             </bp>
 
@@ -1001,14 +1011,14 @@
                <p>A Library of Congress subject heading:</p>
                <eg>&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</eg>
                <p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p>
-               <eg>&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</eg>
+               <eg>&lt;dc:subject xsi:type="olac:language"&gt;Wulguru&lt;/dc:subject&gt;</eg>
                <p>A resource on multilingual education in Uganda involving national, regional and local languages.</p>
                <eg>&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="swh"/&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="eng"/&gt;
 &lt;dc:subject xsi:type="olac:language" olac:code="xog"/&gt;
-   ...
-   &lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</eg>
+...
+&lt;dcterms:spatial xsi:type="dcterms:ISO3166"&gt;UG&lt;/dcterms:spatial&gt;</eg>
                <p>See also the examples for <xref>Language</xref>.</p>
             </examples>
          </element>
@@ -1025,10 +1035,12 @@
                   cataloger, the title itself needs additional clarifying information, or where the formal title
                   contains a typographical or factual error. In such a case, the formal title is transcribed as given,
                   with additional or corrective information supplied in square brackets.</p>
-               <p>The title is generally expected to be in the language in which the work is written or recorded. If the
-                  title is in a language different from the language identified in a <xref>Language</xref> element, use
-                  the <i>xml:lang</i> attribute on the Title element to specify the language in which the title is
-                  actually given.</p>
+               <p>The section above on <xref>All elements</xref> says
+                   that, "Whenever the language of the element content is other than English, recommended best practice
+                   is to use the <i>xml:lang</i> attribute to identify
+                   the language." This applies to the Title element as
+                   well, even when the title is in the same language
+                   as that identified in a lone <xref>Language</xref> element.</p>
                <p>A translation of the title is supplied in a <i>dcterms:alternative</i> element. Use the
                   <i>xml:lang</i> attribute to identify the language of the translated title using an identifier from
                      <cit>OLAC-Language</cit>.</p>
@@ -1127,10 +1139,13 @@
                </dl>
             </schemes>
             <bp>
-               <p>Recommended best practice is that every record should contain at least one Type element that uses the
-                     <i>dcterms:DCMIType</i> scheme.</p>
+               <p>Recommended best practice is that every record
+                   should contain at least one Type element that uses
+                   a value from the
+                     <i>dcterms:DCMIType</i> scheme to identify the
+                    nature or genre of the content of the resource.</p>
                <p>Recommended best practice is that every record for which it is applicable should contain at least one
-                  Type element that uses the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.
+                  Type element that uses a value from the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.
                </p>
             </bp>
 
