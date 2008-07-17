@@ -3,30 +3,38 @@
 
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
-       Last updated: 17 Nov 2007 -->
+       Last updated: 16 July 2008 
+
+This list must now maintain latest dates, just like the MAKEFILEs.
+-->
 <documents>
   <list>
-    <document href="OLAC/metadata.xml"/>
-    <document href="OLAC/repositories.xml"/>
-    <document href="OLAC/process.xml"/>
-    <document href="OLAC/olacms.xml"/>
-    <document href="OLAC/protocol.xml"/>
-    <document href="REC/access.xml"/>
-     <document href="REC/bpr.xml"/>
-     <document href="REC/discourse.xml"/>
-    <document href="REC/field.xml"/>
-    <document href="REC/language.xml"/>
-    <document href="REC/olac-extensions.xml"/>
-    <document href="REC/role.xml"/>
-    <document href="REC/type.xml"/>
+      <!-- Now adopted but soon to be superseded.  Remove when superseded -->
+      <document href="OLAC/metadata-20060405.xml"/>
+      <document href="OLAC/repositories-20030917.xml"/>
+      
+      <document href="OLAC/metadata-20080531.xml"/>
+      <document href="OLAC/repositories-20080531.xml"/>
+      <document href="OLAC/process-20060405.xml"/>
+      <document href="OLAC/olacms-20011022.xml"/>
+      <document href="OLAC/protocol-20021209.xml"/>
+      
+      <document href="REC/access-20021119.xml"/>
+      <document href="REC/bpr-20080711.xml"/>
+      <document href="REC/discourse-20060406.xml"/>
+      <document href="REC/field-20060406.xml"/>
+      <document href="REC/language-20080222.xml"/>
+      <document href="REC/olac-extensions-20080222.xml"/>
+      <document href="REC/role-20060406.xml"/>
+      <document href="REC/type-20060406.xml"/>
 
-     <document href="NOTE/metrics.xml"/>
-     <document href="NOTE/olac_display.xml"/>
-     <document href="NOTE/query.xml"/>
-     <document href="NOTE/third-party-extensions.xml"/>
-     <document href="NOTE/toolbox.xml"/>
-     <document href="NOTE/usage.xml"/>
-     <document href="NOTE/viser.xml"/>
+      <document href="NOTE/metrics-20080711.xml"/>
+      <document href="NOTE/olac_display-20060515.xml"/>
+      <document href="NOTE/query-20030729.xml"/>
+      <document href="NOTE/third-party-extensions-20021204.xml"/>
+      <document href="NOTE/toolbox-20060928.xml"/>
+      <document href="NOTE/usage-20080711.xml"/>
+      <document href="NOTE/viser-20030729.xml"/>
 
   </list>
   <textBlocks>

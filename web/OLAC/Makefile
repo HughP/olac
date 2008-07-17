@@ -30,9 +30,9 @@ HTML = $(METADATA) $(PROCESS) $(REPOSITORIES) $(OLACMS) $(PROTOCOL)
 .PHONY: all
 
 all: $(HTML)
-	$(LATEST) metadata      20060405
+	$(LATEST) metadata      20080531
 	$(LATEST) process       20060405
-	$(LATEST) repositories  20030917
+	$(LATEST) repositories  20080531
 	$(LATEST) olacms        20011022
 	$(LATEST) protocol      20021209
 

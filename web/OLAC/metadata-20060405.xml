@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/xsl" href="OLAC_doc.xsl"?>
-<!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
+<?xml-stylesheet type="text/xsl" href="../OLAC_doc.xsl"?>
+<!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
   <header> 
-    <status code="adopted" type="standard"/> 
+    <status code="adopted" type="standard" supersededBy="metadata"/> 
       <title>OLAC Metadata</title> <baseName>metadata</baseName> 
       <issued>20060405</issued> <previousIssued>20031208</previousIssued> 
       <abstract> 

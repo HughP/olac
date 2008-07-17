@@ -4,6 +4,7 @@
 <OLAC_doc> 
    <header>
       <status code="candidate" type="standard"/>
+       <!-- Promoted to Candidate on 2008-07-16 -->
       <title>OLAC Metadata</title>
       <baseName>metadata</baseName>
       <issued>20080531</issued>
@@ -24,7 +25,7 @@
          Linguistics) and Steven Bird (University of
          Melbourne and University of Pennsylvania)</copyright>
       <changes>
-         <p>This revision of the document incorporates the upgrade
+         <p>This revision of the standard incorporates the upgrade
              from version 1.0 to version 1.1 of the OLAC
             metadata schema. The primary change in that upgrade
             involves the upgrade of the <cit>OLAC-Language</cit>

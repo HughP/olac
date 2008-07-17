@@ -3,10 +3,11 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
     <header>
-        <status code="proposed" type="informational"/>
+        <status code="candidate" type="informational"/>
+        <!-- Promoted to Candidate on 2008-07-16 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20080707</issued>
+        <issued>20080711</issued>
         <previousIssued>20080421</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the

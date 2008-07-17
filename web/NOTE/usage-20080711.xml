@@ -3,7 +3,8 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="candidate" type="informational"/>
+       <status code="candidate" type="informational"/>
+       <!-- Promoted to Candidate on 2008-07-16 -->
       <title>OLAC Metadata Usage Guidelines</title>
       <baseName>usage</baseName>
       <issued>20080711</issued>

@@ -4,7 +4,7 @@
      Stylesheet for generating list of OLAC documents by date
 
      G. Simons, 2 Aug 2003
-     Last updated: 17 May 2008
+     Last updated: 16 July 2008
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
@@ -82,8 +82,19 @@ http://www.language-archives.org/documents_by_date.html<br/>Latest update: <xsl:
         </td>
         <td>
           <p>
-            <a>
-              <xsl:attribute name="href"><xsl:choose><xsl:when test="status[@type='standard']"><xsl:text>OLAC/</xsl:text></xsl:when><xsl:when test="status[@type='recommendation']"><xsl:text>REC/</xsl:text></xsl:when><xsl:otherwise><xsl:text>NOTE/</xsl:text></xsl:otherwise></xsl:choose><xsl:value-of select="baseName"/><xsl:text>.html</xsl:text></xsl:attribute>
+              <a>
+                  <xsl:attribute name="href">
+                      <xsl:choose>
+                          <xsl:when test="status[@type='standard']"><xsl:text>OLAC/</xsl:text></xsl:when>
+                          <xsl:when test="status[@type='recommendation']"><xsl:text>REC/</xsl:text></xsl:when>
+                          <xsl:otherwise><xsl:text>NOTE/</xsl:text></xsl:otherwise>
+                      </xsl:choose>
+                      <xsl:value-of select="baseName"/>
+                      <xsl:if test="status/@supersededBy = baseName">
+                          <xsl:value-of select="concat( '-', issued)"/>
+                      </xsl:if>
+                      <xsl:text>.html</xsl:text>
+                  </xsl:attribute>
               <xsl:value-of select="title"/>
             </a>
           </p>

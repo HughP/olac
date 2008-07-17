@@ -3,7 +3,7 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 2 June 2008
+     Last modified: 16 July 2008
 -->
 <xsl:stylesheet version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
@@ -489,6 +489,13 @@
                <xsl:if test="@type='recommendation'">
                   <xsl:text>This document embodies an OLAC consensus concerning best current practice.</xsl:text>
                </xsl:if>
+               <xsl:if test="@supersededBy=../baseName">
+                   <xsl:text> However, a new version of the document
+                       has reached Candidate status and is being
+                       implemented by early adopters. Please click on
+                       the "Latest version" link to see the new version.</xsl:text>
+               </xsl:if>
+                
             </xsl:if>
          </xsl:otherwise>
       </xsl:choose>

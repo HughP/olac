@@ -63,7 +63,9 @@
             <th align="left">Changes since previous version:</th>
             <td>
                <p>Minor improvements resulting from review by OLAC Council prior to promotion to Candidate
-                               status: better example with Subject for a language
+                               status: in best practice recommendations involving use of
+                               an encoding scheme the wording is expanded to say "use a
+                               value from", better example with Subject for a language
                                lacking a language code, and discussion of <i>xml:lang</i> under
                                Title brought into line with best practice recommendation
                            in section 2.
@@ -247,7 +249,7 @@
                   <p>Recommended best practice is to identify a Contributor by means of a name in a form that is ready for
                                        sorting within an alphabetical index. 
                   </p>
-                  <p>Recommended best practice is to use the <i>olac:role</i> scheme to indicate the role of the
+                  <p>Recommended best practice is to use a value from the <i>olac:role</i> scheme to indicate the role of the
                                        Contributor.
                   </p>
                </td>
@@ -388,7 +390,8 @@
                                        prospective user some idea of the content of the resource that goes beyond the informative potential
                                        of just a title alone. Using all of these elements is encouraged.
                   </p>
-                  <p>In the case of spatial coverage, recommended best practice is to use an encoding scheme to give
+                  <p>In the case of spatial coverage, recommended best
+                                        practice is to use a value from an encoding scheme to give
                                        precise geocoding of the resource.
                   </p>
                </td>
@@ -593,7 +596,9 @@
                   <p>Recommended best practice is that a record have at least one instance of Date (or one of its
                                        refinements).
                   </p>
-                  <p>Recommended best practice is that every instance of Date (or one of its refinements) use the
+                  <p>Recommended best practice is that every instance of
+                                        Date (or one of its refinements) use a value
+                                        matching the
                                           <i>dcterms:W3CDTF</i> scheme, or enclose the element value in square brackets if the value does not
                                        conform to the encoding scheme (<i>e.g.,</i> if it is supplied by the cataloger, is approximate, or is
                                        in some doubt). 
@@ -755,7 +760,7 @@
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
                   <p>In the case of a digital resource, recommended best practice is to express the Format using a MIME
-                                       type from the <i>dcterms:IMT</i> scheme. 
+                                       type value from the <i>dcterms:IMT</i> scheme. 
                   </p>
                </td>
             </tr>
@@ -912,7 +917,7 @@
                                        that does not include language content, include a Language element containing the code <tt>zxx</tt>
                                        for &#8220;No linguistic content.&#8221;
                   </p>
-                  <p>Recommended best practice is to use the <i>olac:language</i> scheme with the Language element to
+                  <p>Recommended best practice is to use a value from the <i>olac:language</i> scheme with the Language element to
                                        identify an individual language precisely. 
                   </p>
                </td>
@@ -1397,7 +1402,7 @@
                         <td>
                            <p>The set of two- and three-letter identifiers from ISO 639 for the identification of individual
                                                       human languages. See [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary and see the
-                                                         <a href="#Language">Language</a> element for a complete discussion (with examples) of using this scheme.
+                                                      <a href="#Language">Language</a> element for a complete discussion (with examples) of using this scheme.
                            </p>
                         </td>
                      </tr>
@@ -1420,10 +1425,13 @@
                                        prospective user some idea of the content of the resource that goes beyond the informative potential
                                        of just a title alone. Using all of these elements is encouraged.
                   </p>
-                  <p>When the subject is a human language, recommended best practice is to use the <i>olac:language</i>
+                  <p>When the subject is a human language, recommended
+                                        best practice is to use a value from the <i>olac:language</i>
                                        scheme with the Subject element to identify an individual language precisely. 
                   </p>
-                  <p>When the subject matter falls within the field of linguistics, recommended best practice is to use the
+                  <p>When the subject matter falls within the field of
+                                        linguistics, recommended best practice is to use a
+                                        value from the
                                           <i>olac:linguistic-field</i> scheme to identify the subfield.
                   </p>
                </td>
@@ -1604,11 +1612,14 @@
             <tr valign="top">
                <td width="100"><i>Best&nbsp;practice&nbsp;</i></td>
                <td>
-                  <p>Recommended best practice is that every record should contain at least one Type element that uses the
-                                          <i>dcterms:DCMIType</i> scheme.
+                  <p>Recommended best practice is that every record
+                                        should contain at least one Type element that uses
+                                        a value from the
+                                          <i>dcterms:DCMIType</i> scheme to identify the
+                                         nature or genre of the content of the resource.
                   </p>
                   <p>Recommended best practice is that every record for which it is applicable should contain at least one
-                                       Type element that uses the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.
+                                       Type element that uses a value from the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.
                                     
                   </p>
                </td>

@@ -11,8 +11,8 @@ QUERY   = query-20021102.html query-20030729.html
 VISER   = viser-20021102.html viser-20030729.html
 THIRD   = third-party-extensions-20021204.html
 TOOLBOX = toolbox-20060928.html
-USAGE   = usage-20071115.html usage-20080229.html usage-20080531.html
-METRICS = metrics-20071117.html metrics-20080207.html metrics-20080421.html
+USAGE   = usage-20071115.html usage-20080229.html usage-20080531.html usage-20080711.html
+METRICS = metrics-20071117.html metrics-20080207.html metrics-20080421.html metrics-20080711.html
 
 HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD) $(TOOLBOX) $(USAGE) $(METRICS)
 
@@ -24,13 +24,13 @@ HTML = $(DISPLAY) $(QUERY) $(VISER) $(THIRD) $(TOOLBOX) $(USAGE) $(METRICS)
 .PHONY: all
 
 all: $(HTML)
+	$(LATEST) metrics                 20080711
 	$(LATEST) olac_display            20060515
 	$(LATEST) query                   20030729
-	$(LATEST) viser                   20030729
 	$(LATEST) third-party-extensions  20021204
 	$(LATEST) toolbox                 20060928
-	$(LATEST) usage                   20080531
-	$(LATEST) metrics                 20080421
+	$(LATEST) usage                   20080711
+	$(LATEST) viser                   20030729
 
 
 .xml.html:
