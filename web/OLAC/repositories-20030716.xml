@@ -9,7 +9,7 @@
       <abstract> 
         <p>This document defines the standards OLAC archives must follow in implementing a metadata repository. </p> 
       </abstract> 
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@cs.mu.oz.au</url>)</editors> <copyright>2003 Gary Simons
+      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors> <copyright>2003 Gary Simons
       (SIL International) and Steven Bird (University of Melbourne and University of Pennsylvania)</copyright>
       <changes><p>
         The phrase "data provider" has been changed throughout to "metadata repository" when it is not referring to an institution or individual that provides data; this aligns with a change in terminology by the OAI between version 1.0 and version 2.0. In section 2, a note is added about using subdomain names to form repository identifiers for personal repositories. Section 6 on guidelines concerning relevance and granularity has been added.</p>

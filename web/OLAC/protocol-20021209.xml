@@ -9,7 +9,7 @@
       <abstract> 
         <p>This document defines the protocol OLAC service providers use to harvest metadata from OLAC data providers. It  defines the responses that OLAC data providers must make to the requests of the protocol.</p> 
       </abstract> 
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@cs.mu.oz.au</url>)</editors> <copyright>2002 Gary Simons
+      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors> <copyright>2002 Gary Simons
       (SIL International) and Steven Bird (University of Melbourne and University of Pennsylvania)</copyright>
       <changes> 
         <p>The following changes were introduced to effect the upgrade from the  development phase of OLAC to the operational phase :</p> 

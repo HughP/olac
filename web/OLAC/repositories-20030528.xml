@@ -9,7 +9,7 @@
       <abstract> 
         <p>This document defines the standards OLAC data providers must follow in implementing a metadata repository. </p> 
       </abstract> 
-      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@cs.mu.oz.au</url>)</editors> <copyright>2002 Gary Simons
+      <editors>Gary Simons, SIL International (<url>mailto:gary_simons@sil.org</url>)<br/>Steven Bird, University of Melbourne and University of Pennsylvania  (<url>mailto:sb@csse.unimelb.edu.au</url>)</editors> <copyright>2002 Gary Simons
       (SIL International) and Steven Bird (University of Melbourne and University of Pennsylvania)</copyright>
       <changes><p>
         Provides updated information about the static repository format
