@@ -23,7 +23,7 @@
  Open Archives Initiative, language resource, metadata, metadata repository, 
  static repositoy, dynamic repository, controlled vocabulary, Dublin Core"
  name="Keywords"/> 
-     <meta content="2008-07-11" name="Date"/> 
+     <meta content="2008-07-19" name="Date"/> 
 </head>
  
 <body bgcolor="white">
@@ -141,10 +141,64 @@ OLAC metadata?</a> </li>
         sites. </p>
     <h3 class="Question"><a name="granularity">How do I decide what to treat
         as an individual item?</a></h3>
-    <p>Forthcoming.</p>
+    <p>The <i>OLAC Repositories</i> standard
+        addresses this issue in a section on 
+        <a
+            href="http://www.language-archives.org/OLAC/repositories.html#Guidelines%20concerning%20relevance%20and%20granularity">Guidelines concerning relevance and granularity</a>.
+            The basic guideline is this: "A metadata repository
+            should treat resources with a single provenance as
+            constituting a single unit with respect to OLAC metadata
+            and should, therefore, describe them within a single
+            record." For published resources, the publication unit
+            typically constitutes the appropriate unit for the OLAC
+            metadata record. For unpublished papers presenting
+            findings of research, these closely parallel typical
+            published works, and can be treated at a comparable
+            level in an OLAC metadata record. For primary source
+            materials (e.g., recordings, transcriptions, annotations,
+            notes, data sets), the typical practice of archivists is
+            to gather such materials into collections based on shared
+            provenance—this is, based on having a common origin and
+            history. These collections are then the primary units for
+            description in OLAC metadata records. See the section on
+        <a href="http://www.language-archives.org/NOTE/usage.html#Granularity%20of%20resources">Granularity of resources</a>
+             in the <i>OLAC Metadata Usage Guidelines</i> for a more
+            in-depth discussion of the principle of provenance as
+            applied to collections and metadata within the OLAC
+            context.</p>
     <h3 class="Question"><a name="database">How do I create records
         for a web database?</a></h3>    
-    <p>Forthcoming.</p>
+    <p>There are many valuable language resources that are underused
+        because they are part of the <a href="http://en.wikipedia.org/wiki/Deep_Web">Deep Web</a>
+        (that is, the portion of the Internet that is obscured
+        from discovery by general search engines because the
+        resources are in a database that is accessible only via a
+        search interface on its host site). Such resources can be
+        brought to the indexable web by creating OLAC records for
+        them, since it is a built-in service of OLAC to convert every
+        record into a page that gets crawled by web spiders. (To see
+        the set of pages for a given archive, click the <a
+            href="http://www.language-archives.org/archives.php">Archives</a>
+        link on the OLAC home page, click the "More Details" link for the
+        desired archive, and then click the "Records in Archive" link on the
+        resulting Archive Details page.) </p>
+    <p>The only requirement on a
+        web database for using an OLAC repository to
+        expose and access its language resources is that it have
+        publicly accessible URLs for the resources. These often
+        involve a base URL that uses parameters to provide arguments
+        to a query. For instance, the resources in the
+        <a
+            href="http://www.language-archives.org/archive/linguistlist.org">LINGUIST
+            List Language Resources</a> repository and the
+        <a href="http://www.language-archives.org/archive/odin.csufresno.edu">ODIN: Online Database of Interlinear Text</a>
+        repository are dynamic pages that generate a listing of
+        everything held in the database about a particular language; the
+        ISO 639-3 code for the language is a parameter to the URL that is
+        given in the <i>&lt;dc:identifier&gt;</i> element of each record.
+        (Click the "Records in Archive" link on the referenced Archive Details
+        pages to see sample records.)
+    </p>
     <h3 class="Question"><a name="examples">Where can I find good examples of sample metadata records?</a></h3>
     <p>Forthcoming.</p>
     <h3 class="Question"><a name="approaches">What are the possible approaches to implementing an OLAC metadata
