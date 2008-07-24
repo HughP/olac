@@ -21,8 +21,10 @@ class OLACDB
     $this->db = DB::connect($dsn);
     if (DB::isError($this->db))
       $this->err = $this->db;
-    else
+    else {
       $this->db->fetchmode = DB_FETCHMODE_ASSOC;
+      $this->db->simpleQuery("set names 'utf8'");
+    }
   }
 
   function _OLACDB()
