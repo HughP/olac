@@ -25,6 +25,7 @@
 define(OLAC_DB_NAME, 'olac2');
 require_once("/web/language-archives/lib/php/OLACDB.php");
 $DB = new OLACDB(OLAC_DB_NAME);
+$DB->sql("set names 'utf8'");
 
 
 function draw_form() {
@@ -307,7 +308,6 @@ if ($meta_description && $meta_keywords) {
 }
 
 ?>
-
 <HTML>
 <HEAD>
 <TITLE><?=$title?></TITLE>
