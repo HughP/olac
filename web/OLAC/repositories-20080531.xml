@@ -159,16 +159,6 @@
                <p><i>Optional.</i> The home page of the archive on the Web. It may be omitted only if the archive does not
                   have a web page. This is the home page for human visitors, not the base URL for harvesting.</p>
             </dd>
-            <dt>institution</dt>
-            <dd>
-               <p><i>Obligatory.</i> The name of the sponsoring institution (for an institutional archive) or the
-                  institution of affiliation (for a personal archive). If the curator of a personal archive has no
-                  affiliation, then a value of <i>Unaffiliated</i> should be given.</p>
-            </dd>
-            <dt>institutionURL</dt>
-            <dd>
-               <p><i>Optional.</i> A URL for the home page of the institution.</p>
-            </dd>
 
             <dt>participant</dt>
             <dd>
@@ -197,6 +187,17 @@
                   </dd>
                </dl>
             </dd>
+             <dt>institution</dt>
+             <dd>
+                 <p><i>Obligatory.</i> The name of the sponsoring institution (for an institutional archive) or the
+                     institution of affiliation (for a personal archive). If the curator of a personal archive has no
+                     affiliation, then a value of <i>Unaffiliated</i> should be given.</p>
+             </dd>
+             <dt>institutionURL</dt>
+             <dd>
+                 <p><i>Optional.</i> A URL for the home page of the institution.</p>
+             </dd>
+             
             <dt>shortLocation</dt>
             <dd>
                <p><i>Obligatory.</i> A brief statement (not to exceed 50 characters) of the location of the institution
