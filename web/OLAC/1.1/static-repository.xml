@@ -47,10 +47,10 @@
         xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
            http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
         <archiveURL>http://www.cs.mu.oz.au/research/lt/kayardild/</archiveURL>
+        <participant name="Baden Hughes" role="Compiler"
+              email="mailto:badenh@csse.unimelb.edu.au"/>
         <institution>University of Melbourne</institution>
         <institutionURL>http://www.unimelb.edu.au/</institutionURL>
-         <participant name="Baden Hughes" role="Compiler"
-            email="mailto:badenh@csse.unimelb.edu.au"/>
          <shortLocation>Melbourne, Australia</shortLocation>
         <location>Department of Linguistics and Applied Linguistics, Department of Computer Science and
           Software Engineering, and Baillieu Library, University of Melbourne, Parkville VIC 3010, Australia</location>
