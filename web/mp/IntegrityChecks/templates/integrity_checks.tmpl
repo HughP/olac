@@ -30,7 +30,11 @@ $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 #for $row in $errors
 <tr>
 <td>$row[0]</td>
+#if $row[3]
 <td>$resource_anchor($row[3])</td>
+#else
+<td></td>
+#end if
 <td>$item_anchor($row[4])</td>
 </tr>
 #end for
@@ -44,7 +48,11 @@ $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 #for $row in $warnings
 <tr>
 <td>$row[0]</td>
+#if $row[3]
 <td>$resource_anchor($row[3])</td>
+#else
+<td></td>
+#end if
 <td>$item_anchor($row[4])</td>
 </tr>
 #end for
