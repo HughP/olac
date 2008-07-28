@@ -364,10 +364,12 @@ def check_invalid_code(con, archive_id=None):
             "delete from INTEGRITY_CHECK where Problem_Code='BDT'",
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, me.Code, 'BDT'
-            from METADATA_ELEM me
-              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
-            where me.Type='DCMIType' and cd.Code is null
+            select distinct Element_ID, Code, 'BDT'
+            from METADATA_ELEM
+            where Type='DCMIType'
+              and (Content is null or Content not in
+              ('Collection','Dataset','Event','Image','InteractiveResource',
+               'Service','Software','Sound','Text','PhysicalObject'))
             """,
             
             "delete from INTEGRITY_CHECK where Problem_Code='BLC'",
@@ -380,7 +382,11 @@ def check_invalid_code(con, archive_id=None):
               left join ISO_639_3 lc on me.Code=lc.Id
               left join ISO_639_3 lc2 on me.Code=lc2.Part2B
               left join ISO_639_3 lc4 on me.Code=lc4.Part1
-            where me.Type='language' and lc.Id is null and lc2.Id is null and lc4.Id is null
+              left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
+            where me.Type='language'
+              and me.Code is not null and me.Code != ''
+              and lc.Id is null and lc2.Id is null
+              and lc4.Id is null and lcr.Id is null
             """,
             ]
     else:
@@ -400,9 +406,11 @@ def check_invalid_code(con, archive_id=None):
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, me.Code, 'BDT'
             from METADATA_ELEM me
-              left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
               left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
-            where ai.Archive_ID=%d and me.Type='DCMIType' and cd.Code is null
+            where ai.Archive_ID=%d and me.Type='DCMIType'
+              and (me.Content is null of me.Content not in
+              ('Collection','Dataset','Event','Image','InteractiveResource',
+               'Service','Software','Sound','Text','PhysicalObject'))
             """ % archive_id,
             
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLC'" % archive_id,
@@ -415,7 +423,11 @@ def check_invalid_code(con, archive_id=None):
               left join ISO_639_3 lc on me.Code=lc.Id
               left join ISO_639_3 lc2 on me.Code=lc2.Part2B
               left join ISO_639_3 lc4 on me.Code=lc4.Part1
-            where ai.Archive_ID=%d and me.Type='language' and lc.Id is null and lc2.Id is null and lc4.Id is null
+              left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
+            where ai.Archive_ID=%d and me.Type='language'
+              and me.Code is not null and me.Code != ''
+              and lc.Id is null and lc2.Id is null
+              and lc4.Id is null and lcr.Id is null
             """ % archive_id,
             ]
     for sql in sqls:
