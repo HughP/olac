@@ -154,7 +154,7 @@ $oai_info = <<<END
 <tr>
   <td class=lookup><i>OaiIdentifier:&nbsp;</i></td>
   <td></td>
-  <td>$answer[OaiIdentifier]</td>
+  <td><a href="/item/$answer[OaiIdentifier]">$answer[OaiIdentifier]</a></td>
 </tr>
 <tr>
   <td class=lookup><i>DateStamp:&nbsp;</i></td>
@@ -236,6 +236,7 @@ foreach ($tab as $answer) {
 	
     $meta_content = $value;
     $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\" $analytics_link>\\1</a>", $value);
+    $value = ereg_replace("(oai:[^: ]+:[^: ]+)", "<a href=\"/item/\\1\">\\1</a>", $value);
     $body .= "<tr><td class=lookup><i>";
     if ($tag != $prev_field) {
         $body .= "$tag:";
