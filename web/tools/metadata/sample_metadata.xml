@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <olac:olac
-     xmlns:olac="http://www.language-archives.org/OLAC/1.0/"
+     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <dc:title>Language: An introduction to the study of speech</dc:title>
-  <dcterms:created>1921</dcterms:created>
-  <dcterms:issued>2000</dcterms:issued>
+  <dcterms:created xsi:type="dcterms:W3CDTF">1921</dcterms:created>
+  <dcterms:issued xsi:type="dcterms:W3CDTF">2000</dcterms:issued>
   <dc:creator xsi:type="olac:role" olac:code="author">Sapir, Edward</dc:creator>
   <dc:description>The noted linguist and anthropologist Edward Sapir
 wrote this work to show language in relation to other fundamental 
