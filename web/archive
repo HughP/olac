@@ -2,27 +2,6 @@
 #
 # Synopsis: Display the archive informaion from the olac database.
 #
-# ChangeLog:
-#
-# 2008-03-03  use repository identifier to search the db
-#             obtain repository id from path info -HL
-# 
-# 2005-01-19  Steven Bird  <sb@ldc.upenn.edu>
-#	* change URL of repository explorer
-#
-# 2004-11-10  Haejoong Lee  <haejoong@ldc.upenn.edu>
-#	* set character encoding to utf-8
-#
-# 2004-01-28  Steven Bird  <sb@ldc.upenn.edu>
-#       * linked to archive report cards
-#
-# 2003-03-05  Haejoong Lee  <haejoong@ldc.upenn.edu>
-#	* don't display empty entries
-#	* shortLocation should appear
-#
-# 2003-02-28  Haejoong Lee  <haejoong@ldc.upenn.edu>
-#	* created based on previous version built on olac 0.4 db
-#
 
 require_once("lib/php/OLACDB.php");
 $DB = new OLACDB("olac2");
@@ -54,7 +33,7 @@ function get_archive_info($id)
     $r = $tab[0];
 
     $o[Size] = $tab1[0][size];
-    $o[RepositoryName] = $r[RepositoryName];
+    $o["Repository Name"] = $r[RepositoryName];
     $i = $r[Institution];
     $iu = $r[InstitutionURL];
     if ($i) {
@@ -73,23 +52,24 @@ function get_archive_info($id)
 	       $o[Curator] = "<a href=\"mailto:$ce\">$ce</a>";
     else       $o[Curator] = "";
     $o[Location] = $r[Location];
-    $o['Short location'] = $r[ShortLocation];
+    $o['Short Location'] = $r[ShortLocation];
     $o[Synopsis] = $r[Synopsis];
     $o[Access] = $r[Access];
+    $o["Submission Policy"] = $r[ArchivalSubmissionPolicy];
     $r[AdminEmail] = str_replace('mailto:', '', $r[AdminEmail]);
     $o[Administrator] = "<a href=\"mailto:$r[AdminEmail]\">$r[AdminEmail]</a>";
     $o["Base URL"] = $r[BaseURL];
     $o["Repository ID"] = $r[RepositoryIdentifier];
-    $o["OAI version"] = $r[OaiVersion];
+    $o["OAI Version"] = $r[OaiVersion];
     foreach ($tab2 as $v) {
-	$o["OLAC MS version(s)"] .= "$v[SchemaName] ";
+	$o["OLAC MS Version(s)"] .= "$v[SchemaName] ";
     }
-    $o["Records in archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
+    $o["Records in Archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
     $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
-    $o["Last harvested"] = $r[LastHarvested];
+    $o["Last Harvested"] = $r[LastHarvested];
+    $o["Current As Of"] = $r[CurrentAsOf];
 
-    # added by SB on 2004-01-23:
-    $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
+    # $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
 
     return $o;
 }
@@ -122,12 +102,12 @@ $record = get_archive_info($archiveid);
 </table>
 <hr>
 <?php
-echo "<h2>$record[RepositoryName]</h2>";
+echo "<h2>" . $record["Repository Name"] . "</h2>";
 echo "<table>";
 foreach ($record as $k => $v) {
     if (! preg_match('/^\s*$/', $v)) {
-        echo "<tr><td align=right valign=top>$k:</td>";
-        echo "<td><font color=blue>$v</font></td></tr>\n";
+        echo "<tr><td style=\"background-color:#EEEEEE\">$k</td>";
+        echo "<td style=\"border-bottom: dotted; border-color: #EEEEEE; border-width: 1px\"><font color=blue>$v</font></td></tr>\n";
     }
 }
 echo "</table>";
