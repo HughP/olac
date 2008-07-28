@@ -22,9 +22,9 @@
 
   <Identify>
     <oai:repositoryName>Virtual Kayardild Archive</oai:repositoryName>
-    <oai:baseURL>http://www.cs.mu.oz.au/research/lt/projects/kayardild/gyd-olac-records.xml</oai:baseURL>
+    <oai:baseURL>http://www.language-archives.org/OLAC/1.1/static-repository.xml</oai:baseURL>
     <oai:protocolVersion>2.0</oai:protocolVersion>
-    <oai:adminEmail>mailto:badenh@cs.mu.oz.au</oai:adminEmail>
+    <oai:adminEmail>badenh@cs.mu.oz.au</oai:adminEmail>
     <oai:earliestDatestamp>2004-01-01</oai:earliestDatestamp>
     <oai:deletedRecord>no</oai:deletedRecord>
     <oai:granularity>YYYY-MM-DD</oai:granularity>
@@ -48,7 +48,7 @@
            http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
         <archiveURL>http://www.cs.mu.oz.au/research/lt/kayardild/</archiveURL>
         <participant name="Baden Hughes" role="Compiler"
-              email="mailto:badenh@csse.unimelb.edu.au"/>
+              email="mailto:badenh@cs.mu.oz.au"/>
         <institution>University of Melbourne</institution>
         <institutionURL>http://www.unimelb.edu.au/</institutionURL>
          <shortLocation>Melbourne, Australia</shortLocation>
