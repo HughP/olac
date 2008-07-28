@@ -44,32 +44,38 @@
 <h2>Answers to Frequently Asked Questions about Implementing an OLAC
     Metadata Repository</h2>
     <ol>
-        <li><a href="#archive">Is it required that a
+        <li><a href="#archive">Is it required that an OLAC
             metadata repository describe an archive?</a></li>
-    <li><a href="#record">What do the records in an OLAC metadata repository represent?</a></li> 
-    <li><a href="#granularity">How do I decide what to treat as an individual item?</a></li>
-    <li><a href="#database">How do I create records for a web database?</a></li>    
-    <li><a href="#examples">Where can I find good examples of sample metadata records?</a></li>
-    <li><a href="#approaches">What are the possible approaches to implementing an OLAC metadata
-    repository?</a></li>
-</ol>
+        <li><a href="#record">What do the records in an OLAC metadata repository represent?</a></li> 
+        <li><a href="#starting">How do I get started on implementing
+            an OLAC metadata repository?</a></li>
+       <li><a href="#granularity">How do I decide what to treat as an individual item?</a></li>
+       <li><a href="#database">How do I create records for a web database?</a></li>    
+       <li><a href="#examples">Where can I find good examples of sample metadata records?</a></li>
+       <li><a href="#approaches">How do I decide if I should implement a static repository or a dynamic repository?</a></li>
+   </ol>
 <h4>Implementing a static repository</h4>
-<ol start="7">
-    <li><a href="#sample1">Where can I find sample code for generating a static repository from a
-database?</a></li>
-    <li><a href="#manual">How would I create and maintain a static repository by hand?</a></li>
-    <li><a href="#test1">How do I test whether my static repository is valid?</a></li>
-    <li><a href="#publish">Where do I put my static repository when it is ready to publish?</a></li>
-</ol>
+    <ol start="8">
+        <li><a href="#eg-static">Where can I find complete examples of
+            static repositories?</a></li>
+        <li><a href="#manual">How would I create and maintain a static repository by hand?</a></li>
+        <li><a href="#sample1">Where can I find sample code for generating a static repository from a
+            database?</a></li>
+        <li><a href="#test1">How do I test whether my static repository is valid?</a></li>
+        <li><a href="#publish">Where do I put my static repository when it is ready to publish?</a></li>
+    </ol>
 <h4>Implementing a dynamic repository</h4>
-<ol start="11">
-    <li><a href="#sample2">Where can I find sample code for implementing a dynamic repository?</a></li>
-    <li><a href="#tokens">What are resumption tokens and how do they work?</a></li>
-    <li><a href="#test2">How do I test my dynamic repository to make sure it works?</a></li>
-</ol>
-<h4>Registering and updating a repository</h4>
-    <ol start="14">
+    <ol start="13">
+        <li><a href="#eg-dynamic">Where can I find complete examples of
+            dynamic repositories?</a></li>
+        <li><a href="#sample2">Where can I find sample code for implementing a dynamic repository?</a></li>
+        <li><a href="#tokens">What are resumption tokens and how do they work?</a></li>
+        <li><a href="#test2">How do I test my dynamic repository to make sure it works?</a></li>
+    </ol>
+<h4>Registering and improving a repository</h4>
+    <ol start="17">
         <li><a href="#register">How do I register my repository with OLAC?</a></li>
+        <li><a href="#quality">How do I improve the quality of the metadata in my repository?</a></li>
         <li><a href="#update">What do I do when I want to update the information in my repository?</a></li>
         <li><a href="#changes">Why aren't my changes being harvested?</a></li>
     </ol>
@@ -100,7 +106,7 @@ represented in OLAC?</a> </li>
 OLAC metadata?</a> </li>
 </ol>
 <hr/>
-    <h3 class="Question"><a name="archive">Is it required that a
+    <h3 class="Question"><a name="archive">Is it required that an OLAC
         metadata repository describe an archive?</a></h3>
     <p>In the prototypical case, a participating institution is an
         archive that curates language resources.  In this case, the OLAC metadata
@@ -118,8 +124,9 @@ OLAC metadata?</a> </li>
         include metadata repositories that are indexes to language resources
         supplied by others or that describe entry points into an online
         database of language-related information.</p>
-    <h3 class="Question"><a name="record">What do the records in an OLAC
-        metadata repository represent?</a></h3> 
+    
+    <h3 class="Question"><a name="record">What do the records in an 
+        OLAC metadata repository represent?</a></h3> 
     <p>Each record in an OLAC metadata repository represents a <a
         href="../documents/faq.html#2">language resource</a> that the
         participating archive wants to inform the world about. The
@@ -139,6 +146,60 @@ OLAC metadata?</a> </li>
         an index page giving links to language resources that are
         posted on other web
         sites. </p>
+    
+    <h3 class="Question"><a name="starting">How do I get started on
+        implementing an OLAC metadata repository?</a></h3>
+    <p>An OLAC metadata repository is essentially a set of
+        language resource descriptions.  A good place to start is to look at the 
+        <a href="http://www.language-archives.org/NOTE/usage.html">OLAC Metadata Usage Guidelines</a>
+        to learn how OLAC describes language resources.  That document
+        defines and illustrates each of the possible elements of a
+        language resource description. It will be helpful at the same
+        time to be looking at <a href="#examples">examples of complete metadata records</a>
+        from existing OLAC participants. A key decision you must make
+        before you can begin implementing is to 
+        <a href="#granularity">decide what to treat as an individual item</a>.
+        As you are looking at examples from other OLAC participants,
+        make note of records that match your situation and which you
+        could use as models for resource description in your repository.
+        However, rather than simply using an existing record as a template for
+        your own records, you should evaluate it against
+        OLAC's <a href="http://www.language-archives.org/REC/bpr.html">
+            best practice recommendations for language
+            resource description</a>. In the process you may discover ways to improve
+        the quality of the metadata records you will produce.
+    </p>
+    <p>Once you have a good idea of what the records in your repository
+        will be like, the next step is to read carefully the 
+        <a href="http://www.language-archives.org/OLAC/repositories.html">OLAC Repositories</a> 
+        standard. You will see that it defines two approaches,
+        implementing a
+        static repository versus a dynamic repository. You need to
+        <a href="#approaches">decide which kind of repository to
+        implement</a>, then focus on the corresponding section of
+        the OLAC standard. If you are implementing a static repository, you
+        will want to look at the more complete
+        <a href="http://www.openarchives.org/OAI/2.0/guidelines-static-repository.htm">Specification for an OAI Static Repository</a>
+        which is the standard from the digital library community that
+        the OLAC standard is based on.  
+        You may also find it helpful at this stage to look at 
+        <a href="#eg-static">complete examples of static repositories</a>.
+        When you are ready to begin implementing, you may follow the
+        instructions for
+        <a href="#manual">creating a repository by hand</a> or for
+        using a script to <a href="#sample1">generate a repository from a database</a>.
+    </p>
+    <p>Similarly, if you are
+        implementing a dynamic repository, you will need to consult
+        the complete specification of the
+        <a href="http://www.openarchives.org/OAI/2.0/openarchivesprotocol.htm">Open Archives Initiative Protocol for Metadata Harvesting</a>
+        and may want to see
+        <a href="#eg-dynamic">complete examples of dynamic repositories</a>.
+        When you are ready to begin implementing, you will want to
+        start by searching for <a href="#sample2">sample code</a> that you can use as a
+        basis for your implementation.
+    </p>
+    
     <h3 class="Question"><a name="granularity">How do I decide what to treat
         as an individual item?</a></h3>
     <p>The <i>OLAC Repositories</i> standard
@@ -168,6 +229,7 @@ OLAC metadata?</a> </li>
             in-depth discussion of the principle of provenance as
             applied to collections and metadata within the OLAC
             context.</p>
+
     <h3 class="Question"><a name="database">How do I create records
         for a web database?</a></h3>    
     <p>There are many valuable language resources that are underused
@@ -201,6 +263,7 @@ OLAC metadata?</a> </li>
         (Click the "Records in Archive" link on the referenced Archive Details
         pages to see sample records.)
     </p>
+
     <h3 class="Question"><a name="examples">Where can I find good examples of sample metadata records?</a></h3>
     <p>To see the metadata records from 
         a given archive, click the <a
@@ -251,8 +314,9 @@ OLAC metadata?</a> </li>
         these elements in context to get ideas of how best to
         use them in complete metadata records.
     </p>
-    <h3 class="Question"><a name="approaches">What are the possible approaches to implementing an OLAC metadata
-        repository?</a></h3>
+    
+    <h3 class="Question"><a name="approaches">How do I decide if I
+        should implement a static repository or a dynamic repository?</a></h3>
     <p>There are two basic approaches as laid out in the 
         <a
             href="http://www.language-archives.org/OLAC/repositories.html">OLAC
@@ -265,35 +329,65 @@ OLAC metadata?</a> </li>
         which is a live web service that implements the OAI Protocol
         for Metadata Harvesting in order to provide access to the contents of
         all registered repositories.
-        This is the simpler of the two approaches and should be used
-        when the repository is relatively small (<i>e.g.,</i> up to a thousand
-        records). When there is no existing catalog database, 
+        This is the simpler of the two approaches and can be used
+        when the repository is relatively small&#x2014;the OLAC Static
+        Repository Gateway is designed to handle repositories ranging from 1
+        to 5,000 records. When there is no existing catalog database, 
         the implementer can use an XML editor to 
-        <a href="#manual">create a repository by hand</a>.
-        When there is an existing catalog database, the provider can
+        <a href="#manual">create and maintain a repository by hand</a>.
+        When there is an existing catalog database, the implementer can
         <a href="#sample1">use a script to export it</a> to the proper XML format.</p>
-    <p>The second approach is to build a
-        <i>dynamic repository.</i> When the catalog is relatively
-        large (<i>e.g.,</i> over a thousand records), it becomes
-        necessary to implement a dynamic repository. In this approach,
+    <p>The second approach is to implement a
+        <i>dynamic repository.</i> This approach can be used for a
+        catalog of any size, but when the catalog is 
+        larger than 5,000 records, it becomes
+        necessary to use this approach. In a dynamic repository,
     the implementer <a href="#sample2">writes program code</a> that
         resides at a base URL on
-    a web site and implements the OAI Protocol for Metadata Harvesting
-    to provide access to information in an existing catalog
-    database. The size limit for a static repository has to do with
-    the size of responses in the OAI protocol; the optimal size for a
-    response is about 500 kilobytes.  When the entire catalog
-    in XML format exceeds one megabyte in size, then a dynamic
-    repository is needed in order to break large responses into
-    mulitple packets using the <a href="#tokens">resumption token</a> mechanism.</p>
+    a web site and responds to the requests of the OAI Protocol for Metadata Harvesting
+    in order to provide dynamic access to information in an existing catalog
+    database. The trickiest part about implementing a dynamic
+    repository is that it is necessary to implement flow control using
+    a <a href="#tokens">resumption token</a> mechanism in order to
+    ensure that the responses to individual protocol requests are not
+    exceedingly large. The OAI community considers half a megabyte 
+    to be a reasonable response size (which
+    corresponds to about 500 records in a typical repository).</p>
     
     <!-- Static repository -->
     <h2>Implementing a static repository</h2>
+    <h3 class="Question"><a name="eg-static">Where can I find complete examples of
+        static repositories?</a></h3>
+    <p>The last thing in the 
+        <a href="http://www.language-archives.org/OLAC/repositories.html#Requirements%20on%20static%20repositories">section on static repositories</a> 
+        in the <i>OLAC Repositories</i> standard is a link to a 
+        <a href="http://www.language-archives.org/OLAC/1.1/static-repository.xml">complete example</a>. 
+        Clicking this link retrieves an XML document which is a hypothetical sample repository
+        containing two records. 
+    </p>
+    <p>It is also possible to see the XML document behind each of the
+        static repositories that have been implemented by
+        participating archives. Approximately nine-tenths of the
+        repositories are implemented in this way. A static repository
+        can be identified by clicking the 
+        <a href="http://www.language-archives.org/archives.php4">Archives</a>
+        link on the OLAC home page, then clicking the "More Details" link for the
+        desired archive. Find the line that says "Base URL" and
+        inspect the URL.  If it begins with
+        <tt>http://www.language-archives.org/sr/</tt>, then it is a
+        static repository. The remainder of the Base URL is the URL
+        (minus the <tt>http://</tt>) of the underlying XML document.
+        In order to retrieve that document, copy the repository URL
+        (by selecting everything in the Base URL following
+        <tt>/sr/</tt>) and then paste it into a web browser. </p>
+    
+    <h3 class="Question"><a name="manual">How would I create and maintain a static repository by hand?</a></h3>
+    <p>Forthcoming.</p>
+    
     <h3 class="Question"><a name="sample1">Where can I find sample code for generating a static repository from a
         database?</a></h3>
     <p>Forthcoming.</p>
-    <h3 class="Question"><a name="manual">How would I create and maintain a static repository by hand?</a></h3>
-    <p>Forthcoming.</p>
+    
     <h3 class="Question"><a name="test1">How do I test whether my
         static repository is valid?</a></h3>
     <p>Three possible approaches are described below. Ultimately the
@@ -302,8 +396,9 @@ OLAC metadata?</a> </li>
         accessible web site (see <a href="#publish">next question</a>), one of the first two
         methods may be used while the repository is in preparation.</p>
     <ol>
-        <li><p><i>Using a schema validator running on your own machine.</i></p></li>
-        <li><p><i>Using a web-based schema validation service.</i></p></li>
+        <li><p><i>Using a schema validator running on your own
+            machine.</i> Forthcoming.</p></li>
+        <li><p><i>Using a web-based schema validation service.</i> Forthcoming.</p></li>
         <li><p><i>Using the OLAC validation service.</i> After 
             the static repository file has been placed on a publicly
             accessible web site (see <a href="#publish">next
@@ -325,32 +420,100 @@ OLAC metadata?</a> </li>
             of what is wrong.</p>
         </li>
     </ol>
+    <p>Before the job is finished, you will also want to test some of
+        your records as described below to discover ways to
+        <a href="#quality">improve the quality of the metadata</a> in your
+        repository.</p>
+    
     <h3 class="Question"><a name="publish">Where do I put my repository when it is ready to publish?</a></h3>
     <p>Forthcoming.</p>
     
     <!-- Dynamic repository -->
     <h2>Implementing a dynamic repository</h2>
+    <h3 class="Question"><a name="eg-dynamic">Where can I find complete examples of
+        dynamic repositories?</a></h3>
+    <p>Only about one-tenth of the OLAC repositories are implemented
+        in this way. Two of them, 
+        <a href="http://www.ethnologue.com/oai2.asp">Ethnologue</a> 
+        and <a href="http://www.ethnologue.com/sil_archives2.asp">SIL Language and Culture Archives</a>,
+        implement a documentation page that provides a large set of
+        links for
+        testing all the verbs of the harvesting protocol with various
+        combinations of parameters, including combinations that should
+        generate error responses. You may experience a sample
+        implementation and get a better feel for how the protocol
+        works by clicking on one of the above links and trying the
+        various links on the documentation page.  The text of each
+        link gives the complete parameter string that is appended to
+        the Base URL to form a full URL. Clicking the link will retrieve
+        the XML document which the dynamic repository returns as the response to the request.
+        The full request URL will show in the location box of your
+        browser. Click the browser's Back button to go back to the
+        documentation page and try another protocol request.
+    </p>
+    
     <h3 class="Question"><a name="sample2">Where can I find sample code for implementing a dynamic repository?</a></h3>
     <p>Forthcoming.</p>
+    
     <h3 class="Question"><a name="tokens">What are resumption tokens and how do they work?</a></h3>
     <p>Forthcoming.</p>
+    
     <h3 class="Question"><a name="test2">How do I test my dynamic repository to make sure it works?</a></h3>
     <p>Forthcoming.</p>
     
     <!-- Registering and updating -->
- <h2>Registering and updating a repository</h2>
+ <h2>Registering and improving a repository</h2>
     <h3 class="Question"><a name="register">How do I register my
         repository with OLAC?</a></h3>
     <p>Forthcoming.</p>
+        
+    <h3 class="Question"><a name="quality">How do I improve the quality of the metadata
+        in my repository?</a></h3>
+    <p>OLAC has defined <a href="http://www.language-archives.org/REC/bpr.html">best practice recommendations for language
+    resource description</a>. You should review a few records from
+        your repository against this list of recommendations to see if
+        there are things you could change in the implementation of
+        your repository (or of the underlying database on which it is
+        based) to follow even more of the recommendations. It is not
+        possible to automate tests for compliance to all the
+        recommendations, so a complete review must be done by hand.
+        If you would like help doing such an audit of metadata
+        quality, contact the OLAC Coordinators; the link in the
+        footer of this page is a <tt>mailto:</tt> link to their addresses. 
+    </p>
+    <p>
+        However, many aspects of metadata quality can be automatically
+        tested. OLAC has implemented 
+        <a href="http://www.language-archives.org/NOTE/metrics.html">metadata metrics</a> to
+        give implementers feedback on how well they have followed those
+        recommendations. The 
+        <a href="http://www.language-archives.org/tools/metadata/freestanding.html">Freestanding Metadata Service</a> allows you
+        to learn the metadata quality score for any record. Simply
+        paste the complete <i>&lt;olac:olac></i> record into the text
+        box on the page and click the "Analyze" button. If the format
+        of the record is not valid, the resulting page will report the
+        errors.  Otherwise, the resulting page shows an analysis of
+        the record. The bottom part of the page gives
+        the metadata quality score  
+        along with recommendations on changes that would improve 
+        the  score. It is possible to click the browser's Back
+        button to return to the record entry form, edit the record
+        to make changes that you think will improve the quality score,
+        and then click "Analyze" again to test the result.</p>
+    
     <h3 class="Question"><a name="update">What do I do when I want to update the information in my repository?</a></h3>
     <p>Forthcoming.</p>
+    
     <h3 class="Question"><a name="changes">Why aren't my changes being harvested?</a></h3>
     <p>Forthcoming.</p>
 
 <hr/>
-    <p><i>Comments? Further questions? Please give us feedback so that
-    we can make this page more helpful to future implementers.</i></p>
-<p><font size="-2"> <a
+    <p><i>Comments? Further questions? Please click the </i>mailto:<i> link
+        below to give us feedback so that
+        we can make this page more helpful to future implementers.</i></p>
+    <p><tt>http://www.language-archives.org/tools/faq.html</tt><br/>
+        Last revised: 28 July 2008</p>
+    <p><font size="-2"> <a
 href="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary
 Simons</a> </font> </p>
 </body>
