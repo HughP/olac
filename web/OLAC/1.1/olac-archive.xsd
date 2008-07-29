@@ -12,6 +12,7 @@
          2002-12-10: added shortLocation, changed to version 1.0 
          2003-09-23: shortLocation made obligatory (as per OLAC Repositories)
          2008-04-19: changes for version 1.1, currentAsOf attribute, participant, and archivalSubmissionPolicy
+         2008-07-28: changed email attribute from mailto: to varchar(128)
       </xs:documentation>
    </xs:annotation>
 
@@ -26,7 +27,7 @@
                   <xs:complexType>
                      <xs:attribute name="name" type="varchar255" use="required"/>
                      <xs:attribute name="role" type="varchar255" use="required"/>
-                     <xs:attribute name="email" type="mailto" use="required"/>
+                      <xs:attribute name="email" type="varchar128" use="required"/>
                   </xs:complexType>
                </xs:element>
                <xs:element name="institution" type="varchar255"/>
@@ -51,12 +52,6 @@
       </xs:complexContent>
    </xs:complexType>
 
-   <xs:simpleType name="mailto">
-      <xs:restriction base="xs:anyURI">
-         <xs:pattern value="mailto:.*"/>
-      </xs:restriction>
-   </xs:simpleType>
-
    <xs:simpleType name="block">
       <xs:restriction base="xs:string">
          <xs:maxLength value="1000"/>
@@ -69,6 +64,11 @@
       </xs:restriction>
    </xs:simpleType>
 
+    <xs:simpleType name="varchar128">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="128"/>
+        </xs:restriction>
+    </xs:simpleType>
    <xs:simpleType name="varchar50">
       <xs:restriction base="xs:string">
          <xs:maxLength value="50"/>
