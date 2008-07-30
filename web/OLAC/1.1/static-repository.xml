@@ -48,7 +48,7 @@
            http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
         <archiveURL>http://www.cs.mu.oz.au/research/lt/kayardild/</archiveURL>
         <participant name="Baden Hughes" role="Compiler"
-              email="mailto:badenh@cs.mu.oz.au"/>
+              email="badenh@cs.mu.oz.au"/>
         <institution>University of Melbourne</institution>
         <institutionURL>http://www.unimelb.edu.au/</institutionURL>
          <shortLocation>Melbourne, Australia</shortLocation>
