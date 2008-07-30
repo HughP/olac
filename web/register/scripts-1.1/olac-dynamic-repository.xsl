@@ -26,13 +26,13 @@
   </axsl:template>
   <axsl:template match="oai:Identify/oai:adminEmail" priority="3999" mode="M6">
     <axsl:choose>
-      <axsl:when test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.))"/>
-      <axsl:otherwise>In pattern ../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.)):
-   ERROR: Identify: admin email<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="."/><axsl:text xml:space="preserve"> </axsl:text>doesn't appear in a participant element.
+      <axsl:when test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.)"/>
+      <axsl:otherwise>In pattern ../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.):
+   ERROR: Identify: adminEmail<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="."/><axsl:text xml:space="preserve"> </axsl:text>doesn't appear in a participant element.
 </axsl:otherwise>
     </axsl:choose>
-    <axsl:if test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.))">In pattern ../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.)):
-   Identify: admin email<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="."/><axsl:text xml:space="preserve"> </axsl:text>appears in a participant element with role<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="../oai:description/olac-archive:olac-archive/olac-archive:participant[@email=concat('mailto:',normalize-space(current()))]/@role"/><axsl:text xml:space="preserve"> </axsl:text>- OK
+    <axsl:if test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.)">In pattern ../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.):
+   Identify: adminEmail<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="."/><axsl:text xml:space="preserve"> </axsl:text>appears in a participant element with role<axsl:text xml:space="preserve"> </axsl:text><axsl:value-of select="../oai:description/olac-archive:olac-archive/olac-archive:participant[@email=normalize-space(current())]/@role"/><axsl:text xml:space="preserve"> </axsl:text>- OK
 </axsl:if>
     <axsl:apply-templates mode="M6"/>
   </axsl:template>

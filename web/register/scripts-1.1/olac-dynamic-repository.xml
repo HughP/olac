@@ -40,11 +40,11 @@
       <report test="//oai:description/olac-archive:olac-archive">Identify: description element has an olac-archive element - OK</report>
     </rule>
     <rule context="oai:Identify/oai:adminEmail">
-      <assert test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.))">
-        ERROR: Identify: admin email <value-of select="."/> doesn't appear in a participant element.
+      <assert test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.)">
+        ERROR: Identify: adminEmail <value-of select="."/> doesn't appear in a participant element.
       </assert>
-      <report test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=concat('mailto:',normalize-space(.))">
-        Identify: admin email <value-of select="."/> appears in a participant element with role	<value-of select="../oai:description/olac-archive:olac-archive/olac-archive:participant[@email=concat('mailto:',normalize-space(current()))]/@role"/> - OK
+      <report test="../oai:description/olac-archive:olac-archive/olac-archive:participant/@email=normalize-space(.)">
+        Identify: adminEmail <value-of select="."/> appears in a participant element with role	<value-of select="../oai:description/olac-archive:olac-archive/olac-archive:participant[@email=normalize-space(current())]/@role"/> - OK
       </report>
     </rule>
   </pattern>
