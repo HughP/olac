@@ -80,7 +80,7 @@ form. The generated form by the "Format" button conforms to the
 <A href="http://www.language-archives.org/NOTE/olac_display.html">OLAC Display Format</A>.
 Simply use the Save As function of your web browser to save the resulting page so that you can
 post it on your own web site.  Alternatively, you can download the
-<A href="../metadata_record.xsl">XSLT stylesheet</A> and modify it for use
+<A href="/metadata_record.xsl">XSLT stylesheet</A> and modify it for use
 on your site.</P>
 <H2>A metadata quality analysis service</H2>
 <P>Click the "Analyze" button to perform an analysis of metadata
@@ -90,7 +90,7 @@ on your site.</P>
     along with recommendations on changes that would improve the
     quality score.
 </P>
-<FORM method="post" action="freestanding_validate.php4" name="service">
+<FORM method="post" action="freestanding_validate.php" name="service">
 <P><TEXTAREA NAME="metadata" ROWS="15" COLS="70">&lt;?xml version="1.0" encoding="UTF-8"?>
 <olac:olac
      xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
@@ -113,10 +113,6 @@ and culture, but ultimately on the world of relations and influence.
   <dc:publisher>New York: Bartleby.com</dc:publisher>
   <dc:identifier xsi:type="dcterms:URI">http://www.bartleby.com/186/</dc:identifier>
 </olac:olac></TEXTAREA></P>
-<SELECT NAME="version">
-<OPTION SELECTED>OLAC 1.0</OPTION>
-<OPTION>OLAC 1.1</OPTION>
-</SELECT>
 <INPUT TYPE="SUBMIT" size="23" NAME="action" VALUE="Format"> 
 <INPUT TYPE="SUBMIT" size="23" NAME="action" VALUE="Analyze"> 
 <input type="button" size="23" value="Clear the text area"
