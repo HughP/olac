@@ -1,9 +1,9 @@
-#! /usr/local/bin/perl -Iolac_suite/test
+#! /usr/local/bin/perl -Iolac_suite/3
 
 use OLAC::Aggregator;
 
 my $dbinfofile = "/home/olac/.dbinfo_olac2";
-my $identify = "olac_suite/test.xml";
+my $identify = "olac_suite/identify3.xml";
 
 sub read_input {
     my ($buffer, @pairs, $pair, $name, $value, %FORM);
