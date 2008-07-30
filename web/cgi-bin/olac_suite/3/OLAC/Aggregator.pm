@@ -288,14 +288,14 @@ sub set_olac_atts {
 	      "xmlns:olac");
     my @ns = ("http://purl.org/dc/elements/1.1/",
 	      "http://purl.org/dc/terms/",
-	      "http://www.language-archives.org/OLAC/1.0/");
+	      "http://www.language-archives.org/OLAC/1.1/");
     my $schemaLoc = "
 http://purl.org/dc/elements/1.1/
-http://www.language-archives.org/OLAC/1.0/dc.xsd
+http://www.language-archives.org/OLAC/1.1/dc.xsd
 http://purl.org/dc/terms/
-http://www.language-archives.org/OLAC/1.0/dcterms.xsd
-http://www.language-archives.org/OLAC/1.0/
-http://www.language-archives.org/OLAC/1.0/olac.xsd
+http://www.language-archives.org/OLAC/1.1/dcterms.xsd
+http://www.language-archives.org/OLAC/1.1/
+http://www.language-archives.org/OLAC/1.1/olac.xsd
 ";
 
     foreach my $i (0..2) {
@@ -312,7 +312,7 @@ sub set_oaidc_atts {
 	      "http://www.openarchives.org/OAI/2.0/oai_dc/");
     my $schemaLoc = "
 http://purl.org/dc/elements/1.1/
-http://www.language-archives.org/OLAC/1.0/dc.xsd
+http://www.language-archives.org/OLAC/1.1/dc.xsd
 http://www.openarchives.org/OAI/2.0/oai_dc/
 http://www.openarchives.org/OAI/2.0/oai_dc.xsd
 ";
@@ -445,6 +445,9 @@ sub serve_Identify {
     $doc->getElementsByTagName("earliestDatestamp")->item(0)->
 	addText($self->{db}->get_earliestDatestamp());
 
+    $doc->getElementsByTagName("olac-archive")->item(0)->
+	setAttribute("currentAsOf", $self->{db}->get_currentAsOfDatestamp());
+
     return $doc;
 }
 
@@ -533,17 +536,17 @@ sub serve_ListMetadataFormats {
     $mp = $mf->appendChild($doc->createElement("metadataPrefix"));
     $mp->addText("olac");
     $s = $mf->appendChild($doc->createElement("schema"));
-    $s->addText("http://www.language-archives.org/OLAC/1.0/olac.xsd");
+    $s->addText("http://www.language-archives.org/OLAC/1.1/olac.xsd");
     $mn = $mf->appendChild($doc->createElement("metadataNamespace"));
-    $mn->addText("http://www.language-archives.org/OLAC/1.0/");
+    $mn->addText("http://www.language-archives.org/OLAC/1.1/");
 
     $mf = $lmf->appendChild($doc->createElement("metadataFormat"));
     $mp = $mf->appendChild($doc->createElement("metadataPrefix"));
     $mp->addText("olac_display");
     $s = $mf->appendChild($doc->createElement("schema"));
-    $s->addText("http://www.language-archives.org/OLAC/1.0/olac.xsd");
+    $s->addText("http://www.language-archives.org/OLAC/1.1/olac.xsd");
     $mn = $mf->appendChild($doc->createElement("metadataNamespace"));
-    $mn->addText("http://www.language-archives.org/OLAC/1.0/");
+    $mn->addText("http://www.language-archives.org/OLAC/1.1/");
 
     $mf = $lmf->appendChild($doc->createElement("metadataFormat"));
     $mp = $mf->appendChild($doc->createElement("metadataPrefix"));
@@ -756,7 +759,8 @@ sub get_mdata_olac {
     $row->[1] && $me->setAttribute('xml:lang', $row->[1]);
     $row->[2] && $me->addText($row->[2]);
     my ($ns,$tt) = @{$self->{extdb}{$row->[3]}};
-    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/') {
+    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/' ||
+	$ns eq 'http://www.language-archives.org/OLAC/1.1/') {
 	$me->setAttribute('xsi:type', "olac:$tt");
 	$row->[4] && $me->setAttribute('olac:code', $row->[4]);
     }
@@ -782,7 +786,8 @@ sub get_mdata_olac_display {
     my $content = '';
     my $padding = '';
     my ($ns,$tt) = @{$self->{extdb}{$row->[3]}};
-    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/') {
+    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/' ||
+	$ns eq 'http://www.language-archives.org/OLAC/1.1/') {
 	$me->setAttribute('xsi:type', "olac:$tt");
 	if ($row->[4]) {
 	    $me->setAttribute('olac:code', $row->[4]);
@@ -815,7 +820,8 @@ sub get_mdata_oaidc {
     my $content = '';
     my $padding = '';
     my ($ns,$tt) = @{$self->{extdb}{$row->[3]}};
-    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/') {
+    if ($ns eq 'http://www.language-archives.org/OLAC/1.0/' ||
+	$ns eq 'http://www.langauge-archives.org/OLAC/1.1/') {
 	my $code = $row->[4];
 	if ($code) {
 	    $content = "[$row->[5] = $row->[6]]";

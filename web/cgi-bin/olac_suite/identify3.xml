@@ -12,7 +12,7 @@
   <repositoryName>OLAC Aggregator</repositoryName>
   <baseURL/>
   <protocolVersion>2.0</protocolVersion>
-  <adminEmail>mailto:haejoong@ldc.upenn.edu</adminEmail>
+  <adminEmail>haejoong@ldc.upenn.edu</adminEmail>
   <earliestDatestamp></earliestDatestamp>
   <deletedRecord>no</deletedRecord>
   <granularity>YYYY-MM-DD</granularity>
@@ -35,15 +35,15 @@
   </description>
   <description>
     <olac-archive type="institutional"
-      xmlns="http://www.language-archives.org/OLAC/1.0/olac-archive"
+      xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.language-archives.org/OLAC/1.0/olac-archive
-      http://www.language-archives.org/OLAC/1.0/olac-archive.xsd">
+      xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
+      http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
 
-      <archiveURL>http://www.language-archives.org:8082/dp9/</archiveURL>
-      <curator>Steven Bird &amp; Gary Simons</curator>
-      <curatorTitle>Coordinators</curatorTitle>
-      <curatorEmail>mailto:olac-admin@language-archives.org</curatorEmail>
+      <archiveURL>http://www.language-archives.org/archive_records/</archiveURL>
+      <participant name="Steven Bird" role="Curator" email="sb@csse.unimelb.edu.au"/>
+      <participant name="Gary Simons" role="Curator" email="Gary_Simons@sil.org"/>
+      <participant name="Haejoong Lee" role="Administrator" email="haejoong@ldc.upenn.edu"/>
       <institution>Open Language Archives Community</institution>
       <institutionURL>http://www.language-archives.org/</institutionURL>
       <shortLocation>Philadelphia, U.S.A.</shortLocation>
