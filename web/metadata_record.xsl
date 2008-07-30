@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- http://www.language-archives.org/tools/metadata/metadata_record.xsl
+<!-- http://www.language-archives.org/metadata_record.xsl
      A stylesheet for transforming an OLAC metadata record
        into an HTML table following the OLAC Display Format.
      (Use <xsl:include> to include it in a stylesheet that produces a whole page.)
