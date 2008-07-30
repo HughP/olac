@@ -1,10 +1,9 @@
-#! /usr/bin/perl -Iolac_suite/3
-#! /pkg/p/perl5.6.0/bin/perl -Iolac_suite/3:/mnt/unagi/speechd8/ldc/wwwhome/htdocs/language-archives/lib/site-perl
+#! /usr/local/bin/perl -Iolac_suite/test
 
 use OLAC::Aggregator;
 
 my $dbinfofile = "/home/olac/.dbinfo_olac2";
-my $identify = "olac_suite/identify3.xml";
+my $identify = "olac_suite/test.xml";
 
 sub read_input {
     my ($buffer, @pairs, $pair, $name, $value, %FORM);

@@ -41,6 +41,7 @@ sub _connect {
 	} else {
 	    $self->{connected} = 1;
 	}
+	$self->{dbh}->do("set names 'utf8'");
     } else {
 	$self->{err} = OLAC::Error->new
 	    ('db error', "can't open db info file <$dbinfofile>");
@@ -320,7 +321,13 @@ sub DESTROY {
 sub get_earliestDatestamp {
     my ($self) = @_;
     return $self->{dbh}->selectrow_arrayref
-	("select min(DateStamp) from ARCHIVED_ITEM")->[0];
+	("select min(DateStamp) from ARCHIVED_ITEM where DateStamp>'0000-00-00'")->[0];
+}
+
+sub get_currentAsOfDatestamp {
+    my ($self) = @_;
+    return $self->{dbh}->selectrow_arrayref
+	("select max(LastHarvested) from OLAC_ARCHIVE, ARCHIVES where ID=RepositoryIdentifier")->[0];
 }
 
 sub getTable {
