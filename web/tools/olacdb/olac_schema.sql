@@ -135,11 +135,14 @@ create index ARCHIVED_ITEM_INDEX on ARCHIVED_ITEM (Archive_ID, Schema_ID);
 # Table               : ELEMENT_DEFN
 # Description         : 
 # Tag_ID              : 
+# DcElement           :
+# InverseElement      :
+# Rank                : A number that encodes the relative order of presentation (lowest first) 
 # TagName             : The generic identifier for the tag 
 # Label               : A presentation label for the element 
-# Rank                : A number that encodes the relative order of presentation (lowest first) 
-# Vocab_ID            : (Foreign Key)
-# Vocab_ID1           : (Foreign Key)
+# Display             : A flag indicating whether it should be included
+#                       in the Element Usage histogram of OLAC Metics
+#                       (http://www.language-archives.org/metrics)
 #
 ##################################################################
 
@@ -150,6 +153,7 @@ create table ELEMENT_DEFN (
 	Rank			smallint not null,
 	TagName			varchar(255) not null,
 	Label			varchar(255) not null,
+	Display			bool default true,
 	primary key (Tag_ID)
 ) engine=innodb, charset=utf8;
  
