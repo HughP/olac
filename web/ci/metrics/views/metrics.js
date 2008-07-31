@@ -385,7 +385,7 @@ function populateComparativeMetricsTable()
 			}
 		}
 		row["overall_rating"] = Math.round(row["metadata_quality"] / 2.0);
-		if (row["integrity_problems"] > 0 && row["overall_rating"])
+		if (Math.floor(row["integrity_problems"]) > 0 && row["overall_rating"])
 			row["overall_rating"] -= 1;
 		tab.push(row);
 	}
