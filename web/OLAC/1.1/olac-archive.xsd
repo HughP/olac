@@ -27,7 +27,7 @@
                   <xs:complexType>
                      <xs:attribute name="name" type="varchar255" use="required"/>
                      <xs:attribute name="role" type="varchar255" use="required"/>
-                      <xs:attribute name="email" type="varchar128" use="required"/>
+                      <xs:attribute name="email" type="emailType" use="required"/>
                   </xs:complexType>
                </xs:element>
                <xs:element name="institution" type="varchar255"/>
@@ -64,15 +64,15 @@
       </xs:restriction>
    </xs:simpleType>
 
-    <xs:simpleType name="varchar128">
-        <xs:restriction base="xs:string">
-            <xs:maxLength value="128"/>
-        </xs:restriction>
-    </xs:simpleType>
    <xs:simpleType name="varchar50">
       <xs:restriction base="xs:string">
          <xs:maxLength value="50"/>
       </xs:restriction>
    </xs:simpleType>
 
+   <xs:simpleType name="emailType">
+      <xs:restriction base="xs:string">
+         <xs:pattern value="\S+@(\S+\.)+\S+"/>
+      </xs:restriction>
+   </xs:simpleType>
 </xs:schema>
