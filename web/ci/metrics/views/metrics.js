@@ -414,10 +414,15 @@ function populateComparativeMetricsTable()
 	var format_or = function(el, oRecord, oColumn, oData) {
 		el.innerHTML = '<div style="text-align: right;"><img src="/tools/scores/star' + oData + '.giv"></img>';
 	}
+	var sort_or = function(a, b, desc) { 
+		var comp = YAHOO.util.Sort.compare; 
+		var compState = comp(a.getData("overall_rating"), b.getData("overall_rating"), desc); 
+		return (compState !== 0) ? compState : comp(a.getData("metadata_quality"), b.getData("metadata_quality"), desc); 
+	}; 
 
 	var cols = [
 		{key:"archive", label:"Archive", sortable:true},
-		{key:"overall_rating", label:"Overall Rating", sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_or},
+		{key:"overall_rating", label:"Overall Rating", sortable:true, sortOptions:{defaultOrder:"desc", sortFunction:sort_or}, formatter:format_or},
 		{key:"num_resources", label:FIELDS["num_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
 		{key:"num_online_resources", label:FIELDS["num_online_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
 		{key:"num_languages", label:FIELDS["num_languages"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
