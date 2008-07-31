@@ -95,10 +95,11 @@ function generateSumStatTab(arcid, containerId)
 	}
 	if (arcid != -1) {
 		var rating = row['metadata_quality'];
-		if (row['integrity_problems'] > 0 && rating >= 1.0) {
+		rating = Math.round(rating/2.0);
+		if (Math.floor(row['integrity_problems']) > 0 && rating >= 1.0) {
 			rating = rating - 1.0;
 		}
-		tab.push({name:'Overall Rating', value:Math.round(rating/2)});
+		tab.push({name:'Overall Rating', value:rating});
 	}
 	var dataSource = new YAHOO.util.DataSource(tab);
 	dataSource.responseType = YAHOO.util.DataSource.TYPE_JSARRAY;
@@ -108,14 +109,16 @@ function generateSumStatTab(arcid, containerId)
 	var myFormatter = function(el, oRecord, oColumn, oData) {
 		if (oRecord.getData('name') == 'Last Updated') {
 			YAHOO.widget.DataTable.formatText(el, oRecord, oColumn, oData);
-		}
-		else if (oRecord.getData('name') == 'Overall Rating') {
-			el.innerHTML = '<img src="/tools/scores/star' + oRecord.getData('value') + '.gif"></img>';
-		}
-		else if (oRecord.getData('name') == 'Known Integrity Problems' && oRecord.getData('value')>0 && arcid != -1) {
-			el.innerHTML = '<a href="/checks/' + REPOIDS[arcid] + '">' + oRecord.getData('value') + '</a>';
-		}
-		else {
+		} else if (oRecord.getData('name') == 'Overall Rating') {
+			el.innerHTML = '<img src="/tools/scores/star' + oData + '.gif"></img>';
+		} else if (oRecord.getData('name') == 'Known Integrity Problems' && arcid != -1) {
+			var probs = Math.floor(oData);
+			if (oData > 0) {
+				el.innerHTML = '<a href="/checks/' + REPOIDS[arcid] + '">' + probs + '</a>';
+			} else {
+				el.innerHTML = probs;
+			}
+		} else {
 			YAHOO.widget.DataTable.formatNumber(el, oRecord, oColumn, oData);
 		}
 	};
@@ -362,48 +365,70 @@ function populateComparativeMetricsTable()
 		if (rowid == -1) continue;
 		var row = new Array();
 		for (var key in METRICS[rowid]) {
-			if (key == "archive_id")
+			if (key == "archive_id") {
 				row["archive"] = REPOS[METRICS[rowid][key]];
-			else if (key == 'last_updated') {
+				row["archive_id"] = METRICS[rowid][key];
+			} else if (key == 'last_updated') {
 				if (METRICS[rowid][key]) {
 					var a = METRICS[rowid][key].split('-');
 					row[key] = a[0]+'-'+a[1]+'-'+a[2]
-				}
-				else {
+				} else {
 					row[key] = '0000-00-00';
 				}
-			}
-			else {
+			} else {
 				if (METRICS[rowid][key]) {
-					row[key] = Math.round(parseFloat(METRICS[rowid][key])*10)/10;
-				}
-				else {
+					//row[key] = Math.round(parseFloat(METRICS[rowid][key])*10)/10;
+					row[key] = parseFloat(METRICS[rowid][key]);
+				} else {
 					row[key] = 0;
 				}
 			}
 		}
+		row["overall_rating"] = Math.round(row["metadata_quality"] / 2.0);
+		if (row["integrity_problems"] > 0 && row["overall_rating"])
+			row["overall_rating"] -= 1;
 		tab.push(row);
 	}
 	var dataSource = new YAHOO.util.DataSource(tab);
 	dataSource.responseType = YAHOO.util.DataSource.TYPE_JSARRAY;
 	dataSource.responseSchema = {
-		fields: ["archive", "num_resources", "num_online_resources", "num_languages", "num_linguistic_fields",
-			"num_linguistic_types", "num_dcmi_types", "avg_num_elements", "avg_xsi_types", "metadata_quality",
-			"last_updated", "integrity_problems"]
+		fields: ["archive_id", "archive", "overall_rating", "num_resources", "num_online_resources", "num_languages",
+			"num_linguistic_fields", "num_linguistic_types", "num_dcmi_types", "avg_num_elements", "avg_xsi_types",
+			"metadata_quality", "last_updated", "integrity_problems"]
 	};
+
+	var format_ip = function(el, oRecord, oColumn, oData) {
+		var probs = Math.floor(oData);
+		if (oData > 0) {
+			el.innerHTML = '<div style="text-align: right;"><a href="/checks/' + REPOIDS[oRecord.getData('archive_id')] + '">' + probs + '</a></div>';
+		} else {
+			el.innerHTML = '<div style="text-align: right;">' + probs + '</div>';
+		}
+	};
+	var format_right = function(el, oRecord, oColumn, oData) {
+		el.innerHTML = '<div style="text-align: right;">' + parseInt(oData) + '</div>';
+	}
+	var format_right2 = function(el, oRecord, oColumn, oData) {
+		el.innerHTML = '<div style="text-align: right;">' + parseFloat(oData).toFixed(1) + '</div>';
+	}
+	var format_or = function(el, oRecord, oColumn, oData) {
+		el.innerHTML = '<div style="text-align: right;"><img src="/tools/scores/star' + oData + '.giv"></img>';
+	}
+
 	var cols = [
 		{key:"archive", label:"Archive", sortable:true},
-		{key:"num_resources", label:FIELDS["num_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"num_online_resources", label:FIELDS["num_online_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"num_languages", label:FIELDS["num_languages"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"num_linguistic_fields", label:FIELDS["num_linguistic_fields"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"num_linguistic_types", label:FIELDS["num_linguistic_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"num_dcmi_types", label:FIELDS["num_dcmi_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"avg_num_elements", label:FIELDS["avg_num_elements"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"avg_xsi_types", label:FIELDS["avg_xsi_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
-		{key:"metadata_quality", label:FIELDS["metadata_quality"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"},
+		{key:"overall_rating", label:"Overall Rating", sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_or},
+		{key:"num_resources", label:FIELDS["num_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"num_online_resources", label:FIELDS["num_online_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"num_languages", label:FIELDS["num_languages"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"num_linguistic_fields", label:FIELDS["num_linguistic_fields"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"num_linguistic_types", label:FIELDS["num_linguistic_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"num_dcmi_types", label:FIELDS["num_dcmi_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
+		{key:"avg_num_elements", label:FIELDS["avg_num_elements"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right2},
+		{key:"avg_xsi_types", label:FIELDS["avg_xsi_types"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right2},
+		{key:"metadata_quality", label:FIELDS["metadata_quality"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right2},
 		{key:"last_updated", label:FIELDS["last_updated"], sortOptions:{defaultOrder:"desc"}, sortable:true},
-		{key:"integrity_problems", label:FIELDS["integrity_problems"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:"number"}
+		{key:"integrity_problems", label:FIELDS["integrity_problems"], sortable:true, formatter:format_ip}
 	];
 	var dataTable = new YAHOO.widget.DataTable("table", cols, dataSource);
 	dataTable.sortColumn(dataTable.getColumn("archive"));

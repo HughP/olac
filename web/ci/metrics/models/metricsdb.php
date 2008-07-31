@@ -37,7 +37,7 @@ class MetricsDB extends Model {
 select TagName label, sum(if(cnt is null,0,cnt)) cnt
 from ELEMENT_DEFN ed left join MetricsElementUsage meu
 on ed.Tag_ID=meu.tag_id $cond
-where ed.Tag_ID=ed.DcElement
+where ed.Tag_ID=ed.DcElement and ed.Display=true
 group by TagName
 order by TagName
 EOF;
@@ -70,19 +70,19 @@ EOF;
 
 		if ($archiveId == -1) {
 			$sql1 = <<<EOF
-select x.Type, sum(if(Count is null,0,Count)) cnt
+select distinct concat(x.NSPrefix, ':', x.Type) Type, sum(if(Count is null,0,Count)) cnt
 from EXTENSION x left join MetricsEncodingSchemes y on x.Type=y.Type
-where x.Type is not null and x.Type!=''
-group by x.Type
-order by x.Type
+where x.Type is not null and x.Type!=''  and x.NS is not null and x.NS in ("http://purl.org/dc/terms/", "http://www.language-archives.org/OLAC/1.0/", "http://www.langauge-archives.org/OLAC/1.1/")
+group by Type
+order by Type
 EOF;
 		}
 		else {
 			$sql1 = <<<EOF
-select x.Type, if(Count is null,0,Count) cnt
+select distinct concat(x.NSPrefix, ':', x.Type) Type, if(Count is null,0,Count) cnt
 from EXTENSION x left join MetricsEncodingSchemes y on x.Type=y.Type and y.Archive_ID=$archiveId
-where x.Type is not null and x.Type!=''
-order by x.Type
+where x.Type is not null and x.Type!='' and x.NS is not null and x.NSPrefix is not null and x.NSPrefix in ("olac","dcterms")
+order by Type
 EOF;
 		}
 		$query = $this->db->query($sql1);
