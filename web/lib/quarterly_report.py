@@ -1,3 +1,5 @@
+#! /ldc/bin/python2.4
+
 import MySQLdb
 import datetime
 import re
@@ -10,23 +12,33 @@ You are receiving this email by virtue of your association with the following ar
 
 %(nameOfArchive)s
 
+(If you do not wish to receive these emails, please notify your OLAC system administrator, %(adminEmail)s.)
+
+
 USAGE
 These are the latest statistics on the usage of your metadata records on the OLAC site:
 
-To be determined. Usage metrics not yet implemented.
+*** To be determined. Usage metrics not yet implemented.
+
 
 QUALITY METRICS
 OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community). See http://www.language-archives.org/metrics/ for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:
 
 Last Updated: %(lastUpdated)s
-Average Metadata Quality: %(starScore)d-star%(pluralStar)s (%(score).2f)
+Average Metadata Quality: %(starScore)d-star%(pluralStar)s (%(score).2f on a 10 point scale)
 
 %(feedbackOnUpdate)s
+
+
+INTEGRITY PROBLEMS
+%(feedbackOnIntegrity)s
+
 
 COLLECTION METRICS
 The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and %(numberOfArchives)d is lowest):
 
 %(metricsTable)s
+
 
 ARCHIVE DESCRIPTION
 Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (%(adminEmail)s) if you spot anything that should be changed:
@@ -106,6 +118,23 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
 
     return "\n\n".join(feedback)
 
+def determineFeedbackOnIntegrity(integrity_value, archiveId):
+    """
+    @param integrity_value: p.w where p is the number if errors and 0 <= w <= 2.
+      If w > 0, there are warning(s).
+    @param archiveId: sring archive id
+    """
+    feedback = []
+    p = int(integrity_value)
+    w = int((integrity_value % 1) % 10)
+    if p == 0:
+        if w == 0:
+            return "Congratulations, there are no known integrity problems in your metadata."
+        else:
+            return "Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to visit the following link to see a listing of the potential problems:\n\nhttp://www.language-archives.org/checks/%s" % archivedId
+    else:
+        return "Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. The presence of these problems is causing one star to be subtracted from your overall quality rating. Visit the following link to see a listing of the problems that need to be fixed:\n\nhttp://www.language-archives.org/checks/%s" % archiveId
+    
 def normalizeEmailAddress(s):
     s = re.sub(r"^mailto:", '', s)
     s = re.sub(r"[,; ].*", '', s)
@@ -122,8 +151,12 @@ def composeEmail(metrics, archiveId):
     lastUpdated = row["last_updated"]
     score = row["metadata_quality"]
     starScore = int(score/2.0 + 0.5)
+    # integrity_problems is a float number in the database, say p.w where
+    # p is the number of errors and w, if positive, means existence of warnings
+    if int(row['integrity_problems']) > 0 and starScore > 0:
+        starScore -= 1
     pluralStar = ''
-    if starScore > 1: pluralStar = 's'
+    if starScore != 1: pluralStar = 's'
 
     params = {
         "archiveId": archiveId,
@@ -135,6 +168,7 @@ def composeEmail(metrics, archiveId):
         "numberOfArchives": metrics.size(),
         "adminEmail": normalizeEmailAddress(row["AdminEmail"]),
         "feedbackOnUpdate": determineFeedbackOnUpdate(lastUpdated, score, archiveId),
+        "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId),
         "metricsTable": generateMetricsTable(metrics, archiveId)
         }
 
