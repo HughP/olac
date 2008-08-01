@@ -18,7 +18,7 @@ You are receiving this email by virtue of your association with the following ar
 USAGE
 These are the latest statistics on the usage of your metadata records on the OLAC site:
 
-*** To be determined. Usage metrics not yet implemented.
+%(usageTable)s
 
 
 QUALITY METRICS
@@ -55,6 +55,46 @@ Steven Bird, University of Melbourne and University of Pennsylvania
 Gary Simons, SIL International and GIAL
 OLAC Coordinators (www.language-archives.org)
 """
+
+usageTemplate = """\
+Period: %s - %s
+
+Stat                    Hits   Clicks
+------------------- -------- --------
+Pageviews           %8d %8d
+Unique Pageviews    %8d %8d
+Time on Page        %8s %8s
+Bounce Rate         %8.2f %8.2f
+Exit Rate           %8.2f %8.2f
+"""
+
+def generateUsageTable(usagec, usageh, archiveId):
+    fields = (
+        "start_date",
+        "end_date",
+        "pageviews",
+        "unique_pageviews",
+        "time_on_page",
+        "bounce_rate",
+        "percent_exit",
+        )
+    def time2str(t):
+        s = str(datetime.timedelta(0,t))
+        s = re.sub(r"\..*", "", s)
+        return re.sub(r"^[0:]*", "", s)
+    P = []
+    for db in (usageh,usagec):
+        row = db.findRow('repoid', archiveId)
+        L = [row[f] for f in fields]
+        L[4] = time2str(L[4])
+        P.append(L)
+    params = [min(P[0][0],P[1][0]), max(P[0][1],P[1][1])]
+    for i in range(2,len(fields)):
+        params.append(P[0][i])
+        params.append(P[1][i])
+        
+    return usageTemplate % tuple(params)
+    
 
 metricsTemplate = """\
 Metric                                Value   Rank
@@ -141,7 +181,7 @@ def normalizeEmailAddress(s):
     s = s.strip()
     return s
 
-def composeEmail(metrics, archiveId):
+def composeEmail(archiveId, metrics, usageh, usagec):
     """
     @param metrics: metrics table
     @param archiveId: string archiveId
@@ -169,7 +209,8 @@ def composeEmail(metrics, archiveId):
         "adminEmail": normalizeEmailAddress(row["AdminEmail"]),
         "feedbackOnUpdate": determineFeedbackOnUpdate(lastUpdated, score, archiveId),
         "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId),
-        "metricsTable": generateMetricsTable(metrics, archiveId)
+        "metricsTable": generateMetricsTable(metrics, archiveId),
+        "usageTable": generateUsageTable(usagec, usageh, archiveId)
         }
 
     return template % params
@@ -187,17 +228,10 @@ def sendReport(msg, curatorName, curatorEmail, archiveId, isTest):
     server = smtplib.SMTP('mail.ldc.upenn.edu')
     server.sendmail(sender, curatorEmail, msg)
 
-class Metrics:
-    def __init__(self):
-        con = MySQLdb.connect(read_default_file="/ldc/home/olac/.my.cnf")
-        cur = con.cursor(MySQLdb.cursors.DictCursor)
-        cur.execute("select * from Metrics left join OLAC_ARCHIVE on Metrics.archive_id=OLAC_ARCHIVE.Archive_ID where Metrics.archive_id!=-1")
-        self.metrics = cur.fetchall()
-        cur.close()
-        con.close()
 
+class Table:
     def findRow(self, field, value):
-        for row in self.metrics:
+        for row in self.table:
             try:
                 if row[field] == value:
                     return row
@@ -216,23 +250,74 @@ class Metrics:
 
     def getColumn(self, field):
         try:
-            return [r[field] for r in self.metrics]
+            return [r[field] for r in self.table]
         except KeyError:
             # unknown field
             return None
     
     def size(self):
-        return len(self.metrics)
+        return len(self.table)
 
     def rank(self, field, value):
         try:
-            L = sorted([row[field] for row in self.metrics] + [value])
+            L = sorted([row[field] for row in self.table] + [value])
             L.reverse()
             return L.index(value) + 1
         except KeyError:
             # unknown field in row[field]
             return None
 
+
+class Metrics(Table):
+    def __init__(self):
+        con = MySQLdb.connect(read_default_file="/ldc/home/olac/.my.cnf")
+        cur = con.cursor(MySQLdb.cursors.DictCursor)
+        cur.execute("select * from Metrics left join OLAC_ARCHIVE on Metrics.archive_id=OLAC_ARCHIVE.Archive_ID where Metrics.archive_id!=-1")
+        self.table = cur.fetchall()
+        cur.close()
+        con.close()
+
+def previous_quarter():
+    today = datetime.datetime.today()
+    q = int(today.strftime("%m")) / 3
+    y = int(today.strftime("%Y"))
+    if q == 0:
+        beg = datetime.datetime(y-1, 10, 1)
+        end = datetime.datetime(y, 1, 1)
+    else:
+        beg = datetime.datetime(y, (q-1)*3+1, 1)
+        end = datetime.datetime(y, q*3+1, 1)
+    return beg, end
+
+usageSQL = """\
+select repoid,
+       min(start_date) start_date,
+       max(end_date) end_date,
+       sum(pageviews) pageviews,
+       sum(unique_pageviews) unique_pageviews,
+       sum(time_on_page) time_on_page,
+       sum(bounce_rate*pageviews)/sum(pageviews) bounce_rate,
+       sum(percent_exit*pageviews)/sum(pageviews) percent_exit,
+       avg(value_index) value_index from GoogleAnalyticsReports
+where type=%s and start_date>=%s and end_date<%s
+group by type, repoid
+order by type, repoid
+"""
+
+class GA(Table):
+    def __init__(self, typ):
+        """
+        @param typ: 'hits' or 'clicks'
+        """
+        con = MySQLdb.connect(read_default_file="/ldc/home/olac/.my.cnf")
+        cur = con.cursor(MySQLdb.cursors.DictCursor)
+        beg, end = previous_quarter()
+        cur.execute(usageSQL, (typ, beg, end))
+        self.table = cur.fetchall()
+        cur.close()
+        con.close()
+
+        
 if __name__ == "__main__":
     import sys
     from optparse import OptionParser
@@ -270,6 +355,9 @@ usage: %prog -h
     else:
         metrics = Metrics()
         archiveIds = metrics.getColumn("RepositoryIdentifier")
+    usageh = GA('hits')
+    usagec = GA('clicks')
+
     if opts.receipient:
         receipient = opts.receipient
     else:
@@ -277,7 +365,7 @@ usage: %prog -h
     sendemail = opts.send
     
     for archiveId in archiveIds:
-        msg = composeEmail(metrics, archiveId)
+        msg = composeEmail(archiveId, metrics, usageh, usagec)
         if sendemail:
             row = metrics.findRow('RepositoryIdentifier',archiveId)
             repoName = row["RepositoryName"]
@@ -289,4 +377,3 @@ usage: %prog -h
             print "-" * 79
             print msg
             print
-            
