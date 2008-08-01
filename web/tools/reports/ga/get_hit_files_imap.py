@@ -30,7 +30,10 @@
 # email or not.
 #
 
-import imaplib, email, sys#, datetime
+import sys
+import imaplib
+import email
+import re
 
 # The months, as defined by RFC 2060 (IMAP).
 #date_month_list = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -39,7 +42,7 @@ import imaplib, email, sys#, datetime
 # See if we need to get all emails
 get_all = False
 if len(sys.argv) > 1 and sys.argv[1] == '-a':
-        get_all = True
+    get_all = True
 #else:
 #        try:
 #                date_file = open(".get_hit_files_imap.date", "r")
@@ -55,14 +58,14 @@ M.select()
 
 # Get a list of emails
 if get_all:
-        typ, data = M.search(None, 'ALL')
+    typ, data = M.search(None, 'ALL')
 else:
-       #from_date.day
-       # searchstr = 'ALL SINCE "' + ('%02u' % from_date.day) + "-" \
-       #                 + date_month_list[from_date.month] + "-" + \
-       #                 ('%04u' % from_date.year)+'"'
-       # typ, data = M.search(None, searchstr)
-       typ, data = M.search(None, 'UNSEEN')
+    #from_date.day
+    # searchstr = 'ALL SINCE "' + ('%02u' % from_date.day) + "-" \
+    #                 + date_month_list[from_date.month] + "-" + \
+    #                 ('%04u' % from_date.year)+'"'
+    # typ, data = M.search(None, searchstr)
+    typ, data = M.search(None, 'UNSEEN')
 
 # Loop through each email
 #work_was_done = False
@@ -72,22 +75,20 @@ for num in data[0].split():
 
     # Mark message as Read.
     M.store(num, '+FLAGS.SILENT', '\\Seen')
-    print '\nMessage %s\n%s\n%s' % \
-        (num, message.get("Subject"), message.get("From"))
+    #print '\nMessage %s\n%s\n%s' % \
+    #    (num, message.get("Subject"), message.get("From"))
     if message.get("Subject").startswith("Analytics www.language-archives"):   
         #print email.iterators._structure(message)
         for part in message.walk():
             if part.get_content_type() == 'application/octet-stream':
-                filename = part.get_filename().replace(' ', '')
-                filename = filename.replace('\r', '').replace('\n', '')
-                filename = filename.replace( \
-                                'Analytics_www.language-archives.org_', '')
-                filename = filename.replace('_(Item_Hits_&_Clicks)', '')
-                filename = "ga_" + filename
+                filename = re.sub(r"\s+", "", part.get_filename())
+                filename = filename.split('_')[2]
+                print filename.replace("-"," ")
+                filename = "ga_" + filename + ".csv"
                 fp = open(filename, 'wb')
                 fp.write(part.get_payload(decode=True))
                 fp.close()
-                print "Extracted an attachment."
+                #print "Extracted an attachment."
 #               work_was_done = True
 
 # Write a file when emails were last checked
