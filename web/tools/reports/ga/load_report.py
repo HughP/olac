@@ -7,6 +7,7 @@ Load a GA report into the GoogleAnalyticsReports table of the OLAC database.
 import sys
 import os
 import datetime
+import time
 import MySQLdb
 from optionparser import OptionParser
 
@@ -66,8 +67,8 @@ def process_report(con, report):
     f.readline()
     f.readline()
     arr = f.readline().split('"')
-    fromdate = datetime.datetime.strptime(arr[1], "%B %d, %Y")
-    todate = datetime.datetime.strptime(arr[3], "%B %d, %Y")
+    fromdate = datetime.datetime(*time.strptime(arr[1], "%B %d, %Y")[:6])
+    todate = datetime.datetime(*time.strptime(arr[3], "%B %d, %Y")[:6])
 
     while not f.readline().startswith("# Table"): pass
     f.readline()
@@ -81,7 +82,7 @@ def process_report(con, report):
         L.extend([int(x) for x in arr[1:3]])
         L.extend([float(x) for x in arr[3:]])
         sql = """
-        insert into GoogleAnalyticsReports
+        insert ignore into GoogleAnalyticsReports
         (type, repoid, start_date, end_date, pageviews, unique_pageviews,
          time_on_page, bounce_rate, percent_exit, value_index)
         values

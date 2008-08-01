@@ -83,11 +83,11 @@ for num in data[0].split():
             if part.get_content_type() == 'application/octet-stream':
                 filename = re.sub(r"\s+", "", part.get_filename())
                 filename = filename.split('_')[2]
-                print filename.replace("-"," ")
                 filename = "ga_" + filename + ".csv"
                 fp = open(filename, 'wb')
                 fp.write(part.get_payload(decode=True))
                 fp.close()
+                print filename
                 #print "Extracted an attachment."
 #               work_was_done = True
 
