@@ -511,6 +511,33 @@ create table MetricsQualityScore (
 	primary key (Item_ID)
 ) engine=innodb, charset=utf8;
 
+
+##################################################################
+# Table                : GoogleAnalyticsReports
+#
+##################################################################
+
+create table GoogleAnalyticsReports (
+	id			int auto_increment,
+	type			varchar(16),
+	repoid			varchar(50),
+	start_date		date,
+	end_date		date,
+	pageviews		int,
+	unique_pageviews	int,
+	time_on_page		float,
+	bounce_rate		float,
+	percent_exit		float,
+	value_index		float,
+	primary key (id),
+	unique (type, repoid, start_date),
+	key(type),
+	key (repoid),
+	key (start_date),
+	key (end_date)
+) engine=Innodb charset=utf8;
+
+
 ##################################################################
 # Table                : LanguageCodes
 # Description          : Ethnologue 15th Ed.  This is slightly different
