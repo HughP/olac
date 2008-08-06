@@ -30,39 +30,18 @@
 		<xsl:variable name="leader6" select="substring($leader,7,1)"/>
 		<xsl:variable name="leader7" select="substring($leader,8,1)"/>
 		<xsl:variable name="controlField008" select="marc:controlfield[@tag=008]"/>
-
-
-            <!-- dc:title -->
 		<xsl:for-each select="marc:datafield[@tag=245]">
-		<!-- JAS: We probably want additional title fields 242, possibly 130, 240
-			Subfields fghk belong in other QDC fields (fg are dates, h is format, k is like type and probably better dealt with through the leader  -->
-
 			<dc:title>
 				<xsl:call-template name="subfieldSelect">
 					<xsl:with-param name="codes">abfghk</xsl:with-param>
 				</xsl:call-template>
 			</dc:title>
 		</xsl:for-each>
-
-
-
-
-
-            <!-- dc:creator -->
 		<xsl:for-each select="marc:datafield[@tag=100]|marc:datafield[@tag=110]|marc:datafield[@tag=111]|marc:datafield[@tag=700]|marc:datafield[@tag=710]|marc:datafield[@tag=711]|marc:datafield[@tag=720]">
-		<!-- JAS: OLAC prefers contributor to creator
-		Subfields abcdq have name information
-		e4 contain role information
-		omit other subfields -->
 			<dc:creator>
-                <xsl:value-of select="."/>
+				<xsl:value-of select="."/>
 			</dc:creator>
 		</xsl:for-each>
-
-
-
-
-        <!-- dc:type --> 
 		<dc:type>
 			<xsl:if test="$leader7='c'">
 				<!--Remove attribute 6/04 jer-->
@@ -86,49 +65,23 @@
 				<xsl:when test="$leader6='p'">mixed material</xsl:when>
 			</xsl:choose>
 		</dc:type>
-
-        <!-- additional dc:type -->
 		<xsl:for-each select="marc:datafield[@tag=655]">
 			<dc:type>
 				<xsl:value-of select="."/>
 			</dc:type>
 		</xsl:for-each>
-
-
-
-
-
-
-
-        <!-- dc:publisher -->
-
 		<xsl:for-each select="marc:datafield[@tag=260]">
 			<dc:publisher>
 				<xsl:call-template name="subfieldSelect">
 					<xsl:with-param name="codes">ab</xsl:with-param>
 				</xsl:call-template>
 			</dc:publisher>
-
-
-
-
-
-
-        <!-- dc:date -->
 		</xsl:for-each>
-		<!-- JAS: 260c in QDC could be dcterms:issued  -->
 		<xsl:for-each select="marc:datafield[@tag=260]/marc:subfield[@code='c']">
 			<dc:date>
 				<xsl:value-of select="."/>
 			</dc:date>
 		</xsl:for-each>
-
-
-
-
-
-        <!-- dc:language , language used to express the metadata, not the language of the content being described -->
-		<!-- JAS: prefer 041 and parse, or 590  -->
 		<dc:language>
 			<xsl:value-of select="substring($controlField008,36,3)"/>
 		</dc:language>
@@ -147,30 +100,11 @@
 				<xsl:value-of select="marc:subfield[@code='a']"/>
 			</dc:description>
 		</xsl:for-each>-->
- 
-
-
-
-
-        <!-- dc:description -->
-
-		<!-- JAS: 505 could be put in dcterms:tableOfContents; these are common in GIAL data  -->
 		<xsl:for-each select="marc:datafield[500&lt;= @tag and @tag&lt;= 599 ][not(@tag=506 or @tag=530 or @tag=540 or @tag=546)]">
 			<dc:description>
 				<xsl:value-of select="marc:subfield[@code='a']"/>
 			</dc:description>
 		</xsl:for-each>
-
-
-
-
-        <!-- dc:subject -->
-
-		<!-- JAS: 300a belongs in dcterms:extent (strip ending subfield punctuation)  -->
-		<!-- JAS: 440/830 should be expressed somewhere,
-			it could belong in dcterms:isPartOf  but the latest information from the DCMI abstract model
-			specifies that relation term refinements are intended to be used for non-literals 
-			(it should point to another resource) -->
 		<xsl:for-each select="marc:datafield[@tag=600]">
 			<dc:subject>
 				<xsl:call-template name="subfieldSelect">
@@ -199,9 +133,6 @@
 				</xsl:call-template>
 			</dc:subject>
 		</xsl:for-each>
-		<!-- JAS: subfields abx
-		Subfield y in dcterms:temporal
-		subfield z in dcterms:spatial-->
 		<xsl:for-each select="marc:datafield[@tag=650]">
 			<dc:subject>
 				<xsl:call-template name="subfieldSelect">
@@ -209,7 +140,6 @@
 				</xsl:call-template>
 			</dc:subject>
 		</xsl:for-each>
-		<!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
 		<xsl:for-each select="marc:datafield[@tag=653]">
 			<dc:subject>
 				<xsl:call-template name="subfieldSelect">
@@ -217,29 +147,13 @@
 				</xsl:call-template>
 			</dc:subject>
 		</xsl:for-each>
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- dc:coverage -->
-
-		<!-- JAS: 662 belongs in dcterms:spatial -->
-		<xsl:for-each select="marc:datafield[@tag=662]">
+<xsl:for-each select="marc:datafield[@tag=662]">
 			<dc:coverage>
 				<xsl:call-template name="subfieldSelect">
 					<xsl:with-param name="codes">abcdefgh</xsl:with-param>
 				</xsl:call-template>
 			</dc:coverage>
 		</xsl:for-each>
-		<!-- JAS: skip 752 (one occurrence in GIAL data, and that was redundant with 260) -->
 		<xsl:for-each select="marc:datafield[@tag=752]">
 			<dc:coverage>
 				<xsl:call-template name="subfieldSelect">
@@ -247,13 +161,6 @@
 				</xsl:call-template>
 			</dc:coverage>
 		</xsl:for-each>
-
-
-
-
-        <!-- dc:relation -->
-
-		<!-- JAS: skip 530 -->
 		<xsl:for-each select="marc:datafield[@tag=530]">
 			<dc:relation type="original">
 				<xsl:call-template name="subfieldSelect">
@@ -268,11 +175,6 @@
 				</xsl:call-template>
 			</dc:relation>
 		</xsl:for-each>
-
-
-
-
-        <!-- dc:identifier -->
 		<xsl:for-each select="marc:datafield[@tag=856]">
 			<dc:identifier>
 				<xsl:value-of select="marc:subfield[@code='u']"/>
@@ -284,10 +186,6 @@
 				<xsl:value-of select="marc:subfield[@code='a']"/>
 			</dc:identifier>
 		</xsl:for-each>
-
-
-
-        <!-- dc:rights -->
 		<xsl:for-each select="marc:datafield[@tag=506]">
 			<dc:rights>
 				<xsl:value-of select="marc:subfield[@code='a']"/>
@@ -301,4 +199,13 @@
 		<!--</oai_dc:dc>-->
 	</xsl:template>
 </xsl:stylesheet>
-
+<!-- Stylus Studio meta-information - (c) 2004-2005. Progress Software Corporation. All rights reserved.
+<metaInformation>
+<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\..\..\..\..\..\..\..\..\..\javadev4\testsets\diacriticu8.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
+</metaInformation>
+-->
+<!-- Stylus Studio meta-information - (c)1998-2002 eXcelon Corp.
+<metaInformation>
+<scenarios/><MapperInfo srcSchemaPath="" srcSchemaRoot="" srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
+</metaInformation>
+-->
