@@ -47,7 +47,7 @@ for record in marcset:
     result = style.applyStylesheet(xmlrec,None)
 
     # print out transformation result
-    print result.serialize()
+    print result.serialize(None,1)
 
     print '\n'
     count += 1
