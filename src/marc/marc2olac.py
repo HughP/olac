@@ -7,38 +7,26 @@ from pymarc import record_to_xml
 from libxml2 import parseFile, parseDoc
 from libxslt import parseStylesheetDoc
 
+def file2string(fileName):
+    """file2 string reads the contents of a file into a string
+    param: fileName
+    returns: string (contents of file)"""
+    file = open(fileName)
+    str = file.readlines()
+    return ''.join(str)
+
 # note: we should put the following in a configuration file
 ###########################################################
 # marc file
 marcfile = open('c:\olac\gial.marc')
-
-# marcxml pre and post amble files (read into strings)
-f = open('marcxmlpreamble')
-marc_xml_preamble = f.readlines()
-marc_xml_preamble = ''.join(marc_xml_preamble)
-f.close()
-f = open('marcxmlpostamble')
-marc_xml_postamble = f.readlines()
-marc_xml_postamble = ''.join(marc_xml_postamble)
-f.close()
+marc_xml_preamble = file2string('marcxmlpreamble')
+marc_xml_postamble = file2string('marcxmlpostamble')
+oai_sr_preamble = file2string('oaipreamble')
+oai_sr_postamble = file2string('oaipostamble')
 
 # stylesheet
-style = parseStylesheetDoc(parseFile('MARC21slim2OAIDC.xsl'))
-
-# OAI static repository preamble
-f = open('oaipreamble')
-oai_sr_preamble = f.readlines()
-oai_sr_preamble = ''.join(oai_sr_preamble)
-f.close()
-
-# OAI static repository postamble
-f = open('oaipostamble')
-oai_sr_postamble = f.readlines()
-oai_sr_postamble = ''.join(oai_sr_postamble)
-f.close()
-
+style = parseStylesheetDoc(parseFile('MARC21slim2OLACcommented.xsl'))
 ########################################################
-
 
 
 marcset = MARCReader(marcfile)
@@ -48,7 +36,6 @@ count = 0
 print oai_sr_preamble
 
 # loop over each marc record in the set
-
 for record in marcset:
 
     # construct a proper marcxml document
