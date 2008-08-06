@@ -61,7 +61,13 @@
     <xsl:template
         match="marc:datafield[@tag=100]|marc:datafield[@tag=110]|marc:datafield[@tag=111]|marc:datafield[@tag=700]|marc:datafield[@tag=710]|marc:datafield[@tag=711]|marc:datafield[@tag=720]">
         <dc:creator>
-            <xsl:value-of select="."/>
+            <!-- GFS: I added the normalize-space which takes out all
+                the extraneous white space, but this still isn't the
+                right answer. The LOC sample has a 700 field with 3
+                subfields, and this just concatenates together the
+                content of all the subfields.  Need to add logic for
+                the subfields. -->
+            <xsl:value-of select="normalize-space(.)"/>
         </dc:creator>
     </xsl:template>
 
@@ -82,18 +88,14 @@
                 <!-- GFS: These are not the exact terms from the
                     vocabulary; e.g. should be uppercase? -->
                 <xsl:when test="$leader6='a' or $leader6='t'">text</xsl:when>
-                <xsl:when test="$leader6='e' or $leader6='f'"
-                    >cartographic</xsl:when>
-                <xsl:when test="$leader6='c' or $leader6='d'">notated
-                    music</xsl:when>
-                <xsl:when test="$leader6='i' or $leader6='j'">sound
-                    recording</xsl:when>
+                <xsl:when test="$leader6='e' or $leader6='f'">cartographic</xsl:when>
+                <xsl:when test="$leader6='c' or $leader6='d'">notated music</xsl:when>
+                <xsl:when test="$leader6='i' or $leader6='j'">sound recording</xsl:when>
                 <xsl:when test="$leader6='k'">still image</xsl:when>
                 <xsl:when test="$leader6='g'">moving image</xsl:when>
                 <xsl:when test="$leader6='r'">three dimensional object</xsl:when>
                 <xsl:when test="$leader6='m'">software, multimedia</xsl:when>
-                <xsl:when test="$leader6='p'">mixed
-                material</xsl:when>
+                <xsl:when test="$leader6='p'">mixed material</xsl:when>
             </xsl:choose>
         </dc:type>
     </xsl:template>
@@ -246,6 +248,10 @@
         <dc:rights>
             <xsl:value-of select="marc:subfield[@code='a']"/>
         </dc:rights>
+    </xsl:template>
+    <xsl:template match="marc:datafield">
+        <!-- For any datafield that does not match a specific
+            template, just do nothing -->
     </xsl:template>
 </xsl:stylesheet>
 
