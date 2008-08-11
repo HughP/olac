@@ -16,9 +16,10 @@ You are receiving this email by virtue of your association with the following ar
 
 
 USAGE
-These are the latest statistics on the usage of your metadata records on the OLAC site:
+These are statistics on the usage of your metadata records by visitors to the OLAC site, for the period %(usagePeriodBeg)s to %(usagePeriodEnd)s.
 
-%(usageTable)s
+* %(hits)d page view%(pluralHits)s - records views on OLAC site
+* %(clicks)d click-through%(pluralClicks)s - subsequent visits to your site
 
 
 QUALITY METRICS
@@ -56,45 +57,6 @@ Gary Simons, SIL International and GIAL
 OLAC Coordinators (www.language-archives.org)
 """
 
-usageTemplate = """\
-Period: %s - %s
-
-Stat                    Hits   Clicks
-------------------- -------- --------
-Pageviews           %8d %8d
-Unique Pageviews    %8d %8d
-Time on Page        %8s %8s
-Bounce Rate         %8.2f %8.2f
-Exit Rate           %8.2f %8.2f
-"""
-
-def generateUsageTable(usagec, usageh, archiveId):
-    fields = (
-        "start_date",
-        "end_date",
-        "pageviews",
-        "unique_pageviews",
-        "time_on_page",
-        "bounce_rate",
-        "percent_exit",
-        )
-    def time2str(t):
-        s = str(datetime.timedelta(0,t))
-        s = re.sub(r"\..*", "", s)
-        return re.sub(r"^[0:]*", "", s)
-    P = []
-    for db in (usageh,usagec):
-        row = db.findRow('repoid', archiveId)
-        L = [row[f] for f in fields]
-        L[4] = time2str(L[4])
-        P.append(L)
-    params = [min(P[0][0],P[1][0]), max(P[0][1],P[1][1])]
-    for i in range(2,len(fields)):
-        params.append(P[0][i])
-        params.append(P[1][i])
-        
-    return usageTemplate % tuple(params)
-    
 
 metricsTemplate = """\
 Metric                                Value   Rank
@@ -195,9 +157,20 @@ def composeEmail(archiveId, metrics, usageh, usagec):
     # p is the number of errors and w, if positive, means existence of warnings
     if int(row['integrity_problems']) > 0 and starScore > 0:
         starScore -= 1
-    pluralStar = ''
-    if starScore != 1: pluralStar = 's'
+    pluralStar = 's'
+    if starScore == 1: pluralStar=''
 
+    rowHits = usageh.findRow("repoid", archiveId)
+    rowClicks = usagec.findRow("repoid", archiveId)
+    usagePeriodBeg = min(rowHits["start_date"], rowClicks["start_date"])
+    usagePeriodEnd = max(rowHits["end_date"], rowClicks["end_date"])
+    hits = rowHits["pageviews"]
+    clicks = rowClicks["pageviews"]
+    pluralHits = "s"
+    pluralClicks = "s"
+    if hits == 1: pluralHits=""
+    if clicks == 1: pluralClicks=""
+    
     params = {
         "archiveId": archiveId,
         "nameOfArchive": row["RepositoryName"],
@@ -210,7 +183,12 @@ def composeEmail(archiveId, metrics, usageh, usagec):
         "feedbackOnUpdate": determineFeedbackOnUpdate(lastUpdated, score, archiveId),
         "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId),
         "metricsTable": generateMetricsTable(metrics, archiveId),
-        "usageTable": generateUsageTable(usagec, usageh, archiveId)
+        "usagePeriodBeg": usagePeriodBeg,
+        "usagePeriodEnd": usagePeriodEnd,
+        "hits": hits,
+        "clicks": clicks,
+        "pluralHits": pluralHits,
+        "pluralClicks": pluralClicks,
         }
 
     return template % params
