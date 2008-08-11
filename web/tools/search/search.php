@@ -254,7 +254,7 @@ function formatResult( $row, $counter, $queryTokens )
 		      # ie, 2x is maximum summary length
 
     $moreInfoQuery = "select TagName, Content 
-		from METADATA_ELEM me
+		from METADATA_ELEM_MYISAM me
 			where me.Item_ID = '$row[Item_ID]'
 			and me.TagName 
 			in ('title', 'description', 'subject', 'date', 'identifier')
@@ -269,7 +269,7 @@ function formatResult( $row, $counter, $queryTokens )
 /* # Displays the most popular tags based upon the tag_usage table
    # rather than the hard coded set above
 $moreInfoQuery = "select TagName, Content
-                from METADATA_ELEM me, TAG_USAGE tu
+                from METADATA_ELEM_MYISAM me, TAG_USAGE tu
                         where me.Item_ID = '$row[Item_ID]'
                         and tu.Tag_ID = me.Tag_ID
                         and tu.Rank > 1
@@ -361,7 +361,7 @@ $coreTags = Array("language",
 $getRecordQuery = 
 "
 select *
-from METADATA_ELEM me
+from METADATA_ELEM_MYISAM me
 where me.Item_ID = '$itemID' and Content!=''
 	and me.Code = ''
 group by TagName
@@ -466,7 +466,7 @@ function getRecordScore()
 # Builds SQL query of the format:
 #	
 #	select OaiIdentifier, DateStamp, a.Item_ID {, en.*}
-#    	from ARCHIVED_ITEM as a {, METADATA_ELEM as e1}	
+#    	from ARCHIVED_ITEM as a {, METADATA_ELEM_MYISAM as e1}	
 #    	where {a.Item_ID=e1.Item_ID and} ( URL-unencoded-sql-argument )
 #    	order by OaiIdentifier	
 #					
@@ -543,7 +543,7 @@ function buildSqlQuery( $tokens, $langCode, $score )
 	    $whereClause .= " and tu.Tag_ID = $me.Tag_ID ";
 	}
 
-	$fromClause .= ", METADATA_ELEM $me ";
+	$fromClause .= ", METADATA_ELEM_MYISAM $me ";
 
 	# If language code search, only match with language codes
 	if ($langCode)
@@ -1197,7 +1197,7 @@ function modeXML()
 	$item = $row['Item_ID'];
 
 	$fullRecQuery = "select *
-			from METADATA_ELEM me
+			from METADATA_ELEM_MYISAM me
 			where me.Item_ID = $item";
 
 	$fullRecord = $DB->sql( $fullRecQuery );
@@ -1482,15 +1482,16 @@ function modeItem()
   global $DB, $output;
   $stringQuery = str_replace( " " , "+", $_GET['queryTerms'] );
 
-	global $URLBASE;
-  $result = join( "", file("{$URLBASE}lookup.php?"
-			. "identifier=$_GET[item]"
-			. "&queryTerms=$stringQuery"
-			. "&phrasemode=$_GET[phrasemode]"
-			. "&allmode=$_GET[allmode]") );
-  $result = preg_replace('{<script [^>]*urchin\.js.*?</script>}', '', $result);
-  $result = preg_replace('{_uacct[^;]*?;}', '', $result);
-  $result = preg_replace('{urchinTracker[^;]*?;}', '', $result);
+  $url = "http://www.language-archives.org/item?"
+                        . "identifier=" . urlencode($_GET["item"])
+                        . "&queryTerms=" . urlencode($stringQuery)
+                        . "&phrasemode=" . urlencode($_GET["phrasemode"])
+                        . "&allmode=" . urlencode($_GET["allmode"]);
+  $result = file_get_contents($url);
+  if (!$result) header("HTTP/1.0 404 Not Found");
+  #$result = preg_replace('{<script [^>]*urchin\.js.*?</script>}', '', $result);
+  #$result = preg_replace('{_uacct[^;]*?;}', '', $result);
+  #$result = preg_replace('{urchinTracker[^;]*?;}', '', $result);
 
   $search = array('/<\/?(BODY|HTML)>/i',
                   '/<HEAD>.*<\/HEAD>/si');
