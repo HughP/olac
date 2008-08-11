@@ -83,6 +83,32 @@
 
 
 
+    <xsl:template match="marc:datafield[@tag=541]/marc:subfield[@code=c]">
+        <dcterms:accrualMethod from_marc_field="541c">
+            <xsl:value-of select="." />
+        </dcterms:accrualMethod>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=310]/marc:subfield[@code=a]">
+        <dcterms:accrualPeriodicity from_marc_field="310a">
+            <xsl:value-of select="." />
+        </dcterms:accrualPeriodicity>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=521]/marc:subfield[@code=a]">
+        <dcterms:audience from_marc_field="521a">
+            <xsl:value-of select="." />
+        </dcterms:audience>
+    </xsl:template>
+
+
+
 
     <xsl:template name="process-DCMI-Type">
         <xsl:param name="leader6"/>
@@ -265,6 +291,44 @@
                 <xsl:with-param name="codes">abcdfgh</xsl:with-param>
             </xsl:call-template>
         </dc:coverage>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=522]/marc:subfield[@code=a]">
+        <dcterms:spatial from_marc_field="522a">
+            <xsl:value-of select="." />
+        </dcterms:spatial>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=650]/marc:subfield[@code=z]">
+        <dcterms:spatial from_marc_field="650z">
+            <xsl:value-of select="." />
+        </dcterms:spatial>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=662]/marc:subfield[@code=a]">
+        <dcterms:spatial from_marc_field="662a">
+            <xsl:value-of select="." />
+        </dcterms:spatial>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=033]/marc:subfield[@code=a]">
+        <dcterms:temporal from_marc_field="033a">
+            <xsl:value-of select="." />
+        </dcterms:temporal>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=650]/marc:subfield[@code=y]">
+        <dcterms:temporal from_marc_field="650y">
+            <xsl:value-of select="." />
+        </dcterms:temporal>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=651]/marc:subfield[@code=y]">
+        <dcterms:temporal from_marc_field="651y">
+            <xsl:value-of select="." />
+        </dcterms:temporal>
     </xsl:template>
 
 
