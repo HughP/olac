@@ -25,8 +25,12 @@ recheader = Template(utils.file2string(config.get('olac_record','header_file')))
 recfooter = Template(utils.file2string(config.get('olac_record','footer_file')))
 style = parseStylesheetDoc(parseFile(config.get('marc','stylesheet_file')))
 
-# print OAI header
-print utils.file2string(config.get('oai','header_file'))
+# print OAI header (using variables from both oai and olac cfg)
+oaiheader = Template(utils.file2string(config.get('oai','header_file')))
+oaivars = utils.cfglist2dict(config.items('oai'))
+oaivars.update(utils.cfglist2dict(config.items('olac')))
+#print oaivars
+print oaiheader.substitute(oaivars)
 
 # loop over each marc record in the set
 marcset = MARCReader(marcfile)
@@ -43,6 +47,7 @@ for record in marcset:
     result = style.applyStylesheet(xmlrec,None)
 
     # find dc:identifier from 001 in xml doc
+    # NOTE: we could instead get the 001 from the marc record directly, instead of the XML output
     oai_id = ''
     n = result.children.children.children
     while n is not None:
@@ -51,19 +56,26 @@ for record in marcset:
         n = n.next
 
     # print record header (with oai ID and datestamp)
-    vars = dict(identifier=oai_id,datestamp='')
-    print recheader.substitute
+    #TODO: how do we determine datestamp ???
+    print recheader.substitute(identifier=oai_id,datestamp='')
 
-    #print olac_node
-    print result.serialize(None,1)
+    # get olac node as text
+    olacNode = result.children.children.serialize(None,1)
+
+    # TODO: perform second transformation here???
+    # second transformation will be decision logic for which fields to keep based upon from_marc_field attribute
+
+    # TODO: remove from_marc_field="" from node text
+
+    print olacNode
 
     # print record footer
     print recfooter.template
 
     print '\n'
     count += 1
-    if count == 10:
-        break
+    #if count == 1:
+    #    break
 
 
 # print OAI postamble
