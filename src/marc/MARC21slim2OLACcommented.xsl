@@ -31,7 +31,7 @@
         <xsl:variable name="leader" select="marc:leader"/>
         <xsl:variable name="controlField008"
             select="marc:controlfield[@tag=008]"/>
-        <olac:olac>
+        <olac:olac xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.0/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.0/dcterms.xsd    http://www.language-archives.org/OLAC/1.0/    http://www.language-archives.org/OLAC/1.0/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.0/third-party/software.xsd ">
             <xsl:call-template name="process-DCMI-Type">
                 <xsl:with-param name="leader6"
                     select="substring(marc:leader,7,1)"/>
@@ -41,6 +41,9 @@
             <xsl:call-template name="process-Language">
                 <xsl:with-param name="controlField008"
                     select="marc:controlfield[@tag=008]"/>
+            </xsl:call-template>
+            <xsl:call-template name="process-ID">
+                <xsl:with-param name="controlField001" select="marc:controlfield[@tag=001]" />
             </xsl:call-template>
             <xsl:apply-templates select="marc:datafield"/>
         </olac:olac>
@@ -59,7 +62,7 @@
         <dc:alternative>
             <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" /></xsl:attribute>
             <xsl:value-of select="." />
-        </dc:title>
+        </dc:alternative>
     </xsl:template>
 
 
@@ -112,6 +115,13 @@
     </xsl:template>
 
 
+    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
+    <xsl:template name="process-ID">
+        <xsl:param name="controlField001"/>
+        <dc:identifier from_marc_field="001">
+            <xsl:value-of select="$controlField001"/>
+        </dc:identifier>
+    </xsl:template>
 
 
     <xsl:template name="process-DCMI-Type">
@@ -125,7 +135,7 @@
                 <xsl:choose>
                     <!-- CJH: replaced by regex below: <xsl:when test="$leader6='a' or $leader6='t' or $leader6='e' or $leader6='f' or $leader6='c' or $leader6='d' or $leader6='i' or $leader6='j' or $leader6='k' or $leader6='g' or $leader6='r' or $leader6='m' or $leader6='p'">leader6</xsl:when>
                     -->
-                    <xsl:when test="fn:match($leader6,'[atefcdijkgrmp]')">leader6</xsl:when>
+                    <xsl:when test="contains('atefcdijkgrmp',$leader6)">leader6</xsl:when>
 
                 </xsl:choose>
             </xsl:attribute>
@@ -419,9 +429,10 @@
         </dcterms:isFormatOf>
     </xsl:template>
 
-    <xsl:template match="(marc:datafield[@tag=530]/marc:subfield[@code=u]) or (marc:datafield[@tag=776]/marc:subfield[@code=o])">
+    <xsl:template match="marc:datafield[@tag=530]/marc:subfield[@code=u]">
+        <!-- or marc:datafield[@tag=776]/marc:subfield[@code=o] -->
         <dcterms:hasFormat xsi:type="dcterms:URI">
-            <xsl:attribute name="from_marc_field"><xsl:value-of select="..[@tag]" /></xsl:attribute>
+            <xsl:attribute name="from_marc_field"><xsl:value-of select="../@tag" /></xsl:attribute>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes"><xsl:value-of select="@code" /></xsl:with-param>
             </xsl:call-template>
@@ -496,12 +507,6 @@
     </xsl:template>
 
 
-    <!-- CJH: in our GIAL dataset, the 001 stores a sequence number relative to the current export.  The 035 stores a string containing the item's barcode ??? -->
-    <xsl:template match="marc:datafield[@tag=035]">
-        <dc:identifier from_marc_field="035">
-            <xsl:value-of select="substring(.,11)"/>
-        </dc:identifier>
-    </xsl:template>
 
     <xsl:template match="marc:datafield[@tag=856]">
         <dc:identifier from_marc_field="856u">

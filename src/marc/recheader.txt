@@ -1,0 +1,6 @@
+<oai:record>
+<oai:header>
+<oai:identifier>$identifier</oai:identifier>
+<oai:datestamp>$datestamp</oai:datestamp>
+</oai:header>
+<oai:metadata>
