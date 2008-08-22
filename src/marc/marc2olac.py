@@ -5,6 +5,7 @@
 
 from string import Template
 import ConfigParser
+import re
 
 # local function library
 import utils
@@ -25,11 +26,14 @@ recheader = Template(utils.file2string(config.get('olac_record','header_file')))
 recfooter = Template(utils.file2string(config.get('olac_record','footer_file')))
 style = parseStylesheetDoc(parseFile(config.get('marc','stylesheet_file')))
 
+# compile regex for removing 'from_marc_field' tags
+regex = re.compile(r'\s*from_marc_field="[^"]*"\s*')
+
 # print OAI header (using variables from both oai and olac cfg)
+# TODO: handle exceptions for template variable substitution
 oaiheader = Template(utils.file2string(config.get('oai','header_file')))
 oaivars = utils.cfglist2dict(config.items('oai'))
 oaivars.update(utils.cfglist2dict(config.items('olac')))
-#print oaivars
 print oaiheader.substitute(oaivars)
 
 # loop over each marc record in the set
@@ -65,7 +69,8 @@ for record in marcset:
     # TODO: perform second transformation here???
     # second transformation will be decision logic for which fields to keep based upon from_marc_field attribute
 
-    # TODO: remove from_marc_field="" from node text
+    # remove from_marc_field="" from node text
+    #olacNode = regex.sub('',olacNode)
 
     print olacNode
 
