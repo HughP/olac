@@ -444,13 +444,13 @@ def check_language_code(con, archive_id=None):
         sqls = [
             "delete from INTEGRITY_CHECK where Problem_Code='RLC' or Problem_Code='SIL'",
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'RLC' from METADATA_ELEM me, ISO_639_3_Retirements rlc where me.Type='language' and me.Code=rlc.Id",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where me.Type='language' and me.Code=mlc.M_Id",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id",
             ]
     else:
         sqls = [
             "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and (Problem_Code='RLC' or Problem_Code='SIL')" % archive_id,
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'RLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Retirements rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
