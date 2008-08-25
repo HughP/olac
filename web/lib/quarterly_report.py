@@ -59,17 +59,14 @@ OLAC Coordinators (www.language-archives.org)
 
 
 metricsTemplate = """\
-Metric                                Value   Rank
------------------------------------   -----   ----
-Number of Resources                   %5d   %4d
-Number of Resources Online            %5d   %4d
-Distinct Languages                    %5d   %4d
-Distinct Linguistic Subfields         %5d   %4d
-Distinct Linguistic Types             %5d   %4d
-Distinct DCMI Types                   %5d   %4d
-Average Elements Per Record           %5.1f   %4d
-Average Encoding Schemes Per Record   %5.1f   %4d
-"""
+* %d Total Resources (Rank %d)
+* %d Resources Online (Rank %d)
+* %d Distinct Languages (Rank %d)
+* %d Distinct Linguistic Subfields (Rank %d)
+* %d Distinct Linguistic Types (Rank %d)
+* %d Distinct DCMI Types (Rank %d)
+* %.1f Average Elements Per Record (Rank %d)
+* %.1f Averate Encoding Schemes Per Record (Rank %d)"""
 
 def generateMetricsTable(metrics, archiveId):
     """
