@@ -1,4 +1,5 @@
 #import re
+#import string
 #def resource_anchor($s)
 $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 #end def
@@ -48,7 +49,11 @@ $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 #for $row in $warnings
 <tr>
 <td>$row[0]</td>
-#if $row[3]
+#if $row[1] in ('RLC','SIL')
+#set $code = $row[3].split()[0]
+#set $remedy = ' '.join($row[3].split()[1:])
+<td><a href='http://www.sil.org/iso639-3/documentation.asp?id=$code'>$code</a> $remedy</td>
+#elif $row[3]
 <td>$resource_anchor($row[3])</td>
 #else
 <td></td>
