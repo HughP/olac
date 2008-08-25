@@ -436,21 +436,53 @@ def check_invalid_code(con, archive_id=None):
     cur.close()
 
 #
-# RLC, SIL
+# RLC, SIL, MLC
 #
 def check_language_code(con, archive_id=None):
     cur = con.cursor()
     if archive_id is None:
         sqls = [
-            "delete from INTEGRITY_CHECK where Problem_Code='RLC' or Problem_Code='SIL'",
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'RLC' from METADATA_ELEM me, ISO_639_3_Retirements rlc where me.Type='language' and me.Code=rlc.Id",
+            "delete from INTEGRITY_CHECK where Problem_Code in ('RLC','SIL','MLC')",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID,
+                   concat(me.Code,
+                          if(rlc.Change_To is not null,
+                             concat(' - Change to ',rlc.Change_To),
+                             if(Ret_Remedy is not null,
+                                concat(" - ",Ret_Remedy),
+                                ''
+                             )
+                          )
+                   ),
+                   'RLC'
+            from METADATA_ELEM me, ISO_639_3_Retirements rlc
+            where me.Type='language' and me.Code=rlc.Id
+            """,
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from METADATA_ELEM where Type='language' and (Code='' or Code is null)",
             ]
     else:
         sqls = [
-            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and (Problem_Code='RLC' or Problem_Code='SIL')" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'RLC' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Retirements rlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id" % archive_id,
+            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code in ('RLC','SIL','MLC')" % archive_id,
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID,
+                   concat(me.Code,
+                          if(rlc.Change_To is not null,
+                             concat(' - Change to ',rlc.Change_To),
+                             if(Ret_Remedy is not null,
+                                concat(" - ",Ret_Remedy),
+                                ''
+                             )
+                          )
+                   ),
+                   'RLC'
+            from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Retirements rlc
+            where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id
+            """ % archive_id,
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from ARCHIVED_ITEM ai, METADATA_ELEM me where Archive_ID=%d and ai.Item_ID=me.Item_ID and Type='language' and (Code='' or Code is null)",
             ]
     for sql in sqls:
         cur.execute(sql)

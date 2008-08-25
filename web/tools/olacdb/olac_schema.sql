@@ -405,6 +405,7 @@ insert into INTEGRITY_PROBLEM values ('BDT','E','E','Bad DCMI Type','The value s
 insert into INTEGRITY_PROBLEM values ('BLC','E','E','Bad Language Code','The value supplied for olac:language is not defined in the ISO 639 code set.');
 insert into INTEGRITY_PROBLEM values ('RLC','E','W','Retired Language Code','The supplied value is a recognized code from ISO 639, but it is not best practice since it is retired.');
 insert into INTEGRITY_PROBLEM values ('SIL','E','W','Should be Individual Language','The value supplied for olac:language is a recognized code from ISO 639, but it is not best practice since it resents a collection of languages.');
+insert into INTEGRITY_PROBLEM values ('MLC','E','W','Missing Language Code','The element uses olac:language extension but no olac:code is given.');
 
 ##################################################################
 # Table                : INTEGRITY_CHECK
