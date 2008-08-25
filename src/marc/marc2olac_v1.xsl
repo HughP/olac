@@ -15,6 +15,7 @@
     exclude-result-prefixes="marc">
     <xsl:import
         href="http://www.loc.gov/standards/marcxml/xslt/MARC21slimUtils.xsl"/>
+    <xsl:param name="show-source">yes</xsl:param>
     <xsl:output method="xml" indent="yes"/>
 
     <xsl:template match="/marc:collection">
@@ -52,6 +53,22 @@
             <xsl:apply-templates select="marc:datafield"/>
         </olac:olac>
     </xsl:template>
+
+
+   <xsl:template name="show-source">
+      <xsl:param name="subfield"></xsl:param><!-- Optional parameter -->
+      <xsl:if test="$show-source='yes'">
+         <xsl:attribute name="from">
+            <xsl:choose>
+               <xsl:when test="self::marc:leader">leader</xsl:when>
+               <xsl:otherwise><xsl:value-of select="@tag"/></xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="$subfield"/>
+         </xsl:attribute>
+      </xsl:if>
+   </xsl:template>
+
+
 
 
     <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
@@ -108,6 +125,40 @@
             </xsl:choose>
         </dc:type>
     </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=020]">
+        <dc:identifier from_marc_field="020a">
+            <xsl:text>URN:ISBN:</xsl:text>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:identifier>
+    </xsl:template>
+
+    <xsl:template match="marc:datafield[@tag=033]/marc:subfield[@code=a]">
+        <dcterms:temporal from_marc_field="033a">
+            <xsl:value-of select="." />
+        </dcterms:temporal>
+    </xsl:template>
+
+
+    <xsl:template match="marc:datafield[@tag=050]">
+        <dc:subject xsi:type="dcterms:LCC" from_marc_field="050">
+            <xsl:value-of select="." />
+        </dc:subject>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=082]">
+        <dc:subject xsi:type="dcterms:DDC" from_marc_field="082">
+            <xsl:value-of select="." />
+        </dc:subject>
+    </xsl:template>
+
+
 
 
     <!-- JAS: OLAC prefers contributor to creator
@@ -230,14 +281,19 @@
             </xsl:call-template>
         </dc:publisher>
         <dcterms:dateCopyrighted from_marc_field="260c">
-            <xsl:value-of select="subfield[@code=c]">
+            <xsl:value-of select="marc:subfield[@code=c]">
         </dcterms:dateCopyrighted>
         <dcterms:issued from_marc_field="260c">
-            <xsl:value-of select="subfield[@code=c]">
+            <xsl:value-of select="marc:subfield[@code=c]">
         </dcterms:issued>
     </xsl:template>
 
 
+    <xsl:template match="marc:datafield[@tag=300]/marc:subfield[@code='a']">
+        <dcterms:extent from_marc_field="300a">
+            <xsl:value-of select="."/>
+        </dcterms:extent>
+    </xsl:template>
 
 
 
@@ -249,6 +305,43 @@
 
 
 
+    <xsl:template match="marc:datafield[@tag=440]">
+        <dcterms:isPartOf from_marc_field="440">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=490]">
+        <dcterms:isPartOf from_marc_field="490">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+    <!-- All 5xx tags must be included within this template declaration -->
+    <xsl:template match="marc:datafield[starts-with(@tag,'5')]">
+        <xsl:choose test="@tag = 500">
+        </xsl:choose>
+
+        <xsl:otherwise>
+            <dc:description>
+                <xsl:value-of select="." />
+            </dc:description>
+        </xsl:otherwise>
+    </xsl:template>
+
+    <!-- cjh: is there a way to implement this with "cascading" templates, such that we could define a template that partially matches the datafield,
+    i.e. 5xx and then provide further selections for individual mar tags, as well as a default case to cover all 5xx tags not specifically mentioned? -->
+    <xsl:template match="marc:datafield[500&lt;= @tag and @tag&lt;= 599 ][not(@tag=506 or @tag=530 or @tag=540 or @tag=546)]">
+        <dc:description>
+            <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" />a</xsl:attribute>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:description>
+    </xsl:template>
 
 
     <xsl:template match="marc:datafield[@tag=500]">
@@ -309,6 +402,21 @@
     </xsl:template>
 
 
+
+    <xsl:template match="marc:datafield[@tag=506]">
+        <dc:rights from_marc_field="506a">
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:rights>
+    </xsl:template>
+
+
+    <xsl:template match="marc:datafield[@tag=510]">
+        <dcterms:isReferencedBy from_marc_field="510">
+            <xsl:value-of select="." />
+        </dcterms:isReferencedBy>
+    </xsl:template>
+
+
     <xsl:template match="marc:datafield[@tag=520][@ind1='' or @ind1=' ' or @ind2=3]">
         <dcterms:abstract from_marc_field="520">
             <xsl:value-of select="."/>
@@ -327,13 +435,62 @@
 
 
 
+    <xsl:template match="marc:datafield[@tag=522]/marc:subfield[@code=a]">
+        <dcterms:spatial from_marc_field="522a">
+            <xsl:value-of select="." />
+        </dcterms:spatial>
+    </xsl:template>
 
 
 
-    <xsl:template match="marc:datafield[@tag=533]/marc:subfield[@code='d']">
+    <!-- JAS: skip 530 -->
+    <xsl:template match="marc:datafield[@tag=530]">
+        <dcterms:hasFormat from_marc_field="530">
+            <xsl:value-of select="." />
+        </dcterms:hasFormat>
+        <dcterms:hasFormat from_marc_field="530u" xsi:type="dcterms:URI">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">u</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasFormat>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=533]">
+        <dcterms:extent from_marc_field="533ae">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ae</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:extent>
+        <dcterms:medium from_marc_field="533a">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">a</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:medium>
         <dcterms:created from_marc_field="533d">
-            <xsl:value-of select="."/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">d</xsl:with-param>
+            </xsl:call-template>
         </dcterms:created>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=538]">
+        <dcterms:requires from_marc_field="538">
+            <xsl:value-of select="." />
+        </dcterms:requires>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=540]">
+        <dc:rights from_marc_field="540a">
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:rights>
     </xsl:template>
 
 
@@ -346,6 +503,97 @@
     </xsl:template>
 
 
+    <xsl:template match="marc:datafield[@tag=600]">
+        <dc:subject from_marc_field="600abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=610]">
+        <dc:subject from_marc_field="610abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=611]">
+        <dc:subject from_marc_field="611abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=630]">
+        <dc:subject from_marc_field="630abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+
+
+
+    <!-- JAS: subfields abx
+		Subfield y in dcterms:temporal
+		subfield z in dcterms:spatial-->
+    <xsl:template match="marc:datafield[@tag=650]">
+        <dc:subject from_marc_field="650abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+        <dcterms:temporal from_marc_field="650y">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">y</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:temporal>
+        <dcterms:spatial from_marc_field="650z">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">z</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag=651]">
+        <dcterms:spatial from_marc_field="651az">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">az</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+        <dcterms:temporal from_marc_field="651y">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">y</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:temporal>
+    </xsl:template>
+
+
+
+    <!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
+    <xsl:template match="marc:datafield[@tag=653]">
+        <dc:subject from_marc_field="653abcdq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
 
     <xsl:template match="marc:datafield[@tag=655]">
         <dc:type from_marc_field="655">
@@ -353,6 +601,24 @@
         </dc:type>
     </xsl:template>
 
+
+
+    <xsl:template match="marc:datafield[@tag=662]/marc:subfield[@code=a]">
+    </xsl:template>
+
+    <!-- JAS: 662 belongs in dcterms:spatial -->
+    <xsl:template match="marc:datafield[@tag=662]">
+        <dc:coverage from_marc_field="662abcdefgh">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefgh</xsl:with-param>
+            </xsl:call-template>
+        </dc:coverage>
+        <dcterms:spatial from_marc_field="662a">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">a</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
 
 
 
@@ -444,143 +710,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <xsl:template match="marc:datafield[@tag=300]/marc:subfield[@code='a']">
-        <dcterms:extent from_marc_field="300a">
-            <xsl:value-of select="."/>
-        </dcterms:extent>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=533]">
-        <dcterms:extent from_marc_field="533ae">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">ae</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:extent>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=856]/marc:subfield[@code='q']">
-        <dcterms:medium xsi:type="dcterms:IMT" from_marc_field="856q">
-            <xsl:value-of select="." />
-        </dcterms:medium>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=533]/marc:subfield[@code='a']">
-        <dcterms:medium from_marc_field="533a">
-            <xsl:value-of select="." />
-        </dcterms:medium>
-    </xsl:template>
-
-
-
-    <xsl:template match="marc:datafield[500&lt;= @tag and @tag&lt;= 599 ][not(@tag=506 or @tag=530 or @tag=540 or @tag=546)]">
-        <dc:description>
-            <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" />a</xsl:attribute>
-            <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:description>
-    </xsl:template>
-
-
-
-
-
-    <!-- JAS: 300a belongs in dcterms:extent (strip ending subfield punctuation)  -->
-    <!-- JAS: 440/830 should be expressed somewhere,
-			it could belong in dcterms:isPartOf  but the latest information from the DCMI abstract model
-			specifies that relation term refinements are intended to be used for non-literals 
-			(it should point to another resource) -->
-    <xsl:template match="marc:datafield[@tag=600]">
-        <dc:subject from_marc_field="600abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=610]">
-        <dc:subject from_marc_field="610abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=611]">
-        <dc:subject from_marc_field="611abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=630]">
-        <dc:subject from_marc_field="630abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-    <!-- JAS: subfields abx
-		Subfield y in dcterms:temporal
-		subfield z in dcterms:spatial-->
-    <xsl:template match="marc:datafield[@tag=650]">
-        <dc:subject from_marc_field="650abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-    <!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
-    <xsl:template match="marc:datafield[@tag=653]">
-        <dc:subject from_marc_field="653abcdq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:subject>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=082]">
-        <dc:subject xsi:type="dcterms:DDC" from_marc_field="082">
-            <xsl:value-of select="." />
-        </dc:subject>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=050]">
-        <dc:subject xsi:type="dcterms:LCC" from_marc_field="050">
-            <xsl:value-of select="." />
-        </dc:subject>
-    </xsl:template>
-
-
-
-
-
-
-    <!-- JAS: 662 belongs in dcterms:spatial -->
-    <xsl:template match="marc:datafield[@tag=662]">
-        <dc:coverage from_marc_field="662abcdefgh">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdefgh</xsl:with-param>
-            </xsl:call-template>
-        </dc:coverage>
-    </xsl:template>
     <!-- JAS: skip 752 (one occurrence in GIAL data, and that was redundant with 260) -->
     <xsl:template match="marc:datafield[@tag=752]">
         <dc:coverage from_marc_field="752abcdfgh">
@@ -592,71 +721,39 @@
 
 
 
-
-    <xsl:template match="marc:datafield[@tag=522]/marc:subfield[@code=a]">
-        <dcterms:spatial from_marc_field="522a">
-            <xsl:value-of select="." />
-        </dcterms:spatial>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=650]/marc:subfield[@code=z]">
-        <dcterms:spatial from_marc_field="650z">
-            <xsl:value-of select="." />
-        </dcterms:spatial>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=662]/marc:subfield[@code=a]">
-        <dcterms:spatial from_marc_field="662a">
-            <xsl:value-of select="." />
-        </dcterms:spatial>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=651]/marc:subfield[@code=a]">
-        <dcterms:spatial from_marc_field="651a">
-            <xsl:value-of select="." />
-        </dcterms:spatial>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=651]/marc:subfield[@code=z]">
-        <dcterms:spatial from_marc_field="651z">
-            <xsl:value-of select="." />
-        </dcterms:spatial>
-    </xsl:template>
-
-
-
-
-    <xsl:template match="marc:datafield[@tag=033]/marc:subfield[@code=a]">
-        <dcterms:temporal from_marc_field="033a">
-            <xsl:value-of select="." />
-        </dcterms:temporal>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=650]/marc:subfield[@code=y]">
-        <dcterms:temporal from_marc_field="650y">
-            <xsl:value-of select="." />
-        </dcterms:temporal>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=651]/marc:subfield[@code=y]">
-        <dcterms:temporal from_marc_field="651y">
-            <xsl:value-of select="." />
-        </dcterms:temporal>
-    </xsl:template>
-
-
-
-
-    <!-- JAS: skip 530 -->
-    <xsl:template match="marc:datafield[@tag=530]">
-        <dcterms:hasFormat from_marc_field="530">
-            <xsl:value-of select="." />
-        </dcterms:hasFormat>
-    </xsl:template>
-    <!--
-    <xsl:template match="marc:datafield[@tag=760]|marc:datafield[@tag=762]|marc:datafield[@tag=765]|marc:datafield[@tag=767]|marc:datafield[@tag=770]|marc:datafield[@tag=772]|marc:datafield[@tag=773]|marc:datafield[@tag=774]|marc:datafield[@tag=775]|marc:datafield[@tag=776]|marc:datafield[@tag=777]|marc:datafield[@tag=780]|marc:datafield[@tag=785]|marc:datafield[@tag=786]|marc:datafield[@tag=787]">
-        <dc:relation>
-            <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" />ot</xsl:attribute>
+    <xsl:template match="marc:datafield[@tag=760]">
+        <dcterms:isPartOf from_marc_field="760nt">
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">ot</xsl:with-param>
+                <xsl:with-param name="codes">nt</xsl:with-param>
             </xsl:call-template>
-        </dc:relation>
+        </dcterms:isPartOf>
     </xsl:template>
-    -->
+
+
+    <xsl:template match="marc:datafield[@tag=773]">
+        <dcterms:isPartOf from_marc_field="773ntgq">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ntgq</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isPartOf>
+        <dcterms:isPartOf from_marc_field="773o" xsi:type="dcterms:URI">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">o</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=775]">
+        <dcterms:isVersionOf from_marc_field="775">
+            <xsl:value-of select="." />
+        </dcterms:isVersionOf>
+    </xsl:template>
+
+
+
     <xsl:template match="marc:datafield[@tag=776]">
         <dcterms:hasFormat from_marc_tag="776nt">
             <xsl:call-template name="subfieldSelect">
@@ -670,61 +767,7 @@
         </dcterms:isFormatOf>
     </xsl:template>
 
-    <xsl:template match="marc:datafield[@tag=530]/marc:subfield[@code=u]">
-        <!-- or marc:datafield[@tag=776]/marc:subfield[@code=o] -->
-        <dcterms:hasFormat xsi:type="dcterms:URI">
-            <xsl:attribute name="from_marc_field"><xsl:value-of select="../@tag" /></xsl:attribute>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes"><xsl:value-of select="@code" /></xsl:with-param>
-            </xsl:call-template>
-        </dcterms:hasFormat>
-    </xsl:template>
 
-    <xsl:template match="marc:datafield[@tag=440 or @tag=490 or @tag=800 or @tag=810 or @tag=811 or @tag=830]">
-        <dcterms:isPartOf>
-            <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" /></xsl:attribute>
-            <xsl:value-of select="." />
-        </dcterms:isPartOf>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=760]">
-        <dcterms:isPartOf from_marc_field="760nt">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=773]">
-        <dcterms:isPartOf from_marc_field="773ntgq">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">ntgq</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-        <dcterms:isPartOf from_marc_field="773o" xsi:type="dcterms:URI">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-    </xsl:template>
-    
-    <xsl:template match="marc:datafield[@tag=510]">
-        <dcterms:isReferencedBy from_marc_field="510">
-            <xsl:value-of select="." />
-        </dcterms:isReferencedBy>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=785]">
-        <dcterms:isReplacedBy from_marc_field="785nt">
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isReplacedBy>
-    </xsl:template>
-
-    <xsl:template match="marc:datafield[@tag=775]">
-        <dcterms:isVersionOf from_marc_field="775">
-            <xsl:value-of select="." />
-        </dcterms:isVersionOf>
-    </xsl:template>
 
     <xsl:template match="marc:datafield[@tag=780]">
         <dcterms:replaces from_marc_field="780nt">
@@ -741,40 +784,85 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="marc:datafield[@tag=538]">
-        <dcterms:requires from_marc_field="538">
-            <xsl:value-of select="." />
-        </dcterms:requires>
+
+
+
+    <xsl:template match="marc:datafield[@tag=785]">
+        <dcterms:isReplacedBy from_marc_field="785nt">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isReplacedBy>
     </xsl:template>
 
 
+    <xsl:template match="marc:datafield[@tag=800]">
+        <dcterms:isPartOf from_marc_field="800">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=810]">
+        <dcterms:isPartOf from_marc_field="810">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=811]">
+        <dcterms:isPartOf from_marc_field="811">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+    <xsl:template match="marc:datafield[@tag=830]">
+        <dcterms:isPartOf from_marc_field="830">
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
 
-    <xsl:template match="marc:datafield[@tag=856]">
+
+    <xsl:template match="marc:datafield[@tag=856]/marc:subfield[@code='q']">
+        <dcterms:medium xsi:type="dcterms:IMT" from_marc_field="856q">
+            <xsl:value-of select="." />
+        </dcterms:medium>
         <dc:identifier from_marc_field="856u">
             <xsl:value-of select="marc:subfield[@code='u']"/>
         </dc:identifier>
     </xsl:template>
-    <xsl:template match="marc:datafield[@tag=020]">
-        <dc:identifier from_marc_field="020a">
-            <xsl:text>URN:ISBN:</xsl:text>
-            <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:identifier>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- cjh: why is this commented out? -->
+    <!--
+    <xsl:template match="marc:datafield[@tag=760]|marc:datafield[@tag=762]|marc:datafield[@tag=765]|marc:datafield[@tag=767]|marc:datafield[@tag=770]|marc:datafield[@tag=772]|marc:datafield[@tag=773]|marc:datafield[@tag=774]|marc:datafield[@tag=775]|marc:datafield[@tag=776]|marc:datafield[@tag=777]|marc:datafield[@tag=780]|marc:datafield[@tag=785]|marc:datafield[@tag=786]|marc:datafield[@tag=787]">
+        <dc:relation>
+            <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" />ot</xsl:attribute>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ot</xsl:with-param>
+            </xsl:call-template>
+        </dc:relation>
     </xsl:template>
-
-
-
-
-    <xsl:template match="marc:datafield[@tag=506]">
-        <dc:rights from_marc_field="506a">
-            <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:rights>
-    </xsl:template>
-    <xsl:template match="marc:datafield[@tag=540]">
-        <dc:rights from_marc_field="540a">
-            <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:rights>
-    </xsl:template>
-
+    -->
 
 
     <xsl:template match="marc:datafield">
@@ -782,13 +870,3 @@
             template, just do nothing -->
     </xsl:template>
 </xsl:stylesheet>
-
-<!-- Stylus Studio meta-information - (c) 2004-2005. Progress Software Corporation. All rights reserved.
-<metaInformation>
-<scenarios ><scenario default="yes" name="Scenario1" userelativepaths="yes" externalpreview="no" url="..\..\..\..\..\..\..\..\..\..\javadev4\testsets\diacriticu8.xml" htmlbaseurl="" outputurl="" processortype="internal" useresolver="yes" profilemode="0" profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal" customvalidator=""/></scenarios><MapperMetaTag><MapperInfo srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/><MapperBlockPosition></MapperBlockPosition><TemplateContext></TemplateContext><MapperFilter side="source"></MapperFilter></MapperMetaTag>
-</metaInformation>
---><!-- Stylus Studio meta-information - (c)1998-2002 eXcelon Corp.
-<metaInformation>
-<scenarios/><MapperInfo srcSchemaPath="" srcSchemaRoot="" srcSchemaPathIsRelative="yes" srcSchemaInterpretAsXML="no" destSchemaPath="" destSchemaRoot="" destSchemaPathIsRelative="yes" destSchemaInterpretAsXML="no"/>
-</metaInformation>
--->
