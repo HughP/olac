@@ -33,7 +33,7 @@
         <xsl:variable name="leader" select="marc:leader"/>
         <xsl:variable name="controlField008"
             select="marc:controlfield[@tag=008]"/>
-        <olac:olac xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.0/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.0/dcterms.xsd    http://www.language-archives.org/OLAC/1.0/    http://www.language-archives.org/OLAC/1.0/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.0/third-party/software.xsd ">
+        <olac:olac xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.1/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.1/dcterms.xsd    http://www.language-archives.org/OLAC/1.1/    http://www.language-archives.org/OLAC/1.1/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.1/third-party/software.xsd ">
             <!-- Process Control Fields -->
             <xsl:call-template name="process-DCMI-Type">
                 <xsl:with-param name="leader6"
