@@ -7,7 +7,7 @@
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
    xmlns:sr="http://www.openarchives.org/OAI/2.0/static-repository" 
    xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
-   xmlns:olac="http://www.language-archives.org/OLAC/1.0/" 
+   xmlns:olac="http://www.language-archives.org/OLAC/1.1/" 
    xmlns:dc="http://purl.org/dc/elements/1.1/" 
    xmlns:dcterms="http://purl.org/dc/terms/" 
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
