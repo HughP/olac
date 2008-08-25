@@ -403,7 +403,8 @@ insert into INTEGRITY_PROBLEM values ('BSI','A','E','Bad Sample Identifier','The
 insert into INTEGRITY_PROBLEM values ('BLT','E','E','Bad Linguistic Type','The value supplied for olac:linguistic-type is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BDT','E','E','Bad DCMI Type','The value supplied for dcterms:DCMIType is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BLC','E','E','Bad Language Code','The value supplied for olac:language is not defined in the ISO 639 code set.');
-insert into INTEGRITY_PROBLEM values ('SLC','E','W','Suboptimal Language Code','The value supplied for olac:language is a recognized code from ISO 639, but it is not best practice since it is retired or represents a collection of languages.');
+insert into INTEGRITY_PROBLEM values ('RLC','E','W','Retired Language Code','The supplied value is a recognized code from ISO 639, but it is not best practice since it is retired.');
+insert into INTEGRITY_PROBLEM values ('SIL','E','W','Should be Individual Language','The value supplied for olac:language is a recognized code from ISO 639, but it is not best practice since it resents a collection of languages.');
 
 ##################################################################
 # Table                : INTEGRITY_CHECK
