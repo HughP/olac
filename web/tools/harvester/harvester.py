@@ -167,7 +167,8 @@ class DBI(Logger):
         self.recordCount0 += 1
 
         try:
-            schemaid = self.olacschema[record.olacSchema()]
+            if not record.deleted():
+                schemaid = self.olacschema[record.olacSchema()]
         except KeyError:
             # this record uses unknown schema
             # --> do not harvest
@@ -186,7 +187,7 @@ class DBI(Logger):
                 self.cur.execute(sql, itemid)
                 sql = "delete from ARCHIVED_ITEM where Item_ID=%s"
                 self.cur.execute(sql, itemid)
-                self.deleteRecordCount0 += 1
+                self.deletedRecordCount0 += 1
             else:
                 # --> update
                 sql = "update ARCHIVED_ITEM set " \
