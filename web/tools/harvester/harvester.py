@@ -374,7 +374,7 @@ class Record:
     """
     This represents an OLAC GetRecord element.
     """
-    def __init__(self, header, olac):
+    def __init__(self, header, olac=None):
         self.header = header    # (ns,name,attrs,body)
         self.olac = olac        # (ns,name,attrs,body)
 
@@ -401,6 +401,7 @@ class Record:
                 return row[j]
             
     def metadataElements(self):
+        if self.olac is None: return
         for ns, tagName, attrs, content in self.olac:
             extType = None
             extSchema = None
@@ -702,7 +703,7 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
         if name == 'record':
             record = self.createRecord()
             #self.log("processing record: %s" % record.oaiId())
-            self.recordHandler(record)
+            if record: self.recordHandler(record)
         elif name in ('header','olac'):
             self.flag = False
         elif name == 'resumptionToken':
@@ -722,7 +723,10 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
                 body = ''.join(r[1:])
                 x.append((schema, elName, atts, body))
             result.append(x)
-        return Record(result[0], result[1])
+        if len(result) == 2:
+            return Record(result[0], result[1])
+        elif len(result) == 1:
+            return Record(result[0])
     
 
 class StreamParser(Logger):
