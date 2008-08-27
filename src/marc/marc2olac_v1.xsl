@@ -22,15 +22,15 @@
         <olac:olacCollection>
             <!-- We haven't yet defined such an
                 element in olac.xsd -->
-            <xsl:apply-templates select="marc:record"/>
+            <xsl:apply-templates select="marc:record" mode="olac"/>
         </olac:olacCollection>
     </xsl:template>
     <xsl:template match="/marc:record">
-        <xsl:apply-templates select="."/>
+       <xsl:apply-templates select="." mode="olac"/>
     </xsl:template>
 
 
-    <xsl:template match="marc:record">
+   <xsl:template match="marc:record" mode="olac">
         <olac:olac xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.1/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.1/dcterms.xsd    http://www.language-archives.org/OLAC/1.1/    http://www.language-archives.org/OLAC/1.1/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.1/third-party/software.xsd ">
            <xsl:apply-templates select="marc:leader"/>
            <xsl:apply-templates select="marc:controlfield"/>
