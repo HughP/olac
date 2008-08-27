@@ -31,30 +31,17 @@
 
 
     <xsl:template match="marc:record">
-        <xsl:variable name="leader" select="marc:leader"/>
-        <xsl:variable name="controlField008"
-            select="marc:controlfield[@tag=008]"/>
         <olac:olac xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.1/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.1/dcterms.xsd    http://www.language-archives.org/OLAC/1.1/    http://www.language-archives.org/OLAC/1.1/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.1/third-party/software.xsd ">
-            <!-- Process Control Fields -->
-            <xsl:call-template name="process-DCMI-Type">
-                <xsl:with-param name="leader6"
-                    select="substring(marc:leader,7,1)"/>
-                <xsl:with-param name="leader7"
-                    select="substring(marc:leader,8,1)"/>
-            </xsl:call-template>
-            <xsl:call-template name="process-Language">
-                <xsl:with-param name="controlField008"
-                    select="marc:controlfield[@tag=008]"/>
-            </xsl:call-template>
-            <xsl:call-template name="process-ID">
-                <xsl:with-param name="controlField001" select="marc:controlfield[@tag=001]" />
-            </xsl:call-template>
-            <!-- Process Data Fields -->
-            <xsl:apply-templates select="marc:datafield"/>
+           <xsl:apply-templates select="marc:leader"/>
+           <xsl:apply-templates select="marc:controlfield"/>
+           <xsl:apply-templates select="marc:datafield"/>
         </olac:olac>
     </xsl:template>
 
-
+   <xsl:template match="marc:controlfield">
+      <!-- Ignore if it did not match a more specific template -->
+   </xsl:template>
+   
    <xsl:template name="show-source">
       <xsl:param name="subfield"></xsl:param><!-- Optional parameter -->
       <xsl:if test="$show-source='yes'">
@@ -70,63 +57,64 @@
 
 
 
-
-    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
-    <xsl:template name="process-ID">
-        <xsl:param name="controlField001"/>
-        <dc:identifier from_marc_field="001">
-            <xsl:value-of select="$controlField001"/>
-        </dc:identifier>
-    </xsl:template>
-
-    <xsl:template name="process-Language">
-        <xsl:param name="controlField008"/>
-        <!-- JAS: prefer 041 and parse, or 590  -->
-        <dc:language from_marc_field="leader?008">
-            <xsl:value-of select="substring($controlField008,36,3)"/>
-        </dc:language>
-    </xsl:template>
-
-
-
-    <xsl:template name="process-DCMI-Type">
-        <xsl:param name="leader6"/>
-        <xsl:param name="leader7"/>
-        <xsl:if test="$leader7='c'">
-            <dc:type from_marc_field="leader7=c" xsi:type="dcterms:DCMIType">Collection</dc:type>
-        </xsl:if>
-        <dc:type xsi:type="dcterms:DCMIType">
-            <xsl:attribute name="from_marc_field">
-                <xsl:choose>
-                    <!-- CJH: replaced by string function below: <xsl:when test="$leader6='a' or $leader6='t' or $leader6='e' or $leader6='f' or $leader6='c' or $leader6='d' or $leader6='i' or $leader6='j' or $leader6='k' or $leader6='g' or $leader6='r' or $leader6='m' or $leader6='p'">leader6</xsl:when>
-                    -->
-                    <xsl:when test="contains('atefcdijkgrmp',$leader6)">leader6</xsl:when>
-
-                </xsl:choose>
-            </xsl:attribute>
-         <!-- GFS:  Do we care about "manuscript"?
+   <!-- Get the DCMI-Type out of the leader -->  
+   <xsl:template match="marc:leader">
+      <xsl:variable name="leader6"
+         select="substring( . ,7,1)"/>
+      <xsl:variable name="leader7"
+         select="substring( . ,8,1)"/>
+      <xsl:if test="$leader7='c'">
+         <dc:type xsi:type="dcterms:DCMIType">
+            <xsl:call-template name="show-source"/>
+            <xsl:text>Collection</xsl:text>
+         </dc:type>
+      </xsl:if>
+      <dc:type xsi:type="dcterms:DCMIType">
+         <xsl:call-template name="show-source"/>
+         <!-- GFS:  Do we care about "manuscript" somewhere else?
+            (It doesn't belong here as a DCMI Type.)
             <xsl:if
-                test="$leader6='d' or $leader6='f' or $leader6='p' or $leader6='t'">
-                <xsl:text>manuscript</xsl:text>
+            test="$leader6='d' or $leader6='f' or $leader6='p' or $leader6='t'">
+            <xsl:text>manuscript</xsl:text>
             </xsl:if>
-            -->
-            <xsl:choose>
-                <!-- GFS: These are not the exact terms from the
-                    vocabulary; e.g. should be uppercase? -->
-                    <xsl:when test="$leader6='a' or $leader6='t'">text</xsl:when>
-                    <xsl:when test="$leader6='e' or $leader6='f'">cartographic</xsl:when>
-                    <xsl:when test="$leader6='c' or $leader6='d'">notated music</xsl:when>
-                    <xsl:when test="$leader6='i' or $leader6='j'">sound recording</xsl:when>
-                    <xsl:when test="$leader6='k'">still image</xsl:when>
-                    <xsl:when test="$leader6='g'">moving image</xsl:when>
-                    <xsl:when test="$leader6='r'">three dimensional object</xsl:when>
-                    <xsl:when test="$leader6='m'">software, multimedia</xsl:when>
-                    <xsl:when test="$leader6='p'">mixed material</xsl:when>
-            </xsl:choose>
-        </dc:type>
-    </xsl:template>
-
-
+         -->
+         <xsl:choose>
+            <!-- GFS: These are not the exact terms from the
+               vocabulary; e.g. should be uppercase? -->
+            <xsl:when test="$leader6='a' or $leader6='t'">text</xsl:when>
+            <xsl:when test="$leader6='e' or $leader6='f'">cartographic</xsl:when>
+            <xsl:when test="$leader6='c' or $leader6='d'">notated music</xsl:when>
+            <xsl:when test="$leader6='i' or $leader6='j'">sound recording</xsl:when>
+            <xsl:when test="$leader6='k'">still image</xsl:when>
+            <xsl:when test="$leader6='g'">moving image</xsl:when>
+            <xsl:when test="$leader6='r'">three dimensional object</xsl:when>
+            <xsl:when test="$leader6='m'">software, multimedia</xsl:when>
+            <xsl:when test="$leader6='p'">mixed material</xsl:when>
+         </xsl:choose>
+      </dc:type>
+   </xsl:template>
+   
+   <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
+   <xsl:template match="marc:controlfield[@tag=001]">
+      <dc:identifier>
+         <xsl:call-template name="show-source"/>
+         <xsl:value-of select="."/>
+      </dc:identifier>
+   </xsl:template>
+   
+   <xsl:template match="marc:controlfield[@tag=008]">
+      <!-- Process the language field -->
+      <!-- JAS: prefer 041 and parse, or 590  -->
+      <dc:language xsi:type="olac:language">
+         <xsl:call-template name="show-source">
+            <xsl:with-param name="subfield">-36</xsl:with-param>
+         </xsl:call-template>
+         <xsl:attribute name="olac:code">
+            <xsl:value-of select="substring( . ,36,3)"/>
+         </xsl:attribute>
+      </dc:language>
+   </xsl:template>
+   
 
 
     <xsl:template match="marc:datafield[@tag=020]">
@@ -281,10 +269,10 @@
             </xsl:call-template>
         </dc:publisher>
         <dcterms:dateCopyrighted from_marc_field="260c">
-            <xsl:value-of select="marc:subfield[@code=c]">
+            <xsl:value-of select="marc:subfield[@code=c]"/>
         </dcterms:dateCopyrighted>
         <dcterms:issued from_marc_field="260c">
-            <xsl:value-of select="marc:subfield[@code=c]">
+            <xsl:value-of select="marc:subfield[@code=c]"/>
         </dcterms:issued>
     </xsl:template>
 
@@ -324,14 +312,15 @@
 
     <!-- All 5xx tags must be included within this template declaration -->
     <xsl:template match="marc:datafield[starts-with(@tag,'5')]">
-        <xsl:choose test="@tag = 500">
-        </xsl:choose>
+        <xsl:choose>
+           <xsl:when test="@tag = 500"></xsl:when>
 
         <xsl:otherwise>
             <dc:description>
                 <xsl:value-of select="." />
             </dc:description>
         </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <!-- cjh: is there a way to implement this with "cascading" templates, such that we could define a template that partially matches the datafield,
