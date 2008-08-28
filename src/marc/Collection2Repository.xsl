@@ -47,6 +47,21 @@
    </xsl:template>
    
    <xsl:template match="marc:record">
+       <xsl:variable name="modified-date">
+           <xsl:value-of select="marc:record[@tag=005]" />
+       </xsl:variable>
+            <!-- The datestamp for the record is the later of the
+               metadata version date or the record creation date  -->
+       <xsl:variable name="datestamp">
+           <xsl:choose>
+               <xsl:when test="replace($metadata-version-date,'-','') > $modified-date">
+                   <xsl:value-of select="$metadata-version-date" />
+               </xsl:when>
+               <xsl:otherwise>
+                   <xsl:value-of select="concat(substring($modified-date,1,4),substring($modified-date,6,2),substring($modified-date,9,2))" />
+               </xsl:otherwise>
+           </xsl:choose>
+       </xsl:variable>
       
       <oai:record>
          <oai:header>
@@ -54,10 +69,8 @@
                <xsl:value-of select="concat( 'oai:', $repository-id, ':' )"/>
                <xsl:apply-templates select="." mode="record-id"/>
             </oai:identifier>
-            <!-- The datestamp for the record is the later of the
-               metadata version date or the record creation date  -->
             <oai:datestamp>
-               <xsl:value-of select="$metadata-version-date"/>
+               <xsl:value-of select="$datestamp"/>
             </oai:datestamp>
          </oai:header>
          <oai:metadata>
