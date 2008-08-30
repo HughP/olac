@@ -277,28 +277,28 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=260]">
-        <dc:publisher>
-            <xsl:call-template name="show-source"/>
+   <xsl:template match="marc:datafield[@tag=260]">
+      <dc:publisher>
+         <xsl:call-template name="show-source">
             <xsl:with-param name="subfield">ab</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
+         </xsl:call-template>
+         <xsl:call-template name="subfieldSelect">
             <xsl:with-param name="codes">ab</xsl:with-param>
-        </xsl:call-template>
-    </dc:publisher>
-    <dcterms:dateCopyrighted>
-        <xsl:call-template name="show-source">
+         </xsl:call-template>
+      </dc:publisher>
+      <dcterms:dateCopyrighted>
+         <xsl:call-template name="show-source">
             <xsl:with-param name="subfield">c</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="marc:subfield[@code=c]"/>
-    </dcterms:dateCopyrighted>
-    <dcterms:issued>
-        <xsl:call-template name="show-source">
+         </xsl:call-template>
+         <xsl:value-of select="marc:subfield[@code=c]"/>
+      </dcterms:dateCopyrighted>
+      <dcterms:issued>
+         <xsl:call-template name="show-source">
             <xsl:with-param name="subfield">c</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="marc:subfield[@code=c]"/>
-    </dcterms:issued>
-</xsl:template>
+         </xsl:call-template>
+         <xsl:value-of select="marc:subfield[@code=c]"/>
+      </dcterms:issued>
+   </xsl:template>
 
 
 <xsl:template match="marc:datafield[@tag=300]/marc:subfield[@code='a']">

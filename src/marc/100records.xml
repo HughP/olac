@@ -65,7 +65,7 @@
         <datafield ind1=" " ind2="" tag="035">
             <subfield code="a">(TxDaGIAL)37741100010456</subfield>
         </datafield>
-        <controlfield tag="005">20080624154315.0</controlfield>
+        <controlfield tag="005">20080830154315.0</controlfield>
         <controlfield tag="001">100</controlfield>
         <controlfield tag="003">TxDaGIAL</controlfield>
         <datafield ind1=" " ind2="" tag="852">
@@ -438,7 +438,7 @@
         <datafield ind1=" " ind2="" tag="035">
             <subfield code="a">(TxDaGIAL)37741100023400</subfield>
         </datafield>
-        <controlfield tag="005">20080624154317.0</controlfield>
+        <controlfield tag="005">20080829154317.0</controlfield>
         <controlfield tag="001">105</controlfield>
         <controlfield tag="003">TxDaGIAL</controlfield>
         <datafield ind1=" " ind2="" tag="852">
