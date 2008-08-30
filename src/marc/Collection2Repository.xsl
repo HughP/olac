@@ -48,17 +48,22 @@
    
    <xsl:template match="marc:record">
        <xsl:variable name="modified-date">
-           <xsl:value-of select="marc:record[@tag=005]" />
+           <xsl:value-of
+              select="substring(marc:controlfield[@tag=005], 1, 8)" />
        </xsl:variable>
             <!-- The datestamp for the record is the later of the
                metadata version date or the record creation date  -->
        <xsl:variable name="datestamp">
            <xsl:choose>
-               <xsl:when test="replace($metadata-version-date,'-','') > $modified-date">
+               <xsl:when
+                  test="translate($metadata-version-date,'-','') > $modified-date">
                    <xsl:value-of select="$metadata-version-date" />
                </xsl:when>
                <xsl:otherwise>
-                   <xsl:value-of select="concat(substring($modified-date,1,4),substring($modified-date,6,2),substring($modified-date,9,2))" />
+                   <xsl:value-of
+                      select="concat(substring($modified-date,1,4),
+                      '-', substring($modified-date,5,2), '-',
+                      substring($modified-date,7,2))" />
                </xsl:otherwise>
            </xsl:choose>
        </xsl:variable>
