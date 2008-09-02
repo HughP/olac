@@ -183,7 +183,7 @@ foreach ($tab as $row) {
 
 <table>
 <tr valign=top>
-<tr><td><a href="http://www.language-archives.org/register/archive.html">Archive Registration</a></td>
+<tr><td><a href="http://www.language-archives.org/register/register.php">Archive Registration</a></td>
 <td>A service for validating and registering OLAC archives.</td></tr>
 
 <tr><td><a href="http://www.language-archives.org/register/service.html">Service Registration</a></td>
@@ -200,9 +200,11 @@ foreach ($tab as $row) {
 other registered OLAC repositories, incorporating an OLAC-DC crosswalk
 and a query function.</td></tr>
 
+<!--
 <tr><td><a href="http://www.language-archives.org/dp9/about.jsp">DP9</a></td>
 <td>A service providing HTML versions of all harvested OLAC records,
 for harvesting by internet search engines.</td></tr>
+-->
 
 <tr><td><a href="http://www.language-archives.org/viser">Viser</a></td>
 <td>A virtual service which allows language resource sites to post
