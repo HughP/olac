@@ -45,6 +45,7 @@ function get_archive_table()
 
   $tab = $DB->sql("select Archive_ID,
 			  RepositoryName,
+			  RepositoryIdentifier,
 			  ArchiveURL,
                           Institution,
 			  InstitutionURL,
@@ -61,7 +62,7 @@ function get_archive_table()
     $x[archive] = $row[RepositoryName];
     $x[institution] = $row[Institution];
     $x[location] = $row[ShortLocation];
-    $x[detail] = "<a class=arch href=\"archive.php4?id=$row[Archive_ID]\">MORE<br>DETAILS</a>";
+    $x[detail] = "<a class=arch href=\"/archive/$row[RepositoryIdentifier]\">MORE<br>DETAILS</a>";
     $x[report] = "<a class=arch href=\"tools/reports/archiveReportCard.php?archive=$row[Archive_ID]\">REPORT<br>CARD</a>";
 
     $s = preg_replace('@^http://@', '', $row[BaseURL]);
@@ -162,7 +163,7 @@ participating archives.  This page provides a summary;
 for full details on any archive follow the link on the right.
 
 <p>
-<li> <a href="register/archive.html">Register an archive</a>
+<li> <a href="register/register.php">Register an archive</a>
 <li> <a href="register/archive_list.php4">Machine readable list of registered archives</a>
 <li> <a href="tools/reports/archiveReportCard.php?archive=all">Metadata report on all archives</a>
 

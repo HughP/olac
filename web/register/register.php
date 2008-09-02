@@ -1,80 +1,30 @@
-<!--
-  Registration script for OLAC
-  Steven Bird 2002-05-10
-
-  This script tests validity of xml responses and olac-pmh conformance.
-  For successful registration, OAI membership is required.
-
-  ChangeLog:
-
-  $Log: register.php4,v $
-  Revision 1.15  2005/11/29 19:36:16  haepal
-  added schematron validation option to the schematron validation error message
-
-
-  2004-11-18  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* replaced flush() with myflush()
-
-  2003-03-23  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* added links to OLAC Repositories and OLAC Metadata
-
-  2003-03-19  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* implemented repository type auto detection
-
-  2003-03-18  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* imported SRV
-
-  2003-03-11  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* $URLTOFILE: / -> @
-	* report_error(): $file argument added for the file that caused the
-	error. $include_log indicates the procedure that observed the error -
-	0 - schematron, 1 - XSV, 2 - Xerces-J
-
-  2003-03-07  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* cleaned up an unnoticed garbage
-	* seperated register/unregister procedure from validate() function
-	* pmh() should exit if there's a download error
-	* accept $_GET[testnospam] -- if exists, emails are directed to
-	$TESTER_EMAIL and register() returns doing nothing
-	* all emails are cc'ed to $TESTER_EMAIL
-
-  2003-02-28  Haejoong Lee  <haejoong@ldc.upenn.edu>
-	* revised for OLAC 1.0 standards
-
-  Previous ChangeLogs:
-   - forced registration (register=1) also sends notification out
-     unlink() functions have been moved inside of validate&register block
-     (2002-12-19 HL)
-   - fatal_error(): now reports repository id and url
-   - notify(): inform olac-admin of review site
-     (2002-11-25 HL)
-   - fixed register() not to delete any records
-     changed "REGISTERED" message and confirmation email message
-     (2002-11-19 HL)
-   - removed OAI membership test 2002-10-22
--->
-
 <?php
+#  Registration script for OLAC
+#  Originally written by Steven Bird on 2002-05-10
+#  Revised by Haejoong Lee for OLAC 1.0.
+#  Revised by Haejoong Lee for OLAC 1.1 in Summer 2008.
+#
 
 define(OLAC_PATH, '/web/language-archives');
 define(OLAC_TOOLS, '/pkg/ldc/wwwhome/olac');
 require_once(OLAC_PATH.'/lib/php/OLAC_general.php');
 require_once(OLAC_PATH.'/lib/php/OLACDB.php');
 
-$TESTER_EMAIL = "haejoong@ldc.upenn.edu";
 $POSTEDURL = "";
 
-define(OLAC_URL,      'http://www.language-archives.org');
-define(CHAR_LIMIT,    1000);   # how many chars of schematron output to print
-define(DR_STRON,      'scripts-1.1/olac-dynamic-repository.xsl');
-define(SR_STRON,      'scripts-1.1/olac-static-repository.xsl');
-define(XSV_TRANSFORM, 'scripts-1.1/xsv_output_transform.xsl');
-define(XSV_XSL,       OLAC_TOOLS.'/xsv/lib/python2.3/site-packages/XSV/pubtext/xsv.xsl');
-define(XSV,           OLAC_TOOLS.'/bin/xsv_xml');
-define(XERCESJ,       OLAC_TOOLS.'/bin/xercesj');
-define(XSLT,          OLAC_TOOLS.'/bin/xalan');
-define(GWTEST,        OLAC_TOOLS.'/bin/gwtest');
-define(CGISTRON,      'http://www.language-archives.org/cgi-bin/schematron.cgi');
+define('TESTER_EMAIL',  'haejoong@ldc.upenn.edu');
+define('OLAC_URL',      'http://www.language-archives.org');
+define('CHAR_LIMIT',    1000);   # how many chars of schematron output to print
+define('DR_STRON',      'scripts-1.1/olac-dynamic-repository.xsl');
+define('SR_STRON',      'scripts-1.1/olac-static-repository.xsl');
+define('VERSION_STRON', 'scripts-1.1/olac-version.xsl');
+define('XSV_TRANSFORM', 'scripts-1.1/xsv_output_transform.xsl');
+define('XSV_XSL',       OLAC_TOOLS.'/xsv/lib/python2.3/site-packages/XSV/pubtext/xsv.xsl');
+define('XSV',           OLAC_TOOLS.'/bin/xsv_xml');
+define('XERCESJ',       OLAC_TOOLS.'/bin/xercesj');
+define('XSLT',          OLAC_TOOLS.'/bin/xalan');
+define('GWTEST',        OLAC_TOOLS.'/bin/gwtest');
+define('CGISTRON',      'http://www.language-archives.org/cgi-bin/schematron.cgi');
 
 
 function myurlencode($url) {
@@ -89,6 +39,16 @@ function myflush() {
   ob_flush();
 }
 
+function mail_by_olac_admin($to, $subject, $msg, $cc="")
+{
+  $header = "From: OLAC Web Server <www@ldc.upenn.edu>\r\n";
+  $header .= "Reply-To: OLAC Administrator <olac-admin@language-archives.org>\r\n";
+  if ($cc) {
+    $header .= "Cc: $cc\r\n";
+  }
+  $header .= "X-Mailer: PHP/" . phpversion();
+  mail($to, $subject, $msg, $header);
+}
 
 function get_data_using_socket($url, &$data) {
   # open the remote http port and get data
@@ -99,7 +59,7 @@ function get_data_using_socket($url, &$data) {
   if (!$port) {
     $port = 80;
   }
-  $sock = fsockopen($host, $port, $errno, $errstr, 30);
+  $sock = @fsockopen($host, $port, $errno, $errstr, 30);
   if ($sock) {
     $data = '';
     $location = '';
@@ -214,14 +174,13 @@ function report_sr_error($file, $include_log) {
 
 function fatal_error($str) {
   global $OLAC_ADMIN_EMAIL;
-  global $TESTER_EMAIL;
   global $POSTEDURL;
   if ($_GET[testnospam])
-    $OLAC_ADMIN_EMAIL = $TESTER_EMAIL;
+    $OLAC_ADMIN_EMAIL = TESTER_EMAIL;
 
   error($str);
-  $mailmsg = "$str\n\nRepository URL: $POSTEDURL\n";
-  mail($OLAC_ADMIN_EMAIL, "OLAC REGISTRATION - FATAL ERROR", $mailmsg, "Cc: $TESTER_EMAIL\r\n");
+  #$mailmsg = "$str\n\nRepository URL: $POSTEDURL\n";
+  #mail($OLAC_ADMIN_EMAIL, "OLAC REGISTRATION - FATAL ERROR", $mailmsg, "Cc: ".TESTER_EMAIL."\r\n");
   die();
 }
 
@@ -260,7 +219,7 @@ function get_element($field, $file) {
   }
 
   if (! $answer) {
-    fatal_error("Field \"$field\" was missing or empty in <a href=\"$file\">the file</a>.");
+    fatal_error("Field \"$field\" is missing or empty in <a href=\"$file\">the file</a>.");
   }
 
   return $answer;
@@ -270,14 +229,16 @@ function get_element($field, $file) {
 
 function notify($id, $dp_admin, $bypass=0) {
   global $OLAC_ADMIN_EMAIL;
-  global $TESTER_EMAIL;
   global $POSTED_URL;
   if ($_GET[testnospam]) {
-    $OLAC_ADMIN_EMAIL = $TESTER_EMAIL;
-    $dp_admin = $TESTER_EMAIL;
+    $OLAC_ADMIN_EMAIL = TESTER_EMAIL;
+    $dp_admin = TESTER_EMAIL;
   }
 
-  print "<p>Email notification sent to: $dp_admin, $OLAC_ADMIN_EMAIL.</p>\n";
+  $emailarr = preg_split("{\s+}", $OLAC_ADMIN_EMAIL);
+  array_unshift($emailarr, $dp_admin);
+  $emails = implode(", ", $emailarr);
+  print "<p>Email notification sent to: $emails.</p>\n";
   $message = "
 Registration request for
     Repository ID: $id
@@ -315,22 +276,130 @@ $OLAC_ADMIN_EMAIL
 
 ";
 
-  mail($OLAC_ADMIN_EMAIL, "OLAC registration received", $msg1, "From:$OLAC_ADMIN_EMAIL\r\nCc: $TESTER_EMAIL\r\n");
-  mail($dp_admin, "OLAC registration received", $msg2, "From:$OLAC_ADMIN_EMAIL\r\nCc: $TESTER_EMAIL\r\n");
+  mail_by_olac_admin($OLAC_ADMIN_EMAIL,
+		     "OLAC registration received",
+		     $msg1,
+		     $OLAC_SYS_ADMIN_EMAIL);
+  mail_by_olac_admin($dp_admin,
+		     "OLAC registration received",
+		     $msg2,
+		     $OLAC_SYS_ADMIN_EMAIL);
+		     
 }
 
 
 
 function register($id, $dp_admin) {
   global $DB;
-  global $REPOTYPE;
-  global $POSTEDURL;
+  global $OLAC_ADMIN_EMAIL;
+  
+  $repoid = $_POST["repositoryid"];
+  $repotype = $_POST["repositorytype"];
+  $baseurl = $_POST["baseurl"];
+  $adminemail = $_POST["adminemail"];
+
   $DB->sql("insert into ARCHIVES (ID,BASEURL,contactEmail, type)
-            values ('$id', '$POSTEDURL', '$dp_admin','$REPOTYPE')");
+            values ('$repoid', '$baseurl', '$adminemail','$repotype')");
   if ($DB->saw_error()) {
-    fatal_error("Insert query failed");
+    error("Database error");
+
+    echo <<<EOT
+<p>Registration failed due to a system error. You can either try it again or
+notify OLAC administrators who can manually register your repository.
+Click on the "NOTIFY REGISTRATION ERROR" button below to notify
+OLAC administrators.</p>
+
+<form method="post">
+<inpyt type="hidden" name="repositoryid" value="$repoid"/>
+<input type="hidden" name="repositorytype" value="$repotype"/>
+<input type="hidden" name="baseurl" value="$baseurl"/>
+<input type="hidden" name="adminemail" value="$adminemail"/>
+<input type="submit" name="action" value="NOTIFY REGISTRATION ERROR"/>
+</form>
+EOT;
   }
-  print "<p><font color=\"green\"><b>REGISTRATION REQUEST HAS BEEN FILED FOR REVIEW</b></font><br>We will review the request and register the archive shortly.</p>";
+  else {
+    echo <<<EOT
+<p><font color="green"><b>REGISTRATION REQUEST HAS BEEN FILED FOR REVIEW</b>
+</font><br>We will review the request and register the archive shortly.</p>
+EOT;
+    notify($repoid, $adminemail);
+  }
+}
+
+
+
+function change_baseurl()
+{
+  global $DB;
+  global $OLAC_SYS_ADMIN_EMAIL;
+
+  clear_page();
+
+  $adminemail = $_POST["adminemail"];
+  $baseurl = $_POST["baseurl"];
+  $repoid = $_POST["repositoryid"];
+
+  $error_msg = <<<EOT
+<p><font color=red><b>Error</b></font></p>
+<p>A database error occurred while processing your request.
+Please try it again later.  If problem continues, please let us know
+by email.  Sorry about the inconvenience.</p>
+EOT;
+
+  while (true) {
+    $magic = sha1(rand().rand().rand());
+    $sql = "select count(*) c from PendingConfirmation where magic_string='$magic'";
+    $rows = $DB->sql($sql);
+    if ($DB->saw_error()) {
+      $subject = "olac registration error (kind 1)";
+      $msg = "Database failed when checking existence of magic string.\n\n";
+      $msg .= "Magic string: $magic";
+      $msg .= "DB error msg: " . $DB->get_error_message();
+      mail_by_olac_admin($OLAC_SYS_ADMIN_EMAIL, $subject, $msg);
+      echo $error_msg;
+      return;
+    }
+    if ($rows[0]["c"] == 0) {
+      $sql = "insert into PendingConfirmation (magic_string, repository_id, repository_type, new_url) ";
+      $sql .= "values ('$magic', '$_POST[repositoryid]', '$_POST[repositorytype]', '$_POST[baseurl]')";
+      $DB->sql($sql);
+      if ($DB->saw_error()) {
+	$subject = "olac registration error (kind 2)";
+	$msg = "Database failed when inserting confirmation request.\n\n";
+	$msg .= "DB error msg: " . $DB->get_error_message();
+	mail_by_olac_admin($OLAC_SYS_ADMIN_EMAIL, $subject, $msg);
+	echo $error_msg;
+	return;
+      } else {
+	break;
+      }
+    }
+  }
+  
+  $confirmation_url = OLAC_URL . "/register/confirm.php?v=$magic";
+
+  $msg = <<<EOT
+Administrator of $repoid:
+
+Someone has requested a change of base URL of your repository registered with
+OLAC. To confirm this, please visit the following URL:
+
+  $confirmation_url
+
+This message was automatically generated by OLAC Registration Service.
+
+EOT;
+
+  $subject = "OLAC Registration Confirmation";
+  mail_by_olac_admin($adminemail, $subject, $msg);
+
+  echo <<<EOT
+<p><font color=green><b>REQUEST FOR CONFIRMATION HAS BEEN SENT</b></font></p>
+<p>An email has been sent to the following email address. Please check the
+email and follow the included link to confirm the change of registration.</p>
+<p>Admin email: $adminemail</p>
+EOT;
 }
 
 
@@ -488,10 +557,45 @@ function test_dr_conformant($file, $test) {
 
 
 
-function dr_validate(&$id, &$dp_admin) {
-  global $TESTER_EMAIL;
+function check_olac_version($file)
+{
+  print '<p>Checking OLAC version... ';
+  myflush();
+  $command = XSLT . " $file " . VERSION_STRON;
+  $command .= ' | grep -v "In pattern" | head -n 10 | sed \'s/^\s*//\'';
+  $output = get_output($command, CHAR_LIMIT);
+  $h = array();
+  foreach (explode("\n", trim($output)) as $line) {
+    $key = trim($line);
+    $h[$key] += 1;
+  }
+  if (count($h) != 1) {
+    echo "<font color=red>error</font></p>";
+    myflush();
+    fatal_error("Cannot check the version of the repository.");
+  } else {
+    $keys = array_keys($h);
+    echo "<font color=green>" . $keys[0] . "</font></p>";
+    myflush();
+    $a = explode(' ', $keys[0]);
+    if ($a[1] == '1.0') {
+      $msg = "OLAC 1.0 repository detected. Please upgrade it to 1.1. (See ";
+      $msg .= '<a href="  http://olac.wiki.sourceforge.net/Call_for_1.1">';
+      $msg .= 'instructions</a>.)';
+      fatal_error($msg);
+    }
+    else if ($a[1] != '1.1')
+      fatal_error("Not OLAC 1.1 repository.");
+  }
+}
+
+
+
+function dr_validate() {
   global $URLTOFILE;
   global $POSTEDURL;
+  global $IDENTIFY_XML;
+
   $ID_xml = sprintf("%s_ID.xml", $URLTOFILE);
   $LM_xml = sprintf("%s_LM.xml", $URLTOFILE);
   $LI_xml = sprintf("%s_LI.xml", $URLTOFILE);
@@ -510,14 +614,11 @@ function dr_validate(&$id, &$dp_admin) {
 
   print "<h2>Retrieving Data</h2>";
   pmh($ID_xml, $ID_test);
-  $id = get_element('repositoryIdentifier', $ID_xml);
-
-  $dp_admin = get_element('adminEmail', $ID_xml);
-  $dp_admin = ereg_replace("mailto:", '', $dp_admin);
-
+  check_olac_version($ID_xml);
   pmh($LM_xml, $LM_test);
   pmh($LI_xml, $LI_test);
   pmh($LR_xml, $LR_test);
+  check_olac_version($LR_xml);
 
   # construct the full GetRecord request
   $record_id = get_element('sampleIdentifier', $ID_xml);
@@ -543,6 +644,8 @@ function dr_validate(&$id, &$dp_admin) {
 
   $validation_result = $valid && $conformant;
   report_result($validation_result);
+
+  $IDENTIFY_XML = $ID_xml;
   return $validation_result;
 }
 
@@ -694,6 +797,8 @@ function sr_validate($URLTOFILE) {
   myflush();
   download($URLTOFILE);
 
+  check_olac_version($URLTOFILE);
+
   print "<h2>Requirement Check</h2>\n";
   myflush();
   $v1 = sr_schematron_valid($URLTOFILE);
@@ -712,97 +817,22 @@ function sr_validate($URLTOFILE) {
   return $validation_result;
 }
 
-?>
 
-<HTML>
-<HEAD>
-<TITLE>OLAC Archive Registration</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="../olac.css">
-</HEAD>
-
-<BODY>
-<HR>
-<TABLE CELLPADDING="10">
-<TR>
-<TD> <A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif"
-BORDER="0"></A></TD>
-<TD> <H1><FONT COLOR="0x00004a">OLAC Archive Registration<br></FONT></H1></TD>
-</TR>
-</TABLE>
-<HR>
-
-<a href="http://www.language-archives.org/register/archive.html">
-Learn more about OLAC registration</a> |
-<a href="http://www.language-archives.org/archives.php4">
-View registered archives</a>
-
-<br><br>
-<form enctype="multipart/form-data" method="post">
-<b>Base URL:</b><br>
-<input type="text" size="50" maxlength="300" name="url"
-       value="<?php
-         if ($_POST[url]) {
-	   $POSTEDURL = $_POST[url];
-           print $POSTEDURL;
-         }
-	 elseif ($_GET[url] && $_GET[register]==1) {
-	   print $_GET[url];
-	   $POSTEDURL = $_GET[url];
-	 } 
-	 else {
-           print "http://";
-	   $POSTEDURL = "";
-         }
-       ?>"
->
-
-<p>
-<input type="submit" name="submit" value="VALIDATE &amp; REGISTER"/>
-&nbsp;&nbsp;
-<input type="submit" name="validate" value="VALIDATE ONLY"/>
-</p>
-
-<p>This is an interface for validating and registering a new OLAC archive.
-An OLAC archive can be in the form of either a dynamic or static repository.
-Before registration, please make sure that your repository conforms to the
-following stadards, against which your repository will be tested during
-the registration process:
-
-<dl>
-<dd><a href="http://www.language-archives.org/OLAC/repositories.html">
-OLAC Repositories standard</a>, and</dd>
-<dd><a href="http://www.language-archives.org/OLAC/metadata.html">
-OLAC Metadata standard</a>.</dd>
-</dl>
-</p>
-
-<p>(NB Registration or validation may take several minutes)
-</form>
-
-<?php
-
-if ($POSTEDURL) {
-  if (substr($POSTEDURL, 0, 7) != 'http://') {
-    $POSTEDURL = "http://$POSTEDURL";
-  }
-  $URLTOFILE = 'tmp/'.myurlencode($POSTEDURL);
-  exec("rm -f $URLTOFILE*");
-  $DB = new OLACDB("olac2");
-
-  #
-  # detect repository type
-  #
+function check_repository_type() {
+  global $REPOTYPE;
+  global $POSTEDURL;
   $REPOTYPE = '';
   #$fp = @fopen("$POSTEDURL?verb=badVerb", "r");
   get_data_using_socket("$POSTEDURL?verb=badVerb", $bvout);
   if ($bvout) {
+
     if (preg_match("'<(\w+:)?OAI-PMH'", $bvout)) {
       $REPOTYPE = 'Dynamic';
     }
     else if (preg_match("'<(\w+:)?Repository'", $bvout)) {
       $REPOTYPE = 'Static';
     }
+
     if ($REPOTYPE == '') {
       print <<<END
 <hr>
@@ -819,65 +849,290 @@ For the OLAC 1.0 standards, see
 </p>
 END;
     }
-  }
-  else {
+
+  } else {
+
     print "<hr><p>Can't connect. Please check the base URL again.</p>";
+
   }
 
+  return $bvout && $REPOTYPE != '';
+}
 
-  #
-  # dynamic repository
-  #
+
+function check_repository_status()
+{
+  global $DB;
+  global $IDENTIFY_XML;
+
+  $id = get_element('repositoryIdentifier', $IDENTIFY_XML);
+  $baseurl = get_element('baseURL', $IDENTIFY_XML);
+  $sql = "select BaseURL from OLAC_ARCHIVE where RepositoryIdentifier='$id'";
+  $rows = $DB->sql($sql);
+  if ($DB->saw_error()) return "error";
+  if (count($rows) == 0) return "new";
+  if ($rows[0]["BaseURL"] == $baseurl)
+    return "exists";
+  else
+    return "new_base_url";
+}
+
+
+function validate() {
+  global $REPOTYPE;
+  global $URLTOFILE;
+  global $IDENTIFY_XML;
+
+  if (!check_repository_type()) return;
+
+  $validation_ok = false;
   if ($REPOTYPE == "Dynamic") {
-    $id = $dp_admin = '';
-    if ($_GET[register]==1) {
-      download($URLTOFILE);
-      $id = get_element('repositoryIdentifier', $URLTOFILE);
-      $dp_admin = get_element('adminEmail', $URLTOFILE);
-      $dp_admin = preg_replace("/^mailto:/", "", $dp_admin);
-      register($id, $dp_admin);
-      notify2($id, $dp_admin, 1);
-    }      
-    else if ($_POST[submit] && dr_validate($id, $dp_admin)) {
-      register($id, $dp_admin);
-      notify($id, $dp_admin);
-    }
-    else {
-      #assert(empty($_POST[submit]));
-      #assert(!empty($_POST[validate]));
-      dr_validate($id, $dp_admin);
-    }
+    $validation_ok = dr_validate();
   }
-
-  #
-  # static repository
-  #
   else if ($REPOTYPE == "Static") {
     if ($_GET[register] == 1) {
       download($URLTOFILE);
-      $id = get_element('repositoryIdentifier', $URLTOFILE);
-      $dp_admin = get_element('adminEmail', $URLTOFILE);
-      $dp_admin = preg_replace("/^mailto:/", "", $dp_admin);
-      register($id, $dp_admin);
-      notify($id, $dp_admin, 1);
+      $validation_ok = true;
+    } else {
+      $validation_ok = sr_validate($URLTOFILE);
     }
-    else if ($_POST[submit] && sr_validate($URLTOFILE)) {
-      $id = get_element('repositoryIdentifier', $URLTOFILE);
-      $dp_admin = get_element('adminEmail', $URLTOFILE);
-      $dp_admin = preg_replace("/^mailto:/", "", $dp_admin);
-      register($id, $dp_admin);
-      notify($id, $dp_admin);
-    }
-    else {
-      #assert(empty($_POST[submit]));
-      #assert(!empty($_POST[validate]));
-      sr_validate($URLTOFILE);
-    }
+    $IDENTIFY_XML = $URLTOFILE;
   }
 
+  return $validation_ok;
 }
-?>
 
+
+function validation_response_for_new_archive()
+{
+  global $IDENTIFY_XML;
+  global $REPOTYPE;
+  global $POSTEDURL;
+  $id = get_element('repositoryIdentifier', $IDENTIFY_XML);
+  $dp_admin = get_element('adminEmail', $IDENTIFY_XML);
+  $dp_admin = preg_replace("/^mailto:/", "", $dp_admin);
+
+  echo <<<EOT
+<p>Congratulations! Now you can continue to register your repository with OLAC.
+If you press the button below, your request will be submitted to the OLAC
+Coordinators.</p>
+
+<form enctype="multipart/form-data" method="post">
+<input type="hidden" name="repositoryid" value="$id"/>
+<input type="hidden" name="repositorytype" value="$REPOTYPE"/>
+<input type="hidden" name="baseurl" value="$POSTEDURL"/>
+<input type="hidden" name="adminemail" value="$dp_admin"/>
+<input type="submit" name="action" value="REGISTER NOW"/>
+</form>
+EOT;
+}
+
+
+function validation_response_for_existing_archive()
+{
+  echo <<<EOT
+<p>Your repository is valid. It is already registered at this baseURL and
+will continue to be harvested.</p>
+EOT;
+}
+
+
+function validation_response_for_new_baseurl()
+{
+  global $IDENTIFY_XML;
+  global $POSTEDURL;
+  global $REPOTYPE;
+  $id = get_element('repositoryIdentifier', $IDENTIFY_XML);
+  $dp_admin = get_element('adminEmail', $IDENTIFY_XML);
+  $dp_admin = preg_replace("/^mailto:/", "", $dp_admin);
+
+  echo <<<EOT
+<p>Your repository is valid. It is already registered, but at a different
+baseURL. Press the "CHANGE REGISTRATION" button below to move your repository
+to this new base URL.</p>
+
+<form enctype="multipart/form-data" method="post">
+<input type="hidden" name="repositoryid" value="$id"/>
+<input type="hidden" name="repositorytype" value="$REPOTYPE"/>
+<input type="hidden" name="baseurl" value="$POSTEDURL"/>
+<input type="hidden" name="adminemail" value="$dp_admin"/>
+<input type="submit" name="action" value="CHANGE REGISTRATION"/>
+</form>
+EOT;
+}
+
+
+function clear_page()
+{
+  echo "<script>document.getElementById('main').innerHTML='';</script>";
+}
+
+
+function registration_response()
+{
+  clear_page();
+  register($_POST["repositoryid"], $_POST["adminemail"]);
+}
+
+
+function registration_response_for_system_error()
+{
+  clear_page();
+  $msg = <<<EOT
+OLAC Administrator:
+
+An attempt to register a valid repository has failed due to a system error.
+User was told that he could try later, but he chose to let us do it.  Here's
+the registration information.
+
+  Repository ID: $_POST[repositoryid]
+  Repository Type: $_POST[repositorytype]
+  Base URL: $_POST[baseurl]
+  Admin Email: $_POST[adminemail]
+
+This message was automatically generated by OLAC Registration Service.
+
+EOT;
+
+  $subject = "OLAC registration failed due to a system error";
+  mail_by_olac_admin($OLAC_ADMIN_EMAIL, $subject, $msg, $OLAC_SYS_ADMIN_EMAIL);
+
+  echo "<p><font color=green><b>NOTIFICATION HAS BEEN SENT TO OLAC ";
+  echo "ADMINISTRATORS</b></font></p>";
+}
+
+
+
+
+?>
+<HTML>
+<HEAD>
+<TITLE>OLAC Archive Registration</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
+</HEAD>
+
+<BODY>
+<HR>
+<TABLE CELLPADDING="10">
+<TR>
+<TD> <A HREF="http://www.language-archives.org/"><IMG
+SRC="http://www.language-archives.org/images/olac100.gif"
+BORDER="0"></A></TD>
+<TD> <H1><FONT COLOR="0x00004a">OLAC Archive Registration<br></FONT></H1></TD>
+</TR>
+</TABLE>
+<HR>
+
+<a href="http://www.language-archives.org/register/archive.html">
+Learn about OLAC registration</a> |
+<a href="http://www.language-archives.org/archives.php4">
+View registered archives</a>
+
+<br><br>
+<div id="main">
+<form enctype="multipart/form-data" method="post">
+<b>Base URL:</b><br>
+<input type="text" size="50" maxlength="300" name="url" value=""/>
+<input type="submit" name="action" value="VALIDATE"/>
+</form>
+
+<p>This is an interface for validating and registering a new OLAC archive.
+Once the validation has finished successfully, you will be invited to register
+your repository.</p>
+
+<p>An OLAC archive can be in the form of either a dynamic or static repository.
+Before registration, please make sure that your repository conforms to the
+following stadards, against which your repository will be tested during
+the registration process:
+
+<dl>
+<dd><a href="http://www.language-archives.org/OLAC/repositories.html">
+OLAC Repositories standard</a>, and</dd>
+<dd><a href="http://www.language-archives.org/OLAC/metadata.html">
+OLAC Metadata standard</a>.</dd>
+</dl>
+</p>
+
+<p>(NB: Validation may take several minutes.)</p>
+</div>
+<?php
+
+
+
+$script = array();
+if ($_POST[url]) {
+  $POSTEDURL = $_POST[url];
+  $script[] = "document.forms[0].url.value = '$POSTEDURL';";
+}
+elseif ($_GET[url] && $_GET[register]==1) {
+  $script[] = "document.forms[0].url.value = '$_GET[url]';";
+  $POSTEDURL = $_GET[url];
+} 
+else {
+  $script[] = "document.forms[0].url.value = 'http://';";
+  $POSTEDURL = "";
+}
+
+
+
+?>
+<script>
+<?= implode("\n", $script); ?>
+</script>
+<?php
+
+
+
+$DB = new OLACDB("olac2");
+
+if ($_POST["action"] == "VALIDATE" && $POSTEDURL) {
+  # User entered an URL and clicked on the VALIDATE button.
+
+  if (substr($POSTEDURL, 0, 7) != 'http://') {
+    $POSTEDURL = "http://$POSTEDURL";
+  }
+  $URLTOFILE = 'tmp/'.myurlencode($POSTEDURL);
+  exec("rm -f $URLTOFILE*");
+
+  if (validate()) {
+    switch (check_repository_status()) {
+    case "new":
+      validation_response_for_new_archive();
+      break;
+
+    case "exists":
+      validation_response_for_existing_archive();
+      break;
+
+    case "new_base_url":
+      validation_response_for_new_baseurl();
+      break;
+
+    case "error":
+      echo "<p>Your repository is valid</p>";
+      echo "<p>Unfortunately we cannot access our database at this moment. ";
+      echo "If you want to register your repository or change the baseURL, ";
+      echo "please try again in several minutes.</p>";
+      break;
+    }
+  }
+}
+
+else if ($_POST["action"] == "REGISTER NOW") {
+  # Validation was successful so the user was offerred an
+  # "regieter now" button which he clicked on.
+  registration_response();
+}
+
+else if ($_POST["action"] == "CHANGE REGISTRATION") {
+  change_baseurl();
+}
+
+else if ($_POST["action"] == "NOTIFY REGISTRATION ERROR") {
+  registration_response_for_system_error();
+}
+
+?>
 <br><br>
 Please report any problems to
 <a href="mailto:<?=$OLAC_ADMIN_EMAIL?>"><?=$OLAC_ADMIN_EMAIL?></a>
