@@ -515,6 +515,31 @@ create table MetricsQualityScore (
 
 
 ##################################################################
+# Table                : MetricsArchive
+#
+##################################################################
+
+create table MetricsArchive (
+        archive_id              int(11),
+        num_resources           int(11),
+        num_online_resources    int(11),
+        num_languages           int(11),
+        num_linguistic_fields   int(11),
+        num_linguistic_types    int(11),
+        num_dcmi_types          int(11),
+        metadata_quality        float,
+        avg_num_elements        float,
+        std_num_elements        float,
+        avg_xsi_types           float,
+        last_updated            date,
+        integrity_problems      int(11),
+	ts			timestamp,
+        primary key  (archive_id),
+	index(ts)
+) engine=innodb, charset=utf8;
+
+
+##################################################################
 # Table                : GoogleAnalyticsReports
 #
 ##################################################################
@@ -663,3 +688,24 @@ create table ISO_639_3_Retirements (
 	key (Change_To),
 	key (Effective)
 ) engine=innodb, charset=utf8;
+
+
+##################################################################
+# Table                : ISO_639_3_Retirements
+# Description          : Retired code elements mappings downloaded from sil.org
+#
+# magic_string         : a 40-char string to identify the confirmation request
+# repository_id        : oai repository identifier
+# repository_type      : Dynamic | Static
+# new_url              : new url
+# ts                   : time of data entry
+##################################################################
+
+create table PendingConfirmation (
+	magic_string		char(40),
+	repository_id		varchar(50),
+	new_url			varchar(255),
+	ts			timestamp default current_timestamp,
+	primary key (magic_string)
+) engine=innodb;
+
