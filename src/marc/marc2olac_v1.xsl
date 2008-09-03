@@ -95,14 +95,14 @@ local cataloging practices.
     </xsl:template>
 
     <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
-    <xsl:template match="marc:controlfield[@tag=001]">
+    <xsl:template match="marc:controlfield[@tag='001']">
         <dc:identifier>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dc:identifier>
     </xsl:template>
 
-    <xsl:template match="marc:controlfield[@tag=008]">
+    <xsl:template match="marc:controlfield[@tag='008']">
         <!-- Process the language field -->
         <!-- JAS: prefer 041 and parse, or 590  -->
         <dc:language xsi:type="olac:language">
@@ -117,7 +117,7 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=020]">
+    <xsl:template match="marc:datafield[@tag='020']">
         <dc:identifier>
             <xsl:call-template name="show-source"/>
             <xsl:text>URN:ISBN:</xsl:text>
@@ -125,7 +125,7 @@ local cataloging practices.
         </dc:identifier>
     </xsl:template>
 
-    <xsl:template match="marc:datafield[@tag=033]/marc:subfield[@code=a]">
+    <xsl:template match="marc:datafield[@tag=033]/marc:subfield[@code='a']">
         <dcterms:temporal>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -135,7 +135,7 @@ local cataloging practices.
     </xsl:template>
 
 
-    <xsl:template match="marc:datafield[@tag=050]">
+    <xsl:template match="marc:datafield[@tag='050']">
         <dc:subject xsi:type="dcterms:LCC">
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -145,7 +145,7 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=082]">
+    <xsl:template match="marc:datafield[@tag='082']">
         <dc:subject xsi:type="dcterms:DDC">
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -160,8 +160,8 @@ local cataloging practices.
     e4 contain role information
     omit other subfields -->
     <xsl:template
-        match="marc:datafield[@tag=100]">
-        <dc:creator>
+        match="marc:datafield[@tag='100']">
+        <dc:contributor>
             <xsl:call-template name="show-source"/>
             <!-- GFS: I added the normalize-space which takes out all
             the extraneous white space, but this still isn't the
@@ -170,7 +170,7 @@ local cataloging practices.
             content of all the subfields.  Need to add logic for
             the subfields. -->
             <xsl:value-of select="normalize-space(.)"/>
-        </dc:creator>
+        </dc:contributor>
     </xsl:template>
 
 
@@ -180,8 +180,8 @@ local cataloging practices.
     e4 contain role information
     omit other subfields -->
     <xsl:template
-        match="marc:datafield[@tag=110]">
-        <dc:creator>
+        match="marc:datafield[@tag='110']">
+        <dc:contributor>
             <xsl:call-template name="show-source"/>
             <!-- GFS: I added the normalize-space which takes out all
             the extraneous white space, but this still isn't the
@@ -190,7 +190,7 @@ local cataloging practices.
             content of all the subfields.  Need to add logic for
             the subfields. -->
             <xsl:value-of select="normalize-space(.)"/>
-        </dc:creator>
+        </dc:contributor>
     </xsl:template>
 
 
@@ -200,8 +200,8 @@ local cataloging practices.
     e4 contain role information
     omit other subfields -->
     <xsl:template
-        match="marc:datafield[@tag=111]">
-        <dc:creator>
+        match="marc:datafield[@tag='111']">
+        <dc:contributor>
             <xsl:call-template name="show-source"/>
             <!-- GFS: I added the normalize-space which takes out all
             the extraneous white space, but this still isn't the
@@ -210,11 +210,11 @@ local cataloging practices.
             content of all the subfields.  Need to add logic for
             the subfields. -->
             <xsl:value-of select="normalize-space(.)"/>
-        </dc:creator>
+        </dc:contributor>
     </xsl:template>
 
 
-    <xsl:template match="marc:datafield[@tag=130]">
+    <xsl:template match="marc:datafield[@tag='130']">
         <dcterms:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -224,7 +224,7 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=210]">
+    <xsl:template match="marc:datafield[@tag='210']">
         <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -234,7 +234,7 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=240]">
+    <xsl:template match="marc:datafield[@tag='240']">
         <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -244,7 +244,7 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag=242]">
+    <xsl:template match="marc:datafield[@tag='242']">
         <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -256,17 +256,17 @@ local cataloging practices.
 
     <!-- JAS: We probably want additional title fields 242, possibly 130, 240
     Subfields fghk belong in other QDC fields (fg are dates, h is format, k is like type and probably better dealt with through the leader  -->
-    <xsl:template match="marc:datafield[@tag=245]">
+    <xsl:template match="marc:datafield[@tag='245']">
         <dc:title>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="." />
+            <xsl:value-of select="marc:subfield[@code='a']" />
         </dc:title>
     </xsl:template>
 
 
 
 
-    <xsl:template match="marc:datafield[@tag=246]">
+    <xsl:template match="marc:datafield[@tag='246']">
         <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="." />
@@ -277,679 +277,742 @@ local cataloging practices.
 
 
 
-   <xsl:template match="marc:datafield[@tag=260]">
-      <dc:publisher>
-         <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">ab</xsl:with-param>
-         </xsl:call-template>
-         <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">ab</xsl:with-param>
-         </xsl:call-template>
-      </dc:publisher>
-      <dcterms:dateCopyrighted>
-         <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">c</xsl:with-param>
-         </xsl:call-template>
-         <xsl:value-of select="marc:subfield[@code=c]"/>
-      </dcterms:dateCopyrighted>
-      <dcterms:issued>
-         <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">c</xsl:with-param>
-         </xsl:call-template>
-         <xsl:value-of select="marc:subfield[@code=c]"/>
-      </dcterms:issued>
-   </xsl:template>
+    <xsl:template match="marc:datafield[@tag='260']">
+        <dc:publisher>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">ab</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ab</xsl:with-param>
+            </xsl:call-template>
+        </dc:publisher>
+        <dcterms:dateCopyrighted>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">c</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='c']"/>
+        </dcterms:dateCopyrighted>
+        <dcterms:issued>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">c</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='c']"/>
+        </dcterms:issued>
+    </xsl:template>
 
 
-<xsl:template match="marc:datafield[@tag=300]/marc:subfield[@code='a']">
-    <dcterms:extent>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="."/>
-    </dcterms:extent>
-</xsl:template>
+    <xsl:template match="marc:datafield[@tag=300]">
+        <dcterms:extent>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dcterms:extent>
+    </xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=310]/marc:subfield[@code=a]">
-    <dcterms:accrualPeriodicity>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="." />
-    </dcterms:accrualPeriodicity>
-</xsl:template>
+    <xsl:template match="marc:datafield[@tag=310]">
+        <dcterms:accrualPeriodicity>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']" />
+        </dcterms:accrualPeriodicity>
+    </xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=440]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
+    <xsl:template match="marc:datafield[@tag='440']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=490]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
+    <xsl:template match="marc:datafield[@tag='490']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
 
 
 
 
-<!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules -->
-<xsl:template match="marc:datafield[starts-with(@tag,'5')]" priority="0">
-    <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:description>
-</xsl:template>
+    <!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules -->
+    <xsl:template match="marc:datafield[starts-with(@tag,'5')]" priority="0.5">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:description>
+    </xsl:template>
 
 
-<xsl:template match="marc:datafield[@tag=500]">
-    <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:description>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='500']">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:description>
+    </xsl:template>
 
 
 
 
 
-<xsl:template match="marc:datafield[@tag=502]">
-    <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:description>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='502']">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:description>
+    </xsl:template>
 
 
 
 
+    <xsl:template priority="1" match="marc:datafield[@tag='505']">
+        <dcterms:tableOfContents>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:tableOfContents>
+    </xsl:template>
 
-<xsl:template match="marc:datafield[@tag=514]">
-    <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:description>
-</xsl:template>
 
 
+    <xsl:template priority="1" match="marc:datafield[@tag='506']">
+        <dc:rights>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:rights>
+    </xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=518]">
-    <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:description>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='510']">
+        <dcterms:isReferencedBy>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isReferencedBy>
+    </xsl:template>
 
 
 
 
+    <xsl:template priority="1" match="marc:datafield[@tag='514']">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:description>
+    </xsl:template>
 
-<xsl:template match="marc:datafield[@tag=505]">
-    <dcterms:tableOfContents>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:tableOfContents>
-</xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=506]">
-    <dc:rights>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="marc:subfield[@code='a']"/>
-    </dc:rights>
-</xsl:template>
 
+    <xsl:template priority="1" match="marc:datafield[@tag='518']">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:description>
+    </xsl:template>
 
-<xsl:template match="marc:datafield[@tag=510]">
-    <dcterms:isReferencedBy>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isReferencedBy>
-</xsl:template>
 
 
-<xsl:template match="marc:datafield[@tag=520][@ind1='' or @ind1=' ' or @ind2=3]">
-    <dcterms:abstract>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="."/>
-    </dcterms:abstract>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2=3]">
+        <dcterms:abstract>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="."/>
+        </dcterms:abstract>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=521]/marc:subfield[@code=a]">
-    <dcterms:audience>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="." />
-    </dcterms:audience>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='521']">
+        <dcterms:audience>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']" />
+        </dcterms:audience>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=522]/marc:subfield[@code=a]">
-    <dcterms:spatial>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="." />
-    </dcterms:spatial>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag=522]">
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']" />
+        </dcterms:spatial>
+    </xsl:template>
 
 
 
-<!-- JAS: skip 530 -->
-<xsl:template match="marc:datafield[@tag=530]">
-    <dcterms:hasFormat>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:hasFormat>
-    <dcterms:hasFormat xsi:type="dcterms:URI">
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">u</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">u</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:hasFormat>
-</xsl:template>
+    <!-- JAS: skip 530 -->
+    <xsl:template priority="1" match="marc:datafield[@tag='530']">
+        <dcterms:hasFormat>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:hasFormat>
+        <dcterms:hasFormat xsi:type="dcterms:URI">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">u</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">u</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasFormat>
+    </xsl:template>
 
 
 
-<xsl:template match="marc:datafield[@tag=533]">
-    <dcterms:extent>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">ae</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">ae</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:extent>
-    <dcterms:medium>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">a</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:medium>
-    <dcterms:created>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">d</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">d</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:created>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='533']">
+        <dcterms:extent>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">e</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:extent>
+        <dcterms:medium>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">a</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:medium>
+        <dcterms:created>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">d</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">d</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:created>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=538]">
-    <dcterms:requires>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:requires>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='538']">
+        <dcterms:requires>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:requires>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=540]">
-    <dc:rights>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="marc:subfield[@code='a']"/>
-    </dc:rights>
-</xsl:template>
+    <xsl:template priority="1" match="marc:datafield[@tag='540']">
+        <dc:rights>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dc:rights>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=541]/marc:subfield[@code=c]">
-    <dcterms:accrualMethod>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">c</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="." />
-    </dcterms:accrualMethod>
-</xsl:template>
-
-
-<xsl:template match="marc:datafield[@tag=600]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=610]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=611]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=630]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-</xsl:template>
-
-
-
-
-
-
-<!-- JAS: subfields abx
-Subfield y in dcterms:temporal
-subfield z in dcterms:spatial-->
-<xsl:template match="marc:datafield[@tag=650]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-    <dcterms:temporal>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">y</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">y</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:temporal>
-    <dcterms:spatial>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">z</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">z</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:spatial>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=651]">
-    <dcterms:spatial>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">az</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">az</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:spatial>
-    <dcterms:temporal>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">y</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">y</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:temporal>
-</xsl:template>
-
-
-
-<!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
-<xsl:template match="marc:datafield[@tag=653]">
-    <dc:subject>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdq</xsl:with-param>
-        </xsl:call-template>
-    </dc:subject>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=655]">
-    <dc:type>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="."/>
-    </dc:type>
-</xsl:template>
-
-
-
-<!-- JAS: 662 belongs in dcterms:spatial -->
-<xsl:template match="marc:datafield[@tag=662]">
-    <dc:coverage>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">abcdefgh</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdefgh</xsl:with-param>
-        </xsl:call-template>
-    </dc:coverage>
-    <dcterms:spatial>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">a</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">a</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:spatial>
-</xsl:template>
-
-
-
-
-<!-- JAS: OLAC prefers contributor to creator
-Subfields abcdq have name information
-e4 contain role information
-omit other subfields -->
-<xsl:template match="marc:datafield[@tag=700]">
-    <dc:creator>
-        <xsl:call-template name="show-source"/>
-        <!-- GFS: I added the normalize-space which takes out all
-        the extraneous white space, but this still isn't the
-        right answer. The LOC sample has a 700 field with 3
-        subfields, and this just concatenates together the
-        content of all the subfields.  Need to add logic for
-        the subfields. -->
-        <xsl:value-of select="normalize-space(.)"/>
-    </dc:creator>
-</xsl:template>
-
-
-
-<!-- JAS: OLAC prefers contributor to creator
-Subfields abcdq have name information
-e4 contain role information
-omit other subfields -->
-<xsl:template
-    match="marc:datafield[@tag=710]">
-    <dc:creator>
-        <xsl:call-template name="show-source"/>
-        <!-- GFS: I added the normalize-space which takes out all
-        the extraneous white space, but this still isn't the
-        right answer. The LOC sample has a 700 field with 3
-        subfields, and this just concatenates together the
-        content of all the subfields.  Need to add logic for
-        the subfields. -->
-        <xsl:value-of select="normalize-space(.)"/>
-    </dc:creator>
-</xsl:template>
-
-
-
-<!-- JAS: OLAC prefers contributor to creator
-Subfields abcdq have name information
-e4 contain role information
-omit other subfields -->
-<xsl:template
-    match="marc:datafield[@tag=711]">
-    <dc:creator>
-        <xsl:call-template name="show-source"/>
-        <!-- GFS: I added the normalize-space which takes out all
-        the extraneous white space, but this still isn't the
-        right answer. The LOC sample has a 700 field with 3
-        subfields, and this just concatenates together the
-        content of all the subfields.  Need to add logic for
-        the subfields. -->
-        <xsl:value-of select="normalize-space(.)"/>
-    </dc:creator>
-</xsl:template>
-
-
-
-<!-- JAS: OLAC prefers contributor to creator
-Subfields abcdq have name information
-e4 contain role information
-omit other subfields -->
-<xsl:template
-    match="marc:datafield[@tag=720]">
-    <dc:creator>
-        <xsl:call-template name="show-source"/>
-        <!-- GFS: I added the normalize-space which takes out all
-        the extraneous white space, but this still isn't the
-        right answer. The LOC sample has a 700 field with 3
-        subfields, and this just concatenates together the
-        content of all the subfields.  Need to add logic for
-        the subfields. -->
-        <xsl:value-of select="normalize-space(.)"/>
-    </dc:creator>
-</xsl:template>
-
-
-
-
-
-
-<xsl:template match="marc:datafield[@tag=730]">
-    <dc:alternative>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dc:alternative>
-</xsl:template>
-
-
-
-<!-- JAS: skip 752 (one occurrence in GIAL data, and that was redundant with 260) -->
-<xsl:template match="marc:datafield[@tag=752]">
-    <dc:coverage>
-        <xsl:call-template name="show-source" >
-            <xsl:with-param name="subfield">abcdfgh</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">abcdfgh</xsl:with-param>
-        </xsl:call-template>
-    </dc:coverage>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=760]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">nt</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:isPartOf>
-</xsl:template>
-
-
-<xsl:template match="marc:datafield[@tag=773]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">ntgq</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">ntgq</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:isPartOf>
-    <dcterms:isPartOf xsi:type="dcterms:URI">
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">o</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">o</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:isPartOf>
-</xsl:template>
-
-
-
-
-<xsl:template match="marc:datafield[@tag=775]">
-    <dcterms:isVersionOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isVersionOf>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=776]">
-    <dcterms:hasFormat>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">nt</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">nt</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:hasFormat>
-    <dcterms:isFormatOf>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">nt</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">nt</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:isFormatOf>
-</xsl:template>
-
-
-
-<xsl:template match="marc:datafield[@tag=780]">
-    <dcterms:replaces>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">nt</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">nt</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:replaces>
-    <xsl:if test="marc:subfield[@code=o]">
-        <dcterms:replaces xsi:type="dcterms:URI">
+    <xsl:template priority="1" match="marc:datafield[@tag=541]">
+        <dcterms:accrualMethod>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">c</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='c']" />
+        </dcterms:accrualMethod>
+    </xsl:template>
+
+
+    <xsl:template match="marc:datafield[@tag='600']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='610']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='611']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='630']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+
+
+
+    <!-- JAS: subfields abx
+    Subfield y in dcterms:temporal
+    subfield z in dcterms:spatial-->
+    <xsl:template match="marc:datafield[@tag='650']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+        <dcterms:temporal>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">y</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">y</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:temporal>
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">z</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">z</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='651']">
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">az</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">az</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+        <dcterms:temporal>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">y</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">y</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:temporal>
+    </xsl:template>
+
+
+
+    <!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
+    <xsl:template match="marc:datafield[@tag='653']">
+        <dc:subject>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='655']">
+        <dc:type>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="."/>
+        </dc:type>
+    </xsl:template>
+
+
+
+    <!-- JAS: 662 belongs in dcterms:spatial -->
+    <xsl:template match="marc:datafield[@tag='662']">
+        <dc:coverage>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdefgh</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefgh</xsl:with-param>
+            </xsl:call-template>
+        </dc:coverage>
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">a</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
+
+
+
+
+    <!-- JAS: OLAC prefers contributor to creator
+    Subfields abcdq have name information
+    e4 contain role information
+    omit other subfields -->
+    <xsl:template match="marc:datafield[@tag='700']">
+        <dc:contributor>
+            <xsl:call-template name="show-source"/>
+            <!-- GFS: I added the normalize-space which takes out all
+            the extraneous white space, but this still isn't the
+            right answer. The LOC sample has a 700 field with 3
+            subfields, and this just concatenates together the
+            content of all the subfields.  Need to add logic for
+            the subfields. -->
+            <xsl:value-of select="normalize-space(.)"/>
+        </dc:contributor>
+    </xsl:template>
+
+
+
+    <!-- JAS: OLAC prefers contributor to creator
+    Subfields abcdq have name information
+    e4 contain role information
+    omit other subfields -->
+    <xsl:template
+        match="marc:datafield[@tag='710']">
+        <dc:contributor>
+            <xsl:call-template name="show-source"/>
+            <!-- GFS: I added the normalize-space which takes out all
+            the extraneous white space, but this still isn't the
+            right answer. The LOC sample has a 700 field with 3
+            subfields, and this just concatenates together the
+            content of all the subfields.  Need to add logic for
+            the subfields. -->
+            <xsl:value-of select="normalize-space(.)"/>
+        </dc:contributor>
+    </xsl:template>
+
+
+
+    <!-- JAS: OLAC prefers contributor to creator
+    Subfields abcdq have name information
+    e4 contain role information
+    omit other subfields -->
+    <xsl:template
+        match="marc:datafield[@tag='711']">
+        <dc:contributor>
+            <xsl:call-template name="show-source"/>
+            <!-- GFS: I added the normalize-space which takes out all
+            the extraneous white space, but this still isn't the
+            right answer. The LOC sample has a 700 field with 3
+            subfields, and this just concatenates together the
+            content of all the subfields.  Need to add logic for
+            the subfields. -->
+            <xsl:value-of select="normalize-space(.)"/>
+        </dc:contributor>
+    </xsl:template>
+
+
+
+    <!-- JAS: OLAC prefers contributor to creator
+    Subfields abcdq have name information
+    e4 contain role information
+    omit other subfields -->
+    <xsl:template
+        match="marc:datafield[@tag='720']">
+        <dc:contributor>
+            <xsl:call-template name="show-source"/>
+            <!-- GFS: I added the normalize-space which takes out all
+            the extraneous white space, but this still isn't the
+            right answer. The LOC sample has a 700 field with 3
+            subfields, and this just concatenates together the
+            content of all the subfields.  Need to add logic for
+            the subfields. -->
+            <xsl:value-of select="normalize-space(.)"/>
+        </dc:contributor>
+    </xsl:template>
+
+
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='730']">
+        <dc:alternative>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:alternative>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='740']">
+        <dc:alternative>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dc:alternative>
+    </xsl:template>
+
+
+
+    <!-- JAS: skip 752 (one occurrence in GIAL data, and that was redundant with 260) -->
+    <xsl:template match="marc:datafield[@tag='752']">
+        <dc:coverage>
+            <xsl:call-template name="show-source" >
+                <xsl:with-param name="subfield">abcdfgh</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdfgh</xsl:with-param>
+            </xsl:call-template>
+        </dc:coverage>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='760']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+    <xsl:template match="marc:datafield[@tag='773']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">ntgq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ntgq</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isPartOf>
+        <dcterms:isPartOf xsi:type="dcterms:URI">
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">o</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">o</xsl:with-param>
             </xsl:call-template>
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='774']">
+        <dcterms:hasPart>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasPart>
+        <dcterms:hasPart xsi:type="dcterms:URI">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">o</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">o</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasPart>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='775']">
+        <dcterms:isVersionOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isVersionOf>
+        <dcterms:hasVersion>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasVersion>
+        <dcterms:hasVersion xsi:type="dcterms:URI">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">o</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">o</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasVersion>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='776']">
+        <dcterms:hasFormat>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:hasFormat>
+        <dcterms:isFormatOf>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isFormatOf>
+    </xsl:template>
+
+
+
+    <xsl:template match="marc:datafield[@tag='780']">
+        <dcterms:replaces>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
         </dcterms:replaces>
-    </xsl:if>
-</xsl:template>
+        <xsl:if test="marc:subfield[@code='o']">
+            <dcterms:replaces xsi:type="dcterms:URI">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">o</xsl:with-param>
+                </xsl:call-template>
+                <xsl:call-template name="subfieldSelect">
+                    <xsl:with-param name="codes">o</xsl:with-param>
+                </xsl:call-template>
+            </dcterms:replaces>
+        </xsl:if>
+    </xsl:template>
 
 
 
 
-<xsl:template match="marc:datafield[@tag=785]">
-    <dcterms:isReplacedBy>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">nt</xsl:with-param>
-        </xsl:call-template>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">nt</xsl:with-param>
-        </xsl:call-template>
-    </dcterms:isReplacedBy>
-</xsl:template>
-
-
-<xsl:template match="marc:datafield[@tag=800]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
-<xsl:template match="marc:datafield[@tag=810]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
-<xsl:template match="marc:datafield[@tag=811]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
-<xsl:template match="marc:datafield[@tag=830]">
-    <dcterms:isPartOf>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="." />
-    </dcterms:isPartOf>
-</xsl:template>
-
-
-<xsl:template match="marc:datafield[@tag=856]/marc:subfield[@code='q']">
-    <dcterms:medium xsi:type="dcterms:IMT">
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">q</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="." />
-    </dcterms:medium>
-    <dc:identifier>
-        <xsl:call-template name="show-source">
-            <xsl:with-param name="subfield">u</xsl:with-param>
-        </xsl:call-template>
-        <xsl:value-of select="marc:subfield[@code='u']"/>
-    </dc:identifier>
-</xsl:template>
+    <xsl:template match="marc:datafield[@tag='785']">
+        <dcterms:isReplacedBy>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">nt</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">nt</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:isReplacedBy>
+        <xsl:if test="marc:subfield[@code='o']">
+            <dcterms:isReplacedBy xsi:type="dcterms:URI">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">o</xsl:with-param>
+                </xsl:call-template>
+                <xsl:call-template name="subfieldSelect">
+                    <xsl:with-param name="codes">o</xsl:with-param>
+                </xsl:call-template>
+            </dcterms:isReplacedBy>
+        </xsl:if>
+    </xsl:template>
 
 
 
-<!-- cjh: why is this commented out? -->
-<!--
-<xsl:template match="marc:datafield[@tag=760]|marc:datafield[@tag=762]|marc:datafield[@tag=765]|marc:datafield[@tag=767]|marc:datafield[@tag=770]|marc:datafield[@tag=772]|marc:datafield[@tag=773]|marc:datafield[@tag=774]|marc:datafield[@tag=775]|marc:datafield[@tag=776]|marc:datafield[@tag=777]|marc:datafield[@tag=780]|marc:datafield[@tag=785]|marc:datafield[@tag=786]|marc:datafield[@tag=787]">
-    <dc:relation>
-        <xsl:attribute name="from_marc_field"><xsl:value-of select="@tag" />ot</xsl:attribute>
-        <xsl:call-template name="subfieldSelect">
-            <xsl:with-param name="codes">ot</xsl:with-param>
-        </xsl:call-template>
-    </dc:relation>
-</xsl:template>
--->
+    <xsl:template match="marc:datafield[@tag='800']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
 
 
-<xsl:template match="marc:datafield">
-    <!-- For any datafield that does not match a specific
-    template, just do nothing -->
-</xsl:template>
+
+
+    <xsl:template match="marc:datafield[@tag='810']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='811']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='830']">
+        <dcterms:isPartOf>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="." />
+        </dcterms:isPartOf>
+    </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag=856]">
+        <dcterms:format xsi:type="dcterms:IMT">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">q</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='q']" />
+        </dcterms:format>
+        <dc:identifier xsi:type="dcterms:URI">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">u</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='u']"/>
+        </dc:identifier>
+    </xsl:template>
+
+
+
+
+
+    <xsl:template match="marc:datafield" priority="0">
+        <!-- For any datafield that does not match a specific
+        template, just do nothing -->
+    </xsl:template>
 </xsl:stylesheet>
