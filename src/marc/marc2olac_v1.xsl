@@ -54,7 +54,62 @@ local cataloging practices.
         </xsl:if>
     </xsl:template>
 
-
+    <xsl:template name="process-role">
+        <!-- process MARC relator codes into OLAC roles -->
+        <xsl:param name="subfield"/>
+        <!-- required param -->
+        <xsl:variable name="code">
+            <xsl:value-of select="marc:subfield[@code=$subfield]"/>
+        </xsl:variable>
+        <xsl:attribute name="olac:code">
+            <xsl:choose>
+                <xsl:when test="$code = 'ann'">annotator</xsl:when>
+                <xsl:when test="$code = 'cwt'">annotator</xsl:when>
+                <xsl:when test="$code = 'aut'">author</xsl:when>
+                <xsl:when test="$code = 'aud'">author</xsl:when>
+                <xsl:when test="$code = 'lyr'">author</xsl:when>
+                <xsl:when test="$code = 'col'">compiler</xsl:when>
+                <xsl:when test="$code = 'com'">compiler</xsl:when>
+                <xsl:when test="$code = 'csl'">consultant</xsl:when>
+                <xsl:when test="$code = 'csp'">consultant</xsl:when>
+                <xsl:when test="$code = 'sad'">consultant</xsl:when>
+                <xsl:when test="$code = 'mrk'">data_inputter</xsl:when>
+                <xsl:when test="$code = 'dpt'">depositor</xsl:when>
+                <xsl:when test="$code = 'prg'">developer</xsl:when>
+                <xsl:when test="$code = 'edt'">editor</xsl:when>
+                <xsl:when test="$code = 'flm'">editor</xsl:when>
+                <xsl:when test="$code = 'ill'">illustrator</xsl:when>
+                <xsl:when test="$code = 'ivr'">interviewer</xsl:when>
+                <xsl:when test="$code = 'act'">performer</xsl:when>
+                <xsl:when test="$code = 'dnc'">performer</xsl:when>
+                <xsl:when test="$code = 'itr'">performer</xsl:when>
+                <xsl:when test="$code = 'mus'">performer</xsl:when>
+                <xsl:when test="$code = 'prf'">performer</xsl:when>
+                <xsl:when test="$code = 'ppt'">performer</xsl:when>
+                <xsl:when test="$code = 'stl'">performer</xsl:when>
+                <xsl:when test="$code = 'pht'">photographer</xsl:when>
+                <xsl:when test="$code = 'rce'">recorder</xsl:when>
+                <xsl:when test="$code = 'vdg'">recorder</xsl:when>
+                <xsl:when test="$code = 'rth'">researcher</xsl:when>
+                <xsl:when test="$code = 'rtm'">researcher</xsl:when>
+                <xsl:when test="$code = 'res'">researcher</xsl:when>
+                <xsl:when test="$code = 'sgn'">signer</xsl:when>
+                <xsl:when test="$code = 'sng'">singer</xsl:when>
+                <xsl:when test="$code = 'voc'">singer</xsl:when>
+                <xsl:when test="$code = 'nrt'">speaker</xsl:when>
+                <xsl:when test="$code = 'spk'">speaker</xsl:when>
+                <xsl:when test="$code = 'fnd'">sponsor</xsl:when>
+                <xsl:when test="$code = 'pat'">sponsor</xsl:when>
+                <xsl:when test="$code = 'spn'">sponsor</xsl:when>
+                <xsl:when test="$code = 'trc'">transcriber</xsl:when>
+                <xsl:when test="$code = 'trl'">translator</xsl:when>
+            </xsl:choose>
+        </xsl:attribute>
+        <xsl:if test="@olac:code">
+            <!-- output xsi:type  only if olac:code exists -->
+            <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+        </xsl:if>
+    </xsl:template>
 
     <!-- Get the DCMI-Type out of the leader -->
     <xsl:template match="marc:leader">
@@ -110,6 +165,9 @@ local cataloging practices.
                 <xsl:value-of select="substring( . ,36,3)"/>
             </xsl:attribute>
         </dc:language>
+        
+        <!-- CJH: Question??? JAS: The correct interpretation of 008/07-10 depends on the coding of 008/06 and should include 008/11-14 in some cases. How much detail should we attempt? -->
+        <dcterms:issued> </dcterms:issued>
     </xsl:template>
 
 
@@ -130,6 +188,24 @@ local cataloging practices.
             <xsl:value-of select="marc:subfield[@code='a']"/>
         </dcterms:temporal>
     </xsl:template>
+
+
+
+    <!-- JAS: Note: Some 255 information equivalent to DC encoding scheme but different syntax. -->
+    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often present without data, as 255$a "scale not given" sometimes with a projection in $b. Rank 1 (if contains useful data) -->
+    <!-- CJH: Question? Is this right? -->
+    <xsl:template match="marc:datafield[@tag='034']">
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">defgjkmn</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">defgjkmn</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
+
+
 
 
 
@@ -174,6 +250,20 @@ local cataloging practices.
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+
+
+
+
+    <xsl:template match="marc:datafield[@tag='043']">
+        <dcterms:spatial xsi:type="dcterms:ISO3166">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">c</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='c']"/>
+        </dcterms:spatial>
+    </xsl:template>
+
+
 
 
 
@@ -228,58 +318,44 @@ local cataloging practices.
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
     <xsl:template match="marc:datafield[@tag='100']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
         </dc:contributor>
     </xsl:template>
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
     <xsl:template match="marc:datafield[@tag='110']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
         </dc:contributor>
     </xsl:template>
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
     <xsl:template match="marc:datafield[@tag='111']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='e']"/>
         </dc:contributor>
     </xsl:template>
 
@@ -344,6 +420,23 @@ local cataloging practices.
     </xsl:template>
 
 
+
+    <!-- JAS: Note: Some 255 information equivalent to DC encoding scheme but different syntax. -->
+    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often present without data, as 255$a "scale not given" sometimes with a projection in $b. Rank 1 (if contains useful data) -->
+    <xsl:template match="marc:datafield[@tag='255']">
+        <dcterms:spatial>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">c</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">c</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:spatial>
+    </xsl:template>
+
+
+
+
     <xsl:template match="marc:datafield[@tag='260']">
         <dc:publisher>
             <xsl:call-template name="show-source">
@@ -353,12 +446,15 @@ local cataloging practices.
                 <xsl:with-param name="codes">ab</xsl:with-param>
             </xsl:call-template>
         </dc:publisher>
-        <dcterms:dateCopyrighted>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">c</xsl:with-param>
-            </xsl:call-template>
-            <xsl:value-of select="marc:subfield[@code='c']"/>
-        </dcterms:dateCopyrighted>
+        <!-- if “c”  precedes date (e.g. c1999) -->
+        <xsl:if test="substring(marc:subfield[@code='c'],1,1) = 'c'">
+            <dcterms:dateCopyrighted>
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">c</xsl:with-param>
+                </xsl:call-template>
+                <xsl:value-of select="marc:subfield[@code='c']"/>
+            </dcterms:dateCopyrighted>
+        </xsl:if>
         <dcterms:issued>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">c</xsl:with-param>
@@ -389,6 +485,15 @@ local cataloging practices.
     </xsl:template>
 
 
+    <xsl:template match="marc:datafield[@tag=340]">
+        <dcterms:medium>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dcterms:medium>
+    </xsl:template>
+    
 
     <xsl:template match="marc:datafield[@tag='440']">
         <dcterms:isPartOf>
@@ -417,6 +522,7 @@ local cataloging practices.
         </dc:description>
     </xsl:template>
 
+    <!-- All 5xx templates much have a priority=1 so that it does not conflict with the above catch-all rule -->
 
     <xsl:template priority="1" match="marc:datafield[@tag='500']">
         <dc:description>
@@ -522,7 +628,21 @@ local cataloging practices.
 
 
 
+
+    <xsl:template priority="1" match="marc:datafield[@tag=524]">
+        <dcterms:bibliographicCitation>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
+        </dcterms:bibliographicCitation>
+    </xsl:template>
+    
+    
+    
+
     <!-- JAS: skip 530 -->
+    <!-- CJH: Question: Why skip this one? -->
     <xsl:template priority="1" match="marc:datafield[@tag='530']">
         <dcterms:hasFormat>
             <xsl:call-template name="show-source"/>
@@ -610,6 +730,12 @@ local cataloging practices.
             </xsl:call-template>
             <xsl:value-of select="marc:subfield[@code='d']"/>
         </dcterms:rightsHolder>
+        <dcterms:dateCopyrighted>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">g</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='g']"/>
+        </dcterms:dateCopyrighted>
     </xsl:template>
 
 
@@ -709,7 +835,7 @@ local cataloging practices.
     </xsl:template>
 
 
-
+    <!-- TODO: Question? JAS: 651$a must be separated from 651$z, as these are usually two different jurisdictions. See note below regarding term source. Rank 3 -->
     <xsl:template match="marc:datafield[@tag='651']">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
@@ -727,11 +853,21 @@ local cataloging practices.
                 <xsl:with-param name="codes">y</xsl:with-param>
             </xsl:call-template>
         </dcterms:temporal>
+        <xsl:if test="@ind2='7' and marc:subfield[@code='2'] = 'tgn'">
+            <dcterms:spatial xsi:type="dcterms:TGN">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">az</xsl:with-param>
+                </xsl:call-template>
+                <xsl:call-template name="subfieldSelect">
+                    <xsl:with-param name="codes">az</xsl:with-param>
+                </xsl:call-template>
+            </dcterms:spatial>
+        </xsl:if>
     </xsl:template>
 
 
 
-    <!-- JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
+    <!-- TODO: Question? JAS: field 651 was skipped; subfields az belong in dcterms:spatial  -->
     <xsl:template match="marc:datafield[@tag='653']">
         <dc:subject>
             <xsl:call-template name="show-source">
@@ -755,6 +891,7 @@ local cataloging practices.
 
 
     <!-- JAS: 662 belongs in dcterms:spatial -->
+    <!-- CJH: Question?: do we still need the dc:coverage tag as well? (might be left over from simple DC template) -->
     <xsl:template match="marc:datafield[@tag='662']">
         <dc:coverage>
             <xsl:call-template name="show-source">
@@ -765,89 +902,70 @@ local cataloging practices.
             </xsl:call-template>
         </dc:coverage>
         <dcterms:spatial>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">a</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">a</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="."/>
         </dcterms:spatial>
     </xsl:template>
 
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
     <xsl:template match="marc:datafield[@tag='700']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
         </dc:contributor>
     </xsl:template>
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
+
     <xsl:template match="marc:datafield[@tag='710']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdq</xsl:with-param>
+            </xsl:call-template>
         </dc:contributor>
     </xsl:template>
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
     <xsl:template match="marc:datafield[@tag='711']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='e']"/>
         </dc:contributor>
     </xsl:template>
 
 
 
-    <!-- JAS: OLAC prefers contributor to creator
-    Subfields abcdq have name information
-    e4 contain role information
-    omit other subfields -->
+
     <xsl:template match="marc:datafield[@tag='720']">
         <dc:contributor>
-            <xsl:call-template name="show-source"/>
-            <!-- GFS: I added the normalize-space which takes out all
-            the extraneous white space, but this still isn't the
-            right answer. The LOC sample has a 700 field with 3
-            subfields, and this just concatenates together the
-            content of all the subfields.  Need to add logic for
-            the subfields. -->
-            <xsl:value-of select="normalize-space(.)"/>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcde</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcd</xsl:with-param>
+            </xsl:call-template>
         </dc:contributor>
     </xsl:template>
 
@@ -873,18 +991,6 @@ local cataloging practices.
     </xsl:template>
 
 
-
-    <!-- JAS: skip 752 (one occurrence in GIAL data, and that was redundant with 260) -->
-    <xsl:template match="marc:datafield[@tag='752']">
-        <dc:coverage>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdfgh</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdfgh</xsl:with-param>
-            </xsl:call-template>
-        </dc:coverage>
-    </xsl:template>
 
 
 
