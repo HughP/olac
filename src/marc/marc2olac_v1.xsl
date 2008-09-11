@@ -115,7 +115,7 @@ local cataloging practices.
     <xsl:template match="marc:leader">
         <xsl:variable name="leader6" select="substring( . ,7,1)"/>
         <xsl:variable name="leader7" select="substring( . ,8,1)"/>
-        <xsl:if test="$leader7='c'">
+        <xsl:if test="$leader7='c' or $leader7='s'">
             <dc:type xsi:type="dcterms:DCMIType">
                 <xsl:call-template name="show-source"/>
                 <xsl:text>Collection</xsl:text>
@@ -306,6 +306,22 @@ local cataloging practices.
     </xsl:template>
 
 
+
+    <xsl:template match="marc:datafield[@tag='060']">
+        <dc:subject xsi:type="dcterms:NLM">
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
+        </dc:subject>
+    </xsl:template>
+    
+    
+    
+    <xsl:template match="marc:datafield[@tag='080']">
+        <dc:subject xsi:type="dcterms:UDC">
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
+        </dc:subject>
+    </xsl:template>
 
 
     <xsl:template match="marc:datafield[@tag='082']">
@@ -554,6 +570,8 @@ local cataloging practices.
 
 
 
+
+    <!-- cjh Note: I skipped putting in logic for dcterms:accessRights because it seems too complicated and I'm not sure if it's worth it -->
     <xsl:template priority="1" match="marc:datafield[@tag='506']">
         <dc:rights>
             <xsl:call-template name="show-source">
@@ -748,15 +766,19 @@ local cataloging practices.
     </xsl:template>
 
 
-
+    <!-- cjh Question? We used to have subfieldSelect for 'abcdq' but I removed that to simplify.  Was that a good idea, since we may not want to include $y and $z in this field?  -->
     <xsl:template match="marc:datafield[@tag='600']">
         <dc:subject>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="@ind2='0'">
+                    <xsl:attribute name="xsi:type">dcterms:LCSH</xsl:attribute>
+                </xsl:when>
+                <xsl:when test="@ind2='2'">
+                    <xsl:attribute name="xsi:type">dcterms:MeSH</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
         </dc:subject>
     </xsl:template>
 
@@ -764,12 +786,17 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='610']">
         <dc:subject>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="@ind2='0'">
+                    <xsl:attribute name="xsi:type">dcterms:LCSH</xsl:attribute>
+                </xsl:when>
+                <xsl:when test="@ind2='2'">
+                    <xsl:attribute name="xsi:type">dcterms:MeSH</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
         </dc:subject>
     </xsl:template>
 
@@ -777,12 +804,17 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='611']">
         <dc:subject>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="@ind2='0'">
+                    <xsl:attribute name="xsi:type">dcterms:LCSH</xsl:attribute>
+                </xsl:when>
+                <xsl:when test="@ind2='2'">
+                    <xsl:attribute name="xsi:type">dcterms:MeSH</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
         </dc:subject>
     </xsl:template>
 
@@ -790,12 +822,17 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='630']">
         <dc:subject>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="@ind2='0'">
+                    <xsl:attribute name="xsi:type">dcterms:LCSH</xsl:attribute>
+                </xsl:when>
+                <xsl:when test="@ind2='2'">
+                    <xsl:attribute name="xsi:type">dcterms:MeSH</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
         </dc:subject>
     </xsl:template>
 
@@ -809,12 +846,17 @@ local cataloging practices.
     subfield z in dcterms:spatial-->
     <xsl:template match="marc:datafield[@tag='650']">
         <dc:subject>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
+            <xsl:choose>
+                <xsl:when test="@ind2='0'">
+                    <xsl:attribute name="xsi:type">dcterms:LCSH</xsl:attribute>
+                </xsl:when>
+                <xsl:when test="@ind2='2'">
+                    <xsl:attribute name="xsi:type">dcterms:MeSH</xsl:attribute>
+                </xsl:when>
+            </xsl:choose>
+            
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
         </dc:subject>
         <dcterms:temporal>
             <xsl:call-template name="show-source">
@@ -880,12 +922,31 @@ local cataloging practices.
     </xsl:template>
 
 
+    <xsl:template match="marc:datafield[@tag='654']">
+        <dc:subject>
+            <xsl:call-template name="show-source" />
+            <xsl:value-of select="." />
+        </dc:subject>
+    </xsl:template>
+    
 
+
+<!-- cjh Question?  Is the following correctly implemented?  Is the content for the dc:type element contained in 655a? -->
     <xsl:template match="marc:datafield[@tag='655']">
-        <dc:type>
-            <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+        <xsl:if test="marc:subfield[@code='2'] = 'dct'">
+        <dc:type xsi:type="dcterms:DCMIType">
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">a</xsl:with-param>
+            </xsl:call-template>
+            <xsl:value-of select="marc:subfield[@code='a']"/>
         </dc:type>
+        </xsl:if>
+        <xsl:if test="@ind2 = '7' and marc:subfield[@code='2'] = 'tgn'">
+            <dc:subject xsi:type="dcterms:TGN">
+                <xsl:call-template name="show-source" />
+                <xsl:value-of select="."/>
+            </dc:subject>
+        </xsl:if>
     </xsl:template>
 
 
@@ -907,7 +968,13 @@ local cataloging practices.
         </dcterms:spatial>
     </xsl:template>
 
-
+    <!-- Default rule for 69x tags when no other 69x tag is matched by following rules -->
+    <xsl:template match="marc:datafield[starts-with(@tag,'69')]" priority="0.5">
+        <dc:subject>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="."/>
+        </dc:subject>
+    </xsl:template>
 
 
     <xsl:template match="marc:datafield[@tag='700']">
