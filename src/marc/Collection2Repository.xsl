@@ -6,7 +6,7 @@
      26 Aug 2008
 -->
 <xsl:stylesheet 
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
    xmlns:marc="http://www.loc.gov/MARC21/slim" 
    xmlns:oai="http://www.openarchives.org/OAI/2.0/" >
    <xsl:import href="marc2olac_v1.xsl"/>

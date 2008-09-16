@@ -613,7 +613,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2=3]">
+    <xsl:template priority="1" match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2='3']">
         <dcterms:abstract>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>

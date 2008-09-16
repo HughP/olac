@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<collection xmlns="http://www.loc.gov/MARC21/slim">
 <record>
   <leader>01472ntm a2200337 a 4500</leader>
   <controlfield tag="008">070925s2007    xx a     abm  000 0 eng d</controlfield>
@@ -94,7 +95,6 @@
     <subfield code="z">Gift 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01356nam a2200301 a 4500</leader>
   <controlfield tag="008">860305s1962    et            000 0 amh d</controlfield>
@@ -184,7 +184,6 @@
     <subfield code="z">GiftDr. Eshetu Abate 8-01</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01265cam a2200301 a 4500</leader>
   <controlfield tag="008">981217s1995    cm ab         000 0 gba  </controlfield>
@@ -268,7 +267,6 @@
     <subfield code="z">Gift Phillip Noss 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01435nam a2200313 a 4500</leader>
   <controlfield tag="008">020607s1988    fj ab         001 0 bis d</controlfield>
@@ -358,7 +356,6 @@
     <subfield code="z">Gift Rich &amp; Jackie Mansen 6-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01259nam a2200313 a 4500</leader>
   <controlfield tag="008">020607s1983    fj            000 0 eng d</controlfield>
@@ -444,7 +441,6 @@
     <subfield code="z">Gift Rich and Jackie Mansen 6-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01101nam a2200289 a 4500</leader>
   <controlfield tag="008">051024s2001    np b          000 0 inc d</controlfield>
@@ -529,7 +525,6 @@
     <subfield code="z">Gift Marlin Leaders 5-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01854cam a2200397 a 4500</leader>
   <controlfield tag="008">020607s1995    ke ab         000 0 swa d</controlfield>
@@ -651,7 +646,6 @@
     <subfield code="z">Gift Bible Translation &amp; Literacy: The N.B.T.O. of Kenya 12-98</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01217cam a2200289 a 4500</leader>
   <controlfield tag="008">020607s1929    nyu           000 0 ypk d</controlfield>
@@ -738,7 +732,6 @@
     <subfield code="z">Gift 4-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00965nam a22002297a 4500</leader>
   <controlfield tag="008">970401s1984    nyuab         000 0 eng d</controlfield>
@@ -805,7 +798,6 @@
     <subfield code="z">8681</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00926nam a22002297a 4500</leader>
   <controlfield tag="008">970424s1986    gt            000 0 sai d</controlfield>
@@ -872,7 +864,6 @@
     <subfield code="z">13147</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00892nam a2200241 a 4500</leader>
   <controlfield tag="008">060210s1970    mx b          000 0 myn d</controlfield>
@@ -943,7 +934,6 @@
     <subfield code="z">Gift SIL-North Dakota 8-99</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01010nam a2200229 a 4500</leader>
   <controlfield tag="008">070320s1979    mx            001 0 eng d</controlfield>
@@ -1012,7 +1002,6 @@
     <subfield code="z">Gift 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01275nam a2200313 a 4500</leader>
   <controlfield tag="008">060118s1973    ec a          000 0 eng d</controlfield>
@@ -1101,7 +1090,6 @@
     <subfield code="z">Gift Don and Nadine Burns 9-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01189cam a2200301 a 4500</leader>
   <controlfield tag="008">020607s1986    bl ab         000 0 sai d</controlfield>
@@ -1187,7 +1175,6 @@
     <subfield code="z">Gift 7-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00951nam a2200217 a 4500</leader>
   <controlfield tag="008">070322s1984    pauabf        000 0 sai d</controlfield>
@@ -1250,7 +1237,6 @@
     <subfield code="z">Gift 9-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00959nam a2200241 a 4500</leader>
   <controlfield tag="008">020607s1983    pe ab         000 0 sai  </controlfield>
@@ -1318,7 +1304,6 @@
     <subfield code="z">Gift SIL Anthropology Dept. 12-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01250nam a2200313 a 4500</leader>
   <controlfield tag="008">080110s1991    my ab         000 0 map d</controlfield>
@@ -1410,7 +1395,6 @@
     <subfield code="z">Gift 7-99</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01170nam a2200301 a 4500</leader>
   <controlfield tag="008">071015s1999    io            000 0 ind d</controlfield>
@@ -1504,7 +1488,6 @@
     <subfield code="z">Gift MattMills 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01085nam a2200289 a 4500</leader>
   <controlfield tag="008">071015s2005    txub          000 0 ind d</controlfield>
@@ -1588,7 +1571,6 @@
     <subfield code="z">Gift 5-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01253nam a2200301 a 4500</leader>
   <controlfield tag="008">061208s2006    ug            000 0 eng d</controlfield>
@@ -1671,7 +1653,6 @@
     <subfield code="z">Direct Robin Rempel 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01323ntm a2200313 a 4500</leader>
   <controlfield tag="008">060330s1976    xx a    rbm   001 0 eng d</controlfield>
@@ -1766,7 +1747,6 @@
     <subfield code="z">Gift Rich Mansen 4-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01480cam a2200397 a 4500</leader>
   <controlfield tag="008">050131s2004    gw a     b    001 0 eng d</controlfield>
@@ -1884,7 +1864,6 @@
     <subfield code="z">Gift10-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01503nam a2200337 a 4500</leader>
   <controlfield tag="008">070508s2006    cc af         000 0deng d</controlfield>
@@ -1977,7 +1956,6 @@
     <subfield code="z">Gift East Asia Group 3-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01285nam a2200313 a 4500</leader>
   <controlfield tag="008">060301s1965    ec ab    d    000 0 spa d</controlfield>
@@ -2067,7 +2045,6 @@
     <subfield code="z">Gift SIL-Languge and Culture Archives 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01780cam a2200337 a 4500</leader>
   <controlfield tag="008">060522s1996    txua          000 0bque d</controlfield>
@@ -2167,7 +2144,6 @@
     <subfield code="z">Gift Don and Nadine Burns 9-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01713cam a2200409 a 4500</leader>
   <controlfield tag="008">971216s1998    at a     b    000 0 eng d</controlfield>
@@ -2286,7 +2262,6 @@
     <subfield code="z">Gift 1-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01691cam a2200385 a 4500</leader>
   <controlfield tag="008">721006s1918    wauabf   b   f001 0 eng  </controlfield>
@@ -2402,7 +2377,6 @@
     <subfield code="z">Gift SIL-Language and Culture Archives 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03515cam a2200385 a 4500</leader>
   <controlfield tag="008">020424s2005    maua     b    001 0 eng  </controlfield>
@@ -2512,7 +2486,6 @@
     <subfield code="z">Direct Amazon-MO:epbruno 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01115nam a2200265 a 4500</leader>
   <controlfield tag="008">060928s2005                  001 0 eng d</controlfield>
@@ -2586,7 +2559,6 @@
     <subfield code="z">Gift Maureen Lee 7-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01954cam a2200445 a 4500</leader>
   <controlfield tag="008">040726s2005    txuab    b    000 0 eng  </controlfield>
@@ -2725,7 +2697,6 @@
     <subfield code="z">Direct IAB st.o. 10-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02430nam a2200301 a 4500</leader>
   <controlfield tag="008">061005s2005    ta ab    b    000 0 eng d</controlfield>
@@ -2813,7 +2784,6 @@
     <subfield code="z">Gift John M. Clifton 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01491cam a2200337 a 4500</leader>
   <controlfield tag="008">040219s2004    txuab    b    000 0 eng d</controlfield>
@@ -2915,7 +2885,6 @@
     <subfield code="z">Direct IAB st.o. 10-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03196nam a2200349 a 4500</leader>
   <controlfield tag="008">961105s1995    pp a     b    101 0 eng  </controlfield>
@@ -3016,7 +2985,6 @@
     <subfield code="z">Gift Chester W. Ray and Ruth V. Ray 12-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01255nam a2200301 a 4500</leader>
   <controlfield tag="008">030612s2001    cc a          000 0 zha d</controlfield>
@@ -3102,7 +3070,6 @@
     <subfield code="z">Gift SIL-East Asia Group 6-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01660cam a2200337 a 4500</leader>
   <controlfield tag="008">910102s1989    nz a     b    000 0 eng d</controlfield>
@@ -3197,7 +3164,6 @@
     <subfield code="z">Gift Phillip Noss 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01133cam a2200301 a 4500</leader>
   <controlfield tag="008">760210s1961    ec       b    001 0 spa  </controlfield>
@@ -3284,7 +3250,6 @@
     <subfield code="z">Gift SIL-Language and Culture Archives 5-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01305cam a2200313 a 4500</leader>
   <controlfield tag="008">070725s2007    ne a     b    001 0 eng  </controlfield>
@@ -3377,7 +3342,6 @@
     <subfield code="z">Gift Robert E. Longacre 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01582cam a2200349 a 4500</leader>
   <controlfield tag="008">000313s1999    gw a     b    000 0 eng  </controlfield>
@@ -3482,7 +3446,6 @@
     <subfield code="z">Gift 4-00</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01485cam a2200349 a 4500</leader>
   <controlfield tag="008">030515s2003    cau      b    001 0 eng  </controlfield>
@@ -3581,7 +3544,6 @@
     <subfield code="z">Direct University of Chicago 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02576cam a2200565 a 4500</leader>
   <controlfield tag="008">050607s2006    enkab    b    001 0 eng  </controlfield>
@@ -3758,7 +3720,6 @@
     <subfield code="z">Direct alibris.com 7-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01350cam a2200349 a 4500</leader>
   <controlfield tag="008">050411s2005    gw       b    001 0 eng  </controlfield>
@@ -3860,7 +3821,6 @@
     <subfield code="z">Direct Amazon-MP 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>04333cam a2200433 a 4500</leader>
   <controlfield tag="008">070810s2007    ne a     b    001 0 eng  </controlfield>
@@ -3991,7 +3951,6 @@
     <subfield code="z">Gift Robert E. Longacre 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01587nam a2200397 a 4500</leader>
   <controlfield tag="006">m        d        </controlfield>
@@ -4100,7 +4059,6 @@
     <subfield code="z">Gift Millie Larson 7-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01689cam a2200409 a 4500</leader>
   <controlfield tag="008">840720s1981    ph ac    b    010 0deng  </controlfield>
@@ -4226,7 +4184,6 @@
     <subfield code="z">Gift Dick Watson 7-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02983cam a2200481 a 4500</leader>
   <controlfield tag="008">050304s2005    caua     b    001 0 eng  </controlfield>
@@ -4365,7 +4322,6 @@
     <subfield code="z">Direct University of Chicago 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01976nam a2200325 a 4500</leader>
   <controlfield tag="008">020131s1999    th a     b    000 0 eng  </controlfield>
@@ -4462,7 +4418,6 @@
     <subfield code="z">Gift Mainland S.E. Asia Group 12-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02781cam a2200433 a 4500</leader>
   <controlfield tag="008">000810s2001    enka     b    001 0 eng  </controlfield>
@@ -4605,7 +4560,6 @@
     <subfield code="z">Direct Half.com 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02199cam a2200433 a 4500</leader>
   <controlfield tag="008">040716s2004    ne ab    b    101 0deng  </controlfield>
@@ -4742,7 +4696,6 @@
     <subfield code="z">B/T 5-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01209ntm a2200301 a 4500</leader>
   <controlfield tag="008">061201s2006    xx ab    abm  000 0 eng d</controlfield>
@@ -4826,7 +4779,6 @@
     <subfield code="z">Gift 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02325cam a2200349 a 4500</leader>
   <controlfield tag="008">061122s2007    ne a     b    011 0 eng  </controlfield>
@@ -4933,7 +4885,6 @@
     <subfield code="z">Gift Robert E. Longacre 3-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03311cam a2200769 a 4500</leader>
   <controlfield tag="008">970109s1997    inuab    b    000 0 eng  </controlfield>
@@ -5193,7 +5144,6 @@
     <subfield code="z">Gift Language Learning 3-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01279ntm a2200337 a 4500</leader>
   <controlfield tag="008">060320s1999    xx a     abm  000 0 eng d</controlfield>
@@ -5285,7 +5235,6 @@
     <subfield code="z">Gift David Thomas 11-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03486cam a2200541 a 4500</leader>
   <controlfield tag="008">060508s2006    enka     b    001 0 eng  </controlfield>
@@ -5451,7 +5400,6 @@
     <subfield code="z">Direct Amazon Marketplace 6-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03196cam a2200589 a 4500</leader>
   <controlfield tag="008">060516s2006    ne a     b    001 0 eng d</controlfield>
@@ -5627,7 +5575,6 @@
     <subfield code="z">Direct AMZ.3rd 6-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>04186cam a2200589 a 4500</leader>
   <controlfield tag="008">050131s2005    gw ab    b    001 0 eng  </controlfield>
@@ -5808,7 +5755,6 @@
     <subfield code="z">B/T 8-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02376cam a2200529 a 4500</leader>
   <controlfield tag="008">041104s2005    ne a     b    001 0 eng  </controlfield>
@@ -5970,7 +5916,6 @@
     <subfield code="z">B/T 8-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02588cam a2200541 a 4500</leader>
   <controlfield tag="008">060419s2006    ne ab    b    101 0 eng  </controlfield>
@@ -6142,7 +6087,6 @@
     <subfield code="z">Gift Robert E. Lomgacre 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01601cam a2200373 a 4500</leader>
   <controlfield tag="008">040510s2005    maua     b    001 0 eng  </controlfield>
@@ -6254,7 +6198,6 @@
     <subfield code="z">B/T 8-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02589cam a2200385 a 4500</leader>
   <controlfield tag="008">070412s2007    enka     b    001 0 eng  </controlfield>
@@ -6369,7 +6312,6 @@
     <subfield code="z">Direct Amazon.com 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>05089cam a2200757 a 4500</leader>
   <controlfield tag="008">070409s2007    inua     b    000 0 eng  </controlfield>
@@ -6611,7 +6553,6 @@
     <subfield code="z">Direct Esenbrauns 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01922cam a2200373 a 4500</leader>
   <controlfield tag="008">040726s2005    txuab    b    000 0 eng  </controlfield>
@@ -6728,7 +6669,6 @@
     <subfield code="z">Gift SIL-International Academic Bookstore 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01863cam a2200373 a 4500</leader>
   <controlfield tag="008">030210s2003    ne ab    b    101 0 eng  </controlfield>
@@ -6840,7 +6780,6 @@
     <subfield code="z">Direct Barnes &amp; Noble 11-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01034cam a2200289 a 4500</leader>
   <controlfield tag="008">970929s1992    sp a     b    000 0 spa  </controlfield>
@@ -6921,7 +6860,6 @@
     <subfield code="z">Gift Don and Nadine Burns 9-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01481cam a2200325 a 4500</leader>
   <controlfield tag="008">010209s2000    gw ab    b    001 0 eng d</controlfield>
@@ -7017,7 +6955,6 @@
     <subfield code="z">Gift Jason Hopkins 2-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01465cam a2200349 a 4500</leader>
   <controlfield tag="008">780518s1980    enk      bd   000 0 eng  </controlfield>
@@ -7120,7 +7057,6 @@
     <subfield code="z">Gift John Wilner 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02579cam a2200457 a 4500</leader>
   <controlfield tag="008">921005t20021994enkab    b    001 0 eng  </controlfield>
@@ -7254,7 +7190,6 @@
     <subfield code="z">Direct Amazon.ca 11-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01420cam a2200361 a 4500</leader>
   <controlfield tag="008">000712s1999    gw       b    000 0 ger d</controlfield>
@@ -7360,7 +7295,6 @@
     <subfield code="z">Gift 10-99</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01210nam a2200289 a 4500</leader>
   <controlfield tag="008">080110s2007    sp ah    b   u000 0 cat d</controlfield>
@@ -7448,7 +7382,6 @@
     <subfield code="z">Gift 11-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00946nam a2200265Ia 4500</leader>
   <controlfield tag="008">910827s1990    gt       d    000 0 spa d</controlfield>
@@ -7518,7 +7451,6 @@
     <subfield code="h">463.97422 R985g 1990</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01151nam a2200313 a 4500</leader>
   <controlfield tag="008">060428s1996    ii            000 0 eng d</controlfield>
@@ -7605,7 +7537,6 @@
     <subfield code="z">Gift Scott A. McLain 1-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00937nam a2200253 a 4500</leader>
   <controlfield tag="008">060314s198u    pk a     b    000 0 eng d</controlfield>
@@ -7676,7 +7607,6 @@
     <subfield code="z">Gift David &amp; Rosemary Ross 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01021nam a2200277 a 4500</leader>
   <controlfield tag="008">060427q19661994ii c          000 0 eng d</controlfield>
@@ -7755,7 +7685,6 @@
     <subfield code="z">Gift John Sotrop 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01185nam a2200325 a 4500</leader>
   <controlfield tag="008">940217s1986    ii       d    000 0 eng d</controlfield>
@@ -7847,7 +7776,6 @@
     <subfield code="z">Gift John Sotrop 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01116nam a2200301 a 4500</leader>
   <controlfield tag="008">940217q19801994ii            000 0 eng d</controlfield>
@@ -7932,7 +7860,6 @@
     <subfield code="z">Gift John Sotrop 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01241nam a2200289 a 4500</leader>
   <controlfield tag="008">060427s1944    no       bd   000 0 eng d</controlfield>
@@ -8017,7 +7944,6 @@
     <subfield code="z">Gift Paul Kroeger 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01474nam a2200325 a 4500</leader>
   <controlfield tag="008">951122s1993    pk       d    000 0 perod</controlfield>
@@ -8117,7 +8043,6 @@
     <subfield code="z">Gift David &amp; Rosemary Ross 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02378cam a2200505 a 4500</leader>
   <controlfield tag="008">911024s2002    enkab    b    001 0 eng  </controlfield>
@@ -8267,7 +8192,6 @@
     <subfield code="z">Direct Amazon.ca 11-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01747cam a2200385 a 4500</leader>
   <controlfield tag="008">951205t19801966nyuab    bd   001 0 eng  </controlfield>
@@ -8390,7 +8314,6 @@
     <subfield code="z">Gift John Sotrop 3-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01494cam a2200373 a 4500</leader>
   <controlfield tag="008">970108s1997    njuab         000 0 eng  </controlfield>
@@ -8505,7 +8428,6 @@
     <subfield code="z">Gift Pete Unseth 5-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01340cam a2200349 a 4500</leader>
   <controlfield tag="007">ta</controlfield>
@@ -8604,7 +8526,6 @@
     <subfield code="z">Gift John Sotrop 3-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01232cam a2200325 a 4500</leader>
   <controlfield tag="008">941117s1994    ii       d    000 0 eng d</controlfield>
@@ -8695,7 +8616,6 @@
     <subfield code="z">Gift John Sotrop 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01166nam a2200313 a 4500</leader>
   <controlfield tag="008">060428s1988    ii            000 0 eng d</controlfield>
@@ -8783,7 +8703,6 @@
     <subfield code="z">Gift John Sotrop 2-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01621cam a2200373 a 4500</leader>
   <controlfield tag="008">060608s2006    ch a          000 0 vie d</controlfield>
@@ -8897,7 +8816,6 @@
     <subfield code="z">Gift Wi-vun Taiffalo Chiung 1-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01755cam a2200373 a 4500</leader>
   <controlfield tag="008">060403s2005    np b     bd   000 0 engo </controlfield>
@@ -9007,7 +8925,6 @@
     <subfield code="z">Gift SIL-South Asia Group 5-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01442nam a2200325 a 4500</leader>
   <controlfield tag="008">070510s1998    txu      d    001 0 eng d</controlfield>
@@ -9106,7 +9023,6 @@
     <subfield code="z">Gift SIL-Academic Publications 10-98</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01353ntm a2200349 a 4500</leader>
   <controlfield tag="008">071025s2006    xx       abm  000 0 eng d</controlfield>
@@ -9203,7 +9119,6 @@
     <subfield code="z">Gift 10-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01462nam a2200313 a 4500</leader>
   <controlfield tag="008">060522s1997    th a     abm  000 0 eng d</controlfield>
@@ -9299,7 +9214,6 @@
     <subfield code="z">Gift Mainland S.E. Asia Group 12-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01466cam a2200373 a 4500</leader>
   <controlfield tag="008">040116s1998    th       d    000 0 vieo </controlfield>
@@ -9404,7 +9318,6 @@
     <subfield code="z">Gift David Thomas 8-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01332ctm a2200361 a 4500</leader>
   <controlfield tag="006">m        b        </controlfield>
@@ -9500,7 +9413,6 @@
     <subfield code="z">Gift SIL-Language and Culture Archives 10-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01471nam a2200325 a 4500</leader>
   <controlfield tag="008">950925s1995    dk a     bd   000 0 eng d</controlfield>
@@ -9597,7 +9509,6 @@
     <subfield code="z">Gift David Thomas 8-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01777nam a2200397 a 4500</leader>
   <controlfield tag="008">981107s1994    ls a     bd  f000 0 mkho </controlfield>
@@ -9712,7 +9623,6 @@
     <subfield code="z">Gift David Thomas 8-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01711nam a2200373 a 4500</leader>
   <controlfield tag="008">940811s1993    th b     bd  f001 0 thao </controlfield>
@@ -9824,7 +9734,6 @@
     <subfield code="z">Gift David Thomas 8-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01069nam a2200289 a 4500</leader>
   <controlfield tag="008">900829s1979    cau      b    000 0 eng  </controlfield>
@@ -9905,7 +9814,6 @@
     <subfield code="z">Direct frm authpr's widow 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03594nam a2200373 a 4500</leader>
   <controlfield tag="008">060926s                      001 0 eng d</controlfield>
@@ -10014,7 +9922,6 @@
     <subfield code="z">Gift James E. Redden 9-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02117nam a2200469 a 4500</leader>
   <controlfield tag="008">900530s1950    cm abh   b    000 0 fre d</controlfield>
@@ -10152,7 +10059,6 @@
     <subfield code="z">Gift James E. Redden 7-89</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01628cam a2200337 a 4500</leader>
   <controlfield tag="008">061215s2007    txua     b    000 0 eng  </controlfield>
@@ -10258,7 +10164,6 @@
     <subfield code="z">Direct s.o. IAB-SIL 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01266ntm a2200325 a 4500</leader>
   <controlfield tag="008">061103s2003    xx ab    bm   000 0 fre d</controlfield>
@@ -10351,7 +10256,6 @@
     <subfield code="z">On deposit from SIL Language and Culture Archives 5-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01519ntm a2200361 a 4500</leader>
   <controlfield tag="008">061103s2003    xx ab    bm   000 0 eng d</controlfield>
@@ -10454,7 +10358,6 @@
     <subfield code="z">On deposit from SIL Language and Culture Archives 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02026nam a2200325 a 4500</leader>
   <controlfield tag="008">060106s2005    txuab    b    001 0 eng d</controlfield>
@@ -10553,7 +10456,6 @@
     <subfield code="z">Direct SIL-International Academic Bookstore 2-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01504cam a2200361 a 4500</leader>
   <controlfield tag="008">040227s2004    enka     b    001 0 eng  </controlfield>
@@ -10660,7 +10562,6 @@
     <subfield code="z">Direct Amazon com 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01242ntm a2200301 a 4500</leader>
   <controlfield tag="008">060602s1992       ab   rabm  000 0 eng d</controlfield>
@@ -10747,7 +10648,6 @@
     <subfield code="z">Gift 4-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01277ntm a2200313 a 4500</leader>
   <controlfield tag="008">060323s2002    xx ab    abm  000 0 eng d</controlfield>
@@ -10837,7 +10737,6 @@
     <subfield code="z">Gift 11-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01348ntm a2200337 a 4500</leader>
   <controlfield tag="008">060323s2002    xx b     abm  000 0 eng d</controlfield>
@@ -10935,7 +10834,6 @@
     <subfield code="z">Gift 11-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01151ntm a2200301 a 4500</leader>
   <controlfield tag="008">071101s2007    xx a     abm  000 0deng d</controlfield>
@@ -11018,7 +10916,6 @@
     <subfield code="z">Gift 10-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01097nam a2200289 a 4500</leader>
   <controlfield tag="008">060503s197u    mz      r     000 0 por d</controlfield>
@@ -11096,7 +10993,6 @@
     <subfield code="z">Gifg Jeff Shrum 5-00</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01432ntm a2200337 a 4500</leader>
   <controlfield tag="007">ta</controlfield>
@@ -11187,7 +11083,6 @@
     <subfield code="z">Gift 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01037nam a2200277 a 4500</leader>
   <controlfield tag="008">070507s1976    aku           001 0 eng d</controlfield>
@@ -11263,7 +11158,6 @@
     <subfield code="z">Gift 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01464cam a2200325 a 4500</leader>
   <controlfield tag="008">970605t19961997onc          s100 0 eng  </controlfield>
@@ -11363,7 +11257,6 @@
     <subfield code="z">Gift Beatrice Myers 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01654cam a2200337 a 4500</leader>
   <controlfield tag="008">990514s1999    onc          s100 0 eng  </controlfield>
@@ -11460,7 +11353,6 @@
     <subfield code="z">Gift Beatrice Myers 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01731cam a2200385 a 4500</leader>
   <controlfield tag="008">051117s2006    nbua     b   s001 0 eng  </controlfield>
@@ -11570,7 +11462,6 @@
     <subfield code="z">Direct A1 Books 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01668cam a2200409 a 4500</leader>
   <controlfield tag="008">971031s1998    txuab    b   s001 0 eng  </controlfield>
@@ -11687,7 +11578,6 @@
     <subfield code="z">B/T 12-00</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01307cam a2200301 a 4500</leader>
   <controlfield tag="008">070202s2007    ne a     b    001 0 eng  </controlfield>
@@ -11777,7 +11667,6 @@
     <subfield code="z">Gift Robert E. Longacre 5-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01883cam a2200421 a 4500</leader>
   <controlfield tag="008">770127s1976    ne a     b    100 0 eng d</controlfield>
@@ -11909,7 +11798,6 @@
     <subfield code="z">Gift James E. Redden 9-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01243cam a2200313 a 4500</leader>
   <controlfield tag="008">981030s1997    gw       b    000 0 ger  </controlfield>
@@ -12000,7 +11888,6 @@
     <subfield code="z">Gift 9-98</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01903cam a2200373 a 4500</leader>
   <controlfield tag="008">970501s1997    onc      b   s100 0 eng  </controlfield>
@@ -12107,7 +11994,6 @@
     <subfield code="z">Gift Beatrice Myers 6-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01160ntm a2200313 a 4500</leader>
   <controlfield tag="008">060322s1966    xx      rabm  000 0deng d</controlfield>
@@ -12193,7 +12079,6 @@
     <subfield code="z">Gift James E. Redden 12-00</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01222cam a2200301 a 4500</leader>
   <controlfield tag="008">710111s1970    caubc   rb    000 0 eng  </controlfield>
@@ -12279,7 +12164,6 @@
     <subfield code="z">Gift James E. Redden 10-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01347nam a2200301 a 4500</leader>
   <controlfield tag="008">070711s1978    mx       d    000 0 spa d</controlfield>
@@ -12360,7 +12244,6 @@
     <subfield code="z">Gift 5-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>04339cam a2200565 a 4500</leader>
   <controlfield tag="008">040524s2004    mtua     b   s010 0 eng  </controlfield>
@@ -12533,7 +12416,6 @@
     <subfield code="z">Direct University of Montana 11-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01366cam a2200313 a 4500</leader>
   <controlfield tag="008">030729s2003    gw       b    000 0 ger  </controlfield>
@@ -12625,7 +12507,6 @@
     <subfield code="z">Gift 3-03</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01238ntm a2200325 a 4500</leader>
   <controlfield tag="008">060328s1961    xx a    rbm   000 0deng d</controlfield>
@@ -12718,7 +12599,6 @@
     <subfield code="z">Gift 1-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01343cam a2200349 a 4500</leader>
   <controlfield tag="007">ta</controlfield>
@@ -12816,7 +12696,6 @@
     <subfield code="z">Gift 3-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01367cam a2200325 a 4500</leader>
   <controlfield tag="008">880311s1986    pe       d   f000 0 spa  </controlfield>
@@ -12914,7 +12793,6 @@
     <subfield code="z">Gift Rob Kimmons 9-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00944nam a2200241 a 4500</leader>
   <controlfield tag="008">970403s1985    txu           000 0 eng d</controlfield>
@@ -12980,7 +12858,6 @@
     <subfield code="z">author gift 11423</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01316nam a2200253 a 4500</leader>
   <controlfield tag="008">070213s1978    bl a     d    000 0 por d</controlfield>
@@ -13052,7 +12929,6 @@
     <subfield code="z">Gift Marlin Leaders 8-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01266nam a22003011  4500</leader>
   <controlfield tag="008">900112s1992    txua          001 0 eng d</controlfield>
@@ -13146,7 +13022,6 @@
     <subfield code="z">IAB</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>00817nam a2200241 a 4500</leader>
   <controlfield tag="008">970407s1977    txu           000 0 eng d</controlfield>
@@ -13208,7 +13083,6 @@
     <subfield code="z">Gift 4-92</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03624cam a2200805 a 4500</leader>
   <controlfield tag="008">990805s1998    pp a     b    000 0 eng d</controlfield>
@@ -13463,7 +13337,6 @@
     <subfield code="z">Gift Karl J. Franklin 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03071cam a2200397 a 4500</leader>
   <controlfield tag="008">970416s1977    pp ab    b    000 0 eng d</controlfield>
@@ -13589,7 +13462,6 @@
     <subfield code="z">s.o.</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01098nam a2200289 a 4500</leader>
   <controlfield tag="008">060118s1974    pp            000 0 eng d</controlfield>
@@ -13669,7 +13541,6 @@
     <subfield code="z">Gift Karl J. Franklin 7-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02679nam a2200433 a 4500</leader>
   <controlfield tag="008">881130s1987    pp       b    000 0 eng d</controlfield>
@@ -13796,7 +13667,6 @@
     <subfield code="z">Gift Karl J. Franklin 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01528cam a2200373 a 4500</leader>
   <controlfield tag="008">880531s1986    pp a     b    001 0 eng  </controlfield>
@@ -13905,7 +13775,6 @@
     <subfield code="z">Gift Karl J. Franklin 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01620cam a2200397 a 4500</leader>
   <controlfield tag="008">920917s1990    pp       b    000 0 eng  </controlfield>
@@ -14020,7 +13889,6 @@
     <subfield code="z">Gift Karl J. Franklin 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01340cam a2200337 a 4500</leader>
   <controlfield tag="008">930104s1991    pp a          000 0 eng  </controlfield>
@@ -14118,7 +13986,6 @@
     <subfield code="z">Gift Karl J. Franklin 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01511cam a2200397 a 4500</leader>
   <controlfield tag="008">960122s1994    pp a     b    000 0 eng d</controlfield>
@@ -14233,7 +14100,6 @@
     <subfield code="z">Gift Karl J. Franklin 3-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01764cam a2200433 a 4500</leader>
   <controlfield tag="007">ta</controlfield>
@@ -14356,7 +14222,6 @@
     <subfield code="z">Gift Karl J. Franklin 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>04211cam a2200925 a 4500</leader>
   <controlfield tag="008">000323s1999    pp       b    000 0 eng d</controlfield>
@@ -14651,7 +14516,6 @@
     <subfield code="z">Gift Karl J. Franklin 3-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01400cam a2200361 a 4500</leader>
   <controlfield tag="008">051205s2005    pp b     b    000 0 eng c</controlfield>
@@ -14756,7 +14620,6 @@
     <subfield code="z">Direct PNG Branch internal transfer 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01298nam a2200325 a 4500</leader>
   <controlfield tag="008">070828s2005    pp b     b    000 0 eng d</controlfield>
@@ -14849,7 +14712,6 @@
     <subfield code="z">Direct PNG Branch internal transfer 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01412nam a2200349 a 4500</leader>
   <controlfield tag="008">070828s2006    pp b     b    000 0 eng d</controlfield>
@@ -14949,7 +14811,6 @@
     <subfield code="z">Direct PNG Branch internal transfer 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01301nam a2200325 a 4500</leader>
   <controlfield tag="008">070828s2007    pp b     b    000 0 eng d</controlfield>
@@ -15040,7 +14901,6 @@
     <subfield code="z">Direct PNG Branch internal transfer 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01244nam a2200289 a 4500</leader>
   <controlfield tag="008">061102s1999    nz ab    b    000 0 eng d</controlfield>
@@ -15126,7 +14986,6 @@
     <subfield code="z">Direct 9-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01393cam a2200313 a 4500</leader>
   <controlfield tag="008">940928s1985    pp ab    d    000 0 eng  </controlfield>
@@ -15218,7 +15077,6 @@
     <subfield code="z">Gift Marlin Leaders 11-00</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03433cam a2200673 a 4500</leader>
   <controlfield tag="008">031120s2005    nyub     b    001 0 eng  </controlfield>
@@ -15428,7 +15286,6 @@
     <subfield code="z">Direct Amazon.ca 11-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01687nam a2200409 a 4500</leader>
   <controlfield tag="008">981015s1998    ph a     b    010 0 eng  </controlfield>
@@ -15541,7 +15398,6 @@
     <subfield code="z">Gift 10-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01100cam a2200301 a 4500</leader>
   <controlfield tag="008">001010s1998    gw       b    000 0 ger  </controlfield>
@@ -15625,7 +15481,6 @@
     <subfield code="z">10-99</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01131cam a2200301 a 4500</leader>
   <controlfield tag="008">830623s1955    ph a     d    001 0 eng  </controlfield>
@@ -15714,7 +15569,6 @@
     <subfield code="z">Gift Americas Area 9-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01441cam a2200349 a 4500</leader>
   <controlfield tag="007">ta</controlfield>
@@ -15811,7 +15665,6 @@
     <subfield code="z">Gift 2-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01159cam a2200289 a 4500</leader>
   <controlfield tag="008">020617s2002    gw       b    000 0 ger  </controlfield>
@@ -15893,7 +15746,6 @@
     <subfield code="z">Gift 2-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02448cam a2200349 a 4500</leader>
   <controlfield tag="008">070820s2007    ctua     b    000 0 eng d</controlfield>
@@ -15994,7 +15846,6 @@
     <subfield code="z">Direct Australian National University st.o. 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01877nam a2200409 a 4500</leader>
   <controlfield tag="008">080213s2007    my a     d    000 0 eng d</controlfield>
@@ -16113,7 +15964,6 @@
     <subfield code="z">Gift SIL-EDO 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01316cam a2200325 a 4500</leader>
   <controlfield tag="008">981030s1997    gw a     b    000 0 ger  </controlfield>
@@ -16207,7 +16057,6 @@
     <subfield code="z">Gift 9-98</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01354nam a2200313 a 4500</leader>
   <controlfield tag="008">050610s2003    gw ab    b    000 0 ger d</controlfield>
@@ -16300,7 +16149,6 @@
     <subfield code="z">Gift 8-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01168cam a2200301 a 4500</leader>
   <controlfield tag="008">020128s2000    gw b     b    000 0 ger  </controlfield>
@@ -16387,7 +16235,6 @@
     <subfield code="z">Gift 9-01</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02199cam a2200421 a 4500</leader>
   <controlfield tag="008">990817s2000    iluabg   bk   001 0 eng  </controlfield>
@@ -16520,7 +16367,6 @@
     <subfield code="z">Direct University of Chicago 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03311cam a2200517 a 4500</leader>
   <controlfield tag="008">011218s2002    iluabgm  bk   001 0 eng  </controlfield>
@@ -16682,7 +16528,6 @@
     <subfield code="z">Direct University of Chicago 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01199cam a2200313 a 4500</leader>
   <controlfield tag="008">060915s2004    my abg   b   a001 0 eng  </controlfield>
@@ -16777,7 +16622,6 @@
     <subfield code="z">Gift SIL-EDO 1-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02264cam a2200421 a 4500</leader>
   <controlfield tag="008">920710s1993    iluabgm  bk   001 0 eng  </controlfield>
@@ -16902,7 +16746,6 @@
     <subfield code="z">Direct University of Chicago 2-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01060nam a2200265 a 4500</leader>
   <controlfield tag="008">980406s1996    cauabo        000 0 eng d</controlfield>
@@ -16975,7 +16818,6 @@
     <subfield code="z">Gift 5-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02217nam a2200289 a 4500</leader>
   <controlfield tag="008">760620s1953    pe a     b    000 0 eng d</controlfield>
@@ -17057,7 +16899,6 @@
     <subfield code="z">Gift SIL-Language and Culture Archives 5-04</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01194cam a2200301 a 4500</leader>
   <controlfield tag="008">800227s1979    at ab    b    001 0 eng  </controlfield>
@@ -17143,7 +16984,6 @@
     <subfield code="z">Gift Karl J. Franklin 7-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01281nam a22002771i 4500</leader>
   <controlfield tag="008">870402s1920    gt       b    00010 spa  </controlfield>
@@ -17219,7 +17059,6 @@
     <subfield code="z">529</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01397cam a2200313 a 4500</leader>
   <controlfield tag="008">070620s2007    idu      d    000 0 eng  </controlfield>
@@ -17308,7 +17147,6 @@
     <subfield code="z">Gift Theodore E. Leidenfrost 3-08</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01968cam a2200421 a 4500</leader>
   <controlfield tag="008">940111s1993    pp a     b    000 0 eng  </controlfield>
@@ -17433,7 +17271,6 @@
     <subfield code="z">Gift Karl J. Franklin 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02107nam a2200469 a 4500</leader>
   <controlfield tag="008">970415s1986    pp            000 0 eng d</controlfield>
@@ -17562,7 +17399,6 @@
     <subfield code="z">s.o.</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01946cam a2200445 a 4500</leader>
   <controlfield tag="008">940113s1992    pp a     b    000 0 eng d</controlfield>
@@ -17694,7 +17530,6 @@
     <subfield code="z">Gift Karl J. Franklin 10-02</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01608cam a2200397 a 4500</leader>
   <controlfield tag="008">060724s2005    pp b     b    000 0 eng c</controlfield>
@@ -17810,7 +17645,6 @@
     <subfield code="z">Direct PNG Branch 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02830nam a2200589 a 4500</leader>
   <controlfield tag="008">070828s2005    pp ab    b    000 0 eng d</controlfield>
@@ -17991,7 +17825,6 @@
     <subfield code="z">Direct PNG Branch internal transfer 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01579cam a2200373 a 4500</leader>
   <controlfield tag="008">930122s1989    pp       b    000 0 eng d</controlfield>
@@ -18099,7 +17932,6 @@
     <subfield code="z">Gift Karl J. Franklin 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02387cam a2200445 a 4500</leader>
   <controlfield tag="008">901105s1989    pp a     b    000 0 eng  </controlfield>
@@ -18233,7 +18065,6 @@
     <subfield code="z">Gift Karl J. Franklin 8-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01703cam a2200337 a 4500</leader>
   <controlfield tag="008">070430s2007    at ab    b    001 0 eng  </controlfield>
@@ -18329,7 +18160,6 @@
     <subfield code="z">Direct  Australian National University st.o. 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02478cam a2200373 a 4500</leader>
   <controlfield tag="008">070418s2007    at ab    b    001 0 eng  </controlfield>
@@ -18439,7 +18269,6 @@
     <subfield code="z">Direct Australian National University st.o. 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02107cam a2200385 a 4500</leader>
   <controlfield tag="008">070418s2007    at ab    b    000 0 eng  </controlfield>
@@ -18552,7 +18381,6 @@
     <subfield code="z">Direct Australian National University st.o. 9-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01494cam a2200349 a 4500</leader>
   <controlfield tag="008">051025s2006    at abj   b    000 0 eng  </controlfield>
@@ -18657,7 +18485,6 @@
     <subfield code="z">Direct st.o. Australian National University 3-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01305cam a2200325 a 4500</leader>
   <controlfield tag="008">060413s2006    at a     b    000 0 eng d</controlfield>
@@ -18753,7 +18580,6 @@
     <subfield code="z">Direct st.o. Australian National University 3-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01506cam a2200325 a 4500</leader>
   <controlfield tag="008">061030s2006    at       b    000 0 eng  </controlfield>
@@ -18849,7 +18675,6 @@
     <subfield code="z">Direct st.o. Australian National University 3-07</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01525nam a2200361 a 4500</leader>
   <controlfield tag="008">061106s2006    at ab    b    000 0 eng d</controlfield>
@@ -18952,7 +18777,6 @@
     <subfield code="z">Direct Australian National University 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01512nam a2200361 a 4500</leader>
   <controlfield tag="008">061106s2006    at ab    b    000 0 eng d</controlfield>
@@ -19055,7 +18879,6 @@
     <subfield code="z">Direct Australian National University 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01561nam a2200361 a 4500</leader>
   <controlfield tag="008">061106s2006    at ab    b    000 0 eng d</controlfield>
@@ -19159,7 +18982,6 @@
     <subfield code="z">Direct Australian National University 11-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01987cam a2200361 a 4500</leader>
   <controlfield tag="008">051024s2005    at       b    000 0 eng d</controlfield>
@@ -19263,7 +19085,6 @@
     <subfield code="z">Direct Pacific Linguistics st.o. 10-05</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02410cam a2200337 a 4500</leader>
   <controlfield tag="008">060306s2005    at a     b    000 0 eng  </controlfield>
@@ -19358,7 +19179,6 @@
     <subfield code="z">Direct Pacific Linguistics 3-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>03242cam a2200481 a 4500</leader>
   <controlfield tag="008">060306s2005    at ab    b    000 0 eng  </controlfield>
@@ -19507,7 +19327,6 @@
     <subfield code="z">Direct Pacific Linguistics 3-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>02137cam a2200373 a 4500</leader>
   <controlfield tag="008">060306s2005    at ab    b    000 0 eng  </controlfield>
@@ -19617,7 +19436,6 @@
     <subfield code="z">Direct Pacific Linguistics 3-06</subfield>
   </datafield>
 </record>
-<?xml version="1.0"?>
 <record>
   <leader>01512nam a22003615a 4500</leader>
   <controlfield tag="008">060706s2005    at b     b    000 0 eng  </controlfield>
@@ -19730,3 +19548,4 @@
     <subfield code="z">Gift Jeremiah Chung 10-06</subfield>
   </datafield>
 </record>
+</collection>
