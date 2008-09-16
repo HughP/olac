@@ -17,15 +17,15 @@ HTTPD_ACCESS_LOG=`grep '^LOG=' $SCRIPT_ACCESSLOG_CRON | sed 's/^LOG=//'`
 CHKSUM_PHP="/usr/local/libexec/apache/libphp5.so"
 CHKSUM_PERL="/usr/bin/perl"
 CHKSUM_JAVA="/usr/local/bin/java"
-CHKSUM_JBOSS_JAVA=`$PS | grep jboss | grep java | grep -v grep | awk '{print $5}'`
-CHKSUM_JBOSS=`$PS | grep jboss | grep java | grep -v grep | sed -E 's@.*[ :]([^:]*run\.jar)[ :].*@\1@'`
+CHKSUM_JBOSS_JAVA=`$PS | grep jboss | grep java | grep -v grep | awk '{print $5}' | head -1`
+CHKSUM_JBOSS=`$PS | grep jboss | grep java | grep -v grep | sed -E 's@.*[ :]([^:]*run\.jar)[ :].*@\1@' | head -1`
 CHKSUM_XALAN="/mnt/unagi/speechd8/ldc/wwwhome/olac/xalan-J/bin/xalan.jar"
 CHKSUM_XERCESJ="/mnt/unagi/speechd8/ldc/wwwhome/olac/xerces-J/xml-apis.jar"
 CHKSUM_PYTHON="/usr/local/bin/python2.3"
 CHKSUM_XSV1="/mnt/unagi/speechd8/ldc/wwwhome/olac/xsv/lib/python2.3/site-packages/XSV/commandLine.py"
 CHKSUM_XSV2="/mnt/unagi/speechd8/ldc/wwwhome/olac/xsv/lib/python2.3/site-packages/XSV/driver.py"
 
-CHKSUM2_DCXMLS="http://dublincore.org/schemas/xmls/"
+#CHKSUM2_DCXMLS="http://dublincore.org/schemas/xmls/"
 CHKSUM2_DC="http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd"
 CHKSUM2_DCTERMS="http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd"
 CHKSUM2_DCMITYPE="http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcmitype.xsd"
@@ -88,13 +88,10 @@ echo
 # its not so simple to have a remote process information
 
 printf "  * Get number of archives: "
-db=`echo 1 | ed -s /home/olac/.dbinfo_olac2 | awk -F':' '{print $1}'`
-user=`echo 2 | ed -s /home/olac/.dbinfo_olac2`
-pass=`echo 3 | ed -s /home/olac/.dbinfo_olac2`
-mysql="mysql -h mysql -u $user -p$pass $db"
+mysql="mysql --defaults-file=/home/olac/.my.cnf.olac2"
 q1="select count(*) from OLAC_ARCHIVE"
 q2="select count(*) from ARCHIVED_ITEM"
-narc=`echo $q1 | $mysql | tail +2`
+narc=`echo $q1 | $mysql | sed 1d`
 if [ "$narc" -gt 0 ] ; then
     echo $narc
 else
@@ -103,7 +100,7 @@ else
 fi
 
 printf "  * Get number of archived items: "
-nitm=`echo $q2 | $mysql | tail +2`
+nitm=`echo $q2 | $mysql | sed 1d`
 if [ "$nitm" -gt 0 ] ; then
     echo $nitm
 else
@@ -295,12 +292,10 @@ echo "Checking file/directory permissions ..."
 echo
 dir=/web/language-archives/tools/search/logs/
 printf "  * $dir "
-grp=`stat -f "%Sg" $dir`
-perm=`stat -f "%SMp" $dir`
-if [ "$grp" != 'www' -r "$perm" != 'wrx' ] ; then
-    echo "is not read-/writable - Fail"
-else
+if [ -r "$dir" -a -w "$dir" ] ; then
     echo "is read-/writable - OK"
+else
+    echo "is not read-/writable - Fail"
 fi
 echo
 
