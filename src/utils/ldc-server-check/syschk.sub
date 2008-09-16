@@ -9,7 +9,8 @@ tmp=/tmp/olac.syschk.tmp.$$
 PS="/bin/ps awx"
 
 [ -f $dat ] && . $dat
-: > $dat
+grep -v '^_OLACSEARCH_' $dat > $dat.copy
+mv $dat.copy $dat
 
 SCRIPT_ACCESSLOG_CRON="$base/access_log-cron.sh"
 HTTPD_ACCESS_LOG=`grep '^LOG=' $SCRIPT_ACCESSLOG_CRON | sed 's/^LOG=//'`
@@ -317,7 +318,7 @@ for var in `set | grep '^CHKSUM_' | sed 's/=.*//' | sort` ; do
 	RESULT=FAIL
     fi
     #echo "MD5_$var=\"$md5val\"" >>$dat
-    echo "MD5_$var=\"$md5old\"" >>$dat
+    #echo "MD5_$var=\"$md5old\"" >>$dat
 done
 for var in `set | grep '^CHKSUM2_' | sed 's/=.*//' | sort` ; do
     path=`eval 'echo $'$var`
@@ -331,7 +332,7 @@ for var in `set | grep '^CHKSUM2_' | sed 's/=.*//' | sort` ; do
 	RESULT=FAIL
     fi
     #echo "MD5_$var=\"$md5val\"" >>$dat
-    echo "MD5_$var=\"$md5old\"" >>$dat
+    #echo "MD5_$var=\"$md5old\"" >>$dat
 done
 echo
 
