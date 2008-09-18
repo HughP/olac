@@ -169,7 +169,9 @@ local cataloging practices.
             -->
             <xsl:choose>
                 <!-- GFS: These are not the exact terms from the
-                vocabulary; e.g. should be uppercase? -->
+                vocabulary; e.g. should be uppercase? 
+                JAS: these are the MARC terms; cartographic should be mapped to StillImage, 
+                three dimensional object to PhysicalObject, etc.-->
                 <xsl:when test="$leader6='a' or $leader6='t'">text</xsl:when>
                 <xsl:when test="$leader6='e' or $leader6='f'">cartographic</xsl:when>
                 <xsl:when test="$leader6='c' or $leader6='d'">notated music</xsl:when>
@@ -183,7 +185,9 @@ local cataloging practices.
         </dc:type>
     </xsl:template>
 
-    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
+    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  
+        I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  
+        The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
     <xsl:template match="marc:controlfield[@tag='001']">
         <dc:identifier>
             <xsl:call-template name="show-source"/>
@@ -193,7 +197,9 @@ local cataloging practices.
 
     <xsl:template match="marc:controlfield[@tag='008']">
         <!-- Process the language field -->
-        <!-- JAS: prefer 041 and parse, or 590  -->
+        <!-- JAS: prefer 041 and parse, or 590  
+        Must repent of believing the librarian: GIAL data has 1501 records with 094 tags
+        probably 13th or 14th ed. Ethnologue -->
         <dc:language xsi:type="olac:language">
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">-36</xsl:with-param>
@@ -203,7 +209,34 @@ local cataloging practices.
             </xsl:attribute>
         </dc:language>
 
-        <!-- CJH: Question??? JAS: The correct interpretation of 008/07-10 depends on the coding of 008/06 and should include 008/11-14 in some cases. How much detail should we attempt? -->
+        <!-- CJH: Question??? JAS: The correct interpretation of 008/07-10 depends on the coding of 008/06 
+            and should include 008/11-14 in some cases. How much detail should we attempt?
+            06 - Type of date/Publication status 
+            b - No dates given; B.C. date involved 
+            c - Continuing resource currently published 
+            d - Continuing resource ceased publication 
+            e - Detailed date 
+            i - Inclusive dates of collection 
+            k - Range of years of bulk of collection 
+            m - Multiple dates 
+            n - Dates unknown 
+            p - Date of distribution/release/issue and production/recording session when different 
+            q - Questionable date 
+            r - Reprint/reissue date and original date 
+            s - Single known date/probable date 
+            t - Publication date and copyright date 
+            u - Continuing resource status unknown 
+            
+            b unlikely; c d u eliminated (as applying only to journals); 
+            e - detailed date typically used as creation date with manuscripts; cdterms:created
+            i k -  creation date range
+            p - dcterms:issued (07-10) and dcterms:created (11-14)
+            r - dcterms:issued (07-10) and dc:date (11-14)
+            s - dcterms:issued (07-10)
+            t - dcterms:issued (07-10) and dcterms:dateCopyrighted (11-14)
+            
+            Or just only take whatever is here for these (e i k p r s t) and put in plain vanilla dc:date
+        -->
         <dcterms:issued> </dcterms:issued>
     </xsl:template>
 
@@ -229,8 +262,16 @@ local cataloging practices.
 
 
     <!-- JAS: Note: Some 255 information equivalent to DC encoding scheme but different syntax. -->
-    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often present without data, as 255$a "scale not given" sometimes with a projection in $b. Rank 1 (if contains useful data) -->
+    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often present 
+        without data, as 255$a "scale not given" sometimes with a projection in $b. Rank 1 (if contains useful data) -->
     <!-- CJH: Question? Is this right? -->
+    <!-- JAS: retain defg, but not jkmn (which are for celestial charts). I missed that before.
+            Do we want to put them into the Box schema ? (I know this syntax isn't right) 
+            <dcterms:spatial xsi:type="dcterms:Box">westlimit={$d}; eastlimit={$e}; northlimit={$f}; southlimit={$g};
+            </dcterms:spatial>
+            
+            The info from $abc can be better obtained from 255 as Description
+    -->
     <xsl:template match="marc:datafield[@tag='034']">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
@@ -244,7 +285,7 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS: Does this deal with the presence of multiple code elements in a single $a? -->
 
     <xsl:template match="marc:datafield[@tag='041']">
         <xsl:choose>
@@ -305,7 +346,9 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='046']">
-        <!-- JAS: All the dates and date ranges in 046 should be ignored if the code in 046$a = “x” (indicating Incorrect dates) -->
+        <!-- JAS: All the dates and date ranges in 046 should be ignored if the code in 046$a = “x” (indicating Incorrect dates) 
+        I am inclined to dismiss this field altogether, preferring the leader info, 260c or nothing
+        GIAL data in this field are all erroneous; should be 040s or 041s -->
         <xsl:if test="marc:subfield[@code='a'] != 'x'">
             <dcterms:created>
                 <xsl:call-template name="show-source">
@@ -449,12 +492,14 @@ local cataloging practices.
             <xsl:value-of select="."/>
         </dc:alternative>
     </xsl:template>
-
-
-
-
     <!-- JAS: We probably want additional title fields 242, possibly 130, 240
-    Subfields fghk belong in other QDC fields (fg are dates, h is format, k is like type and probably better dealt with through the leader  -->
+        Subfields fghk belong in other QDC fields (fg are dates, h is format, k is like type and 
+        probably better dealt with through the leader  -->
+    
+
+
+
+    <!-- JAS: Should capture 245abnp -->
     <xsl:template match="marc:datafield[@tag='245']">
         <dc:title>
             <xsl:call-template name="show-source"/>
@@ -465,6 +510,7 @@ local cataloging practices.
 
 
 
+    <!-- JAS: Should capture 246abnp but not fghi-->
     <xsl:template match="marc:datafield[@tag='246']">
         <dc:alternative>
             <xsl:call-template name="show-source"/>
@@ -475,7 +521,10 @@ local cataloging practices.
 
 
     <!-- JAS: Note: Some 255 information equivalent to DC encoding scheme but different syntax. -->
-    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often present without data, as 255$a "scale not given" sometimes with a projection in $b. Rank 1 (if contains useful data) -->
+    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often 
+        present without data, as 255$a "scale not given" sometimes with a projection in $b. 
+        If only $a + b present, then this belongs better in Description. If $c is present, the same data ought to be in 034
+        also, as these are supposed to be paired. So maybe skip c. -->
     <xsl:template match="marc:datafield[@tag='255']">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
