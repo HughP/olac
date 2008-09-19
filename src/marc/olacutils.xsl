@@ -2,7 +2,7 @@
 <!--
     Store utility functions here
 -->
-
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 <!-- removeTrailingChars is a recursive template
     operations:
@@ -11,7 +11,6 @@
     3) remove unacceptable ending punctuation from text i.e. [symbol][eol]
     TODO: make this work with slashes
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template name="removeTrailingChars">
         <xsl:param name="text"/>
         <xsl:choose>
@@ -27,4 +26,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    
+    
 </xsl:stylesheet>

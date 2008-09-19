@@ -34,15 +34,16 @@
     <!-- TEMPLATES FOR CONCATENATING DC:DESSCRIPTION TOGETHER -->
     <!-- special case for olac:olac, which contains the dc:description elements we want to combine -->
     <xsl:template match="olac:olac">
-        <dc:description>
-            <xsl:apply-templates select="dc:description" mode="concatDesc"/>
-        </dc:description>
         <xsl:copy>
             <!-- copy the element -->
-            <xsl:apply-templates select="@*|node()"/>
-            <!-- apply templates for all node types, including text -->
+            <xsl:apply-templates select="@*|node()"/>       <!-- apply templates for all node types, including text -->
+            
+            <dc:description>
+                <xsl:apply-templates select="dc:description" mode="concatDesc"/>
+            </dc:description>
         </xsl:copy>
     </xsl:template>
+    
     <xsl:template match="dc:description" mode="concatDesc">
         <xsl:value-of select="normalize-space(.)"/>
         <xsl:text> / </xsl:text>
