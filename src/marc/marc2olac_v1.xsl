@@ -120,7 +120,13 @@ local cataloging practices.
         <!-- required param -->
 
         <xsl:variable name="linguistictype">
-            <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085 --> 
+            <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
+                JAS: use only the $x subfield instances. That avoids Grammar as a main topic ("Grammar, comparative and general")
+                Morphology appears only in $x whether it is a general work (i.e., with Grammar, comparative and general
+                as the $a content) or a work on the morphology of a language.
+                However, any one of these appearing in $x when there is also "{some} language" in the same 650 in the 
+                $a, we are on firm ground to take the work as a language description. 
+            --> 
             <xsl:choose>
                 <!-- type = language_description -->
                 <xsl:when test="contains($subject,'Grammar')">language_description</xsl:when>
@@ -128,11 +134,19 @@ local cataloging practices.
                 <xsl:when test="contains($subject,'Morphology')">language_description</xsl:when>
                 <xsl:when test="contains($subject,'Orthography')">language_description</xsl:when>
 
-                <!-- type = lexicon -->
+                <!-- type = lexicon
+                JAS: The dictionaries and phrase books should be identifiable through finding the right set word or phrase 
+                         only in the $v subfield
+                         Dictionaries
+                         Conversation and phrase books
+                         Glossaries, vocabularies, etc.
+                -->
                 <xsl:when test="contains($subject,'Dictionaries')">lexicon</xsl:when>
 
                 <!-- type = primary_text -->
-                <!-- what should we search for here? -->
+                <!-- what should we search for here? 
+                    JAS: $vTexts
+                -->
                 <xsl:otherwise>0</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -487,7 +501,7 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='242']">
-        <dc:alternative>
+      <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dc:alternative>
@@ -869,7 +883,12 @@ local cataloging practices.
     </xsl:template>
 
 
-    <!-- cjh Question? We used to have subfieldSelect for 'abcdq' but I removed that to simplify.  Was that a good idea, since we may not want to include $y and $z in this field?  -->
+    <!-- cjh Question? We used to have subfieldSelect for 'abcdq' but I removed that to simplify.  
+        Was that a good idea, since we may not want to include $y and $z in this field?  
+    
+        JAS: I think removing the subfield selection for 600, 610, 611, 630 is okay. We want the whole thing, and 
+        most of them are so rare, we're better leaving them, incl the yz subfields, in this and not try to
+        make coverage elements with these instances. -->
     <xsl:template match="marc:datafield[@tag='600']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
