@@ -92,7 +92,7 @@ sh85004474	Amikwa language	ciw	Chippewa
 sh85004457	Amis language	ami	Amis
 sh96004459	Ammassalimiut language	kal	Kalaallisut
 sh85004588	Ampale language	apz	Safeyoka
-sh85078404	Amuesha language	ame	Yanesha'
+sh85078404	Amuesha language	ame	Yanesha&apos;
 sh96004176	Anakalang language	akg	Anakalangu
 sh85004761	Anal language	anm	Anal
 sh88000622	Andilyaugwa language	aoi	Anindilyakwa
@@ -110,7 +110,7 @@ sh96001509	Angkola language	akb	Batak Angkola
 sh85005079	Anglo-Norman language	xno	Anglo-Norman
 sh93006297	Ankave language	aak	Ankave
 sh2001004534	Anmatyerre language	amx	Anmatyerre
-sh85005358	Annobon language	fab	Fa D'ambu
+sh85005358	Annobon language	fab	Fa D&apos;ambu
 sh85005482	Antaisaka language	bjq	Southern Betsimisaraka Malagasy
 sh85005812	Anuak language	anu	Anuak
 sh85005816	Anufo language	cko	Anufo
@@ -133,7 +133,7 @@ sh85006423	Arapaho language	arp	Arapaho
 sh85006445	Arawak language	arw	Arawak
 sh86002393	Arbore language	arv	Arbore
 sh85006540	Archi language	aqc	Archi
-sh85006992	Areare language	alu	'Are'are
+sh85006992	Areare language	alu	&apos;Are&apos;are
 sh85006996	Arecuna language	aoc	Pemon
 sh85006998	Arekena language	gae	Guarequena
 sh85007106	Argobba language	agj	Argobba
@@ -222,7 +222,7 @@ sh85011431	Bamun language	bax	Bamun
 sh97005156	Banda language (Indonesia)	bnd	Banda (Indonesia)
 sh85011477	Banda language	liy	Banda-Bambari
 sh85011488	Bandjalang language	bdy	Bandjalang
-sh85011489	Bandjoun language	bbj	Ghomálá'
+sh85011489	Bandjoun language	bbj	Ghomálá&apos;
 sh85011513	Bangaru language	bgc	Haryanvi
 sh97008843	Banggai language	bgz	Banggai
 sh85011534	Bangubangu language	bnx	Bangubangu
@@ -271,7 +271,7 @@ sh93009159	Bayungu language	bxj	Bayungu
 sh90005924	Be language	onb	Lingao
 sh85012688	Béarnais language	oci	Occitan (post 1500)
 sh85012780	Bedik language	tnr	Bedik
-sh2003005680	Begak language	dbj	Ida'an
+sh2003005680	Begak language	dbj	Ida&apos;an
 sh85012920	Beja language	bej	Beja
 sh85012926	Bekwarra language	bkv	Bekwarra
 sh85018438	Belarusian language	bel	Belarusian
@@ -511,7 +511,7 @@ sh85024635	Chokwe language	cjk	Chokwe
 sh2001009622	Cholon language	cht	Cholón
 sh85025499	Chontaquiro language	cuj	Mashco Piro
 sh85024693	Chopi language	cce	Chopi
-sh85024760	Choroti language	crt	Iyojwa'ja Chorote
+sh85024760	Choroti language	crt	Iyojwa&apos;ja Chorote
 sh85024767	Chorti language	caa	Chortí
 sh85025002	Chrau language	crw	Chrau
 sh85025464	Chuave language	cjv	Chuave
@@ -561,7 +561,7 @@ sh85034824	Cupeño language	cup	Cupeño
 sh93009002	Curripaco language	kpc	Curripaco
 sh85035020	Cuyunon language	cyo	Cuyonon
 sh85035271	Czech language	ces	Czech
-sh91002765	Daa language	kzf	Da'a Kaili
+sh91002765	Daa language	kzf	Da&apos;a Kaili
 sh85035340	Daba language	dbq	Daba
 sh85035342	Dabida language	dav	Taita
 sh85035355	Dacian language	xdc	Dacian
@@ -596,7 +596,7 @@ sh2003003586	Dehawali language	vas	Vasavi
 sh85036489	Dehu language	dhv	Dehu
 sh85036550	Delaware language	del	Delaware
 sh87001050	Deli language	zlm	Malay (individual language)
-sh85132244	Dena'ina language	tfn	Tanaina
+sh85132244	Dena&apos;ina language	tfn	Tanaina
 sh85036693	Dendi language	ddn	Dendi (Benin)
 sh92006538	Dengese language	dez	Dengese
 sh85037117	Desana language	des	Desano
@@ -715,7 +715,7 @@ sh85047169	Fanti language	fat	Fanti
 sh85047334	Faroese language	fao	Faroese
 sh85047429	Fasu language	faa	Fasu
 sh94006579	Fataluku language	ddg	Fataluku
-sh85047678	Fe'fe' language	fmp	Fe'fe'
+sh85047678	Fe&apos;fe&apos; language	fmp	Fe&apos;fe&apos;
 sh88007021	Fiji Hindi language	hif	Fijian Hindustani
 sh85048183	Fijian language	fij	Fijian
 sh90002823	Filipino language	fil	Filipino
@@ -769,7 +769,7 @@ sh85053057	Garawa language	gbc	Garawa
 sh85053163	Garhwali language	gbm	Garhwali
 sh85053189	Garo language	grt	Garo
 sh85053374	Gascon language	oci	Occitan (post 1500)
-sh90004112	Gata' language	gaq	Gata'
+sh90004112	Gata&apos; language	gaq	Gata&apos;
 sh85053576	Gawigl language	ubu	Umbu-Ungu
 sh95002634	Gayardilt language	gyd	Kayardild
 sh85053584	Gayo language	gay	Gayo
@@ -842,7 +842,7 @@ sh85058034	Guyuk language	lnu	Longuda
 sh85058037	Gwa language (Ghana)	gwx	Gua
 sh85058039	Gwandara language	gwn	Gwandara
 sh93006309	Gwedena language	gdn	Umanakaina
-sh96003287	Gwich'in language	gwi	Gwich'in
+sh96003287	Gwich&apos;in language	gwi	Gwich&apos;in
 sh85058046	Gyarung language	jya	Jiarong
 sh00008826	Ha language	haq	Ha
 sh85058281	Haida language	hai	Haida
@@ -943,7 +943,7 @@ sh96010755	Inapari language	inp	Iñapari
 sh89004858	Inari Sami language	smn	Inari Sami
 sh85065767	Indonesian language	ind	Indonesian
 sh97004126	Indonesian Sign Language	inl	Indonesian Sign Language
-sh85066338	Ingalik language	ing	Degexit'an
+sh85066338	Ingalik language	ing	Degexit&apos;an
 sh85066340	Ingano language	inj	Jungle Inga
 sh85066342	Ingassana language	tbi	Gaam
 sh97004970	Ingilo language	kat	Georgian
@@ -1048,7 +1048,7 @@ sh85071331	Kalapuya language	kyl	Kalapuya
 sh94000377	Kalash language	kls	Kalasha
 sh87005970	Kalâtdlisut language	kal	Kalaallisut
 sh85071340	Kalenjin language	kln	Kalenjin
-sh85071351	Kalispel language	fla	Kalispel-Pend d'Oreille
+sh85071351	Kalispel language	fla	Kalispel-Pend d&apos;Oreille
 sh85071353	Kalkatungu language	ktg	Kalkutung
 sh85071365	Kalmyk language	xal	Kalmyk
 sh89004001	Kaluli language	bco	Kaluli
@@ -1154,7 +1154,7 @@ sh99013999	Khetrani language	xhe	Khetrani
 sh85072195	Khezha language	nkh	Khezha Naga
 sh85072199	Khinalugh language	kjj	Khinalugh
 sh87002872	Khitan language	zkt	Kitan
-sh85072208	Khmu' language	kjg	Khmu
+sh85072208	Khmu&apos; language	kjg	Khmu
 sh85072214	Khoikhoi language	xuu	Kxoe
 sh90004586	Khorezmian Turkic language	zkh	Khorezmian
 sh85072221	Khotanese language	kho	Khotanese
@@ -1207,7 +1207,7 @@ sh85072858	Kombe language	nui	Ngumbi
 sh87001276	Komering language	kge	Komering
 sh85072861	Komi language	kom	Komi
 sh85072863	Komi-Permyak language	koi	Komi-Permyak
-sh85072868	Komi-Yaz'va language	kpv	Komi-Zyrian
+sh85072868	Komi-Yaz&apos;va language	kpv	Komi-Zyrian
 sh93009490	Komo language (Congo)	kmw	Komo (Democratic Republic of Congo)
 sh89006659	Komodo language	kvh	Komodo
 sh93007629	Komunku language	snp	Siane
@@ -1272,7 +1272,7 @@ sh85073435	Kunama language	kun	Kunama
 sh85073444	Kunimaipa language	kup	Kunimaipa
 sh88000626	Kuo language	xuo	Kuo
 sh85073458	Kupia language	key	Kupia
-sh87007613	Kurada language	kud	'Auhelawa
+sh87007613	Kurada language	kud	&apos;Auhelawa
 sh91006169	Kuranko language	knk	Kuranko
 sh85073463	Kurdish language	kur	Kurdish
 sh85073471	Kuria language	kuj	Kuria
@@ -1284,7 +1284,7 @@ sh85073501	Kusaal language	kus	Kusaal
 sh85073496	Kusaie language	kos	Kosraean
 sh85073503	Kusunda language	kgg	Kusunda
 sh85073514	Kutenai language	kut	Kutenai
-sh88007010	Kuuku Ya'u language	kuy	Kuuku-Ya'u
+sh88007010	Kuuku Ya&apos;u language	kuy	Kuuku-Ya&apos;u
 sh85012070	Kuvakan language	bak	Bashkir
 sh85073521	Kuvi language	kxv	Kuvi
 sh85073533	Kwafi language	mas	Masai
@@ -1292,7 +1292,7 @@ sh85073536	Kwaio language	kwd	Kwaio
 sh85073542	Kwakiutl language	kwk	Kwakiutl
 sh96012120	Kwami language	ksq	Kwaami
 sh85073543	Kwangali language	kwn	Kwangali
-sh85048918	Kwara'ae language	kwf	Kwara'ae
+sh85048918	Kwara&apos;ae language	kwf	Kwara&apos;ae
 sh99014696	Kwatay language	cwt	Kuwaataay
 sh85073552	Kweni language	goa	Guro
 sh85073553	Kwerba language	kwe	Kwerba
@@ -1427,7 +1427,7 @@ sh85075939	Lyele language	gnh	Lere
 sh85079219	Ma language	grg	Madi
 sh96003836	Maa language (Southeastern Asia)	cma	Maa
 sh88006358	Maa language (Vietnam)	cma	Maa
-sh85079224	Maanyan language	mhy	Ma'anyan
+sh85079224	Maanyan language	mhy	Ma&apos;anyan
 sh85079229	Maba language	mde	Maba (Chad)
 sh85079231	Maban language	mfz	Mabaan
 sh85079236	Mabuiag language	mwp	Kala Lagaw Ya
@@ -1440,7 +1440,7 @@ sh85079486	Macuna language	myy	Macuna
 sh85079488	Macusi language	mbc	Macushi
 sh00007291	Mada language (Cameroon)	mxu	Mada (Cameroon)
 sh85079508	Madaglashti language	prs	Dari
-sh85079527	Ma'di language (Uganda and Sudan)	mhi	Ma'di
+sh85079527	Ma&apos;di language (Uganda and Sudan)	mhi	Ma&apos;di
 sh91005756	Madiya-Gondi language	mrr	Maria (India)
 sh85079555	Madurese language	mad	Madurese
 sh92000330	Mafa language	maf	Mafa
@@ -1460,7 +1460,7 @@ sh88000627	Maka language (Cameroon)	mcp	Makaa
 sh99005127	Makasai language	mkz	Makasae
 sh85079988	Makasar language	mak	Makasar
 sh85080000	Makonde language	kde	Makonde
-sh97006158	Maku'a language (Indonesia)	lva	Maku'a
+sh97006158	Maku&apos;a language (Indonesia)	lva	Maku&apos;a
 sh85080023	Malagasy language	mlg	Malagasy
 sh85080087	Malayalam language	mal	Malayalam
 sh2001012439	Male language (Ethiopia)	mdy	Male (Ethiopia)
@@ -1468,7 +1468,7 @@ sh2003003457	Malfaxal language	mlx	Malfaxal
 sh2003000182	Malgwa language	mfi	Wandala
 sh85080219	Maltese language	mlt	Maltese
 sh85080225	Malto language	mjt	Sauria Paharia
-sh85080228	Malu language (Solomon Islands)	mlu	To'abaita
+sh85080228	Malu language (Solomon Islands)	mlu	To&apos;abaita
 sh85080236	Malvi language	mup	Malvi
 sh85080247	Mamanwa language	mmn	Mamanwa
 sh85085641	Mamara language	myk	Mamara Senoufo
@@ -1548,7 +1548,7 @@ sh85082280	Maue language	mav	Sateré-Mawé
 sh85082295	Maung language	mph	Maung
 sh92000636	Mawasangka language	mnb	Muna
 sh98003426	Maxi language	mxl	Maxi Gbe
-sh95003311	Ma'ya language (Indonesia)	slz	Ma'ya
+sh95003311	Ma&apos;ya language (Indonesia)	slz	Ma&apos;ya
 sh85082432	Mayo language (Piman)	mfy	Mayo
 sh85082440	Mayoruna language	mcf	Matsés
 sh92004590	Mayoyao Ifugao language	ifu	Mayoyao Ifugao
@@ -1593,7 +1593,7 @@ sh98003618	Mi Gangam language	gng	Ngangam
 sh85084654	Miami language (Ind. and Okla.)	mia	Miami
 sh85084657	Mianmin language	mpt	Mian
 sh85084691	Michif language	crg	Michif
-sh85084718	Micmac language	mic	Mi'kmaq
+sh85084718	Micmac language	mic	Mi&apos;kmaq
 sh99013592	Midob language	mei	Midob
 sh85085062	Migili language	mgi	Lijili
 sh86004912	Miji language	sjl	Sajalong
@@ -1614,9 +1614,9 @@ sh85087476	Miskito language	miq	Mískito
 sh85086311	Mituku language	zmq	Mituku
 sh98001334	Miya language	mkf	Miya
 sh92005119	Miyemu language	mux	Bo-Ung
-sh2003003120	Mkaa' language	bqz	Bakaka
+sh2003003120	Mkaa&apos; language	bqz	Bakaka
 sh98003413	Mlabri language	mra	Mlabri
-sh85086358	Mo language (Côte d'Ivoire and Ghana)	mzw	Deg
+sh85086358	Mo language (Côte d&apos;Ivoire and Ghana)	mzw	Deg
 sh85086366	Moba language	mfq	Moba
 sh85086399	Mocha language	moy	Shekkacho
 sh87004817	Mochó language	mhc	Mocho
@@ -1756,7 +1756,7 @@ sh98004856	New Zealand Sign Language	nzs	New Zealand Sign Language
 sh85091532	Newari language	new	Newari
 sh85091650	Nez Percé language	nez	Nez Perce
 sh85091657	Ngaanyatjara language	ntj	Ngaanyatjarra
-sh85091658	Ngada language	nxg	Ngad'a
+sh85091658	Ngada language	nxg	Ngad&apos;a
 sh85091662	Ngadju language (Australia)	nju	Ngadjunmaya
 sh85091661	Ngaju language	nij	Ngaju
 sh85091664	Ngalakan language	nig	Ngalakan
@@ -1768,10 +1768,10 @@ sh92005150	Ngankikurungkurr language	nam	Nangikurrunggurr
 sh85091670	Ngarinyin language	ung	Ngarinyin
 sh2003010440	Ngarinyman language	nbj	Ngarinman
 sh85091671	Ngarluma language	nrl	Ngarluma
-sh94000075	Ngatik language	ngm	Ngatik Men's Creole
+sh94000075	Ngatik language	ngm	Ngatik Men&apos;s Creole
 sh92006054	Ngaun language	cnw	Ngawn Chin
 sh2002009530	Ngawun language	nxn	Ngawun
-sh85091676	Ngbaka ma'bo language	nbm	Ngbaka Ma'bo
+sh85091676	Ngbaka ma&apos;bo language	nbm	Ngbaka Ma&apos;bo
 sh2004003260	Ngemba language (Cameroon)	nge	Ngemba
 sh97000756	Ngiti language	niy	Ngiti
 sh85091682	Ngizim language	ngi	Ngizim
@@ -1794,7 +1794,7 @@ sh85091970	Nimboran language	nir	Nimboran
 sh85092008	Nipissing language	ojc	Central Ojibwa
 sh85092018	Nirere language	kib	Koalib
 sh85092022	Nisenan language	nsz	Nisenan
-sh85092031	Niska language	ncg	Nisga'a
+sh85092031	Niska language	ncg	Nisga&apos;a
 sh85092033	Nisqually language	lut	Lushootseed
 sh85092100	Niuean language	niu	Niuean
 sh95007186	Nkoya language	nka	Nkoya
@@ -1941,7 +1941,7 @@ sh85097279	Pamoa language	tav	Tatuyo
 sh95010211	Pamona language	pmf	Pamona
 sh85097283	Pampanga language	pam	Pampanga
 sh89003728	Panamint language	par	Panamint
-sh85097353	Panare language	pbh	E'ñapa Woromaipu
+sh85097353	Panare language	pbh	E&apos;ñapa Woromaipu
 sh85097359	Panayati language	mpx	Misima-Paneati
 sh85097431	Pangasinan language	pag	Pangasinan
 sh91002728	Pangutaran Sama language	slm	Pangutaran Sama
@@ -1998,7 +1998,7 @@ sh2002011288	Piaroa language	pid	Piaroa
 sh85102115	Pilaga language	plg	Pilagá
 sh00007215	Pileni language	piv	Pileni
 sh86004434	Pima Bajo language	pia	Pima Bajo
-sh85102174	Pima language	ood	Tohono O'odham
+sh85102174	Pima language	ood	Tohono O&apos;odham
 sh2004007041	Pinai-Hagahai language	pnn	Pinai-Hagahai
 sh94005378	Pingelap language	pif	Pingelapese
 sh85102281	Pintupi language	piu	Pintupi-Luritja
@@ -2095,7 +2095,7 @@ sh91004875	Runga language	rou	Runga
 sh85115971	Russian language	rus	Russian
 sh85116103	Rutul language	rut	Rutul
 sh85116105	Ruund language	rnd	Ruund
-sh85116157	Saa language	apb	Sa'a
+sh85116157	Saa language	apb	Sa&apos;a
 sh92000446	Saanich language	str	Straits Salish
 sh98000731	Sabaean language	xsa	Sabaean
 sh93002530	Sabaot language	spy	Sabaot
@@ -2185,7 +2185,7 @@ sh85120213	Serer language	srr	Serer
 sh85120224	Seri language	sei	Seri
 sh99005133	Seruyan language	kkx	Kohin
 sh85044987	Setu language	est	Estonian
-sh85120762	Sgaw Karen language	ksw	S'gaw Karen
+sh85120762	Sgaw Karen language	ksw	S&apos;gaw Karen
 sh85121089	Shambala language	ksb	Shambala
 sh85121100	Shan language	shn	Shan
 sh85121128	Sharanahua language	mcd	Sharanahua
@@ -2358,9 +2358,9 @@ sh85132468	Tarascan language	tsz	Purepecha
 sh2003001733	Tariana language	tae	Tariana
 sh2003003176	Tarok language	yer	Tarok
 sh85132738	Tat language	ttt	Muslim Tat
-sh96001668	Tatana' language	txx	Tatana
+sh96001668	Tatana&apos; language	txx	Tatana
 sh85132743	Tatar language	tat	Tatar
-sh92006042	Taungthu language	blk	Pa'o Karen
+sh92006042	Taungthu language	blk	Pa&apos;o Karen
 sh85132788	Taurepan language	aoc	Pemon
 sh85132794	Tausug language	tsg	Tausug
 sh90004283	Tauya language	tya	Tauya
@@ -2438,7 +2438,7 @@ sh85135754	Tobelo language	tlb	Tobelo
 sh85135761	Tobote language	bud	Ntcham
 sh85135774	Toda language (India)	tcx	Toda
 sh85135787	Tofa language	kim	Karagas
-sh85097547	Tohono O'Odham language	ood	Tohono O'odham
+sh85097547	Tohono O&apos;Odham language	ood	Tohono O&apos;odham
 sh85022480	Tojolabal language	toj	Tojolabal
 sh85135827	Tok Pisin language	tpi	Tok Pisin
 sh88000725	Tokelauan language	tkl	Tokelau
@@ -2457,8 +2457,8 @@ sh97006151	Tonsea language	txs	Tonsea
 sh85136035	Tontemboan language	tnt	Tontemboan
 sh85136055	Tooro language	ttj	Tooro
 sh85136093	Toposa language	toq	Toposa
-sh87000561	Toraja language	sda	Toraja-Sa'dan
-sh87000976	Toraja Sa'dan language	sda	Toraja-Sa'dan
+sh87000561	Toraja language	sda	Toraja-Sa&apos;dan
+sh87000976	Toraja Sa&apos;dan language	sda	Toraja-Sa&apos;dan
 sh85136114	Torgut language	xal	Kalmyk
 sh85136200	Torwali language	trw	Torwali
 sh85135573	Trio language	tri	Trió
@@ -2490,7 +2490,7 @@ sh85138638	Tunica language	tun	Tunica
 sh98003529	Tunni language	tqq	Tunni
 sh85138695	Tupi language	tpw	Tupí
 sh88000632	Tupuri language	tui	Tupuri
-sh85138704	Tura language	neb	Toura (Côte d'Ivoire)
+sh85138704	Tura language	neb	Toura (Côte d&apos;Ivoire)
 sh85138782	Turkana language	tuv	Turkana
 sh85138883	Turkish language	tur	Turkish
 sh85138907	Turkmen language	tuk	Turkmen
@@ -2517,7 +2517,7 @@ sh85139320	Uighur language	uig	Uighur
 sh92005029	Ukhrul language	nmf	Tangkhul Naga
 sh93002789	Uki language	bld	Bolango
 sh85139389	Ukrainian language	ukr	Ukrainian
-sh85139425	Ulawa language	apb	Sa'a
+sh85139425	Ulawa language	apb	Sa&apos;a
 sh88000341	Uldeme language	udl	Wuzlam
 sh85139435	Ulithi language	li	Ulithian
 sh90005525	Ulva language	sum	Sumo-Mayangna
@@ -2532,7 +2532,7 @@ sh85141247	Upper Sorbian language	hsb	Upper Sorbian
 sh87003144	Upper Tanana language	tau	Upper Tanana
 sh2001007851	Upper Tanudan Kalinga language	kgh	Upper Tanudan Kalinga
 sh2001004720	Ura language (Vanuatu)	uur	Ura (Vanuatu)
-sh87000355	Urak Lawoi' language	urk	Urak Lawoi'
+sh87000355	Urak Lawoi&apos; language	urk	Urak Lawoi&apos;
 sh96007771	Urali language	url	Urali
 sh85141297	Urarina language	ura	Urarina
 sh85141298	Urartian language	xur	Urartian
@@ -2582,7 +2582,7 @@ sh99000888	Wageman language	waq	Wageman
 sh85144812	Wahgi language	wgi	Wahgi
 sh98006664	Waigali language	wbk	Waigali
 sh85000945	Wailpi language	adt	Adnyamathanha
-sh2003004884	Waima'a language	wmh	Waima'a
+sh2003004884	Waima&apos;a language	wmh	Waima&apos;a
 sh85139227	Waiwai language	waw	Waiwai
 sh95007203	Waja language	wja	Waja
 sh2004007547	Wakawaka language	wkw	Wakawaka
@@ -2602,7 +2602,7 @@ sh85145078	Wandarang language	wnd	Wandarang
 sh85145084	Wanetsi language	wne	Waneci
 sh96007749	Wangganguru language	wgg	Wangganguru
 sh85145096	Wangkumara language (Galali)	nbx	Ngura
-sh87002436	Wan'guri language	dhg	Dhangu
+sh87002436	Wan&apos;guri language	dhg	Dhangu
 sh85145102	Wantoat language	wnc	Wantoat
 sh85145112	Wappo language	wao	Wappo
 sh85145173	War language	aml	War-Jaintia
