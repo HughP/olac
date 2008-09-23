@@ -562,7 +562,9 @@ local cataloging practices.
                 <xsl:with-param name="codes">ab</xsl:with-param>
             </xsl:call-template>
         </dc:publisher>
-        <!-- if “c”  precedes date (e.g. c1999) -->
+        <!-- if “c”  precedes date (e.g. c1999) 
+            JAS: also need to remove the "c" that is contained as the first character of the subfield content. 
+            Should this be handled as a Choose ?-->
         <xsl:if test="substring(marc:subfield[@code='c'],1,1) = 'c'">
             <dcterms:dateCopyrighted>
                 <xsl:call-template name="show-source">
@@ -590,7 +592,8 @@ local cataloging practices.
     </xsl:template>
 
 
-
+    
+    <!-- JAS: I think this can be skipped. We had tentatively concluded that we will not include Serials records. -->
     <xsl:template match="marc:datafield[@tag=310]">
         <dcterms:accrualPeriodicity>
             <xsl:call-template name="show-source">
@@ -630,7 +633,9 @@ local cataloging practices.
 
 
 
-    <!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules -->
+    <!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules 
+        JAS: I think we can select the Notes fields that interest us, and omit the remainder. 
+        So we should not need a generic 5xx match. -->
     <xsl:template match="marc:datafield[starts-with(@tag,'5')]" priority="0.5">
         <dc:description>
             <xsl:call-template name="show-source"/>
@@ -640,6 +645,7 @@ local cataloging practices.
 
     <!-- All 5xx templates much have a priority=1 so that it does not conflict with the above catch-all rule -->
 
+    <!-- JAS: no specific label with this tag. -->
     <xsl:template priority="1" match="marc:datafield[@tag='500']">
         <dc:description>
             <xsl:call-template name="show-source"/>
@@ -650,7 +656,7 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS:  label: Dissertation note: -->
     <xsl:template priority="1" match="marc:datafield[@tag='502']">
         <dc:description>
             <xsl:call-template name="show-source"/>
@@ -660,7 +666,7 @@ local cataloging practices.
 
 
 
-
+ 
     <xsl:template priority="1" match="marc:datafield[@tag='505']">
         <dcterms:tableOfContents>
             <xsl:call-template name="show-source"/>
@@ -671,7 +677,9 @@ local cataloging practices.
 
 
 
-    <!-- cjh Note: I skipped putting in logic for dcterms:accessRights because it seems too complicated and I'm not sure if it's worth it -->
+    <!-- cjh Note: I skipped putting in logic for dcterms:accessRights because it seems too complicated and 
+        I'm not sure if it's worth it 
+    JAS: agreed -->
     <xsl:template priority="1" match="marc:datafield[@tag='506']">
         <dc:rights>
             <xsl:call-template name="show-source">
@@ -692,7 +700,7 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS:  label: Data quality:  -->
     <xsl:template priority="1" match="marc:datafield[@tag='514']">
         <dc:description>
             <xsl:call-template name="show-source"/>
@@ -703,7 +711,7 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS:  label: Event details  -->
     <xsl:template priority="1" match="marc:datafield[@tag='518']">
         <dc:description>
             <xsl:call-template name="show-source"/>
@@ -712,7 +720,7 @@ local cataloging practices.
     </xsl:template>
 
 
-
+    <!-- JAS: Should this be testing whether @ind1='3' ? Indicator 2 is undefined -->
     <xsl:template priority="1"
         match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2='3']">
         <dcterms:abstract>
@@ -761,7 +769,10 @@ local cataloging practices.
 
 
     <!-- JAS: skip 530 -->
-    <!-- CJH: Question: Why skip this one? -->
+    <!-- CJH: Question: Why skip this one?
+        JAS: If there is a 530 and also a 776, which is preferred? See record example 28091 
+        In that record, the 776 actually contains more info desired,
+        where this note simply states the thing exists This could be very inconsistent among different libraries.-->
     <xsl:template priority="1" match="marc:datafield[@tag='530']">
         <dcterms:hasFormat>
             <xsl:call-template name="show-source"/>
@@ -796,6 +807,9 @@ local cataloging practices.
                 <xsl:with-param name="codes">a</xsl:with-param>
             </xsl:call-template>
         </dcterms:medium>
+        <!-- JAS: I wonder if dcterms:created is misleading here, as usually pertaining to when the intellectual
+            content is created (that is the usual OLAC interpretation, whereas this date relates to 
+            when the reproduction was made. There is no good refinement that fits this need. -->
         <dcterms:created>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">d</xsl:with-param>
@@ -808,7 +822,16 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS: considering the usual content of this field, dcterms:requires is probably not a good choice. Should be, but isn't
+        538 ##$aData in extended ASCII character set.  
+        538 ##$aWritten in FORTRAN H with 1.5K source program statements.  
+        538 ##$aSystem requirements: IBM 360 and 370; 9K bytes of internal memory; OS SVS and OSMVS.  
+        538 ##$aDisk characteristics: Disk is single sided, double density, soft sectored.  
+        538 ##$aVHS.  
+        538 ##$aMode of access: Electronic mail via Internet and BITNET; also available via FTP.  
+        538 ##$aMode of access: Internet.  
+        
+    Not sure what would be the best label, lacking a refinement term -->
     <xsl:template priority="1" match="marc:datafield[@tag='538']">
         <dcterms:requires>
             <xsl:call-template name="show-source"/>
@@ -830,7 +853,7 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS: skip -->
     <xsl:template priority="1" match="marc:datafield[@tag=541]">
         <dcterms:accrualMethod>
             <xsl:call-template name="show-source">
@@ -842,6 +865,7 @@ local cataloging practices.
 
 
 
+    <!-- JAS: there is no 542 -->
     <xsl:template priority="1" match="marc:datafield[@tag=542]">
         <dcterms:rightsHolder>
             <xsl:call-template name="show-source">
@@ -868,7 +892,8 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS: GIAL_Marc_590sample1.mrc contains a sample set of records that includes the patterns
+        found thus far with regard to use of 590. Probably need a Choose statement to get the options covered. -->
     <xsl:template priority="1" match="marc:datafield[@tag='590']">
         <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
             <dc:subject xsi:type="olac:language">
@@ -992,8 +1017,12 @@ local cataloging practices.
 
     <!-- JAS: subfields abx
     Subfield y in dcterms:temporal
-    subfield z in dcterms:spatial-->
-    <!-- cjh: Question?: does the LCSH content appear in a specific subfield?  I ask because we are selecting the entire tag in 650 for processing of linguistic-type but 650 also contains temporal and spatial information --> 
+    subfield z in dcterms:spatial
+    
+    JAS (change): Take the whole of 650 and retain all subfields in the Subject element, but then also generate a separate Coverage 
+        element (or refinement) for $y or $z -->
+    <!-- cjh: Question?: does the LCSH content appear in a specific subfield?  I ask because we are
+        selecting the entire tag in 650 for processing of linguistic-type but 650 also contains temporal and spatial information --> 
     <xsl:template match="marc:datafield[@tag='650']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
@@ -1036,7 +1065,8 @@ local cataloging practices.
 
 
 
-    <!-- TODO: Question? JAS: 651$a must be separated from 651$z, as these are usually two different jurisdictions. See note below regarding term source. Rank 3 -->
+    <!-- TODO: Question? JAS: 651$a must be separated from 651$z, as these are usually two 
+        different jurisdictions. See note below regarding term source. Rank 3 -->
     <xsl:template match="marc:datafield[@tag='651']">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
@@ -1219,7 +1249,14 @@ local cataloging practices.
 
 
 
-
+    <!-- JAS: 76x-78x $o is an identifier, but is not a URI type of identifier. 
+        Not worth separating out the $o subfield in these cases
+        GIAL has no instance of its use in this whole range of tags
+    -->
+    
+    <!-- JAS:  Why select only $nt ? If from the simple DC mapping, I think we can throw out the suggestion.
+        If I suggested, I cannot remember why. 
+        I'll agree that not all are helpful, so I suggest retaining abcdgjknpqstz in the order they appear in the record (not here) -->
     <xsl:template match="marc:datafield[@tag='760']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
@@ -1256,8 +1293,6 @@ local cataloging practices.
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
-
-
 
 
 
@@ -1368,7 +1403,7 @@ local cataloging practices.
     </xsl:template>
 
 
-
+   
     <xsl:template match="marc:datafield[@tag='786']">
         <dcterms:source xsi:type="dcterms:URI">
             <xsl:call-template name="show-source">
@@ -1421,7 +1456,17 @@ local cataloging practices.
 
 
 
-
+    <!-- The 856 may contain a reference to a digital form of the whole work, in which case Identifier is appropriate.
+        Or it may contain a description, table of contents, book review, etc. of the item, available in digital form.
+        The conventions used wrt this field may vary by library.
+        For GIAL, it is predictable that:
+        - If $3 is present, it is NOT the resource itself, but some description-like thing, and its content may be 
+        used to determine the kind of thing. However, the phrasing is not totally consistent, and may be better used as 
+        a label within a Description element (as discussed with the Notes and other description related MARC tags),
+        rather than attempting to use it to determine which refinement term could be used (e.g., tableOfContents).
+        - If $3 is not present, the $u subfield does link to a digital manifestation of the resource, 
+        and the $q is generally present.
+        -->
     <xsl:template match="marc:datafield[@tag=856]">
         <dcterms:format xsi:type="dcterms:IMT">
             <xsl:call-template name="show-source">
