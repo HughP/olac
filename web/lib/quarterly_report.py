@@ -18,15 +18,16 @@ You are receiving this email by virtue of your association with the following ar
 USAGE
 These are statistics on the usage of your metadata records by visitors to the OLAC site, for the period %(usagePeriodBeg)s to %(usagePeriodEnd)s.
 
-* %(hits)d page view%(pluralHits)s - records views on OLAC site
+* %(hits)d page view%(pluralHits)s - records viewed on OLAC site
 * %(clicks)d click-through%(pluralClicks)s - subsequent visits to your site
 
 
 QUALITY METRICS
-OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community). See http://www.language-archives.org/metrics/ for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:
+OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community and without known data integrity problems). See http://www.language-archives.org/metrics for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:
 
 Last Updated: %(lastUpdated)s
-Average Metadata Quality: %(starScore)d-star%(pluralStar)s (%(score).2f on a 10 point scale)
+Average Metadata Quality: %(score).2f (on a 10 point scale)
+Overall Rating: %(starScore)d-star%(pluralStar)s %(starDeduction)s
 
 %(feedbackOnUpdate)s
 
@@ -36,15 +37,18 @@ INTEGRITY PROBLEMS
 
 
 COLLECTION METRICS
-The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and %(numberOfArchives)d is lowest):
+The following list reports the current metrics for the size, coverage, and cataloging of your collection. The parenthetical note reports the rank of your repository in comparison to all participants (where 1 is highest and %(numberOfArchives)d is lowest):
 
 %(metricsTable)s
+
+For the full table of comparative archive metrics see:
+http://www.language-archives.org/metrics/compare
 
 
 ARCHIVE DESCRIPTION
 Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (%(adminEmail)s) if you spot anything that should be changed:
 
-http:/www.language-archives.org/archive/%(archiveId)s
+http://www.language-archives.org/archive/%(archiveId)s
 
 Thank you for your participation.
 
@@ -105,13 +109,13 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
     if d > 12.0 and score >= 9.0:
         feedback.append("The quality of your metadata is exemplary. Congratulations!")
     if score < 7.0:
-        feedback.append("Your average metadata quality could be improved.")
+        feedback.append("Your average metadata quality could be improved. Doing so will improve the quality of search that can be offered for your records.")
     if score >= 7.0 and score < 9.0:
         feedback.append("Your average metadata quality is good, but could still be improved.")
     if score < 9.0:
-        feedback.append("See the metadata quality analysys of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.\n\nhttp://www.language-archives.org/sample/%s" % archiveId)
+        feedback.append("See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.\n\nhttp://www.language-archives.org/sample/%s" % archiveId)
     if d > 12.0:
-        feedback.append("Note that it is more than one year since your metadata repository was last updated; please update your repository at your earliest convenience.")
+        feedback.append("Note that it is more than one year since your metadata repository was last updated. Even if your collection is static, you should verify the details in your <olac-archive> description and update the currentAsOf date. Please do so at your earliest convenience.")
     if d <= 12.0 and d > 9:
         feedback.append("Note that it will soon be one year since your metadata repository was last updated; please update it by %s." % addMonths(lastUpdated, 12))
 
@@ -152,17 +156,38 @@ def composeEmail(archiveId, metrics, usageh, usagec):
     starScore = int(score/2.0 + 0.5)
     # integrity_problems is a float number in the database, say p.w where
     # p is the number of errors and w, if positive, means existence of warnings
+    starDeduction = ""
     if int(row['integrity_problems']) > 0 and starScore > 0:
         starScore -= 1
+        starDeduction = "(with one-star deducted for integrity problems)"
     pluralStar = 's'
     if starScore == 1: pluralStar=''
 
     rowHits = usageh.findRow("repoid", archiveId)
     rowClicks = usagec.findRow("repoid", archiveId)
-    usagePeriodBeg = min(rowHits["start_date"], rowClicks["start_date"])
-    usagePeriodEnd = max(rowHits["end_date"], rowClicks["end_date"])
-    hits = rowHits["pageviews"]
-    clicks = rowClicks["pageviews"]
+    if rowHits:
+        if rowClicks:
+            usagePeriodBeg = min(rowHits["start_date"], rowClicks["start_date"])
+            usagePeriodEnd = max(rowHits["end_date"], rowClicks["end_date"])
+        else:
+            usagePeriodBeg = rowHits["start_date"]
+            usagePeriodEnd = rowHits["end_date"]
+    else:
+        if rowClicks:
+            usagePeriodBeg = rowClicks["start_date"]
+            usagePeriodEnd = rowClicks["end_date"]
+        else:
+            usagePeriodBeg = 'unknown'
+            usagePeriodEnd = 'unknown'
+
+    if rowHits:
+        hits = rowHits["pageviews"]
+    else:
+        hits = 0
+    if rowClicks:
+        clicks = rowClicks["pageviews"]
+    else:
+        clicks = 0
     pluralHits = "s"
     pluralClicks = "s"
     if hits == 1: pluralHits=""
@@ -174,6 +199,7 @@ def composeEmail(archiveId, metrics, usageh, usagec):
         "lastUpdated": lastUpdated,
         "score": score,
         "starScore": starScore,
+        "starDeduction": starDeduction,
         "pluralStar": pluralStar,
         "numberOfArchives": metrics.size(),
         "adminEmail": normalizeEmailAddress(row["AdminEmail"]),
@@ -190,18 +216,24 @@ def composeEmail(archiveId, metrics, usageh, usagec):
 
     return template % params
 
-def sendReport(msg, curatorName, curatorEmail, archiveId, isTest):
-    """
-    @param curatorName: curator name (ignored for now)
-    """
+def sendReport(msg, emails, bcc, archiveId, isTest):
     sender = "olac-admin@language-archives.org"
-    curatorEmail = normalizeEmailAddress(curatorEmail)
     subject = "Archive Report for %s" % archiveId
     if isTest: subject = "(testing) " + subject
-    msg = "From: %s\r\nTo: %s\r\nSubject: %s\r\n\r\n%s" % \
-          (sender, curatorEmail, subject, msg)
+    header = "From: %s\r\nTo: %s\r\nSubject: %s\r\n" % \
+             (sender, ", ".join(emails), subject)
+    msg = header + "\r\n" + msg
     server = smtplib.SMTP('mail.ldc.upenn.edu')
-    server.sendmail(sender, curatorEmail, msg)
+    server.helo()
+    server.docmd("MAIL FROM:<olac-admin@language-archives.org>")
+    for addr in emails:
+        server.docmd("RCPT TO:<%s>" % addr)
+    for addr in bcc:
+        server.docmd("RCPT TO:<%s>" % addr)
+    server.docmd("DATA")
+    server.docmd(msg + "\r\n.\r\n")
+    server.docmd("QUIT")
+    server.quit()
 
 
 class Table:
@@ -249,8 +281,30 @@ class Metrics(Table):
         cur = con.cursor(MySQLdb.cursors.DictCursor)
         cur.execute("select * from Metrics left join OLAC_ARCHIVE on Metrics.archive_id=OLAC_ARCHIVE.Archive_ID where Metrics.archive_id!=-1")
         self.table = cur.fetchall()
+        
+        cur.execute("select oa.RepositoryIdentifier, oa.AdminEmail, oa.CuratorEmail, ap.Email from OLAC_ARCHIVE oa left join ARCHIVE_PARTICIPANT ap on oa.Archive_ID=ap.Archive_ID")
+        h = {}
+        for row in cur.fetchall():
+            archiveid = row['RepositoryIdentifier']
+            if archiveid not in h:
+                h[archiveid] = {}
+            for i in ('AdminEmail','CuratorEmail','Email'):
+                email = row[i]
+                if email is not None and email.strip():
+                    h[archiveid][normalizeEmailAddress(email)] = 1
+        self._participants = {}
+        for k,h2 in h.items():
+            self._participants[k] = h2.keys()
+           
         cur.close()
         con.close()
+
+    def participants(self, archiveId):
+        if archiveId in self._participants:
+            return self._participants[archiveId]
+        else:
+            return []
+
 
 def previous_quarter():
     today = datetime.datetime.today()
@@ -308,6 +362,9 @@ usage: %prog -h
     op.add_option("-t", "--to", dest="receipient",
                   metavar="EMAIL",
                   help="specify receipient of reports; ignored unless -s option is used")
+    op.add_option("-b", "--bcc", dest="blindcc",
+                  metavar="EMAIL",
+                  help="specify bcc list; ignored in the absence of -s option")
     op.add_option("-s", "--send", dest="send",
                   action="store_true", default=False,
                   help="send reports; by default they are printed on screen")
@@ -334,9 +391,15 @@ usage: %prog -h
     usagec = GA('clicks')
 
     if opts.receipient:
-        receipient = opts.receipient
+        L = re.split(r"[,; ]+", opts.receipient)
+        receipient = [normalizeEmailAddress(x) for x in L]
     else:
         receipient = None   # the real curator email address is used
+    if opts.blindcc:
+        L = re.split(r"[,; ]+", opts.blindcc)
+        bcc = [normalizeEmailAddress(x) for x in L]
+    else:
+        bcc = None
     sendemail = opts.send
     
     for archiveId in archiveIds:
@@ -345,9 +408,11 @@ usage: %prog -h
             row = metrics.findRow('RepositoryIdentifier',archiveId)
             repoName = row["RepositoryName"]
             if receipient:
-                sendReport(msg, row['Curator'], receipient, repoName, True)
+                sendReport(msg, receipient, bcc, repoName, True)
             else:
-                sendReport(msg, row['Curator'], row['CuratorEmail'], repoName, False)
+                receipient = metrics.participants(archiveId)
+                if receipient:
+                    sendReport(msg, recipient, bcc, repoName, True)
         else:
             print "-" * 79
             print msg
