@@ -294,7 +294,7 @@ class Metrics(Table):
                     h[archiveid][normalizeEmailAddress(email)] = 1
         self._participants = {}
         for k,h2 in h.items():
-            self._participants[k] = h2.keys()
+            self._participants[k] = [x for x in h2.keys() if x.strip()]
            
         cur.close()
         con.close()
@@ -392,9 +392,9 @@ usage: %prog -h
 
     if opts.receipient:
         L = re.split(r"[,; ]+", opts.receipient)
-        receipient = [normalizeEmailAddress(x) for x in L]
+        test_receipient = [normalizeEmailAddress(x) for x in L]
     else:
-        receipient = None   # the real curator email address is used
+        test_receipient = None   # the real curator email address is used
     if opts.blindcc:
         L = re.split(r"[,; ]+", opts.blindcc)
         bcc = [normalizeEmailAddress(x) for x in L]
@@ -407,12 +407,12 @@ usage: %prog -h
         if sendemail:
             row = metrics.findRow('RepositoryIdentifier',archiveId)
             repoName = row["RepositoryName"]
-            if receipient:
-                sendReport(msg, receipient, bcc, repoName, True)
+            if test_receipient:
+                sendReport(msg, test_receipient, bcc, repoName, True)
             else:
                 receipient = metrics.participants(archiveId)
                 if receipient:
-                    sendReport(msg, recipient, bcc, repoName, True)
+                    sendReport(msg, receipient, bcc, repoName, True)
         else:
             print "-" * 79
             print msg
