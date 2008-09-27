@@ -84,7 +84,9 @@
           <dc:title>A grammar of Kayardild. With comparative notes on Tangkic.</dc:title>
           <dc:creator>Evans, Nicholas D.</dc:creator>
           <dc:subject>Kayardild grammar</dc:subject>
-          <dc:subject xsi:type="olac:language" olac:code="gyd"/>
+           <dc:subject xsi:type="olac:language" olac:code="gyd"/>
+           <dc:subject xsi:type="olac:linguistic-field" olac:code="syntax"/>
+           <dc:subject xsi:type="olac:discourse-type" olac:code="narrative"/>
           <dc:language xsi:type="olac:language" olac:code="eng"/>
           <dc:description>Kayardild Grammar (ISBN 3110127954)</dc:description>
           <dc:publisher>Berlin - Mouton de Gruyter</dc:publisher>
@@ -92,6 +94,8 @@
           <dc:format>hardcover, 837 pages</dc:format>
           <dc:relation>related to ISBN 0646119966</dc:relation>
           <dc:coverage>Australia</dc:coverage>
+           <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+           <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
         </olac:olac>
       </oai:metadata>
     </oai:record>
