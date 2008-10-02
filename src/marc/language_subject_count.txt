@@ -1,0 +1,5042 @@
+224	Language and languages.
+134	Language and languages--Study and teaching.
+120	English language--Study and teaching--Foreign speakers.
+78	Language and languages--Philosophy.
+78	Language acquisition.
+66	English language--Textbooks for foreign speakers.
+56	English language--Grammar.
+54	Second language acquisition.
+45	Greek language, Biblical--Grammar.
+45	English language--Syntax.
+44	English language--Study and teaching.
+43	Languages, Modern--Study and teaching.
+37	Bible.--N.T.--Language, style.
+35	Language and culture.
+35	English language--Rhetoric.
+35	Children--Language.
+35	African languages.
+33	Australian languages.
+31	English language--Intonation.
+29	English language--Grammar, Generative.
+29	Bible.--O.T.--Language, style.
+28	Indians of Mexico--Languages.
+28	English language--Verb.
+27	Hebrew language--Dictionaries--English.
+27	English language--Phonetics.
+26	Greek language, Biblical--Dictionaries--English.
+25	Hebrew language--Grammar.
+25	English language--Pronunciation.
+24	Language planning.
+24	Language and languages--Variation.
+24	Bantu languages.
+23	Philippine languages.
+23	Mon-Khmer languages.
+23	Languages in contact.
+23	Indians of North America--Languages.
+23	English language.
+23	English language--Semantics.
+23	English language--History.
+22	English language--Phonology.
+20	Body language.
+20	Austronesian languages.
+19	Language and languages--Periodicals.
+19	Bible--Language, style.
+18	English language--Rhetoric--Study and teaching.
+17	Pidgin languages.
+16	Language and languages--Political aspects.
+16	Indians of South America--Languages.
+15	Language and languages--Classification.
+15	English language--Sentences.
+15	English language--Accents and accentuation.
+14	Papuan languages.
+14	Language arts.
+14	English language--Discourse analysis.
+14	English language--Clauses.
+13	Thai language--Discourse analysis.
+13	Omotic languages--Ethiopia.
+13	Language and logic.
+13	Language and languages--Congresses.
+13	Language and languages--Ability testing.
+13	French language--Grammar.
+13	English language--Dictionaries.
+13	Bantu languages--Cameroon.
+13	African languages--Congresses.
+12	Tai languages.
+12	Malayan languages.
+12	Language policy.
+12	Language and languages--Style.
+12	Language and languages--Study and teaching--Congresses.
+12	Language and languages--Origin.
+12	Hebrew language--Discourse analysis.
+12	Greek language, Biblical--Glossaries, vocabularies, etc.
+12	English language--Synonyms and antonyms.
+12	Chinese language.
+11	Russian language--Grammar.
+11	Quechua language--Grammar.
+11	Natural language processing (Computer science)
+11	Language obsolescence.
+11	Language and languages--Statistics.
+11	English language--United States.
+11	Chinese language--Grammar.
+10	Russian language--Dictionaries--English.
+10	Hindi language--Grammar.
+10	Gur languages--Burkina Faso.
+10	Greek language, Biblical--Discourse analysis.
+10	German language--Dictionaries--English.
+10	French language--Phonetics.
+10	French language--Dictionaries--English.
+10	English language--Dialects--United States.
+10	Algonquian languages.
+9	Yoruba language--Grammar.
+9	Swahili language--Grammar.
+9	Spanish language--Grammar.
+9	Sanskrit language--Grammar.
+9	Russian language--Textbooks for foreign speakers--English.
+9	Oceanic languages.
+9	Melanesian languages.
+9	Language and languages--Dictionaries.
+9	Interlanguage (Language learning)
+9	Greek language, Biblical.
+9	English language--Tense.
+9	English language--Style.
+9	English language--Grammar--Problems, exercises, etc.
+9	English language--Etymology.
+9	English language--Composition and exercises.
+9	Chinese language--Dictionaries--English.
+9	Chadic languages--Cameroon.
+9	Benue-Congo languages--Cameroon.
+9	Arabic language--Grammar.
+8	Tok Pisin language.
+8	Sign language.
+8	Russian language--Study and teaching.
+8	Papua New Guinea--Languages.
+8	Language surveys.
+8	Language and languages--Religious aspects.
+8	Language and languages--Orthography and spelling.
+8	Indo-European languages.
+8	Hebrew language--Verb.
+8	Greek language, Biblical--Syntax.
+8	Greek language--Grammar.
+8	English language--Study and teaching--Japanese speakers.
+8	English language--Orthography and spelling.
+8	English language--Idioms.
+8	English language--Etymology--Dictionaries.
+8	Akkadian language--Grammar.
+7	Tibeto-Burman languages.
+7	Spanish language--Phonology.
+7	Spanish language--Phonetics.
+7	Sino-Tibetan languages.
+7	Portuguese language--Dictionaries--English.
+7	Nahuatl language--Grammar.
+7	Language and languages--Study and teaching--Psychological aspects.
+7	Language and languages--Sex differences.
+7	Language and languages--Bibliography.
+7	Language and education.
+7	Indians--Languages.
+7	Hokan languages--Congresses.
+7	Gur languages.
+7	German language--Grammar.
+7	English language--Noun phrase.
+7	English language--Grammar, Historical.
+7	English language--Dictionaries--Chinese.
+7	English language--Dialects.
+7	English language--Composition and exercises--Study and teaching.
+7	Chadic languages.
+7	Arabic language--Phonology.
+6	Twi language--Grammar.
+6	Tagalog language--Grammar.
+6	Standard language.
+6	Spanish language--Verb.
+6	Spanish language--Readers.
+6	Spanish language--Dictionaries--English.
+6	Reading (Elementary)--Language experience approach.
+6	Philippine languages--Discourse analysis.
+6	Mayan languages--Writing.
+6	Mande languages--Burkina Faso.
+6	Languages, Mixed.
+6	Language and languages--Variation--Congresses.
+6	Language and languages--Religious aspects--Christianity.
+6	Language and languages--Phonetic transcriptions.
+6	Language and languages--Ability testing--Congresses.
+6	Kwa languages--Benin.
+6	Korean language.
+6	Japanese language.
+6	Japanese language--Phonology.
+6	Japanese language--Grammar.
+6	Hebrew language--Syntax.
+6	German language--Readers.
+6	French language--Textbooks for foreign speakers--English.
+6	English language--Usage.
+6	English language--Phonemics.
+6	Choctaw language--Grammar.
+6	Chinese language--Discourse analysis.
+6	Chamic languages.
+6	Austronesian languages--Congresses.
+6	Athapascan languages.
+6	Aboriginal Australians--Languages--Bibliography.
+5	Thai language--Grammar.
+5	Syriac language--Grammar.
+5	Spanish language.
+5	Semitic languages--Grammar, Comparative.
+5	Russian language--Textbooks for foreign speakers.
+5	Romance languages.
+5	Quechua language--Textbooks for foreign speakers--Spanish.
+5	Philippine languages--Bibliography.
+5	Panoan languages.
+5	Native language and education.
+5	Latin language--Grammar.
+5	Languages, Modern--Study and teaching--United States.
+5	Language planning--Congresses.
+5	Language experience approach in education--United States.
+5	Language arts (Elementary)
+5	Language and languages--Study and teaching--Social aspects.
+5	Language and languages--Computer-assisted instruction.
+5	Language and languages--Collections.
+5	Language acquisition--Congresses.
+5	Kwa languages.
+5	Kongo language--Dictionaries--French.
+5	Italian language--Dictionaries--English.
+5	Indonesian language--Grammar.
+5	Indians of South America--Brazil--Languages.
+5	Indians of Central America--Languages.
+5	Hebrew language--Self-instruction.
+5	Hausa language.
+5	Gur languages--Ghana.
+5	German language.
+5	German language--Phonetics.
+5	French language.
+5	French language--Grammar--1870-
+5	Finnish language.
+5	Ewondo language.
+5	English language--Verb phrase.
+5	English language--Textbooks for foreign speakers--Spanish.
+5	English language--Terms and phrases.
+5	English language--Lexicography.
+5	English language--Grammar, Generative--Problems, exercises, etc.
+5	English language--Data processing.
+5	English language--Consonants.
+5	English language--Auxiliary verbs.
+5	English language--Adverb.
+5	Dravidian languages.
+5	Cushitic languages--Ethiopia.
+5	Chinese language--Tone.
+5	Chinese language--Readers.
+5	Chinese language--Phonology.
+5	Chinese language--Dictionaries.
+5	Caucasian languages.
+5	Brazil--Languages.
+5	Bantu languages--Tone.
+5	Austronesian languages--Phonology.
+5	Arawakan languages.
+5	Aramaic language--Grammar.
+5	Arabic language--Dialects--Egypt.
+5	African languages--Phonology.
+5	African languages--Grammar, Comparative.
+5	Aboriginal Australians--Languages.
+4	Zulu language--Grammar.
+4	Zapotec language--Grammar.
+4	Women--Language.
+4	Wolof language.
+4	Walbiri language--Grammar.
+4	Vietnamese language--Phonology.
+4	Vietnamese language--Grammar.
+4	Vietnamese language--Conversation and phrase books.
+4	Ugaritic language--Texts.
+4	Twi language--Readers.
+4	Tura language--Discourse analysis.
+4	Tucanoan languages.
+4	Tibetan language--Grammar.
+4	Thai language.
+4	Thai language--Dictionaries--English.
+4	Sranan language.
+4	Spanish language--Syntax.
+4	Spanish language--Pronunciation.
+4	Space and time in language.
+4	Slavic languages.
+4	Shona language--Grammar.
+4	Serbo-Croatian language--Grammar, Comparative--English.
+4	Russian language--Verb.
+4	Russian language--Syntax.
+4	Romanian language--Phonology.
+4	Romance languages--Congresses.
+4	Rarotongan language--Cook Islands.
+4	Portuguese language--Grammar.
+4	Papuan languages--Classification.
+4	Nilo-Saharan languages--Ethiopia.
+4	Navajo language.
+4	Native language.
+4	Mooré language--Grammar.
+4	Mixtec language--Dictionaries--Spanish.
+4	Mande languages.
+4	Latin language--Dictionaries--English.
+4	Language surveys--Guatemala.
+4	Language and languages--Psychology.
+4	Language and languages--Indexes.
+4	Language and languages--Examinations.
+4	Kwa languages--Ghana.
+4	Kongo language--Grammar.
+4	Kabiye language--Tone.
+4	Japanese language--Discourse analysis.
+4	Ingano language.
+4	Indonesia--Languages.
+4	Indo-European languages--Phonology.
+4	Indians of South America--Colombia--Languages.
+4	Indians of South America--Colombia--Languages--Bibliography.
+4	Indians of South America--Bolivia--Languages.
+4	Hindi language--Dictionaries--English.
+4	Hebrew language.
+4	Hebrew language--Study and teaching.
+4	Greek language, Biblical--Terms and phrases.
+4	Greek language, Biblical--Semantics.
+4	Greek language--Dictionaries--English.
+4	Gothic language--Grammar.
+4	German language--Syntax.
+4	German language--Conversation and phrase books.
+4	Gaddang language--Discourse analysis.
+4	French language--Pronunciation.
+4	Extinct languages.
+4	Estonian language--Phonology.
+4	English language--Word formation.
+4	English language--Usage--Dictionaries.
+4	English language--Topic and comment.
+4	English language--Syllabication.
+4	English language--Rhythm.
+4	English language--Rhetoric--Handbooks, manuals, etc.
+4	English language--Pronoun.
+4	English language--Prepositions.
+4	English language--Paragraphs.
+4	English language--Noun.
+4	English language--Grammar--Study and teaching.
+4	English language--Dictionaries--Japanese.
+4	English language--Comparative clauses.
+4	English language--Adverbials.
+4	Endangered languages.
+4	Chinese language--Syntax.
+4	Cheyenne language--Grammar.
+4	Cebuano language.
+4	Burmese language.
+4	Benue-Congo languages--Nigeria.
+4	Bengali language--Dictionaries--English.
+4	Basa language.
+4	Australian languages--Phonology.
+4	Asia, Southeastern--Languages.
+4	Arawak language.
+4	Altai language--Dialects.
+4	Afroasiatic languages.
+4	African languages--Periodicals.
+3	Zoque language--Dictionaries--Spanish.
+3	Votic language--Word study.
+3	Vietnamese language--Spoken Vietnamese.
+3	Vietnamese language--Classifiers.
+3	Ugaritic language--Grammar.
+3	Tzotzil language--Dictionaries--Spanish.
+3	Turkic languages.
+3	Tlapanec language--Grammar.
+3	Tibetan language.
+3	Thai language--Tone.
+3	Thai language--Spoken Thai.
+3	Thai language--Phonetics.
+3	Tay-Nung language.
+3	Tamil language--Grammar.
+3	Tagalog language--Verb.
+3	Tagalog language--Phonology.
+3	Swahili language.
+3	Swahili language--Texts.
+3	Swahili language--Discourse analysis.
+3	Spanish language--Verbs.
+3	Spanish language--Textbooks for foreign speakers--English.
+3	Slavic languages--History.
+3	Serbo-Croatian language--Accents and accentuation.
+3	Senari language--Phonology.
+3	Semitic languages.
+3	Second language acquisition--Congresses.
+3	Sanskrit language--Phonology.
+3	Sanskrit language--Phonetics.
+3	Sango language (Ubangi Creole)--Grammar.
+3	Russian language--Phonology.
+3	Reading (Primary)--Language experience approach.
+3	Quiché language--Grammar.
+3	Quechua language.
+3	Quechua language--Texts.
+3	Quechua language--Relative clauses.
+3	Quechua language--Phonology.
+3	Quechua language--Dictionaries--Spanish.
+3	Quechua language--Dialects.
+3	Quechua language--Dialects--Bolivia.
+3	Proto-Oceanic language.
+3	Proto-Indo-European language.
+3	Programming languages (Electronic computers)
+3	Phoenician language--Grammar.
+3	Otomanguean languages--Phonology.
+3	Oriental languages.
+3	Nonsexist language--Religious aspects--Christianity.
+3	Navajo language--Grammar.
+3	Native language and education--Papua New Guinea.
+3	Nahuatl language--Dialects.
+3	Nahuatl language--Dialects--Vera Cruz (State)
+3	Mixtec language--Tone.
+3	Mixtec language--Texts.
+3	Miwok languages.
+3	Micronesian languages.
+3	Mende language--Grammar.
+3	Maya language.
+3	Malay language--Discourse analysis.
+3	Malay language--Dictionaries--English.
+3	Lingala language--Study and teaching.
+3	Latin language--Syntax.
+3	Languages, modern--Study and teaching.
+3	Languages, Modern--Study and teaching--Bibliography.
+3	Languages, Modern--Examinations.
+3	Languages, Modern--Bibliography.
+3	Languages in contact--Papua New Guinea--New Ireland Province.
+3	Languages in contact--Australia.
+3	Language spread.
+3	Language policy--United States.
+3	Language obsolescence--Congresses.
+3	Language maintenance--Papua New Guinea.
+3	Language laboratories.
+3	Language experience approach in education.
+3	Language awareness in children.
+3	Language attrition.
+3	Language arts--United States.
+3	Language and languages--Word frequency.
+3	Language and languages--Study and teaching--Error analysis.
+3	Language and languages--Study and teaching--Bilingual method.
+3	Language and languages--Physiological aspects.
+3	Language and languages--Philosophy--Congresses.
+3	Language and languages--Fiction.
+3	Language and languages--Examinations--Congresses.
+3	Kutenai language--Canada.
+3	Korean language--Grammar.
+3	Korean language--Discourse analysis.
+3	Korean language--Clauses.
+3	Kimbundu language--Grammar.
+3	Kewa language.
+3	Kewa language--Grammar.
+3	Kanuri language--Grammar.
+3	Kachin language.
+3	Javanese language--Grammar.
+3	Japanese language--Verb.
+3	Indonesian language--Textbooks for foreign speakers--English.
+3	Indonesian language--Self-instruction.
+3	Indo-European languages--Grammar, Comparative.
+3	Indo-Aryan languages.
+3	Indians of South America--Languages--Peru--Bibliography.
+3	Indians of South America--Languages--Colombia.
+3	Indians of South America--Ecuador--Languages.
+3	Indians of North America--California--Languages.
+3	Indians--Languages--Bibliography.
+3	Hungarian language--Phonology.
+3	Huao language--Grammar.
+3	Hebrew language--History.
+3	Hebrew language--Glossaries, vocabularies, etc.
+3	Guarani language.
+3	Greek language, Biblical--Vocabulary.
+3	Greek language, Biblical--Verb.
+3	Greek language, Biblical--Study and teaching.
+3	Greek language, Biblical--Dictionaries.
+3	Greek language--Study and teaching.
+3	Goajiro language--Grammar.
+3	German language--Self-instruction.
+3	German language--Phonology.
+3	German language--Dialects.
+3	Gbaya language.
+3	Fula language.
+3	French language--Verb.
+3	French language--Verb--Tables.
+3	French language--Syntax.
+3	French language--Readers.
+3	French language--Phonology.
+3	French language--Grammar, Generative.
+3	French language--Conversation and phrase books.
+3	French language--Conversation and phrase books--English.
+3	Finno-Ugric languages.
+3	Fijian language--Grammar.
+3	Ethiopic language--Grammar.
+3	Estonian language--Phonetics.
+3	English language--Verbs.
+3	English language--Variation.
+3	English language--United States--Intonation.
+3	English language--Study and teaching (Higher)
+3	English language--Study and teaching--Foreign speakers--Congresses.
+3	English language--Punctuation.
+3	English language--Morphology.
+3	English language--Interrogative.
+3	English language--Dictionaries, Juvenile.
+3	English language--Dictionaries--Vietnamese.
+3	English language--Dictionaries--Portuguese.
+3	English language--Dictionaries--Korean.
+3	English language--Dictionaries--Hebrew.
+3	English language--Dialects--Australia.
+3	English language--Conversation and phrase books.
+3	English language--Article.
+3	Egyptian language--Writing, Hieroglyphic.
+3	Egyptian language--Grammar.
+3	Dong language (China)
+3	Djirbal language.
+3	Danish language--Phonetics.
+3	Coptic language--Grammar.
+3	Chontal language.
+3	Chinese language--Dialects.
+3	Chinantecan languages--Grammar.
+3	Children--Language--Congresses.
+3	Children--Language--Bibliography.
+3	Cham language.
+3	Cariban languages.
+3	Carib language.
+3	Biblical languages--Hebrew.
+3	Biblical languages--Hebrew--Verb.
+3	Bible.--N.T.--John--Language, style.
+3	Bible.--N.T.--Gospels--Language, style.
+3	Bengali language--Grammar.
+3	Bantu languages--Phonology.
+3	Bantu languages--Noun.
+3	Bantu languages--Grammar, Comparative.
+3	Bantu languages--Classification.
+3	Bambara language--Grammar.
+3	Austroasiatic languages.
+3	Australian languages--Grammar.
+3	Australian languages--Australia--Queensland.
+3	Arabic language--Textbooks for foreign speakers--English.
+3	Arabic language--Phonetics.
+3	Arabic language--Dialects.
+3	Amharic language--Grammar.
+3	American Sign Language.
+3	Altaic languages.
+3	African languages--Tone.
+3	African languages--Phonetics.
+2	Zuni language--Dictionaries.
+2	Zulu language--Textbooks for foreign speakers--English.
+2	Zhuang language.
+2	Zapotec language.
+2	Zapotec language--Discourse analysis.
+2	Zapotec language--Dictionaries--Spanish.
+2	Yurok language.
+2	Yuman languages--Phonology.
+2	Yui language--Grammar.
+2	Yiddish language.
+2	Yi language--Dictionaries--Chinese.
+2	Yi language--China--Liang-shan I tsu tzu chih chou.
+2	Yavapai language--Syntax.
+2	Yagua language--Grammar.
+2	Wolof language--Dictionaries--English.
+2	Wobe language--Côte d'Ivoire--Tone.
+2	Wik-Munkan language--Discourse analysis.
+2	Votic language.
+2	Vietnamese language.
+2	Vietnamese language--Verb phrase.
+2	Vietnamese language--Study and teaching.
+2	Vietnamese language--Pronunciation.
+2	Vietnamese language--Dictionaries--English.
+2	Vietnamese language--Clauses.
+2	Uto-Aztecan languages.
+2	Uto-Aztecan languages--Grammar.
+2	Usarufa language--Phonology.
+2	Usarufa language--Grammar.
+2	University of California, Los Angeles--Language (New words, slang, etc.)--Dictionaries.
+2	Una language--Grammar.
+2	Ukrainian language--Grammar.
+2	Ugaritic language.
+2	Tzutuhil language--Verb.
+2	Tzotzil language--Dictionaries--English.
+2	Tzeltal language--Dictionaries--Spanish.
+2	Turkish language--Study and teaching.
+2	Tunebo language--Grammar.
+2	Tsonga language--Dictionaries--Portuguese.
+2	Tsimshian language--Grammar.
+2	Tsaiwa language--Phonology.
+2	Totonac language--Dictionaries--Spanish.
+2	Toposa language--Word order.
+2	Tonkawa language.
+2	Tonga language (Zambesi)--Grammar.
+2	Tolaki language.
+2	Tok Pisin language--Vocabulary.
+2	Tok Pisin language--Texts.
+2	Tok Pisin language--Grammar.
+2	Tok Pisin language--Congresses.
+2	Tobote language--Phonology.
+2	Tibeto-Burman languages--Phonology.
+2	Tibeto-Burman languages--Nepal.
+2	Tibeto-Burman languages--Grammar, Comparative.
+2	Tibeto-Burman languages--Congresses.
+2	Tibetan language--Dictionaries.
+2	Thailand--Languages.
+2	Thai language--Verbs.
+2	Thai language--Sentences.
+2	Thai language--Semantics.
+2	Thai language--Phonology.
+2	Thai language--Accents and accentuation.
+2	Terena language.
+2	Tepehuan language--Grammar.
+2	Tenetehara language--Grammar.
+2	Temne language--Grammar.
+2	Telefol language--Syntax.
+2	Tectiteco language--Grammar.
+2	Tausug language--Dictionaries--English.
+2	Tarahumara language--Grammar.
+2	Tamil language--Discourse analysis.
+2	Tamil language--Dialects.
+2	Tai languages--Phonology.
+2	Tai languages--Dialects--Glossaries, vocabularies, etc.
+2	Tagalog language--Textbooks for foreign speakers--English.
+2	Tagalog language--Study and teaching.
+2	Tagalog language--Grammar, Generative.
+2	Tagalog language--Foreign words and phrases--Chinese.
+2	Tagalog language--Dictionaries--English.
+2	Tacana language (Bolivia)--Dictionaries--Spanish.
+2	Swedish language--Phonology.
+2	Swahili language--History.
+2	Susu language.
+2	Sublanguage.
+2	Sublanguage--Congresses.
+2	Spanish language--Provincialisms--Latin America.
+2	Spanish language--Provincialisms--Colombia.
+2	Spanish language--Provincialisms--Argentina.
+2	Spanish language--Grammar--1870-
+2	Spanish language--Foreign elements.
+2	Spanish language--Etymology.
+2	Spanish language--Dictionaries.
+2	Spanish language--Dictionaries--Zapotec.
+2	Spanish language--Dictionaries--Quechua.
+2	Spanish language--Dialects.
+2	Spanish language--Dialects--Southwestern States.
+2	Spanish language--Dialects--Argentina.
+2	Spanish language--Adjective.
+2	Somali language--Phonetics.
+2	Sissala language--Phonology.
+2	Siriano language.
+2	Sino-Tibetan languages--Congresses.
+2	Siksika language.
+2	Siksika language--Grammar, Generative.
+2	Sierra Popoluca language.
+2	Sierra Popoluca language--Dictionaries--Spanish.
+2	Shuar language--Grammar.
+2	Seri language--Mexico.
+2	Seri language--Grammar.
+2	Serbo-Croatian language.
+2	Serbo-Croatian language--Conversation and phrase books.
+2	Semitic languages--Ethiopia.
+2	Second language acquisition--Statistical methods.
+2	Second language acquisition--Research.
+2	Second language acquisition--Research--Methodology.
+2	Scottish Gaelic language--Grammar.
+2	Sara languages.
+2	Sango language (Ubangi Creole)
+2	Samoan language--Self-instruction.
+2	Samoan language--Grammar.
+2	Saliva language--Grammar.
+2	Salishan languages--Congresses.
+2	Salar language.
+2	Russian language--Words--History.
+2	Russian language--Spoken Russian.
+2	Russian language--Readers.
+2	Russian language--Negatives.
+2	Russian language--Grammar--Outlines, syllabi, etc.
+2	Russian language--Etymology.
+2	Russian language--Conversation and phrase books.
+2	Russian language--Conversation and phrase books--English.
+2	Russian language--Accents and accentuation.
+2	Romanian language--Grammar, Comparative--English.
+2	Romance languages--Phonology.
+2	Quichean languages--Phonology.
+2	Quiché language.
+2	Quechua language--Orthography and spelling.
+2	Quechua language--Dictionaries--English.
+2	Quechua language--Dialects--Peru--Huánuco (Dept.)
+2	Quechua language--Dialects--Ecuador.
+2	Proto-Hmong language--Phonology.
+2	Proto-Austronesian language.
+2	Portuguese language.
+2	Polish language--Grammar.
+2	Pintupi language.
+2	Philippine languages--Glossaries, vocabularies, etc.
+2	Papuan languages--Phonology.
+2	Papuan languages--Glossaries, vocabularies, etc.
+2	Panjabi language--Grammar.
+2	Pangutaran Sama language--Verb.
+2	Pali language--Grammar.
+2	Otomanguean languages.
+2	Oriya language--Self-instruction.
+2	Oceanic languages--Social aspects.
+2	Obolo language--Grammar.
+2	Norwegian language--Modality.
+2	Northern Thai language--Discourse analysis.
+2	Nomatsiguenga language.
+2	Nimboran language.
+2	Nilotic languages.
+2	Nilo-Saharan languages.
+2	Niger-Congo languages.
+2	New Guinea--Languages.
+2	Nepali language--Spoken Nepali.
+2	Nepali language--Grammar.
+2	Naxi language.
+2	Nawdm language--Phonology.
+2	Navajo language--Texts.
+2	Navajo language--Statistics.
+2	Navajo language--Dictionaries--English.
+2	Native language and education--Case studies.
+2	Native language and education--Africa.
+2	Nanai language--Grammar.
+2	Nambicuara language--Phonetics--Brazil.
+2	Nahuatl language.
+2	Myene language.
+2	Muskogean languages.
+2	Mooré language--Orthography and spelling.
+2	Mongolian language.
+2	Mongo-Nkundu language--Grammar.
+2	Mon-Khmer languages--Phonology.
+2	Mohawk language.
+2	Mixtec language.
+2	Mixtec language--Phonology--Mexico.
+2	Mixtec language--Mexico.
+2	Mixtec language--Grammar.
+2	Mixe language.
+2	Mixe language--Dictionaries--Spanish.
+2	Minorities--China--Language.
+2	Mexico--Languages.
+2	Mayan languages.
+2	Mayan languages--Texts.
+2	Mass media and language.
+2	Maranao language--Verb.
+2	Manobo languages.
+2	Mande languages--Mali.
+2	Manam language--Grammar.
+2	Mamanwa language.
+2	Mamanwa language--Grammar.
+2	Mam language--Grammar.
+2	Malayalam language--Self-instruction.
+2	Malay language--Dialects.
+2	Malay language--Dialects--Indonesia--Jakarta--Grammar.
+2	Lunda language.
+2	Lugbara language.
+2	Luba language--Dictionaries--French.
+2	Loloish languages.
+2	Livonian language--Phonology.
+2	Lisu language--Syntax.
+2	Lingala language.
+2	Li language.
+2	Latin language--Verb.
+2	Latin language--Grammar--Problems, exercises, etc.
+2	Latin language--Grammar--Congresses.
+2	Lao language--Spoken Lao.
+2	Languages, Modern.
+2	Languages, Modern--Word order.
+2	Languages, Modern--Self-instruction.
+2	Languages, Modern--Mutual intelligibility.
+2	Language transfer (Language learning)
+2	Language surveys--Tanzania.
+2	Language surveys--Papua New Guinea.
+2	Language spread--Congresses.
+2	Language revival.
+2	Language purism.
+2	Language policy--Soviet Union.
+2	Language planning--Philippines.
+2	Language maintenance--Congresses.
+2	Language awareness.
+2	Language arts--Ability testing.
+2	Language and languages--Study and teaching--United States.
+2	Language and languages--Study and teaching--Research.
+2	Language and languages--Study and teaching--History--Congresses.
+2	Language and languages--Study and teaching--Evaluation.
+2	Language and languages--Study and teaching--Bibliography.
+2	Language and languages--Programmed instruction.
+2	Language and languages--Orthography and spelling--Congresses.
+2	Language and languages--Grammar.
+2	Language and languages--Encyclopedias.
+2	Language and languages--Economic aspects.
+2	Language and languages--Bibliography--Periodicals.
+2	Language and culture--Congresses.
+2	Language acquisition--Age factors.
+2	Lahu language--Grammar.
+2	Kwakiutl language--Grammar.
+2	Kwa languages--Verb.
+2	Kwa languages--Togo.
+2	Kwa languages--Côte d'Ivoire.
+2	Kutenai language--Grammar.
+2	Kuku-Yalanji language--Grammar.
+2	Kru language.
+2	Korean language--Syntax.
+2	Koiari language--Dictionaries--English.
+2	Kobon language.
+2	Kobon language--Phonology.
+2	Koasati language--Switch-reference.
+2	Kiowa language.
+2	Kiowa language--Grammar.
+2	Kinyarwanda language--Dictionaries--English.
+2	Kikuyu language--Grammar.
+2	Khyang language.
+2	Khmu' language.
+2	Khaling language--Grammar.
+2	Kewa language--Papua New Guinea.
+2	Karitiana language.
+2	Karen language.
+2	Kapau language--Grammar.
+2	Kannada language--Spoken Kannada.
+2	Kankanay language--Philippines.
+2	Kalagan language--Grammar.
+2	Kaingang language.
+2	Japanese language--Syntax.
+2	Japanese language--Spoken Japanese.
+2	Japanese language--Readers.
+2	Japanese language--Phonemics.
+2	Japanese language--Grammar, Generative.
+2	Japanese language--Conversation and phrase books.
+2	Japanese language--Accents and accentuation.
+2	Italian language--Phonetics.
+2	Italian language--Etymology.
+2	Indonesian language--Texts.
+2	Indonesian language--Roots.
+2	Indonesian language--Dictionaries--English.
+2	Indonesian language--Conversation and phrase books--English.
+2	Indo-European languages--Syntax.
+2	Indo-European languages--Synonyms and antonyms--Dictionaries.
+2	Indo-Aryan languages, Modern.
+2	Indo-Aryan languages--Grammar.
+2	Indo-Aryan languages--Congresses.
+2	Indians of South America--Peru--Languages--Classification.
+2	Indians of South America--Languages--Peru.
+2	Indians of South America--Languages--Ecuador.
+2	Indians of South America--Languages--Classification.
+2	Indians of South America--Languages--Brazil.
+2	Indians of North America--Southwestern States--Languages.
+2	Indians of North America--Languages--Congresses.
+2	Indians of Central America--Languages--Bibliography.
+2	Indians--Languages--Congresses.
+2	Iloko language--Study and teaching.
+2	Igbo language.
+2	Igbo language--Grammar.
+2	Hungarian language.
+2	Hungarian language--Syntax.
+2	Hungarian language--Conversation and phrase books--English.
+2	Huichol language--Syntax.
+2	Huave language.
+2	Huastec language.
+2	Hixkaryana language.
+2	Hixkaryana language--Syntax.
+2	Hixkaryana language--Brazil.
+2	Hittite language.
+2	Hittite language--Grammar.
+2	Hiri Motu language.
+2	Hindi language--Syntax.
+2	Hindi language--Conversation and phrase books--English.
+2	Hiligaynon language--Syntax.
+2	Herero language--Grammar.
+2	Hebrew language--Verb--Tables.
+2	Hebrew language--Terms and phrases.
+2	Hebrew language--Tense.
+2	Hebrew language--Synonyms.
+2	Hebrew language--Style.
+2	Hebrew language--Pronunciation.
+2	Hebrew language--Dictionaries--Greek, Biblical.
+2	Hebrew language--Dictionaries--English--Indexes.
+2	Hebrew language--Clauses.
+2	Hawaiian language--Grammar.
+2	Hausa language--Textbooks for foreign speakers--English.
+2	Hausa language--Readers.
+2	Hausa language--Intonation.
+2	Hausa language--Grammar.
+2	Halia language--Grammar.
+2	Halbi language.
+2	Gurung language--Syntax.
+2	Gurma language.
+2	Gur languages--Togo.
+2	Gur languages--Benin.
+2	Guarani language--Grammar.
+2	Greek language, Modern--Conversation and phrase books.
+2	Greek language, Hellenistic (300 B.C.-600 A.D.)--Grammar.
+2	Greek language, Biblical--Synonyms and antonyms.
+2	Greek language, Biblical--Problems, exercises, etc.
+2	Greek language, Biblical--Particles.
+2	Greek language, Biblical--Morphology.
+2	Greek language, Biblical--Mood.
+2	Greek language, Biblical--Foreign elements--Hebrew.
+2	Greek language--Verb.
+2	Greek language--Readers.
+2	Greek language--Pronunciation.
+2	Greek language--History.
+2	Greek language--Grammar, Comparative--Latin.
+2	Greek language--Etymology--Dictionaries.
+2	Goajiro language.
+2	Goajiro language--Dictionaries--Spanish.
+2	Germanic languages.
+2	Germanic languages--Phonology.
+2	Germanic languages--Grammar, Comparative.
+2	German language--Verb--Tables.
+2	German language--History.
+2	German language--Grammar, Comparative--Russian.
+2	German language--Grammar--1950-
+2	German language--Foreign words and phrases--English.
+2	Georgian language--Grammar.
+2	Gbari language--Phonology.
+2	Gahuku language--Verb--Papua New Guinea.
+2	Fula language--Dialects--Nigeria--Adamawa.
+2	French language--Word order.
+2	French language--Discourse analysis.
+2	French language--America--Congresses.
+2	Fore language--Grammar.
+2	Fe'fe' language--Grammar.
+2	Ewe language.
+2	Ewe language--Grammar.
+2	Estonian language--Textbooks for foreign speakers--English.
+2	Estonian language--Foreign words and phrases.
+2	Eromanga language.
+2	English language--Word order.
+2	English language--Word frequency.
+2	English language--Vowels.
+2	English language--Versification.
+2	English language--Variation--Congresses.
+2	English language--United States--Verb.
+2	English language--United States--Pronunciation.
+2	English language--United States--Phonology.
+2	English language--United States--Phonetics.
+2	English language--United States--Idioms--Dictionaries.
+2	English language--United States--Conversation and phrase books--Spanish.
+2	English language--Study and teaching--Spanish speakers.
+2	English language--Study and teaching--Nigeria.
+2	English language--Study and teaching--Foreign speakers--Teacher training--United States--Directories.
+2	English language--Study and teaching--Foreign speakers--Handbooks, manuals, etc.
+2	English language--Study and teaching--Foreign speakers--Evaluation.
+2	English language--Study and teaching--Foreign speakers--Case studies.
+2	English language--Study and teaching--Foreign speakers--Bibliography.
+2	English language--Study and teaching--Asia, Southeastern--Congresses.
+2	English language--Standardization.
+2	English language--Slang--Dictionaries.
+2	English language--Rhetoric--Study and teaching--Congresses.
+2	English language--Quantifiers.
+2	English language--Pronunciation--Study and teaching.
+2	English language--Pronominals.
+2	English language--Phonetic transcriptions.
+2	English language--Orthography.
+2	English language--Old English, ca. 450-1100--Verb.
+2	English language--Old English, ca. 450-1100--Phonetics.
+2	English language--Old English, ca. 450-1100--Grammar.
+2	English language--Number.
+2	English language--Negatives.
+2	English language--Morphophonemics.
+2	English language--Mood.
+2	English language--Handbooks, manuals, etc.
+2	English language--Grammar, comparative.
+2	English language--Grammar, Comparative--Vietnamese.
+2	English language--Foreign words and phrases.
+2	English language--Early modern, 1500-1700.
+2	English language--Dictionaries--Zulu.
+2	English language--Dictionaries--Twi.
+2	English language--Dictionaries--Temne language.
+2	English language--Dictionaries--Tagalog.
+2	English language--Dictionaries--Indonesian.
+2	English language--Dictionaries--Armenian.
+2	English language--Dictionaries--Amharic.
+2	English language--Dialects--Washington (D.C.)
+2	English language--Dialects--New York (State)--New York.
+2	English language--Dialects--Michigan--Detroit.
+2	English language--Dialects--India.
+2	English language--Dialects--Great Britain.
+2	English language--Context.
+2	English language--Complement.
+2	English language--Case.
+2	English language--Australia.
+2	English language--Aspect.
+2	English language--Anaphora.
+2	English language--Africa.
+2	Egyptian language.
+2	Dyula language--Dialects--Côte d'Ivoire--Odienné Region.
+2	Dutch language--Syllabication.
+2	Dutch language--Dictionaries--English.
+2	Dusun language.
+2	Duala language--Grammar.
+2	Dravidian languages--Verb.
+2	Djinang language--Grammar.
+2	Diola language--Grammar.
+2	Dinka language--Vowels.
+2	Diegueño language--Grammar.
+2	Danish language--Grammar.
+2	Dani language--Grammar.
+2	Dagur language.
+2	Cuiba language--Grammar.
+2	Crow language.
+2	Creek language.
+2	Cree language--Grammar.
+2	Coreguaje language.
+2	College students--California--Los Angeles--Language (New words, slang, etc.)--Dictionaries.
+2	Cocopa language--Texts.
+2	Cocama language--Textbooks for foreign speakers--Spanish.
+2	Chrau language--Grammar.
+2	Chrau language--Conversation and phrase books--Vietnamese.
+2	Chontal language--Grammar.
+2	Choctaw language--Clause.
+2	Chinese language--Textbooks for foreign speakers--English.
+2	Chinese language--Terms and phrases.
+2	Chinese language--Study and teaching.
+2	Chinese language--Rhetoric.
+2	Chinese language--Reform.
+2	Chinese language--Prosodic analysis.
+2	Chinese language--Modern Chinese, 1919-
+2	Chinese language--Lexicography.
+2	Chinese language--Dialects--China--Yunnan.
+2	Chinese language--Conversation and phrase books--English.
+2	Chinese language--Congresses.
+2	Chinantecan languages--Phonology.
+2	Chinantec language--Syntax.
+2	China--Languages.
+2	Children with social disabilities--Education--Language arts.
+2	Cheyenne language.
+2	Cheyenne language--Phonology.
+2	Cherokee language--Textbooks for foreign speakers--English.
+2	Chaucer, Geoffrey,--d. 1400--Language.
+2	Cham language--Conversation and phrase books--Vietnamese.
+2	Chadic languages--Congresses.
+2	Chadic languages--Chad.
+2	Central Sudanic languages.
+2	Cebuano language--Grammar.
+2	Cavineño language--Dictionaries--Spanish.
+2	Catio language--Grammar.
+2	Caquinte language--Morphology.
+2	Capanahua language--Phonology.
+2	Campa language.
+2	Caingua language.
+2	Cahita language--Mexico.
+2	Burmese language--Writing.
+2	Burmese language--Grammar.
+2	Burmese language--Conversation and phrase books.
+2	Bulgarian language--Verb.
+2	Bouyei language.
+2	Bontoc language--Grammar.
+2	Bible.--O.T.--Language, Style.
+2	Bible.--O.T.--Language, style--Congresses.
+2	Bible.--O.T.--Greek--Versions--Septuagint--Language, style.
+2	Bible.--O.T.--Genesis--Language, Style.
+2	Bible.--N.T.--Mark--Language, style.
+2	Bible.--N.T.--Epistles of Paul--Language, style.
+2	Bible--Language, style--Dictionaries.
+2	Berber languages.
+2	Berber languages--Nominals.
+2	Benue-Congo languages.
+2	Benue-Congo languages--Noun.
+2	Bengali language--Textbooks for foreign speakers--English.
+2	Bemba language--Grammar.
+2	Basque language--Verb.
+2	Baruya language--Word formation.
+2	Bargam language--Phonology--Papua New Guinea.--Ethnologue
+2	Bantu languages--Grammar.
+2	Bantu languages--Congo (Democratic Republic)
+2	Bannoni language--Phonology--Papua New Guinea.--Ethnologue
+2	Bambara language--Textbooks for foreign speakers--English.
+2	Bambara language--Dictionaries--French.
+2	Bahnar language--Conversation and phrase books--Vietnamese.
+2	Aztec language.
+2	Azerbaijani language--Verb.
+2	Aymara language.
+2	Aymara language--Textbooks for foreign speakers--Spanish.
+2	Awa language--Papua New Guinea.
+2	Austronesian languages--Malaysia--Sabah.
+2	Austronesian languages--Indonesia--Maluku--History.
+2	Austronesian languages--Grammar.
+2	Austronesian languages--Glossaries, vocabularies, etc.
+2	Australia--Languages.
+2	Arosi language--Dictionaries--English.
+2	Aramaic language.
+2	Arabic language.
+2	Arabic language--Dictionaries--English.
+2	Arabic language--Dialects--Morocco.
+2	Arabic language--Dialects--Egypt--Cairo.
+2	Anyi language--Ivory Coast.
+2	Ami (Taiwan people)--Languages--Grammar.
+2	Amharic language.
+2	Aleut language--Phonology.
+2	Alamblak language--Grammar.
+2	Akkadian language--Texts.
+2	Aghem language.
+2	Agarabe language--Grammar.
+2	Afroasiatic languages--Ethiopia.
+2	Afrikaans language--Grammar.
+2	African languages--Word order.
+2	African languages--Study and teaching.
+2	African languages--Glossaries, vocabularies, etc.
+2	African languages--Classification.
+2	African Americans--Washington (D.C.)--Language (New words, slang, etc.)
+2	African Americans--Language (New words, slang, etc.)
+2	Africa, West--Languages.
+2	Adamawa languages--Cameroon.
+2	Achang language.
+2	Abazin language--Syntax.
+1	Zuni language.
+1	Zulu language--Texts.
+1	Zulu language--Syntax.
+1	Zulu language--Ideophone.
+1	Zoque language--Phonology.
+1	Zoque language--Phonemics.
+1	Zhuang language--Terms and phrases.
+1	Zhuang language--Study and teaching--Bilingual method.
+1	Zhuang language--Dialects.
+1	Zapotec language--Tone--Mexico.
+1	Zapotec language--Phonology.
+1	Zapotec language--Morphology.
+1	Zapotec language--Mexico.
+1	Zapotec language--Foreign words and phrases.
+1	Zapotec language--Dialects--Mexico--San Pablo Villa de Mitla.
+1	Zapotec language--Dialects--Mexico--Mitla--Texts.
+1	Zapotec language--Dialects--Mexico--Coatlan.
+1	Zaparo language--Grammar.
+1	Zande language.
+1	Zande language--Dem. Rep. Congo.
+1	Yuman languages--Texts.
+1	Yuman languages--Congresses.
+1	Yuman languages--Auxiliary verbs.
+1	Yukaghir language--Grammar.
+1	Yuit language--Study and teaching.
+1	Yuit language--Grammar.
+1	Yugambal language--Dictionaries--English.--ethnologue.
+1	Yuchi language.
+1	Yuchi language--Ethnologue.
+1	Yuanga language--Phonology.
+1	Yualyai language.
+1	Yotayota language.--atlas of the world's languages (Moseley, ed.), 1994.
+1	Yoruba language--Textbooks for foreign speakers--English.
+1	Yoruba language--Phonology.
+1	Yoruba language--Morphemics--Nigeria.
+1	Yoruba language--Dictionaries--English.
+1	Yoruba language--Dialects--Trinidad.
+1	Yokuts language.
+1	Yokuts language--Texts.
+1	Yimas language--Grammar.
+1	Yidiny language--Grammar.
+1	Yiddish language--Intonation.
+1	Yiddish language--History.
+1	Yi language.
+1	Yi language--Intonation.
+1	Yi language--Grammar.
+1	Yi language--Grammar--China.
+1	Yessan-Mayo language--Grammar.
+1	Yemba language--Orthography and spelling--Cameroon.
+1	Yele language--Grammar.
+1	Yazghulami language.
+1	Yay language--Word formation.
+1	Yawa language--Verb.
+1	Yavapai language--Phonology.
+1	Yareba language--Grammar.
+1	Yapese language--Grammar.
+1	Yao language (Southeastern Asia)
+1	Yao language (Southeastern Asia)--Phonology.
+1	Yao language (Southeastern Asia)--History.
+1	Yao language (Southeastern Asia)--China, Southeast.
+1	Yanyuwa language--Grammar.
+1	Yandruwandha (Australian people)--Language--Grammar.
+1	Yana language--Dictionaries--English.
+1	Yamdena language--Conversation and phrase books--Indonesian.
+1	Yambeta language.
+1	Yamba language (Cameroon and Nigeria)--Phonology.
+1	Yalarnnga language--Grammar.
+1	Yala language--Tone--Nigeria--Ikom.
+1	Yakut language--Verb.
+1	Yakan language--Philippines.
+1	Yakö language--Nigeria.
+1	Yagua language--Discourse analysis.
+1	Yagua language--Discourse analysis, Narrative.
+1	Yagaria language--Grammar.
+1	Yagaria language--Dictionaries--English.
+1	Yabim language.
+1	Yabim language--Dictionaries--English.
+1	Xhosa language--Intonation.
+1	Xhosa language--Dictionaries--English.
+1	Xavante language.
+1	Xavante language--Textbooks for foreign speakers--Portuguese.
+1	Wyandot Indians--Languages--History.
+1	Wuvulu-Aua language--Grammar--ethnologue.
+1	Wororan languages--Grammar, Comparative.
+1	Wolof language--Vowels--Senegal.
+1	Wolof language--Verb.
+1	Wolof language--Senegal.
+1	Wolof language--Phonology.
+1	Wolof language--Lexicology--Senegal.
+1	Wolof language--Grammar, Comparative.
+1	Wolio language--Grammar.
+1	Wolio language--Dictionaries--English.
+1	Woisika language.
+1	Woisika language--Phonemics.
+1	Wobe language.
+1	Wobe language--Phonology.
+1	Wobe language--Côte d'Ivoire.
+1	Wobe language--Côte d'Ivoire--Spoken Wobe.
+1	Wiyot language.
+1	Witotoan languages.
+1	Witoto language--Textbooks for foreign speakers--Spanish.
+1	Witoto language--Phonemics--Peru.
+1	Witoto language--Dictionaries--Spanish.
+1	Wirangu language--Grammar.--National Libr of Australia.
+1	Wintu language--Dictionaries--English.
+1	Wik-Munkan language.
+1	Wik-Munkan language--Sentences.
+1	Wik-Munkan language--Morphology.
+1	Wik-Munkan language--Grammar.
+1	Wik-Mungkan language--Dictionaries--English.
+1	Wichita language--Phonology.
+1	Wichita language--Grammar.
+1	White Tai language--Dictionaries--English.
+1	Western Yugur language.
+1	Western Sisaala language.--Ethnologue--Ghana
+1	Western Pokomchí language.--Ethnologue--History--Guatemala
+1	Western Pokomchí language--Person.--Ethnologue--Guatemala
+1	Western desert language.
+1	Western Bukidnon Manobo language.--Ethnologue--Vowels--Philippines
+1	Western Bukidnon Manobo language.--Ethnologue--Phonetics--Philippines
+1	Western Bukidnon Manobo language.--Ethnologue--Kinship--Philippines
+1	Western Bukidnon Manobo language.--Ethnologue--Clauses--Philippines
+1	Western Bukidnon Manobo language--Pronoun.--Ethnologue--Philippines
+1	Western Bukidnon Manobo language--Philippines.
+1	Western Bukidnon Manobo language--Grammar.
+1	Western Bukidnon Manobo language--Dictionaries--English.
+1	West Makian language.
+1	Wesern desert language--Dictionaries--English.
+1	Were language--Phonetics.
+1	Were language--Grammar.
+1	Welsh language--Self-instruction.
+1	Welsh language--Phonemics.
+1	Welsh language--Dictionaries--English.
+1	Welsh language--Accents and accentuation.
+1	Wayampi language--Phonology, Historical.
+1	Wayampi language--Dictionaries--Portuguese.
+1	Waskia language.
+1	Waskia language--Dictionaries--Tok Pisin.
+1	Washkuk language--Grammar.
+1	Washkuk language--Dictionaries--English.
+1	Waray language--Dictionaries--English.
+1	Warao language--Grammar.
+1	War language--Bangladesh.--Ethnologue
+1	Wantoat language--Phonemes--Papua New Guinea.
+1	Wantoat language--Paragraphs--Papua New Guinea.
+1	Wandarang language.
+1	Wandamen language--Glossaries, vocabularies, etc.
+1	Wandamen language--Conversation and phrase book--English.
+1	Wananana language.
+1	Wambon language--Morphology.
+1	Walmatjari language.
+1	Walmatjari language--Grammar.
+1	Walbiri language.
+1	Waiwai language--Texts.
+1	Waiwai language--Phonology.
+1	Wailpi language--Grammar.
+1	Waffa language--Dictionaries--English.
+1	Wada Wurung language.--National Libr of Australia.
+1	Wa language--Phonetics.
+1	Vute language.
+1	Votic language--Prefixes and suffixes.
+1	Votic language--Postpositions.
+1	Votic language--Person.
+1	Votic language--Names, Personal.
+1	Votic language--Foreign words and phrases.
+1	Votic language--Contrastive linguistics.
+1	Vietnamese language--Verb.
+1	Vietnamese language--Tone.
+1	Vietnamese language--Tone--Hmong.
+1	Vietnamese language--Textbooks for foreign speakers--Taiwanese.
+1	Vietnamese language--Textbooks for foreign speakers--English.
+1	Vietnamese language--Syntax.
+1	Vietnamese language--Syllable.
+1	Vietnamese language--Study and teaching--Bilingual method.
+1	Vietnamese language--Spoken Annamese.
+1	Vietnamese language--Sentences.
+1	Vietnamese language--Readers.
+1	Vietnamese language--Phonetics.
+1	Vietnamese language--Phonemics.
+1	Vietnamese language--Intonation.
+1	Vietnamese language--Idioms, corrections, errors.
+1	Vietnamese language--Grammar, Comparative--English.
+1	Vietnamese language--Dictionaries--Thai.
+1	Vietnamese language--Dictionaries--Tay-Nung.
+1	Vietnamese language--Conversation and phrase books--English.
+1	Vietnamese language--Consonants--Viet Nam.
+1	Vedic language.
+1	Vata language.
+1	Vagala language--Phonetics.
+1	Vagala language--Dictionaries--English.
+1	Uzbek language--Grammar.
+1	Uto-Aztecan languages--Vowels.
+1	Uto-Aztecan languages--Grammar, Comparative.
+1	Uto-Aztecan languages--Cognate words.
+1	Usan language--Grammar.
+1	Urii language--Phonemics.
+1	Urhobo language--Nigeria.
+1	Urdu language.
+1	Urdu language--Textbooks for foreign speakers--English.
+1	Urdu language--Syntax.
+1	Urdu language--Sentences.
+1	Urdu language--Self-instruction.
+1	Urdu language--Self-instruction--English.
+1	Urdu language--Readers.
+1	Urdu language--Readers.--Glossaries, vocabularies, etc.
+1	Urdu language--Phonetics.
+1	Urdu language--Grammar.
+1	Urdu language--Dictionaries--Hindi.
+1	Urdu language--Dictionaries--English.
+1	Urdu language--Conversation and phrase books.
+1	Urdu language--Bibliography.
+1	Ural-Altaic languages.
+1	Urak Lawoiʾ language--Grammar.
+1	Upper Sorbian language--Dictionaries--English.
+1	University of Texas at Arlington.--Department of Foreign Languages and Linguistics--Dissertations.
+1	Umiray Dumaget Agta language--Verb--Philippines.--Ethnologue
+1	Umbundu language--Grammar.
+1	Uma language.
+1	Uma language--Conversation and phrase books--English.
+1	Ulithi language--Grammar.
+1	Ukrainian language--Inflection.
+1	Ukrainian language--Dictionaries--English.
+1	Uighur language.
+1	Uighur language--Word formation.
+1	Uighur language--Dictionaries--English.
+1	Uighur language--Dialects--Sinkiang.
+1	Uighur language--Dialects--Kansu.
+1	Ugaritic language--Word  (Linguistics)
+1	Ugaritic language--Phonetics.
+1	Ugaritic language--Glossaries, vocabularies, etc.
+1	Ugaritic language--Dictionaries--German.
+1	Ugaritic language--Dictionaries--English.
+1	Udi language--Azerbaijan.--Ethnologue
+1	Tzutuhil language.
+1	Tzotzil language.
+1	Tzotzil language--Verb phrase.
+1	Tzotzil language--Grammar.
+1	Tzotil language.
+1	Tzeltal language.
+1	Tzeltal language--Transitivity--Mexico.
+1	Tzeltal language--Texts.
+1	Tzeltal language--Textbooks for foreign speakers--Spanish.
+1	Tzeltal language--Phonology.
+1	Twi language.
+1	Twi language--Texts.
+1	Twi language--Spelling and orthography.
+1	Twi language--Phonology.
+1	Twi language--Dictionaries.
+1	Twi language--Conversation and phrase books.
+1	Twi language--Conversation and phrase books--English.
+1	Twi (African language)--Grammar.
+1	Tuyuca language--Dictionaries--Spanish.
+1	Tuvinian language--Dictionaries--Russian.
+1	Tuvaluan language--Textbooks for foreign speakers--English.
+1	Tuvaluan language--Dialects--Tuvalu--Nanumea--Dictionaries--English.
+1	Tusia language--Dictionaries--French.
+1	Turkish language--Textbooks for foreign speakers--English.
+1	Turkish language--Text-books for foreigners--English.
+1	Turkish language--Spoken Turkish.
+1	Turkish language--Numerals.--Turkey.
+1	Turkish language--Grammar.
+1	Turkish language--Dictionaries--English.
+1	Turkish language--Accents and accenturation.
+1	Turkic languages--Syntax.
+1	Turkic languages--Idioms.
+1	Turkic languages--Grammar.
+1	Turkic languages--Grammar, Comparative.
+1	Turkic languages--Dialects.
+1	Turkana language--Grammar.
+1	Tura language--Tense.
+1	Tura language--Syntax.
+1	Tura language--Semantics.
+1	Tura language--Clauses.
+1	Tupi languages--Comparison.
+1	Tupi language.
+1	Tupi language--Sentences.
+1	Tupi language--Person.
+1	Tunica language.
+1	Tunica language--Texts.
+1	Tunica language--Grammar.
+1	Tunen language--Discourse analysis.
+1	Tulung language.
+1	Tucano language--Grammar.
+1	Tucana language--Clauses.
+1	Tubatulabal language--Grammar.
+1	Tuamotuan language--Phonetics.
+1	Tswana language.
+1	Tswana language--Tone.
+1	Tswana language--Readers.
+1	Tswana language--Grammar.
+1	Tswana language--Dictionaries--English.
+1	Tswa language--Grammar.
+1	Tsou language.
+1	Tsonga language.
+1	Tsonga language--Tone--South Africa.
+1	Tsonga language--Grammar.
+1	Tsimshian language--Dictionaries--English.
+1	Tsangla language--ethnologue.
+1	Tsakhur language.--Ethnologue--Azerbaijan
+1	Trique language--Tone--Mexico.
+1	Trique language--Tone--Mexico.--Ethnologue
+1	Trique language--Mexico.
+1	Trique language--Dictionaries--Spanish.
+1	Translating and interpreting--Spanish language.
+1	Totonac language--Verb.
+1	Totonac language--Sentences.
+1	Totonac language--Phonology.
+1	Torwali language--Pakistan.
+1	Toraja languages.
+1	Tongan language--Textbooks for foreign speakers--English.
+1	Tongan language--Sentences.
+1	Tonga language (Zambesi)--Conversation and phrase books.
+1	Tondano language--Grammar.
+1	Tombonuwo language--Conversation and phrase books--Malay.
+1	Tolitoli language.
+1	Tolai language--Textbooks for foreign speakers--English.
+1	Tolai language--Syntax.
+1	Tok Pisin language--Textbooks for foreign speakers--English.
+1	Tok Pisin language--Study and teaching.
+1	Tok Pisin language--Self-instruction.
+1	Tok Pisin language--History.
+1	Tok Pisin language--Foreign elements--Kuanua.
+1	Tok Pisin language--Dictionaries--Polyglot.
+1	Tok Pisin language--Dictionaries--English.
+1	Tojolabal language.
+1	Toda language--Phonology--India.
+1	Tobote language--Discourse analysis.
+1	Toba language (Indian)
+1	Toaripi language--Dictionaries--English.
+1	Tlingit language--Verb--Dictionaries--English.
+1	Tlingit language--Syntax.
+1	Tlingit language--Phonology.
+1	Tlingit language--Morphology.
+1	Tlapanec language--Phonology.
+1	Tlapanec language--Deixis.
+1	Tiwi language (Melville Island)
+1	Tiwa language.
+1	Tiv language--Verb.
+1	Tiv language--Readers.
+1	Tiv language--Grammar.
+1	Tiv language--Dictionaries--English.
+1	Tiruray language--Philippines.
+1	Tinrin language--Grammar.
+1	Tinggian language--Sentences.
+1	Timucua language--Dictionaries--English.
+1	Timor (Indonesia people)--Languages.
+1	Tikar language.
+1	Tikar language--Grammar.
+1	Tigrinya language--Phonetics.
+1	Tigrinya language--Grammar.
+1	Tigrinya language--Dictionaries--French.
+1	Tigrinya language--Conversation and phrase books--English.
+1	Tigré language--Grammar.
+1	Tigré language--Glossaries, vocabularies, etc.
+1	Tigak language.
+1	Tifal language--Papua New Guinea.--Ethnologue
+1	Tidore language--Dictionaries--Indonesian.
+1	Tibeto-Burman languages--Tone.
+1	Tibeto-Burman languages--Terms and phrases.
+1	Tibeto-Burman languages--Phonetics.
+1	Tibeto-Burman languages--Phonemes.
+1	Tibeto-Burman languages--Periodicals.
+1	Tibeto-Burman languages--Orthography and spelling--Bhutan.
+1	Tibeto-Burman languages--Morphology--Congresses.
+1	Tibeto-Burman languages--India--Himachal Pradesh.
+1	Tibeto-Burman languages--Dialects--History.
+1	Tibeto-Burman language--Intonation.
+1	Tibetan language.--Dialects.
+1	Tibetan language--Writing.
+1	Tibetan language--Syntax.
+1	Tibetan language--Spoken Tibetan.
+1	Tibetan language--Discourse analysis.
+1	Tibetan language--Dictionaries--Chinese.
+1	Tibetan language--Dialects--Glossaries, vocabularies, etc.
+1	Tibetan language--Conversation and phrase books.
+1	Tibetan language--Conversation and phrase books--English.
+1	Tibetan language--China.
+1	Tho language--Syntax.
+1	Thai language--Writing.
+1	Thai language--Verb--Case.
+1	Thai language--Tone (Phonetics)
+1	Thai language--Tone--Congresses.
+1	Thai language--Textbooks.
+1	Thai language--Textbooks for foreign speakers--English.
+1	Thai language--Syntax.
+1	Thai language--Self-instruction.
+1	Thai language--Rhythm.
+1	Thai language--Prosodic analysis.
+1	Thai language--Pronoun.
+1	Thai language--Phonemics.
+1	Thai language--Passive voice.
+1	Thai language--Particles.
+1	Thai language--Nominals.
+1	Thai language--Morphemics.
+1	Thai language--Intonation.
+1	Thai language--Interrogative.
+1	Thai language--Foreign words and phrases.
+1	Thai language--Dictionaries--Khmu'
+1	Thai language--Dialects.
+1	Thai language--Dialects--History.
+1	Thai language--Conversation and phrase books--English.
+1	Thai language--Consonants.
+1	Thai language--Clauses.
+1	Thai language--Aspect.
+1	Thai language--Address, forms of.
+1	Thādo language--Grammar.
+1	Tetum language--Indonesia--East Timor--Grammar.
+1	Tetum language--Dictionaries--English.
+1	Terena language--Verb.
+1	Terena language--Syllable.
+1	Terena language--Phonology.--Brazil.
+1	Terena language--Brazil.
+1	Terêna language--Verb--Brazil.
+1	Tera language.
+1	Tepo Krumen language--Vowels--Ethnologue--Cote d'Ivoire.
+1	Tepehuan language.
+1	Tepehuan language--Tone.
+1	Tepehua language.
+1	Tepehua language--Grammar.
+1	Tennet language (Sudan)
+1	Tenetehara language--Textbooks for foreign speakers--Portuguese.
+1	Tenetehara language--Grammar.--no. 4.
+1	Tenetehara language--Dialects--Brazil--Xingu River Region.
+1	Tenda languages--Senegal.
+1	Temne language--Textbooks for foreign speakers--English.
+1	Temiar language.
+1	Tembo language (Sud-Kivu, Congo)--Glossaries, vocabularies, etc.
+1	Telugu language--Verb.
+1	Telugu language--Syntax.
+1	Telugu language--Spoken Telugu.
+1	Telugu language--Readers.
+1	Telugu language--Grammar.
+1	Telugu language--Dictionaries--English.
+1	Telefol language--Phonology.
+1	Telefol language--Noun.
+1	Telefol language--Dictionaries--English.
+1	Teke language--Glossaries, vocabularies, etc.--French.
+1	Teke language--Dictionaries--French.
+1	Tehit language--Phonology.
+1	Teen language--Clauses.
+1	Teda language.
+1	Tboli language--Phonemics--Philippines.--Ethnologue
+1	Tboli language--Grammar.
+1	Tboli language--Dictionaries--English.
+1	Tay-Nung language--Vietnam, Northern.
+1	Tay-Nung language--Grammar.
+1	Tay-Nung language--Dictionaries--English.
+1	Tavara language--grammar.
+1	Tauya language--Grammar.
+1	Tausug language--Verb.
+1	Tausug language--Texts--Philippines.
+1	Tausug language--Orthography.
+1	Tausug language--Discourse analysis.
+1	Tatar language--Variation--Azerbaijan.
+1	Tat language.
+1	Tarhumara language.
+1	Tarascan language.
+1	Tarahumara language.
+1	Tarahumara language--Numerals--Mexico.
+1	Tarahumara language--Mexico--Samachic--Dictionaries--Spanish.
+1	Tarahumara language--Dictionaries--Spanish.
+1	Tanzania--Languages.
+1	Tanna language--Dictionaries--English.
+1	Tanimuca-Retuama language--Syntax.
+1	Tanahmerah language (Northeast Irian Jaya)--Conversation and phrase books.
+1	Tampulma language--Phonetics.
+1	Tamil languages.
+1	Tamil language.
+1	Tamil language--Vowels.
+1	Tamil language--Verbs.
+1	Tamil language--Readers.
+1	Tamil language--Phonology.
+1	Tamil language--Phonetics.
+1	Tamil language--Grammar, Historical.
+1	Tamil language--Grammar, Generative.
+1	Tamil language--Grammar--Early works to 1800.
+1	Tamil language--Dictionaries--English.
+1	Tamashek language--Writing.
+1	Tamang language--Phonology.
+1	Talysh language--Azerbaijan.
+1	Talise language--Dictionaries--English.
+1	Takelma language.
+1	Tajik language--Verb.
+1	Tajik language--Textbooks for foreign speakers--English.
+1	Tajik language--Dictionaries--Russian.
+1	Tajik language--Dictionaries--English.
+1	Taiwanese language.
+1	Tainae language--Phonology--ethnologue.
+1	Tai Nüa language--Dictionaries--English.
+1	Tai languages--Syntax.
+1	Tai languages--Phonology--Congresses.
+1	Tai languages--Nouns.
+1	Tai languages--Intonation.
+1	Tai languages--India--Assam--Grammar.
+1	Tai languages--Dialects--Research--Asia, Southeastern.
+1	Tai languages--Classification.
+1	Tahitian language--Dictionaries--English.
+1	Tagalog language.
+1	Tagalog language--Syntax.
+1	Tagalog language--Phonetics.
+1	Tagalog language--Object, direct--Philippines.
+1	Tagalog language--Number.
+1	Tagalog language--Noun phrase.
+1	Tagalog language--Foreign words and phrases--Spanish.
+1	Tagalog language--Discourse analysis.
+1	Tagalog language--Discourse analysis--Philippines.
+1	Tagalog language--Dialects--Philippines--Marinduque.
+1	Tagalog language--Accents and accentuation.
+1	Tacanan languages--Texts.
+1	Tacanan languages--Phonology.
+1	Tacana language (Bolivia)--Phonology.
+1	Tabaru language--Phonology--ethnologue.
+1	Syriac language, Modern--Dialects--Iran--Urūmīyah.
+1	Swedish language--Verb--Tables.
+1	Swedish language--Phonemics.
+1	Swedish language--Intonation.
+1	Swedish language--Grammar.
+1	Swedish language--Glossaries, vocabularies, etc.
+1	Swedish language--Dialects--Scandia.
+1	Swazi language--Grammar.
+1	Swahili language--Textbooks for foreign speakers--English.
+1	Swahili language--Tense.
+1	Swahili language--Syntax.
+1	Swahili language--Social aspects--Kenya--Mombasa.
+1	Swahili language--Political aspects.
+1	Swahili language--Negatives.
+1	Swahili language--Idioms.
+1	Swahili language--Dictionaries--Japanese.
+1	Swahili language--Dictionaries--English.
+1	Swahili language--Dialects--Congo (Democratic Republic)--Glossaries, vocabularies, etc.
+1	Swahili language--Conversation and phrase books.
+1	Susu language--Conversation and phrase books.
+1	Surmic languages.
+1	Suriname Hindustani language--Textbooks for foreign speakers--English.
+1	Suppire language--Grammar.
+1	Sundanese language--Syntax.
+1	Sundanese language--Phonology.
+1	Sumerian language--Texts.
+1	Sumerian language--Grammar.
+1	Sukuma language--Tone (Phonetics)
+1	Subiya language--Grammar.
+1	Stieng language.
+1	Stieng language--Grammar.
+1	Stieng language--Dictionaries--English.
+1	Stieng language--Conversation and phrase books.
+1	Standard Arabic language.--Ethnologue--Saudi Arabia
+1	Sranan language--Verb.
+1	Sranan language--Textbooks for foreign speakers--English.
+1	Sranan language--Suriname.
+1	Sranan language--Surinam.
+1	Sranan language--Phonology--Surinam.
+1	Sranan language--Lexicography--Suriname.
+1	Spanish Sign Language.
+1	Spanish Sign Language--Spain.
+1	Spanish language--Word formation.
+1	Spanish language--Versification.
+1	Spanish language--Verbs--Tables.
+1	Spanish language--Verb--Tables.
+1	Spanish language--Textbooks for foreign speakers.
+1	Spanish language--Syllabication.
+1	Spanish language--Study and teaching.
+1	Spanish language--Study and teaching (Primary)--Peru.
+1	Spanish language--Study and teaching--Bilingual method.
+1	Spanish language--Social aspects.
+1	Spanish language--Slang.
+1	Spanish language--Sentences.
+1	Spanish language--Rhetoric.
+1	Spanish language--Reference.
+1	Spanish language--Readers--Latin America.
+1	Spanish language--Provincialisms--New Mexico.
+1	Spanish language--Provincialisms--Mexico.
+1	Spanish language--Provincialisms--Mexico--Dictionaries.
+1	Spanish language--Provincialisms--Chile.
+1	Spanish language--Provincialisms--Bolivia.
+1	Spanish language--Prepositions.
+1	Spanish language--Phonetics--Bibliography.
+1	Spanish language--Particles.
+1	Spanish language--Parenthetical constructions.
+1	Spanish language--Orthography and spelling.
+1	Spanish language--Onomatopoeic words--Dictionaries.
+1	Spanish language--Negatives.
+1	Spanish language--Lexicography.
+1	Spanish language--History.
+1	Spanish language--Grammar, Historical.
+1	Spanish language--Grammar, Generative.
+1	Spanish language--Grammar, Generative--Bibliography.
+1	Spanish language--Grammar, Comparative--English.
+1	Spanish language--Grammar--1950-
+1	Spanish language--Glossaries, vocabularies, etc.--Cakchikel.
+1	Spanish language--Foreign words and phrases--Indian languages.
+1	Spanish language--Ecuador--Congresses.
+1	Spanish language--Dictionaries--Totonac.
+1	Spanish language--Dictionaries--Tarascan.
+1	Spanish language--Dictionaries--Otomi.
+1	Spanish language--Dictionaries--Motilon.
+1	Spanish language--Dictionaries--Mayo (Piman)
+1	Spanish language--Dictionaries--Ignaciano.
+1	Spanish language--Dictionaries--Coreguaje.
+1	Spanish language--Dictionaries--Chatino.
+1	Spanish language--Dictionaries--Aztec.
+1	Spanish language--Dialects--United States.
+1	Spanish language--Dialects--United States--Bibliography.
+1	Spanish language--Dialects--Texas.
+1	Spanish language--Dialects--San Luis, Argentine Republic (Province)
+1	Spanish language--Dialects--Peru.
+1	Spanish language--Dialects--Louisiana--Ascension Parish.
+1	Spanish language--Dialects--Latin America.
+1	Spanish language--Dialects--Colombia.
+1	Spanish language--Dialects--Colombia--San Basilio del Palenque.
+1	Spanish language--Conversation and phrase books.
+1	Spanish language--Conversation and phrase books--English.
+1	Spanish language--Congresses.
+1	Spanish language--Clitics.
+1	Spanish language--Clauses.
+1	Spanish language--Case grammar.
+1	Spanish language--Bibliography.
+1	Spanish language--Adverbials.
+1	Spanish language--Accents and accentuation.
+1	Spanish language--Abbreviations.
+1	Space and time in language--Research.
+1	Space and time in language--Congresses.
+1	Southern Paiute language.
+1	Southern Paiute language--Dictionaries--English.
+1	Southeastern Pomo language--Grammar.
+1	South Asia--Languages--Noun phrase--Congresses.
+1	Sotho language--Vocabulary.
+1	Sotho language--Textbooks for foreign speakers--English.
+1	Sotho language--Text-books for foreign speakers--English.
+1	Sotho language--Tense.
+1	Sotho language--Study and teaching.
+1	Sotho language--Grammar.
+1	Sotho language--Dictionaries--English.
+1	Sotho-Tswana languages--Phonetics.
+1	Sora language.
+1	Soninke language.
+1	Songhai languages--Mali.
+1	Songhai language.
+1	Songhai language--Niger.
+1	Songhai language--Mali.
+1	Songhai language--Grammar.
+1	Somali language--Verbs.
+1	Somali language--Topic and comment.
+1	Somali language--Texts--Orthography and spelling.
+1	Somali language--Readers--Somalia.
+1	Somali language--Orthography and spelling.
+1	Somali language--Grammar.
+1	Solomon Islands--Languages.
+1	Sobei language--Dictionaries--English.
+1	SNOBOL (Computer program language)
+1	Slovenian language--Words.
+1	Slovenian language--Spectral analysis.
+1	Slavic languages--Voice.
+1	Slavic languages--Syntax--Congresses.
+1	Slavic languages--Periodicals.
+1	Slavic languages--Grammar--Congresses.
+1	Slavic languages--Comparison.
+1	Slavic languages--Alphabet.
+1	Sissala language--Grammar.
+1	Siroi language--Grammar.
+1	Siriano language--Texts.
+1	Sioni language--Grammar.
+1	Sioni language--Dictionaries--Spanish.
+1	Sino-Tibetan languages--Prosodic analysis.
+1	Sino-Tibetan languages--Numerals.
+1	Sino-Tibetan languages--Bibliography.
+1	Sinhalese language.
+1	Sinhalese language--Conversation and phrase books--English.
+1	Sinagoro language--Grammar.
+1	Sinagoro language--Dictionaries--English.
+1	Silt'e language--Dictionaries--Amharic.
+1	Siksika language--Grammar.
+1	Siksika language--Dictionaries--English.
+1	Sign languages.
+1	Sign language--Study and teaching--United States.
+1	Sign language--Research.
+1	Sign language--Europe, eastern.
+1	Sign language--Dictionaries--English.
+1	Sierran Popoluca language--Case grammar.
+1	Sierra Popoluca language--Verb.
+1	Sierra Popoluca language--Texts.
+1	Sierra Popoluca language--Texts--Mexico.
+1	Sierra Popoluca language--Syllable.
+1	Sierra Popoluca language--Morphology--Mexico.
+1	Sierra Popoluca language--Intonation--Mexico.
+1	Sierra Popoluca language--Descriptive grammar.
+1	Siar-Lak language--Grammar.
+1	Siane language--Phonemics.
+1	Shuar language--Phonology--Ecuador.
+1	Shoshoni language--grammar.
+1	Shoshoni language--Glossaries, vocabularies, etc.
+1	Shona language--Textbooks for foreign speakers--English.
+1	Shona language--Phonology.
+1	Shona language--Phonetics.
+1	Shona language--Dictionaries--English.
+1	Shipibo-Conibo language--Texts.
+1	Shipibo-Conibo language--Textbooks for foreign speakers--Spanish.
+1	Shipibo-Conibo language--Dictionaries--Spanish.
+1	Shina language--Texts.
+1	Shina language--Phonetics.
+1	Shilluk language.
+1	Shilluk language--Phonology.
+1	Shilluk language--Orthography and spelling.
+1	Shilluk language--Dictionaries--English.
+1	Sherpa language.
+1	Shawnee language--Etymology.
+1	Shambala language--Texts.
+1	Shakespeare, William,1564-1616--Language--Work.
+1	Shakespeare, William,--1564-1616--Language.
+1	Seri language--Syntax.
+1	Seri language--Switch reference--Mexico.
+1	Seri language--Phonemics.--Mexico.
+1	Seri language--Glossaries, vocabularies, etc.
+1	Serbo-Croatian language--Variation.
+1	Serbo-Croatian language--Foreign words and phrases--English.
+1	Serbo-Croatian language--Dictionaries--Russian.
+1	Serbian language--Social aspects.
+1	Senufo languages--Phonology.
+1	Sentani language.
+1	Seneca language.
+1	Seneca language--Texts.
+1	Sena language--Grammar.
+1	Sena language--Dictionaries--Portuguese.
+1	Semitic languages--Syntax.
+1	Semitic languages--Dialects--Syria.
+1	Semitic languages--Alphabet.
+1	Semang languages--Grammar.
+1	Semang language.
+1	Semang language--Phonetics.
+1	Selepet language--Phonetics.
+1	Selepet language--Morphology.
+1	Selepet language--Grammar.
+1	Selepet language--Dictionaries--English.
+1	Selaru language--Grammar.
+1	Sekani language--Phonology.
+1	Seimat language--Grammar.
+1	Sedang language--Phonology.
+1	Sedang language--Grammar.
+1	Sedang language--Glossaries, vocabularies, etc.
+1	Sedang language--Dictionaries--Polyglot.
+1	Sedang language--Conversation and phrase books--Vietnamese.
+1	Secoya language--Grammar.
+1	Second language acquisition--United States.
+1	Second language acquisition--Bibliography.
+1	Scottish Gaelic language--Poetry--Songs and Music.
+1	Scottish Gaelic language--Phonetic transcriptions--Glossaries, vocabularies, etc.
+1	Scottish Gaelic language--Dialects--Scotland--Sutherland.
+1	Scottish Gaelic language--Conversation and phrase books.
+1	Scottish Gaelic language--Composition and exercises.
+1	Schizophrenics--Language.
+1	Scandinavian languages.
+1	Scandinavian languages--Syntax.
+1	Scandinavian languages--Prosodic analysis.
+1	Scandinavian languages--Phonology.
+1	Scandinavian languages--Phonology, Historical.
+1	Sayula Popoluca language--Foreign words and phrases--Mexico.
+1	Sawu language--Grammar.
+1	Sarmaccan language.--Ethnologue--Surinam
+1	Sardinian language.
+1	Sarangani Manobo language.--Ethnologue--Semantics--Philippines
+1	Sarangani Manobo language.--Ethnologue--Connectives--Philippines
+1	Sarangani Manobo language--Grammar.
+1	Saramaccan language--Study and teaching.
+1	Sara language.
+1	Sanskrit language.
+1	Sanskrit language--Verb.
+1	Sanskrit language--Readers.
+1	Sanskrit language--Dictionaries--English.
+1	Sanskrit language--Case.
+1	Sango language (Ubangi Creole)--Dictionaries--English.
+1	Sango language (Ubangi Creole)--Central African Republic.
+1	Sangir language (Indonesia and Philippines)
+1	Sangir language--Ethnologue--Noun phrase--Indonesia (Sulawesi)
+1	Sangil language.
+1	Sangil language--Philippines.
+1	Sandawe language--Tanzania.
+1	Sandawe language--Dictionaries--English.
+1	San (African people)--Languages--Dictionaries--English.
+1	Samoan language--Social aspects.
+1	Samoan language--Dictionaries.
+1	Samoan language--Aspiration (Phonetics)--Samoa.
+1	Sami language--Grammar.
+1	Sami language--Dialects--Norway--Røros.
+1	Samburu language--Social aspects.
+1	Samburu language--Grammar--Kenya.
+1	Sama Sibutu language--Dictionaries--English.
+1	Saliva language.
+1	Saliva language--Dictionaries--Spanish.
+1	Salishan languages.
+1	Salishan languages--Texts.
+1	Salishan languages--Phonology.
+1	Salishan languages--British Columbia--Morphology.
+1	Sakau language--Grammar.
+1	Sagir language (Indonesia and Philippines)--Morphophonemics--Phonology--Indonesia.
+1	Safeyoka language--Phonology--Papua New Guinea.--Ethnologue
+1	Saek language--Glossaries, vocabularies, etc.
+1	Ruund language--Dictionaries--English.
+1	Russian language--Writing.
+1	Russian language--Word order.
+1	Russian language--Word formation.
+1	Russian language--Verbs.
+1	Russian language--Verb--Tables.
+1	Russian language--Verb--Tables, lists, etc.
+1	Russian language--Usage.
+1	Russian language--Topic and comment.
+1	Russian language--Textbooks for English speakers.
+1	Russian language--Study and teaching--Foreign students.
+1	Russian language--Social aspects.
+1	Russian language--Sentences.
+1	Russian language--Readers--Science.
+1	Russian language--Political aspects--Soviet Union.
+1	Russian language--Phonetics.
+1	Russian language--Paronyms.
+1	Russian language--New words.
+1	Russian language--Intonation.
+1	Russian language--Grammar, Generative.
+1	Russian language--Glossaries, vocabularies, etc.
+1	Russian language--Gender.
+1	Russian language--Esistential constructions.
+1	Russian language--Dictionaries--Mordvinian.
+1	Russian language--Dictionaries--Kazakh.
+1	Russian language--Dictionaries--Adyghe.
+1	Russian language--Dialects.
+1	Rundi language.
+1	Rundi language--Textbooks for foreign speakers--English.
+1	Rundi language--Orthography and spelling.
+1	Rundi language--Grammar.
+1	Rundi language--Dictionaries--English.
+1	Rukuba (African people)--Languages.
+1	Rukai language--Taiwan.
+1	Ruc language.
+1	Roviana language--Case grammar.
+1	Rotokas language--Agreement--Papua New Guinea.
+1	Rotakas language--Phonemics--Papua New Guinea.
+1	Ronga language--Grammar.
+1	Ron language--Nigeria.
+1	Romanian language--Syntax.
+1	Romanian language--Self-instruction.
+1	Romanian language--Phonology, Comparative--English.
+1	Romanian language--Noun phrase.
+1	Romanian language--Intonation.
+1	Romanian language--History.
+1	Romanian language--Grammar.
+1	Romani language--Suffixes and prefixes.
+1	Romani language--Phonology.
+1	Romani language--Norway.
+1	Romani language--Grammar.
+1	Romani language--Foreign words and phrases.
+1	Romani language--Dialects--Latvia.
+1	Romance languages--Subjunctive.
+1	Romance languages--History.
+1	Romance languages--Grammar.
+1	Romance languages--Grammar, Historical--Congresses.
+1	Romance languages--Grammar, Comparative.
+1	Romance languages--Figures of speech.
+1	Romance languages--Contrastive linguistics.
+1	Romance languages--Article.
+1	Roma language--Phonology.
+1	Roglai language--Vocabulary.
+1	Ritarungo language.
+1	Resigero language--Grammar.
+1	Resigero language--Dictionaries--Spanish.
+1	Rennellese language--Grammar.
+1	Rengao language--Topic and comment.
+1	Rengao language--Glossaries, vocabularies, etc.--Polyglot.
+1	Rengao language--Conversation and phrase books--Vietnamese.
+1	Rendille language.
+1	Rendile language--Phonology.
+1	Rejang language (Sumatra, Indonesia)--Syntax.
+1	Rejang language (Sumatra, Indonesia)--Dictionaries--English.
+1	Reading--United States--Language experience approach--Congresses.
+1	Readers--Language awareness.
+1	Rawang language--Phonology.
+1	Rawa language--Grammar.
+1	Rarotongan language--Dictionaries--English.
+1	Rapanui language.
+1	Rapanui language--Verb.
+1	Rapanui language--Orthography and spelling.
+1	Rapanui language--Grammar.
+1	Rao language.
+1	Rangi language--Tanzania.
+1	Rajasthani language--Phonology--India.
+1	Rai Coast languages--Glossaries, vocabularies, etc.
+1	Rade language--Glossaries, vocabularies, etc.
+1	Rade language--Dictionaries--English.
+1	Rade language--Conversation and phrase books--Vietnamese.
+1	Racism in language.
+1	Quileute language.
+1	Quichean languages--History.
+1	Quiché language--Social aspects--Guatemala.
+1	Quiché language--Linguistic analysis (Linguistics)
+1	Quiché language--ethnologue.
+1	Quiché language--Dictionaries--Spanish.
+1	Quechua language (Chimborazo)--Texts.
+1	Quechua language--Word order.
+1	Quechua language--Textbooks for foreign speakers.
+1	Quechua language--Textbooks for foreign speakers--Spanish--Peru--Arequipa.
+1	Quechua language--Suffixes and prefixes.
+1	Quechua language--Study and teaching--Peru--Huaylas, Callejón de.
+1	Quechua language--Study and teaching--Ecuador.
+1	Quechua language--Peru.
+1	Quechua language--Peru Cajamarca (Dept.)--Readers.
+1	Quechua language--Peru--History.
+1	Quechua language--Numerals.--Peru.
+1	Quechua language--Interrogative.
+1	Quechua language--Grammar--Ecuador.
+1	Quechua language--Glossaries, vocabularies, etc.
+1	Quechua language--Ecuador.
+1	Quechua language--Ecuador--Verb.
+1	Quechua language--Discourse analysis.
+1	Quechua language--Dialects--Peru--Loreto (Dept.)
+1	Quechua language--Dialects--Peru--Junín Dept.
+1	Quechua language--Dialects--Peru--Corongo (Ancash)
+1	Quechua language--Dialects--Peru--Ayacucho (Dept.)
+1	Quechua language--Dialects--Peru--Ancash (Dept.)
+1	Quechua language--Dialects--Ecuador--Napo (Province)--Grammar.
+1	Quechua language--Dialects--Conchucos--Clauses.
+1	Quechua language--Dialects--Bolivia--Cochabamba.
+1	Quechua language--Clauses.
+1	Quechua language--Case grammar.
+1	Qiang (Chinese people)--Languages--Phonology.
+1	Qaqet language--Phonology--Papua New Guinea.--Ethnologue
+1	Pushto language.
+1	Pushto language--Grammar.
+1	Pushto language--Clauses.
+1	Punu language--Grammar.
+1	Pumi language.
+1	Pumi (Chinese people)--Language.
+1	Puluwat language--Grammar.
+1	Puluwat language--Dictionaries--English.
+1	Puget Sound Salish languages--Dictionaries--English.
+1	Psychotherapy patients--Language.
+1	Psychoses--Patients--Language--Case studies.
+1	Proto-Zapotecan language.
+1	Proto-Tibeto-Burman language--Phonology, Historical.
+1	Proto-Tai language--Phonology.
+1	Proto-Tacanan language--Phonology.
+1	Proto-Slavic language--Phonology.
+1	Proto-Pomo language.
+1	Proto-Polynesian language--Possessives.
+1	Proto-Palawanic language--Phonology.
+1	Proto-Oceanic language--Verb.
+1	Proto-North-Bahnaric language--Phonology.
+1	Proto-Malayan language--Phonology.
+1	Proto-Indo-European language--Syntax.
+1	Proto-Indo-European language--Roots.
+1	Proto-Indo-European language--Congresses.
+1	Proto-Hindko language.
+1	Proto-East-Cushitic language.
+1	Proto-Danao language.
+1	Proto-Chinantec language--Phonology.
+1	Proto-Bantu languages.
+1	Proto-Austro-Thai language.
+1	Proto-Athapascan language--Phonology.
+1	Proto-Afroasiatic language.
+1	Professional employees--Language--Congresses.
+1	Ppapua New Guinea--Languages.
+1	Pouye language--Phonology--Papua New Guinea.--Ethnologue
+1	Potawatomi language--Grammar.
+1	Portuguese language--Word formation.
+1	Portuguese language--Verb--Tables.
+1	Portuguese language--Translating--History.
+1	Portuguese language--Textbooks for foreign speakers--English.
+1	Portuguese language--Study and teaching.
+1	Portuguese language--Sound recordings for English speakers.
+1	Portuguese language--Provincialisms--Brazil.
+1	Portuguese language--Programmed instruction.
+1	Portuguese language--Grammar, Comparative--Kimbundu.
+1	Portuguese language--Dictionaries.
+1	Portuguese language--Dictionaries--Tenetehara.
+1	Portuguese language--Dictionaries--Nyaneka.
+1	Portuguese language--Dictionaries--Kimbundu.
+1	Portuguese language--Dialects--Uruguay.
+1	Portuguese language--Dialects--Brazil.
+1	Portuguese language--Conversation and phrase books.
+1	Portuguese language--Brazil.
+1	Popoluca language (Vera Cruz)--Phonemics--Mexico.
+1	Popoluca language (Vera Cruz)--Morphosyntax--Mexico.
+1	Popoluca language--Phonology.
+1	Popoloca language--Grammar.
+1	Popoloca language--Discourse analysis.
+1	Ponape language.
+1	Ponape language--Grammar.
+1	Ponape language--Dictionaries--English.
+1	Pomo languages--Phonology.
+1	Polynesian languages.
+1	Polynesian languages--Study and teaching--History.
+1	Polynesian languages--Dictionaries--English.
+1	Polynesian languages--Case.
+1	Polish language--Syllabication.
+1	Polish language--Phonetics.
+1	Polish language--Dictionaries--English.
+1	Pokonchi language.
+1	Pokonchi language--Texts.
+1	Pokonchi language--Conversation and phrase books--Spanish.
+1	Pokomchí language.--Ethnologue--Verbs--Guatemala
+1	Pokomchí language.--Ethnologue--Phonemics--Guatemala
+1	Plato--Language.
+1	Pitu Ulunna Salu language--Grammar.
+1	Pitjantjatjara language.
+1	Pitjantjatjara language--Semantics.
+1	Pipil language.
+1	Pipil language--Grammar--El Salvador.
+1	Pidgin languages--Verb.
+1	Pidgin languages--Research.
+1	Pidgin languages--Pacific Area--History.
+1	Pidgin languages--India.
+1	Pidgin languages--Congresses.
+1	Pidgin languages--Cameroon.
+1	Pidgin languages--Bibliography.
+1	Picture dictionaries, Dayak language.
+1	Piaroa language.
+1	Piapoco language--Dictionaries--Spanish.
+1	Phoenician language--Alphabet.
+1	Philippines--Languages.
+1	Philippines--Classification--Languages.
+1	Philippine languages--Study and teaching.
+1	Philippine languages--Semantics.
+1	Philippine languages--Maps.
+1	Philippine languages--Luzon.
+1	Philippine languages--Linguistic analysis.
+1	Philippine languages--Grammar.
+1	Philippine languages--Dictionaries--Data processing.
+1	Philippine languages--Dictionaries--Bibliography.
+1	Philippine languages--Classification.
+1	Philippine languages--Bibliography--Catalogs.
+1	Peruvian languages.
+1	Peru--Languages.
+1	Persian language.
+1	Persian language--Writing.
+1	Persian language--Social aspects--Iran.
+1	Persian language--Phonology.
+1	Persian language--Grammar.
+1	Persian language--Grammaer, Generative.
+1	People with mental disabilities--Language--Congresses.
+1	People with mental disabilities--Language--Case studies.
+1	Penutian languages--Congresses.
+1	Pendau language--Grammar.--ethnologue
+1	Pemón language--Grammar.
+1	Pemón language--Dictionaries--Spanish.
+1	Pele-Ata language--Phonology--Papua New Guinea.--Ethnologue
+1	Paupan languages.
+1	Paupa New Guinea--Languages.
+1	Patawatomi language--Agreement--United States.
+1	Pascal (Computer program language)
+1	Parya language--Grammar.
+1	Paressi language--Dictionaries--Portuguese.
+1	Parengi language--Phonemics.
+1	Papuan New Guinea--Languages.
+1	Papuan languages--Vocabulary.
+1	Papuan languages--Syntax.
+1	Papuan languages--Semantics.
+1	Papuan languages--Paragraphs.
+1	Papuan languages--Papua New Guinea.
+1	Papuan languages--Papua New Guinea--Southern Highlands Province.
+1	Papuan languages--Papua New Guinea--Morobe Province.
+1	Papuan languages--Papua New Guinea--East Sepik Province.
+1	Papuan languages--Orthography and spelling.
+1	Papuan languages--Indonesia.--Bibliography.--Linguistics.
+1	Papuan languages--Indonesia--Irian Jaya.
+1	Papuan languages--Etymology and semantics.
+1	Papuan languages--Bibliography.
+1	Papua New Guinea Languages.
+1	Papua New Guinea languages.
+1	Papua New Guinea languages--Tok Pisin.
+1	Papua New Guinea--Sepik district--languages.
+1	Papua New Guinea--Languages--Eastern Highlands Province.
+1	Papiamentu language--Suffixes and prefeixes.--Ethnologue--Netherlands Antilles
+1	Panoan languages--Verb.
+1	Panoan languages--Peru.
+1	Panoan languages--Dictionaries--Spanish.
+1	Panjabi language--Readers.
+1	Panjabi language--India--Delhi--Social aspects.
+1	Panjabi language--Grammar, Comparative--Hindi.
+1	Panare language--Phonetics.
+1	Panama languages.
+1	Pampangan language.
+1	Pampanga language.
+1	Pampanga language--Syntax.
+1	Pampanga language--Semantics.
+1	Pampanga language--Dictionaries--English.
+1	Pame language--Grammar.
+1	Pama Nyungan languages--Phonology--Australia Queensland.
+1	Palicur language--Grammar.
+1	Palawanic languages--Dialects.
+1	Palaung language--Discourse analysis.
+1	Palauan language--Possessives.
+1	Pakaa Nova language--Morphology.
+1	Pakaa Nova language--Discourse analysis.
+1	Paiwan language--Texts.
+1	Paiwan language--Taiwan.
+1	Paiwan language--Dictionaries--English.
+1	Paipai language.
+1	Pagu language--Discourse analysis.
+1	Pagabete language--Grammar--Ethnologue.
+1	Paez language.
+1	Paez language--Grammar.
+1	Paez language--Discourse analysis.
+1	Paez language--Dictionaries--Spanish.
+1	Pacoh language.
+1	Pacoh language--Grammar.
+1	Pacoh language--Discourse analysis.
+1	Pacoh language--Dictionaries--English.
+1	Pacoh language--Conversation and phrase books--Vietnamese.
+1	Pacific Gulf Yupik language--Dialects--Alaska--Kodiak Island.
+1	Paama language--Grammar.
+1	Paama language--Dictionaries--English.
+1	Oykangand language.
+1	Otomian languages.
+1	Otomi language.
+1	Otomi language--Verb.
+1	Otomi language--Phonology--Mexico.
+1	Otomi language--Mexico.
+1	Otomi language--Mexico--Mezquital Valley (Hidalgo)
+1	Otomi language--Grammar.
+1	Otomanguean languages--Terms and phrases.
+1	Otomanguean languages--Mexico.
+1	Otomanguean languages--History--Mexico.
+1	Ossetic language--Grammar.
+1	Ossetic language--Dictionaries--Russian.
+1	Osage language--Dictionaries--English.
+1	Oromo language--Verb.
+1	Oromo language--Kenya.
+1	Oromo language--Dictionaries--English.
+1	Orokolo language--Dictionaries--English.
+1	Orokaiva language--Grammar.
+1	Oroch language.
+1	Oriya language--Grammar.
+1	Oriental languages--Standardization--Congresses.
+1	Oriental languages--Phonology.
+1	Orejón language--Dictionaries--Spanish.
+1	Ordinary-language philosophy.
+1	Ontong Java language--Texts--ethnologue.
+1	Ontario.--Aboriginal Language Standardisation Project.
+1	Onondaga language--Grammar.
+1	Ono language.
+1	Oneida language--Verb.
+1	Omotic languages.
+1	Omotic languages--Ethipoia.
+1	Ombo language.
+1	Olo language.
+1	Old Turkik language.
+1	Old Persian language.
+1	Old Persian language--Grammar, Historical.
+1	Old Norse language--Prepositions.
+1	Old Norse language--Phonology.
+1	Old Norse language--Morphology.
+1	Old Norse language--Grammar.
+1	Oku language--Phonology.
+1	Oksapmin language--Sentences.
+1	Oksapmin language--Discourse analysis.
+1	Oksapmin language--Dictionaries--English.
+1	Oksapmin language--Comparative clauses.
+1	Okodia language--Tone--ethnologue.
+1	Ojibwa language--Writing--Congresses.
+1	Ojibwa language--Grammar.
+1	Ojibwa language--Discourse analysis.
+1	Ojibwa language--Dictionaries--English.
+1	Ofogoula language--United States.
+1	Oceanic languages--Verb phrase.
+1	Oceanic languages--Outlines, syllabi, etc.
+1	Oceanic languages--Grammaticalization.
+1	Oceanic languages--Grammar.
+1	Oceanic languages--Foreign words and phrases.
+1	Oceanic languages--Deixis.
+1	Oceanic languages--Congresses.
+1	Ocaina language.
+1	Ocaina language--Grammar.
+1	Ocaina language--Dictionaries--Spanish.
+1	Obolo language.
+1	Obolo language--Discourse analysis.
+1	Obolo language--Dialects.
+1	Nzima language--Locative constructions.
+1	Nyanja language.
+1	Nyanja language--Textbooks for foreign speakers--English.
+1	Nyanja language--Grammar.
+1	Nyanja language--Dictionaries--English.
+1	Nyangumata language.
+1	Nyabwa language--Phonology.
+1	Nyabwa language--Phonetics.
+1	Nyabwa language--Côte d'Ivoire.
+1	Nunggubuyu language.
+1	Nung language--Conversation and phrase books--Vietnamese.
+1	Nukuoro language.
+1	Nukna language--Papua New Guinea.--Ethnologue
+1	Nuer language--Dictionaries--English.
+1	Nuaulu language--Phonology.
+1	Ntlakyapamuk language.
+1	Norwegian language--Person.
+1	Norwegian language--Intonation.
+1	Norwegian language--History.
+1	Norwegian language--Grammar.
+1	Norwegian language--Dictionaries--English.
+1	Norwegian language--Dialects--Norway--Trondheim.
+1	Norwegian language--Conversation and phrase books.
+1	Northern Thai language--Verb.
+1	Northern Sotho language--Grammar.
+1	Northern Sotho language--Dictionaries--Afrikaans.
+1	Northern Paiute language--Phonetics.
+1	Nootka language.
+1	Nootka language--Texts.
+1	Nootka language--Clauses.
+1	Noone language--Grammar.
+1	Nomatsiguenga language--Dictionaries--Spanish.
+1	Nogai language--Grammar.
+1	Nkunya language--Grammar.
+1	Nisenan language--Texts.
+1	Nilotic languages--Syntax.
+1	Nilosaharan--languages--Ethiopia.
+1	Nilo-Saharan languages--Congresses.
+1	Nilo-Saharan languages--Classification.
+1	Nilo-Saharan languages--Central African Republic.
+1	Nilo-Hamitic languages.
+1	Nigeria--Languages.
+1	Niger Congo languages.
+1	Niger-Congo languages--Senegal--Phonology, Comparative.
+1	Niger-Congo languages--Mali.
+1	Niger-Congo languages--Grammar.
+1	Niger-Congo languages--Grammar, Comparative.
+1	Niger-Congo languages--Grammar, Comparative and general--Morphology.
+1	Niger-Congo languages--Classification.
+1	Nielim language--Discourse analysis.
+1	Nhanda language--Glossaries, vocabularies, etc.
+1	Nguna language--Grammar.
+1	Ngemba languages--Cambodia.
+1	Ngbaka ma'bo language.
+1	Ngarinyin language--Grammar.
+1	Ngalakan language.
+1	Ngada language--Discourse analysis.
+1	Ngaanyatjara language--Sentences.
+1	Newari language.
+1	Newari language--Textbooks for foreign speakers--English.
+1	Newari language--Discourse analysis.
+1	Nepali language.
+1	Nepali language--Syntax.
+1	Nepali language--Study and teaching.
+1	Nepali language--Semantics.
+1	Nepali language--History.
+1	Nepali language--Glossaries, vocabularies, etc.
+1	Nepali language--Glossaries, vocabularies, etc.--Khaling.
+1	Nepali language--Dialects.
+1	Nepali language--Conversation and phrase books.
+1	Nepali language--Conversation and phrase books--English.
+1	Nepali language--Bibliography.
+1	Nepal;--Languages.
+1	Nepal--Languages.
+1	Nengone language.
+1	Nengone language--Dictionaries--English.
+1	Ndu languages.
+1	Ndonga language--Dialects--Grammar.
+1	Ndebele language (Zimbabwe)--Grammar.
+1	Ndebele language (Zimbabwe)--Dictionaries--English.
+1	Ndau language--Morphology.
+1	Nchumburu language--Phonology.
+1	Naxi language--Glossaries, vocabularies, etc.--English language.
+1	Nawuri language--Labiality.
+1	Navajo language--Word formation.
+1	Navajo language--Verb.
+1	Navajo language--Transcription.
+1	Navajo language--Syntax.
+1	Navajo language--Phonetics.
+1	Navajo language--Periodicals.
+1	Navajo language--Interrogative.
+1	Navajo language--Foreign words and phrases--English.
+1	Navajo language--Bibliography.
+1	Natural language processing.
+1	Natural language processing (Computer science)--Bibliography.
+1	Native language and education--West Indies.
+1	Native language and education--Tanzania.
+1	Native language and education--Tanzania--Congresses.
+1	Native language and education--Solomon Islands.
+1	Native language and education--Oceania.
+1	Native language and education--Nigeria--History.
+1	Native language and education--Indonesia--Irian Jaya.
+1	Native language and education--India.
+1	Native language--Study and teaching--Congresses.
+1	Native language--Study and teaching--Africa, West.
+1	Native language--Mexico--Study and teaching.
+1	Native  language and education--Australia.
+1	Nasioi language.
+1	Napu language--Conversation and phrase books.
+1	Nankina language--Phonology.
+1	Nankanse language--Phonology.
+1	Nandi language--Topic and comment.
+1	Nande language--Dictionaries--English.
+1	Nancere language.
+1	Namia language--Papua New Guinea.
+1	Namia language--Papua New Guinea.--Ethnologue
+1	Namia language--Grammar.
+1	Nambicuara language--Phonology.
+1	Nakanai language--Grammar.
+1	Nai language--Phonology--Papua New Guinea.--Ethnologue
+1	Nahuatl language--Verb.
+1	Nahuatl language--Texts.
+1	Nahuatl language--Textbooks for foreign speakers--Spanish.
+1	Nahuatl language--Readers.
+1	Nahuatl language--Phonology--Orizaba.
+1	Nahuatl language--Mexico--Puebla.
+1	Nahuatl language--Foreign elements--Spanish.
+1	Nahuatl language--Dictionaries--English.
+1	Nahuatl language--Dialects--Zacapoaxtla.
+1	Nahuatl language--Dialects--Tlaxcala (state)
+1	Nahuatl language--Dialects--Mexico--Texcoco de Mora.
+1	Nahuatl language--Dialects--Mexico--Tetelcingo.
+1	Nahuatl language--Dialects--Mexico--Pajapan.
+1	Naga languages.
+1	Nadeb language.
+1	Nabak language--Morphophonemics--Papua New Guinea.
+1	Nabak language--Grammar--Papua New Guinea.
+1	Mwera language--Grammar.
+1	Muyuw language--Verb--Papua New Guinea.--Ethnologue
+1	Musgu language.
+1	Musei language--Consonants.
+1	Muruwari (Australian people)--Languages.
+1	Murut language--Texts.
+1	Murut language--Grammar.
+1	Murut language--Conversation and phrase books--English.
+1	Murui language--Dictionaries--Spanish.
+1	Murle language--Social aspects.
+1	Murai language--Syntax--Peru.
+1	Muong language--Orthography and spelling.
+1	Muong language--Grammar.
+1	Muong language--Conversation and phrase books--Vietnamese.
+1	Munichi language.
+1	Muniche language--Verb.
+1	Munduruku language--Grammar.
+1	Mundurucu language--Brazil.
+1	Mundani language--Phonology.
+1	Mundani language--Locative constructions--Cameroon.
+1	Muna language--Study and teaching--Foreign speakers--Conversation and phrase book.--Indonesia.
+1	Muna language--Study and teaching--Foreign speakers--Conversation and phrase book--Indonesia.
+1	Muna language--Grammar.
+1	Muna language--Dictionaries--Indonesian.
+1	Muna language--Dictionaries--English.
+1	Mullukmulluk language--Grammar.
+1	Mulao language.
+1	Muinane language--Grammar.
+1	Muinane language--Dictionaries--Spanish.
+1	Muinane language--Dictionaries--Spanish.--Colombia.
+1	Mudurucu language--Brazil.
+1	Muduapa language--Passive voice--Papua New Guinea.--Ethnologue
+1	Muduapa language--Grammar.
+1	Muduapa language--Grammar--Papua New Guinea.
+1	Movima language.
+1	Movima language--Dictionaries--Spanish.
+1	Mountain Arapesh language--Grammar.
+1	Motion in language.
+1	Mori language--Verb.
+1	Mooré language--Vocabulary--English.
+1	Mooré language--Orthography and spelling--Dictionaries.
+1	Mono language (Congo)--Phonology.
+1	Mono-Alu language--Grammar.
+1	Moni language.--Ethnologue--Papua New Guinea
+1	Mongour language.
+1	Mongour language--Grammar.
+1	Mongolian languages.
+1	Mongolian languages--Word formation.
+1	Mongolian languages--History.
+1	Mongolian languages--Grammar.
+1	Mongolian languages--Grammar, Comparative.
+1	Mongolian language--Textbooks for foreign speakers--English.
+1	Mongolian language--Noun.
+1	Mongolian language--Grammar.
+1	Mon language.
+1	Mon language--Dictionaries--Japanese.
+1	Mon Khmer languages.
+1	Mon-Khmer languages--Thailand.
+1	Mon-Khmer languages--Grammar.
+1	Mon-Khmer languages--Grammar, Comparative.
+1	Mon-Khmer languages--Etymology.
+1	Mon-Khmer languages--Dictionaries.
+1	Mon-Khmer languages--Dictionaries--English.
+1	Mon-Khmer languages--Bibliography.
+1	Mon-Khmer language--Classification.
+1	Mokilese language--Grammar.
+1	Mokilese language--Dictionaries--English.
+1	Mojo language--Phonology.
+1	Mohawk language--Writing--Standardization--Congresses.
+1	Mohawk language--Syntax.
+1	Mohave language--Syntax.
+1	Mohave language--Phonetics.
+1	Mohave language--Dictionaries--English.
+1	Moguex language--Columbia.
+1	Mobilian trade language.
+1	Moba language--Syntax.
+1	Moba language--Phonology.
+1	Mo language (Côte d'Ivoire and Ghana)--Phonology.
+1	Mnong language--Conversation and phrase books--Vietnamese.
+1	Mlabri language.
+1	Miya language--Grammar.
+1	Mixtecan languages.
+1	Mixtecan languages--Tone.
+1	Mixtecan languages--Syntax--Congresses.
+1	Mixtec language--Tone--Mexico.
+1	Mixtec language--Syntax.
+1	Mixtec language--Grammar, Generative.
+1	Mixtec language--Dialects.
+1	Mixtec language--Dialects--Jicaltepec, Oaxaca, Mexico.
+1	Mixtec language--Clauses.
+1	Mixe language--Phonology.
+1	Mixe language--Phonetics.
+1	Mixe language--Discourse analysis.
+1	Mixe language--Dialects--Totontepec Villa de Morelos.
+1	Miskito language--Grammar.
+1	Minority women--United States--Language.
+1	Minorities--Education--Language arts.
+1	Minangkabau language--Glossaries, vocabularies, etc.
+1	Micronesian languages--Orthography and spelling.
+1	Micronesian languages--Orthography and spelling--Congresses.
+1	Miao-Yao languages.
+1	Miao-Yao languages--Grammar.
+1	Metropolitan Toronto Central Library.--Languages Centre--Catalogs.
+1	Mesme language.
+1	Merei language--Grammar--Vanuatu.--Ethnologue 15
+1	Menominee language.
+1	Mende language--Papua New Guinea.--Ethnologue
+1	Mendankwe-Nkwen language--Languages, modern mutual intelligibility--Cameroon.--Ethnologue
+1	Mele-Fila language--Dictionaries--English.
+1	Melanesian languages--Vanuatu--Classification.
+1	Melanesian languages--Solomon Islands--Classification.
+1	Melanesian languages--Social aspects.
+1	Melanesian languages--Nominals--Solomon Islands.
+1	Melanesian languages--New Caledonia.
+1	Melanesian languages--Grammar.
+1	Melanesian languages--Dialects.
+1	Melanesian languages--Dialects--New Caledonia--Dictionaries--English.
+1	Mekeo language--Grammar.
+1	Mefele language--Cameroon.--Ethnologue
+1	Medlpa language--Papua New Guinea.
+1	Medicine--Language.
+1	Meax language.
+1	Meaning and choice in language.
+1	Mbya language--Dictionaries--Portuguese.
+1	Mbum languages--Glossaries, vocabularies, etc.
+1	Mbum languages--Cameroon.
+1	Mbum language.
+1	Mbum language--Grammar.
+1	Mbum language--Dictionaries--French.
+1	Mbugu language--Grammar.
+1	Mbo language (Cameroon)
+1	Mbili language--Cameroon.
+1	Mbembe language (Cross River)--Grammar.
+1	Mbaya language.
+1	Mbala language (Bandundu, Congo)--Grammar.
+1	Mbala language (Bandundu, Congo)--Dictionaries--French.
+1	Mazateco language--Phonology.
+1	Mazateco language--Phonemics.
+1	Mazateco language--Mexico.
+1	Mazateco language--Lexicostatistics--Mexico.
+1	Mazateco language--Lexicology.
+1	Mazateco language--Grammar.
+1	Mazanderani language.
+1	Mazahua language.
+1	Mazahua language--Dictionaries--Spanish.
+1	Mayoruna language--Study and teaching.
+1	Mayan languages--Writing--Congresses.
+1	Mayan languages--Vocabulary.
+1	Mayan languages--Verb.
+1	Mayan languages--Textbooks.
+1	Mayan languages--Social aspects--Mexico.
+1	Mayan languages--Semantics--Congresses.
+1	Mayan languages--Classification.
+1	Mayan languages--Bibliography.
+1	Mayan languages--Alphabet.
+1	Maya language--Writing.
+1	Maya language--Texts.
+1	Maya language--Phonology, Comparative.
+1	Maya language--Grammar.
+1	Mauwake language--Pronouns.
+1	Maue language--Texts.
+1	Matumbi language--Phonology.
+1	Mattole language.
+1	Matlatzinca language.
+1	Massachuset language--Dictionaries--English.
+1	Mashco language--Dictionaries--Spanish.
+1	Masai language.
+1	Masacali language--Phonology.
+1	Masacali language--Grammar.
+1	Marwari language--Grammar.
+1	Marshallese language--Phonetics.
+1	Marquesan language--Dialects.
+1	Markham languages.
+1	Maring language--Sentences.
+1	Maring language--Dictionaries--English.
+1	Maricopa language--Morphology.
+1	Maria language (India)--Grammar.
+1	Mari language--Suffixes and prefixes.
+1	Mari language--Phonetics.
+1	Mari language--Grammar.
+1	Margi language.
+1	Marathi language--Verb.
+1	Marathi language--Grammar.
+1	Maranungku language.
+1	Maranao language--Phonology--Philippines.
+1	Maranao language--Particles.
+1	Maranao language--Dictionaries--English.
+1	Mara language (Australia)
+1	Mapuche language.
+1	Mapuche language--Textbooks for foreign speakers--Spanish.
+1	Mapuche language--Congresses.
+1	Maori language.
+1	Maori language--Tense.
+1	Maori language--Grammar.
+1	Maori language--Grammar, Comparative--Kannada language.
+1	Maonan language.
+1	Manyika language.
+1	Mansaka language--Vowels.
+1	Manobo languages--Syntax--Philippines.
+1	Manobo languages--Lexicology.
+1	Manobo languages--Dialects.
+1	Mankasa language--Dictionaries--English.
+1	Manipuri language--Bangladesh.
+1	Mangue language.
+1	Mangue language--Dictionaries--Spanish.
+1	Mangseng language (Papua New Guinea)
+1	Mangbetu language.
+1	Mangbetu language--Phonetics.
+1	Mangarayi language--Grammar.
+1	Mangap language--Grammar.
+1	Mandingo language--Tense.
+1	Mandingo language--Côte d'Ivoire.
+1	Mandekan languages--Phonology.
+1	Mande languages--Syntax.
+1	Mande languages--Guinea.
+1	Mande languages--Grammar.
+1	Mande languages--Comparison.
+1	Mande languages--Bibliography--West Africa.
+1	Mande languages--Africa, West.
+1	Mande language--Burkina Faso.
+1	Mandar language--Reduplication.
+1	Manchu language--Grammar.
+1	Manchu language--Dictionaries--Japanese.
+1	Manambu language--Phonemics--Papua New Guinea.
+1	Managalasi language--Morphophonemics.
+1	Mambila language--Phonology.
+1	Mamara language.
+1	Mamanwa language--Topic and comment.
+1	Mamanwa language--Morphophonemics.
+1	Mam language--Glossaries, vocabularies, etc.
+1	Mam language--Dialectology.
+1	Maluku (Indonesia)--Languages.
+1	Malayan languages--Orthography and spelling.
+1	Malayan languages--Malaysia.
+1	Malayan languages--Indonesia--Sumatra--Glossaries, vocabularies, etc.
+1	Malayan languages--Indonesia--Grammar, Historical.
+1	Malayan languages--Indonesia--Glossaries, vocabularies, etc.
+1	Malayan languages--Grammar, Comparative.
+1	Malayan languages--Glossaries, vocabularies, etc.
+1	Malayan languages--Classification.
+1	Malayalam language--Grammar.
+1	Malay language--Textbooks for foreign speakers.
+1	Malay language--Study and teaching--English.
+1	Malay language--Sentences.
+1	Malay language--Readers.
+1	Malay language--Phonology.
+1	Malay language--Phonology, Comparative--English.
+1	Malay language--Malaysia (Peninsular)
+1	Malay language--Grammar.
+1	Malay language--Etymology.
+1	Malay language--Dialects--Malaysia--Kuala Pilah District (Negeri Sembilan)
+1	Malay language--Dialects--Indonesia--Jakarta--Morphology.
+1	Malay language--Conversation and phrase books--English.
+1	Malay language--Brunei--History.
+1	Malagasy language.
+1	Malagasy language--orthography and spelling.
+1	Malagasy language--Grammar.
+1	Malagasy language--Conversation and phrase books.
+1	Makua language--Word order.
+1	Makua language--Tone--Tanzania.
+1	Makua language--Grammar.
+1	Makua language--Dialectology--Mozambique--Tanzania.
+1	Maiya language.
+1	Maiya language--Pakistan--Kālām--Glossaries, vocabularies, etc.
+1	Maiya language--Pakistan--Glossaries, vocabularies, etc.
+1	Maiya language--Dialects--Pakistan--Kālām.
+1	Maiya language--Deixis.
+1	Maithili language--Dictionaries--Nepali.
+1	Mairasi language.
+1	Maidu language--Texts.
+1	Maidu language--Grammar.
+1	Mai Brat language--Grammar.
+1	Mai Brat language--Glossaries, vocabularies, etc.
+1	Mahidol University, Thailand.--Institute of Language and Culture for Rural Development--Thesis.
+1	Magi language (Southern Highlands Province, Papua New Guinea)--Discourse analysis.
+1	Mafa language--Dictionaries--French.
+1	MAD (Computer program language)
+1	Machiguenga language--Discourse analysis.
+1	Macedonian language.
+1	Macedonian language--Conditionals.
+1	Macaguan language.
+1	Maca language--Phonology.
+1	Mabuso languages--Glossaries, vocabularies, etc.
+1	Mòoré language--Foreign words and phrases.
+1	Ma'ya language--Prosodic analysis--Ethnologue
+1	Ma'di language--Uganda.
+1	Lwo language (Sudan)--Grammar.
+1	Luyia language--Grammar.
+1	Luxembourgish language--Grammar.
+1	Luxembourgish language--Conversation and phrase books.
+1	Lusi language--Grammar.
+1	Lushai language--Phonology.
+1	Lushai language--Grammar.
+1	Luo language (Kenya and Tanzania)--Vowels.
+1	Luo language--Verbs.
+1	Lungming language--Glossaries, vocabularies, etc.
+1	Lunda languages--Cameroon.
+1	Lunda language--Dictionaries--English.
+1	Luiseño language--Phonology.
+1	Luiseño language--Grammar.
+1	Lugbara language--Textbooks for foreign speakers--English.
+1	Luba language.
+1	Luba language--Grammar.
+1	Luba-Lulua language--Phonology.
+1	Low German language--Estonia.
+1	Lou language (Papua New Guinea)--Verb.
+1	Lorhon language.
+1	Lorhon language--Phonology.
+1	Lopa language (Nepal)--Texts.
+1	Lonkengo language.
+1	Loniu language--Grammar.
+1	Lomwe language (Mozambique)--Grammar.
+1	Loma language--Grammar.
+1	Lom language--Dictionaries--Indonesian.
+1	Loloish languages--Phonology, Comparative.
+1	Loloish languages--Intonation.
+1	Loloish languages--Conversation and phrase books--English.
+1	Loloish languages--China--Yunnan Sheng.
+1	Lobala language.
+1	Livonian language--Foreign elements--Latvia.
+1	Lithuanian language--Textbooks for foreign speakers--English.
+1	Lisu language--Phonology.
+1	Lisu language--Dictionaries--English.
+1	LISP (Computer program language)
+1	Linguistic minorities--Language.
+1	Lingala language--Variation.
+1	Lingala language--Textbooks for foreign speakers--French.
+1	Lingala language--Grammar.
+1	Lingala language--Dictionaries--French.
+1	Lingala language--Conversation and phrase books--English--French.
+1	Limbum language--Phonology.
+1	Lhomi language--Clauses.
+1	Lezgian languages--Variation--Azerbaijan.
+1	Lenin, Vladimir Ilʹich,--1870-1924--Views on the Russian language.
+1	Lele language (Chad)--Grammar.
+1	Lefana language.
+1	Laz language--Dialects--Grammar.
+1	Lawa language (China)--Idioms.
+1	Lavongai language--Grammar.
+1	Lau language--Dictionaries--English.
+1	Latvian language--Textbooks for foreign speakers--English.
+1	Latin language.
+1	Latin language, Vulgar--Words--History.
+1	Latin language, Postclassical--Syllabication.
+1	Latin language--Verb--Tables.
+1	Latin language--Textbooks for foreign speakers.
+1	Latin language--Subjunctive.
+1	Latin language--Phonology.
+1	Latin language--Participle.
+1	Latin language--History.
+1	Latin language--Grammar--1870-
+1	Latin language--Gramamr.
+1	Latin language--Examinations, questions, etc.
+1	Latin language--Etymology--Dictionaries.
+1	Latin language--Church Latin.
+1	Latin language--Church Latin--Dictionaries.
+1	Latin language--Chrestomathies and readers.
+1	Larike-Wakasihu language--Syllable.
+1	Larike-Wakasihu language--Grammar.
+1	Larike-Wakasihu language--Dictionaries--Indonesian.
+1	Laqua language--History.
+1	Lapp language--Pronoun.
+1	Lapp language--Dialects.
+1	Lao language--Textbooks for foreign speakers--English.
+1	Lao language--Conversation and phrase books.
+1	Languages, Modern--Study and teachings--United States.
+1	Languages, Modern--Study and teaching (Higher)
+1	Languages, Modern--Study and teaching (Higher)--Congresses.
+1	Languages, Modern--Study and teaching (Elementary)--United States.
+1	Languages, Modern--Study and teaching (Continuing education)
+1	Languages, Modern--Study and teaching--United States--Congresses.
+1	Languages, Modern--Study and teaching--Psychological aspects.
+1	Languages, Modern--Study and teaching--Great Britain.
+1	Languages, Modern--Study and teaching--Directories.
+1	Languages, Modern--Study and teaching--Africa, West.
+1	Languages, Modern--Study and teaching--Abstracts--Periodicals.
+1	Languages, Modern--Spoken language.
+1	Languages, Modern--Pronunciation.
+1	Languages, Modern--Programmed instruction--Congresses.
+1	Languages, Modern--Periodicals.
+1	Languages, Modern--Mutual intelligiblity.
+1	Languages, Modern--Examinations, questions, etc.--Congresses.
+1	Languages, Modern--Examinations--Congresses.
+1	Languages, artificial.
+1	Languages, Artifical.
+1	Languages in contact--Sahel.
+1	Languages in contact--Philippines.
+1	Languages in contact--Pacific Area.
+1	Languages in contact--Germany.
+1	Languages in contact--Fiji.
+1	Languages in contact--Europe.
+1	Languages in contact--Canada.
+1	Languages in contact--Bibliography.
+1	Languages in contact--Balkan Peninsula.
+1	Languages and logic.
+1	Language, Universal.
+1	Language, Modern--Phonology.
+1	Language universals.
+1	Language teachers--Training of.
+1	Language surveys.--Chile.
+1	Language surveys--Togo.
+1	Language surveys--Sudan.
+1	Language surveys--Software.
+1	Language surveys--Scotland.
+1	Language surveys--Nigeria.
+1	Language surveys--Malaysia, East.
+1	Language surveys--Handbooks, manuals, etc.
+1	Language surveys--Dominican Republic.
+1	Language surveys--Columbia.
+1	Language surveys--Cameroon.
+1	Language surveys--Benin.
+1	Language surveys--Australia.
+1	Language survey.
+1	Language survey--Congresses.
+1	Language spread--Central African Republic.
+1	Language policy--Vietnam.
+1	Language policy--Russia (Federation)
+1	Language policy--Philippines.
+1	Language policy--New Caledonia.
+1	Language policy--Morocco.
+1	Language policy--Malaysia.
+1	Language policy--Guinea.
+1	Language policy--Ghana.
+1	Language policy--France--History.
+1	Language policy--Ethiopia.
+1	Language policy--Ecuador--Saraguro Region.
+1	Language policy--East Asia.
+1	Language policy--Congresses.
+1	Language policy--Australia--History.
+1	Language policy--Asia.
+1	Language policy--Asia, Southeastern.
+1	Language policy--Africa.
+1	Language policy--Africa--Congresses.
+1	Language planning--Yugoslavia.
+1	Language planning--United States.
+1	Language planning--Thailand.
+1	Language planning--South Africa.
+1	Language planning--Societies, etc.--Directories.
+1	Language planning--Political aspects.
+1	Language planning--Periodicals.
+1	Language planning--Nepal.
+1	Language planning--Malawi.
+1	Language planning--Luxembourg.
+1	Language planning--Linguistic minorities.
+1	Language planning--Ireland.
+1	Language planning--India.
+1	Language planning--History.
+1	Language planning--Guatemala.
+1	Language planning--Developing countries.
+1	Language planning--Congo (Democratic Republic)
+1	Language planning--Bibliography.
+1	Language planning--Australasia.
+1	Language planning--Africa.
+1	Language planning--Africa, Southern.
+1	Language obsolescence--Trinidad and Tobago.
+1	Language obsolescence--North America--Congresses.
+1	Language obsolescence--Mexico.
+1	Language obsolescence--Louisiana.
+1	Language obsolescence--Ethiopia.
+1	Language obsolescence--Documentation.
+1	Language obsolescence--Case studies.
+1	Language obsolescence--Africa, East--Congresses.
+1	Language maintenance.
+1	Language maintenance--Australia.
+1	Language maintenace--Australia.
+1	Language in missionary work.
+1	Language in missionary work--Nigeria.
+1	Language in education.
+1	Language file--Chinese.
+1	Language experience approach in education--Research--United States.
+1	Language disorders.
+1	Language attrition--Psychological aspects.
+1	Language attrition--Pacific Area.
+1	Language attrition--Australia.
+1	Language arts (Secondary)
+1	Language arts (Preschool)
+1	Language arts (Preschool)--Bibliography.
+1	Language arts (Elementary)--United States.
+1	Language arts (Elementary)--Computer-assisted instruction.
+1	Language arts (Elementary)--British Columbia.
+1	Language arts (Early childhood)
+1	Language arts (Early childhood)--Handbooks, manuals, etc.
+1	Language arts--Research--Congresses.
+1	Language arts--Nigeria--Bibliography.
+1	Language arts--Handbooks, manuals, etc.
+1	Language arts--Congresses.
+1	Language ang languages--Study and teaching.
+1	Language and social processes.
+1	Language and sex.
+1	Language and logic--Bibliography.
+1	Language and linguistics--Study and teaching.
+1	Language and law.
+1	Language and languages--Universals.
+1	Language and languages--Style--Dictionaries.
+1	Language and languages--Study and teaching (Higher)
+1	Language and languages--Study and teaching (Higher)--United States.
+1	Language and languages--Study and teaching--Simulation methods.
+1	Language and languages--Study and teaching--Religious aspects--Christianity.
+1	Language and languages--Study and teaching--Psychological aspects--Congresses.
+1	Language and languages--Study and teaching--Finland.
+1	Language and languages--Study and teaching--Error analysis--Bibliography.
+1	Language and languages--Study and teaching--Dictionaries.
+1	Language and languages--Study and teaching--Canada.
+1	Language and languages--Study and teaching--Book reviews.
+1	Language and languages--Study and teaching--Bahrain.
+1	Language and languages--Study and teaching--Audio-visual aids.
+1	Language and languages--Study and teaching--Africa, Sub-Saharan.
+1	Language and languages--statistics.
+1	Language and languages--Spoken language.
+1	Language and languages--Specimens.
+1	Language and languages--Sociolinguistics.
+1	Language and languages--Sex differences--Congresses.
+1	Language and languages--Rhythm.
+1	Language and languages--Religious aspects--Periodicals.
+1	Language and languages--Religious aspects--History.
+1	Language and languages--Religious aspects--Encyclopedias.
+1	Language and languages--Quotations, maxims, etc.
+1	Language and languages--Pronunciation.
+1	Language and languages--Problems, exercises, etc.
+1	Language and languages--Political aspects--Soviet Union.
+1	Language and languages--Political aspects--Middle East--Congresses.
+1	Language and languages--Political aspects--Congresses.
+1	Language and languages--Philosophy--History.
+1	Language and languages--Philosophy--Encyclopedias.
+1	Language and languages--Orthography and spelling--Africa.
+1	Language and languages--Origin--Congresses.
+1	Language and languages--Methodology.
+1	Language and languages--Maps.
+1	Language and languages--Juvenile literature.
+1	Language and languages--Handbooks, manuals, etc.
+1	Language and languages--Grammars--Authorship.
+1	Language and languages--Examinations, questions, etc.
+1	Language and languages--Examinations, questions, etc.--Bibliography.
+1	Language and languages--Etymology.
+1	Language and languages--essays and lectures.
+1	Language and languages--East Asia--Orthography and spelling.
+1	Language and languages--Dictionaries--French.
+1	Language and languages--Culture.
+1	Language and languages--Computer-assisted instruction--Research.
+1	Language and languages--Classivication.
+1	Language and languages--Classification--Congresses.
+1	Language and languages--Bibliography--Catalogs.
+1	Language and languages--America--Congresses.
+1	Language and languages--Africa.
+1	Language and human behavior.
+1	Language and emotions.
+1	Language and education--Singapore--Congresses.
+1	Language and education--Research--Methodology.
+1	Language and education--New Zealand.
+1	Language and education--Europe.
+1	Language and education--Encyclopedias.
+1	Language and education--Congresses.
+1	Language and education--Africa.
+1	Language and culture--United States.
+1	Language and culture--Study and teaching.
+1	Language and culture--Liberia.
+1	Language and culture--Africa, West--Congresses.
+1	Language and communication.
+1	Language acquisition--Research--Methodology.
+1	Language acquisition--Psycholinguistics.
+1	Language acquisition--Handbooks, manuals, etc.
+1	Language acquisition--Case studies.
+1	Lango language--Grammar.
+1	Lampung language--Grammar.
+1	Lamet language.
+1	Lambadi language--Grammar.
+1	Lamba language--Dictionaries--English.
+1	Lamé language (Cameroon)--Phonology.
+1	Lak language.
+1	Laha language (Vietnam)
+1	Ladino language--Social aspects.
+1	Laamang language.
+1	Lü language.
+1	Lü language--Glossaries, vocabularies, etc.
+1	Kyrgyz language--Dictionaries--English.
+1	Kyaka language (Papua New Guinea)--Dictionaries.--ethnologue.
+1	Kwiri language--Tone.
+1	Kwerba language.
+1	Kweni language--Dictionaries--French.
+1	Kwangali language.
+1	Kwaio language--Dictionaries--English.
+1	Kwa languages--Nigeria.
+1	Kwa languages--Côte d'Ivorie.
+1	Kwa languages--Bibliography.
+1	Kuuku Ya'u language--Grammar.
+1	Kutenai language--Phonemics--Canada.
+1	Kutenai language--Morphemics.
+1	Kutenai language--Morphemics--Canada.
+1	Kusunda language--Grammar.
+1	Kusaasi language--Dictionaries--English.
+1	Kusaal language--Syntax.
+1	Kusaal language--Phonology.
+1	Kurumba language--Texts.
+1	Kurumba language--Dictionaries--French.
+1	Kurukh language--Sex diffenrnces--India.
+1	Kurukh language--Grammar.
+1	Kurukh language--Grammar--India.
+1	Kurukh language--Dialects--Phonology.
+1	Kurukh language--Clauses--Nepal.
+1	Kuria language--Alphabet.
+1	Kurdish language--Grammar.
+1	Kurdish language--Dictionaries--English.
+1	Kupia language--Phonemics.
+1	Kuot language--Papua New Guinea--Grammar.
+1	Kunimaipa language--Noun phrase.
+1	Kunimaipa language--Intonation.
+1	Kunimaipa language--Grammar.
+1	Kunama language.
+1	Kulung language--Dictionaries--Nepali.
+1	Kulango language--Discourse analysis.
+1	Kukukuku languages.
+1	Kukukuku languages--Phonology.
+1	Kuku-Yalanji language--Dictionaries--English.
+1	Kukna language.
+1	Kukna language--Grammar.
+1	Kuki-Chin languages.
+1	Kuitsh language--Grammar.
+1	Kui language (Mon-Khmer)--Phonology.
+1	Kui language (Mon-Khmer)--Cambodia.
+1	Kuanyama language--Grammar.
+1	Kryts language.--Ethnologue--Azerbaijan
+1	Kru languages.
+1	Kru languages--Verb.
+1	Kru languages--Liberia.
+1	Kru languages--Ivory Coast.
+1	Kru languages--Auxiliary verbs.
+1	Kru language--Phonology.
+1	Kristang language--Malaysia--Dictionaries.
+1	Kriol language.
+1	Kriol language--Dictionaries--English language.
+1	Krio language--Sierra Leone.
+1	Krio language--Sierra Leone--Study and teaching.
+1	Kpelle language--Dictionaries--English.
+1	Koya language.
+1	Kotia language--Dictionaries--English.
+1	Koti language--Mozambique.
+1	Kota language (India)--Texts.
+1	Korowai language--Social aspects.
+1	Koronadal Blaan language--Philippines.--Ethnologue
+1	Korean language--Transliteration.
+1	Korean language--Topic and comment.
+1	Korean language--Textbooks for foreign speakers.
+1	Korean language--Textbooks for foreign speakers--English.
+1	Korean language--Tense.
+1	Korean language--Study and teaching.
+1	Korean language--Spoken Korean.
+1	Korean language--Social aspects.
+1	Korean language--Phonology.
+1	Korean language--Phonetics, Acoustic.
+1	Korean language--Phonemics.
+1	Korean language--Morphology.
+1	Korean language--Grammar, generative.
+1	Korean language--Grammar, Comparative.
+1	Korean language--Dictionaries--Japanese.
+1	Korean language--Dictionaries--English.
+1	Korean language--China.
+1	Korean language--Causative.
+1	Korape language--Syntax.
+1	Koran--Language, style.
+1	Korafe language--Morphology--Papua New Guinea.--Ethnologue
+1	Koozime language--Cameroon.
+1	Konni language--Phonology--ethnologue.
+1	Konni language--Morphology.
+1	Konni language--Morphology--ethnologue.
+1	Konni language--Ghana.
+1	Konkomba language--Phonology.
+1	Kongo language--Textbooks for foreign speakers--French.
+1	Kongo language--Conversation and phrase books--English--French.
+1	Konda language--Phonemics.
+1	Komo language (Congo)--Phonology.
+1	Komi language--Phonology.
+1	Kombai language.
+1	Kom language (Cameroon)
+1	Kolao language.
+1	Kolami language.
+1	Koho language--Study and teaching.
+1	Kobon language--Phonology, Comparative--Papua New Guinea.
+1	Kobon language--Papua New Guinea.
+1	Koasati language--Dictionaries--English.
+1	Klamath language--Texts.
+1	Klamath language--Phonology.
+1	Klamath language--Grammar.
+1	Klamath language--Dictionaries--English.
+1	Klainga language--Morphophenemics.
+1	Kituba language.
+1	Kitabwa language--Dictionaries--French.
+1	Kishingini language--Grammar.
+1	Kiriwinian language.
+1	Kiriwinian language--Particles.
+1	Kiput language--Vocabulary.
+1	Kiowa language--Verb--Mexico--Oklahoma.
+1	Kiowa language--Noun--Mexico--Oklahoma.
+1	Kinyarwanda language--Study and teaching--English.
+1	Kinyarwanda language--Phonology.
+1	Kinyarwanda language--Intonation.
+1	Kinaray-a language--Pronoun--Philippines.
+1	Kilega language--Syntax.
+1	Kilega language--Grammar.
+1	Kikuyu language--Phonetics.
+1	Kikuyu language--Dictionaries--English.
+1	Kickapoo language--Glossaries, vocabularies, etc.
+1	Khowar language.
+1	Khoisan languages.
+1	Khoisan languages--Clicks.
+1	Khoikhoi language--Grammar.
+1	Khmu' language--Grammar.
+1	Khmu' language--Dictionaries--Lao.
+1	Khmer language.
+1	Khmer language--Spoken Khmer.
+1	Khmer language--Morphology.
+1	Khmer language--Grammar.
+1	Khinalugh language--Grammar.
+1	Khayasa language.
+1	Khasi language--Grammar.
+1	Khanty language--Dialects.
+1	Khanty language--Dialects--Asiatic Russia--Vakh Valley.
+1	Kham language (Nepal)
+1	Kham language (Nepal)--Tone.
+1	Kham language--Grammar.
+1	Khaling language--Verb.
+1	Khaling language--Texts.
+1	Khaling language--Phonemics.
+1	Khaling language--Dictionaries--English.
+1	Kewa language--Sex differences.
+1	Kewa language--Religious aspects.
+1	Kewa language--Dictionaries--English.
+1	Ketengban language--Dictionaries--Indonesian.
+1	Ket language.
+1	Ket language--Verb.
+1	Keres language--United States.
+1	Keres language--Dialects--New Mexico--Santa Ana Pueblo.
+1	Kera language--Vowels--Chad.
+1	Kera language--Syntax.
+1	Kenga language--Grammar.
+1	Kemak language--Dictionaries--English.
+1	Kekchi language--Textbooks for foreign speakers--Spanish.
+1	Kekchi language--Grammar.
+1	Kekchi language--Dictionaries--Spanish.
+1	Kein language--Phonology--Papua New Guinea.--Ethnologue
+1	Kazakh language--textbooks for foreign speakers.
+1	Kazakh language--Syntax.
+1	Kazakh language--Discourse analysis.
+1	Kazakh language--Dialects--Turkey--Istanbul--Phonology.
+1	Kayah language--Grammar.
+1	Kaw language--Phonology.
+1	Kaw language--Dictionaries--English.
+1	Kaure language--Dictionaries--Indonesian.
+1	Kaure language--Conversation and phrasebooks--Indonesian.
+1	Katu language--Glossaries, vocabularies, etc.--Vietnamese.
+1	Katu language--Dictionaries--Vietnamese--English.
+1	Katab language--Grammar.
+1	Kashmiri language--Causative.
+1	Kasem language--Verb phrase.
+1	Kasem language--Phonology.
+1	Kasem language--Phonetics.
+1	Kasem language--Grammar.
+1	Kartvelian languages.
+1	Kartvelian languages--Case.
+1	Karok language.
+1	Karitiana language--Dictionaries--Portuguese.
+1	Karata language--Grammar.
+1	Karao language--Phonology.
+1	Karao language--Grammar.
+1	Karaboro language--Phonology.
+1	Kapingamarangi language--Dictionaries--English.
+1	Kapauka language--Papua New Guinea.
+1	Kaonde language--Grammar.
+1	Kanuri language.
+1	Kannada language--Self-instruction--English.
+1	Kannada language--Grammar.
+1	Kanite language--Clauses.
+1	Kamwe language--Phonology.
+1	Kamwe language--Phonetics--Nigeria.
+1	Kambot language--Stratificational grammar.
+1	Kamba language--Textbooks for foreign speakers--English.
+1	Kamba language--Grammar.
+1	Kamano language--Study and teaching.
+1	Kamano language--Phonemics--Papua New Guinea.--Ethnologue
+1	Kamano language--Dictionaries--Tok Pisin.
+1	Kalkatungu language--Grammar.
+1	Kalispel language.
+1	Kalinga languages.
+1	Kalinga languages--Philippines--Lubo--Texts.
+1	Kalinga languages--Philippines--Guinaang--Texts.
+1	Kalinga languages--Grammar.
+1	Kalinga languages--Discourse analysis.
+1	Kalinga language.
+1	Kalinga language--Discourse analysis, Narrative.
+1	Kalenjin language--Grammar.
+1	Kalash language--Dictionaries--English.
+1	Kalam language--Verb.
+1	Kalam language--Grammar.
+1	Kaki Ae language.
+1	Kairi language--Dictionaries--English.
+1	Kaingang language--Dictionaries--Portuguese.
+1	Kaili language--Dictionaries--Indonesian.
+1	Kachin language--Dictionaries--Chinese.
+1	Kachi Gujarati language--Grammar.
+1	Kabiye language--Discourse analysis.
+1	Kabardian language--Grammar.
+1	Kabardian language--Ethnologue--Russia (Europe)
+1	Kâte language.
+1	Kâte language--Glossaries, vocabularies, etc.
+1	Kâte language--Dictionaries--English.
+1	K'iche' language--ethnologue.
+1	Jupda language--Grammar--Congresses.
+1	Jupda language--Dictionaries--Polyglot.
+1	Jukunoid languages--Cameroon.
+1	Jukun language--Dialects.
+1	Judeo-Persian language.
+1	Jirel language--Discourse analysis.
+1	Jirel language--Dictionaries--Nepali.
+1	Jindjibandji language.
+1	Jicaque language--Hondurus.
+1	Jicaque language--Honduras--Francisco Morazán--Verb.
+1	Jicaque language--Dictionaries--Spanish.
+1	Jews--Languages.
+1	Jerusalem University College.--Department of Hebrew language--Thesis.
+1	Jeh language--Glossaries, vocabularies, etc.
+1	Jeh language--Conversation and phrase books--Vietnamese.
+1	Jebero language.
+1	Jǒ (Secret language)
+1	Javanese language.
+1	Javanese language--Verb.
+1	Javanese language--Suriname--Texts.
+1	Javanese language--Spoken Javanese.
+1	Javanese language--Social aspects--Suriname.
+1	Javanese language--Sentences (Grammar)
+1	Javanese language--Pronoun.
+1	Javanese language--History.
+1	Javanese language--Adjectives.
+1	Jaruára language.
+1	Jaruára language--Verb.
+1	Jarai language--Conversation and phrase books--Vietnamese.
+1	Jaqaru language.--Ethnologue--Peru
+1	Japanese language--Writing.
+1	Japanese language--Texts.
+1	Japanese language--Textbooks for foreign speakers--English.
+1	Japanese language--Syntax--Congresses.
+1	Japanese language--Study and teaching.
+1	Japanese language--Study and teaching (Higher)
+1	Japanese language--Study and teaching--Foreign speakers.
+1	Japanese language--Self-instruction.
+1	Japanese language--Relative clauses.
+1	Japanese language--Phonetics.
+1	Japanese language--Onomatopoeic words.
+1	Japanese language--Noun.
+1	Japanese language--Negatives.
+1	Japanese language--Intonation.
+1	Japanese language--Grammar, Comparative--English.
+1	Japanese language--Grammar, Comparative--Austroasiatic.
+1	Japanese language--Grammar, Comparative--Altaic.
+1	Japanese language--Grammar--Congresses.
+1	Japanese language--Grammar--1950-
+1	Japanese language--Glossaries, vocabularies, etc.
+1	Japanese language--Foreign words and phrases.
+1	Japanese language--Ellipsis.
+1	Japanese language--Dictionaries--English.
+1	Japanese language--Dialects.
+1	Japanese language--Dialects--Syntax.
+1	Japanese language--Conversation and phrase books--English.
+1	Júma language.--Ethnologue--Phonemics--Brazil
+1	Jaminaua language.
+1	Jaminaua language--Nasality (Phonetics)--Peru.
+1	Jalé language--Conversation and phrasebooks.
+1	Jacalteca language.
+1	Jacalteca language--Readers.
+1	Jacalteca language--Grammar.
+1	Izi language--Verb.
+1	Izi language--Verb phrase.
+1	Izi language--Grammar.
+1	Ixil language--Phonology.
+1	Ixcateco language.
+1	Ixcateco language--Dictionaries--Spanish.
+1	Iwaidji language--Grammar.
+1	Ivory Coast--Languages.
+1	Itonama language--Dictionaries--Spanish.
+1	Italian language--Texts.
+1	Italian language--Textbooks for foreign speakers--English.
+1	Italian language--Spoken Italian.
+1	Italian language--Self-instruction.
+1	Italian language--Pronoun.
+1	Italian language--Phonology.
+1	Italian language--History.
+1	Italian language--Grammar.
+1	Italian language--Grammar--1870-1949.
+1	Italian language--Gender.
+1	Italian language--Foreign words and phrases--English.
+1	Italian language--Euphemism.
+1	Italian language--Congresses.
+1	Isneg language.
+1	Isneg language--Morphology.
+1	Isneg language--Grammar.
+1	Isinay language--Texts.
+1	Iroquois language--Texts.
+1	Irish language--Self-instruction.
+1	Iranxe language.
+1	Inupiatun language--Canada--Ethnologue.
+1	Inuit language--Bibliography--Catalogs.
+1	International Conference on Sino-Tibetan Languages and Linguistics--Bibliography.
+1	International conference on Sino-Tibetan language and linguistics--18th :--1985 :--Bangkok, Thailand.
+1	Interlingua (International Auxiliary Language Association)
+1	Inidans of North Ameirca--Languages.
+1	Ingassana language--Dictionaries--English.
+1	Ingano language--Phonology--Colombia.
+1	Ingano language--Phonemics--Columbia.
+1	Ingano language--Grammar.
+1	Ingano language--Dictionaries--Spanish.
+1	Indonesian languages--Indonesia (Irian Jaya)
+1	Indonesian language--Textbooks for foreign speakers.
+1	Indonesian language--Terms and phrases--Dictionaries.
+1	Indonesian language--Syntax.
+1	Indonesian language--Spoken Indonesian--Indonesia--Jakarta.
+1	Indonesian language--Social aspects.
+1	Indonesian language--Relational grammar.
+1	Indonesian language--Prepositions.
+1	Indonesian language--Phonology.
+1	Indonesian language--Particles.
+1	Indonesian language--Noun phrase.
+1	Indonesian language--Intonation.
+1	Indonesian language--History.
+1	Indonesian language--Foreign words and phrases--Chinese.
+1	Indonesian language--Foreign elements--Javanese.
+1	Indonesian language--Discourse analysis.
+1	Indonesian language--Dialects--Indonesia--Sulawesi Selatan.
+1	Indonesian language--Dialects--Indonesia--Sulawesi Selatan--Bibliography.
+1	Indonesian language--Conversation and phrase books.
+1	Indonesian language--Affixes.
+1	Indonesia languages.
+1	Indo-European languages--Word formation.
+1	Indo-European languages--Vowel gradation.
+1	Indo-European languages--Study and teaching.
+1	Indo-European languages--Semantics.
+1	Indo-European languages--Roots--Dictionaries.
+1	Indo-European languages--Phonology, Historical.
+1	Indo-European languages--Phonemics.
+1	Indo-European languages--Etymology.
+1	Indo-European languages--Dialects--Congresses.
+1	Indo-European languages--Affixes.
+1	Indo-Aryan languages, Modern--History.
+1	Indo-Aryan languages--Social aspects.
+1	Indo-Aryan languages--Pronoun.
+1	Indo-Aryan languages--Prefixes and suffixes.
+1	Indo-Aryan languages--Phonology.
+1	Indo-Aryan languages--Clauses.
+1	Indigenous peoples--Language--Congresses.
+1	Indians of the West Indies--Languages.
+1	Indians of South America--Venezuela--Languages.
+1	Indians of South America--Peru--Languages.
+1	Indians of South America--Peru--Languages--Social aspects.
+1	Indians of South America--Peru--Languages--Phonemics.
+1	Indians of South America--Peru--Languages--Discourse analysis.
+1	Indians of South America--Peru--Languages--Conversation and phrase books (for medical personnel)
+1	Indians of South America--Peru--Languages--Bibliography.
+1	Indians of South America--Languages--Periodicals.
+1	Indians of South America--Languages--Ecuador--Conversation and phrase books--Spanish.
+1	Indians of South America--Languages--Discourse analysis--Congresses.
+1	Indians of South America--Languages--Congresses.
+1	Indians of South America--Languages--Colombia--Phonemics.
+1	Indians of South America--Languages--Brazil--Bibliography.
+1	Indians of South America--Languages--Bolivia.
+1	Indians of South America--Languages--Argentina.
+1	Indians of South America--Colombia--Languages--Study and teaching.
+1	Indians of South America--Colombia--Languages--Phonology.
+1	Indians of South America--Colombia--Languages--Grammar--Congresses.
+1	Indians of South America--Colombia--Languages--Glossaries, vocabularies, etc.--Polyglot.
+1	Indians of South America--Brazil--Languages--Congresses.
+1	Indians of South America--Andes Region--Languages.
+1	Indians of South America--Amazon River Region--Languages.
+1	Indians of North America--Southern States--Languages--Congresses.
+1	Indians of North America--Ontario--Languages--Standardization.
+1	Indians of North America--New Mexico--Languages.
+1	Indians of North America--Languages--Study and teaching.
+1	Indians of North America--Languages--Study and teaching--United States.
+1	Indians of North America--Languages--Study and teaching--Congresses.
+1	Indians of North America--Languages--Southwest, New.
+1	Indians of North America--Languages--Revival.
+1	Indians of North America--Languages--Revival--Congresses.
+1	Indians of North America--Languages--Oklahoma.
+1	Indians of North America--Languages--California.
+1	Indians of North America--Languages--Bibliography.
+1	Indians of North America--Language and languages--Congresses.
+1	Indians of North America--Language--California.
+1	Indians of North America--Education--Native language--Congresses.
+1	Indians of North America--Canada--Languages.
+1	Indians of North America--Canada--Languages--Phonology.
+1	Indians of North America--Canada--Languages--Orthography and spelling.
+1	Indians of North America--California--Languages--Texts.
+1	Indians of North America--Alaska--Languages.
+1	Indians of N. America--Languages--California.
+1	Indians of Mexico--Languages--Periodicals.
+1	Indians of Mexico--Languages--History.
+1	Indians of Mexico--Languages--Discourse analysis.
+1	Indians of Mexico--Languages--Bibliography.
+1	Indians of Central America--Panama--Languages.
+1	Indians of Central America--Languages--Guatemala.
+1	Indians of Central America--Guatemala--Languages--Social aspects.
+1	Indians of Central America--Guatemala--Languages--Bibliography.
+1	Indians--Languages--Writing.
+1	Indians--Languages--Texts--Translations into English.
+1	Indians--Languages--Syntax.
+1	Indians--Languages--Study and teaching.
+1	Indians--Languages--Dictionaries.
+1	Indians--Languages--Bibliography--Periodicals.
+1	Indian sign language.
+1	Indian of South America--Languages.
+1	Indian of North America--Languages--California.
+1	India--Languages.
+1	Inapari language--Grammar.
+1	Inanwatan language--Grammar.
+1	Imonda language--Grammar.
+1	Immigrants--Europe--Languages.
+1	Imaginary languages.
+1	Iloko language--Texts.
+1	Iloko language--Textbooks for foreign speakers--English.
+1	Iloko language--Grammar.
+1	Iloko language--Dictionaries--English.
+1	Ik language--Uganda.
+1	Igede language--Vowel harmony.
+1	Igbo language--Tone.
+1	Igbo language--Textbooks for foreign speakers--English.
+1	Igbo language--Dictionaries--English.
+1	Igbo language--Dialects.
+1	Igbo language--Auxiliary verbs.
+1	Ifugao language--Phonology.
+1	Icelandic language--Vowels.
+1	Icelandic language--Syntax.
+1	Icelandic language--Grammar.
+1	Icelandic language--Conversation and phrase books.
+1	Ica language.
+1	Ica language--Syntax.
+1	Iberian language.
+1	Iban language--Grammar.
+1	Ibaloi language--Semantics.
+1	Iai language.
+1	I'saka language--Grammar.--National Library of Australia
+1	Hyperborean languages--Study and teaching.
+1	Hungarian language--Vowels.
+1	Hungarian language--Sentences.
+1	Hungarian language--Phonetics.
+1	Hungarian language--Nominals.
+1	Hungarian language--Linguistic analysis--South Bend, Indiana.
+1	Hungarian language--Inflection.
+1	Hungarian language--Grammar, Comparative--Japanese.
+1	Hungarian language--Grammar, Comparative--English.
+1	Hungarian language--Glossaries, vocabularies, etc.
+1	Hungarian language--Accents and accentuation.
+1	Hunde language--Dictionaries--Polyglot.
+1	Huichol language.
+1	Huichol language--Religious aspects.
+1	Huichol language--Phonetics.
+1	Huichol language--Phonemics.
+1	Huichol language--Lexicology.
+1	Huichol language--Intonation--Mexico.
+1	Huehuetla Tepehua language--Mexico.
+1	Huehuetla Tepehua language--Ethnologue--Mexico.
+1	Huave language--Tone.
+1	Huave language--Mexico.
+1	Huave language--Dictionaries--Spanish.
+1	Huastec language--Phonemics.
+1	Huao language--Textbooks for foreign speakers--Spanish.
+1	Huao language--Phonology.
+1	Huao language--Discourse analysis.
+1	Huao language--Bibliography--Ecuador.
+1	Huambisa language--Phonology.
+1	Huambisa language--Dictionaries--Spanish.
+1	Hualapai language--Morphology.
+1	Hualapai language--Grammar.
+1	Hualapai language--Dictionaries--English.
+1	Hrê language--Conversation and phrase books--Vietnamese.
+1	Hopi language.
+1	Honduras--Languages.
+1	Homer,--language.
+1	Homer--Language.
+1	Homer--Language--Grammar.
+1	Hokan languages.
+1	Hokan-Coahuiltecan languages.
+1	Hoava language--Grammar.
+1	Hmwaveke language--Phonology.
+1	Hmong language--Topic and comment.
+1	Hmong language--Phonology.
+1	Hmong language--Parts of speech--Laos.
+1	Hmong language--China.
+1	Hmong language--China--Terms and phrases.
+1	Hmong language--Alphabet.
+1	Hixkaryana language--Texts.
+1	Hittite language--Texts.
+1	Hittite language--Sentences.
+1	Hittite language--Grammar, Comparative.
+1	Hittite language--Glossaries, vocabularies, etc.
+1	Hispanic Americans--Language.
+1	Hispanic Americans--California--Fortuna--Languages.
+1	Hiri Motu language--Dictionaries--English.
+1	Hindustani language--Textbooks for foreign speakers--English.
+1	Hindustani language--Study and teaching--English students.
+1	Hindi language--Self-instruction.
+1	Hindi language--Roots.
+1	Hindi language--Reduplication.
+1	Hindi language--Readers.
+1	Hindi language--Nominals.
+1	Hindi language--Lexicography.
+1	Hindi language--Chrestomathies and readers.
+1	Hindi language--Alphabet.
+1	Highland Yao language--Southeastern Asia.
+1	Hidatsa language--Texts.
+1	Hidatsa language--Syntax.
+1	Hebrew language, Biblical--Style, Literary.
+1	Hebrew language, Biblical--Particles.
+1	Hebrew language--Words.
+1	Hebrew language--Word order.
+1	Hebrew language--Word frequency.
+1	Hebrew language--Voice.
+1	Hebrew language--Translating.
+1	Hebrew language--Translating into Chewa.
+1	Hebrew language--Topic and comment.
+1	Hebrew language--Syntax--Congresses.
+1	Hebrew language--Study and teaching (Higher)--United States--Periodicals.
+1	Hebrew language--Social aspects.
+1	Hebrew language--Sentences.
+1	Hebrew language--Relative clauses.
+1	Hebrew language--Phonology.
+1	Hebrew language--Parallelism.
+1	Hebrew language--Paragraphs.
+1	Hebrew language--Orthography and spelling.
+1	Hebrew language--Orthography and spelling--History.
+1	Hebrew language--Morphophonemics.
+1	Hebrew language--Modality.
+1	Hebrew language--Metrics and rhythmics.
+1	Hebrew language--Lexicography.
+1	Hebrew language--Inflection.
+1	Hebrew language--Grammer.
+1	Hebrew language--Grammar--Problems, exercises, etc.
+1	Hebrew language--Grammar--Indexes.
+1	Hebrew language--Discourse analysis--Congresses.
+1	Hebrew language--Dictionaries.
+1	Hebrew language--Dialects.
+1	Hebrew language--Dialects--Israel--Tiberias--Phonology.
+1	Hebrew language--Composition and exercises.
+1	Hebrew language--Aspect.
+1	Hebrew language--Alphabet--Juvenile literature.
+1	Hebrew language--Adverbs.
+1	Hebrew language--Acquisition.
+1	Hazara language--Dictionaries--Dari.
+1	Haya language.
+1	Hawaiian language.
+1	Hawaiian language--Texts.
+1	Hawaiian language--Textbooks for foreign speakers--English.
+1	Hawaiian language--Sentences.
+1	Hawaiian language--Dictionaries--English.
+1	Havasupai language--Sentences.
+1	Havasupai language--Dictionaries--English.
+1	Hausa Sign Language.
+1	Hausa language--Syntax.
+1	Hausa language--Self-instruction.
+1	Hausa language--Phonology.
+1	Hausa language--Idioms, corrections, errors.
+1	Hausa language--Foreign words and phrases.
+1	Hausa language--Dictionaries--Japanese.
+1	Hausa language--Dictionaries--English.
+1	Hatam language--Grammar.--National Libr of Australia.
+1	Haroi language--Conversation and phrase books--Vietnamese.
+1	Harauti language--Aspiration--Nominals--India.
+1	Hanunóo language--Dictionaries--English.
+1	Hanga language (Ghana)--Phonology.
+1	Halia language--Verbs.
+1	Halia language--Tense--Aspect--Conjunctions--Papua New Guinea.
+1	Halia language--Papua New Guinea.
+1	Halia language--Discourse analysis.
+1	Halia language--Discourse analysis--Papua New Guinea.
+1	Halia language--Dictionaries--English.
+1	Halbi language--Discourse analysis.
+1	Halang language--Conversation and phrase books--Vietnamese.
+1	Haida language--Phonology.
+1	Guyana languages.
+1	Guyana--Languages.
+1	Gurung language.
+1	Gurung language--Verb phrase.
+1	Gurung language--Phonology.
+1	Gurung language--Intonation.
+1	Gurung language--Dictionaries--Polyglot.
+1	Gurung language--Dictionaries--English.
+1	Gurung language--Conversation and phrase books.
+1	Guraghe (African people)--language.
+1	Gur languages--Phonology.
+1	Gur languages--Phonology--Burkina Faso.
+1	Gur languages--Nominals--Burkina Faso.
+1	Gur languages--Discourse analysis.
+1	Gur languages--Bibliography.
+1	Gunwingguan languages.
+1	Gunian language--Grammar.
+1	Gujuri language--Phonetics.
+1	Gujuri language--Grammar.
+1	Gujarati language.
+1	Gujarati language--Textbooks for English speakers.
+1	Gujarati language--Phonetics--India.
+1	Gujarati language--Discourse analysis.
+1	Gujarati language--Discourse analysis--Simulation methods.
+1	Gujarati language--Dictionaries--English.
+1	Guhu-Samane language--Papua New Guinea.--Ethnologue
+1	Guhu-Samane language--Dictionaries.
+1	Guaymi language.
+1	Guaymi language--Discourse analysis.
+1	Guaycuruan languages.
+1	Guayaki language--Vocabulary.
+1	Guatemala--Languages.
+1	Guarayo language--Discourse analysis.
+1	Guarani language--Possessives.
+1	Guarani language--Noun.
+1	Guarani language--Dictionaries--Spanish.
+1	Guarani language--Aspect.
+1	Guanano language.
+1	Guanano language--Textbooks for foreign speakers--Spanish.
+1	Guahibo language--Textbooks for foreign speakers--Spanish.
+1	Guahibo language--Grammar.
+1	Guahibo language--Discourse analysis.
+1	Greek language.
+1	Greek language, Modern--Middle voice.
+1	Greek language, Modern--Grammar.
+1	Greek language, Modern--Dictionaries--English.
+1	Greek language, Hellenistic (300 B.C.-600 A.D.)
+1	Greek language, Hellenistic (300 B.C.-600 A.D.)--Grammar, Generative.
+1	Greek language, Biblical--Word order.
+1	Greek language, Biblical--Translating.
+1	Greek language, Biblical--Subordinate constructions.
+1	Greek language, Biblical--Readers.
+1	Greek language, Biblical--Programmed instruction.
+1	Greek language, Biblical--Prepositional phrases.
+1	Greek language, Biblical--Possessives.
+1	Greek language, Biblical--Parsing.
+1	Greek language, Biblical--Morphemics--Dictionaries.
+1	Greek language, Biblical--Lexicology.
+1	Greek language, Biblical--Idioms.
+1	Greek language, Biblical--Grammar--Textbooks.
+1	Greek language, Biblical--Grammar--Problems, exercises, etc.
+1	Greek language, Biblical--Grammar--Outlines, syllabi, etc.
+1	Greek language, Biblical--Etymology.
+1	Greek language, Biblical--Dictionaries--Spanish.
+1	Greek language, Biblical--Dictionaries--Hebrew.
+1	Greek language, Biblical--Dictionaries--German.
+1	Greek language, Biblical--Dictionaries--English--Indexes.
+1	Greek language, Biblical--Conjunctions.
+1	Greek language, Biblical--Clauses.
+1	Greek language, Biblical--Case grammar.
+1	Greek language, Biblical--Address, Forms of.
+1	Greek language, Biblical--Accents and Accentuation.
+1	Greek language--Word order.
+1	Greek language--Terms and phrases.
+1	Greek language--Syntax.
+1	Greek language--Semantics.
+1	Greek language--Prepositions.
+1	Greek language--Particles.
+1	Greek language--Mood.
+1	Greek language--Grammar, Comparative.
+1	Greek language--Grammar--1870-
+1	Greek language--Discourse analysis.
+1	Greek language--Dictionaries.
+1	Greek language--Dialects.
+1	Greek language--Composition and exercises.
+1	Greek language--Aspect.
+1	Grebo language--Dictionaries--English.
+1	Great Plains--Languages.
+1	Grassfields Bantu languages.
+1	Grassfields Bantu languages--Congresses.
+1	Gothic language--Case grammar.
+1	Gonja language--Dictionaries--English.
+1	Gondi language--Phonology.
+1	Gondi language--Grammar.
+1	Gond (Indic people)--Language.
+1	Gola language--Morphology.
+1	Goajiro language--Texts.
+1	Goajiro language--Postpositions.
+1	Goajiro language--Phonology.
+1	Goajiro language--Inflection.
+1	Goajiro language--Discourse analysis.
+1	Gisu language--Dictionaries--English.
+1	Gisiga language.
+1	Gilyak language--Grammar.
+1	Gilbertese language--Grammar.
+1	Gilaki language.
+1	Germanic languages--Versification.
+1	Germanic languages--History.
+1	Germanic languages--Grammar--Congresses.
+1	German language--Word order.
+1	German language--Vowels.
+1	German language--Versification.
+1	German language--Verb.
+1	German language--Translating.
+1	German language--Textbooks for foreign speakers.
+1	German language--Synonyms and antonyms.
+1	German language--Syllabication.
+1	German language--Standardization.
+1	German language--Semantics.
+1	German language--Readers--Theology.
+1	German language--Readers--Germany.
+1	German language--Pronunciation.
+1	German language--Orthography and spelling.
+1	German language--Old High German--Consonants.
+1	German language--Morphology.
+1	German language--Middle High German, 1050-1500--Chrestomathies and readers.
+1	German language--Intonation.
+1	German language--Grammar--Outlines, syllabi, etc.
+1	German language--Grammar--1870-
+1	German language--Glossaries, vocabularies, etc.
+1	German language--Dictionaries.
+1	German language--Dictionaries--Mbo (Cameroon)
+1	German language--Dictionaries--Greek.
+1	German language--Dictionaries--English.--French.
+1	German language--Dialects--Germany--Bavaria.
+1	German language--Dialects--Alemannic--Phonology.
+1	German language--Determiners.
+1	German language--Compound words.
+1	German language--Clitics.
+1	German language--20th century.
+1	Georgian language--Textbooks for foreign speakers--Russian.
+1	Georgian language--Syntax.
+1	Georgian language--Subordinate constructions.
+1	Ge^ languages.
+1	Gbaya language
+1	Gbaya language--Texts.
+1	Gbaya language--Dictionaries--French.
+1	Gbari language--Grammar.
+1	Gbandi language--Grammar.
+1	Gayo language--Grammar.
+1	Gawigl language--Papua New Guinea.
+1	Garo language--Grammar.
+1	Garawa language--Phraseology.
+1	Gapapaiwa language--Dictionaries--English.
+1	Ganguela language--Dictionaries--Portuguese.
+1	Ganguela language--Dictionaries--English.
+1	Ganda language.
+1	Ganda language--Dictionaries--English.
+1	Galician language--Dictionaries--English.
+1	Galela language--Conversation and phrase books--Polyglot.
+1	Gahuku language.
+1	Gahuku language--Verb.
+1	Gahuku language--Verb.--Dissertations.
+1	Gadsup language--Texts.
+1	Gadsup language--Intonation.
+1	Gê languages--Glossaries, vocabularies, etc.
+1	Gã language--Textbooks for foreign speakers--English.
+1	Gã language--Sentences.
+1	Gã language--Phonology.
+1	Gã language--Dictionaries--English.
+1	Ga'anda language.
+1	G//ana language--Glossaries, vocabularies, etc.
+1	Fuyuge language--Grammar.
+1	Futuna language--Dictionaries--French.
+1	Futuna-Aniwa language--Dictionaries--English.
+1	Fulnio language.
+1	Fula language--Voice.
+1	Fula language--Textbooks for foreign speakers--French.
+1	Fula language--Syntax.
+1	Fula language--Social aspects.
+1	Fula language--Niger.
+1	Fula language--Discourse analysis.
+1	Fula language--Dictionaries.
+1	Fula language--Africa.
+1	Frisian language.
+1	Frisian language--Lexicology.
+1	Frisian language--Grammar--1950-
+1	Fries, Charles Carpenter,--1887---Contributions in foreign language teaching--Congresses.
+1	French language--Translating into English.
+1	French language--To 1500--Readers.
+1	French language--To 1300.
+1	French language--To 1300--Grammar.
+1	French language--Tense.
+1	French language--Suffixes and prefixes.
+1	French language--Study and teaching (Elementary)--Cameroon.
+1	French language--Study and teaching--Foreign speakers.
+1	French language--Study and teaching--English students.
+1	French language--Study and teaching--Baoulé speakers.
+1	French language--Sentences.
+1	French language--Self-instruction.
+1	French language--Pronoun.
+1	French language--Programmed instruction.
+1	French language--Prepositions.
+1	French language--Orthography and spelling.
+1	French language--Negatives.
+1	French language--Infinitive.
+1	French language--Idioms.
+1	French language--History.
+1	French language--Grammar, Historical.
+1	French language--Grammar, Comparative--Hungarian.
+1	French language--Glossaries, vocabularies, etc.
+1	French language--Etymology.
+1	French language--Dictionaries.
+1	French language--Dictionaries--Zande.
+1	French language--Dictionaries--Tunen.
+1	French language--Dictionaries--Sara.
+1	French language--Dictionaries--Mooré.
+1	French language--Dictionaries--Moba.
+1	French language--Dictionaries--Luba.
+1	French language--Dictionaries--Gbaya.
+1	French language--Dictionaries--Gbandi.
+1	French language--Dictionaries--Diola.
+1	French language--Dictionaries--Bulu.
+1	French language--Diction.
+1	French language--Dialects--Virgin Islands of the United States--Saint Thomas.
+1	French language--Dialects--Senegal.
+1	French language--Dialects--Louisiana.
+1	French language--Dialects--France.
+1	French language--Dialects--France--Paris.
+1	French language--Dialects--Dictionaries.
+1	French language--Africa.
+1	French language--Accents and accentuation.
+1	Fox language.
+1	Fox language--Texts.
+1	Fox language--Grammar, Comparative--Algonquian languages.
+1	Fox language--Dictionaries--English.
+1	Fore language--Papua New Guinea.
+1	Fore language--Dictionaries--English.
+1	Fore language--Accents and accentuation--Papua New Guinea.--Ethnologue
+1	Fordata language--Phonology.
+1	Foodo language--Tone.
+1	Folopa language--Phonology--Grammar--Papua New Guinea.
+1	Finno-Urgic languages--Phonetic transcription.
+1	Finno-Ugric languages--Vowels.
+1	Finno-Ugric languages--Phonetics.
+1	Finno-Ugric languages--Grammar, Comparative.
+1	Finno-Ugric languages--Estonia.
+1	Finno-Ugric languages--Constrastive linguistics.
+1	Finno-Ugric languages--Case.
+1	Finnish languages--Etymology.
+1	Finnish language--Vowels.
+1	Finnish language--Textbooks for foreign speakers--English.
+1	Finnish language--Self-instruction.
+1	Finnish language--Readers.
+1	Finnish language--Phonology.
+1	Finnish language--Infinitive.
+1	Finisterre-Huon languages--Phonology.
+1	Finisterre-Huon languages--Grammar, Comparative.
+1	Finisterre--Huon Languages.
+1	Finisterre--Huon languages.
+1	Fijian language.
+1	Fijian language--Fiji--Mbouma--Grammar.
+1	Fijian language--Composition and exercises.
+1	Feroge languages.
+1	Fe'fe' language.
+1	Fe'fe' language--Terms and phrases.
+1	Fe'fe' language--Self-instruction.
+1	Fasu language--Phonology.
+1	Fasu Language--Grammar.
+1	Fanti language.
+1	Fanti language--Grammar.
+1	Fang language--Dictionaries--French.
+1	Ewondo language--Textbooks for foreign speakers--German.
+1	Ewondo language--Textbooks for foreign speakers--French.
+1	Ewondo language--Dictionaries--German.
+1	Ewe language--Textbooks for foreign speakers--English.
+1	Ewe language--Phonology.
+1	Ewe language--Intonation.
+1	Ewe language--Discourse analysis.
+1	Even language--Dialects.
+1	Ethiopian languages.
+1	Ethiopian languages--Ethiopia.
+1	Ethiopian languages--Discourse analysis.
+1	Ethiopia--Languages.
+1	Estonian language--Word study.
+1	Estonian language--Vowels.
+1	Estonian language--Spectral analysis.
+1	Estonian language--Morphology.
+1	Estonian language--History.
+1	Estonian language--Grammar, comparative and general--Finnish.
+1	Estonian language--Foreign elements.
+1	Estonian language--Dialects.
+1	Estonian language--Contrastive linguistics.
+1	Estonian language--Comparative linguistics.
+1	Estonian--Language Acquisition.
+1	Eskimo languages.
+1	Eskimo languages--Orthography and spelling.
+1	Eskimo languages--Noun.
+1	Eskimo languages--Grammar.
+1	Eskimo languages--Grammar, Generative.
+1	Eskimo languages--Dictionaries--English.
+1	Eskimo languages--Dialects--Russia (Federation)--Chaplino.
+1	Ese Ejja language--Grammar.
+1	Ese Ejja language--Dictionaries--Spanish language.
+1	Eromanga language--Grammar.
+1	Erima language.
+1	Epena Saija language--Grammar.
+1	Enya language--Grammar.
+1	English language--Written English.
+1	English language--Voice.
+1	English Language--Verb.
+1	English language--Verb phrases.
+1	English language--Verb Phrase.
+1	English language--Verb phrase--Dictionaries.
+1	English language--Verb--United States.
+1	English language--Variation--United States.
+1	English language--Variation--Japan--Bonin Islands.
+1	English language--Usage--Handbooks, manuals, etc.
+1	English language--Usage--Congresses.
+1	English language--United States--Slang--Dictionaries.
+1	English language--United States--Reform--History.
+1	English language--United States--Itonama language.
+1	English language--United States--Idioms.
+1	English language--United States--History.
+1	English language--United States--Etymology.
+1	English language--United States--Dictionaries.
+1	English language--United States--Dialects--Southwest, New.
+1	English language--United States--Dialects--New York (State)--New York.
+1	English language--United States--Consonants.
+1	English language--United States--Congresses.
+1	English language--Translating.
+1	English language--Translating into Spanish.
+1	English language--Translating--History.
+1	English language--Texts.
+1	English language--Textbooks for foreign speakers--Vietnamese.
+1	English language--Textbooks for foreign speakers--Vietnamese--Bibliography.
+1	English language--Textbooks for foreign speakers--Bibliography.
+1	English language--Temporal constructions.
+1	English language--Temporal clauses.
+1	English language--Technical English.
+1	English language--Syntax--Indexes.
+1	English language--Suffixes and prefixes.
+1	English language--Subjunctive.
+1	English language--Study and teaching (Primary)--Spanish speakers.
+1	English language--Study and teaching (Higher)--Soviet Union.
+1	English language--Study and teaching (Higher)--Papua New Guinea.
+1	English language--Study and teaching (Higher)--Japanese speakers.
+1	English language--Study and teaching (Elementary)
+1	English language--Study and teaching--Vietnamese speakers.
+1	English language--Study and teaching--Turkish speakers.
+1	English language--Study and teaching--Spain.
+1	English language--Study and teaching--Nigeria, Northern.
+1	English language--Study and teaching--Mali.
+1	English language--Study and teaching--Jordan.
+1	English language--Study and teaching--Indian speakers.
+1	English language--Study and teaching--Foreign speakers--Standards--United States.
+1	English language--Study and teaching--Foreign speakers--Research--Congresses.
+1	English language--Study and teaching--Foreign speakers--Periodicals.
+1	English language--Study and teaching--Foreign speakers--Eritrea.
+1	English language--Study and teaching--Foreign speakers--Directories.
+1	English language--Study and teaching--Foreign speakers--Audio-visual aids.
+1	English language--Study and teaching--Biligual method.
+1	English language--Study and teaching--Bibliography.
+1	English language--Study and teaching--Asia.
+1	English language--Stress.
+1	English language--Spoken English.
+1	English language--Spoken English--United States.
+1	English language--Spoken English--Study and teaching.
+1	English language--Spoken English--Data processing.
+1	English language--Spoken English--Appalachian Region, Southern.
+1	English language--South Africa--Study and teaching--African speakers.
+1	English language--Somali--Dictionaries.
+1	English language--Social aspects--United States.
+1	English language--Social aspects--Great Britain.
+1	English language--Social aspects--Foreign countries.
+1	English language--Social aspects--English-speaking countries.
+1	English language--Singapore.
+1	English language--Sex differences.
+1	English language--Sentence.
+1	English language--Rhetoric--Study and teaching (Secondary)
+1	English language--Rhetoric--Study and teaching (Higher)
+1	English language--Rhetoric--Data processing.
+1	English language--Rhetoric--Ability testing.
+1	English language--Research--Data processing.
+1	English language--Quantifiers--Adverb.
+1	English language--Psychological aspects.
+1	English language--Provincialisms.
+1	English language--Prosodic analysis.
+1	English language--Pronunciation--Dictionaries.
+1	English language--Pronominals--Relative clauses.
+1	English language--Prepositions--Data processing.
+1	English language--Possessives.
+1	English language--Popular works.
+1	English language--Political aspects--United States.
+1	English language--Political aspects--Developing countries.
+1	English language--Poetry.
+1	English language--Phonology, Historical.
+1	English language--Periodicals.
+1	English language--Particles.
+1	English language--Paraphrase.
+1	English language--Palatalization.
+1	English language--Pakistan.
+1	English language--Orthography and spelling--History.
+1	English language--Old english, ca. 450-1100.
+1	English language--Old English, ca. 450-1100--Word formation.
+1	English language--Old English, ca. 450-1100--Syntax.
+1	English language--Old English, ca. 450-1100--Phonology.
+1	English language--Old English, 450-1100--Syntax.
+1	English language--Old English ca.450-1100.
+1	English language--Nominals.
+1	English language--Modality.
+1	English language--Middle English, 1100-1500--Syntax.
+1	English language--Middle English, 1100-1500--Phonology.
+1	English language--Middle English, 1100-1500--Dictionaries.
+1	English language--Middle English--1100-1500--Texts.
+1	English language--Metonyms.
+1	English language--Lexicogrpahy.
+1	English language--Lexicography--History--19th century.
+1	English language--Lexicography--Data processing.
+1	English language--Jargon.
+1	English language--Inflection.
+1	English language--Infinitive.
+1	English language--India.
+1	English language--Imperative.
+1	English language--Idioms--Dictionaries.
+1	English language--History--Outlines, syllabi, etc.
+1	English language--History--America.
+1	English language--Hawaii.
+1	English language--Great Britain--Usage.
+1	English language--Great Britain--Standardization--History--Sources.
+1	English Language--Grammar.
+1	English language--Grammar.--Vietnamese language--Books reviews.
+1	English language--Grammar, Generative--Terminology.
+1	English language--Grammar, Comparative--Zuni.
+1	English language--Grammar, comparative--Old English, ca 450-1100.
+1	English language--Grammar, Comparative--Japanese language.
+1	English language--Grammar, Comparative--German.
+1	English language--Grammar, Comparative--English.
+1	English language--Grammar, Comparative--Arabic.
+1	English language--Grammar--Theory, etc.
+1	English language--Grammar--Textbooks.
+1	English language--Grammar--Study and teachin.
+1	English language--Grammar--Philosophy.
+1	English language--Grammar--History and criticism.
+1	English language--Grammar--Handbooks, manuals, etc.
+1	English language--Grammar--1950-
+1	English language--Grammar--1950---Congresses.
+1	English language--Grammar--1870-1950.
+1	English language--Grammar--1870-1949.
+1	English language--Grammar--1870-
+1	English language--Glossaries, vocabularies, etc.
+1	English language--Glossaries, vocabularies, etc.--Tagalog.
+1	English language--Gerund.
+1	English language--Function words.
+1	English language--Foreign words and phrases--Hebrew.
+1	English language--Foreign words and phrases--Dictionaries.
+1	English language--Foreign words and phrases--Bantu.
+1	English language--Foreign elements--French.
+1	English language--Foreign countries.
+1	English language--Existential constructions.
+1	English language--Examinations, questions, etc.
+1	English language--Europe.
+1	English language--Euphemism.
+1	English language--Errors of usage.
+1	English language--Ergative constructions.
+1	English language--Eponyms.
+1	English language--Early modern, 1500-1700--Style.
+1	English language--Discourse.
+1	English language--Discourse anaylsis.
+1	English language--Dictionaries--Yiddish.
+1	English language--Dictionaries--Wyoming--Cheyenne.
+1	English language--Dictionaries--Wappo.
+1	English language--Dictionaries--Wahgi.
+1	English language--Dictionaries--Urdu.
+1	English language--Dictionaries--Turkic.
+1	English language--Dictionaries--Truk.
+1	English language--Dictionaries--Tonga.
+1	English language--Dictionaries--Tiv.
+1	English language--Dictionaries--Tina Sambal.
+1	English language--Dictionaries--Tibetan.
+1	English language--Dictionaries--Swahili.
+1	English language--Dictionaries--Spanish.
+1	English language--Dictionaries--Russian.
+1	English language--Dictionaries--Proto-Austronesian.
+1	English language--Dictionaries--Polish.
+1	English language--Dictionaries--Persian.
+1	English language--Dictionaries--Papiamento.
+1	English language--Dictionaries--Panjabi.
+1	English language--Dictionaries--Pali.
+1	English language--Dictionaries--Nepali.
+1	English language--Dictionaries--Marshall.
+1	English language--Dictionaries--Malay.
+1	English language--Dictionaries--Lao.
+1	English language--Dictionaries--Lamba.
+1	English language--Dictionaries--Lakota dialect.
+1	English language--Dictionaries--Konda.
+1	English language--Dictionaries--Kikuyu.
+1	English language--Dictionaries--Khmer.
+1	English language--Dictionaries--Kham (Nepal)
+1	English language--Dictionaries--Igbo.
+1	English language--Dictionaries--Humor.
+1	English language--Dictionaries--Hindi.
+1	English language--Dictionaries--Hausa.
+1	English language--Dictionaries--Ganguela.
+1	English language--Dictionaries--French.
+1	English language--Dictionaries--Ewe.
+1	English language--Dictionaries--Dehu.
+1	English language--Dictionaries--Chewa.
+1	English language--Dictionaries--Catalan.
+1	English language--Dictionaries--Bulgarian.
+1	English language--Dictionaries--Bisayan.
+1	English language--Dictionaries--Attacapa.
+1	English language--Dictionaries--Albanian.
+1	English language--Dictionaries--Afrikaans.
+1	English language--Dialects--Texas--Humor.
+1	English language--Dialects--Scotland.
+1	English language--Dialects--Scotland.--Surveys.
+1	English language--Dialects--Periodicals.
+1	English language--Dialects--Northern Ireland.
+1	English language--Dialects--Minnesota.
+1	English language--Dialects--Middle Atlantic States--Data processing.
+1	English language--Dialects--Melanesia.
+1	English language--Dialects--Louisiana, southern.
+1	English language--Dialects--Jamaica--Dictionaries.
+1	English language--Dialects--Hawaii.
+1	English language--Dialects--Georgia--Griffin.
+1	English language--Dialects--England--Maps.
+1	English language--Dialects--England--London.
+1	English language--Dialects--Barbados.
+1	English language--Dialects--Australia--South Australia--Dictionaries.
+1	English language--Dialectology.
+1	English language--Dialect--United States.
+1	English language--Deletion.
+1	English language--Coordinate constructions.
+1	English language--Conversation and phrase books--Vietnamese.
+1	English language--Conjunctions.
+1	English language--Composition and exercises--Study and teaching (Secondary)
+1	English language--Composition and exercises--Study and teaching (Elementary)--Handbooks, manuals, etc.
+1	English language--Composition and exercises--Study and teaching--United States.
+1	English language--Composition and exercises--Study and teaching--Research.
+1	English language--Composition and exercises--Study and teaching--Research--Congresses.
+1	English language--Composition and exercises--Study and teaching--Computer-assisted instruction.
+1	English language--Collections.
+1	English language--Charts, diagrams, etc.--Pronunciation.
+1	English language--Causative.
+1	English language--Caribbean Area.
+1	English language--Canada--History.
+1	English language--Cameroon.
+1	English language--Bibliography.
+1	English language--Bahamas--Dictionaries.
+1	English language--Australia--Etymology--Glossaries, vocabularies, etc.
+1	English language--Australia--Etymology--Dictionaries.
+1	English language--Australia--Dictionaries.
+1	English language--Animacy.
+1	English language--Africa, West.
+1	English language--Adjectives.
+1	English language--Adjective.
+1	English language--20th century.
+1	English language--20th century--Idioms--Dictionaries.
+1	English language--20th century--Dictionaries.
+1	English as a second language.
+1	Engenni language--Grammar.
+1	Enga language--Semantics.
+1	Enga language--Pronoun.
+1	Enga language--Dictionaries--English.
+1	Enga language--Data processing--Dictionaries.
+1	Endangered languages--Encyclopedias.
+1	Emberá-Chamí language--Phonetics--Ethnologue--Columbia.
+1	Elamite language--Grammar.
+1	Elamite language--Grammar, Comparative--Proto-Dravidian.
+1	Ekoi languages.
+1	Ejagham language.--Ethnologue--Tone--Nigeria
+1	Ejagham language--Phonology.
+1	Egyptian language--Vowels.
+1	Egyptian language--Verb.
+1	Egyptian language--Terms and phrases.
+1	Egyptian language--Orthography and spelling.
+1	Egyptian language--Dictionaries--English.
+1	Efik language--Pronunciation.
+1	Efik language--Phonology.
+1	Edekiri languages--Benin--ethnologue.
+1	Ebira language--Verb.
+1	Eastern Yugur language.
+1	Eastern Mnong language--Conversation and phrase books--Vietnamese.
+1	East Uvean language--Dictionaries--French.
+1	Dzongkha language--Prosodic analysis.
+1	Dyula language--Texts.
+1	Dyula language--Textbooks for foreign speakers--French.
+1	Dyula language--Textbooks for foreign speakers--English.
+1	Dyula language--Grammar.
+1	Dyula language--Glossaries, vocabularies, etc.
+1	Dyula language--Dictionaries--French.
+1	Duungidjawu language.--National Library of Australia
+1	Dutch language.
+1	Dutch language--Verb.
+1	Dutch language--Syntax--Netherlands.
+1	Dutch language--Spoken Dutch.
+1	Dutch language--Social aspects.
+1	Dutch language--Grammar.
+1	Dutch language--Grammar--1870-
+1	Dutch language--Foreign countries.
+1	Dutch language--Conversation and Phrase books.
+1	Dutch language--Congresses.
+1	Dutch language--Composition and exercises.
+1	Dusun language--Verb.
+1	Dusun language--Dictionaries--Polyglot.
+1	Dusun language--Dictionaries--Malay.
+1	Duruma language--Dictionaries--Swahili.
+1	Dumagat language (Casiguran)--Dictionaries--English.
+1	Dumagat (Casiguran) language--Dictionaries--English.
+1	Dukawa language--Nominals.
+1	Dukawa language--Grammar.
+1	Duala language.
+1	Duala language--Dictionaries--German.
+1	Duala language--Dictionaries--French.
+1	Drum language.
+1	Dravidian languages--Variation.
+1	Dravidian languages--Noun.
+1	Dravidian languages--Grammar.
+1	Dravidian languages--Etymology--Dictionaries.
+1	Dravidian languages--Congresses.
+1	Dowayo language.
+1	Dongxiang language.
+1	Dogon language.
+1	Djuka language--Grammar.
+1	Djingili language--Grammar.
+1	Djinang language--Dictionaries--English.
+1	Djaru language.
+1	Dizi language.
+1	Divehi language.
+1	Discourse analysis--Saramaccan language.
+1	Diola language--Phonology.
+1	Dinka language--Grammar.
+1	Diegueño language--Noun.
+1	Dibabawon language--Verb phrase.
+1	Dibabawon language--Texts.
+1	Dibabawon language--Discourse analysis.
+1	Dhegiha language.
+1	Dharawal language.
+1	Desana language--Grammar.
+1	Dehu language--Grammar.
+1	Dehu language--Dictionaries--English.
+1	Dayak language.
+1	Dargari language.
+1	Dardic languages.
+1	Dardic languages--Pakistan.
+1	Darai language--Phonemics.
+1	Darai language--Dictionaries--English.
+1	Danuwar Rai language--Phonemics.
+1	Danish language--Vowels.
+1	Danish language--Phonology, comparative.
+1	Danish language--Grammar, Comparative--German language.
+1	Danish language--Etymology--Dictionaries.
+1	Danish language--Consonants.
+1	Dani language.
+1	Dani language--Phonetics.
+1	Dan languages.
+1	Dan language.
+1	Dan language--Phonology.
+1	Daly languages.
+1	Dakota language--Grammar.
+1	Dakakari (African people)--Languages--Dictionaries.
+1	Daghestan languages--Verb.
+1	Daghestan languages--Phonetics.
+1	Dagbani language--Tone.
+1	Dagaare language--Phonology.
+1	Dagaare language--Grammar.
+1	Daga language--Syntax.
+1	Daga language--Accents and accentuation.
+1	Dadibi language..--Ethnologue--Phonology--Papua New Guinea
+1	Dadibi language.
+1	Daba language.
+1	Czech language.
+1	Czech language--Vowels.
+1	Czech language--Phonetics.
+1	Czech language--Noun.
+1	Czech language--Grammar, comparative--English.
+1	Czech language--Ethnologue--Czech Republic.
+1	Cuyunon language--Orthography and spelling.
+1	Cushitic languages.
+1	Cushitic languages--Discourse analysis.
+1	Cupan languages--Syntax.
+1	Cuna language--Social aspects.
+1	Cuna language--Discourse analysis.
+1	Culina language.
+1	Culina language--Grammar.
+1	Cuicatec language--Translating.
+1	Cuicatec language--Syntax.
+1	Cuicatec language--Morphology.
+1	Cuicatec language--Dictionaries--Spanish.
+1	Cubulco Achi language.
+1	Cubulco Achi language--Grammar.
+1	Cubeo language--Grammar.
+1	Cubeo language--Dictionaries--Spanish--Colombia.
+1	Cubeo Indians--Language.
+1	Cua language--Vietnam.
+1	Cua language--Conversation and phrase books--Vietnamese.
+1	Crow language--Texts.
+1	Crow language--Phonology.
+1	Crow language--Grammar, Comparative--English.
+1	Crow language--Alphabet and writing.
+1	Creole languages, English--Australia--Torres Strait Islands (Qld.)
+1	Cree language--Textbooks for foreign speakers--English.
+1	Cree language--Ontario--Writing--Congresses.
+1	Cree language--Dictionaries--English.
+1	Cotabato Manobo language.
+1	Cornish language--Self-instruction.
+1	Coreguaje language--Idioms.
+1	Cora language--Semantics.
+1	Cora language--Phonemics.
+1	Cora language--Mexico.
+1	Cora language--Grammar.
+1	Cora language--Grammar--Mexico.
+1	Cora language--Dictionaries--Spanish.
+1	Coptic language--Dictionaries--English.
+1	Comprehensive grammar of the English language.
+1	Composition (Language Arts)
+1	Composition (language arts)
+1	Composition (Language arts)--Computer-assisted instruction.
+1	Comorian language.
+1	Comanche language--Vowels.
+1	Comanche language--Texts.
+1	Comanche language--Grammar.
+1	Comanche language--Dictionaries--English.
+1	Colorado language--Textbooks for foreign speakers--Spanish.
+1	Colorado language--Grammar.
+1	Colorado language--Dictionaries--Spanish.
+1	Colloquial language.
+1	Cofán language.
+1	Cocopa language.
+1	Cocopa language--Phonology.
+1	Cocama language--Peru.
+1	Cocama-Cocamilla language--Glossaries, vocabularies, etc.--Peru.
+1	Classification--Books--Language and languages.
+1	Circassian languages--Grammar.
+1	Chuwabo language--Grammar.
+1	Church Slavic language--Grammar.
+1	Chuntaquiro language.
+1	Chumburung language--Grammar.
+1	Chumash language.
+1	Chukchi language--Grammar.
+1	Chuchki language--Grammar.
+1	Chrau language.
+1	Chrau language--Vocabulary.--Vietnamese.
+1	Choroti language.
+1	Chopi language.
+1	Chopi language--Dictionaries--Portuguese.
+1	Chontaquiro language.
+1	Chontaquiro language--Dictionaries--Spanish.
+1	Chontal language--Mexico--Oaxaca de Juárez.
+1	Chontal language--Dictionaries--Spanish.
+1	Cholti language--Grammar, comparative--Yunca language.
+1	Chol language--Texts.
+1	Chol language--Morphology.
+1	Chol language--Grammar.
+1	Chol language--Dictionaries--Spanish.
+1	Chokwe language.
+1	Chokwe language--Grammar.
+1	Chokwe language--Dictionaries--English.
+1	Choctaw language--Verb.
+1	Choctaw language--Morphology.
+1	Choctaw language--Glossaries, vocabularies, etc.
+1	Choctaw language--Dictionaries--English.
+1	Choctaw language--Bibliography.
+1	Choco languages.
+1	Chiricahua language--Texts.
+1	Chipaya language.
+1	Chipaya language--Grammar--Bolivia.
+1	Chipaya language--Bolivia.
+1	Chipaya language--Bolivia--Foreign words and phrases.
+1	Chinook language.
+1	Ching language.
+1	Chinese sign language--Taiwan.
+1	Chinese language--Writing.
+1	Chinese language--Word frequency.
+1	Chinese language--Verb phrase.
+1	Chinese language--Transliteration.
+1	Chinese language--Translating into English.
+1	Chinese language--Tone (Phonetics)
+1	Chinese language--Textbooks for foreign speakers.
+1	Chinese language--Study and teaching--United States.
+1	Chinese language--Study and teaching--Chuang (Chinese people)
+1	Chinese language--Study and teaching--China.
+1	Chinese language--Spoken Chinese.
+1	Chinese language--Sentences.
+1	Chinese language--Self-instruction.
+1	Chinese language--Pronunciation--Study and teaching (Elementary)
+1	Chinese language--Phonetics.
+1	Chinese language--Phonetics--Congresses.
+1	Chinese language--Particles.
+1	Chinese language--Orthography and spelling.
+1	Chinese language--Morphology.
+1	Chinese language--Modern Chinese.
+1	Chinese language--Intonation.
+1	Chinese language--Inflection.
+1	Chinese language--Indonesia--Pasuruan.
+1	Chinese language--Idioms.
+1	Chinese language--Idioms--Dictionaries--English.
+1	Chinese language--History.
+1	Chinese language--Grammar, Comparative--English.
+1	Chinese language--Foreign words and phrase.
+1	Chinese language--English--Conversation and phrase books.
+1	Chinese language--Dictionaries--Tibetan.
+1	Chinese language--Dialects--Phonology.
+1	Chinese language--Dialects--Phonology--Szechwan {Province}.
+1	Chinese language--Dialects--Foochow.
+1	Chinese language--Dialects--China--Shanghai.
+1	Chinese language--Dialects--China--Kunming.
+1	Chinese language--Dialects--China--Kʿun-ming shih.
+1	Chinese language--Dialects--China--Fu-chou shih (Fukien Provience)--Glossaries, vocabularies, etc.
+1	Chinese language--Dialects--China--Canton.
+1	Chinese language--Dialects--China--Canton--Grammar.
+1	Chinese language--Dialects--China--Amoy--Glossaries, vocabularies, etc.
+1	Chinese language--Dialects--Cantonese.
+1	Chinese language--Conversation and phrase books.
+1	Chinese language--Conjunctions.
+1	Chinese language--Bibliography.
+1	Chinese language--Aspect.
+1	Chinese language--Ancient Chinese, 600-1200.
+1	Chinese language--Ancient chinese, 600-1200.
+1	Chinese and Wa language.
+1	Chinantecan languages--Texts.
+1	Chinantecan languages--Syntax.
+1	Chinantecan languages--Phonetics.
+1	Chinantecan languages--Palatalization.
+1	Chinantecan languages--Etymology--Dictionaries.
+1	Chinantecan languages--Accents and accentuation.
+1	Chinantec language.
+1	Chinantec language--Verb.
+1	Chinantec language--Mexico.
+1	Chinantec language--Mexico--Oaxaca.
+1	Chinantec language--Mexico--Oaxaca--San Pedro Sochiapan.
+1	Chin languages--Etymology.
+1	Chimbu language--Grammar.
+1	Chimbu language--Grammar, Comparative--Pawaian.
+1	Childrten--Language.
+1	Children--Language acquisition.
+1	Children--Language--Periodicals.
+1	Children--Language--Dutch.
+1	Children--Language--Computer-assisted instruction.
+1	Children--Language--Case studies.
+1	Child Language.
+1	Chibchan languages.
+1	Cheyenne languages.
+1	Cheyenne language--Word order.
+1	Cheyenne language--Texts.
+1	Cheyenne language--Phonetics.
+1	Cherokee language.
+1	Cherokee language--Phonology.
+1	Cherokee language--Dictionaries--English.
+1	Cherokee language--Audiotapes.
+1	Chepang language--Verb.
+1	Chepang language--Syntax.
+1	Chepang language--Nepal.
+1	Chepang language--Clauses--Nepal.
+1	Chemehuevi language.
+1	Chechen language--Linguistic analysis.
+1	Chechen language--Dictionaries--Russian.
+1	Chatino language--Syntax.
+1	Chatino language--Mexico--Oaxaca--Grammar.
+1	Chatino language--Dictionaries--Spanish language.
+1	Chatino language--Consonants.
+1	Chastacosta language.
+1	Chamorro language--Transitivity.
+1	Chamorro language--Textbooks for foreign speakers--English.
+1	Chamorro language--Grammar.
+1	Chamorro language--Dictionaries--English.
+1	Chamicuro language--Phonology.
+1	Chamicuro language--Dictionaries--Spanish.
+1	Chamic languages--Phonology, Comparative.
+1	Chamic languages--Mutual intelligibility.
+1	Cham language--Particles.
+1	Cham language--Network grammar.
+1	Cham language--History.
+1	Cham language--Glossaries, vocabularies, etc.
+1	Cham language--Dictionaries--Vietnamese.
+1	Chadic languages--History.
+1	Chadic languages--Grammar.
+1	Chadic languages--Ethiopia.
+1	Chadic languages--Determiners.
+1	Chacobo language--Phonology.
+1	Central Yupik language--Texts.
+1	Central Yupik language--Case grammar.
+1	Central Bai language.--Ethnologue
+1	Celtic languages--Syntax.
+1	Celtic languages--History.
+1	Cebuano language--Verb.
+1	Cebuano language--Textbooks for foreign speakers--English.
+1	Cebuano language--Relational grammar.
+1	Cebuano language--Dictionaries--English.
+1	Cebuano language--Clauses.
+1	Cebuano language--Bibliography.
+1	Cayuvava language.
+1	Cayuvava language--Inflection.
+1	Cayuga language--Semantics.
+1	Cayuga language--Particles.
+1	Cayapa language--Dictionaries--Spanish.
+1	Cavineño language--Dialects.
+1	Cauqui language.
+1	Caucasian languages--Free indirect speech.
+1	Caucasian languages--Comparative linguistics.
+1	Catio language--Texts--Columbia.
+1	Catio language--Phonology.
+1	Catio language--Grammar--Columbia.
+1	Cataloging of foreign language publications.
+1	Catalan language--Social aspects.
+1	Catalan language--Self-instruction.
+1	Catalan language--Phonology.
+1	Catalan language--Dialects--Spain--Valencia (Region)--History--Sources.
+1	Cashinawa language.
+1	Cashinawa language--Discourse analysis.
+1	Cashinawa language--Dictionaries--Spanish.
+1	Carrier language.
+1	Carrier language--Grammar.
+1	Carrier language--Dictionaries--English.
+1	Carolinian language--Dictionaries--English.
+1	Carib language--Belize.
+1	Carapana language (Tucanoan)--Dictionaries--Spanish--Colombia.
+1	Caraja language--Phonolgy, Comparative.
+1	Capanhua languages.
+1	Cangin languages.
+1	Candoshi language--Verb.
+1	Candoshi language--Phonology.
+1	Candoshi language--Grammar.
+1	Candoshi language--Dictionaries--Spanish.
+1	Camsa language.
+1	Campa languages.
+1	Campa languages--Peru.
+1	Campa language--Textbooks for foreign speakers--Spanish.
+1	Campa language--Space and time.
+1	Campa language--Phonology.
+1	Campa language--Dictionaries--Spanish.
+1	Cakchikel language.
+1	Cakchikel language--Syntax.
+1	Cakchikel language--Social aspects.
+1	Cakchikel language--Grammar.
+1	Cahuilla language.
+1	Cahuilla language--Foreign words and phrases.
+1	Caduveo language.
+1	Caddran languages.
+1	Caddoan languages.
+1	Caddoan languages--Texts.
+1	C'lela language--Nigeria.--Ethnologue
+1	Busa language.
+1	Burushaski language.
+1	Burushaski language--Glossaries, vocabularies, etc.
+1	Buru language.
+1	Burmese language--Tone.
+1	Burmese language--Textbooks for foreign speakers--English.
+1	Burmese language--Terms and phrases.
+1	Burmese language--Style.
+1	Burmese language--Readers.
+1	Burmese language--Phonetics.
+1	Burmese language--Dictionaries--English.
+1	Burmese language--Aspect.
+1	Burji language--Etymology--Dictionaries.
+1	Buriat language--Syntax.
+1	Bulu language.
+1	Bulu language--Verb.
+1	Bulu language--Phonetics.
+1	Bulu language--Grammar.
+1	Bulu language--Dictionaries--English.
+1	Bulgarian language--Tense.
+1	Bulgarian language--Grammatical categories.
+1	Bulgarian language--Dictionaries--English.
+1	Bulgarian language--Complement.
+1	Bulgarian language--Aspect.
+1	Bukawa language--Grammar.
+1	Buin language--Dictionaries--English.
+1	Bugotu language--Dictionaries--English.
+1	Budu language--Particles.--Ethnologue 15
+1	Buang language--Texts.
+1	Buandik (Australian people)--Languages.
+1	Brythonic languages--Consonants.
+1	Bru language.
+1	Bru language--Phonetics.
+1	Bru language--Orthography and spelling.
+1	Bru language--Conversation and phrase books--Vietnamese.
+1	British Sign Language--Dictionaries.
+1	Breton language.
+1	Brao language--Grammar.
+1	Brahui language--Discourse analysis.
+1	Bozo, Jenaama language--Mali.--Ethnologue
+1	Bouyei language--Variation.
+1	Bouyei language--Orthography and spelling.
+1	Bosavi languages.
+1	Bosavi language--Papua New Guinea.
+1	Bosavi language--Dictionaries--English.
+1	Bororo language (Brazil)--Grammar.
+1	Bororo language--Brazil.
+1	Bora language--Grammar.
+1	Bora language--Dictionaries--Spanish.
+1	Bontoc language.
+1	Bontoc language--Texts.
+1	Bontoc language--Philippines.
+1	Bontoc language--Dictionaries--English.
+1	Bongo language--Sudan.
+1	Bongo language--Grammar--Sudan.
+1	Bongo-Baka languages--Grammar, Comparative and general--Sudan.
+1	Bongo-Bagirmi languages--Phonology.
+1	Bonggi language.
+1	Bonan language.
+1	Bolia language.
+1	Bola language--Phonology--Papua New Guinea.--Ethnologue
+1	Bolívar, Simón,--1783-1830--Language.
+1	Boikin language--Phonology--Papua New Guinea.--Ethnologue
+1	Body language--Cross-cultural studies.
+1	Body language--Bibliography.
+1	Bobo languages--Word formation.
+1	Bobo Fing language--Burkina Faso.
+1	Bobangi language.
+1	Blang language.
+1	Black Tai language--Vietnam.
+1	Black Tai language--Phonology.
+1	Black Tai language--Phonemics--Vietnam.
+1	Black Tai language--Kinship--Vietnam.
+1	Black Tai language--Dictionaries--English.
+1	Bisyan languages.
+1	Bissa language--Burkina Faso--Ghana.--Ethnologue
+1	Bislama language.
+1	Bislama language--Textbooks for foreign speakers--English.
+1	Bisayan languages--Dialects.
+1	Bisa language.
+1	Bisa language (Ghana)
+1	Birom language.
+1	Birom language--Readers.
+1	Birifor language--Phonology.
+1	Bipi language--Phonology--Papua New Guinea.--Ethnologue
+1	Binumarien language--Phonology--Papua New Guinea.--Ethnologue
+1	Binumarien language--Papua New Guinea.--Ethnologue
+1	Binukid Manobo language--Phonology.
+1	Binukid Manobo language--Phonemics.
+1	Binukid Manobo language--Dictionaries.
+1	Bine language--Phonology--Papua New Guinea.--Ethnologue
+1	Binandere language.
+1	Binandere language--Phonology--Papua New Guinea.--Ethnologue
+1	Binandere language--Papua New Guinea.--Ethnologue
+1	Bimin language--Phonology--Papua New Guinea.--Ethnologue
+1	Bilua language--Grammar.
+1	Biliau language--Phonology.
+1	Bilbil language--Phonology--Papua New Guinea.--Ethnologue
+1	Bilaan language--Word order--Philippines.
+1	Bikol language--Dictionaries--English.
+1	Big Nambas language--Grammar.
+1	Bibliography of bibliographies--Language and languages.
+1	Biblical languages--Hebrew--Tense.
+1	Biblical languages--Hebrew--Narative.
+1	Bible.--O.T.--Psalms.--Language, style.
+1	Bible.--O.T.--Psalms CXIX--Language, style.
+1	Bible.--O.T.--Psalms--Language, style.
+1	Bible.--O.T.--Pentateuch--Language, Style.
+1	Bible.--O.T.--Language, style--Problems, exercises, etc.
+1	Bible.--O.T.--Language, style--Indexes.
+1	Bible.--O.T.--Jeremiah II-XXV--Language, style.
+1	Bible.--O.T.--Jeremiah--Language, Style.
+1	Bible.--O.T.--Isaiah--Language, style.
+1	Bible.--O.T.--Hosea--Language, style.
+1	Bible.--O.T.--Genesis--Language, style.
+1	Bible.--O.T.--Ecclesiastes--Language, style.
+1	Bible.--O.T.--Deuteronomy I-XXX--Language, style.
+1	Bible.--O.T.--Daniel--Language, style.
+1	Bible.--O.T.--Chronicles--Language, style.
+1	Bible.--O.T.--Amos--Language, style.
+1	Bible.--N.T..--Selections.--Quechua language.
+1	Bible.--N.T.--Thessalonians, 2nd--Language, style.
+1	Bible.--N.T.--Romans VIII, 9-39--Language, style.
+1	Bible.--N.T.--Romans I-XI--Language, style.
+1	Bible.--N.T.--Romans--Language, Style.
+1	Bible.--N.T.--Philippians--Language, style.
+1	Bible.--N.T.--Matthew.--Greek--Language, style.
+1	Bible.--N.T.--Matthew VIII--Language, style.
+1	Bible.--N.T.--Language, style--Dictionaries.
+1	Bible.--N.T.--Language, style--Congresses.
+1	Bible.--N.T.--Hebrews--Language, style.
+1	Bible.--N.T.--Greek.--Language, style.
+1	Bible.--N.T.--Epistles of John--Language, style.
+1	Bible.--N.T.--Epistles--Language, style.
+1	Bible.--N.T.--Corinthians, 1st--Language, style.
+1	Bible.--N.T.--Colossians--Language, style.
+1	Bible.--N.T--Language, Style.
+1	Bible--Language, style--Problems, exercises, etc.
+1	Biangai language--Phonology--Papua New Guinea.--Ethnologue
+1	Biak language.
+1	Bhojpuri language--Grammar.
+1	Bete language--Phonology.
+1	Bete language--Grammar.
+1	Bete language--Côte d'Ivoire.
+1	Berik language.
+1	Berber languages--Sociolinguistics.
+1	Berber languages--Prosodic analysis.
+1	Berber languages--Mauritania.
+1	Benue-Congo languages--Glossaries, vocabularies, etc.
+1	Benue-Congo languages--Discourse analysis.
+1	Benue-Congo languages--Dialects--Phonology.
+1	Benue-congo languages--Cameroon.
+1	Benue-Congo languages--Angola.
+1	Benu-Congo languages--Cameroon.
+1	Bengali language--Verb.
+1	Bengali language--Syntax.
+1	Bengali language--Study and teaching.
+1	Bengali language--Semantics.
+1	Bengali language--Self-instruction.
+1	Bengali language--Phonetics.
+1	Bengali language--Conversation and phrase books.
+1	Beng language--Dictionaries--English.
+1	Benabena language--Verb.
+1	Benabena language--Phonology--Papua New Guinea.--Ethnologue
+1	Benabena language--Papua New Guinea.--Ethnologue
+1	Benabena language--Dictionaries--Papua New Guinea.--Ethnologue
+1	Bemba language--Noun.
+1	Bemba language--Dictionaries--English.
+1	Bella Coola language--Lexicology.
+1	Bella coola language--British Columbia.
+1	Belarusian language--Morphology.
+1	Bekwarra language--Grammar.
+1	Bedjond language--Chad.--Ethnologue
+1	Bauré language--Phonology.
+1	Baule language--Tone.
+1	Baule language--Textbooks for foreign speakers--French.
+1	Baule language--Phonology.
+1	Bau language--Phonology--Papua New Guinea.--Ethnologue
+1	Bats language.
+1	Batan language--Syntax.
+1	Batan language--Pronoun--Philippines.
+1	Batan language--Grammar.
+1	Basque language--Syntax.
+1	Basque language--Grammar.
+1	Basque language--Grammar--Congresses.
+1	Basque language--Dictionaries--English.
+1	Bashkir language--Verb.
+1	Basa language--Textbooks for foreign speakers--French.
+1	Basa language--Phonology.
+1	Basa language--Dictionaries--French.
+1	Baruya language--Phonology--Papua New Guinea.--Ethnologue
+1	Baruya language--Phonemics.
+1	Baruya language--Papua New Guinea.--Ethnologue
+1	Baruya language--Gender.
+1	Baruya language--Dictionaries--English.
+1	Bariba language.
+1	Bariai language--Phonology--Papua New Guinea.--Ethnologue
+1	Bariai language--Grammar.
+1	Bargam language--Papua New Guinea.--Ethnologue
+1	Bargam language--Dictionaries--Papua New Guinea.--Ethnologue
+1	Bard language--Verb.
+1	Barasano del Sur language--Syntax.
+1	Barasana del Sur language--Grammar.
+1	Barasana del Sur language--Dictionaries--Spanish.
+1	Barai language--Sentences.
+1	Barai language--Grammar.
+1	Barai language--Clauses.
+1	Bantu languages--Vowels.
+1	Bantu languages--Verb.
+1	Bantu languages--Switch reference.
+1	Bantu languages--South Africa--Phonology.
+1	Bantu languages--Pronunciation.
+1	Bantu languages--Phonology, Comparative.
+1	Bantu languages--Orthography and spelling--Cameroon.
+1	Bantu languages--Mozambique.
+1	Bantu languages--Kenya.
+1	Bantu languages--Kenya--Mutual intelligibility.
+1	Bantu languages--History.
+1	Bantu languages--Dialects.
+1	Bantu languages--Congresses.
+1	Bantu languages--Congo (Brazzaville)
+1	Bantu languages--Congo--Vowel harmony.
+1	Bantu languages--Complement.
+1	Bantu languages--Bibliography.
+1	Bantu languages--Africa, East.
+1	Bantu language--Structural linguistics.
+1	Bangubangu language--Grammar.
+1	Bandjoun language--Grammar.
+1	Banda languages--Grammar, Comparative--Zande languages.
+1	Banda languages--Grammar--Chad.
+1	Banda language--Phonology.
+1	Banda language--Dictionaries--French.
+1	Bamun language--Alphabet.
+1	Bamu language--Phonology--Papua New Guinea.--Ethnologue
+1	Bamileke languages.
+1	Bamileke languages--Word order.
+1	Bamileke languages--Phonology.
+1	Bamileke languages--Bilingualism--Cameroon.
+1	Bamileke language--Readers.
+1	Bambara language.
+1	Bambara language--Terms and phrases.
+1	Bambara language--Dictionaries--English.
+1	Baluchi language.
+1	Baluchi language--Orthography and spelling.
+1	Baluchi language--Grammar.
+1	Baltic languages--Suffixes and prefixes.
+1	Baltic-Finnic languages--Soviet Union.
+1	Baltic-Finnic languages--Phonology, Historical.
+1	Baltic-Finnic languages--History.
+1	Balinese language--Syntax.
+1	Balantak language--Conversation and phrase books--Indonesian.
+1	Balangao language--Grammar.
+1	Bakairi language--Dictionaries--Portuguese.
+1	Bajau language--Textbooks for foreign speakers--Sabah.
+1	Bajau language--Lexicostatistics--Indonesia (Sulawesi)
+1	Bajau language--Indonesia.
+1	Baining language--Phonemics.
+1	Bai language (China)
+1	Bahnaric languages.
+1	Bahnar language--Dictionaries--English.
+1	Bahnar language--Clauses.
+1	Bahinemo language--Phonology--Papua New Guinea.--Ethnologue
+1	Bagirmi languages--Chad.
+1	Bagirmi language--Chad.
+1	Bafut language--Tone.
+1	Bafia language.
+1	Babine language--Phonology.
+1	Aztec language--Etymology--Names.
+1	Aztec language--Dialects--Verb.
+1	Aztec language--Dialects--Foreign elements--Otomanguean languages.
+1	Azerbaijani language.
+1	Azerbaijani language--Syntax.
+1	Azerbaijani language--Discourse analysis.
+1	Azerbaijani language--Dialects--Georgia (Republic)--Dmanisi region.
+1	Aymara language--Texts.
+1	Aymara language--Suffixes and prefixes.
+1	Aymara language--Social aspects--Bolivia.
+1	Aymara language--Phonology.
+1	Aymara language--Bolivia.
+1	Awtuw language--Grammar.
+1	Awiyaana language--Phonology--Papua New Guinea.--Ethnologue
+1	Awara language--Verb.--Ethnologue
+1	Awara language--Phonology.--Ethnologue
+1	Awad Bing language--Phonology--Papua New Guinea.--Ethnologue
+1	Awad Bing language--Papua New Guinea.--Ethnologue
+1	Awa language (Eastern Highlands Province, Papua New Guinea)--Dictionaries--English.
+1	Awa language--Phonology--Papua New Guinea.--Ethnologue
+1	Awa language--Morphophonemics.
+1	Awa language--Grammar.
+1	Awa language--Dialects.
+1	Avaric language--Variation--Azerbaijan.
+1	Auyana language--Morphophonemics.
+1	Austronesian languages--Voice.
+1	Austronesian languages--Variation.
+1	Austronesian languages--Vanautu.
+1	Austronesian languages--Plant names.
+1	Austronesian languages--Papua New Guinea.
+1	Austronesian languages--Papua New Guinea--Phonology.
+1	Austronesian languages--Papua New Guinea--New Ireland Province.
+1	Austronesian languages--Morphology.
+1	Austronesian languages--Indonesian (Kalimantan)
+1	Austronesian languages--Indonesia--Maluku--Phonology.
+1	Austronesian languages--Indonesia--Lesser Sunda Islands.
+1	Austronesian languages--Indonesia--Halmahera.
+1	Austronesian languages--Indonesia--Celebes.
+1	Austronesian languages--Dictionaries--Vietnamese.
+1	Austronesian languages--Dialects--Indonesia--Sulawesi Utara.
+1	Austronesian languages--Dialects--Indonesia--Maluku--Glossaries, vocabularies, etc.
+1	Austronesian languages--Bibliography.
+1	Austronesian languages--Asia.
+1	Austronesian languages--Adverb.
+1	Austroasiatic languages--Congresses.
+1	Austroasiatic languages--Bibliography.
+1	Australian languages--Victoria--Warrnambool Region.
+1	Australian languages--Social aspects.
+1	Australian languages--Sentences.
+1	Australian languages--Nyangumata language--Phonemics.
+1	Australian languages--Northern Territory.
+1	Australian languages--Northern Territory--Mary River Region--Grammar.
+1	Australian languages--Lexicology.
+1	Australian languages--Lexicography.
+1	Australian languages--Grammar, Comparative
+1	Australian languages--Congresses.
+1	Australian languages--Cape York.
+1	Australian languages--Bibliography.
+1	Australian languages--Australia--Victoria.
+1	Australian languages--Australia--Kimberley (W.A.)
+1	Australain languages.
+1	Austonesian languages.
+1	Audio-lingual method (Language teaching)
+1	Au language.
+1	Au language--Phonology--Papua New Guinea.--Ethnologue
+1	Au language--Grammar.
+1	Atsugewi language--Glossaries, vocabularies, etc.
+1	Atsera language--Grammar.
+1	Athapaskan languages.
+1	Athapascan languages--Grammar, compartaive.
+1	Athapascan Indians--Languages--Social aspects.
+1	Athaopaskan languages--Grammar, comparative.
+1	Atchin language.
+1	Assyro-Babylonian languages--Dictionaries.
+1	Assangori language.--Ethnologue
+1	Assamese language--Self-instruction.
+1	Asmat language.
+1	Asmat language--Dialects.
+1	Asia, Southeastern--Languages--Tone.
+1	Arosi language--Grammar.
+1	Arop-Lukep language--Phonology--Papua New Guinea.--Ethnologue
+1	Armenian language--Verbs.
+1	Armenian language--Syntax.
+1	Armenian language--Spoken Armenian.
+1	Armenian language--Phonetics.
+1	Armenian language--Dictionaries--Russian.
+1	Areare language--Dictionaries--English.
+1	Archi language--Texts.
+1	Archi language--Grammar.
+1	Araucanian language--Orthography and spelling--Chile.
+1	Arapeshan languages--Gender--Dobrin, Lise M., 1999, Phonological form ...
+1	Arapaho language--Grammar.
+1	Araona language.
+1	Araona language--Grammar.
+1	Araona language--Dictionaries--Spanish.
+1	Aramaic language--Word order.
+1	Araki language--ethnologue.
+1	Arabic languages--Dialects.
+1	Arabic languages--Dialects--Gemination.
+1	Arabic language--Word formation.
+1	Arabic language--Verb.
+1	Arabic language--Variation.
+1	Arabic language--Textbooks for foreign speakers--French.
+1	Arabic language--Syllabification.
+1	Arabic language--Study and teaching--United States.
+1	Arabic language--Sound recordings for English speakers.
+1	Arabic language--Self-instruction.
+1	Arabic language--Readers.
+1	Arabic language--Phonology--Morocco.
+1	Arabic language--Jordan.
+1	Arabic language--History.
+1	Arabic language--Grammar, Generative.
+1	Arabic language--Egypt.
+1	Arabic language--Dialects--Syria--Texts.
+1	Arabic language--Dialects--Sudan.
+1	Arabic language--Dialects--Sudan--Southern Region--History.
+1	Arabic language--Dialects--Sudan--Grammar.
+1	Arabic language--Dialects--Saudi Arabia--Najd--Grammar.
+1	Arabic language--Dialects--Persian Gulf States.
+1	Arabic language--Dialects--Nigeria--Dictionaries.
+1	Arabic language--Dialects--Morocco--Texts.
+1	Arabic language--Dialects--Iraq.
+1	Arabic language--Dialects--Egypt--Grammar.
+1	Arabic language--Dialects--Chad.
+1	Arabic language--Dialects--Arabian Peninsula.
+1	Arabic language--Dialects--Arabian Peninsula--Self-instruction.
+1	Arabic language--Bibliography.
+1	Arabela language--Dictionaries--Spanish.
+1	Arabana-Wangkangurru language.
+1	Apinagé language--Grammar.
+1	Apinagé Indians--Languages.
+1	Aphasic persons--Language.
+1	Ap Ma language--Phonology--Papua New Guinea.--Ethnologue
+1	Aomi language--Discourse analysis.
+1	Ao language--Phonetics.
+1	Anyi language.
+1	Anyi language--Verb.
+1	Anyi language--Tone.
+1	Anyi language--Pronoun.
+1	Anyang language.
+1	Anyang language--Verb.
+1	Anyang language--Phonetics.
+1	Ankave language--Phonology--Papua New Guinea.--Ethnologue
+1	Ankave language--Dictionaries--Papua New Guinea.--Ethnologue
+1	Anjam language--Phonology--Papua New Guinea.--Ethnologue
+1	Angor language--Phonology--Papua New Guinea.--Ethnologue
+1	Anggor language--Semantics--Papua New Guinea.
+1	Anggor language--Discourse analysis.
+1	Anggor language--Discourse analysis--Papua New Guinea.
+1	Anggor language--Adverb--Papua New Guinea.
+1	Angas language.
+1	Angas language--Phonetics.
+1	Angaatiha language--Phonology--Papua New Guinea.--Ethnologue
+1	Anesu language--Dictionaries--English.
+1	Aneme Wake language--Phonology--Papua New Guinea.--Ethnologue
+1	Anem language--Grammar, Comparative--Lusi.
+1	Aneityum language--Dictionaries--Bislama.
+1	Andoque language.
+1	Andamanese language.
+1	Amuzgo language--Syllable.
+1	Amuzgo language--Mexico.
+1	Amuesha language.
+1	Amuesha language--Foreign words and phrases.
+1	Ammonite language.
+1	Amharic language--Verb.
+1	Amharic language--Readers.
+1	Amharic language--Morphology.
+1	Amharic language--Dictionaries--English.
+1	Americans--Europe--Language.
+1	American Sign Language--Study and teaching.
+1	American Sign Language--Dictionaries.
+1	American Sign Language--Dictionaries--Polyglot.
+1	American newspapers--Language.
+1	Amele language--Texts--Papua New Guinea.--Ethnologue
+1	Amele language--Phonology--Papua New Guinea.--Ethnologue
+1	Amele language--Grammar.
+1	Ambulas language--Phonology--Papua New Guinea.--Ethnologue
+1	Ambulas language--Dictionaries--Papua New Guinea.--Ethnologue
+1	Ambrym language--Dictionaries--English.
+1	Ambai language.
+1	Amaric language.
+1	Amanab language--Phonology--Papua New Guinea.--Ethnologue
+1	Amaimon language--Phonology--Papua New Guinea.--Ethnologue
+1	Amahuaca language--Grammar.
+1	Ama language--Phonology--Papua New Guinea.--Ethnologue
+1	Alyawarra language.
+1	Alutor language--Ergative constructions.
+1	Alur language--Dictionaries--French.
+1	Altaic languages--Translating.
+1	Algonquin language--Dialects--Québec (Province)
+1	Algonquian languages--Syntax.
+1	Algonquian languages--Grammar, Comparative.
+1	Algonquian languages--Congresses.
+1	Algonquian languages--Bibliography.
+1	Algonquian language--Foreign words and phrases.
+1	Aleut language--Pronoun.
+1	Aleut language--Morphology.
+1	Aleut language--Grammar.
+1	Aleut language--Dictionaries--English.
+1	Alekano language--Papua New Guinea.--Ethnologue
+1	Alawa language.
+1	Alamblak language--Phonology--Papua New Guinea.--Ethnologue
+1	Alacaluf language.
+1	Alabama language--Dictionaries.--English.
+1	Aklanon language--Grammar.
+1	Akkadian language.
+1	Akkadian language--Verb.
+1	Akkadian language--Syria--Ugarit (Extinct city)
+1	Akkadian language--Phonology.
+1	Akhwakh language.
+1	Akan language.
+1	Akan language--Sentences.
+1	Akan language--Phonology.
+1	Akan language--Nasality.
+1	Akan language--Discourse analysis.
+1	Akan language--Bibliography.
+1	Aka language (Central African Republic)--Grammar.
+1	Ahizi language--Vocabulary.
+1	Ahanta language--Phonology.
+1	Agutaynon language--Pronouns.
+1	Aguaruna language--Morphophonemics.
+1	Aguaruna dialect--Dictionaries--Spanish language.
+1	Aguacatec language--Phonemics.
+1	Agta language--Texts.
+1	Agta language--Sentences.
+1	Agta language--Grammar.
+1	Agta language--Dictionaries--English.
+1	Agarabi language--Phonology--Papua New Guinea.--Ethnologue
+1	Agarabe language.
+1	Agarabe language--Phonology.
+1	Afroasiatic languages--History.
+1	Afroasiatic languages--Congresses.
+1	Afroasiatic languages--Comparative linguistics.
+1	Afro-Asiatic languages--Ethiopia.
+1	Afrikaans language--Dictionaries--English.
+1	African languages--Texts.
+1	African languages--Study and teaching (Higher)--Evaluation--Congresses.
+1	African languages--Social aspects.
+1	African languages--Political aspects.
+1	African languages--Orthography and spelling.
+1	African languages--Nigeria.
+1	African languages--Inflection.
+1	African languages--Indexes.
+1	African languages--Ideophone.
+1	African languages--History.
+1	African languages--Dictionaries--Bibliography.
+1	African languages--Dialectology--Congresses.
+1	African languages--Comparative linguistics.
+1	African languages--Bibliography.
+1	African languages--Alphabet.
+1	African Americans--Languages--Dictionaries.
+1	African Americans--Language (New words, slang, etc.)--Dictionaries.
+1	African American teenagers--Language--Case studies.
+1	Africa, West--Languages--Congresses.
+1	Africa--Languages.
+1	Afar language--Grammar, Generative.
+1	Adzera language--Phonology--Papua New Guinea.--Ethnologue
+1	Adygei language.
+1	Adygei language--Phonology.
+1	Adiwasi Oriya language--Phonemics.
+1	Adangme language--Intonation.
+1	Adamawa languages--Grammar.
+1	Acoli language.
+1	Acoli language--Grammar.
+1	Achuar language--Dictionaries--Spanish.
+1	Achinese language--Synonyms and antonyms--Indonesia.
+1	Achinese language--Grammar.
+1	Achagua language--Grammar.
+1	Abure language--Phonology.
+1	Abure language--Phonemics.
+1	Abure language--Grammar.
+1	Abun language--Grammar.
+1	Abulas language--Grammar.
+1	Abua-Ogbia languages.
+1	Aboriginal Australians--Sign language.
+1	Aboriginal Australians--Languages--Noun.
+1	Aboriginal Australians--Languages--Grammar.
+1	Aboriginal Australians--Australia, Northern--Languages.
+1	Aboriginal Australians--Australia--Queensland--Languages.
+1	Aboriginal Australians--Australia--Northern Territory--Languages.
+1	Aboriginal Australians--Australia--New South Wales--Languages--History.
+1	Abkhazo-Adyghian languages--Phonology.
+1	Abkhaz language--Lexicography.
+1	Abkhaz language--Grammar.
+1	Abkhaz language--Glossaries, vocabularies, etc.
+1	Abipon language--Grammar.
+1	Abenaki language--Dictionaries--English.
+1	Abaza language--Verbs.
+1	Abau language--Phonology--Papua New Guinea.--Ethnologue
+1	!Xõ language--Phonetics.
