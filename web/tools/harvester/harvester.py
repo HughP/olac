@@ -868,16 +868,19 @@ def harvest_single(url, mycnf, host=None, db=None, full=False):
     harvest(url, con, full)
     con.close()
 
-def harvest_all(mycnf, host=None, db=None, full=False, numProc=5):
+def harvest_all(mycnf, host=None, db=None, full=False, numProc=5, url=None):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
-    con = MySQLdb.connect(**opts)
-    cur = con.cursor()
-    cur.execute("select BASEURL from ARCHIVES order by rand()")
-    urls = list([x[0] for x in cur.fetchall()])
-    cur.close()
-    con.close()
+    if url:
+        urls = [url]
+    else:
+        con = MySQLdb.connect(**opts)
+        cur = con.cursor()
+        cur.execute("select BASEURL from ARCHIVES order by rand()")
+        urls = list([x[0] for x in cur.fetchall()])
+        cur.close()
+        con.close()
     
     logs = {}
     P = {}
@@ -932,6 +935,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
       -H <host>   hostname of the mysql server
       -d <db>     name of the olac database
       -f          full harvest if this option presents
+      -s <url>    harvest a single repository
 
 """ % {"prog":os.path.basename(sys.argv[0])}
     
@@ -947,7 +951,8 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
         "-c:",
         "*-H:",
         "*-d:",
-        "*-f"
+        "*-f",
+        "*-s:"
         )
     try:
         op.parse(sys.argv[1:])
@@ -959,4 +964,8 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
     host = op.getOne('-H')
     db = op.getOne('-d')
     full = bool(op.get('-f'))
-    harvest_all(mycnf, host, db, full=full)
+    url = op.getOne('-s')
+    if url:
+        harvest_all(mycnf, host, db, full=full, url=url)
+    else:
+        harvest_all(mycnf, host, db, full=full)
