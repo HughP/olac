@@ -72,7 +72,7 @@ EOF;
 			$sql1 = <<<EOF
 select distinct concat(x.NSPrefix, ':', x.Type) Type, sum(if(Count is null,0,Count)) cnt
 from EXTENSION x left join MetricsEncodingSchemes y on x.Type=y.Type
-where x.Type is not null and x.Type!=''  and x.NS is not null and x.NS in ("http://purl.org/dc/terms/", "http://www.language-archives.org/OLAC/1.0/", "http://www.langauge-archives.org/OLAC/1.1/")
+where x.Display = true or y.Archive_ID is not null
 group by Type
 order by Type
 EOF;
@@ -81,7 +81,7 @@ EOF;
 			$sql1 = <<<EOF
 select distinct concat(x.NSPrefix, ':', x.Type) Type, if(Count is null,0,Count) cnt
 from EXTENSION x left join MetricsEncodingSchemes y on x.Type=y.Type and y.Archive_ID=$archiveId
-where x.Type is not null and x.Type!='' and x.NS is not null and x.NSPrefix is not null and x.NSPrefix in ("olac","dcterms")
+where x.Display = true or y.Archive_ID is not null
 order by Type
 EOF;
 		}
