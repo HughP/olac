@@ -103,6 +103,8 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] -n <ver>
 
         ff = record.keys()
         vv = [record[k] for k in ff]
+        ff.append("Display")
+        vv.append(True)
         sql = "insert into EXTENSION (%s) values (%s)" % \
               (",".join(ff), ",".join(["%s"]*len(ff)))
         try:

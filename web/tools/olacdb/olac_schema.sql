@@ -267,12 +267,23 @@ create table EXTENSION (
         AppliesTo               varchar(255),
         Documentation           varchar(255),
 
+	Display			bool,
+
 	primary key (Extension_ID)
 ) engine=innodb, charset=utf8;
 
-insert into EXTENSION (Type,NS) values ('','');
+insert into EXTENSION (Type,NS,Display) values ('','',false);
 update EXTENSION set Extension_ID=0;
-
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('Box','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('DCMIType','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('IMT','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('ISO3166','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('LCSH','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('Period','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('Point','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('TGN','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('URI','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
+insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('W3CDTF','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
 
 ##################################################################
 # Table               : METADATA_ELEM
@@ -541,7 +552,7 @@ create table MetricsArchive (
 
 ##################################################################
 # Table                : GoogleAnalyticsReports
-#
+# Description          : Used to archive google analytics reports.
 ##################################################################
 
 create table GoogleAnalyticsReports (
@@ -691,9 +702,10 @@ create table ISO_639_3_Retirements (
 
 
 ##################################################################
-# Table                : ISO_639_3_Retirements
-# Description          : Retired code elements mappings downloaded from sil.org
-#
+# Table                : PendingConfirmation
+# Description          : Used by the registration script.
+#   When someone requests a change of repository URL, we send an email to the
+#   admin with a URL which confirms the change request when clicked.
 # magic_string         : a 40-char string to identify the confirmation request
 # repository_id        : oai repository identifier
 # repository_type      : Dynamic | Static
