@@ -59,8 +59,8 @@
                   <xsl:value-of select="header/issued"/>
                </xsl:attribute>
             </meta>
-            <STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+            <STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
          </HEAD>
          <BODY>
@@ -965,7 +965,7 @@
       </a>
    </xsl:template>
    <xsl:template match="eg">
-      <pre style="margin-left: 12pt">
+      <pre style="margin-left: 18pt">
       <xsl:apply-templates/>
     </pre>
    </xsl:template>
