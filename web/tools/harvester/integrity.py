@@ -345,22 +345,33 @@ def check_bad_sample_identifier(con, archive_id=None):
 
 #
 #
-# BLT, BDT, BLC
+# BLT, BDT, BLC, BLF, BCR, BDI, BCC
 #
 def check_invalid_code(con, archive_id=None):
     cur = con.cursor()
 
     if archive_id is None:
-        sqls = [
-            "delete from INTEGRITY_CHECK where Problem_Code='BLT'",
+        sqlt = [
+            "delete from INTEGRITY_CHECK where Problem_Code='%s'",
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, me.Code, 'BLT'
+            select distinct Element_ID, me.Code, '%s'
             from METADATA_ELEM me
               left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
-            where me.Type='linguistic-type' and cd.Code is null
+            where me.Type='%s' and cd.Code is null
             """,
-            
+            ]
+        
+        sqls = [
+            "delete from INTEGRITY_CHECK where Problem_Code='BCC'",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Content, 'BCC'
+            from METADATA_ELEM me
+              left join CountryCodes cc on me.Content=cc.CountryID
+            where me.Type='ISO3166' and cc.CountryID is null
+            """,
+
             "delete from INTEGRITY_CHECK where Problem_Code='BDT'",
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
@@ -373,9 +384,7 @@ def check_invalid_code(con, archive_id=None):
             """,
             
             "delete from INTEGRITY_CHECK where Problem_Code='BLC'",
-            #"insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code where me.Type='language' and cd.Code is null",
-            
-            """\
+            """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, me.Code, 'BLC'
             from METADATA_ELEM me
@@ -388,34 +397,70 @@ def check_invalid_code(con, archive_id=None):
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """,
+
             ]
     else:
-        sqls = [
-            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLT'" % archive_id,
+        sqlt = [
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID
+              and ai.Archive_ID=%d and Problem_Code='%%s'
+            """ % archive_id,
+            
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, me.Code, 'BLT'
+            select distinct Element_ID, me.Code, '%%s'
             from METADATA_ELEM me
               left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
               left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
-            where ai.Archive_ID=%d and me.Type='linguistic-type' and cd.Code is null
+            where ai.Archive_ID=%d and me.Type='%%s' and cd.Code is null
+            """ % archive_id,
+            ]
+        
+        sqls = [
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID
+              and ai.Archive_ID=%d and Problem_Code='BCC'
             """ % archive_id,
             
-            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BDT'" % archive_id,
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, me.Content, 'BCC'
+            from METADATA_ELEM me
+              left join CountryCodes cc on cc.CountryID=me.Content
+              left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
+            where ai.Archive_ID=%d and me.Type='ISO3166' and cc.CountryID is null
+            """ % archive_id,
+
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID
+              and ai.Archive_ID=%d and Problem_Code='BDT'
+            """ % archive_id,
+            
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, me.Code, 'BDT'
             from METADATA_ELEM me
               left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
             where ai.Archive_ID=%d and me.Type='DCMIType'
-              and (me.Content is null of me.Content not in
+              and (me.Content is null or me.Content not in
               ('Collection','Dataset','Event','Image','InteractiveResource',
                'Service','Software','Sound','Text','PhysicalObject'))
             """ % archive_id,
             
-            "delete ic.* from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID and ai.Archive_ID=%d and Problem_Code='BLC'" % archive_id,
-            #"insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'BLC' from METADATA_ELEM me left join CODE_DEFN cd on me.Code=cd.Code left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID where ai.Archive_ID=%d and me.Type='language' and cd.Code is null" % archive_id,
-            """\
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID
+              and ai.Archive_ID=%d and Problem_Code='BLC'
+            """ % archive_id,
+            
+            """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, me.Code, 'BLC'
             from METADATA_ELEM me
@@ -430,6 +475,12 @@ def check_invalid_code(con, archive_id=None):
               and lc4.Id is null and lcr.Id is null
             """ % archive_id,
             ]
+    for pcode, etype in (('BLT','linguistic-type'),
+                         ('BLF','linguistic-field'),
+                         ('BCR','role'),
+                         ('BDI','discourse-type')):
+        cur.execute(sqlt[0] % pcode)
+        cur.execute(sqlt[1] % (pcode,etype))
     for sql in sqls:
         cur.execute(sql)
     con.commit()
@@ -482,7 +533,7 @@ def check_language_code(con, archive_id=None):
             where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id
             """ % archive_id,
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from ARCHIVED_ITEM ai, METADATA_ELEM me where Archive_ID=%d and ai.Item_ID=me.Item_ID and Type='language' and (Code='' or Code is null)",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from ARCHIVED_ITEM ai, METADATA_ELEM me where Archive_ID=%d and ai.Item_ID=me.Item_ID and Type='language' and (Code='' or Code is null)" % archive_id,
             ]
     for sql in sqls:
         cur.execute(sql)
