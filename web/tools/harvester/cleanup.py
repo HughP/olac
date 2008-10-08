@@ -4,6 +4,10 @@ import MySQLdb
 import datetime
 from optionparser import OptionParser
 
+def remove_unregistered_archives():
+    sql = "delete oa.*, ai.*, me.* from (select oa.Archive_ID from OLAC_ARCHIVE oa left join ARCHIVES a on oa.RepositoryIdentifier=a.ID and oa.BaseURL=a.BaseURL where a.ID is null) x, OLAC_ARCHIVE oa, ARCHIVED_ITEM ai, METADATA_ELEM me where x.Archive_ID=oa.Archive_ID and oa.Archive_ID=ai.Archive_ID and ai.Item_ID=me.Item_ID"
+    cur.execute(sql)
+
 def remove_archives_with_no_baseurl():
     sql = "delete oa.*, ai.*, me.* " \
           "from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai, METADATA_ELEM me " \
@@ -71,9 +75,11 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>]
 
     t = lambda: datetime.datetime.now().strftime("[%Y-%m-%d %H:%M:%d]")
     print t(), "Starting database cleanup."
-    print t(), "Removing Archives with no BaseURL..."
+    print t(), "Removing unregistered archives..."
+    remove_unregistered_archives()
+    print t(), "Removing archives with no BaseURL..."
     remove_archives_with_no_baseurl()
-    print t(), "Removing records with no Archive ID..."
+    print t(), "Removing records with no Archive_ID..."
     remove_records_with_no_archiveid()
     print t(), "Removing redundant records..."
     remove_redundant_records()
