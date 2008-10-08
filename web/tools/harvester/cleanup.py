@@ -31,6 +31,11 @@ def remove_redundant_records():
     for f in ("DateStamp", "Item_ID"):
         cur.execute(sql % (subsql % f, f))
 
+def remove_empty_elements():
+    sql = "delete from METADATA_ELEM where (Content is null or Content='') and (Code is null or Code='')"
+    cur.execute(sql)
+
+
 if __name__ == "__main__":
     usageString = """\
 Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>]
@@ -83,8 +88,9 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>]
     remove_records_with_no_archiveid()
     print t(), "Removing redundant records..."
     remove_redundant_records()
+    print t(), "Removing empty elements..."
+    remove_empty_elements()
     print t(), "Database cleanup finished."
-
     con.commit()
     cur.close()
     con.close()
