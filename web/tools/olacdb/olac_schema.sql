@@ -417,7 +417,10 @@ insert into INTEGRITY_PROBLEM values ('BLC','E','E','Bad Language Code','The val
 insert into INTEGRITY_PROBLEM values ('RLC','E','W','Retired Language Code','The supplied value is a recognized code from ISO 639, but it is not best practice since it is retired.');
 insert into INTEGRITY_PROBLEM values ('SIL','E','W','Should be Individual Language','The value supplied for olac:language is a recognized code from ISO 639, but it is not best practice since it resents a collection of languages.');
 insert into INTEGRITY_PROBLEM values ('MLC','E','W','Missing Language Code','The element uses olac:language extension but no olac:code is given.');
-
+insert into INTEGRITY_PROBLEM values ('BLF','E','E','Bad Linguistic Field','The value supplied for olac:linguistic-field is not defined in the vocabulary.');
+insert into INTEGRITY_PROBLEM values ('BCR','E','E','Bad Contributor Role','The value supplied for olac:role is not defined in the vocabulary.');
+insert into INTEGRITY_PROBLEM values ('BDI','E','E','Bad Discourse Type','The value supplied for olac:discourse-type is not defined in the vocabulary.');
+insert into INTEGRITY_PROBLEM values ('BCC','E','E','Bad Country Code','The value supplied for dcterms:ISO3166 is not defined in the ISO 3166 code set.');
 ##################################################################
 # Table                : INTEGRITY_CHECK
 # Description of table : Result of integrity checks
