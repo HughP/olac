@@ -12,6 +12,9 @@ HARVEST_LOG=harvest_log.txt
 # mysql db account info file
 MYCNF=/home/olac/.my.cnf.olac2
 
+# mysql
+MYSQL=/ldc/app/i386/pkg/mysql-5.0.22/bin/mysql
+
 # ovester directory
 case `dirname $0` in
     /*) ODIR=`dirname $0` ;;
@@ -53,6 +56,12 @@ CWD=`pwd`; cd $ODIR
 new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
 if [ ${new_records:-0} -gt 0 ] ; then
     (
+        echo
+        echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
+        echo
+        echo "delete from METADATA_ELEM_MYISAM" | $MYSQL --defaults-file=$MYCNF
+        echo "insert into METADATA_ELEM_MYISAM select * from METADATA_ELEM" | $MYSQL --defaults-file=$MYCNF
+
         (
         echo
 	echo "Updating search database..."
