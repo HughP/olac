@@ -893,7 +893,12 @@ local cataloging practices.
 
 
     <!-- JAS: GIAL_Marc_590sample1.mrc contains a sample set of records that includes the patterns
-        found thus far with regard to use of 590. Probably need a Choose statement to get the options covered. -->
+        found thus far with regard to use of 590. 
+        patterns:
+        =590  \\$aEthnologue 15 = ISO 639-3 bca (52 records of the whole set of 29000+ have this pattern)
+        =590  \\$aarz Ethnologue 15 = ISO 639-3
+        =590  \\$askl$2Ethnologue 15 = ISO 639-3
+    -->
     <xsl:template priority="1" match="marc:datafield[@tag='590']">
         <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
             <dc:subject xsi:type="olac:language">
