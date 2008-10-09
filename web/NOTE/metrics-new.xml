@@ -7,7 +7,7 @@
         <!-- Promoted to Candidate on 2008-07-16 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20081006</issued>
+        <issued>20081008</issued>
        <previousIssued>20080711</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
@@ -230,20 +230,34 @@
           as "Error" or "Warning". </p>
           <p>These are the possible error messages:</p>
           <dl  style="table">
-          <dt>BDT</dt>
+             <dt>BCC</dt>
+             <dd><p>Bad Country Code &#x2014; The value supplied for 
+                <i>dcterms:ISO3166</i> is not defined in the ISO 3166
+                code set.</p></dd>
+             <dt>BCR</dt>
+             <dd><p>Bad Contributor Role &#x2014; The value supplied for 
+                <i>olac:role</i> is not defined in the vocabulary.</p></dd>
+             <dt>BDI</dt>
+             <dd><p>Bad Discourse Type &#x2014; The value supplied for 
+                <i>olac:discourse-type</i> is not defined in the vocabulary.</p></dd>
+             <dt>BDT</dt>
              <dd><p>Bad DCMI Type &#x2014; The value supplied for 
                 <i>dcterms:DCMIType</i> is not defined in the vocabulary.</p></dd>
              <dt>BLC</dt>
              <dd><p>Bad Language Code &#x2014; The value supplied 
                 for <i>olac:language</i> is not defined in the ISO 639 code set.</p></dd>
-                <dt>BLT</dt>
+             <dt>BLF</dt>
+             <dd><p>Bad Linguistic Field &#x2014; The value supplied 
+                for <i>olac:linguistic-field</i> is not defined in the
+                vocabulary.</p></dd>
+             <dt>BLT</dt>
              <dd><p>Bad Linguistic Type &#x2014; The value supplied 
                 for <i>olac:linguistic-type</i> is not defined in the vocabulary.</p></dd>
-                   <dt>BSI</dt>
+             <dt>BSI</dt>
              <dd><p>Bad Sample Identifier &#x2014; The
                 <tt>&lt;sampleIdentifier&gt;</tt>
                 specified in the Identify response is not present in the repository.</p></dd>
-                      <dt>NSI</dt>
+             <dt>NSI</dt>
              <dd><p>No Such Item &#x2014; The combined OLAC 
                 catalog does not contain an entry with the given OAI identifier.</p></dd>
              <dt>RNC</dt>
