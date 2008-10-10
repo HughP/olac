@@ -221,6 +221,10 @@ class DBI(Logger):
         if flagUpdateMetadata:
             for row in record.metadataElements():
                 tagName, extSchema, extType, extCode, content = row
+                
+                if (extCode is None or extCode.strip() == '') and \
+                   (content is None or content.strip() == ''):
+                    continue
 
                 try:
                     tagid = self.tagids[tagName]
