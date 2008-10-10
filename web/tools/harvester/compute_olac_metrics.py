@@ -13,6 +13,15 @@ sqls = [
     
     "create temporary table langcodes select Archive_ID, Code from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and Type='language' and Code is not null and Code!=''",
 
+    """
+    delete l.* from langcodes l 
+    left join ISO_639_3 lc on l.Code=lc.Id
+    left join ISO_639_3 lc2 on l.Code=lc2.Part2B
+    left join ISO_639_3 lc4 on l.Code=lc4.Part1
+    left join ISO_639_3_Retirements lcr on l.Code=lcr.Id
+    where lc.Id is null and lc2.Id is null and lc4.Id is null and lcr.Id is null
+    """,
+    
     "insert into langcodes select Archive_ID, lc.LangID from METADATA_ELEM me, LanguageCodes lc, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and me.Type='language' and (me.Code is null or me.Code='') and me.Content is not null and me.Content=lc.Name",
 
     "update Metrics set num_languages=(select count(distinct Code) from langcodes where Archive_ID=Metrics.archive_id)",
@@ -21,13 +30,13 @@ sqls = [
     
     "drop table langcodes",
 
-    "update Metrics set num_linguistic_fields=(select count(distinct Code) from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and Type='linguistic-field' and Archive_ID=Metrics.archive_id)",
+    "update Metrics set num_linguistic_fields=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-field' and Archive_ID=Metrics.archive_id)",
 
-    "update Metrics set num_linguistic_fields=(select count(distinct Code) from METADATA_ELEM where Type='linguistic-field') where archive_id=-1",
+    "update Metrics set num_linguistic_fields=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-field') where archive_id=-1",
     
-    "update Metrics set num_linguistic_types=(select count(distinct Code) from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and Type='linguistic-type' and Archive_ID=Metrics.archive_id)",
+    "update Metrics set num_linguistic_types=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-type' and Archive_ID=Metrics.archive_id)",
 
-    "update Metrics set num_linguistic_types=(select count(distinct Code) from METADATA_ELEM where Type='linguistic-type') where archive_id=-1",
+    "update Metrics set num_linguistic_types=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-type') where archive_id=-1",
 
     "update Metrics set num_dcmi_types=(select count(distinct Content) from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and Type='DCMIType' and Archive_ID=Metrics.archive_id)",
 
@@ -64,7 +73,7 @@ sqls = [
             sum(if(Tag_ID=800 and Code is not null,1,0)) content_language,
             sum(if(Tag_ID=1500 and Type='linguistic-type' and Code is not null,1,0)) linguistic_type,
             sum(if((Tag_ID=1300 and Type='language' and Code is not null) or (Tag_ID=1500 and Type='linguistic-type' and Code='primary_text'),1,0)) subject_language,
-            sum(if(Tag_ID=1500 and Type='DCMIType' and (Content or Code is not null),1,0)) dcmi_type,
+            sum(if(Tag_ID=1500 and Type='DCMIType' and Content,1,0)) dcmi_type,
             least(sum(if(Type='W3CDTF' and Content,1,0)),1) W3CDTF,
             least(sum(if(Type='role' and Code is not null and Content,1,0)),1) role,
             least(sum(if(Type='IMT' and Content,1,0)),1) IMT,
@@ -76,7 +85,14 @@ sqls = [
                 (Content is not null and Content!='') Content,
                 if(Type='language',LangID,if(Type is null or Code='',null,Code)) Code
              from
-                METADATA_ELEM me
+                (select * from METADATA_ELEM where Type!='linguistic-type' and Type!='linguistic-field' and Type!='DCMIType'
+                 union
+                 select me.* from METADATA_ELEM me
+                 left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+                 where Type in ('linguistic-type','linguistic-field') and cd.Code is not null
+                 union
+                 select * from METADATA_ELEM where Type='DCMIType' and Content in (select * from DCMITypeVocabulary)
+                ) me
                 left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
                 left join LanguageCodes lc on me.Code=lc.LangID
             ) t
@@ -145,6 +161,11 @@ sqls = [
     "update Metrics m, (select ic.Object_ID, count(*) c from INTEGRITY_CHECK ic left join INTEGRITY_PROBLEM ip on ic.Problem_Code=ip.Problem_Code where ip.Applies_To='A' and ip.Severity='E' group by ic.Object_ID) x set m.integrity_problems=m.integrity_problems+x.c where m.archive_id=x.Object_ID",
 
     "update Metrics set integrity_problems=(select count(*) from INTEGRITY_CHECK) where archive_id=-1",
+
+    "update Metrics m, (select ai.Archive_ID, count(*) c from INTEGRITY_CHECK ic left join INTEGRITY_PROBLEM ip on ic.Problem_Code=ip.Problem_Code left join METADATA_ELEM me on ic.Object_ID=me.Element_ID left join ARCHIVED_ITEM ai on ai.Item_ID=me.Item_ID where ip.Applies_To='E' and ip.Severity='W' group by ai.Archive_ID) x set m.integrity_problems=m.integrity_problems+0.1 where m.archive_id=x.Archive_ID",
+
+    "update Metrics m, (select ic.Object_ID, count(*) c from INTEGRITY_CHECK ic left join INTEGRITY_PROBLEM ip on ic.Problem_Code=ip.Problem_Code where ip.Applies_To='A' and ip.Severity='W' group by ic.Object_ID) x set m.integrity_problems=m.integrity_problems+0.1 where m.archive_id=x.Object_ID",
+
     ]
 
 
