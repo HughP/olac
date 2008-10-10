@@ -541,6 +541,38 @@ def check_language_code(con, archive_id=None):
     cur.close()
 
 
+#
+# RNC
+#
+def check_current_as_of(con, archive_id=None):
+    cur = con.cursor()
+
+    if archive_id is None:
+        sqls = [
+            "delete from INTEGRITY_CHECK where Problem_Code='RNC'",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select Archive_ID, '', 'RNC'
+            from OLAC_ARCHIVE
+            where datediff(current_date(),adddate(CurrentAsOf, interval 1 year)) > 0
+            """,
+            ]
+    else:
+        sqls = [
+            "delete from INTEGRITY_CHECK where Problem_Code='RNC' and Object_ID=%d" % archive_id,
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select Archive_ID, '', 'RNC'
+            from OLAC_ARCHIVE
+            where Archive_ID=%d and datediff(current_date(),adddate(CurrentAsOf, interval 1 year)) > 0
+            """ % archive_id,
+            ]
+    for sql in sqls:
+        cur.execute(sql)
+    con.commit()
+    cur.close()
+
+
 if __name__ == '__main__':
     usageString = """\
 Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
@@ -611,3 +643,4 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
         check_bad_sample_identifier(con, archive_id)
         check_invalid_code(con, archive_id)
         check_language_code(con, archive_id)
+        check_current_as_of(con, archive_id)
