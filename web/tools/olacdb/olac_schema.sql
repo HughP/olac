@@ -724,3 +724,13 @@ create table PendingConfirmation (
 	primary key (magic_string)
 ) engine=innodb;
 
+##################################################################
+# Table                : DCMITypeVocabulary
+# Code                 : DCMIType vocabulary
+##################################################################
+create table DCMITypeVocabulary (
+Code		varchar(64) unique
+) ending=innodb, charset=utf8;
+
+insert into DCMITypeVocabulary (Code) values ('Collection','Dataset','Event','Image','InteractiveResource','MovingImage','PhysicalObject','Service','Software','Sound','StillImage','Text');
+
