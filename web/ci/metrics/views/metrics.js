@@ -69,7 +69,8 @@ function generateSumStatTab(arcid, containerId)
 					var theday = new Date(a[0],a[1],a[2]);
 					if (theday >= targetdate) fresh_archives++;
 				}
-				if (METRICS[i].metadata_quality >= 9.0) five_stars++;
+				if (METRICS[i].metadata_quality >= 9.0 && METRICS[i].integrity_problems <= 0.0)
+					five_stars++;
 			}
 		}
 		tab.push({name:"Number of Archives", value:num_archives});
