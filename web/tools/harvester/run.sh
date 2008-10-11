@@ -53,6 +53,9 @@ CWD=`pwd`; cd $ODIR
 ( $OVESTER 2>&1 ;  $PYTHON $ODIR/cleanup.py -c $MYCNF ) | \
 	/usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 
+(/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF)|\
+	/usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
+
 new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
 if [ ${new_records:-0} -gt 0 ] ; then
     (
@@ -89,7 +92,6 @@ if [ ${new_records:-0} -gt 0 ] ; then
 	find . -name "*.xml" | sort | sed -E -e 's@^./(.*)@<li><a href="./\1">\1</a>@' > index.html
 	)
 	
-	/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF
 	/usr/bin/lockf /tmp/olac.metrics.lock $PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
 
     ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
