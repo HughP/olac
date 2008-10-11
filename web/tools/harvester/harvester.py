@@ -843,14 +843,18 @@ def harvest(url, con, full=False):
         dbi = DBI(con)
         h = Harvester(url, dbi, full)
         now = datetime.datetime.now()
+        cur = con.cursor()
         if h.harvest():
             h.log("harvest successful")
             sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
-            cur = con.cursor()
             cur.execute(sql, (now, dbi.archiveId()))
-            cur.close()
         else:
             h.log("harvest failed")
+            sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
+            cur.execute(sql, dbi.archiveId())
+            sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'HFC')"
+            cur.execute(sql, dbi.archiveId())
+        cur.close()
         dbi.commit()
         rc, nrc, urc, drc, irc = dbi.counts()
         h.log("processed %d records (this may include retries)" % rc)
