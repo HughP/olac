@@ -573,6 +573,39 @@ def check_current_as_of(con, archive_id=None):
     cur.close()
 
 
+#
+# ANF
+#
+def check_static_repository(con, archive_id=None):
+    http_check = HttpChecker()
+
+    pat = re.compile(r"((?:f|ht)tps?://\S+)")
+    cur = con.cursor()
+    if archive_id is None:
+        cur.execute("select oa.Archive_ID, a.type, a.BASEURL from ARCHIVES a, OLAC_ARCHIVE oa where a.ID=oa.RepositoryIdentifier and a.BASEURL=oa.BaseUrl")
+    else:
+        cur.execute("select oa.Archive_ID, a.type, a.BASEURL from ARCHIVES a, OLAC_ARCHIVE oa where a.ID=oa.RepositoryIdentifier and a.BASEURL=oa.BaseUrl and oa.Archive_ID=%s", archive_id)
+    for row in cur.fetchall():
+        archive_id, repo_type, baseurl = row
+        if repo_type == 'Gateway':
+            baseurl = baseurl.replace('http://www.language-archives.org/sr/','http://',1)
+        else:
+            baseurl += "?verb=Identify"
+        log('checking: %s' % baseurl)
+        sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='ANF'"
+        cur.execute(sql, archive_id)
+        try:
+            res = http_check(baseurl)
+        except Exception, e:
+            log("%s" % e)
+            continue  # can't determine
+        if res == '404':
+            sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'ANF')"
+            cur.execute(sql, archive_id)
+        con.commit()
+    cur.close()
+
+
 if __name__ == '__main__':
     usageString = """\
 Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
@@ -644,3 +677,4 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
         check_invalid_code(con, archive_id)
         check_language_code(con, archive_id)
         check_current_as_of(con, archive_id)
+        check_static_repository(con, archive_id)

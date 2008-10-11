@@ -421,6 +421,11 @@ insert into INTEGRITY_PROBLEM values ('BLF','E','E','Bad Linguistic Field','The 
 insert into INTEGRITY_PROBLEM values ('BCR','E','E','Bad Contributor Role','The value supplied for olac:role is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BDI','E','E','Bad Discourse Type','The value supplied for olac:discourse-type is not defined in the vocabulary.');
 insert into INTEGRITY_PROBLEM values ('BCC','E','E','Bad Country Code','The value supplied for dcterms:ISO3166 is not defined in the ISO 3166 code set.');
+insert into INTEGRITY_PROBLEM values ('RNC','A','E','Repository Not Found','The CurrentAsOf date is more than 12 months old.');
+insert into INTEGRITY_PROBLEM values ('HFC','A','W','Harvesting Fails to Complete','Some records are being harvested, but an integrity issues in the data or a bug in the repository software is causing premature termination.');
+insert into INTEGRITY_PROBLEM values ('SNV','A','W','Static Repository Not Valid','The retrieved static repository file is not valid.');
+insert into INTEGRITY_PROBLEM values ('ANF','A','W','Repository Not Found','Accessing the static repository URL or the dynamic base URL generates a 404 error.');
+
 ##################################################################
 # Table                : INTEGRITY_CHECK
 # Description of table : Result of integrity checks
