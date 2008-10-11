@@ -850,10 +850,17 @@ def harvest(url, con, full=False):
             cur.execute(sql, (now, dbi.archiveId()))
         else:
             h.log("harvest failed")
-            sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
-            cur.execute(sql, dbi.archiveId())
-            sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'HFC')"
-            cur.execute(sql, dbi.archiveId())
+            # dbi can provide archive id only when it has successfully
+            # processed identify response
+            archiveid = dbi.archiveId()
+            if archiveid is None:
+                cur.execute("select Archive_ID from OLAC_ARCHIVE where BaseURL=%s", url)
+                archiveid = cur.fetchone()[0]
+            if archiveid:
+                sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
+                cur.execute(sql, archiveid)
+                sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'HFC')"
+                cur.execute(sql, archiveid)
         cur.close()
         dbi.commit()
         rc, nrc, urc, drc, irc = dbi.counts()
