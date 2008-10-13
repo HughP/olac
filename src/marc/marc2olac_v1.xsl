@@ -9,7 +9,7 @@ local cataloging practices.
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="marc">
-    <xsl:import href="http://www.loc.gov/standards/marcxml/xslt/MARC21slimUtils.xsl"/>
+    <xsl:import href="olacutils.xsl"/>
     <xsl:param name="show-source">yes</xsl:param>
     <xsl:output method="xml" indent="yes"/>
 
