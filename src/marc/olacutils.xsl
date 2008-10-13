@@ -27,6 +27,30 @@
         </xsl:choose>
     </xsl:template>
     
+
+    <!-- function taken verbatim from LOC MARC utilities stylesheet:
+    http://www.loc.gov/standards/marcxml/xslt/MARC21slimUtils.xsl
+    Purpose: print subfields named in the 'code' param
+    Params:  codes - string of characters of subfield codes to be printed
+             delimiter - string to delimit more than one subfield
+    Note: the order of printing is based upon the XML data, not the order
+        of the codes in the parameter
+    -->
+    <xsl:template name="subfieldSelect">
+        <xsl:param name="codes">abcdefghijklmnopqrstuvwxyz</xsl:param>
+        <xsl:param name="delimiter">
+            <xsl:text> </xsl:text>
+        </xsl:param>
+        <xsl:variable name="str">
+            <xsl:for-each select="marc:subfield">
+                <xsl:if test="contains($codes, @code)">
+                    <xsl:value-of select="text()"/>
+                    <xsl:value-of select="$delimeter"/>
+                </xsl:if>
+            </xsl:for-each>
+        </xsl:variable>
+        <xsl:value-of select="substring($str,1,string-length($str)-string-length($delimeter))"/>
+    </xsl:template>
     
     
 </xsl:stylesheet>
