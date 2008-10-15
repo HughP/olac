@@ -735,7 +735,7 @@ create table PendingConfirmation (
 ##################################################################
 create table DCMITypeVocabulary (
 Code		varchar(64) unique
-) ending=innodb, charset=utf8;
+) engine=innodb, charset=utf8;
 
-insert into DCMITypeVocabulary (Code) values ('Collection','Dataset','Event','Image','InteractiveResource','MovingImage','PhysicalObject','Service','Software','Sound','StillImage','Text');
+insert into DCMITypeVocabulary (Code) values ('Collection'),('Dataset'),('Event'),('Image'),('InteractiveResource'),('MovingImage'),('PhysicalObject'),('Service'),('Software'),('Sound'),('StillImage'),('Text');
 
