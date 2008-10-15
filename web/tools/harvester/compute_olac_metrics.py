@@ -85,7 +85,7 @@ sqls = [
                 (Content is not null and Content!='') Content,
                 if(Type='language',LangID,if(Type is null or Code='',null,Code)) Code
              from
-                (select * from METADATA_ELEM where Type!='linguistic-type' and Type!='linguistic-field' and Type!='DCMIType'
+                (select * from METADATA_ELEM where (Type!='linguistic-type' and Type!='linguistic-field' and Type!='DCMIType') or Type is null
                  union
                  select me.* from METADATA_ELEM me
                  left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
