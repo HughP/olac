@@ -229,9 +229,9 @@ def check_urls(con, archive_id=None):
     pat = re.compile(r"((?:f|ht)tps?://\S+)")
     cur = con.cursor()
     if archive_id is None:
-        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join INTEGRITY_CHECK ic on me.Element_ID=ic.Object_ID where Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()")
+        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join INTEGRITY_CHECK ic on me.Element_ID=ic.Object_ID where Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())>1) order by rand()")
     else:
-        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID left join INTEGRITY_CHECK ic on me.Element_ID=ic.Object_ID where ai.Archive_ID=%s and Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())<1) order by rand()", archive_id)
+        cur.execute("select me.Element_ID, Content from METADATA_ELEM me left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID left join INTEGRITY_CHECK ic on me.Element_ID=ic.Object_ID where ai.Archive_ID=%s and Content regexp '(f|ht)tps?://.*' and (IntegrityChecked is null or timestampdiff(day,IntegrityChecked,now())>1) order by rand()", archive_id)
     for row in cur.fetchall():
         url = pat.search(row[1]).group(1)
         log('checking: %s' % url)
@@ -669,7 +669,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
     else:
         archive_id = None
 
-    if op.getOne('-u'):
+    if op.get('-u'):
         check_urls(con, archive_id)
     else:
         check_broken_reference(con, archive_id)
