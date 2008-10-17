@@ -848,6 +848,8 @@ def harvest(url, con, full=False):
             h.log("harvest successful")
             sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
             cur.execute(sql, (now, dbi.archiveId()))
+            sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
+            cur.execute(sql, dbi.archiveId())
         else:
             h.log("harvest failed")
             # dbi can provide archive id only when it has successfully
