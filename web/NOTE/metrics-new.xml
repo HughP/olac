@@ -7,7 +7,7 @@
         <!-- Promoted to Candidate on 2008-07-16 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20081008</issued>
+        <issued>20081016</issued>
        <previousIssued>20080711</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
@@ -269,6 +269,10 @@
           </dl>
           <p>These are the possible warning messages:</p>
           <dl  style="table">
+             <dt>BRU</dt>
+             <dd><p>Broken Repository URL &#x2014; Accessing the URL
+                for a static repository or the base URL for 
+                a dynamic repository generates a 404 error.</p></dd>
              <dt>HFC</dt>
              <dd><p>Harvesting Fails to Complete &#x2014; Some records 
                 are being harvested, but an integrity issue in the data or a bug 
@@ -286,9 +290,6 @@
              <dt>RNA</dt>
              <dd><p>Resource Not Available &#x2014; An attempt to 
              follow the link failed for a reason other than a 404 error.</p></dd>
-             <dt>RNF</dt>
-             <dd><p>Repository Not Found &#x2014; Accessing the static repository URL 
-             or the dynamic base URL generates a 404 error.</p></dd>
              <dt>RNV</dt>
              <dd><p>Repository Not Valid &#x2014; The retrieved static repository file is not valid.</p></dd>
              <dt>SIL</dt>
