@@ -10,6 +10,7 @@ local cataloging practices.
     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="marc">
     <xsl:import href="olacutils.xsl"/>
+    <xsl:import href="olacvocab.xsl"/>
     <xsl:param name="show-source">yes</xsl:param>
     <xsl:output method="xml" indent="yes"/>
 
@@ -1035,11 +1036,8 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type">
-                    <xsl:with-param name="subject">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
+                <xsl:call-template name="process-linguistic-type" />
+                <xsl:call-template name="process-linguistic-subject" />
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
