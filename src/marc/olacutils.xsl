@@ -2,7 +2,8 @@
 <!--
     Store utility functions here
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/">
 
 <!-- removeTrailingChars is a recursive template
     operations:
@@ -45,11 +46,11 @@
             <xsl:for-each select="marc:subfield">
                 <xsl:if test="contains($codes, @code)">
                     <xsl:value-of select="text()"/>
-                    <xsl:value-of select="$delimeter"/>
+                    <xsl:value-of select="$delimiter"/>
                 </xsl:if>
             </xsl:for-each>
         </xsl:variable>
-        <xsl:value-of select="substring($str,1,string-length($str)-string-length($delimeter))"/>
+        <xsl:value-of select="substring($str,1,string-length($str)-string-length($delimiter))"/>
     </xsl:template>
     
     

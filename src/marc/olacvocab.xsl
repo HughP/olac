@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    OLAC Vocabulary templates are defined here:
+
+    process-role
+    process-linguistic-type
+
+    
+-->
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="marc">
+
+
+    <xsl:template name="process-role">
+        <!-- process MARC relator codes into OLAC roles -->
+        <xsl:param name="subfield"/>
+        <!-- required param -->
+        <xsl:if test="marc:subfield[@code=$subfield]">
+            <xsl:variable name="code">
+                <xsl:value-of select="marc:subfield[@code=$subfield]"/>
+            </xsl:variable>
+            <xsl:attribute name="olac:code">
+                <xsl:choose>
+                    <xsl:when test="$code = 'ann'">annotator</xsl:when>
+                    <xsl:when test="$code = 'cwt'">annotator</xsl:when>
+                    <xsl:when test="$code = 'aut'">author</xsl:when>
+                    <xsl:when test="$code = 'aud'">author</xsl:when>
+                    <xsl:when test="$code = 'lyr'">author</xsl:when>
+                    <xsl:when test="$code = 'col'">compiler</xsl:when>
+                    <xsl:when test="$code = 'com'">compiler</xsl:when>
+                    <xsl:when test="$code = 'csl'">consultant</xsl:when>
+                    <xsl:when test="$code = 'csp'">consultant</xsl:when>
+                    <xsl:when test="$code = 'sad'">consultant</xsl:when>
+                    <xsl:when test="$code = 'mrk'">data_inputter</xsl:when>
+                    <xsl:when test="$code = 'dpt'">depositor</xsl:when>
+                    <xsl:when test="$code = 'prg'">developer</xsl:when>
+                    <xsl:when test="$code = 'edt'">editor</xsl:when>
+                    <xsl:when test="$code = 'flm'">editor</xsl:when>
+                    <xsl:when test="$code = 'ill'">illustrator</xsl:when>
+                    <xsl:when test="$code = 'ivr'">interviewer</xsl:when>
+                    <xsl:when test="$code = 'act'">performer</xsl:when>
+                    <xsl:when test="$code = 'dnc'">performer</xsl:when>
+                    <xsl:when test="$code = 'itr'">performer</xsl:when>
+                    <xsl:when test="$code = 'mus'">performer</xsl:when>
+                    <xsl:when test="$code = 'prf'">performer</xsl:when>
+                    <xsl:when test="$code = 'ppt'">performer</xsl:when>
+                    <xsl:when test="$code = 'stl'">performer</xsl:when>
+                    <xsl:when test="$code = 'pht'">photographer</xsl:when>
+                    <xsl:when test="$code = 'rce'">recorder</xsl:when>
+                    <xsl:when test="$code = 'vdg'">recorder</xsl:when>
+                    <xsl:when test="$code = 'rth'">researcher</xsl:when>
+                    <xsl:when test="$code = 'rtm'">researcher</xsl:when>
+                    <xsl:when test="$code = 'res'">researcher</xsl:when>
+                    <xsl:when test="$code = 'sgn'">signer</xsl:when>
+                    <xsl:when test="$code = 'sng'">singer</xsl:when>
+                    <xsl:when test="$code = 'voc'">singer</xsl:when>
+                    <xsl:when test="$code = 'nrt'">speaker</xsl:when>
+                    <xsl:when test="$code = 'spk'">speaker</xsl:when>
+                    <xsl:when test="$code = 'fnd'">sponsor</xsl:when>
+                    <xsl:when test="$code = 'pat'">sponsor</xsl:when>
+                    <xsl:when test="$code = 'spn'">sponsor</xsl:when>
+                    <xsl:when test="$code = 'trc'">transcriber</xsl:when>
+                    <xsl:when test="$code = 'trl'">translator</xsl:when>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:if test="@olac:code">
+                <!-- output xsi:type  only if olac:code exists -->
+                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+            </xsl:if>
+        </xsl:if>
+    </xsl:template>
+
+
+    <xsl:template name="process-linguistic-type">
+        <!-- process LCSH into OLAC linguistic types -->
+        <xsl:variable name="subject">
+            <xsl:value-of select="."/>
+        </xsl:variable>
+
+        <xsl:variable name="linguistictype">
+            <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
+                JAS: use only the $x subfield instances. That avoids Grammar as a main topic ("Grammar, comparative and general")
+                Morphology appears only in $x whether it is a general work (i.e., with Grammar, comparative and general
+                as the $a content) or a work on the morphology of a language.
+                However, any one of these appearing in $x when there is also "{some} language" in the same 650 in the 
+                $a, we are on firm ground to take the work as a language description. 
+            -->
+            <xsl:choose>
+                <!-- type = language_description -->
+                <xsl:when test="contains(marc:subfield[@code='x'],'Grammar')">language_description</xsl:when>
+                <xsl:when test="contains(marc:subfield[@code='x'],'Phonology')">language_description</xsl:when>
+                <xsl:when test="contains(marc:subfield[@code='x'],'Morphology')"
+                    >language_description</xsl:when>
+                <xsl:when test="contains(marc:subfield[@code='x'],'Orthography')"
+                    >language_description</xsl:when>
+
+                <!-- type = lexicon -->
+                <xsl:when test="contains(marc:subfield[@code='v'],'Dictionaries')">lexicon</xsl:when>
+                <xsl:when test="contains(marc:subfield[@code='v'],'Conversation and phrase books')"
+                    >lexicon</xsl:when>
+                <xsl:when test="contains(marc:subfield[@code='v'],'Glossaries, vocabularies, etc.')"
+                    >lexicon</xsl:when>
+
+                <!-- type = primary_text -->
+                <xsl:when test="contains(marc:subfield[@code='v'],'Texts')">primary_text</xsl:when>
+
+                <xsl:otherwise>0</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <xsl:if test="$linguistictype != '0'">
+            <!-- output xsi:type only if a linguistic-type has been found -->
+            <dc:type xsi:type="olac:linguistic-type">
+                <xsl:attribute name="olac:code">
+                    <xsl:value-of select="$linguistictype"/>
+                </xsl:attribute>
+            </dc:type>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="process-linguistic-subject">
+        <!-- Process LCSH into OLAC linguistic subjects
+            see: http://www.language-archives.org/REC/field.html
+        -->
+        <xsl:variable name="subject">
+            <xsl:value-of select="."/>
+        </xsl:variable>
+
+        <!-- use if statements, because the same subject heading could map to more than one linguistic field type -->
+
+        <!-- regular-style mappings (see below irregular mappings) -->
+        <xsl:if test="starts-with($subject,'Acceptability (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Agraphia')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Ambiguity')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Analogy (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Anthropological linguistics')">
+            <dc:subject xsi:type="olac:linguistic">anthropological_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Antonyms')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Applied linguistics')">
+            <dc:subject xsi:type="olac:linguistic">applied_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Arabic alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Archaisms (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Artificial intelligence')">
+            <dc:subject xsi:type="olac:linguistic">cognitive_science</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Aspiration (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Assimilation (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Asymmetry (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">philosophy_of_language</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Autographs')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Autolexical theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Autosegmental theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Bharati alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Binary principle (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">general_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Brahmi alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Calligraphy')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Case grammar')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Causative (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Celtiberian alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Clicks (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cognitive neuroscience')">
+            <dc:subject xsi:type="olac:linguistic">cognitive_science</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cognitive psychology')">
+            <dc:subject xsi:type="olac:linguistic">cognitive_science</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cognitive science')">
+            <dc:subject xsi:type="olac:linguistic">cognitive_science</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cohesion (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Collocation (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Componential analysis (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Componential analysis in anthropology')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Compositionality (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Computational linguistics')">
+            <dc:subject xsi:type="olac:linguistic">computational_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Connotation (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Consonants')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Court interpreting and translating')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Critical discourse analysis')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cryptography')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cuneiform writing')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Cyrillic alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Deep structure (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Definiteness (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Definition (Logic)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Dependency grammar')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Deseret alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Devanagari alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Diglossia (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Direction in language')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Discourse analysis')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Discourse markers')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Dissimilation (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Distinctive features (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Dorvolzhin alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Duration (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Emotive (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Emphasis (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Emphasis (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Euphemism')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Evidentials (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Field theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Focus (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Forensic linguistics')">
+            <dc:subject xsi:type="olac:linguistic">forensic_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Forensic phonetics')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Formal languages--Semantics')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Game-theoretical semantics')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Gemination')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Glagolitic alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Glossematics')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Glottalization (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Glottochronology')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Government-binding theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Absolute constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Agreement')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Clauses')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Compensatory lengthening')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Connectives')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Coordinate constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Deletion')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Ellipsis')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Ergative constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Exclamations')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Grammaticalization')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Grammaticalization')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Honorific')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Indirect discourse')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Infinitival constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Inflection')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Locative constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Mathematical models')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Morphosyntax')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Morphosyntax')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Parenthetical constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Parsing')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Phonology')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Phonology, Comparative')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Resultative constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Subjectless constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Subordinate constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Syntax')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'Grammar, Comparative and general--Temporal constructions')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Topic and comment')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammar, Comparative and general--Word formation')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grammaticality (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Grantha alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Graphemics')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Graphology')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Gurmukhi alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'H (The sound)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Haplology')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Heteronyms')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Hiatus (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Hieroglyphics')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Historical linguistics')">
+            <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Homonyms')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Idioms')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Indexicals (Semantics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Information theory in translating')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Intonation (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Jawi alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Juncture (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Keyboarding')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Kharosthi alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'L (The sound)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Labiality (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language acquisition')">
+            <dc:subject xsi:type="olac:linguistic">language_acquisition</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and culture')">
+            <dc:subject xsi:type="olac:linguistic">anthropological_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Ability testing')">
+            <dc:subject xsi:type="olac:linguistic">language_acquisition</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Classification')">
+            <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Handbooks, manuals, etc.')">
+            <dc:subject xsi:type="olac:linguistic">general_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Origin')">
+            <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Orthography and spelling')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Philosophy')">
+            <dc:subject xsi:type="olac:linguistic">philosophy_of_language</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Phonetic transcriptions')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Study and teaching')">
+            <dc:subject xsi:type="olac:linguistic">language_acquisition</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Universals')">
+            <dc:subject xsi:type="olac:linguistic">typology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and languages--Variation')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language and logic')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language arts')">
+            <dc:subject xsi:type="olac:linguistic">language_acquisition</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language attrition')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language maintenance')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language obsolescence')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language planning')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language policy')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language purism')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language revival')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language services')">
+            <dc:subject xsi:type="olac:linguistic">applied_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language spread')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language survey')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Language surveys')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Languages in contact')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Laryngeals (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Lexical phonology')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Lexicography')">
+            <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistic analysis (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">general_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistic demography')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistic minorities')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistic models')">
+            <dc:subject xsi:type="olac:linguistic">typology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistic paleontology')">
+            <dc:subject xsi:type="olac:linguistic">anthropological_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistics--Graphic methods')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistics--History')">
+            <dc:subject xsi:type="olac:linguistic">history_of_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistics--Statistical methods')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Linguistics')">
+            <dc:subject xsi:type="olac:linguistic">general_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Literature and society')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Machine translating')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Mahajani alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Markedness (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Mathematical linguistics')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Metrical phonology')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Minimalist theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Modi alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Monophthongization')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Morphemics')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Mutation (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Native language and education')">
+            <dc:subject xsi:type="olac:linguistic">applied_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Natural language processing')">
+            <dc:subject xsi:type="olac:linguistic">computational_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Neurolinguistics')">
+            <dc:subject xsi:type="olac:linguistic">neurolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Neutralization (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Numerals, Writing of')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Ogham alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Ol alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Onomasiology')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Optimality theory (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Palatalization')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Paleography')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Paragraphs')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Paraphrase')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if
+            test="starts-with($subject,'People with disabilities--Printing and writing systems')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Philosophy and cognitive science')">
+            <dc:subject xsi:type="olac:linguistic">cognitive_science</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonemics')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonemics')">
+            <dc:subject xsi:type="olac:linguistic">phonology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonetic alphabet')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonetics')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonetics, Acoustic')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phonetics, Experimental')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Phraseology')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Picture-writing')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Pidgin languages')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Play on words')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Politeness (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Polysemy')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Pragmatics')">
+            <dc:subject xsi:type="olac:linguistic">pragmatics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Prosodic analysis (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Psycholinguistics')">
+            <dc:subject xsi:type="olac:linguistic">psycholinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'R (The sound)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Racism in language')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Reference (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Register (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Rizaleo alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'S (The sound)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sapir-Whorf hypothesis')">
+            <dc:subject xsi:type="olac:linguistic">anthropological_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sarada alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Semantic differential technique')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Semantics--Mathematical models')">
+            <dc:subject xsi:type="olac:linguistic">mathematical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Semantics')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Semiotics')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sequence (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Shorthand')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Signatures (Writing)')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Simultaneous interpreting')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Siyaqat alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sonorants (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sound symbolism')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Spectral analysis (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Speech acts (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Standard language')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Stratificational grammar')">
+            <dc:subject xsi:type="olac:linguistic">linguistic_theories</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Sublanguage')">
+            <dc:subject xsi:type="olac:linguistic">discourse_analysis</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Surface structure (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Synonyms')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Tempo (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Tod alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Tone (Phonetics)')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Toponymy')">
+            <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Translating and interpreting')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Translating services')">
+            <dc:subject xsi:type="olac:linguistic">translating_and_interpreting</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Typology (Linguistics)')">
+            <dc:subject xsi:type="olac:linguistic">typology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Uighur alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Urban dialects')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Vowels')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Writing, Arabic')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,'Xenophobia in language')">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+
+        <!-- irregular rules -->
+        <xsl:if
+            test="starts-with(marc:subfield[@code='a'],'Proto-') and ends-with(marc:subfield[@code='a'],'language')">
+            <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with($subject,&quot;&#x0027;Phags-pa alphabet&quot;)">
+            <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
+        </xsl:if>
+
+        <!-- subfield $x -->
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Alphabet')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Lexicography')">
+            <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Morphology')">
+            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Orthography and spelling')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Phonetics')">
+            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Semantics')">
+            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Syntax')">
+            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+        </xsl:if>
+        <xsl:if test="starts-with(marc:subfield[@code='x'],'Writing')">
+            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+        </xsl:if>
+
+        <!-- subfield $x -->
+        <xsl:if test="starts-with(marc:subfield[@code='v'],'Texts')">
+            <dc:subject xsi:type="olac:linguistic">language_documentation</dc:subject>
+        </xsl:if>
+
+
+    </xsl:template>
+
+</xsl:stylesheet>
