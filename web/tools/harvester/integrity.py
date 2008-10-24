@@ -376,11 +376,8 @@ def check_invalid_code(con, archive_id=None):
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, Content, 'BDT'
-            from METADATA_ELEM
-            where Type='DCMIType'
-              and (Content is null or Content not in
-              ('Collection','Dataset','Event','Image','InteractiveResource',
-               'Service','Software','Sound','Text','PhysicalObject'))
+            from METADATA_ELEM left join DCMITypeVocabulary dv on Content=dv.Code
+            where Type='DCMIType' and dv.Code is null
             """,
             
             "delete from INTEGRITY_CHECK where Problem_Code='BLC'",
@@ -444,13 +441,11 @@ def check_invalid_code(con, archive_id=None):
             
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, me.Code, 'BDT'
+            select distinct Element_ID, me.Content, 'BDT'
             from METADATA_ELEM me
               left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
-            where ai.Archive_ID=%d and me.Type='DCMIType'
-              and (me.Content is null or me.Content not in
-              ('Collection','Dataset','Event','Image','InteractiveResource',
-               'Service','Software','Sound','Text','PhysicalObject'))
+              left join DCMITypeVocabulary dv on me.Content=dv.Code
+            where ai.Archive_ID=%d and me.Type='DCMIType' and dv.Code is null
             """ % archive_id,
             
             """
