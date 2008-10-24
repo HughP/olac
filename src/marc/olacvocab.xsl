@@ -80,36 +80,32 @@
             <xsl:value-of select="."/>
         </xsl:variable>
 
-        <xsl:variable name="linguistictype">
-            <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
-                JAS: use only the $x subfield instances. That avoids Grammar as a main topic ("Grammar, comparative and general")
-                Morphology appears only in $x whether it is a general work (i.e., with Grammar, comparative and general
-                as the $a content) or a work on the morphology of a language.
-                However, any one of these appearing in $x when there is also "{some} language" in the same 650 in the 
-                $a, we are on firm ground to take the work as a language description. 
-            -->
-            <xsl:choose>
-                <!-- type = language_description -->
-                <xsl:when test="contains(marc:subfield[@code='x'],'Grammar')">language_description</xsl:when>
-                <xsl:when test="contains(marc:subfield[@code='x'],'Phonology')">language_description</xsl:when>
-                <xsl:when test="contains(marc:subfield[@code='x'],'Morphology')"
-                    >language_description</xsl:when>
-                <xsl:when test="contains(marc:subfield[@code='x'],'Orthography')"
-                    >language_description</xsl:when>
 
-                <!-- type = lexicon -->
-                <xsl:when test="contains(marc:subfield[@code='v'],'Dictionaries')">lexicon</xsl:when>
-                <xsl:when test="contains(marc:subfield[@code='v'],'Conversation and phrase books')"
-                    >lexicon</xsl:when>
-                <xsl:when test="contains(marc:subfield[@code='v'],'Glossaries, vocabularies, etc.')"
-                    >lexicon</xsl:when>
-
-                <!-- type = primary_text -->
-                <xsl:when test="contains(marc:subfield[@code='v'],'Texts')">primary_text</xsl:when>
-
-                <xsl:otherwise>0</xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
+        <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
+        The for-each is necessary here because subfield $x is a repeatable field, so we need to loop through all the subfields and make sure they match 
+        -->
+        
+        <xsl:for-each select="marc:subfield">
+            <xsl:variable name="linguistictype">
+                <xsl:choose>
+                    <!-- type = language_description -->
+                    <xsl:when test="@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
+                        contains( . ,'Morphology') or contains( . ,'Orthography') )">
+                        language_description
+                    </xsl:when>
+                    
+                    <!-- type = lexicon -->
+                    <xsl:when test="@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
+                        contains( . ,'Glossaries, vocabularies, etc.') )">
+                        lexicon
+                    </xsl:when>
+                    <xsl:when test="@code = 'v' and contains( . ,'Texts') ">
+                        primary_text
+                    </xsl:when>
+                    <xsl:otherwise>0</xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+        </xsl:for-each>
 
         <xsl:if test="$linguistictype != '0'">
             <!-- output xsi:type only if a linguistic-type has been found -->

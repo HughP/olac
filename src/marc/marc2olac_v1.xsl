@@ -55,119 +55,12 @@ local cataloging practices.
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="process-role">
-        <!-- process MARC relator codes into OLAC roles -->
-        <xsl:param name="subfield"/>
-        <!-- required param -->
-        <xsl:if test="marc:subfield[@code=$subfield]">
-            <xsl:variable name="code">
-                <xsl:value-of select="marc:subfield[@code=$subfield]"/>
-            </xsl:variable>
-            <xsl:attribute name="olac:code">
-                <xsl:choose>
-                    <xsl:when test="$code = 'ann'">annotator</xsl:when>
-                    <xsl:when test="$code = 'cwt'">annotator</xsl:when>
-                    <xsl:when test="$code = 'aut'">author</xsl:when>
-                    <xsl:when test="$code = 'aud'">author</xsl:when>
-                    <xsl:when test="$code = 'lyr'">author</xsl:when>
-                    <xsl:when test="$code = 'col'">compiler</xsl:when>
-                    <xsl:when test="$code = 'com'">compiler</xsl:when>
-                    <xsl:when test="$code = 'csl'">consultant</xsl:when>
-                    <xsl:when test="$code = 'csp'">consultant</xsl:when>
-                    <xsl:when test="$code = 'sad'">consultant</xsl:when>
-                    <xsl:when test="$code = 'mrk'">data_inputter</xsl:when>
-                    <xsl:when test="$code = 'dpt'">depositor</xsl:when>
-                    <xsl:when test="$code = 'prg'">developer</xsl:when>
-                    <xsl:when test="$code = 'edt'">editor</xsl:when>
-                    <xsl:when test="$code = 'flm'">editor</xsl:when>
-                    <xsl:when test="$code = 'ill'">illustrator</xsl:when>
-                    <xsl:when test="$code = 'ivr'">interviewer</xsl:when>
-                    <xsl:when test="$code = 'act'">performer</xsl:when>
-                    <xsl:when test="$code = 'dnc'">performer</xsl:when>
-                    <xsl:when test="$code = 'itr'">performer</xsl:when>
-                    <xsl:when test="$code = 'mus'">performer</xsl:when>
-                    <xsl:when test="$code = 'prf'">performer</xsl:when>
-                    <xsl:when test="$code = 'ppt'">performer</xsl:when>
-                    <xsl:when test="$code = 'stl'">performer</xsl:when>
-                    <xsl:when test="$code = 'pht'">photographer</xsl:when>
-                    <xsl:when test="$code = 'rce'">recorder</xsl:when>
-                    <xsl:when test="$code = 'vdg'">recorder</xsl:when>
-                    <xsl:when test="$code = 'rth'">researcher</xsl:when>
-                    <xsl:when test="$code = 'rtm'">researcher</xsl:when>
-                    <xsl:when test="$code = 'res'">researcher</xsl:when>
-                    <xsl:when test="$code = 'sgn'">signer</xsl:when>
-                    <xsl:when test="$code = 'sng'">singer</xsl:when>
-                    <xsl:when test="$code = 'voc'">singer</xsl:when>
-                    <xsl:when test="$code = 'nrt'">speaker</xsl:when>
-                    <xsl:when test="$code = 'spk'">speaker</xsl:when>
-                    <xsl:when test="$code = 'fnd'">sponsor</xsl:when>
-                    <xsl:when test="$code = 'pat'">sponsor</xsl:when>
-                    <xsl:when test="$code = 'spn'">sponsor</xsl:when>
-                    <xsl:when test="$code = 'trc'">transcriber</xsl:when>
-                    <xsl:when test="$code = 'trl'">translator</xsl:when>
-                </xsl:choose>
-            </xsl:attribute>
-            <xsl:if test="@olac:code">
-                <!-- output xsi:type  only if olac:code exists -->
-                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
-            </xsl:if>
-        </xsl:if>
-    </xsl:template>
-
-
-    <xsl:template name="process-linguistic-type">
-        <!-- process LCSH into OLAC linguistic types -->
-        <xsl:param name="subject"/>
-        <!-- required param -->
-
-        <xsl:variable name="linguistictype">
-            <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
-                JAS: use only the $x subfield instances. That avoids Grammar as a main topic ("Grammar, comparative and general")
-                Morphology appears only in $x whether it is a general work (i.e., with Grammar, comparative and general
-                as the $a content) or a work on the morphology of a language.
-                However, any one of these appearing in $x when there is also "{some} language" in the same 650 in the 
-                $a, we are on firm ground to take the work as a language description. 
-            --> 
-            <xsl:choose>
-                <!-- type = language_description -->
-                <xsl:when test="contains($subject,'Grammar')">language_description</xsl:when>
-                <xsl:when test="contains($subject,'Phonology')">language_description</xsl:when>
-                <xsl:when test="contains($subject,'Morphology')">language_description</xsl:when>
-                <xsl:when test="contains($subject,'Orthography')">language_description</xsl:when>
-
-                <!-- type = lexicon
-                JAS: The dictionaries and phrase books should be identifiable through finding the right set word or phrase 
-                         only in the $v subfield
-                         Dictionaries
-                         Conversation and phrase books
-                         Glossaries, vocabularies, etc.
-                -->
-                <xsl:when test="contains($subject,'Dictionaries')">lexicon</xsl:when>
-
-                <!-- type = primary_text -->
-                <!-- what should we search for here? 
-                    JAS: $vTexts
-                -->
-                <xsl:otherwise>0</xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-
-        <xsl:if test="$linguistictype != '0'">
-            <!-- output xsi:type only if a linguistic-type has been found -->
-            <dc:type xsi:type="olac:linguistic-type">
-                <xsl:attribute name="olac:code">
-                    <xsl:value-of select="$linguistictype"/>
-                </xsl:attribute>
-            </dc:type>
-        </xsl:if>
-    </xsl:template>
-
-
-    <!-- Get the DCMI-Type out of the leader -->
+    <!-- process the MARC  leader -->
     <xsl:template match="marc:leader">
         <xsl:variable name="leader6" select="substring( . ,7,1)"/>
         <xsl:variable name="leader7" select="substring( . ,8,1)"/>
         <xsl:if test="$leader7='c' or $leader7='s'">
+            <!-- Get the DCMI-Type out of the leader -->
             <dc:type xsi:type="dcterms:DCMIType">
                 <xsl:call-template name="show-source"/>
                 <xsl:text>Collection</xsl:text>
@@ -200,7 +93,7 @@ local cataloging practices.
         </dc:type>
     </xsl:template>
 
-    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to destiny.  
+    <!-- CJH: in our GIAL dataset, the 001 stores the internal ID which is specific to Destiny.  
         I have confirmed with the librarian that the 001 is persistent as long as we are using the Destiny ILS.  
         The 035 stores a string containing the barcode of the first item under this record... which we won't be using at this point -->
     <xsl:template match="marc:controlfield[@tag='001']">
@@ -502,7 +395,7 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='242']">
-      <dc:alternative>
+        <dc:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dc:alternative>
@@ -510,7 +403,7 @@ local cataloging practices.
     <!-- JAS: We probably want additional title fields 242, possibly 130, 240
         Subfields fghk belong in other QDC fields (fg are dates, h is format, k is like type and 
         probably better dealt with through the leader  -->
-    
+
 
 
 
@@ -593,7 +486,7 @@ local cataloging practices.
     </xsl:template>
 
 
-    
+
     <!-- JAS: I think this can be skipped. We had tentatively concluded that we will not include Serials records. -->
     <xsl:template match="marc:datafield[@tag=310]">
         <dcterms:accrualPeriodicity>
@@ -667,7 +560,7 @@ local cataloging practices.
 
 
 
- 
+
     <xsl:template priority="1" match="marc:datafield[@tag='505']">
         <dcterms:tableOfContents>
             <xsl:call-template name="show-source"/>
@@ -914,12 +807,6 @@ local cataloging practices.
     </xsl:template>
 
 
-    <!-- cjh Question? We used to have subfieldSelect for 'abcdq' but I removed that to simplify.  
-        Was that a good idea, since we may not want to include $y and $z in this field?  
-    
-        JAS: I think removing the subfield selection for 600, 610, 611, 630 is okay. We want the whole thing, and 
-        most of them are so rare, we're better leaving them, incl the yz subfields, in this and not try to
-        make coverage elements with these instances. -->
     <xsl:template match="marc:datafield[@tag='600']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
@@ -927,11 +814,7 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type">
-                    <xsl:with-param name="subject">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
+                <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
@@ -951,11 +834,7 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type">
-                    <xsl:with-param name="subject">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
+                <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
@@ -977,11 +856,7 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type">
-                    <xsl:with-param name="subject">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
+                <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
@@ -1002,11 +877,7 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type">
-                    <xsl:with-param name="subject">
-                        <xsl:value-of select="."/>
-                    </xsl:with-param>
-                </xsl:call-template>
+                <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
@@ -1019,16 +890,6 @@ local cataloging practices.
 
 
 
-
-
-    <!-- JAS: subfields abx
-    Subfield y in dcterms:temporal
-    subfield z in dcterms:spatial
-    
-    JAS (change): Take the whole of 650 and retain all subfields in the Subject element, but then also generate a separate Coverage 
-        element (or refinement) for $y or $z -->
-    <!-- cjh: Question?: does the LCSH content appear in a specific subfield?  I ask because we are
-        selecting the entire tag in 650 for processing of linguistic-type but 650 also contains temporal and spatial information --> 
     <xsl:template match="marc:datafield[@tag='650']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
@@ -1036,8 +897,8 @@ local cataloging practices.
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="."/>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type" />
-                <xsl:call-template name="process-linguistic-subject" />
+                <xsl:call-template name="process-linguistic-type"/>
+                <xsl:call-template name="process-linguistic-subject"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
@@ -1046,7 +907,7 @@ local cataloging practices.
                 </dc:subject>
             </xsl:when>
         </xsl:choose>
-        
+
         <dcterms:temporal>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">y</xsl:with-param>
@@ -1256,7 +1117,7 @@ local cataloging practices.
         Not worth separating out the $o subfield in these cases
         GIAL has no instance of its use in this whole range of tags
     -->
-    
+
     <!-- JAS:  Why select only $nt ? If from the simple DC mapping, I think we can throw out the suggestion.
         If I suggested, I cannot remember why. 
         I'll agree that not all are helpful, so I suggest retaining abcdgjknpqstz in the order they appear in the record (not here) -->
@@ -1406,7 +1267,7 @@ local cataloging practices.
     </xsl:template>
 
 
-   
+
     <xsl:template match="marc:datafield[@tag='786']">
         <dcterms:source xsi:type="dcterms:URI">
             <xsl:call-template name="show-source">
@@ -1477,12 +1338,14 @@ local cataloging practices.
             </xsl:call-template>
             <xsl:value-of select="marc:subfield[@code='q']"/>
         </dcterms:format>
-        <dc:identifier xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">u</xsl:with-param>
-            </xsl:call-template>
-            <xsl:value-of select="marc:subfield[@code='u']"/>
-        </dc:identifier>
+        <xsl:if test="not(marc:subfield[@code='3'])">
+            <dc:identifier xsi:type="dcterms:URI">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">u</xsl:with-param>
+                </xsl:call-template>
+                <xsl:value-of select="marc:subfield[@code='u']"/>
+            </dc:identifier>
+        </xsl:if>
     </xsl:template>
 
 
