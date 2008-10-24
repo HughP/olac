@@ -375,7 +375,7 @@ def check_invalid_code(con, archive_id=None):
             "delete from INTEGRITY_CHECK where Problem_Code='BDT'",
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, Code, 'BDT'
+            select distinct Element_ID, Content, 'BDT'
             from METADATA_ELEM
             where Type='DCMIType'
               and (Content is null or Content not in
