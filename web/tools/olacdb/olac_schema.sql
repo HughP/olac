@@ -424,7 +424,7 @@ insert into INTEGRITY_PROBLEM values ('BCC','E','E','Bad Country Code','The valu
 insert into INTEGRITY_PROBLEM values ('RNC','A','E','Repository Not Found','The CurrentAsOf date is more than 12 months old.');
 insert into INTEGRITY_PROBLEM values ('HFC','A','W','Harvesting Fails to Complete','Some records are being harvested, but an integrity issues in the data or a bug in the repository software is causing premature termination.');
 insert into INTEGRITY_PROBLEM values ('SNV','A','W','Static Repository Not Valid','The retrieved static repository file is not valid.');
-insert into INTEGRITY_PROBLEM values ('ANF','A','W','Repository Not Found','Accessing the static repository URL or the dynamic base URL generates a 404 error.');
+insert into INTEGRITY_PROBLEM values ('BRU','A','W','Broken Repository URL','Accessing the static repository URL or the dynamic base URL generates a 404 error.');
 
 ##################################################################
 # Table                : INTEGRITY_CHECK
