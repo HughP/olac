@@ -569,7 +569,7 @@ def check_current_as_of(con, archive_id=None):
 
 
 #
-# ANF
+# BRU
 #
 def check_static_repository(con, archive_id=None):
     http_check = HttpChecker()
@@ -587,7 +587,7 @@ def check_static_repository(con, archive_id=None):
         else:
             baseurl += "?verb=Identify"
         log('checking: %s' % baseurl)
-        sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='ANF'"
+        sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='BRU'"
         cur.execute(sql, archive_id)
         try:
             res = http_check(baseurl)
@@ -595,7 +595,7 @@ def check_static_repository(con, archive_id=None):
             log("%s" % e)
             continue  # can't determine
         if res == '404':
-            sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'ANF')"
+            sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'BRU')"
             cur.execute(sql, archive_id)
         con.commit()
     cur.close()
