@@ -39,12 +39,28 @@ sub main {
 
     my $doc = $dp->serve_request($request);
 
-    if ($request->{verb} eq "Document" || not exists $request->{verb}) {
+    if ($request->{verb} eq "Document") {
 	print "Content-type: text/html\n\n";
 	open(HTM, "olaca.htm");
 	while (<HTM>) {
 	    print $_;
 	}
+    }
+    if (not exists $request->{verb}) {
+	$rt = OLAC::Aggregator::date_time();
+	$rq = $request->{baseURL} .'?' . $ENV{'QUERY_STRING'};
+	print "Content-type: text/xml\n\n";
+	print <<EOF;
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+	 http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+  <responseDate>$rt</responseDate>
+  <request>$rq</request>
+  <error code="badVerb">Illegal OAI verb</error>
+</OAI-PMH>
+EOF
     }
     elsif ($doc) {
         print "Content-type: text/xml\n\n";
