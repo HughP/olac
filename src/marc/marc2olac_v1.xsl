@@ -1113,69 +1113,24 @@ local cataloging practices.
 
 
 
-    <!-- JAS: 76x-78x $o is an identifier, but is not a URI type of identifier. 
-        Not worth separating out the $o subfield in these cases
-        GIAL has no instance of its use in this whole range of tags
-    -->
-
-    <!-- JAS:  Why select only $nt ? If from the simple DC mapping, I think we can throw out the suggestion.
-        If I suggested, I cannot remember why. 
-        I'll agree that not all are helpful, so I suggest retaining abcdgjknpqstz in the order they appear in the record (not here) -->
-    <xsl:template match="marc:datafield[@tag='760']">
+     <xsl:template match="marc:datafield[@tag='760' or @tag='773']">
         <dcterms:isPartOf>
-            <xsl:call-template name="show-source"/>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-        <dcterms:isPartOf xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
 
 
-    <xsl:template match="marc:datafield[@tag='773']">
-        <dcterms:isPartOf>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">ntgq</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">ntgq</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-        <dcterms:isPartOf xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isPartOf>
-    </xsl:template>
-
-
+ 
 
 
     <xsl:template match="marc:datafield[@tag='774']">
         <dcterms:hasPart>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">nt</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:hasPart>
-        <dcterms:hasPart xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:hasPart>
     </xsl:template>
@@ -1185,19 +1140,9 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='775']">
         <dcterms:hasVersion>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">nt</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:hasVersion>
-        <dcterms:hasVersion xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:hasVersion>
     </xsl:template>
@@ -1206,19 +1151,9 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='776']">
         <dcterms:hasFormat>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">nt</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:hasFormat>
-        <dcterms:hasFormat xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:hasFormat>
     </xsl:template>
@@ -1227,19 +1162,9 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='780']">
         <dcterms:replaces>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">nt</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:replaces>
-        <dcterms:replaces xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:replaces>
     </xsl:template>
@@ -1249,19 +1174,9 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='785']">
         <dcterms:isReplacedBy>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">nt</xsl:with-param>
-            </xsl:call-template>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">nt</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:isReplacedBy>
-        <dcterms:isReplacedBy xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:isReplacedBy>
     </xsl:template>
@@ -1269,12 +1184,10 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='786']">
-        <dcterms:source xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">o</xsl:with-param>
-            </xsl:call-template>
+        <dcterms:source>
+            <xsl:call-template name="show-source" />
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">o</xsl:with-param>
+                <xsl:with-param name="codes">abcdgjknopqstz</xsl:with-param>
             </xsl:call-template>
         </dcterms:source>
     </xsl:template>
