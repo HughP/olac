@@ -530,17 +530,19 @@ local cataloging practices.
     <!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules 
         JAS: I think we can select the Notes fields that interest us, and omit the remainder. 
         So we should not need a generic 5xx match. -->
+    <!--
     <xsl:template match="marc:datafield[starts-with(@tag,'5')]" priority="0.5">
         <dc:description>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dc:description>
     </xsl:template>
-
-    <!-- All 5xx templates much have a priority=1 so that it does not conflict with the above catch-all rule -->
+ All 5xx templates much have a priority=1 so that it does not conflict with the above catch-all rule
+    -->
+    
 
     <!-- JAS: no specific label with this tag. -->
-    <xsl:template priority="1" match="marc:datafield[@tag='500']">
+    <xsl:template match="marc:datafield[@tag='500']">
         <dc:description>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -550,18 +552,17 @@ local cataloging practices.
 
 
 
-    <!-- JAS:  label: Dissertation note: -->
-    <xsl:template priority="1" match="marc:datafield[@tag='502']">
+    <xsl:template match="marc:datafield[@tag='502']">
         <dc:description>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:text>Dissertation note: </xsl:text><xsl:value-of select="."/>
         </dc:description>
     </xsl:template>
 
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='505']">
+    <xsl:template match="marc:datafield[@tag='505']">
         <dcterms:tableOfContents>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -571,10 +572,7 @@ local cataloging practices.
 
 
 
-    <!-- cjh Note: I skipped putting in logic for dcterms:accessRights because it seems too complicated and 
-        I'm not sure if it's worth it 
-    JAS: agreed -->
-    <xsl:template priority="1" match="marc:datafield[@tag='506']">
+    <xsl:template match="marc:datafield[@tag='506']">
         <dc:rights>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -585,7 +583,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='510']">
+    <xsl:template match="marc:datafield[@tag='510']">
         <dcterms:isReferencedBy>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -594,29 +592,25 @@ local cataloging practices.
 
 
 
-    <!-- JAS:  label: Data quality:  -->
-    <xsl:template priority="1" match="marc:datafield[@tag='514']">
+    <xsl:template match="marc:datafield[@tag='514']">
         <dc:description>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:text>Data Quality: </xsl:text><xsl:value-of select="."/>
         </dc:description>
     </xsl:template>
 
 
 
 
-    <!-- JAS:  label: Event details  -->
-    <xsl:template priority="1" match="marc:datafield[@tag='518']">
+    <xsl:template match="marc:datafield[@tag='518']">
         <dc:description>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:text>Event Details: </xsl:text><xsl:value-of select="."/>
         </dc:description>
     </xsl:template>
 
 
-    <!-- JAS: Should this be testing whether @ind1='3' ? Indicator 2 is undefined -->
-    <xsl:template priority="1"
-        match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2='3']">
+    <xsl:template match="marc:datafield[@tag='520'][@ind1='' or @ind1=' ' or @ind2='3']">
         <dcterms:abstract>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -626,7 +620,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='521']">
+    <xsl:template match="marc:datafield[@tag='521']">
         <dcterms:audience>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -638,7 +632,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag=522]">
+    <xsl:template match="marc:datafield[@tag=522]">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -650,7 +644,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag=524]">
+    <xsl:template match="marc:datafield[@tag=524]">
         <dcterms:bibliographicCitation>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -665,7 +659,7 @@ local cataloging practices.
     <!-- JAS: Now we want to KEEP 530, and ignore 776.
     Maybe use a label: Also available as-->
     
-    <xsl:template priority="1" match="marc:datafield[@tag='530']">
+    <xsl:template match="marc:datafield[@tag='530']">
         <dcterms:hasFormat>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -682,7 +676,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='533']">
+    <xsl:template match="marc:datafield[@tag='533']">
         <dcterms:extent>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">e</xsl:with-param>
@@ -724,7 +718,7 @@ local cataloging practices.
         538 ##$aMode of access: Internet.  
         
     Not sure what would be the best label, lacking a refinement term -->
-    <xsl:template priority="1" match="marc:datafield[@tag='538']">
+    <xsl:template match="marc:datafield[@tag='538']">
         <dcterms:requires>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -734,7 +728,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='540']">
+    <xsl:template match="marc:datafield[@tag='540']">
         <dc:rights>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
@@ -746,7 +740,7 @@ local cataloging practices.
 
 
     <!-- JAS: skip -->
-    <xsl:template priority="1" match="marc:datafield[@tag=541]">
+    <xsl:template match="marc:datafield[@tag=541]">
         <dcterms:accrualMethod>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">c</xsl:with-param>
@@ -758,7 +752,7 @@ local cataloging practices.
 
 
     <!-- JAS: there is no 542 -->
-    <xsl:template priority="1" match="marc:datafield[@tag=542]">
+    <xsl:template match="marc:datafield[@tag=542]">
         <dcterms:rightsHolder>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">d</xsl:with-param>
@@ -775,7 +769,7 @@ local cataloging practices.
 
 
 
-    <xsl:template priority="1" match="marc:datafield[@tag='561']">
+    <xsl:template match="marc:datafield[@tag='561']">
         <dcterms:provenance>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -801,7 +795,7 @@ local cataloging practices.
         =594  \\$aort$2Ethnologue:ISO/DIS 639-3
         =594  \\$anya$2ISO/DIS 639-3
     -->
-    <xsl:template priority="1" match="marc:datafield[@tag='590']">
+    <xsl:template match="marc:datafield[@tag='590']">
         <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
             <dc:subject xsi:type="olac:language">
                 <xsl:call-template name="show-source">
