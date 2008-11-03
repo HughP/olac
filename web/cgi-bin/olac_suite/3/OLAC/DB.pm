@@ -452,8 +452,8 @@ sub getTable_ListRecords {
     # prepare query for $meta
     $query = "
 select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label, Item_ID
-from METADATA_ELEM me
+       ex.Label,cd.Label, oa.Item_ID
+from (ARCHIVED_ITEM oa join METADATA_ELEM me on oa.Item_ID=me.Item_ID)
      left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
      left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
 
@@ -461,7 +461,7 @@ from METADATA_ELEM me
     if ($request->{next}) {
 	my $first = $header->[0]->[2];
 	my $last = $header->[199]->[2];
-	$query .= "$conj Item_ID >= $first and Item_ID <= $last ";
+	$query .= "$conj oa.Item_ID >= $first and oa.Item_ID <= $last ";
         $conj = "and";
     }
     if ($request->{from}) {
@@ -473,7 +473,7 @@ from METADATA_ELEM me
 	$u = "DateStamp <= '$request->{until}'";
 	$query .= "$conj $u ";
     }
-    $query .= "order by Item_ID";
+    $query .= "order by oa.Item_ID";
 
     $meta = $self->{dbh}->selectall_arrayref($query);
 
