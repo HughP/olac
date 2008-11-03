@@ -429,7 +429,7 @@ local cataloging practices.
 
 
     <!-- JAS: Note: Some 255 information equivalent to DC encoding scheme but different syntax. -->
-    <!-- JAS: Note: Only worthwhile if 034$defg or $jkmn or 255$c are present; subfield a is often 
+    <!-- JAS: Note: Only worthwhile if 034$defg or 255$c are present; subfield a is often 
         present without data, as 255$a "scale not given" sometimes with a projection in $b. 
         If only $a + b present, then this belongs better in Description. If $c is present, the same data ought to be in 034
         also, as these are supposed to be paired. So maybe skip c. -->
@@ -662,11 +662,9 @@ local cataloging practices.
 
 
 
-    <!-- JAS: skip 530 -->
-    <!-- CJH: Question: Why skip this one?
-        JAS: If there is a 530 and also a 776, which is preferred? See record example 28091 
-        In that record, the 776 actually contains more info desired,
-        where this note simply states the thing exists This could be very inconsistent among different libraries.-->
+    <!-- JAS: Now we want to KEEP 530, and ignore 776.
+    Maybe use a label: Also available as-->
+    
     <xsl:template priority="1" match="marc:datafield[@tag='530']">
         <dcterms:hasFormat>
             <xsl:call-template name="show-source"/>
