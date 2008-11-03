@@ -79,7 +79,7 @@
         <xsl:variable name="subject">
             <xsl:value-of select="."/>
         </xsl:variable>
-
+        <xsl:variable name="linguistictype" />
 
         <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
         The for-each is necessary here because subfield $x is a repeatable field, so we need to loop through all the subfields and make sure they match 
