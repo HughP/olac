@@ -792,6 +792,16 @@ local cataloging practices.
         =590  \\$aEthnologue 15 = ISO 639-3 bca (52 records of the whole set of 29000+ have this pattern)
         =590  \\$aarz Ethnologue 15 = ISO 639-3
         =590  \\$askl$2Ethnologue 15 = ISO 639-3
+        
+        Also 594:
+        =594  \\$aEthnologue 15 = ISO/DIS 639-3 piu
+        =594  \\$aEthnologue 15 = ISO/DIS 639-3 sml, sse
+        (usually the tag is repeated)
+        =594  \\$abhk$2Ethnologue 15=ISO 639-3
+        =594  \\$acmn$2Ethnologue 15/ISO/DIS 639-3
+        =594  \\$acmn$hEthnologue: ISO/DIS 639-3
+        =594  \\$aort$2Ethnologue:ISO/DIS 639-3
+        =594  \\$anya$2ISO/DIS 639-3
     -->
     <xsl:template priority="1" match="marc:datafield[@tag='590']">
         <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
@@ -807,6 +817,12 @@ local cataloging practices.
     </xsl:template>
 
 
+    <!-- cjh Question? We used to have subfieldSelect for 'abcdq' but I removed that to simplify.  
+        Was that a good idea, since we may not want to include $y and $z in this field?  
+    
+        JAS: I think removing the subfield selection for 600, 610, 611, 630 is okay. We want the whole thing, and 
+        most of them are so rare, we're better leaving them, incl the yz subfields, in this and not try to
+        make coverage elements with these instances. -->
     <xsl:template match="marc:datafield[@tag='600']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
