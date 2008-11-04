@@ -4,6 +4,8 @@ import traceback
 from StringIO import StringIO
 import xml.sax.xmlreader
 import xml.dom
+import subprocess
+import threading
 import time
 import datetime
 import tempfile
@@ -28,6 +30,7 @@ class Logger:
         joiner = "\n%s " % t
         print >>LOG, t, joiner.join(msg.split('\n'))
 
+UTF8CONDITIONER = "/web/language-archives/lib/utf8/utf8conditioner_unbuffered_stdout"
 
 ########################
 ## Database Interface ##
@@ -734,6 +737,45 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
             return Record(result[0])
     
 
+class Utf8Filter:
+    def __init__(self, nextStep):
+        self.nextStep = nextStep
+        self.lock = threading.Lock()
+        self.data = []
+        self.datasize = 0
+        self.pipe = subprocess.Popen([UTF8CONDITIONER,"-q"],
+                                     stdin=subprocess.PIPE,
+                                     stdout=subprocess.PIPE)
+        self.thread = threading.Thread(target=self._threadAction)
+        self.thread.start()
+        
+    def feed(self, data=None):
+        if data: self.pipe.stdin.write(data)
+
+        if self.datasize > 0:
+            self.lock.acquire()
+            s = "".join(self.data)
+            self.data = []
+            self.datasize = 0
+            self.lock.release()
+            # -1 for fatal error
+            return self.nextStep.feed(s)
+
+    def close(self):
+        self.pipe.stdin.close()
+        self.thread.join()
+        if self.feed() == -1: return False
+        return self.nextStep.close()
+    
+    def _threadAction(self):
+        while True:
+            data = self.pipe.stdout.read(128)
+            if not data: break
+            self.lock.acquire()
+            self.datasize += len(data)
+            self.data.append(data)
+            self.lock.release()
+        
 class StreamParser(Logger):
     def __init__(self, handler):
         self.xmlReader = xml.sax.make_parser()
@@ -758,12 +800,13 @@ class StreamParser(Logger):
 
         
 class Harvester(Logger):
-    def __init__(self, baseurl, handler, fullHarvest=False):
+    def __init__(self, baseurl, handler, fullHarvest=False, streamFilter=None):
         self.request = Request(baseurl, 'olac')
         self.handler = handler
         self.identifyHandler = handler.processIdentify
         self.recordHandler = handler.processRecord
         self.fullHarvest = fullHarvest
+        self.filter = streamFilter
         
     def _httpStatus(self, data):
         code = data.split()[1]
@@ -772,7 +815,10 @@ class Harvester(Logger):
             #raise StopFetching()
 
     def _download(self, handler, url, retry):
-        parser = StreamParser(handler)
+        if self.filter:
+            parser = self.filter(StreamParser(handler))
+        else:
+            parser = StreamParser(handler)
         curl = MyCurl(parser.feed, self._httpStatus)
         try:
             curl.fetch(MyUrl(url))
@@ -838,10 +884,11 @@ def make_connection():
                            host="dbm", db="olac2",
                            use_unicode=True, charset="utf8")
 
-def harvest(url, con, full=False):
+
+def harvest(url, con, full=False, stream_filter=None):
     try:
         dbi = DBI(con)
-        h = Harvester(url, dbi, full)
+        h = Harvester(url, dbi, full, stream_filter)
         now = datetime.datetime.now()
         cur = con.cursor()
         if h.harvest():
@@ -877,15 +924,28 @@ def harvest(url, con, full=False):
         msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
         h.log(msg)
 
-def harvest_single(url, mycnf, host=None, db=None, full=False):
+
+def harvest_single(url,
+                   mycnf,
+                   host=None,
+                   db=None,
+                   full=False,
+                   stream_filter=None):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
     con = MySQLdb.connect(**opts)
-    harvest(url, con, full)
+    harvest(url, con, full, stream_filter)
     con.close()
 
-def harvest_all(mycnf, host=None, db=None, full=False, numProc=5, url=None):
+
+def harvest_all(mycnf,
+                host=None,
+                db=None,
+                full=False,
+                numProc=5,
+                url=None,
+                stream_filter=None):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
@@ -911,12 +971,7 @@ def harvest_all(mycnf, host=None, db=None, full=False, numProc=5, url=None):
         print >>sys.stderr
         print >>sys.stderr
         os.unlink(log)
-    if numProc < 1:
-        N = 1
-    elif numProc > 10:
-        N = 10
-    else:
-        N = numProc
+    N = min(10, max(1, numProc))
     while urls:
         url = urls.pop()
         logs[url] = tempfile.mktemp()
@@ -925,7 +980,7 @@ def harvest_all(mycnf, host=None, db=None, full=False, numProc=5, url=None):
         if pid == 0:
             global LOG
             LOG = file(logs[url], "w")
-            harvest_single(url, mycnf, host, db, full)
+            harvest_single(url, mycnf, host, db, full, stream_filter)
             sys.exit(0)
         else:
             P[pid] = url
@@ -953,6 +1008,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
       -d <db>     name of the olac database
       -f          full harvest if this option presents
       -s <url>    harvest a single repository
+      -u          turn on utf-8 cleaner
 
 """ % {"prog":os.path.basename(sys.argv[0])}
     
@@ -969,20 +1025,22 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
         "*-H:",
         "*-d:",
         "*-f",
-        "*-s:"
+        "*-s:",
+        "*-u",
         )
     try:
         op.parse(sys.argv[1:])
     except OptionParser.ParseError, e:
         usage(e.message)
     if op.get('-h'): usage()
-    
+
     mycnf = op.getOne('-c')
     host = op.getOne('-H')
     db = op.getOne('-d')
     full = bool(op.get('-f'))
     url = op.getOne('-s')
-    if url:
-        harvest_all(mycnf, host, db, full=full, url=url)
-    else:
-        harvest_all(mycnf, host, db, full=full)
+    sf = None  # stream filter
+    if bool(op.get('-u')):
+        sf = Utf8Filter
+        
+    harvest_all(mycnf, host, db, full=full, url=url, stream_filter=sf)
