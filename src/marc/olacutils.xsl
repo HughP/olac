@@ -38,7 +38,7 @@
         of the codes in the parameter
     -->
     <xsl:template name="subfieldSelect">
-        <xsl:param name="codes">abcdefghijklmnopqrstuvwxyz</xsl:param>
+        <xsl:param name="codes">abcdefghijklmnopqrstuvwxyz1234567890</xsl:param>
         <xsl:param name="delimiter">
             <xsl:text> </xsl:text>
         </xsl:param>

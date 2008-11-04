@@ -8,6 +8,15 @@
     <xsl:import href="olacutils.xsl"/>
     <xsl:output method="xml" indent="yes"/>
 
+
+
+<!-- define tag prioritization rules here
+    i.e. 533$d dcterms:issued - only keep if no other date exists in the record
+    651 ???
+    
+-->
+
+
     <!--  match attribute and element "nodes" (not text though - see rule below)   -->
     <xsl:template match="@*|*" priority="-1">
         <!-- do not copy dc:description - this is handled separately down below -->
