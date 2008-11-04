@@ -51,7 +51,7 @@ CWD=`pwd`; cd $ODIR
 	echo
 	echo "** `date`"
 	echo
-	$PYTHON $ODIR/harvester.py -c $MYCNF 2>&1
+	$PYTHON $ODIR/harvester.py -c $MYCNF -u 2>&1
 	$PYTHON $ODIR/cleanup.py -c $MYCNF
 	/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF
 	/usr/bin/lockf /tmp/olac.metrics.lock $PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
