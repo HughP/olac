@@ -14,8 +14,6 @@ local cataloging practices.
     <xsl:param name="show-source">yes</xsl:param>
     <xsl:output method="xml" indent="yes"/>
 
-    <xsl:include href="olaccustom.xsl"/>
-
     <xsl:template match="/marc:collection">
         <olac:olacCollection>
             <!-- We haven't yet defined such an
@@ -119,35 +117,58 @@ local cataloging practices.
             </xsl:attribute>
         </dc:language>
 
-        <!-- CJH: Question??? JAS: The correct interpretation of 008/07-10 depends on the coding of 008/06 
-            and should include 008/11-14 in some cases. How much detail should we attempt?
-            06 - Type of date/Publication status 
-            b - No dates given; B.C. date involved 
-            c - Continuing resource currently published 
-            d - Continuing resource ceased publication 
-            e - Detailed date 
-            i - Inclusive dates of collection 
-            k - Range of years of bulk of collection 
-            m - Multiple dates 
-            n - Dates unknown 
-            p - Date of distribution/release/issue and production/recording session when different 
-            q - Questionable date 
-            r - Reprint/reissue date and original date 
-            s - Single known date/probable date 
-            t - Publication date and copyright date 
-            u - Continuing resource status unknown 
-            
-            b unlikely; c d u eliminated (as applying only to journals); 
-            e - detailed date typically used as creation date with manuscripts; cdterms:created
-            i k -  creation date range
-            p - dcterms:issued (07-10) and dcterms:created (11-14)
-            r - dcterms:issued (07-10) and dc:date (11-14)
-            s - dcterms:issued (07-10)
-            t - dcterms:issued (07-10) and dcterms:dateCopyrighted (11-14)
-            
-            Or just only take whatever is here for these (e i k p r s t) and put in plain vanilla dc:date
-        -->
-        <dcterms:issued> </dcterms:issued>
+        
+        <xsl:variable name="datecode" select="substring( . ,6,1)"/> FIXME: datecode = <xsl:value-of
+            select="$datecode"/>
+        <xsl:choose>
+            <xsl:when test="$datecode = 'e'">
+                <!-- e - detailed date typically used as creation date with manuscripts; cdterms:created -->
+                <dcterms:created>
+                    <xsl:value-of select="substring( . ,7,8)"/>
+                </dcterms:created>
+            </xsl:when>
+            <xsl:when test="$datecode = 'i' or $datecode = 'k'">
+                <!-- i k -  creation date range -->
+                <dcterms:created>
+                    <xsl:value-of select="substring( . ,7,4)"/>
+                    <xsl:text> - </xsl:text>
+                    <xsl:value-of select="substring( . ,11,4)"/>
+                </dcterms:created>
+            </xsl:when>
+            <xsl:when test="$datecode = 'p'">
+                <!-- p - dcterms:issued (07-10) and dcterms:created (11-14) -->
+                <dcterms:issued>
+                    <xsl:value-of select="substring( . ,7,4)"/>
+                </dcterms:issued>
+                <dcterms:created>
+                    <xsl:value-of select="substring( . ,11,4)"/>
+                </dcterms:created>
+            </xsl:when>
+            <xsl:when test="$datecode = 'r'">
+                <!-- r - dcterms:issued (07-10) and dc:date (11-14) -->
+                <dcterms:issued>
+                    <xsl:value-of select="substring( . ,7,4)"/>
+                </dcterms:issued>
+                <dc:date>
+                    <xsl:value-of select="substring( . ,11,4)"/>
+                </dc:date>
+            </xsl:when>
+            <xsl:when test="$datecode = 's'">
+                <!-- s - dcterms:issued (07-10) -->
+                <dcterms:issued>
+                    <xsl:value-of select="substring( . ,7,4)"/>
+                </dcterms:issued>
+            </xsl:when>
+            <xsl:when test="$datecode = 't'">
+                <!-- t - dcterms:issued (07-10) and dcterms:dateCopyrighted (11-14) -->
+                <dcterms:issued>
+                    <xsl:value-of select="substring( . ,7,4)"/>
+                </dcterms:issued>
+                <dcterms:dateCopyrighted>
+                    <xsl:value-of select="substring( . ,11,4)"/>
+                </dcterms:dateCopyrighted>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
 
@@ -757,7 +778,7 @@ local cataloging practices.
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:call-template name="show-source" />
+                    <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
@@ -1147,7 +1168,7 @@ local cataloging practices.
 
 
 
-<!-- ignore 776 and keep 530 -->
+    <!-- ignore 776 and keep 530 -->
 
 
 

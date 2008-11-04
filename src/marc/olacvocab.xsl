@@ -79,23 +79,24 @@
         <xsl:variable name="subject">
             <xsl:value-of select="."/>
         </xsl:variable>
-        <xsl:variable name="linguistictype" />
 
         <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
         The for-each is necessary here because subfield $x is a repeatable field, so we need to loop through all the subfields and make sure they match 
         -->
-        
+
         <xsl:for-each select="marc:subfield">
             <xsl:variable name="linguistictype">
                 <xsl:choose>
                     <!-- type = language_description -->
-                    <xsl:when test="@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
+                    <xsl:when
+                        test="@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
                         contains( . ,'Morphology') or contains( . ,'Orthography') )">
                         <xsl:text>language_description</xsl:text>
                     </xsl:when>
-                    
+
                     <!-- type = lexicon -->
-                    <xsl:when test="@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
+                    <xsl:when
+                        test="@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
                         contains( . ,'Glossaries, vocabularies, etc.') )">
                         <xsl:text>lexicon</xsl:text>
                     </xsl:when>
@@ -869,44 +870,49 @@
         </xsl:if>
 
         <!-- irregular rules -->
-        <xsl:if
-            test="starts-with(marc:subfield[@code='a'],'Proto-') and ends-with(marc:subfield[@code='a'],'language')">
-            <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
-        </xsl:if>
+        <xsl:for-each select="marc:subfield[@code='a']">
+            <xsl:if test="starts-with( . ,'Proto-') and ends-with( . ,'language')">
+                <dc:subject xsi:type="olac:linguistic">historical_linguistics</dc:subject>
+            </xsl:if>
+        </xsl:for-each>
         <xsl:if test="starts-with($subject,&quot;&#x0027;Phags-pa alphabet&quot;)">
             <dc:subject xsi:type="olac:linguistic">sociolinguistics</dc:subject>
         </xsl:if>
 
         <!-- subfield $x -->
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Alphabet')">
-            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Lexicography')">
-            <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Morphology')">
-            <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Orthography and spelling')">
-            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Phonetics')">
-            <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Semantics')">
-            <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Syntax')">
-            <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
-        </xsl:if>
-        <xsl:if test="starts-with(marc:subfield[@code='x'],'Writing')">
-            <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
-        </xsl:if>
+        <xsl:for-each select="marc:subfield[@code='x']">
+            <xsl:if test="starts-with( . ,'Alphabet')">
+                <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Lexicography')">
+                <dc:subject xsi:type="olac:linguistic">lexicography</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Morphology')">
+                <dc:subject xsi:type="olac:linguistic">morphology</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Orthography and spelling')">
+                <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Phonetics')">
+                <dc:subject xsi:type="olac:linguistic">phonetics</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Semantics')">
+                <dc:subject xsi:type="olac:linguistic">semantics</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Syntax')">
+                <dc:subject xsi:type="olac:linguistic">syntax</dc:subject>
+            </xsl:if>
+            <xsl:if test="starts-with( . ,'Writing')">
+                <dc:subject xsi:type="olac:linguistic">writing_systems</dc:subject>
+            </xsl:if>
+        </xsl:for-each>
 
-        <!-- subfield $x -->
-        <xsl:if test="starts-with(marc:subfield[@code='v'],'Texts')">
-            <dc:subject xsi:type="olac:linguistic">language_documentation</dc:subject>
-        </xsl:if>
+        <!-- subfield $v -->
+        <xsl:for-each select="marc:subfield[@code='v']">
+            <xsl:if test="starts-with( . ,'Texts')">
+                <dc:subject xsi:type="olac:linguistic">language_documentation</dc:subject>
+            </xsl:if>
+        </xsl:for-each>
 
 
     </xsl:template>
