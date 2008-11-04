@@ -118,54 +118,57 @@ local cataloging practices.
         </dc:language>
 
         
-        <xsl:variable name="datecode" select="substring( . ,6,1)"/> FIXME: datecode = <xsl:value-of
+        <xsl:variable name="datecode" select="substring( . ,7,1)"/> FIXME: datecode = <xsl:value-of
             select="$datecode"/>
         <xsl:choose>
             <xsl:when test="$datecode = 'e'">
-                <!-- e - detailed date typically used as creation date with manuscripts; cdterms:created -->
-                <dcterms:created>
-                    <xsl:value-of select="substring( . ,7,8)"/>
+                <!-- e - detailed date typically used as creation date with manuscripts; dcterms:created -->
+                <dcterms:created xsi:type="dcterms:W3CDTF">
+                    need to format in YYYY-MM-DD
+                    if last position is not a digit, then we don't know the day
+                    then format YYYY-MM
+                    <xsl:value-of select="substring( . ,8,8)"/>
                 </dcterms:created>
             </xsl:when>
             <xsl:when test="$datecode = 'i' or $datecode = 'k'">
                 <!-- i k -  creation date range -->
-                <dcterms:created>
-                    <xsl:value-of select="substring( . ,7,4)"/>
-                    <xsl:text> - </xsl:text>
-                    <xsl:value-of select="substring( . ,11,4)"/>
+                <dcterms:created xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,8,4)"/>
+                    <xsl:text>-</xsl:text>
+                    <xsl:value-of select="substring( . ,12,4)"/>
                 </dcterms:created>
             </xsl:when>
             <xsl:when test="$datecode = 'p'">
                 <!-- p - dcterms:issued (07-10) and dcterms:created (11-14) -->
-                <dcterms:issued>
-                    <xsl:value-of select="substring( . ,7,4)"/>
+                <dcterms:issued  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,8,4)"/>
                 </dcterms:issued>
-                <dcterms:created>
-                    <xsl:value-of select="substring( . ,11,4)"/>
+                <dcterms:created  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,12,4)"/>
                 </dcterms:created>
             </xsl:when>
             <xsl:when test="$datecode = 'r'">
                 <!-- r - dcterms:issued (07-10) and dc:date (11-14) -->
-                <dcterms:issued>
-                    <xsl:value-of select="substring( . ,7,4)"/>
+                <dcterms:issued  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,8,4)"/>
                 </dcterms:issued>
                 <dc:date>
-                    <xsl:value-of select="substring( . ,11,4)"/>
+                    <xsl:value-of select="substring( . ,12,4)"/>
                 </dc:date>
             </xsl:when>
             <xsl:when test="$datecode = 's'">
                 <!-- s - dcterms:issued (07-10) -->
-                <dcterms:issued>
-                    <xsl:value-of select="substring( . ,7,4)"/>
+                <dcterms:issued  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,8,4)"/>
                 </dcterms:issued>
             </xsl:when>
             <xsl:when test="$datecode = 't'">
                 <!-- t - dcterms:issued (07-10) and dcterms:dateCopyrighted (11-14) -->
-                <dcterms:issued>
-                    <xsl:value-of select="substring( . ,7,4)"/>
+                <dcterms:issued  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,8,4)"/>
                 </dcterms:issued>
-                <dcterms:dateCopyrighted>
-                    <xsl:value-of select="substring( . ,11,4)"/>
+                <dcterms:dateCopyrighted  xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . ,12,4)"/>
                 </dcterms:dateCopyrighted>
             </xsl:when>
         </xsl:choose>
@@ -203,6 +206,11 @@ local cataloging practices.
             
             The info from $abc can be better obtained from 255 as Description
     -->
+    put defg into dcterms:spatial using the above BOX notation
+    skip jkmn
+    northlimit=-13.5; southlimit=-35.5;
+    westlimit=112.5; eastlimit=129
+    
     <xsl:template match="marc:datafield[@tag='034']">
         <dcterms:spatial>
             <xsl:call-template name="show-source">
@@ -1255,6 +1263,9 @@ local cataloging practices.
         rather than attempting to use it to determine which refinement term could be used (e.g., tableOfContents).
         - If $3 is not present, the $u subfield does link to a digital manifestation of the resource, 
         and the $q is generally present.
+        
+        In theory, any use of the 856$u for a link to something about the thing rather than an item manifestation, is indicated by the presence of a $3
+        We have decided that if $3 is not present, then $u is a link to the real thing
         -->
     <xsl:template match="marc:datafield[@tag=856]">
         <dcterms:format xsi:type="dcterms:IMT">
@@ -1271,6 +1282,12 @@ local cataloging practices.
                 <xsl:value-of select="marc:subfield[@code='u']"/>
             </dc:identifier>
         </xsl:if>
+        
+        <!-- make a template for 856 that has a $3
+            dc:description for a catch all, but include a label from $3 preceding the URL
+            dcterms:abstract xsi:type="URI" for keywords "abstract", "summary", "description"
+            dcterms:tableOfContents for keywords "contents"
+            make sure to skip keywords " -->
     </xsl:template>
 
 
