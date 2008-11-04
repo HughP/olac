@@ -91,16 +91,16 @@
                     <!-- type = language_description -->
                     <xsl:when test="@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
                         contains( . ,'Morphology') or contains( . ,'Orthography') )">
-                        language_description
+                        <xsl:text>language_description</xsl:text>
                     </xsl:when>
                     
                     <!-- type = lexicon -->
                     <xsl:when test="@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
                         contains( . ,'Glossaries, vocabularies, etc.') )">
-                        lexicon
+                        <xsl:text>lexicon</xsl:text>
                     </xsl:when>
                     <xsl:when test="@code = 'v' and contains( . ,'Texts') ">
-                        primary_text
+                        <xsl:text>primary_text</xsl:text>
                     </xsl:when>
                     <xsl:otherwise>0</xsl:otherwise>
                 </xsl:choose>
