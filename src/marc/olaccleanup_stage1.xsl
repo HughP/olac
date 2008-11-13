@@ -14,6 +14,9 @@
     i.e. 533$d dcterms:issued - only keep if no other date exists in the record
     651 ???
     
+    651 - rank 3
+     JAS: 651$a must be separated from 651$z, as these are usually two 
+    different jurisdictions. See note below regarding term source. Rank 3
 -->
 
 
