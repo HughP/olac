@@ -116,14 +116,16 @@ local cataloging practices.
                 <xsl:value-of select="substring( . ,36,3)"/>
             </xsl:attribute>
         </dc:language>
-        <xsl:variable name="datecode" select="substring( . ,7,1)"/> FIXME: datecode = <xsl:value-of
-            select="$datecode"/>
+        <xsl:variable name="datecode" select="substring( . ,7,1)"/>
         <xsl:choose>
             <xsl:when test="$datecode = 'e'">
                 <!-- e - detailed date typically used as creation date with manuscripts; dcterms:created -->
-                <dcterms:created xsi:type="dcterms:W3CDTF"> need to format in YYYY-MM-DD if last
-                    position is not a digit, then we don't know the day then format YYYY-MM
-                        <xsl:value-of select="substring( . ,8,8)"/>
+                <dcterms:created xsi:type="dcterms:W3CDTF">
+                    <xsl:value-of select="substring( . , 8, 4)" /><xsl:text>-</xsl:text><xsl:value-of select="substring( . , 12, 4)" /><xsl:text>-</xsl:text>
+                    <xsl:if test="substring( . ,14) != ' '">
+                        <xsl:text>-</xsl:text>
+                        <xsl:value-of select="substring( . , 14, 2)" />
+                    </xsl:if>
                 </dcterms:created>
             </xsl:when>
             <xsl:when test="$datecode = 'i' or $datecode = 'k'">
@@ -356,11 +358,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='100']">
         <dc:contributor>
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -372,11 +374,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='110']">
         <dc:contributor>
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -536,7 +538,7 @@ local cataloging practices.
             JAS: also need to remove the "c" that is contained as the first character of the subfield content. 
             Should this be handled as a Choose ?-->
         <xsl:choose>
-            <xsl:when test="substring(marc:subfield[@code='c'],1,1) = 'c'">
+            <xsl:when test="marc:subfield[@code='c' and substring( . ,1,1) = 'c']">
                 <dcterms:dateCopyrighted>
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">c</xsl:with-param>
@@ -718,8 +720,8 @@ local cataloging practices.
     <!-- JAS: Now we want to KEEP 530, and ignore 776. -->
     <xsl:template match="marc:datafield[@tag='530']">
         <dcterms:hasFormat>
-            <xsl:text>Also available as: </xsl:text>
             <xsl:call-template name="show-source"/>
+            <xsl:text>Also available as: </xsl:text>
             <xsl:value-of select="."/>
         </dcterms:hasFormat>
         <dcterms:hasFormat xsi:type="dcterms:URI">
@@ -948,10 +950,12 @@ local cataloging practices.
                 </dc:subject>
             </xsl:when>
             <xsl:otherwise>
+                <dc:subject>
                 <xsl:call-template name="show-source"/>
                 <xsl:call-template name="subfieldSelect">
                     <xsl:with-param name="delimiter">--</xsl:with-param>
                 </xsl:call-template>
+                </dc:subject>
             </xsl:otherwise>
         </xsl:choose>
 
@@ -1081,10 +1085,10 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='655']">
         <dc:description>
-            <xsl:text>Genre: </xsl:text>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcvxyz</xsl:with-param>
             </xsl:call-template>
+            <xsl:text>Genre: </xsl:text>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcvxyz</xsl:with-param>
             </xsl:call-template>
@@ -1103,11 +1107,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='700']">
         <dc:contributor>
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -1120,11 +1124,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='710']">
         <dc:contributor>
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -1148,11 +1152,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='720']">
         <dc:contributor>
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcde</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="process-role">
+                <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcd</xsl:with-param>
@@ -1331,26 +1335,31 @@ local cataloging practices.
                 </dc:identifier>
             </xsl:otherwise>
         </xsl:choose>
-
-
-        <!-- make a template for 856 that has a $3
-            dc:description for a catch all, but include a label from $3 preceding the URL
-            dcterms:abstract xsi:type="URI" for keywords "abstract", "summary", "description"
-            dcterms:tableOfContents for keywords "contents"
-            make sure to skip keywords " -->
     </xsl:template>
 
     <xsl:template name="process-856">
         <xsl:choose>
-            <xsl:when test="contains(lower-case(marc:subfield[@code='3']),'abstract') or 
-                            contains(lower-case(marc:subfield[@code='3']),'summary') or
-                            contains(lower-case(marc:subfield[@code='3']),'description')">
-                
-                
+            <xsl:when test="marc:subfield[@code='3' and contains(lower-case( . ),'abstract') or 
+                            contains(lower-case( . ),'summary') or contains(lower-case( . ),'description')]">
+            <dcterms:abstract from="856" xsi:type="dcterms:URI">
+                <xsl:value-of select="marc:subfield[@code='u']" />
+            </dcterms:abstract>    
             </xsl:when>
+            <xsl:when test="marc:subfield[@code='3' and contains(lower-case( . ),'contents')]">
+                <dcterms:tableOfContents from="856" xsi:type="dcterms:URI">
+                    <xsl:value-of select="marc:subfield[@code='u']" />
+                </dcterms:tableOfContents>    
+            </xsl:when>
+            <xsl:otherwise>
+                <dc:description from="856" xsi:type="dcterms:URI">
+                    <xsl:value-of select="marc:subfield[@code='3']" />
+                    <xsl:text> : </xsl:text>
+                    <xsl:value-of select="marc:subfield[@code='u']" />
+                </dc:description>
+            </xsl:otherwise>
         </xsl:choose>
         
-        <!-- $3 is a label for this URL (which is NOT the real thing, but a URL to some absract or something else -->
+
         
     </xsl:template>
 
