@@ -4,25 +4,26 @@ This stylesheet is meant to be imported by a local version that
 may override the definition of any template in order to match
 local cataloging practices.
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet exclude-result-prefixes="marc" version="2.0"
+    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/"
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
-    xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="marc">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:import href="olacutils.xsl"/>
     <xsl:import href="olacvocab.xsl"/>
     <xsl:param name="show-source">yes</xsl:param>
-    <xsl:output method="xml" indent="yes"/>
+    <xsl:output indent="yes" method="xml"/>
 
     <xsl:template match="/marc:collection">
         <olac:olacCollection>
             <!-- We haven't yet defined such an
             element in olac.xsd -->
-            <xsl:apply-templates select="marc:record" mode="olac"/>
+            <xsl:apply-templates mode="olac" select="marc:record"/>
         </olac:olacCollection>
     </xsl:template>
     <xsl:template match="/marc:record">
-        <xsl:apply-templates select="." mode="olac"/>
+        <xsl:apply-templates mode="olac" select="."/>
     </xsl:template>
 
 
@@ -121,10 +122,13 @@ local cataloging practices.
             <xsl:when test="$datecode = 'e'">
                 <!-- e - detailed date typically used as creation date with manuscripts; dcterms:created -->
                 <dcterms:created xsi:type="dcterms:W3CDTF">
-                    <xsl:value-of select="substring( . , 8, 4)" /><xsl:text>-</xsl:text><xsl:value-of select="substring( . , 12, 4)" /><xsl:text>-</xsl:text>
+                    <xsl:value-of select="substring( . , 8, 4)"/>
+                    <xsl:text>-</xsl:text>
+                    <xsl:value-of select="substring( . , 12, 4)"/>
+                    <xsl:text>-</xsl:text>
                     <xsl:if test="substring( . ,14) != ' '">
                         <xsl:text>-</xsl:text>
-                        <xsl:value-of select="substring( . , 14, 2)" />
+                        <xsl:value-of select="substring( . , 14, 2)"/>
                     </xsl:if>
                 </dcterms:created>
             </xsl:when>
@@ -547,12 +551,12 @@ local cataloging practices.
                 </dcterms:dateCopyrighted>
             </xsl:when>
             <xsl:otherwise>
-                <dcterms:issued>
+                <dc:date>
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">c</xsl:with-param>
                     </xsl:call-template>
                     <xsl:value-of select="marc:subfield[@code='c']"/>
-                </dcterms:issued>
+                </dc:date>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -618,7 +622,12 @@ local cataloging practices.
         </dc:description>
     </xsl:template>
 
-
+    <xsl:template match="marc:datafield[@tag='504']">
+        <dc:description>
+            <xsl:call-template name="show-source"/>
+            <xsl:value-of select="."/>
+        </dc:description>
+    </xsl:template>
 
 
     <xsl:template match="marc:datafield[@tag='505']">
@@ -951,10 +960,10 @@ local cataloging practices.
             </xsl:when>
             <xsl:otherwise>
                 <dc:subject>
-                <xsl:call-template name="show-source"/>
-                <xsl:call-template name="subfieldSelect">
-                    <xsl:with-param name="delimiter">--</xsl:with-param>
-                </xsl:call-template>
+                    <xsl:call-template name="show-source"/>
+                    <xsl:call-template name="subfieldSelect">
+                        <xsl:with-param name="delimiter">--</xsl:with-param>
+                    </xsl:call-template>
                 </dc:subject>
             </xsl:otherwise>
         </xsl:choose>
@@ -1318,7 +1327,7 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag=856]">
         <xsl:choose>
             <xsl:when test="marc:subfield[@code='3']">
-                <xsl:call-template name="process-856" />
+                <xsl:call-template name="process-856"/>
             </xsl:when>
             <xsl:otherwise>
                 <dcterms:format xsi:type="dcterms:IMT">
@@ -1339,28 +1348,29 @@ local cataloging practices.
 
     <xsl:template name="process-856">
         <xsl:choose>
-            <xsl:when test="marc:subfield[@code='3' and contains(lower-case( . ),'abstract') or 
+            <xsl:when
+                test="marc:subfield[@code='3' and contains(lower-case( . ),'abstract') or 
                             contains(lower-case( . ),'summary') or contains(lower-case( . ),'description')]">
-            <dcterms:abstract from="856" xsi:type="dcterms:URI">
-                <xsl:value-of select="marc:subfield[@code='u']" />
-            </dcterms:abstract>    
+                <dcterms:abstract from="856" xsi:type="dcterms:URI">
+                    <xsl:value-of select="marc:subfield[@code='u']"/>
+                </dcterms:abstract>
             </xsl:when>
             <xsl:when test="marc:subfield[@code='3' and contains(lower-case( . ),'contents')]">
                 <dcterms:tableOfContents from="856" xsi:type="dcterms:URI">
-                    <xsl:value-of select="marc:subfield[@code='u']" />
-                </dcterms:tableOfContents>    
+                    <xsl:value-of select="marc:subfield[@code='u']"/>
+                </dcterms:tableOfContents>
             </xsl:when>
             <xsl:otherwise>
                 <dc:description from="856" xsi:type="dcterms:URI">
-                    <xsl:value-of select="marc:subfield[@code='3']" />
+                    <xsl:value-of select="marc:subfield[@code='3']"/>
                     <xsl:text> : </xsl:text>
-                    <xsl:value-of select="marc:subfield[@code='u']" />
+                    <xsl:value-of select="marc:subfield[@code='u']"/>
                 </dc:description>
             </xsl:otherwise>
         </xsl:choose>
-        
 
-        
+
+
     </xsl:template>
 
 
