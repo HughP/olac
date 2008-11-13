@@ -80,41 +80,26 @@
             <xsl:value-of select="."/>
         </xsl:variable>
 
-        <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085
-        The for-each is necessary here because subfield $x is a repeatable field, so we need to loop through all the subfields and make sure they match 
+        <!-- TODO: fn:contains() is probably not the best here.  We may be getting false positives.  See id: 28085 
         -->
 
-        <xsl:for-each select="marc:subfield">
-            <xsl:variable name="linguistictype">
-                <xsl:choose>
-                    <!-- type = language_description -->
-                    <xsl:when
-                        test="@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
-                        contains( . ,'Morphology') or contains( . ,'Orthography') )">
-                        <xsl:text>language_description</xsl:text>
-                    </xsl:when>
+        <!-- type = language_description -->
+        <xsl:if
+            test="marc:subfield[@code = 'x' and (contains( . ,'Grammar') or contains( . ,'Phonology') or 
+                        contains( . ,'Morphology') or contains( . ,'Orthography') )]">
+            <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+        </xsl:if>
 
-                    <!-- type = lexicon -->
-                    <xsl:when
-                        test="@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
-                        contains( . ,'Glossaries, vocabularies, etc.') )">
-                        <xsl:text>lexicon</xsl:text>
-                    </xsl:when>
-                    <xsl:when test="@code = 'v' and contains( . ,'Texts') ">
-                        <xsl:text>primary_text</xsl:text>
-                    </xsl:when>
-                    <xsl:otherwise>0</xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
-        </xsl:for-each>
-
-        <xsl:if test="$linguistictype != '0'">
-            <!-- output xsi:type only if a linguistic-type has been found -->
-            <dc:type xsi:type="olac:linguistic-type">
-                <xsl:attribute name="olac:code">
-                    <xsl:value-of select="$linguistictype"/>
-                </xsl:attribute>
-            </dc:type>
+        <!-- type = lexicon -->
+        <xsl:if
+            test="marc:subfield[@code = 'v' and (contains( . ,'Dictionaries') or contains( . ,'Conversation and phrase books') or 
+                        contains( . ,'Glossaries, vocabularies, etc.') )]">
+            <dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>
+        </xsl:if>
+        
+        <!-- type = primary_text -->
+        <xsl:if test="marc:subfield[@code = 'v' and contains( . ,'Texts') ]">
+            <dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/>
         </xsl:if>
     </xsl:template>
 
