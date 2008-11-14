@@ -17,9 +17,13 @@
 
     <!-- clean up the text -->
     <xsl:template match="text()" priority="-1">
-        <xsl:call-template name="removeTrailingChars">
+        <xsl:call-template name="removeFinalPeriod">
             <xsl:with-param name="text">
-                <xsl:value-of select="normalize-space(.)"/>
+                <xsl:call-template name="removeTrailingChars">
+                    <xsl:with-param name="text">
+                        <xsl:value-of select="normalize-space(.)"/>
+                    </xsl:with-param>
+                </xsl:call-template>
             </xsl:with-param>
         </xsl:call-template>
     </xsl:template>
