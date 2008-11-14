@@ -132,33 +132,10 @@
                 <xsl:call-template name="show-source">
                     <xsl:with-param name="subfield">a</xsl:with-param>
                 </xsl:call-template>
-                <xsl:attribute name="olac:code">
-                    <xsl:call-template name="parse-language-note-GIAL"/>
-                    <xsl:value-of select="marc:subfield[@code='a']"/>
-                </xsl:attribute>
+               <xsl:attribute name="olac:code" select="marc:subfield[@code='a']" />
             </dc:subject>
         </xsl:if>
     </xsl:template>
 
-
-<xsl:template name="parse-language-note-GIAL">
-    
-    
-</xsl:template>
-
-
-
-    <!-- Default rule for 5xx tags when no other 5xx tag is matched by following rules 
-        JAS: I think we can select the Notes fields that interest us, and omit the remainder. 
-        So we should not need a generic 5xx match. -->
-    <!--
-        <xsl:template match="marc:datafield[starts-with(@tag,'5')]" priority="0.5">
-        <dc:description>
-        <xsl:call-template name="show-source"/>
-        <xsl:value-of select="."/>
-        </dc:description>
-        </xsl:template>
-        All 5xx templates much have a priority=1 so that it does not conflict with the above catch-all rule
-    -->
    
 </xsl:stylesheet>

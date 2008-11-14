@@ -23,13 +23,11 @@
     <!--  match attribute and element "nodes" (not text though - see rule below)   -->
     <xsl:template match="@*|*" priority="-1">
         <!-- do not copy dc:description - this is handled separately down below -->
-        <xsl:if test="not(string(node-name(.)) = 'dc:description')">
             <xsl:copy>
                 <!-- copy the element -->
                 <xsl:apply-templates select="@*|node()"/>
                 <!-- apply templates for all node types, including text -->
             </xsl:copy>
-        </xsl:if>
     </xsl:template>
 
     <!-- clean up the text -->
@@ -39,26 +37,6 @@
                 <xsl:value-of select="normalize-space(.)"/>
             </xsl:with-param>
         </xsl:call-template>
-    </xsl:template>
-
-
-
-    <!-- TEMPLATES FOR CONCATENATING DC:DESSCRIPTION TOGETHER -->
-    <!-- special case for olac:olac, which contains the dc:description elements we want to combine -->
-    <xsl:template match="olac:olac">
-        <xsl:copy>
-            <!-- copy the element -->
-            <xsl:apply-templates select="@*|node()"/>       <!-- apply templates for all node types, including text -->
-            
-            <dc:description>
-                <xsl:apply-templates select="dc:description" mode="concatDesc"/>
-            </dc:description>
-        </xsl:copy>
-    </xsl:template>
-    
-    <xsl:template match="dc:description" mode="concatDesc">
-        <xsl:value-of select="normalize-space(.)"/>
-        <xsl:text> / </xsl:text>
     </xsl:template>
 
 </xsl:stylesheet>

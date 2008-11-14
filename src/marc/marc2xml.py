@@ -21,15 +21,15 @@ for rec in marcset:
     f.write(xmlrec + '\n')
     ctr += 1
     if ctr % 500 == 0: print "writing %sth record..." % ctr
-    if ctr == 1000: break
+    if ctr == 100: break
 f.write('</collection>')
 f.close()
 
-print "formatting xml..."
-xmlrec = libxml2.parseDoc(utils.file2string(output))
-f = open(output,'w')
-f.write(xmlrec.serialize(None,1))
+#print "formatting xml..."
+#xmlrec = libxml2.parseDoc(utils.file2string(output))
+#f = open(output,'w')
+#f.write(xmlrec.serialize(None,1))
 #f.write(xmlrec.serialize(None,2))
-f.close()
+#f.close()
 
 print "%s MARC records written as XML to %s" % (ctr,output)

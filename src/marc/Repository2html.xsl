@@ -150,7 +150,7 @@
                select="concat('Has&#160;',
                substring-after($label, 'has'))"/>
          </xsl:when>
-         <xsl:when test="starts-with($label, 'is')">
+         <xsl:when test="starts-with($label, 'is') and not(starts-with($label,'issued'))">
             <xsl:value-of
                select="concat('Is&#160;',
                substring($label, 3, string-length($label)-4), '&#160;', substring($label,
