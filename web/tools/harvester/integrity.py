@@ -34,14 +34,15 @@ class FtpChecker:
 
         # login
         o = urlparse.urlparse(url)
-        if o.username:
-            user = o.username
-        else:
-            user = 'anonymous'
-        if o.password:
-            password = o.password
-        else:
-            password = 'test'
+        user = 'anonymous'
+        password = 'test'
+        if '@' in o[1]:
+            a = o[1].split('@').split(':')
+            if len(a) == 1:
+                if a[0]: user = a[0]
+            else:
+                if a[0]: user = a[0]
+                password = a[1]
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             self.sock.connect((o.hostname,21))
