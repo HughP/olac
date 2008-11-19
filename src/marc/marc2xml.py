@@ -21,7 +21,7 @@ for rec in marcset:
     f.write(xmlrec + '\n')
     ctr += 1
     if ctr % 500 == 0: print "writing %sth record..." % ctr
-    if ctr == 100: break
+    #if ctr == 100: break
 f.write('</collection>')
 f.close()
 

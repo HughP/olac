@@ -239,13 +239,13 @@ local cataloging practices.
             <xsl:when test="lower-case(marc:subfield[@code='2']) = 'iso639-2'">
                 <xsl:call-template name="process-041">
                     <xsl:with-param name="xsitype">dcterms:ISO639-2</xsl:with-param>
-                    <xsl:with-param name="str" select="marc:subfield[@code='a']" />
+                    <xsl:with-param name="str" select="marc:subfield[@code='a']"/>
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="lower-case(marc:subfield[@code='2']) = 'iso639-3'">
                 <xsl:call-template name="process-041">
                     <xsl:with-param name="xsitype">dcterms:ISO639-3</xsl:with-param>
-                    <xsl:with-param name="str" select="marc:subfield[@code='a']" />
+                    <xsl:with-param name="str" select="marc:subfield[@code='a']"/>
                 </xsl:call-template>
             </xsl:when>
             <xsl:when test="lower-case(marc:subfield[@code='2']) = 'rfc1766'">
@@ -277,20 +277,38 @@ local cataloging practices.
     <xsl:template name="process-041">
         <xsl:param name="xsitype">dcterms:ISO639-2</xsl:param>
         <xsl:param name="str"/>
-        <xsl:if test="count($str) = 1 and string-length($str) mod 3 = 0 and string-length($str) > 0">
-            <dc:language>
-                <xsl:attribute name="xsi:type" select="$xsitype"/>
-                <xsl:value-of select="substring($str,1,3)"/>
-            </dc:language>
-            <xsl:call-template name="process-041">
-                <xsl:with-param name="xsitype" select="$xsitype"/>
-                <xsl:with-param name="str" select="substring($str,4,3)"/>
-            </xsl:call-template>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="count($str) = 1">
+                <xsl:if test="string-length($str) mod 3 = 0 and string-length($str) > 0">
+                    <dc:language>
+                        <xsl:call-template name="show-source" />
+                        <xsl:attribute name="xsi:type" select="$xsitype"/>
+                        <xsl:value-of select="substring($str,1,3)"/>
+                    </dc:language>
+                    <xsl:call-template name="process-041">
+                        <xsl:with-param name="xsitype" select="$xsitype"/>
+                        <xsl:with-param name="str" select="substring($str,4)"/>
+                    </xsl:call-template>
+                </xsl:if>
+            </xsl:when>
+            <xsl:when test="count($str) > 1">
+                <!-- multiple $a present -->
+                <xsl:for-each select="$str">
+                    <dc:language>
+                        <xsl:attribute name="xsi:type" select="$xsitype"/>
+                        <xsl:value-of select="substring( . ,1,3)"/>
+                    </dc:language>
+                    <xsl:call-template name="process-041">
+                        <xsl:with-param name="xsitype" select="$xsitype"/>
+                        <xsl:with-param name="str" select="substring( . ,4,3)"/>
+                    </xsl:call-template>
+                </xsl:for-each>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
 
-    <xsl:template match="marc:datafield[@tag='043']">
+    <xsl:template match="marc:datafield[@tag='043']/marc:subfield[@code='c']">
         <dcterms:spatial xsi:type="dcterms:ISO3166">
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">c</xsl:with-param>
@@ -961,7 +979,7 @@ local cataloging practices.
                 <xsl:call-template name="process-linguistic-type"/>
                 <xsl:call-template name="process-linguistic-subject"/>
                 <xsl:call-template name="process-olac-code">
-                    <xsl:with-param name="lcsh" select="." />
+                    <xsl:with-param name="lcsh" select="."/>
                     <xsl:with-param name="from">650</xsl:with-param>
                 </xsl:call-template>
             </xsl:when>
