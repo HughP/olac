@@ -36,7 +36,7 @@
             <oai:metadataFormat>
                <oai:metadataPrefix>olac</oai:metadataPrefix>
                <oai:schema>http://www.language-archives.org/OLAC/1.1/olac.xsd</oai:schema>
-               <oai:metadataNamespace>http://www.language-archives.org/OLAC/1.1/ </oai:metadataNamespace>
+               <oai:metadataNamespace>http://www.language-archives.org/OLAC/1.1/</oai:metadataNamespace>
             </oai:metadataFormat>
          </sr:ListMetadataFormats>
          
