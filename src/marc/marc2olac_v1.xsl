@@ -970,18 +970,29 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='650']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
+                <xsl:variable name="code">
+                <xsl:call-template name="process-olac-code">
+                    <xsl:with-param name="lcsh" select="."/>
+                </xsl:call-template>
+                </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
+                    <xsl:if test="$code = '' and contains( lower-case( . ) ,'language')">
+                        <xsl:attribute name="no_code">1</xsl:attribute>
+                    </xsl:if>
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
+                <xsl:if test="$code != ''">
+                    <dc:subject xsi:type="olac:language">
+                        <xsl:attribute name="olac:code" select="$code" />
+                        <xsl:call-template name="show-source" />
+                    </dc:subject>
+                </xsl:if>
                 <xsl:call-template name="process-linguistic-type"/>
                 <xsl:call-template name="process-linguistic-subject"/>
-                <xsl:call-template name="process-olac-code">
-                    <xsl:with-param name="lcsh" select="."/>
-                    <xsl:with-param name="from">650</xsl:with-param>
-                </xsl:call-template>
+
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MeSH">
