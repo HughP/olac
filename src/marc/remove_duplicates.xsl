@@ -10,26 +10,32 @@
     <xsl:template match="olac:olac">
 
         <xsl:copy>
-            <xsl:for-each select="*">
-                <xsl:sort select="name()" />
-                <!--
-                <xsl:for-each select="following-sibling::*">
-                    <followingsiblingname><xsl:value-of select="name()" /></followingsiblingname>
-                    <currentname><xsl:value-of select="name(current())" /></currentname>
-                    <followingsiblingolaccode><xsl:value-of select="@olac:code"></xsl:value-of></followingsiblingolaccode>
-                    <olaccode><xsl:value-of select="current()/@olac:code"></xsl:value-of></olaccode>
-                </xsl:for-each>
-                -->
+            <xsl:for-each select="*[@olac:code]">
+                <xsl:variable name="currentname" select="name()" />
+                <xsl:variable name="currentcode" select="@olac:code" />
                 <xsl:choose>
                     <xsl:when
-                        test="following-sibling::*[name() = name(current())]
-			[@olac:code = current()/@olac:code]">
+                        test="following-sibling::*[name() = $currentname][@olac:code = $currentcode]">
 			</xsl:when>
                     <xsl:otherwise>
                         <xsl:copy-of select="self::node()"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
+            
+            <xsl:for-each select="*[not(@olac:code)]">
+                <xsl:variable name="currentname" select="name()" />
+                <xsl:variable name="currenttext" select="text()" />
+                <xsl:choose>
+                    <xsl:when
+                        test="following-sibling::*[name() = $currentname][text() = $currenttext]">
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="self::node()"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+            
         </xsl:copy>
     </xsl:template>
 
