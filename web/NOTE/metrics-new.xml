@@ -453,11 +453,6 @@
 
 
     </body>
-    <todo>
-        <p>The guard against empty elements should be built into the harvester so that elements
-            having neither element content nor an olac:code value should simply be ignored and not
-            entered into the aggregated database.</p>
-    </todo>
     <references>
         <ref abbrev="DCMI-Type">DCMI Type Vocabulary.
                 <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
