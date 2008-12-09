@@ -3,7 +3,7 @@
 
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
-       Last updated: 16 July 2008 
+       Last updated: 8 December 2008 
 
 This list must now maintain latest dates, just like the MAKEFILEs.
 -->
@@ -14,7 +14,7 @@ This list must now maintain latest dates, just like the MAKEFILEs.
       <document href="OLAC/repositories-20030917.xml"/>
       
       <document href="OLAC/metadata-20080531.xml"/>
-      <document href="OLAC/repositories-20080531.xml"/>
+      <document href="OLAC/repositories-20080728.xml"/>
       <document href="OLAC/process-20060405.xml"/>
       <document href="OLAC/olacms-20011022.xml"/>
       <document href="OLAC/protocol-20021209.xml"/>
@@ -28,7 +28,7 @@ This list must now maintain latest dates, just like the MAKEFILEs.
       <document href="REC/role-20060406.xml"/>
       <document href="REC/type-20060406.xml"/>
 
-      <document href="NOTE/metrics-20080711.xml"/>
+      <document href="NOTE/metrics-20081016.xml"/>
       <document href="NOTE/olac_display-20060515.xml"/>
       <document href="NOTE/query-20030729.xml"/>
       <document href="NOTE/third-party-extensions-20021204.xml"/>
