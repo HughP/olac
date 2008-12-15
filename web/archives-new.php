@@ -30,6 +30,16 @@ function get_archive_count()
   return $tab[0][size];
 }
 
+function table_sort($row1, $row2)
+{
+  $name1 = $row1['RepositoryName'];
+  $name2 = $row2['RepositoryName'];
+  $pat = '/^[Tt]he\s+|[Aa]n?\s+/';
+  $name1 = preg_replace($pat,'', $name1);
+  $name2 = preg_replace($pat,'', $name2);
+  return strcasecmp($name1, $name2);
+}
+
 function get_archive_table()
 {
   global $DB;
@@ -53,6 +63,8 @@ function get_archive_table()
     echo "<p>" . $DB->get_error_message() . "</p>\n";
     echo "<p>" . $DB->get_error_sql() . "</p>\n";
   }
+
+  usort($tab, "table_sort");
   if ($tab) foreach ($tab as $row) {
     $x[archive] = $row[RepositoryName];
     $x[institution] = $row[Institution];
