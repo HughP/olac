@@ -37,7 +37,7 @@ class FtpChecker:
         user = 'anonymous'
         password = 'test'
         if '@' in o[1]:
-            a = o[1].split('@').split(':')
+            a = o[1].split('@')[0].split(':')
             if len(a) == 1:
                 if a[0]: user = a[0]
             else:
@@ -45,7 +45,8 @@ class FtpChecker:
                 password = a[1]
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
-            self.sock.connect((o.hostname,21))
+            o_hostname = o[1].split(':')[0]
+            self.sock.connect((o_hostname,21))
         except socket.error, e:
             log("%s" % e[1])
             return False
@@ -59,7 +60,8 @@ class FtpChecker:
         elif code != '230':
             log(data.strip().split('\r\n')[-1])
             return False
-        data = self.dconCmd('LIST', o.path)
+        o_path = o[2]
+        data = self.dconCmd('LIST', o_path)
         self.cconCmd('QUIT')
         return (not not data)
             
@@ -164,33 +166,38 @@ class HttpChecker:
 
     def fetch(self, url):
         o = urlparse.urlparse(url)
-        if o.port:
-            port = int(o.port)
+        if ':' in o[1]:
+            port = int(o[1].split(':')[1])
         else:
             port = 80
-        if o.query:
-            path = o.path + '?' + o.query
+        o_path = o[2]
+        o_query = o[4]
+        if o_query:
+            path = o_path + '?' + o_query
         else:
-            path = o.path
-        if o.fragment:
-            self.fragment = o.fragment
+            path = o_path
+        o_fragment = o[5]
+        if o_fragment:
+            self.fragment = o_fragment
         if self.fragment:
             path += '#' + self.fragment
         if not path:
             path = '/'
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        if o.scheme == 'http':
-            self.sock.connect((o.hostname,port))
-        elif o.scheme == 'https':
+        o_scheme = o[0]
+        o_hostname = o[1].split(':')[0]
+        if o_scheme == 'http':
+            self.sock.connect((o_hostname,port))
+        elif o_scheme == 'https':
             ctx = OpenSSL.SSL.Context(OpenSSL.SSL.SSLv23_METHOD)
             self.sock = OpenSSL.SSL.Connection(ctx, sock)
         else:
-            raise ValueError("unknown protocol: %s" % o.scheme)
+            raise ValueError("unknown protocol: %s" % o_scheme)
         if self.debug:
             log('>> HEAD %s HTTP/1.1' % path)
-            log('>> Host: %s' % o.hostname)
+            log('>> Host: %s' % o_hostname)
         self.sock.send('HEAD %s HTTP/1.1\n' % path)
-        self.sock.send('Host: %s\n' % o.hostname)
+        self.sock.send('Host: %s\n' % o_hostname)
         self.sock.send('\n')
         data = self.read()
         self.sock.close()
