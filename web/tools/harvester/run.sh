@@ -86,7 +86,7 @@ if [ ${new_records:-0} -gt 0 ] ; then
         echo "Creating an XML dump and static record pages..."
         echo
         dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
-	PATH=/ldc/app/i386/pkg/sqlite-3.3.5/bin:/ldc/app/i386/pkg/mysql-5.0.22/bin:$PATH ./olacaxmldump.py $MYCNF $dumpnam $SRECDIR
+	PATH=/ldc/app/i386/pkg/sqlite-3.3.5/bin:/ldc/app/i386/pkg/mysql-5.0.22/bin:$PATH ./olacaxmldump.py $MYCNF $dumpnam $SRECDIR 2>/dev/null
         ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
 	(
 	cd $SRECDIR
