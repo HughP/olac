@@ -177,13 +177,15 @@ class DBI(Logger):
             # --> do not harvest
             return
 
-        sql = "select Item_ID from ARCHIVED_ITEM where OaiIdentifier=%s"
+        sql = "select Item_ID,DateStamp from ARCHIVED_ITEM where OaiIdentifier=%s"
         oaiid = record.oaiId()
         self.cur.execute(sql, oaiid)
         flagUpdateMetadata = False
         if self.cur.rowcount > 0:
             # record with the same id exists
-            itemid = self.cur.fetchone()[0]
+            rows = self.cur.fetchall()
+            itemid = rows[0][0]
+            dt = max([r[1] for r in rows])
             if record.deleted():
                 # --> delete
                 sql = "delete from METADATA_ELEM where Item_ID=%s"
@@ -198,7 +200,8 @@ class DBI(Logger):
                       "where Item_ID=%s"
                 args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
                 self.cur.execute(sql, args)
-                if self.cur.rowcount > 0:
+                dt1 = datetime.datetime.strptime(record.datestamp(),"%Y-%m-%d")
+                if self.cur.rowcount > 0 or dt==dt1.date():
                     self.updatedRecordCount0 += 1
                     flagUpdateMetadata = True
                     sql = "delete from METADATA_ELEM where Item_ID=%s"
