@@ -334,9 +334,10 @@ return " <table>
 		<td width=100%>
 	$counter."
 	. " <img src=" . starImage($row['recordScore']) . "></img>\n"
-	. " \t<a href=\"$_SERVER[PHP_SELF]?item=$row[OaiIdentifier]"
-	. "&queryTerms=$queryString&phrasemode=$phrasemode"
-	. "&allmode=$allmode\">"
+	#. " \t<a href=\"$_SERVER[PHP_SELF]?item=$row[OaiIdentifier]"
+	#. "&queryTerms=$queryString&phrasemode=$phrasemode"
+	#. "&allmode=$allmode\">"
+	. " \t<a href=\"/item/$row[OaiIdentifier]?queryTerms=$queryString\">"
 	. "$row[OaiIdentifier]</a>\n"
 	. similarRecords($row['Item_ID'], $queryTokens)
 	. "<br />\n\t<b>$row[TagName]:</b> $content<br />"

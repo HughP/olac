@@ -209,6 +209,7 @@ $meta_keywords = "";
 $body .= "<p><table cellspacing=0 cellpadding=2 border=0>\n";
 $body .= "<tr><td colspan=3><b>Metadata</b></td></tr>\n";
 $search_terms = array();
+$queryTokens = tokenizeQuery( $_GET['queryTerms'] );
 
 foreach ($tab as $answer) {
     $tag = $meta_name = $answer[DcTag];
@@ -241,6 +242,14 @@ foreach ($tab as $answer) {
     if ($tag != $prev_field) {
         $body .= "$tag:";
     }
+
+    # search term highlighting
+    foreach( $queryTokens as $tok ) {
+        $tok = str_replace("(","\(",$tok);
+        # Case insensitive matching of query keywords
+        $value = eregi_replace($tok, '<em style="background:yellow">\\0</em>', $value );
+    }
+
     $body .= "&nbsp;</i></td><td></td><td>$value</td></tr>\n";
 
     $meta_name = "DC." . ereg_replace(" .*", "", $meta_name);
@@ -320,13 +329,6 @@ if ($meta_description && $meta_keywords) {
 <BODY>
 
 <?php
-$queryTokens = tokenizeQuery( $_GET['queryTerms'] );
-foreach( $queryTokens as $tok )
-{
-    $tok = str_replace("(","\(",$tok);
-    # Case insensitive matching of query keywords
-    $body = eregi_replace($tok, "<em>\\0</em>", $body );
-}
 echo $body;
 echo $analytics;
 ?>
