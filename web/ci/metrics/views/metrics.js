@@ -420,9 +420,14 @@ function populateComparativeMetricsTable()
 		var compState = comp(a.getData("overall_rating"), b.getData("overall_rating"), desc); 
 		return (compState !== 0) ? compState : comp(a.getData("metadata_quality"), b.getData("metadata_quality"), desc); 
 	}; 
-
+	var sort_archive = function(a, b, desc) {
+		var comp = YAHOO.util.Sort.compare; 
+		var s1 = a.getData("archive");
+		var s2 = b.getData("archive");
+		return comp(s1.replace(/^(the|an?)\s+/i,''), s2.replace(/^(the|an?)\s+/i,''), desc);
+	};
 	var cols = [
-		{key:"archive", label:"Archive", sortable:true},
+		{key:"archive", label:"Archive", sortable:true, sortOptions:{defaultOrder:"asc", sortFunction:sort_archive}},
 		{key:"overall_rating", label:"Overall Rating", sortable:true, sortOptions:{defaultOrder:"desc", sortFunction:sort_or}, formatter:format_or},
 		{key:"num_resources", label:FIELDS["num_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
 		{key:"num_online_resources", label:FIELDS["num_online_resources"], sortable:true, sortOptions:{defaultOrder:"desc"}, formatter:format_right},
