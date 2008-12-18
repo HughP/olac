@@ -1,8 +1,10 @@
-<?xml version="1.0"?> <?xml-stylesheet href="OLAC_doc.xsl" type="text/xsl"?> 
-<!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
+<?xml version="1.0"?> 
+<?xml-stylesheet href="../OLAC_doc.xsl" type="text/xsl"?> 
+<!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
-  <header> 
-    <status code="candidate" type="recommendation"/> 
+   <header> 
+      <status code="adopted" type="recommendation"/> 
+      <!-- Promoted to Adopted on 2008-12-19 -->
     <title>OLAC Linguistic Subject Vocabulary</title> 
     <baseName>field</baseName> 
     <issued>20060406</issued> 
@@ -18,7 +20,7 @@
     </copyright> 
     <changes>
       <p>Promoted to candidate status, with a call for review by
-        those have put the document into practice.</p>
+        those who have put the document into practice.</p>
     </changes> 
   </header> 
 

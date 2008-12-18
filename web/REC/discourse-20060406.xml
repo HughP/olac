@@ -3,7 +3,8 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-      <status code="candidate" type="recommendation"/>
+      <status code="adopted" type="recommendation"/>
+      <!-- Promoted to Adopted on 2008-12-19 -->
       <title>OLAC Discourse Type Vocabulary</title>
       <baseName>discourse</baseName>
       <issued>20060406</issued>
@@ -18,7 +19,8 @@
       <copyright> 2006 Heidi Johnson (University of Texas at Austin) and Helen Aristar Dry (Eastern Michigan
          University) </copyright>
       <changes>
-         <p>Promoted to candidate status, with a call for review by those have put the document into
+         <p>Promoted to candidate status, with a call for review by
+            those who have put the document into
             practice.</p>
       </changes>
    </header>
