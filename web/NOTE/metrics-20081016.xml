@@ -460,8 +460,8 @@
 
         <ref abbrev="OLAC-Language">OLAC Language Extension.<br/>
                 &lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
-        <ref abbrev="OLAC-Archives">OLAC: Participating Archives (test version).<br/>
-                &lt;<url>http://www.language-archives.org/archives-new.php4</url>&gt;</ref>
+        <ref abbrev="OLAC-Archives">OLAC: Participating Archives.<br/>
+                &lt;<url>http://www.language-archives.org/archives.php4</url>&gt;</ref>
         <ref abbrev="OLAC-BPR">Best Practice Recommendations for Language Resource Description.<br/>
                 &lt;<url>http://www.language-archives.org/REC/bpr.html</url>&gt;</ref>
         <ref abbrev="OLAC-Free">Free-standing OLAC Metadata.<br/>
