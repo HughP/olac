@@ -3,7 +3,7 @@
 <!--Stylesheet for OLAC  documents
 
      G. Simons, 21 Feb 2001
-     Last modified: 16 July 2008
+     Last modified: 17 Dec 2008
 -->
 <xsl:stylesheet version="1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
@@ -290,7 +290,7 @@
             <tr valign="top">
                <th align="left">
                   <xsl:choose>
-                     <xsl:when test="@status='adopted'">Supersedes:</xsl:when>
+                     <xsl:when test="status/@code='adopted'">Supersedes:</xsl:when>
                      <xsl:otherwise>Will supersede:</xsl:otherwise>
                   </xsl:choose>
                </th>
