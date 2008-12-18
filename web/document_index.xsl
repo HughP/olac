@@ -4,7 +4,7 @@
      Stylesheet for generating the main OLAC document index (by type)
 
      G. Simons, 10 Sept 2002
-     Last revised: 16 July 2008
+     Last revised: 17 Dec 2008
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>

@@ -3,15 +3,18 @@
 
 <!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
-       Last updated: 8 December 2008 
+       Last updated: 17 December 2008 
 
 This list must now maintain latest dates, just like the MAKEFILEs.
 -->
 <documents>
   <list>
       <!-- Now adopted but soon to be superseded.  Remove when superseded -->
-      <document href="OLAC/metadata-20060405.xml"/>
-      <document href="OLAC/repositories-20030917.xml"/>
+      <!--document href="OLAC/metadata-20060405.xml"/-->
+      <!--document href="OLAC/repositories-20030917.xml"/-->
+     <!-- When an adopted document is in the process of being
+        superseded, we must list the adopted version and the latest
+        version in the process -->
       
       <document href="OLAC/metadata-20080531.xml"/>
       <document href="OLAC/repositories-20080728.xml"/>
