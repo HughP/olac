@@ -30,6 +30,9 @@ function get_archive_info($id)
     $tab2 = $DB->sql("select distinct SchemaName
 		      from   ARCHIVED_ITEM as A, SCHEMA_VERSION as S
 		      where  A.Archive_ID=$archiveid and A.Schema_ID=S.Schema_ID");
+    $tab3 = $DB->sql("select Name, Role, Email " .
+		     "from   ARCHIVE_PARTICIPANT " .
+		     "where  Archive_ID=$archiveid");
     $r = $tab[0];
 
     $o[Size] = $tab1[0][size];
@@ -58,18 +61,25 @@ function get_archive_info($id)
     $o["Submission Policy"] = $r[ArchivalSubmissionPolicy];
     $r[AdminEmail] = str_replace('mailto:', '', $r[AdminEmail]);
     $o[Administrator] = "<a href=\"mailto:$r[AdminEmail]\">$r[AdminEmail]</a>";
+    if ($tab3) {
+      $participant_arr = array();
+      foreach ($tab3 as $p) {
+	$participant_arr[] = "<a href=\"mailto:$p[Email]\">$p[Name]</a>($p[Role])";
+      }
+      $o[Participants] = implode(", ", $participant_arr);
+    }
     $o["Base URL"] = $r[BaseURL];
     $o["Repository ID"] = $r[RepositoryIdentifier];
     $o["OAI Version"] = $r[OaiVersion];
     foreach ($tab2 as $v) {
-	$o["OLAC MS Version(s)"] .= "$v[SchemaName] ";
+	$o["OLAC Version"] .= "$v[SchemaName] ";
     }
     $o["Records in Archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
     $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
     $o["Last Harvested"] = $r[LastHarvested];
     $o["Current As Of"] = $r[CurrentAsOf];
 
-    # $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
+    $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
 
     return $o;
 }
@@ -103,11 +113,15 @@ $record = get_archive_info($archiveid);
 <hr>
 <?php
 echo "<h2>" . $record["Repository Name"] . "</h2>";
+if (! $record["Current As Of"]) {
+  echo "<p><b><font color=red>This repository doesn't conform to OLAC 1.1 standards.</font></b></p>";
+}
+
 echo "<table>";
 foreach ($record as $k => $v) {
     if (! preg_match('/^\s*$/', $v)) {
-        echo "<tr><td style=\"background-color:#EEEEEE\">$k</td>";
-        echo "<td style=\"border-bottom: dotted; border-color: #EEEEEE; border-width: 1px\"><font color=blue>$v</font></td></tr>\n";
+        echo "<tr><td style=\"background-color:#DDDDEE\">$k</td>";
+        echo "<td style=\"border-bottom: dotted; border-color: #DDDDEE; border-width: 1px\"><font color=blue>$v</font></td></tr>\n";
     }
 }
 echo "</table>";
