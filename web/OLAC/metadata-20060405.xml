@@ -3,7 +3,8 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
   <header> 
-    <status code="adopted" type="standard" supersededBy="metadata"/> 
+    <status code="adopted" type="standard" 
+       supersededBy="metadata" endDate="20081219"/> 
       <title>OLAC Metadata</title> <baseName>metadata</baseName> 
       <issued>20060405</issued> <previousIssued>20031208</previousIssued> 
       <abstract> 

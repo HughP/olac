@@ -3,7 +3,8 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
   <header>
-    <status code="adopted" type="standard"  supersededBy="repositories"/>
+    <status code="adopted" type="standard"  
+       supersededBy="repositories"  endDate="20081219"/>
       <title> OLAC Repositories</title><baseName>repositories</baseName> 
       <issued>20030917</issued><previousIssued>20030716</previousIssued> 
       <abstract> 

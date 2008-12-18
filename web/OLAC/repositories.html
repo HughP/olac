@@ -10,8 +10,8 @@
       <meta name="Creator" content="Gary Simons, SIL International and Graduate Institute of Applied Linguistics&#xA;            (mailto:gary_simons@sil.org) Steven Bird, University of Melbourne and University of&#xA;         Pennsylvania (mailto:sb@ldc.upenn.edu) ">
       <meta name="Description" content="This document defines the standards OLAC archives must follow in implementing a metadata repository. ">
       <meta content="OLAC (Open Language Archives Community)" name="Publisher">
-      <meta name="Date" content="20080728"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+      <meta name="Date" content="20080728"><STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE></HEAD>
    <BODY>
       <hr>
@@ -23,13 +23,7 @@
          </tr>
          <tr valign="top">
             <th align="left">Status of document:</th>
-            <td><i>Candidate Standard. </i>This document is on track to be accepted by the community as a  standard; full adoption is awaiting successful
-               implementation.  The version that is ultimately
-               adopted may incorporate changes based on feedback
-               from implementers. Anyone working on a new implementation 
-               should follow this version of the document
-               rather than the one it will supersede when
-               adopted. 
+            <td><i>Standard. </i>This document describes a standard that is currently followed by OLAC archives and services.
             </td>
          </tr>
          <tr valign="top">
@@ -37,7 +31,7 @@
             <td><a href="http://www.language-archives.org/OLAC/repositories-20080728.html">http://www.language-archives.org/OLAC/repositories-20080728.html</a></td>
          </tr>
          <tr valign="top">
-            <th align="left">Will supersede:</th>
+            <th align="left">Supersedes:</th>
             <td><a href="http://www.language-archives.org/OLAC/repositories-20030917.html">http://www.language-archives.org/OLAC/repositories-20030917.html</a></td>
          </tr>
          <tr valign="top">
@@ -165,7 +159,7 @@
                </p>
             </li>
          </ul>
-         <p>For example,</p><pre style="margin-left: 12pt">&lt;description&gt;
+         <p>For example,</p><pre style="margin-left: 18pt">&lt;description&gt;
    &lt;oai-identifier
          xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -321,7 +315,7 @@
                </dd>
             </dl>
          </blockquote>
-         <p>For example,</p><pre style="margin-left: 12pt">&lt;description&gt;
+         <p>For example,</p><pre style="margin-left: 18pt">&lt;description&gt;
    &lt;olac-archive type="institutional" currentAsOf="2008-04-19"
          xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -394,7 +388,7 @@
             </li>
             <li>
                <p>Contain the following element within its <tt>&lt;ListMetadataFormats&gt;</tt> element:
-               </p><pre style="margin-left: 12pt">&lt;oai:metadataFormat&gt;
+               </p><pre style="margin-left: 18pt">&lt;oai:metadataFormat&gt;
    &lt;oai:metadataPrefix&gt;olac&lt;/oai:metadataPrefix&gt;
    &lt;oai:schema&gt;http://www.language-archives.org/OLAC/1.1/olac.xsd&lt;/oai:schema&gt;
    &lt;oai:metadataNamespace&gt;http://www.language-archives.org/OLAC/1.1/&lt;/oai:metadataNamespace&gt;
@@ -452,7 +446,7 @@
                <p>The <tt>ListMetadataFormats</tt> response (when made with no additional parameters) must contain a
                                     specification for the <tt>olac</tt> metadata prefix that declares the schema and namespace for the
                                     version of OLAC metadata that is being used. For example,
-               </p><pre style="margin-left: 12pt">&lt;oai:metadataFormat&gt;
+               </p><pre style="margin-left: 18pt">&lt;oai:metadataFormat&gt;
    &lt;oai:metadataPrefix&gt;olac&lt;/oai:metadataPrefix&gt;
    &lt;oai:schema&gt;http://www.language-archives.org/OLAC/1.1/olac.xsd&lt;/oai:schema&gt;
    &lt;oai:metadataNamespace&gt;http://www.language-archives.org/OLAC/1.1/&lt;/oai:metadataNamespace&gt;
