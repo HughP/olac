@@ -426,13 +426,16 @@
                <xsl:text>Recommendation. </xsl:text>
             </xsl:when>
             <xsl:when test="@type='experimental'">
-               <xsl:text>Experimental Note. </xsl:text>
+               <xsl:text>Experimental Note</xsl:text>
+               <xsl:if test="@code != 'adopted'">. </xsl:if>
             </xsl:when>
             <xsl:when test="@type='informational'">
-               <xsl:text>Informational Note. </xsl:text>
+               <xsl:text>Informational Note</xsl:text>
+               <xsl:if test="@code != 'adopted'">. </xsl:if>
             </xsl:when>
             <xsl:when test="@type='implementation'">
-               <xsl:text>Implementation Note.</xsl:text>
+               <xsl:text>Implementation Note</xsl:text>
+               <xsl:if test="@code != 'adopted'">. </xsl:if>
             </xsl:when>
             <xsl:otherwise>
                <xsl:text>Bad document type. </xsl:text>
