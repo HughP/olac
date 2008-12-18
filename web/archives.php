@@ -69,7 +69,7 @@ function get_archive_table()
     $x[archive] = $row[RepositoryName];
     $x[institution] = $row[Institution];
     $x[location] = $row[ShortLocation];
-    $x[detail] = "<a class=arch href=\"/archive-new/$row[RepositoryIdentifier]\">MORE<br>DETAILS</a>";
+    $x[detail] = "<a class=arch href=\"/archive/$row[RepositoryIdentifier]\">MORE<br>DETAILS</a>";
     #$x[report] = "<a class=arch href=\"tools/reports/archiveReportCard.php?archive=$row[Archive_ID]\">REPORT<br>CARD</a>";
     $x[report] = "<a class=arch href=\"/metrics/$row[RepositoryIdentifier]\">METRICS</a>";
 
