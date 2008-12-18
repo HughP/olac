@@ -3,8 +3,9 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
    <header>
-       <status code="candidate" type="recommendation"/>
-       <!-- Promoted to Candidate on 2008-07-16 -->
+       <status code="adopted" type="recommendation"/>
+      <!-- Promoted to Candidate on 2008-07-16 -->
+      <!-- Promoted to Adopted on 2008-12-19 -->
       <title>Best Practice Recommendations for Language Resource Description</title>
       <baseName>bpr</baseName>
       <issued>20080711</issued>
