@@ -4,7 +4,7 @@
      Stylesheet for generating list of OLAC documents by status
 
      G. Simons, 2 Aug 2003
-     Last updated: 16 July 2008
+     Last updated: 17 Dec 2008
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" encoding="ISO-8859-1"/>
@@ -113,7 +113,7 @@ http://www.language-archives.org/documents_by_status.html<br/>Latest update: <xs
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:if test="not($doc-headers//header[status[@code=$code]])">
+         <xsl:if test="not($doc-headers//header[status[@code=$code and not(@endDate)]])">
           <blockquote>No documents currently have this status.</blockquote>
         </xsl:if>
         <xsl:for-each select="$doc-headers//header[status[@code=$code and not(@endDate)]]">
