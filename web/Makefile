@@ -26,7 +26,7 @@ indexes: $(INDEXES)
 	$(XSLT) -in document_list.xml -xsl documents_by_date.xsl > documents_by_date.html
 
 rsync_docs:
-	rsync $(RSYNC_OPTS) OLAC REC NOTE wg documents*.html $(WEB)
+	rsync $(RSYNC_OPTS) OLAC REC NOTE wg *.html *.xsl $(WEB)
 
 rsync_top:
 	rsync $(RSYNC_OPTS) *.html $(WEB)
