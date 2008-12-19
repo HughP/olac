@@ -71,15 +71,15 @@ if [ ${new_records:-0} -gt 0 ] ; then
 	echo "Updating search database..."
 	echo
         cd ../../tools/reports/lib
-	echo "  - Updating tag usage table..."
-        $PHP createTagUsageTable.php
+	#echo "  - Updating tag usage table..."
+        #$PHP createTagUsageTable.php
 	echo "  - Updating soundex table..."
 	$PHP createSoundexTable.php
-	echo "  - Updating item scores table..."
-	$PHP createItemScoresTable.php
-	cd ..
-	echo "  - Generating report..."
-	$PHP generateReports.php
+	#echo "  - Updating item scores table..."
+	#$PHP createItemScoresTable.php
+	#cd ..
+	#echo "  - Generating report..."
+	#$PHP generateReports.php
 	)
 
         echo
