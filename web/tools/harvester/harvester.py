@@ -882,12 +882,6 @@ class Harvester(Logger):
 ## Application code starts here
 ##
 
-def make_connection():
-    return MySQLdb.connect(read_default_file="~/.my.cnf",
-                           host="dbm", db="olac2",
-                           use_unicode=True, charset="utf8")
-
-
 def harvest(url, con, full=False, stream_filter=None):
     try:
         dbi = DBI(con)
