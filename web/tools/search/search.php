@@ -219,7 +219,7 @@ $output = "";
 function starImage( $num ) 
 { 
 	global $STYLE;
-	return $STYLE . "star" . $num . ".gif"; 
+	return $STYLE . "star" . round($num/2.0) . ".gif"; 
 }
 
 ######
@@ -333,7 +333,8 @@ return " <table>
 		<td>&nbsp;&nbsp;</td>
 		<td width=100%>
 	$counter."
-	. " <img src=" . starImage($row['recordScore']) . "></img>\n"
+        . "<img src=" . starImage($row['recordScore'])
+        . "\"></img>\n"
 	#. " \t<a href=\"$_SERVER[PHP_SELF]?item=$row[OaiIdentifier]"
 	#. "&queryTerms=$queryString&phrasemode=$phrasemode"
 	#. "&allmode=$allmode\">"
@@ -370,11 +371,15 @@ group by TagName
 
 $record = $DB->sql($getRecordQuery);
 
+$score_field =  "s.title + s.date + s.agent + s.about + s.depth + ";
+$score_field .= "s.content_language + s.linguistic_type + ";
+$score_field .= "s.subject_language + s.dcmi_type+s.prec";
+
 $getScoreQuery =
 "
-select round(its.Item_Score/2, 0) as scoreOutOfFive
-from ITEM_SCORES its
-where Item_ID = '$itemID'
+select $score_field as score
+from MetricsQualityScore s
+where Item_ID = $itemID
 ";
 $score = $DB->sql($getScoreQuery);
 
@@ -386,10 +391,11 @@ $score = $DB->sql($getScoreQuery);
     foreach ($score as $s)
     {
 	if ($links > $maxLinks) { break; }
+	$val = round($s['score'] / 2.0);
     $returnString .=
 	"<a href=\"$_SERVER[PHP_SELF]?query={$_GET['query']}"
 	. "&archive={$_GET['archive']}"
-	. "&score={$s['scoreOutOfFive']}"
+	. "&score=$val"
 	. "\">score</a>&nbsp;";
 	$links++;
     }
@@ -485,22 +491,27 @@ function buildSqlQuery( $tokens, $langCode, $score )
 	#$allTagsQuery = "select TagName from ELEMENT_DEFN";
 	#$allTags = $DB->sql($allTagsQuery);
 
-    $selectClause = " ar.Archive_ID, ar.Item_ID, ar.OaiIdentifier,
-			oa.RepositoryIdentifier ";
+    $score_field =  "s.title + s.date + s.agent + s.about + s.depth + ";
+    $score_field .= "s.content_language + s.linguistic_type + ";
+    $score_field .= "s.subject_language + s.dcmi_type+s.prec";
 
-    $selectClause .= 
-		", " . getRecordScore() . " as recordScore ";
+    $selectClause =  " ar.Archive_ID, ";
+    $selectClause .= " ar.Item_ID, ";
+    $selectClause .= " ar.OaiIdentifier, ";
+    $selectClause .= " oa.RepositoryIdentifier, ";
+    $selectClause .= " round($score_field,1) as recordScore ";
 
-    $fromClause = " ARCHIVED_ITEM ar, OLAC_ARCHIVE oa ";
-	$fromClause .= ", TAG_USAGE tu, ITEM_SCORES its ";
+    $fromClause =  " ARCHIVED_ITEM ar, ";
+    $fromClause .= " OLAC_ARCHIVE oa, ";
+    $fromClause .= " MetricsQualityScore s ";
 
-
-    $whereClause = " oa.Archive_ID = ar.Archive_ID ";
-	$whereClause .= " and its.Item_ID = ar.Item_ID ";
+    $whereClause =  " oa.Archive_ID = ar.Archive_ID ";
+    $whereClause .= " and s.Item_ID = ar.Item_ID ";
 
     if ($score!=null) 
     { 
-	$whereClause .= " and round(its.Item_Score/2,0) = '$score' ";
+      $whereClause .= " and ($score_field)/2 < $score + 0.5 ";
+      $whereClause .= " and ($score_field)/2 >= $score - 0.5";
     }
 
     $orderByClause = " oa.RepositoryIdentifier, recordScore DESC ";
@@ -541,7 +552,6 @@ function buildSqlQuery( $tokens, $langCode, $score )
 	if ( ($j == 0) || (($FIELD!="")&&($j==1) ) )		# first token	
 	{ 
 	    $selectClause .= ", $me.TagName, $me.Content, $me.Code "; 
-	    $whereClause .= " and tu.Tag_ID = $me.Tag_ID ";
 	}
 
 	$fromClause .= ", METADATA_ELEM_MYISAM $me ";
@@ -615,18 +625,23 @@ function buildSqlQuery( $tokens, $langCode, $score )
 	#echo "<!-- $resultsTableQuery \n $orderingTableQuery \n -->";
 
 	# Orders the results of the query using the archive aggregate scores
-    $SQLQuery = "select resultsTable.Archive_ID, 
-			resultsTable.RepositoryIdentifier, 
-			resultsTable.Item_ID, resultsTable.TagName, 
-			resultsTable.recordScore, orderingTable.archiveScore,
-			OaiIdentifier, Content, recordScore,
-			resultsTable.Code 	
-		from orderingTable, resultsTable
-		where orderingTable.Archive_ID = resultsTable.Archive_ID
+    $SQLQuery = "select  resultsTable.Archive_ID, 
+			 resultsTable.RepositoryIdentifier, 
+			 resultsTable.Item_ID,
+                         resultsTable.TagName, 
+			 resultsTable.recordScore,
+                         Metrics.metadata_quality as archiveScore,
+			 OaiIdentifier,
+                         Content,
+                         recordScore,
+			 resultsTable.Code 	
+		from     Metrics, resultsTable
+		where    Metrics.archive_id = resultsTable.Archive_ID
 		group by resultsTable.OaiIdentifier
-		order by archiveScore DESC, resultsTable.RepositoryIdentifier,
-			resultsTable.recordScore DESC, 
-			resultsTable.OaiIdentifier";
+		order by archiveScore DESC,
+                         resultsTable.RepositoryIdentifier,
+			 resultsTable.recordScore DESC, 
+			 resultsTable.OaiIdentifier";
 
     return $SQLQuery;
 }
@@ -1652,8 +1667,8 @@ function displayArchiveResults( $repositoryID, $archiveRecords, $queryTokens,
 
     $records = "<table><tr>"
     	   . "\n<th align=left><big>Results from "
-	   . "\"<a href=\"http://www.language-archives.org/archive.php4?"
-	   . "id=$archiveID\">"
+	   . "\"<a href=\"http://www.language-archives.org/archive/"
+	   . "$repositoryID\">"
 	   . "$repositoryID</a>\"</big></th>\n";
 
     if ( array_key_exists("archive", $_GET) && ($_GET['archive'] != ""))
