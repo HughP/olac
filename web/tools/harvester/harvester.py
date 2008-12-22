@@ -86,8 +86,26 @@ class DBI(Logger):
         #sql = "select Part2T, Id from ISO_639_3 where Part2T is not null"
         #self.cur.execute(sql)
         #self.ISO_639_2T = dict([r for r in self.cur.fetchall()])
-        
+
     def processIdentify(self, record):
+        try:
+            self._processIdentify(record)
+        except:
+            msg = traceback.format_exc()
+            msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
+            self.log(msg)
+            raise
+
+    def processRecord(self, record):
+        try:
+            self._processRecord(record)
+        except:
+            msg = traceback.format_exc()
+            msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
+            self.log(msg)
+            raise
+        
+    def _processIdentify(self, record):
         dbrecord = {}
         dbfields = {}
         for dbfield in ('ArchiveURL',
@@ -166,7 +184,7 @@ class DBI(Logger):
 
         self.con.commit()
 
-    def processRecord(self, record):
+    def _processRecord(self, record):
         self.recordCount0 += 1
 
         try:
@@ -200,7 +218,8 @@ class DBI(Logger):
                       "where Item_ID=%s"
                 args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
                 self.cur.execute(sql, args)
-                dt1 = datetime.datetime.strptime(record.datestamp(),"%Y-%m-%d")
+                dt1 = datetime.datetime(
+                    *[int(x) for x in record.datestamp().split('-')])
                 if self.cur.rowcount > 0 or dt==dt1.date():
                     self.updatedRecordCount0 += 1
                     flagUpdateMetadata = True
@@ -919,7 +938,10 @@ def harvest(url, con, full=False, stream_filter=None):
     except:
         msg = traceback.format_exc()
         msg = "\nUnexpected error in the harvester code:\n\n%s\n\n" % msg
-        h.log(msg)
+        try:
+            h.log(msg)
+        except:
+            print msg
 
 
 def harvest_single(url,
