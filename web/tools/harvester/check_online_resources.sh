@@ -18,4 +18,11 @@ export PYTHONPATH
 ADMIN_EMAIL="olac-admin@language-archives.org haejoong@ldc.upenn.edu"
 
 $PYTHON $ODIR/integrity.py -c $MYCNF -u
-/usr/bin/lockf /tmp/olac.metrics.lock $PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
+for i in 9 8 7 6 5 4 3 2 1 0; do
+    /usr/bin/lockf /tmp/olac.metrics.lock $PYTHON $ODIR/compute_olac_metrics.py -c $MYCNF
+    [ $? -eq 0 ] && break
+    echo
+    echo "Program crashed. Trying again in 10 minutes..."
+    echo
+    sleep 600
+done
