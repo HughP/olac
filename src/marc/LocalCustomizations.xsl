@@ -95,8 +95,8 @@
                   (GIAL)</institution>
                <institutionURL>http://www.gial.edu</institutionURL>
                <shortLocation>Dallas, TX</shortLocation>
-               <location/>
-               <synopsis/>
+               <location>where is this archive located...</location>
+               <synopsis>purpose of the archive...</synopsis>
                <access>Items are available for checkout to all GIAL
                   faculty and students, members of Bible translation
                   organizations, and International Linguistics Center
