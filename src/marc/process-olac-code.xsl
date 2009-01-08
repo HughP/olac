@@ -4186,7 +4186,7 @@
                     <xsl:when test="contains($lcsh,&quot;Romani language&quot;)"
                         >rom</xsl:when>
                     <xsl:when test="contains($lcsh,&quot;Romanian language&quot;)"
-                        >ron/rum</xsl:when>
+                        >ron</xsl:when>
                     <xsl:when test="contains($lcsh,&quot;Ron language&quot;)">cla</xsl:when>
                     <xsl:when test="contains($lcsh,&quot;Ronga language&quot;)"
                         >rng</xsl:when>
@@ -7639,7 +7639,7 @@
                     <xsl:when test="$lccn = 'sh85114208'">rit</xsl:when>
                     <xsl:when test="$lccn = 'sh92000635'">rmm</xsl:when>
                     <xsl:when test="$lccn = 'sh85115084'">rom</xsl:when>
-                    <xsl:when test="$lccn = 'sh85115036'">ron/rum</xsl:when>
+                    <xsl:when test="$lccn = 'sh85115036'">ron</xsl:when>
                     <xsl:when test="$lccn = 'sh85115224'">cla</xsl:when>
                     <xsl:when test="$lccn = 'sh85115307'">rng</xsl:when>
                     <xsl:when test="$lccn = 'sh85115308'">nbu</xsl:when>

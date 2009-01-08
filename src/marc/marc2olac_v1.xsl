@@ -46,6 +46,34 @@ local cataloging practices.
     <xsl:template match="marc:leader">
         <xsl:variable name="leader6" select="substring( . ,7,1)"/>
         <xsl:variable name="leader7" select="substring( . ,8,1)"/>
+
+        <!-- GFS:  Do we care about "manuscript" somewhere else?
+            (It doesn't belong here as a DCMI Type.)
+            <xsl:if
+                test="$leader6='d' or $leader6='f' or $leader6='p' or $leader6='t'">
+                <xsl:text>manuscript</xsl:text>
+            </xsl:if>
+            -->
+        <xsl:variable name="leadertype">
+            <xsl:choose>
+                <xsl:when test="$leader6='a' or $leader6='t'">Text</xsl:when>
+                <xsl:when test="$leader6='e' or $leader6='f'">StillImage</xsl:when>
+                <xsl:when test="$leader6='c' or $leader6='d'">Image</xsl:when>
+                <xsl:when test="$leader6='i' or $leader6='j'">Sound</xsl:when>
+                <xsl:when test="$leader6='k'">StillImage</xsl:when>
+                <xsl:when test="$leader6='g'">MovingImage</xsl:when>
+                <xsl:when test="$leader6='r'">PhysicalObject</xsl:when>
+                <xsl:when test="$leader6='m'">Software</xsl:when>
+                <xsl:when test="$leader6='p'">Collection</xsl:when>
+                <xsl:otherwise>none</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:if test="$leadertype != 'none'">
+            <dc:type xsi:type="dcterms:DCMIType">
+                <xsl:call-template name="show-source"/>
+                <xsl:value-of select="$leadertype"/>
+            </dc:type>
+        </xsl:if>
         <xsl:if test="$leader7='c' or $leader7='s'">
             <!-- Get the DCMI-Type out of the leader -->
             <dc:type xsi:type="dcterms:DCMIType">
@@ -53,31 +81,6 @@ local cataloging practices.
                 <xsl:text>Collection</xsl:text>
             </dc:type>
         </xsl:if>
-        <dc:type xsi:type="dcterms:DCMIType">
-            <xsl:call-template name="show-source"/>
-            <!-- GFS:  Do we care about "manuscript" somewhere else?
-            (It doesn't belong here as a DCMI Type.)
-            <xsl:if
-                test="$leader6='d' or $leader6='f' or $leader6='p' or $leader6='t'">
-                <xsl:text>manuscript</xsl:text>
-            </xsl:if>
-            -->
-            <xsl:choose>
-                <!-- GFS: These are not the exact terms from the
-                vocabulary; e.g. should be uppercase? 
-                JAS: these are the MARC terms; cartographic should be mapped to StillImage, 
-                three dimensional object to PhysicalObject, etc.-->
-                <xsl:when test="$leader6='a' or $leader6='t'">text</xsl:when>
-                <xsl:when test="$leader6='e' or $leader6='f'">cartographic</xsl:when>
-                <xsl:when test="$leader6='c' or $leader6='d'">notated music</xsl:when>
-                <xsl:when test="$leader6='i' or $leader6='j'">sound recording</xsl:when>
-                <xsl:when test="$leader6='k'">still image</xsl:when>
-                <xsl:when test="$leader6='g'">moving image</xsl:when>
-                <xsl:when test="$leader6='r'">three dimensional object</xsl:when>
-                <xsl:when test="$leader6='m'">software, multimedia</xsl:when>
-                <xsl:when test="$leader6='p'">mixed material</xsl:when>
-            </xsl:choose>
-        </dc:type>
     </xsl:template>
 
     <xsl:template match="marc:controlfield[@tag='008']">
@@ -85,19 +88,21 @@ local cataloging practices.
         <!-- JAS: prefer 041 and parse, or 590  
         Must repent of believing the librarian: GIAL data has 1501 records with 094 tags
         probably 13th or 14th ed. Ethnologue -->
-        <dc:language xsi:type="olac:language">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">-35</xsl:with-param>
-            </xsl:call-template>
-            <xsl:attribute name="olac:code">
-                <xsl:value-of select="substring( . ,36,3)"/>
-            </xsl:attribute>
-        </dc:language>
+        <xsl:if test="substring( . ,36,3) != '   '">
+            <dc:language xsi:type="olac:language">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">-35</xsl:with-param>
+                </xsl:call-template>
+                <xsl:attribute name="olac:code">
+                    <xsl:value-of select="substring( . ,36,3)"/>
+                </xsl:attribute>
+            </dc:language>
+        </xsl:if>
         <xsl:variable name="datecode" select="substring( . ,7,1)"/>
         <xsl:choose>
             <xsl:when test="$datecode = 'e'">
                 <!-- e - detailed date typically used as creation date with manuscripts; dcterms:created -->
-                <dcterms:created xsi:type="dcterms:W3CDTF">
+                <dcterms:created>
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-14</xsl:with-param>
                     </xsl:call-template>
@@ -111,9 +116,10 @@ local cataloging practices.
                     </xsl:if>
                 </dcterms:created>
             </xsl:when>
-            <xsl:when test="$datecode = 'i' or $datecode = 'k'">
+            <xsl:when
+                test="($datecode = 'i' or $datecode = 'k') and substring( . ,8,4) != '    ' and substring( . ,12,4) != '    '">
                 <!-- i k -  creation date range -->
-                <dcterms:created xsi:type="dcterms:W3CDTF">
+                <dcterms:created>
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-14</xsl:with-param>
                     </xsl:call-template>
@@ -122,58 +128,61 @@ local cataloging practices.
                     <xsl:value-of select="substring( . ,12,4)"/>
                 </dcterms:created>
             </xsl:when>
-            <xsl:when test="$datecode = 'p'">
+            <xsl:when
+                test="$datecode = 'p' and substring( . ,8,4) != '    ' and substring( . ,12,4) != '    '">
                 <!-- p - dcterms:issued (07-10) and dcterms:created (11-14) -->
                 <dcterms:issued xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-10</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,8,4)"/>
+                    <xsl:value-of select="translate(substring( . ,8,4),' u','00')"/>
                 </dcterms:issued>
                 <dcterms:created xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-11-14</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,12,4)"/>
+                    <xsl:value-of select="translate(substring( . ,12,4),'u ','00')"/>
                 </dcterms:created>
             </xsl:when>
-            <xsl:when test="$datecode = 'r'">
+            <xsl:when
+                test="$datecode = 'r' and substring( . ,8,4) != '    ' and substring( . ,12,4) != '    '">
                 <!-- r - dcterms:issued (07-10) and dc:date (11-14) -->
                 <dcterms:issued xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-10</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,8,4)"/>
+                    <xsl:value-of select="translate(substring( . ,8,4),' u','00')"/>
                 </dcterms:issued>
                 <dc:date>
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-11-14</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,12,4)"/>
+                    <xsl:value-of select="translate(substring( . ,12,4),'u ','00')"/>
                 </dc:date>
             </xsl:when>
-            <xsl:when test="$datecode = 's'">
+            <xsl:when test="$datecode = 's' and substring( . ,8,4) != '    '">
                 <!-- s - dcterms:issued (07-10) -->
                 <dcterms:issued xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-10</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,8,4)"/>
+                    <xsl:value-of select="translate(substring( . ,8,4),' u','00')"/>
                 </dcterms:issued>
             </xsl:when>
-            <xsl:when test="$datecode = 't'">
+            <xsl:when
+                test="$datecode = 't' and substring( . ,8,4) != '    ' and substring( . ,12,4) != '    '">
                 <!-- t - dcterms:issued (07-10) and dcterms:dateCopyrighted (11-14) -->
                 <dcterms:issued xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-10</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,8,4)"/>
+                    <xsl:value-of select="translate(substring( . ,8,4),' u','00')"/>
                 </dcterms:issued>
                 <dcterms:dateCopyrighted xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-11-14</xsl:with-param>
                     </xsl:call-template>
-                    <xsl:value-of select="substring( . ,12,4)"/>
+                    <xsl:value-of select="translate(substring( . ,12,4),'u ','00')"/>
                 </dcterms:dateCopyrighted>
             </xsl:when>
         </xsl:choose>
@@ -281,7 +290,7 @@ local cataloging practices.
             <xsl:when test="count($str) = 1">
                 <xsl:if test="string-length($str) mod 3 = 0 and string-length($str) > 0">
                     <dc:language>
-                        <xsl:call-template name="show-source" />
+                        <xsl:call-template name="show-source"/>
                         <xsl:attribute name="xsi:type" select="$xsitype"/>
                         <xsl:value-of select="substring($str,1,3)"/>
                     </dc:language>
@@ -433,12 +442,12 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='130']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
             </xsl:call-template>
             <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:alternative>
+        </dcterms:alternative>
         <dc:date>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">fg</xsl:with-param>
@@ -461,22 +470,22 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='210']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
-        </dc:alternative>
+        </dcterms:alternative>
     </xsl:template>
 
 
 
 
     <xsl:template match="marc:datafield[@tag='240']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">a</xsl:with-param>
             </xsl:call-template>
             <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:alternative>
+        </dcterms:alternative>
         <dc:date>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">fg</xsl:with-param>
@@ -499,14 +508,14 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='242']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">ab</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">ab</xsl:with-param>
             </xsl:call-template>
-        </dc:alternative>
+        </dcterms:alternative>
     </xsl:template>
 
 
@@ -526,14 +535,14 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='246']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abnp</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abnp</xsl:with-param>
             </xsl:call-template>
-        </dc:alternative>
+        </dcterms:alternative>
     </xsl:template>
 
 
@@ -880,7 +889,7 @@ local cataloging practices.
                 <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
-                <dc:subject xsi:type="dcterms:MeSH">
+                <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
@@ -904,7 +913,7 @@ local cataloging practices.
                 <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
-                <dc:subject xsi:type="dcterms:MeSH">
+                <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
@@ -930,7 +939,7 @@ local cataloging practices.
                 <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
-                <dc:subject xsi:type="dcterms:MeSH">
+                <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
@@ -955,7 +964,7 @@ local cataloging practices.
                 <xsl:call-template name="process-linguistic-type"/>
             </xsl:when>
             <xsl:when test="@ind2='2'">
-                <dc:subject xsi:type="dcterms:MeSH">
+                <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
@@ -971,9 +980,9 @@ local cataloging practices.
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <xsl:variable name="code">
-                <xsl:call-template name="process-olac-code">
-                    <xsl:with-param name="lcsh" select="."/>
-                </xsl:call-template>
+                    <xsl:call-template name="process-olac-code">
+                        <xsl:with-param name="lcsh" select="."/>
+                    </xsl:call-template>
                 </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
                     <xsl:if test="$code = '' and contains( lower-case( . ) ,'language')">
@@ -986,8 +995,8 @@ local cataloging practices.
                 </dc:subject>
                 <xsl:if test="$code != ''">
                     <dc:subject xsi:type="olac:language">
-                        <xsl:attribute name="olac:code" select="$code" />
-                        <xsl:call-template name="show-source" />
+                        <xsl:attribute name="olac:code" select="$code"/>
+                        <xsl:call-template name="show-source"/>
                     </dc:subject>
                 </xsl:if>
                 <xsl:call-template name="process-linguistic-type"/>
@@ -995,7 +1004,7 @@ local cataloging practices.
 
             </xsl:when>
             <xsl:when test="@ind2='2'">
-                <dc:subject xsi:type="dcterms:MeSH">
+                <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
                     <xsl:call-template name="subfieldSelect">
                         <xsl:with-param name="delimiter">--</xsl:with-param>
@@ -1227,19 +1236,19 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='730']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
-        </dc:alternative>
+        </dcterms:alternative>
     </xsl:template>
 
 
 
     <xsl:template match="marc:datafield[@tag='740']">
-        <dc:alternative>
+        <dcterms:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
-        </dc:alternative>
+        </dcterms:alternative>
     </xsl:template>
 
 
@@ -1378,12 +1387,12 @@ local cataloging practices.
                 <xsl:call-template name="process-856"/>
             </xsl:when>
             <xsl:otherwise>
-                <dcterms:format xsi:type="dcterms:IMT">
+                <dc:format xsi:type="dcterms:IMT">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">q</xsl:with-param>
                     </xsl:call-template>
                     <xsl:value-of select="marc:subfield[@code='q']"/>
-                </dcterms:format>
+                </dc:format>
                 <dc:identifier xsi:type="dcterms:URI">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">u</xsl:with-param>
@@ -1409,7 +1418,7 @@ local cataloging practices.
                 </dcterms:tableOfContents>
             </xsl:when>
             <xsl:otherwise>
-                <dc:description from="856" xsi:type="dcterms:URI">
+                <dc:description from="856">
                     <xsl:value-of select="marc:subfield[@code='3']"/>
                     <xsl:text> : </xsl:text>
                     <xsl:value-of select="marc:subfield[@code='u']"/>
