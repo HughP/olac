@@ -5,39 +5,84 @@ Community over the last couple of years.  Full details are available at:
   http://www.language-archives.org/
 
 
-NSF AWARD
+OLAC SERVICES
 
-(blurb about the NSF project?)
+You can use OLAC's online services to search language archives, and to
+register your own collection of language resources.
 
+Search Language Archives:
+  http://www.language-archives.org/tools/search/
+Participating Archives:
+  http://www.language-archives.org/archives.php
+Register an Archive:
+  http://www.language-archives.org/register/register.php
+  
 
 LSA TUTORIAL
 
 Jeff Good (Buffalo) and Heidi Johnson (UT Austin) are running a
 tutorial titled "Accessing Collaboration: Archives as Bridges between
-Researchers, Resources and Communities of Speakers".
+Researchers, Resources and Communities of Speakers", to take place
+at the LSA Conference in San Francisco on Sunday 11 January.
 
 Conference program:
   http://lsadc.org/info/preliminary-program09.cfm (scroll down to Sunday 11 January)
 
 
-NEW OLAC REPOSITORIES
+IMPROVING THE QUALITY OF OLAC SEARCH
 
-X repositories joined OLAC in 2007 and 2008:
-  (list)
+Over the past year we have been developing tools and recommendations designed
+to improve the quality of language resource metadata, since more detailed
+and accurate metadata will greatly improve the quality of OLAC search.
+The Archive Metrics page scores participating archives according to the
+quality of their metadata [http://www.language-archives.org/metrics/].
+It assesses quality according to an extensive set of recommendations
+and guidelines.
 
-Full list of OLAC Archives:
-  http://www.language-archives.org/archives.php4
+OLAC Metadata Metrics
+  http://www.language-archives.org/NOTE/metrics.html
+Best Practice Recommendations for Language Resource Description
+  http://www.language-archives.org/REC/bpr.html
+OLAC Metadata Usage Guidelines
+  http://www.language-archives.org/NOTE/usage.html
 
 
-NEW OLAC SERVICES
+GOOGLE INDEXING
 
-(description of new archive pages, metrics, item pages, google indexing, etc)
+OLAC services check the ~35 registered archives for updates three
+times a day, and update the index used by OLAC's search service.
+In addition, a web page is created for every archived item, e.g.
+http://www.language-archives.org/item/oai:aseda.aiatsis.gov.au:0020
+Google indexes these ~30,000 pages, so people searching for
+language resources may discover items in any OLAC archive, e.g.
+http://www.google.com/search?q=kaytetye+texts
+If an item is described using an ISO 639-3 or OLAC term,
+these are added to the item page, e.g. iso639_gbb, olac_lexicon,
+and you can search for them using Google:
+http://www.google.com/search?q=olac_lexicon&filter=0
 
 
-OLAC DOCUMENTS
+OLAC 1.1 METADATA
 
-(update on the status of OLAC documents)
+Version 1.0 of OLAC metadata has been around since 2002 and there has
+been an extended period of stability during which archives have been
+able to develop and operate their interfaces to OLAC.  Now that
+ISO 639-3 has been formally adopted and the set of language codes
+has been revised, we have reflected this in OLAC metadata
+(after all, accurate language identification is the cornerstone
+the OLAC enterprise.)  As part of this change we have improved the
+top-level description of OLAC repositories, to permit an archive's
+submission policy to be documented, and to permit more flexible
+identification of archive administrators, with input from the
+OLAC community.  These changes have led to the development of
+version 1.1 of the OLAC metadata schema and the OLAC archive
+description schema, described in updated versions of the OLAC
+standards:
 
+OLAC Metadata:
+  http://www.language-archives.org/OLAC/metadata.html
+OLAC Repositories:
+   http://www.language-archives.org/OLAC/repositories.html
 
 
 Best wishes,
