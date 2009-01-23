@@ -71,7 +71,7 @@ create table ARCHIVE_PARTICIPANT (
 	Role			varchar(32),
 	Email			varchar(128),
 	primary key (Archive_ID, Role, Email),
-	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID)
+	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID) on delete cascade
 ) engine=innodb, charset=utf8;
 
 ##################################################################
