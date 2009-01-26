@@ -448,7 +448,8 @@ create table INTEGRITY_CHECK (
 
 ##################################################################
 # Table                : ARCHIVES
-#
+# Description          : Used by the registration service to record
+#                        the registration status.
 # Archive_ID           : A unique ID.
 #                        NOTE: This field has nothing to do with the
 #                        Archive_ID of the OLAC_ARCHIVE table.
@@ -460,7 +461,7 @@ create table ARCHIVES (
 	Archive_ID		int(11) auto_increment,
 	type			varchar(20),
 	ID			varchar(50) not null,
-	BASEURL			varchar(255) not null,
+	BASEURL			varchar(255) not null unique,
 	contactEmail		varchar(255),
 	dateApproved		date,
 	primary key (Archive_ID)
