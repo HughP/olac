@@ -87,7 +87,7 @@ available at http://www.gnu.org/licenses/gpl.txt).
                         <xsl:value-of
                            select="concat(
                            $LanguageCodes/xs:enumeration[@value=$code]//xs:documentation,
-                           '[', $code, ']' )"
+                           ' [', $code, ']' )"
                         />
                      </xsl:with-param>
                   </xsl:call-template>
@@ -216,7 +216,8 @@ available at http://www.gnu.org/licenses/gpl.txt).
    </xsl:template>
    <xsl:template name="element-content">
       <xsl:choose>
-         <xsl:when test="starts-with(.,'http://') or
+         <xsl:when
+            test="starts-with(.,'http://') or
             starts-with(.,'https://') or starts-with(.,'file:')">
             <a href="{.}">
                <xsl:value-of select="."/>
