@@ -298,8 +298,10 @@ function register($id, $dp_admin) {
   $baseurl = $_POST["baseurl"];
   $adminemail = $_POST["adminemail"];
 
-  $DB->sql("insert into ARCHIVES (ID,BASEURL,contactEmail, type)
-            values ('$repoid', '$baseurl', '$adminemail','$repotype')");
+  $DB->sql("insert into ARCHIVES (ID,BASEURL,contactEmail, type) " .
+           "values ('$repoid', '$baseurl', '$adminemail','$repotype') " .
+           "on duplicate key update ID='$repoid', BASEURL='$baseurl', " .
+           "contactEmail='$adminemail', type='$repotype'");
   if ($DB->saw_error()) {
     error("Database error");
 
