@@ -136,9 +136,9 @@ sqls = [
 
     "update Metrics m left join (select avg(c) a, std(c) s from (select count(*) c from METADATA_ELEM group by Item_ID) t) t on m.archive_id=-1 set m.avg_num_elements=t.a, m.std_num_elements=t.s where m.archive_id=-1",
 
-    "update Metrics m left join (select ai.Archive_ID, count(*) c from ARCHIVED_ITEM ai where exists (select 1 from METADATA_ELEM where Item_ID=ai.Item_ID and TagName='identifier' and (Content like 'http:%' or Content like 'https:%' or Content like 'ftp:%')) group by ai.Archive_ID) x on m.archive_id=x.Archive_ID set m.num_online_resources=x.c",
+    "update Metrics m left join (select ai.Archive_ID, count(*) c from ARCHIVED_ITEM ai where exists (select 1 from METADATA_ELEM where Item_ID=ai.Item_ID and TagName='identifier' and Content regexp '^(http|https|ftp):.*') group by ai.Archive_ID) x on m.archive_id=x.Archive_ID set m.num_online_resources=x.c",
 
-    "update Metrics set num_online_resources=(select count(*) from ARCHIVED_ITEM ai where exists (select 1 from METADATA_ELEM where Item_ID=ai.Item_ID and TagName='identifier' and (Content like 'http%' or Content like 'https:%' or Content like 'ftp:%'))) where archive_id=-1",
+    "update Metrics set num_online_resources=(select count(*) from ARCHIVED_ITEM ai where exists (select 1 from METADATA_ELEM where Item_ID=ai.Item_ID and TagName='identifier' and Content regexp '^(http|https|ftp):.*')) where archive_id=-1",
 
     "update Metrics set num_online_resources=0 where num_online_resources is null",
 
