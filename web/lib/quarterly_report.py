@@ -116,8 +116,8 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
         feedback.append("See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.\n\nhttp://www.language-archives.org/sample/%s" % archiveId)
     if d > 12.0:
         feedback.append("Note that it is more than one year since your metadata repository was last updated. Even if your collection is static, you should verify the details in your <olac-archive> description and update the currentAsOf date. Please do so at your earliest convenience.")
-    if d <= 12.0 and d > 9:
-        feedback.append("Note that it will soon be one year since your metadata repository was last updated; please update it by %s." % addMonths(lastUpdated, 12))
+    if d <= 12.0 and d > 9.0:
+        feedback.append("Note that it will soon be one year since your metadata repository was last updated; please update it by %s." % (lastUpdated+datetime.timedelta(356.25)))
 
     return "\n\n".join(feedback)
 
@@ -226,10 +226,12 @@ def sendReport(msg, emails, bcc, archiveId, isTest):
     server = smtplib.SMTP('mail.ldc.upenn.edu')
     server.helo()
     server.docmd("MAIL FROM:<olac-admin@language-archives.org>")
-    for addr in emails:
-        server.docmd("RCPT TO:<%s>" % addr)
-    for addr in bcc:
-        server.docmd("RCPT TO:<%s>" % addr)
+    if emails:
+        for addr in emails:
+            server.docmd("RCPT TO:<%s>" % addr)
+    if bcc:
+        for addr in bcc:
+            server.docmd("RCPT TO:<%s>" % addr)
     server.docmd("DATA")
     server.docmd(msg + "\r\n.\r\n")
     server.docmd("QUIT")
@@ -308,8 +310,8 @@ class Metrics(Table):
 
 def previous_quarter():
     today = datetime.datetime.today()
-    q = int(today.strftime("%m")) / 3
-    y = int(today.strftime("%Y"))
+    q = (today.month-1) / 3
+    y = today.year
     if q == 0:
         beg = datetime.datetime(y-1, 10, 1)
         end = datetime.datetime(y, 1, 1)
@@ -353,8 +355,8 @@ if __name__ == "__main__":
 
     usage = """\
 usage: %prog -h
-       %prog [-s] [-t <email>] <OAI repository ID>
-       %prog [-s] [-t <email>] -a"""
+       %prog [-s] [-t <email>] [-b <email>] <OAI repository ID>
+       %prog [-s] [-t <email>] [-b <email>] -a"""
     op = OptionParser(usage)
     op.add_option("-a", "--all", dest="all",
                   action="store_true", default=False,
@@ -412,7 +414,7 @@ usage: %prog -h
             else:
                 receipient = metrics.participants(archiveId)
                 if receipient:
-                    sendReport(msg, receipient, bcc, repoName, True)
+                    sendReport(msg, receipient, bcc, repoName, False)
         else:
             print "-" * 79
             print msg
