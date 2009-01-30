@@ -134,12 +134,6 @@ $banner =
 
 <BODY>
 
-<p>
-All linguists are no doubt familiar with the difficulty of finding 
-information relevant to their research. The Open Language Archives Community 
-is dedicated to collecting information about language resources and making 
-it available from a single search.
-
 <table>
 <tr>
 <td>
