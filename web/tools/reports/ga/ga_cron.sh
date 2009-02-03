@@ -1,3 +1,5 @@
+#! /bin/sh
+
 case $0 in
     /*) thisdir=`dirname $0` ;;
     *)  thisdir=`pwd`/`dirname $0` ;;
@@ -12,8 +14,3 @@ while read report; do
     $python $thisdir/load_report.py -c /home/olac/.my.cnf $report
     rm -f $report
 done
-
-
-
-
-
