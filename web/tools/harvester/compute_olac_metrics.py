@@ -30,7 +30,7 @@ sqls = [
     
     "drop table langcodes",
 
-    "update Metrics set num_linguistic_fields=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-field' and Archive_ID=Metrics.archive_id)",
+    "update Metrics m, (select Archive_ID, count(distinct me.Code) c from ARCHIVED_ITEM ai, METADATA_ELEM me where ai.Item_ID=me.Item_ID and me.Type='linguistic-field' and me.Type != '' and me.Type is not null group by Archive_ID) x set m.num_linguistic_fields=x.c where m.archive_id=x.Archive_ID",
 
     "update Metrics set num_linguistic_fields=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-field') where archive_id=-1",
     
