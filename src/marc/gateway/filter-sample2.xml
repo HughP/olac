@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
+<gateway name="filter-test">
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Simple test filter</dc:title>
+      <dc:contributor>Joan Spanne</dc:contributor>
+      <dc:date>2009-02-09</dc:date>
+      <dc:description>This filter tests for the words "language" or "languages" 
+         in 650a and specific type content in certain form headings (650 subfield v) </dc:description>
+   </header>
+   <select-stage>
+      <!--
+         Test to see if this is a corrected record, and if so, pass
+      -->
+      <leader position="6" length="1" test="equals">c</leader>
+     <!-- <data-field test="contains" tag="650" code="a">language</data-field> -->
+      <data-field test="contains" tag="24x" code="ab">dictionary</data-field>
+      <data-field test="contains" tag="24x" code="">lexicon</data-field>
+      <data-field test="contains" tag="650" code="v">dictionaries</data-field>
+      <data-field test="contains" tag="650" code="v">texts</data-field>
+      <data-field test="exists" tag="590" code="a"/>
+
+   </select-stage>
+   <reject-stage>
+      <data-field test="contains" tag="650" code="a">(Computer program language)</data-field>
+      <data-field test="contains" tag="650" code="a">(Artificial language)</data-field>
+   </reject-stage>
+   <crosswalk/>
+</gateway>
