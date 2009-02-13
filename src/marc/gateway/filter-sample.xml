@@ -9,20 +9,27 @@
          of each kind of test.</dc:description>
    </header>
    <select-stage>
-      <test><leader position="1" length="3" test="equals">012</leader></test>
+      <test><leader position="1" length="3" test="equals">
+          <text>012</text>
+         <text>013</text>
+      </leader></test>
 <!--
       <test><control-field position="7" length="1" test="equals" tag="008">s</control-field></test>
   -->
-      <test><data-field test="contains" tag="xxx" code="">morphology</data-field></test>
-      <test><data-field test="contains" tag="245" code="ab">dictionary</data-field></test>
-      <test><data-field test="contains" tag="24x" code="">lexicon</data-field></test>
+      <test><data-field test="contains" tag="xxx" code=""><text>morphology</text></data-field></test>
+      <test><data-field test="contains" tag="245" code="ab"><text>dictionary</text></data-field></test>
+      <test><data-field test="contains" tag="24x" code="">
+          <text>lexicon</text>
+          <text>lexical</text>
+          <text>Lexicon</text>
+      </data-field></test>
       <test><data-field test="exists" tag="246" code=""></data-field>
          <data-field test="exists" tag="247" code="v"></data-field>
       </test>
 
    </select-stage>
    <reject-stage>
-      <test><leader position="1" length="3" test="equals">012</leader></test>
+      <test><leader position="1" length="3" test="equals"><text>012</text></leader></test>
    </reject-stage>
    <crosswalk/>
 </gateway>
