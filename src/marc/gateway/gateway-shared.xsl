@@ -51,7 +51,7 @@
       </xsl:choose>
    </xsl:template>
    <!-- Compile the @test into an xpath [predicate] -->
-   <xsl:template match="data-field" mode="compile-test">
+   <xsl:template match="data-field" mode="compile-test2">
       <xsl:choose>
          <xsl:when test="@test = 'exists'"/>
          <xsl:when test="@test = 'equals'">
@@ -67,6 +67,36 @@
          </xsl:when>
       </xsl:choose>
    </xsl:template>
+    
+    <xsl:template match="data-field" mode="compile-test">
+        <xsl:variable name="test" select="@test"/>
+        <xsl:if test="@test != 'exists'">
+            <xsl:text>[</xsl:text>
+            <xsl:for-each select="text">
+                <xsl:if test="position() != 1"> or </xsl:if>
+                <xsl:choose>
+                    <xsl:when test="../@test = 'equals'">
+                        <xsl:value-of
+                            select="concat(' . = ', $sq, ., $sq  )"
+                        />
+                    </xsl:when>
+                    <xsl:when test="../@test = 'contains'">
+                        <xsl:value-of
+                            select="concat('contains( . , ', $sq, .,
+               $sq, ')'  )"
+                        />
+                    </xsl:when>
+                    <xsl:when test="../@test = 'starts-with'">
+                        <xsl:value-of
+                            select="concat('starts-with( . , ', $sq, .,
+               $sq, ')'  )"
+                        />
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:for-each>
+            <xsl:text>]</xsl:text>
+        </xsl:if>
+    </xsl:template>
    <!-- Compile the @code into an xpath [predicate] -->
    <xsl:template match="data-field" mode="compile-code">
       <xsl:choose>
@@ -93,8 +123,13 @@
                ',', @length, ')) != ', $sq, ' ', $sq, ']'  )"/>
          </xsl:when>
          <xsl:when test="@test = 'equals'">
-            <xsl:value-of select="concat('[substring( . ,', @position,
-               ',', @length, ') = ', $sq, ., $sq, ']'  )"/>
+            <xsl:text>[</xsl:text>
+            <xsl:for-each select="text">
+                <xsl:if test="position() != 1"> or </xsl:if>
+            <xsl:value-of select="concat('substring( . ,', ../@position,
+               ',', ../@length, ') = ', $sq, ., $sq )"/>
+            </xsl:for-each>
+            <xsl:text>]</xsl:text>
          </xsl:when>
       </xsl:choose>
       <!-- attribute tag { xsd:string {pattern='[0-9][0-9][0-9]'} },

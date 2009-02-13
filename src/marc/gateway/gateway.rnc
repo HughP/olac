@@ -4,7 +4,7 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
 # Possible abstract syntax for the MARC to OLAC gateway
 # G. Simons, 17 Jan 2009
-# Last updated: 12 Feb 2009
+# Last updated: 13 Feb 2009
 # The two stages of the filter for determining the record set
 # have a complete design, but the crosswalk part is unspecified
 
@@ -55,7 +55,8 @@ leader = element leader {
    attribute position { xsd:unsignedByte },
    attribute length { xsd:unsignedByte },
    attribute test { "exists" | "equals" },
-   text
+   text-element* # For an exists test, there are no text elements 
+            # For an equals test, it is an OR over all supplied text values
   }
  
  # A test on a positional subfield within a named control field
@@ -64,8 +65,7 @@ control-field = element control-field {
    attribute position { xsd:unsignedByte },
    attribute length { xsd:unsignedByte },
    attribute test { "exists" | "equals" },
-   text   # element content has value for equals test,
-            # but is empty for exists test 
+   text-element*   
   } 
   
  # A test on a named subfield within a named data field
@@ -76,8 +76,11 @@ data-field = element data-field {
 # emptyr, it is a list of the subfields to search in
    attribute code { xsd:string {pattern='[a-z0-9]*'} },
    attribute test { "exists" | "equals" | "contains" | "starts-with"  },
-   text
+   text-element*
   } 
+  
+  text-element =
+     element text { text }
   
 # A record passes through the second stage filter if it does not match  
 # any of the tests for rejection
