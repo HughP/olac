@@ -5,7 +5,33 @@
    version="1.0">
   <xsl:output method="xml"/>
    <xsl:variable name="sq">'</xsl:variable>
-   <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>
+   <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>   
+   <xsl:template match="data-field">
+      <xsl:text>[marc:datafield</xsl:text>
+      <!-- The xpath test is the concatenation of the following predicates
+         which are thus ANDed together -->
+         <xsl:apply-templates select="self::node()"
+            mode="compile-tag"/>
+         <xsl:apply-templates select="self::node()"
+            mode="compile-code"/>
+         <xsl:apply-templates select="self::node()"
+            mode="compile-test"/>
+      <xsl:text>]</xsl:text>
+   </xsl:template>
+   <xsl:template match="control-field" >
+         <xsl:text>[marc:controlfield</xsl:text>
+         <xsl:apply-templates select="self::node()"
+            mode="compile-tag"/>
+         <xsl:apply-templates select="self::node()"
+            mode="compile-test"/>
+         <xsl:text>]</xsl:text>
+   </xsl:template>
+   <xsl:template match="leader">
+      <xsl:text>[marc:leader</xsl:text>
+         <xsl:apply-templates select="self::node()"
+            mode="compile-test"/>
+         <xsl:text>]</xsl:text>
+   </xsl:template>
    <!-- Compile the @tag into an xpath [predicate] -->
    <xsl:template match="data-field" mode="compile-tag">
       <xsl:choose>
