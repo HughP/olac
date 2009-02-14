@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
+<gateway name="filter-minimal">
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Minimal test filter</dc:title>
+      <dc:contributor>Gary Simons</dc:contributor>
+      <dc:date>2009-02-03</dc:date>
+      <dc:description>This is the minimal filter that accepts
+         everything and rejects nothing.</dc:description>
+   </header>
+   <select-stage>
+      <select-all/>
+   </select-stage>
+   <reject-stage></reject-stage>
+   <crosswalk/>
+</gateway>
