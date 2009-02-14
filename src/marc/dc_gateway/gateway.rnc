@@ -1,0 +1,85 @@
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+namespace dc = "http://purl.org/dc/elements/1.1/"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# Possible abstract syntax for the OAI_DC to OLAC gateway
+# G. Simons, 13 Feb 2009
+# Last updated: 13 Feb 2009
+# The two stages of the filter for determining the record set
+# have a complete design, but the crosswalk part is unspecified
+
+grammar {
+
+start = element gateway {
+   attribute name { xsd:string },
+   header, select-stage, reject-stage, crosswalk }
+
+# The header gives the metadata for the gateway definition itself
+header = 
+   element header { dc-title, dc-contributor, dc-date, dc-description }
+   
+dc-title =
+    element dc:title {text}
+    
+dc-contributor =
+    element dc:contributor {text}
+    
+dc-date =
+    element dc:date  {text}
+    
+dc-description =
+    element dc:description  {text}
+    
+   # Something that must be included within the header is all the 
+   # information needed to construct the provenance element that
+   # will be added in the records that go through the crosswalk
+
+# A record passes through the first stage filter if it matches at least 
+# one of the criteria for selection
+select-stage = 
+   element select-stage { select-all | test+ }
+
+# Select-all: every record passes through stage one
+select-all = 
+   element select-all { empty }
+   
+# A test is the AND of a set of criteria
+test =
+   element test {criterion+}
+
+# The set of criterion tests used in both stages of the filter
+criterion = dc-element 
+
+  
+ # A test on the contents of a named DC element
+dc-element = element dc-element {
+# Only the simple DC tags are allowed
+   attribute tag { "contributor" | "creator" | "coverage" | "date" |
+   "description" | "format" | "identifier" | "language" | "publisher" |
+   "relation" | "rights" | "source" | "subject" | "title" | "type" 
+         }?,
+   attribute test { "exists" | "equals" | "contains" | "starts-with"  },
+   attribute negate {"yes"}?,
+   text-element*
+  } 
+  
+  text-element =
+     element text { text }
+  
+# A record passes through the second stage filter if it does not match  
+# any of the tests for rejection
+reject-stage = 
+   element reject-stage { test* }
+
+# The records that have passed through both stages of the filter
+# are mapped to an equivalent OLAC record
+crosswalk = 
+   element crosswalk { empty }
+   
+map =
+   element map { criterion }
+   
+# Some built-in things: 
+#   conversion of 008 control field positions to W3CDTF,
+#   conversion of 034 subtags to dcterms:Box value   
+}
