@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- gateway-compile2.xsl
-   Compile the stage 2 ("reject") filter for a gateway
-   G. Simons, 4 Feb 2009
-   Last revised: 12 Feb 2009
+<!-- dc_gateway-compile2.xsl
+   Compile the stage 2 ("reject") filter for an OAI_DC gateway
+        G. Simons, 13 Feb 2009
+        Last updated: 14 Feb 2009
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
    xmlns:alias="AliasForXSLT"
-   xmlns:marc="http://www.loc.gov/MARC21/slim"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
    version="1.0">
    <xsl:output method="xml"/>
    <xsl:include href="dc_gateway-shared.xsl"/>
@@ -14,7 +15,7 @@
    <xsl:template match="/gateway">
       <alias:stylesheet version="1.0">
             <alias:output method="xml"/>
-            <alias:template match="marc:collection">
+            <alias:template match="oai:ListRecords">
                <alias:copy>
                   <alias:apply-templates/>
                </alias:copy>
