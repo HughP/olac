@@ -8,6 +8,7 @@
    xmlns:alias="AliasForXSLT"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
+   xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
    version="1.0">
   <xsl:output method="xml"/>
    <xsl:include href="dc_gateway-shared.xsl"/>
@@ -15,9 +16,9 @@
    <xsl:template match="/gateway">
          <alias:stylesheet version="1.0">
             <alias:output method="xml"/>
-            <alias:template match="oai:ListRecords">
+            <alias:template match="/root">
                <alias:copy>
-                  <alias:apply-templates/>
+                  <alias:apply-templates select="//oai:record"/>
                </alias:copy>
             </alias:template>
             <xsl:comment>Copy any record that matches a
@@ -39,7 +40,8 @@
       <xsl:variable name="criteria">
          <xsl:apply-templates select="*"/>
       </xsl:variable>
-      <alias:template match="oai:oai_dc{$criteria}" priority="1">
+      <alias:template
+         match="oai:record[oai:metadata/oai_dc:dc{$criteria}]" priority="1">
          <alias:copy-of select="self::node()"/>
       </alias:template>
    </xsl:template>

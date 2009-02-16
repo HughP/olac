@@ -9,16 +9,19 @@
          of each kind of test.</dc:description>
    </header>
    <select-stage>
+<!--
       <test><dc-element test="contains" tag="subject"
          ><text>morphology</text></dc-element></test>
       <test><dc-element test="contains">
+          <text>language</text>
+          <text>dictionary</text>
           <text>lexicon</text>
-          <text>lexical</text>
-          <text>Lexicon</text>
-      </dc-element></test>
+      </dc-element></test> -->
       <test><dc-element test="exists" tag="language"/>
          <dc-element test="equals" tag="language" negate="yes">
             <text>en</text>
+            <text>EN</text>
+            <text>en_US</text>
             <text>eng</text>
             <text>English</text>
             <text>fr</text>
@@ -29,6 +32,9 @@
             <text>deu</text>
             <text>ger</text>
             <text>German</text>
+            <text>es</text>
+            <text>sl</text>
+            <text>zh</text>
          </dc-element>
       </test>
 

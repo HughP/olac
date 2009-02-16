@@ -1,3 +1,3 @@
-call test filter-sample ..\GIAL_M~2.xml
+call test filter-sample kansas.xml
 pause
 
