@@ -14,8 +14,6 @@
          <xsl:apply-templates select="self::node()"
             mode="compile-tag"/>
          <xsl:apply-templates select="self::node()"
-            mode="compile-code"/>
-         <xsl:apply-templates select="self::node()"
             mode="compile-test"/>
       <xsl:text>]</xsl:text>
    </xsl:template>
