@@ -2,7 +2,7 @@
 <!-- dc_gateway-compile2.xsl
    Compile the stage 2 ("reject") filter for an OAI_DC gateway
         G. Simons, 13 Feb 2009
-        Last updated: 14 Feb 2009
+        Last updated: 16 Feb 2009
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
    xmlns:alias="AliasForXSLT"
@@ -15,11 +15,18 @@
    <xsl:template match="/gateway">
       <alias:stylesheet version="1.0">
             <alias:output method="xml"/>
-            <alias:template match="oai:ListRecords">
-               <alias:copy>
-                  <alias:apply-templates/>
+         <alias:template match="/oai:OAI-PMH">
+            <alias:copy>
+               <alias:copy-of
+                  select="oai:responseDate | oai:request"/>
+               <alias:apply-templates select="oai:ListRecords"/>
                </alias:copy>
-            </alias:template>
+         </alias:template>
+         <alias:template match="oai:ListRecords">
+            <alias:copy>
+               <alias:apply-templates select="oai:record"/>
+            </alias:copy>
+         </alias:template>
          <xsl:comment>If one of the following rejection criteria is met,
             then discard the record.</xsl:comment>
             <xsl:apply-templates select="reject-stage/*"/>
@@ -34,7 +41,7 @@
       <xsl:variable name="criteria">
          <xsl:apply-templates select="*"/>
       </xsl:variable>
-      <alias:template match="marc:record{$criteria}" priority="1">
+      <alias:template match="oai:record[oai:metadata/oai_dc:dc{$criteria}]" priority="1">
       </alias:template>
    </xsl:template>
 </xsl:stylesheet>

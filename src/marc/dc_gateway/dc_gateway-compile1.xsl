@@ -2,7 +2,7 @@
 <!-- dc_gateway-compile1.xsl
         Compile the stage 1 ("select") filter for an OAI_DC gateway
         G. Simons, 13 Feb 2009
-        Last updated: 14 Feb 2009
+        Last updated: 16 Feb 2009
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:alias="AliasForXSLT"
@@ -16,9 +16,16 @@
    <xsl:template match="/gateway">
          <alias:stylesheet version="1.0">
             <alias:output method="xml"/>
-            <alias:template match="/root">
+            <alias:template match="/oai:OAI-PMH">
                <alias:copy>
-                  <alias:apply-templates select="//oai:record"/>
+                  <alias:copy-of
+                     select="oai:responseDate | oai:request"/>
+                  <alias:apply-templates select="oai:ListRecords"/>
+               </alias:copy>
+            </alias:template>
+            <alias:template match="oai:ListRecords">
+               <alias:copy>
+                  <alias:apply-templates select="oai:record"/>
                </alias:copy>
             </alias:template>
             <xsl:comment>Copy any record that matches a
