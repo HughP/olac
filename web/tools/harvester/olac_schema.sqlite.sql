@@ -22,6 +22,7 @@ create table OLAC_ARCHIVE (
 	OaiVersion		varchar(10) ,
 	FirstHarvested		date,
 	LastHarvested		date,
+	LastFullHarvest		date,
 	ArchiveType		varchar(64),
 	CurrentAsOf		date,
 	ts			datetime,
@@ -64,6 +65,7 @@ create table ELEMENT_DEFN (
 	Rank			smallint ,
 	TagName			varchar(255) ,
 	Label			varchar(255) ,
+	Display			tinyint(1) ,
 	primary key (Tag_ID));
  
 
@@ -116,6 +118,7 @@ create table EXTENSION (
         Description             varchar(255),
         AppliesTo               varchar(255),
         Documentation           varchar(255),
+	Display			tinyint(1),
 
 	primary key (Extension_ID)
 );
