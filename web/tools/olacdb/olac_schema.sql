@@ -16,6 +16,7 @@
 # OaiVersion          : The version of the OAI protocol that is supported 
 # FirstHarvested      : Date of first successful harvest 
 # LastHarvested       : Date of last successful harvest 
+# LastFullHarvest     : Date of the last successful full harvest
 # Curator
 # CuratorTitle
 # CuratorEmail
@@ -50,6 +51,7 @@ create table OLAC_ARCHIVE (
 	OaiVersion		varchar(10) not null,
 	FirstHarvested		date,
 	LastHarvested		date,
+	LastFullHarvest		date,
 	ArchiveType		varchar(64),
 	CurrentAsOf		date,
 	ts			timestamp default current_timestamp on update current_timestamp,
