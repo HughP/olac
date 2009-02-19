@@ -51,6 +51,12 @@ CWD=`pwd`; cd $ODIR
 	echo
 	echo "** `date`"
 	echo
+	echo 'Do monthly full harvest first.'
+	echo
+	$PYTHON $ODIR/monthly_harvester.py -c $MYCNF -t olac 2>&1
+	echo
+	echo 'Now regular incremental harvest.'
+	echo
 	$PYTHON $ODIR/harvester.py -c $MYCNF -u 2>&1
 	$PYTHON $ODIR/cleanup.py -c $MYCNF
 	/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF

@@ -48,7 +48,7 @@ def log2(lines):
 
 def select_archives(archives, today=datetime.datetime.today()):
     N = len(archives)
-    D = 28.0    # harvesting interval
+    D = 28.0 * 3   # harvesting interval (days) multiplied by frequency per day
     C = sum([x[1] for x in archives]) / D  # avg number of records per day
     CA = N / D  # avg number of archives per day
 
