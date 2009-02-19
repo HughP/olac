@@ -69,14 +69,17 @@ class MyCurl:
         curl.setopt(pycurl.HEADERFUNCTION, self._callback_headerFunc)
         curl.setopt(pycurl.TIMEOUT, 300)
         try:
-            sys.stderr = file('/dev/null','w')
+            stderr = sys.stderr
+            sys.stderr = open('/dev/null','w')
             curl.perform()
+            sys.stderr = stderr
         except pycurl.error, e:
+            sys.stderr = stderr
             curl.close()
             if e[0] == 23:  # CURLE_WRITE_ERROR
                 # this comes from a client, so it's okay not to report it
                 # back to the client
-                pass
+                return
             else:
                 raise
         curl.close()

@@ -118,17 +118,13 @@ class DBI(Logger):
             if dbrecord[dbfield] is None:
                 dbrecord[dbfield] = ''
 
-        repoid = dbrecord['RepositoryIdentifier']
-        if not repoid:
-            self.log("repository id is unknown; abort")
-            msg = "missing repository id\nbaseurl:%s" % dbrecord["BaseURL"]
-            raise NoRepositoryIdException(msg)
+        baseurl = dbrecord['BaseURL']
         
-        self.log("repository id: %s" % repoid)
-        sql = "select Archive_ID from OLAC_ARCHIVE where RepositoryIdentifier=%s"
-        self.cur.execute(sql, repoid)
+        self.log("base url: %s" % baseurl)
+        sql = "select Archive_ID from OLAC_ARCHIVE where BaseURL=%s"
+        self.cur.execute(sql, baseurl)
         if self.cur.rowcount > 0:
-            self.log("%s already exists" % repoid)
+            self.log("already exists: %s" % baseurl)
             # just update
             archiveid = self.cur.fetchone()[0]
             L = dbrecord.items()
@@ -141,7 +137,7 @@ class DBI(Logger):
             else:
                 self.log("no changes made to the OLAC_ARCHIVE table")
         else:
-            self.log("%s is a new archive" % repoid)
+            self.log("new archive: %s" % baseurl)
             # new archive
             L = dbrecord.items()
             fields = '(' + ','.join([r[0] for r in L]) +')'
@@ -163,7 +159,7 @@ class DBI(Logger):
             self.log("participant list has changed")
     
         self.archiveid = archiveid
-        self.repoid = repoid
+        self.repoid = dbrecord["RepositoryIdentifier"]
         self.recordCount = 0
         self.newRecordCount = 0
         self.updatedRecordCount = 0
