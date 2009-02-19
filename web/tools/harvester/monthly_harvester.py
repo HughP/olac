@@ -48,11 +48,11 @@ def log2(lines):
 
 def select_archives(archives, today=datetime.datetime.today()):
     N = len(archives)
-    D = 28.0 * 3   # harvesting interval (days) multiplied by frequency per day
+    D = 28.0    # harvesting interval
     C = sum([x[1] for x in archives]) / D  # avg number of records per day
     CA = N / D  # avg number of archives per day
 
-    if N == 0: return
+    if N == 0: return []
 
     bigs = []
     mediums = []
@@ -73,6 +73,7 @@ def select_archives(archives, today=datetime.datetime.today()):
 
     archives.sort(lambda row1,row2:cmp(row1[2],row2[2]))
     c = 0.0
+    harvest_list = []
     for aid, size, date in archives:
         if (today-date).days >= D:
             p1 = CA - c
@@ -80,8 +81,9 @@ def select_archives(archives, today=datetime.datetime.today()):
             p = p1 / (p1 + p2)
             if random.random() <= p:
                 if size >= CA: harvest_list = []
-                yield aid
+                harvest_list.append(aid)
                 c += size
+    return harvest_list
 
 
 def get_all_archives(cur):
@@ -89,7 +91,7 @@ def get_all_archives(cur):
     select oa.BaseURL, count(*),
     timestamp(if(LastFullHarvest is null, '2009-01-18', LastFullHarvest)) d
     from OLAC_ARCHIVE oa
-    left join ARCHIVED_ITEM ai
+    left join ARCHIVED_ITEM ai /* left join in case there are no records */
     on oa.Archive_ID=ai.Archive_ID
     group by oa.Archive_ID
     """)

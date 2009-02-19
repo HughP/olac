@@ -51,10 +51,12 @@ CWD=`pwd`; cd $ODIR
 	echo
 	echo "** `date`"
 	echo
-	echo 'Do monthly full harvest first.'
-	echo
-	$PYTHON $ODIR/monthly_harvester.py -c $MYCNF -t olac 2>&1
-	echo
+	if [ "$1" = "MONTHLY" ]; then
+		echo 'Do monthly full harvest first.'
+		echo
+		$PYTHON $ODIR/monthly_harvester.py -c $MYCNF -t olac 2>&1
+		echo
+	fi
 	echo 'Now regular incremental harvest.'
 	echo
 	$PYTHON $ODIR/harvester.py -c $MYCNF -u 2>&1
