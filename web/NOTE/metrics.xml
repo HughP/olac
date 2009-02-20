@@ -8,8 +8,8 @@
        <!-- Promoted to Adopted on 2008-12-19 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20081016</issued>
-       <previousIssued>20080711</previousIssued>
+        <issued>20090218</issued>
+       <previousIssued>20081016</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
                 coverage of the participating archives and for evaluating the quality of their
@@ -17,12 +17,14 @@
         </abstract>
         <editors>Gary Simons, SIL International and Graduate Institute of Applied Linguistics
                 (<url>mailto:gary_simons@sil.org</url>)</editors>
-        <copyright>2008 Gary Simons (SIL International and Graduate Institute of Applied
+        <copyright>2009 Gary Simons (SIL International and Graduate Institute of Applied
             Linguistics)</copyright>
         <changes>
-            <p>The section on <xref>Integrity checks</xref> is added
-               to give further details on the integrity checks that
-               are performed.</p>
+            <p>The original implementation flagged a private use
+               language code in the range <tt>qaa</tt> to <tt>qtz</tt> as a "Bad
+               Langauge Code" error. This is now treated as a "Private
+               Use Language Code" warning as described in the
+               section on <xref>Integrity checks</xref>.</p>
         </changes>
     </header>
     <body>
@@ -282,7 +284,15 @@
              <dt>MLC</dt>
              <dd><p>Missing Language Code &#x2014; The element uses
                 <i>olac:language</i> extension but no olac:code is given.</p></dd>
-                <dt>RLC</dt>
+             <dt>PLC</dt>
+             <dd><p>Private Use Language Code &#x2014; The value supplied for
+                <i>olac:language</i> is a private use code in the
+                range <tt>qaa</tt> to <tt>qtz</tt>. It should be
+                changed to a standard code as soon as one becomes
+                available;
+                submit a change request if necessary
+                <cit>ISO639-3-Changes</cit>.</p></dd>
+             <dt>RLC</dt>
              <dd><p>Retired Language Code &#x2014; The supplied 
                 value is a recognized code from ISO 639, but it is not best 
                 practice since it is a retired code. Consult the ISO
@@ -455,10 +465,11 @@
 
     </body>
     <references>
-        <ref abbrev="DCMI-Type">DCMI Type Vocabulary.
-                <br/>&lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
-
-        <ref abbrev="OLAC-Language">OLAC Language Extension.<br/>
+       <ref abbrev="DCMI-Type">DCMI Type Vocabulary.<br/>
+               &lt;<url>http://dublincore.org/documents/dcmi-type-vocabulary/</url>&gt;</ref>
+       <ref abbrev="ISO639-3-Changes">Submitting ISO 639-3 Change Requests.<br/>
+               &lt;<url>http://www.sil.org/iso639-3/submit_changes.asp</url>&gt;</ref>
+       <ref abbrev="OLAC-Language">OLAC Language Extension.<br/>
                 &lt;<url>http://www.language-archives.org/REC/language.html</url>&gt;</ref>
         <ref abbrev="OLAC-Archives">OLAC: Participating Archives.<br/>
                 &lt;<url>http://www.language-archives.org/archives.php4</url>&gt;</ref>

@@ -8,7 +8,7 @@
        <!-- Promoted to Adopted on 2008-12-19 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20080218</issued>
+        <issued>20090218</issued>
        <previousIssued>20081016</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
