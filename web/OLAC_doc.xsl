@@ -426,16 +426,13 @@
                <xsl:text>Recommendation. </xsl:text>
             </xsl:when>
             <xsl:when test="@type='experimental'">
-               <xsl:text>Experimental Note</xsl:text>
-               <xsl:if test="@code != 'adopted'">. </xsl:if>
+               <xsl:text>Experimental Note. </xsl:text>
             </xsl:when>
             <xsl:when test="@type='informational'">
-               <xsl:text>Informational Note</xsl:text>
-               <xsl:if test="@code != 'adopted'">. </xsl:if>
+               <xsl:text>Informational Note. </xsl:text>
             </xsl:when>
             <xsl:when test="@type='implementation'">
-               <xsl:text>Implementation Note</xsl:text>
-               <xsl:if test="@code != 'adopted'">. </xsl:if>
+               <xsl:text>Implementation Note. </xsl:text>
             </xsl:when>
             <xsl:otherwise>
                <xsl:text>Bad document type. </xsl:text>
@@ -491,6 +488,18 @@
                </xsl:if>
                <xsl:if test="@type='recommendation'">
                   <xsl:text>This document embodies an OLAC consensus concerning best current practice.</xsl:text>
+               </xsl:if>
+               <xsl:if test="@type='informational'">
+                  <xsl:text>This document provides background
+                     information related to an OLAC standard,
+                     recommendation,
+                     or service.</xsl:text>
+               </xsl:if>
+               <xsl:if test="@type='implementational'">
+                  <xsl:text>This document describes
+                  a particular approach to implementing an OLAC
+                  standard or recommendation.
+                  </xsl:text>
                </xsl:if>
                <xsl:if test="@supersededBy=../baseName">
                    <xsl:text> However, a new version of the document
