@@ -346,9 +346,9 @@ if __name__ == "__main__":
         if not re.search("harvest successful", stderr):
             log("harvest failed")
             log("STDOUT:")
-            log2(stdout)
+            log2(stdout.split('\n'))
             log("STDERR:")
-            log2(stderr)
+            log2(stderr.split('\n'))
             continue
         log("ok")
 
