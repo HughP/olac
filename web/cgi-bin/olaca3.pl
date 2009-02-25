@@ -39,13 +39,6 @@ sub main {
 
     my $doc = $dp->serve_request($request);
 
-    if ($request->{verb} eq "Document") {
-	print "Content-type: text/html\n\n";
-	open(HTM, "olaca.htm");
-	while (<HTM>) {
-	    print $_;
-	}
-    }
     if (not exists $request->{verb}) {
 	$rt = OLAC::Aggregator::date_time();
 	$rq = $request->{baseURL} .'?' . $ENV{'QUERY_STRING'};
@@ -61,6 +54,13 @@ sub main {
   <error code="badVerb">Illegal OAI verb</error>
 </OAI-PMH>
 EOF
+    }
+    elsif ($request->{verb} eq "Document") {
+	print "Content-type: text/html\n\n";
+	open(HTM, "olaca.htm");
+	while (<HTM>) {
+	    print $_;
+	}
     }
     elsif ($doc) {
         print "Content-type: text/xml\n\n";

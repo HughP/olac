@@ -195,7 +195,7 @@ foreach ($tab as $row) {
 <tr><td><a href="http://www.language-archives.org/sr">Static Repository Gateway</a></td>
 <td>A service for generating OAI Protocol responses from an XML file.</td></tr>
 
-<td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl">OLAC Aggregator</a></td>
+<td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Document">OLAC Aggregator</a></td>
 <td>A service that provides a repository containing the records from all
 other registered OLAC repositories, incorporating an OLAC-DC crosswalk
 and a query function.</td></tr>
