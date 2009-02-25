@@ -398,11 +398,20 @@ def check_invalid_code(con, archive_id=None):
               left join ISO_639_3 lc4 on me.Code=lc4.Part1
               left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
             where me.Type='language'
-              and me.Code is not null and me.Code != ''
+              and me.Code is not null
+              and me.Code != ''
+              and me.Code not like 'q%'
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """,
 
+            "delete from INTEGRITY_CHECK where Problem_Code='PLC'",
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, Code, 'PLC'
+            from METADATA_ELEM
+            where Type='language' and Code like 'q%'
+            """
             ]
     else:
         sqlt = [
@@ -477,6 +486,24 @@ def check_invalid_code(con, archive_id=None):
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """ % archive_id,
+
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID and me.Item_ID=ai.Item_ID
+              and ai.Archive_ID=%d and Problem_Code='PLC'
+            """ % archive_id,
+            
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct Element_ID, Code, 'PLC'
+            from METADATA_ELEM me, ARCHIVED_ITEM ai
+            where me.Item_ID=ai.Item_ID
+            and Type='language'
+            and Code like 'q%'
+            and ai.Archive_ID=%s
+            """ % archive_id
+
             ]
     for pcode, etype in (('BLT','linguistic-type'),
                          ('BLF','linguistic-field'),
