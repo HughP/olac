@@ -56,9 +56,9 @@ CWD=`pwd`; cd $ODIR
 		echo
 		$PYTHON $ODIR/monthly_harvester.py -c $MYCNF -t olac 2>&1
 		echo
+		echo 'Now regular incremental harvest.'
+		echo
 	fi
-	echo 'Now regular incremental harvest.'
-	echo
 	$PYTHON $ODIR/harvester.py -c $MYCNF -u 2>&1
 	$PYTHON $ODIR/cleanup.py -c $MYCNF
 	/usr/bin/lockf /tmp/olac.integrity.lock $PYTHON $ODIR/integrity.py -c $MYCNF
@@ -66,7 +66,7 @@ CWD=`pwd`; cd $ODIR
 ) | /usr/bin/tee $TMP_LOG >> $HARVEST_LOG
 
 new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
-if [ ${new_records:-0} -gt 0 ] ; then
+if [ ${new_records:-0} -gt 0 -r "$1" = "MONTHLY" ] ; then
     (
         echo
         echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
