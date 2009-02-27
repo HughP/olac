@@ -43,28 +43,31 @@
             <!-- apply templates for all node types, including text -->
         </xsl:copy>
     </xsl:template>
-
-    <!-- clean up the text -->
-    <xsl:template match="text()">
-                <xsl:call-template name="removeFinalPeriod">
-                    <xsl:with-param name="text">
-                        <xsl:call-template name="removeTrailingChars">
-                            <xsl:with-param name="text">
-                                <xsl:value-of select="normalize-space(.)"/>
-                            </xsl:with-param>
-                        </xsl:call-template>
-                    </xsl:with-param>
-                </xsl:call-template>
+    
+    <xsl:template match="olac:olac">
+        <xsl:copy>
+            <xsl:apply-templates mode="cleanup" />
+        </xsl:copy>
     </xsl:template>
 
-    <!-- do not copy @from attribute   -->
-        <xsl:template match="@from"/>
-
-    <!-- do not copy @no_code attributes -->
-    <xsl:template match="@no_code"/>
+    <!-- clean up the text inside olac elements -->
+    <xsl:template mode="cleanup" match="*[text()]">
+        <xsl:copy>
+            <xsl:copy-of select="@*" />
+            <xsl:call-template name="removeFinalPeriod">
+                <xsl:with-param name="text">
+                    <xsl:call-template name="removeTrailingChars">
+                        <xsl:with-param name="text">
+                            <xsl:value-of select="normalize-space(.)"/>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:copy>
+    </xsl:template>
 
 
     <!-- do not copy empty elements with no attributes -->
-    <xsl:template match="*[not(node()|@*)]"/>
+    <xsl:template mode="cleanup" match="*[not(node()|@*)]"/>
 
 </xsl:stylesheet>

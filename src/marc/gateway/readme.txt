@@ -3,7 +3,7 @@ An XSLT compiler for the abstract <gateway> specification
 G. Simons, 4 Feb 2009
 
 The <gateway> language is specified in gateway.rnc
-Only the two filter stages and defined and implemented.
+Only the two filter stages are defined and implemented.
 
 There are two sample instances of gateway specifications:
 filter-minimal.xml  Passes everything through both stages
