@@ -97,7 +97,15 @@ def get_all_archives(cur):
     """)
     return [list(row) for row in cur.fetchall()]
 
-    
+
+def remove_foreign_key_constraints(schema):
+    # assumes that each element of the create table statement is separated by
+    # a new line character
+    L = [l for l in schema.split('\n') if 'FOREIGN KEY' not in l]
+    schema = re.compile(r",\s*\)",re.S).sub(r")",'\n'.join(L))
+    return schema
+
+
 def initialize_tmp_db(cur, tmpdb, maindb):
     # we drop tables and recreate them to make sure that the schema
     # used by both tmpdb and maindb are identical
@@ -121,6 +129,7 @@ def initialize_tmp_db(cur, tmpdb, maindb):
                 ]:
         cur.execute("show create table %s.%s" % (maindb, tab))
         schema = cur.fetchone()[1]
+        schema = remove_foreign_key_constraints(schema)
         cur.execute(schema)
     cur.connection.select_db(maindb)
 
@@ -131,7 +140,7 @@ def initialize_tmp_db(cur, tmpdb, maindb):
 
 
 def update_ids(cur, db, newaid, archiveid):
-    # we do this because we want to keep the original archive id
+    # we update ids because we want to keep the original archive id
     template = "update %s.%s set Archive_ID=%%s where Archive_ID=%%s"
     cur.execute(template % (db,"OLAC_ARCHIVE"), (archiveid, newaid))
     cur.execute(template % (db,"ARCHIVED_ITEM"), (archiveid, newaid))
@@ -310,7 +319,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
     cur.execute("select database()")
     db = cur.fetchone()[0]
     log("main database:", db)
-    log("temp database:", db)
+    log("temp database:", tmpdb)
     if db is None:
         log("ERROR: mycnf file didn't specify the main db; please use -d option")
         sys.exit(1)
