@@ -6,6 +6,8 @@
 from string import Template
 import ConfigParser
 import re
+import sys
+import os
 
 # local function library
 import utils
@@ -13,75 +15,107 @@ import utils
 # modules you may need to install
 from pymarc import MARCReader
 from pymarc import record_to_xml
-from libxml2 import parseFile, parseDoc
-from libxslt import parseStylesheetDoc
+from libxml2 import parseFile
+
+# get marc source file from command line
+try:
+    input = sys.argv.pop(1)
+    marcfile = open(input)
+except:
+    print "please specify a valid marc input file"
+    sys.exit(2)
 
 # initialize the config file
 config = ConfigParser.ConfigParser()
 config.read("marc2olac.cfg")
 
 # read variables from config file
-marcfile = open(config.get('marc','source_file'))
-recheader = Template(utils.file2string(config.get('olac_record','header_file')))
-recfooter = Template(utils.file2string(config.get('olac_record','footer_file')))
-style = parseStylesheetDoc(parseFile(config.get('marc','stylesheet_file')))
+olacrecheader = Template(utils.file2string(config.get('system','olacrec_header_file')))
+olacrecfooter = utils.file2string(config.get('system','olacrec_footer_file'))
+marcxmlheader = utils.file2string(config.get('system','marcxml_header_file'))
+marcxmlfooter = utils.file2string(config.get('system','marcxml_footer_file'))
+uservars = utils.cfglist2dict(config.items('user'))
+outputprefix = config.get('system','output_prefix')
 
-# compile regex for removing 'from_marc_field' tags
-regex = re.compile(r'\s*from_marc_field="[^"]*"\s*')
+# open output files (some are optional)
+output_marcxml_flag = config.get('system','create_marcxml_output')
+#output_html_flag = config.get('system','create_html_output')
+if (not 'output' in os.listdir('.')):
+    os.mkdir('output')
+olac_xml_f = open('output/' + outputprefix + 'repository.xml','w')
+if (output_marcxml_flag == 1):
+    marc_xml_f = open('output/' + outputprefix + 'marc.xml','w')
+    marc_xml_f.write(marcxmlheader)
 
-# print OAI header (using variables from both oai and olac cfg)
-# TODO: handle exceptions for template variable substitution
-oaiheader = Template(utils.file2string(config.get('oai','header_file')))
-oaivars = utils.cfglist2dict(config.items('oai'))
-oaivars.update(utils.cfglist2dict(config.items('olac')))
-print oaiheader.substitute(oaivars)
+# temporary files
+xml_input = 'xml_input.tmp'
 
 # loop over each marc record in the set
 marcset = MARCReader(marcfile)
 count = 0
 for record in marcset:
 
+    # write OAI header
+    # TODO: handle exceptions for template variable substitution
+    # is this exception handling working???
+    if (count == 0): # first iteration
+        oaiheader = Template(utils.file2string(config.get('system','oai_header_file')))
+        uservars['sample_id'] = 'oai:' + \
+        uservars['repository_id'] + ':' +record['001'].value()
+        try:
+            olac_xml_f.write(oaiheader.substitute(uservars))
+        except KeyError:
+            pass
+
+
     # construct a proper marcxml document
     xmlrec = record_to_xml(record) 
-    xmlrec = utils.file2string(config.get('marc','xml_header_file')) + \
-        xmlrec + utils.file2string(config.get('marc','xml_footer_file'))
-    xmlrec = parseDoc(xmlrec)
+    if (output_marcxml_flag == 1):
+        marc_xml_f.write(xmlrec)
 
-    # apply xsl stylesheet to marcxml document
-    result = style.applyStylesheet(xmlrec,None)
+    xmlrec = marcxmlheader  + xmlrec + marcxmlfooter 
 
-    # find dc:identifier from 001 in xml doc
-    # NOTE: we could instead get the 001 from the marc record directly, instead of the XML output
-    oai_id = ''
-    n = result.children.children.children
-    while n is not None:
-        if n.name == 'identifier' and n.prop('from_marc_field') == '001':
-            oai_id = n.content
-        n = n.next
+    # write out xml rec to a temp file
+    xml_input_f = open(xml_input,'w')
+    xml_input_f.write(xmlrec)
+    xml_input_f.close()
 
-    # print record header (with oai ID and datestamp)
-    #TODO: how do we determine datestamp ???
-    print recheader.substitute(identifier=oai_id,datestamp='')
+    # apply stylesheets
+    print "start stylesheet"
+    utils.apply_stylesheets(xml_input,config)
+    print "end stylesheet"
 
-    # get olac node as text
-    olacNode = result.children.children.serialize(None,1)
+    # read in olac xml record
+    olac_record = utils.getstringfromfile(xml_input,'<olac:olac','</olac:olac>')
 
-    # TODO: perform second transformation here???
-    # second transformation will be decision logic for which fields to keep based upon from_marc_field attribute
+    # datestamp is the greater of the metadata date and the record date
+    rec_date = record['005'].value()[0:8] # first 8 chars
+    datestamp = rec_date
+    if (uservars['metadata_version_date'].replace('-','') > rec_date):
+        datestamp = uservars['metadata_version_date']
 
-    # remove from_marc_field="" from node text
-    #olacNode = regex.sub('',olacNode)
+    # output record header (with oai ID and datestamp)
+    rec_id = record['001'].value()
+    olac_xml_f.write(olacrecheader.substitute(identifier=rec_id,datestamp=datestamp))
 
-    print olacNode
+    # output olac node
+    olac_xml_f.write(olac_record)
 
     # print record footer
-    print recfooter.template
+    olac_xml_f.write(olacrecfooter + '\n')
 
-    print '\n'
+    print "record %s written" % rec_id
+
     count += 1
     #if count == 1:
     #    break
 
 
-# print OAI postamble
-print utils.file2string(config.get('oai','footer_file'))
+
+# output end-of-loop footers
+if (output_marcxml_flag == 1):
+    marc_xml_f.write(marcxmlfooter)
+
+olac_xml_f.write(utils.file2string(config.get('system','oai_footer_file')))
+
+

@@ -50,5 +50,5 @@
     <xsl:template match="text()" priority="-1">
         <xsl:value-of select="normalize-space(.)"/>
     </xsl:template>
-
+    
 </xsl:stylesheet>
