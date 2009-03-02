@@ -66,7 +66,7 @@ CWD=`pwd`; cd $ODIR
 ) | /usr/bin/tee $TMP_LOG >> $HARVEST_LOG
 
 new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
-if [ ${new_records:-0} -gt 0 -r "$1" = "MONTHLY" ] ; then
+if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" ] ; then
     (
         echo
         echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
