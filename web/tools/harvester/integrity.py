@@ -409,8 +409,17 @@ def check_invalid_code(con, archive_id=None):
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
             select distinct Element_ID, Code, 'PLC'
-            from METADATA_ELEM
-            where Type='language' and Code like 'q%'
+            from METADATA_ELEM me
+              left join ISO_639_3 lc on me.Code=lc.Id
+              left join ISO_639_3 lc2 on me.Code=lc2.Part2B
+              left join ISO_639_3 lc4 on me.Code=lc4.Part1
+              left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
+            where me.Type='language'
+              and me.Code is not null
+              and me.Code != ''
+              and me.Code like 'q%'
+              and lc.Id is null and lc2.Id is null
+              and lc4.Id is null and lcr.Id is null
             """
             ]
     else:
@@ -482,7 +491,9 @@ def check_invalid_code(con, archive_id=None):
               left join ISO_639_3 lc4 on me.Code=lc4.Part1
               left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
             where ai.Archive_ID=%d and me.Type='language'
-              and me.Code is not null and me.Code != ''
+              and me.Code is not null
+              and me.Code != ''
+              and me.Code not like 'q%%'
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """ % archive_id,
@@ -496,12 +507,19 @@ def check_invalid_code(con, archive_id=None):
             
             """
             insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
-            select distinct Element_ID, Code, 'PLC'
-            from METADATA_ELEM me, ARCHIVED_ITEM ai
-            where me.Item_ID=ai.Item_ID
-            and Type='language'
-            and Code like 'q%'
-            and ai.Archive_ID=%s
+            select distinct Element_ID, me.Code, 'PLC'
+            from METADATA_ELEM me
+              left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID
+              left join ISO_639_3 lc on me.Code=lc.Id
+              left join ISO_639_3 lc2 on me.Code=lc2.Part2B
+              left join ISO_639_3 lc4 on me.Code=lc4.Part1
+              left join ISO_639_3_Retirements lcr on me.Code=lcr.Id
+            where ai.Archive_ID=%d and me.Type='language'
+              and me.Code is not null
+              and me.Code != ''
+              and me.Code like 'q%%'
+              and lc.Id is null and lc2.Id is null
+              and lc4.Id is null and lcr.Id is null
             """ % archive_id
 
             ]
