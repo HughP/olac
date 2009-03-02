@@ -400,7 +400,7 @@ def check_invalid_code(con, archive_id=None):
             where me.Type='language'
               and me.Code is not null
               and me.Code != ''
-              and me.Code not like 'q%'
+              and (me.Code < 'qaa' or me.Code > 'qtz')
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """,
@@ -417,7 +417,7 @@ def check_invalid_code(con, archive_id=None):
             where me.Type='language'
               and me.Code is not null
               and me.Code != ''
-              and me.Code like 'q%'
+              and (me.Code >= 'qaa' and me.Code <= 'qtz')
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """
@@ -493,7 +493,7 @@ def check_invalid_code(con, archive_id=None):
             where ai.Archive_ID=%d and me.Type='language'
               and me.Code is not null
               and me.Code != ''
-              and me.Code not like 'q%%'
+              and (me.Code < 'qaa' or me.Code > 'qtz')
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """ % archive_id,
@@ -517,7 +517,7 @@ def check_invalid_code(con, archive_id=None):
             where ai.Archive_ID=%d and me.Type='language'
               and me.Code is not null
               and me.Code != ''
-              and me.Code like 'q%%'
+              and (me.Code >= 'qaa' and me.Code <= 'qtz')
               and lc.Id is null and lc2.Id is null
               and lc4.Id is null and lcr.Id is null
             """ % archive_id
