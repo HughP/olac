@@ -275,7 +275,6 @@ create table EXTENSION (
 ) engine=innodb, charset=utf8;
 
 insert into EXTENSION (Type,NS,Display) values ('','',false);
-update EXTENSION set Extension_ID=0;
 insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('Box','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
 insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('DCMIType','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
 insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('IMT','http://purl.org/dc/terms/','dcterms','http://www.language-archives.org/OLAC/1.0/dcterms.xsd',true);
@@ -386,7 +385,7 @@ create table CODE_DEFN (
         on update cascade
 ) engine=innodb, charset=utf8;
 
-insert into CODE_DEFN (Extension_ID, Code, Label) values (0, '', '');
+insert into CODE_DEFN (Extension_ID, Code, Label) values (1, '', '');
 
 ##################################################################
 # Table                : INTEGRITY_PROBLEM
