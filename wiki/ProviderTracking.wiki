@@ -1,0 +1,7 @@
+#summary Tracking OLAC participation by providers
+
+= Guidelines =
+
+Guidelines for using the issue tracker to document progress in OLAC participation for this provider.
+
+  * "positive" there is an email from the provider confirming their intention to participate in OLAC (specify date of email and surname of correspondent)
