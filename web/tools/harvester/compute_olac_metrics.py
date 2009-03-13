@@ -144,7 +144,9 @@ sqls = [
 
     "update Metrics m left join (select Archive_ID, max(DateStamp) d from ARCHIVED_ITEM group by Archive_ID) x on m.archive_id=x.Archive_ID set m.last_updated=x.d",
 
-    "update Metrics set last_updated=(select max(DateStamp) d from ARCHIVED_ITEM) where archive_id=-1",
+    "update Metrics m left join (select Archive_ID, CurrentAsOf d from OLAC_ARCHIVE) x on m.archive_id=x.Archive_ID set m.last_updated=x.d where m.last_updated < x.d and x.d is not null",
+
+    "update Metrics set last_updated=(select if(max(CurrentAsOf)>max(DateStamp),max(CurrentAsOf),max(DateStamp)) from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai where oa.Archive_ID=ai.Archive_ID) where archive_id=-1",
 
     "update Metrics m left join (select Archive_ID, sum(if(Type is not null,1,0))/count(distinct ai.Item_ID) f from ARCHIVED_ITEM ai, METADATA_ELEM me where ai.Item_ID=me.Item_ID group by Archive_ID) x on m.archive_id=x.Archive_ID set m.avg_xsi_types=x.f",
 
