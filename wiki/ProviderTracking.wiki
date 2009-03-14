@@ -4,6 +4,6 @@
 
 Guidelines for using the issue tracker to document progress in OLAC participation for this provider.
 
-  * *proposed* the provider is a potential OLAC participant
-  * *positive* there is an email from the provider confirming their intention to participate in OLAC (specify date of email and surname of correspondent)
-  * *olac-1.1* the repository is listed on the archives page as being 1.1-conformant
+  * *New* the provider is a potential OLAC participant
+  * *Accepted* there is an email from the provider confirming their intention to participate in OLAC (specify date of email and surname of correspondent)
+  * *Fixed* the repository is listed on the archives page as being 1.1-conformant
