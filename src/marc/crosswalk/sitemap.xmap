@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+     Sitemap for MARC-to-OLAC Crosswalk
+     Gary Simons, 12 Feb 2009
+     Last revised: 20 Mar 2009
+-->
+
+<map:sitemap xmlns:map="http://apache.org/cocoon/sitemap/1.0">
+   <!-- =========================== Components ================================ -->
+   <map:components>
+      <map:generators default="file"/>
+      <map:transformers default="xslt">
+         <map:transformer name="xslt-saxon" pool-grow="2"
+            pool-max="32" pool-min="8"
+            src="org.apache.cocoon.transformation.TraxTransformer">
+            <use-request-parameters>false</use-request-parameters>
+            <use-browser-capabilities-db>false</use-browser-capabilities-db>
+            <xslt-processor-role>saxon</xslt-processor-role>
+            <!-- also tried org.apache.cocoon.components.xslt.XSLTProcessor/saxon -->
+         </map:transformer>
+      </map:transformers>
+      <map:readers default="resource"/>
+      <map:serializers default="html"/>
+      <map:selectors default="browser"/>
+      <map:matchers default="wildcard"/>
+   </map:components>
+   <map:views>
+      <map:view from-label="raw" name="raw">
+         <map:serialize type="xml"/>
+      </map:view>
+      <map:view from-label="raw2" name="raw2">
+         <map:serialize type="xml"/>
+      </map:view>
+   </map:views>
+   <!-- =========================== Pipelines ================================= -->
+   <map:pipelines>
+      <map:pipeline>
+         <map:match pattern="">
+            <map:redirect-to uri="index"/>
+         </map:match>
+
+         <map:match pattern="index">
+            <map:generate label="raw" src="data"
+               type="directory"/>
+            <map:transform src="index1.xsl"/>
+            <map:serialize/>
+         </map:match>
+
+         <!-- Display an RNC schema -->
+         <map:match pattern="*.rnc">
+            <map:read src="process/{1}.rnc"/>
+         </map:match>
+
+         <!-- Display the index page for the selected data set {1} -->
+         <map:match pattern="*/index">
+            <map:generate src="index2.xhtm"/>
+            <map:serialize/>
+         </map:match>
+
+         <!-- Count the records in the selected data set {1} -->
+         <map:match pattern="*/count">
+            <map:generate src="data/{1}"/>
+            <map:transform src="process/count-records.xsl"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Display the index page for the selected filter {2}
+          applied to the selected data set {1} -->
+         <map:match pattern="*/*/index">
+            <map:generate src="index3.xhtm"/>
+            <map:serialize/>
+         </map:match>
+
+         <!-- Display the raw XML of the selected filter
+          specification {2} -->
+         <map:match pattern="*/*/raw">
+            <map:generate src="filter-{2}.xml"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Generate the XSLT for stage 1 of the selected filter {2} -->
+         <map:match pattern="*/*/compile1">
+            <map:generate src="filter-{2}.xml"/>
+            <map:transform src="process/crosswalk-compile1.xsl"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Generate the XSLT for stage 2 of the selected filter {2} -->
+         <map:match pattern="*/*/compile2">
+            <map:generate src="filter-{2}.xml"/>
+            <map:transform src="process/crosswalk-compile2.xsl"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- "none" means no filter; just read the data file -->
+         <map:match pattern="*/none/stage2">
+            <map:generate src="data/{1}"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Apply stage 1 of the filter {2} to the record set {1} -->
+         <map:match pattern="*/*/stage1">
+            <map:generate src="data/{1}"/>
+            <map:transform src="cocoon:/{1}/{2}/compile1"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Apply stage 2 of the filter {2} to the result of
+          applying stage 1 to the record set {1}  -->
+         <map:match pattern="*/*/stage2">
+            <map:generate src="cocoon:/{1}/{2}/stage1"/>
+            <map:transform src="cocoon:/{1}/{2}/compile2"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Count the records remaining after applying the stage {3}
+      of the filter {2} to the data set {1} -->
+         <map:match pattern="*/*/*/count">
+            <map:generate src="cocoon:/{1}/{2}/{3}"/>
+            <map:transform src="process/count-records.xsl"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- The steps of converting to an OLAC repository:
+           Parameters: the data set {1}, selected filter {2}, stage {3}  -->
+
+         <!-- From MARC collection to OLAC static repository -->
+         <map:match pattern="*/*/*/olac">
+            <map:generate src="cocoon:/{1}/{2}/{3}"/>
+            <map:transform src="process/Collection2Repository.xsl"
+               type="xslt-saxon"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Apply the clean up step -->
+         <map:match pattern="*/*/*/clean1">
+            <map:generate src="cocoon:/{1}/{2}/{3}/olac"/>
+            <map:transform src="process/olaccleanup.xsl"
+               type="xslt-saxon"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Remove the duplicates -->
+         <map:match pattern="*/*/*/clean2">
+            <map:generate src="cocoon:/{1}/{2}/{3}/clean1"/>
+            <map:transform src="process/remove_duplicates.xsl"
+               type="xslt-saxon"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Remove the extra attributes -->
+         <map:match pattern="*/*/*/final">
+            <map:generate src="cocoon:/{1}/{2}/{3}/clean2"/>
+            <map:transform src="process/remove_attributes.xsl"
+               type="xslt-saxon"/>
+            <map:serialize type="xml"/>
+         </map:match>
+
+         <!-- Show the HTML pretty-print of an OLAC repository -->
+         <map:match pattern="*/*/*/*/html">
+            <map:generate src="cocoon:/{1}/{2}/{3}/{4}"/>
+            <map:transform src="process/Repository2html.xsl"/>
+            <map:serialize type="html"/>
+         </map:match>
+
+
+      </map:pipeline>
+   </map:pipelines>
+</map:sitemap>
+<!-- end of file -->
