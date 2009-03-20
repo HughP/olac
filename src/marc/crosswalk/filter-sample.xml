@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:process/crosswalk.rnc" type="compact"?>
+<crosswalk name="filter-test">
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Simple test filter</dc:title>
+      <dc:contributor>Gary Simons</dc:contributor>
+      <dc:date>2009-03-20</dc:date>
+      <dc:description>This is a sample filter that selects only some
+         things and then rejects a few more.</dc:description>
+   </header>
+   <select-stage>
+      <leader length="3" position="1" test="equals">012</leader>
+      <!--
+      <control-field position="7" length="1" test="equals" tag="008">s</control-field>
+  -->
+      <data-field code="" tag="xxx" test="contains">morphology</data-field>
+      <data-field code="ab" tag="245" test="contains">dictionary</data-field>
+      <data-field code="" tag="24x" test="contains">lexicon</data-field>
+      <data-field code="" tag="246" test="exists"/>
+
+   </select-stage>
+   <reject-stage>
+      <leader length="3" position="1" test="equals">012</leader>
+   </reject-stage>
+   <mapping/>
+</crosswalk>

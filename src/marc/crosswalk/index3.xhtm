@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+   <head>
+      <title>Crosswalk Index</title>
+      <script type="text/javascript">
+         function start() {
+            name =
+            location.href.substring(location.href.indexOf('/crosswalk/') + 10, location.href.length);
+            name = name.substring(1, name.length - 6);
+            document.getElementById('h1') .innerHTML = 'Filtered MARC data set: ' + name;
+         }
+         
+         window.onload = start;</script>
+   </head>
+   <body>
+      <h1 id="h1">Page URL</h1>
+
+      <table border="solid" cellpadding="10" cellspacing="0">
+         <tr>
+            <td>Filter specificaion</td>
+            <td>
+               <a href="raw">xml</a>
+            </td>
+         </tr>
+         <tr>
+            <td>Stage 1 ("select") filter</td>
+            <td>
+               <a href="compile1">xsl</a>
+            </td>
+         </tr>
+         <tr>
+            <td>Stage 2 ("reject") filter</td>
+            <td>
+               <a href="compile2">xsl</a>
+            </td>
+         </tr>
+      </table>
+      <h3>Apply stage 1 filter</h3>
+      <table border="solid" cellpadding="10" cellspacing="0">
+         <tr>
+            <td>Apply filter</td>
+            <td>
+               <a href="stage1">xml</a> 
+                   (<a
+                  href="stage1/count">Count</a>)
+               </td>
+         </tr>
+         <tr>
+            <td>Convert to OLAC repository</td>
+            <td><a href="stage1/olac"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage1/olac/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Clean up</td>
+            <td><a href="stage1/clean1"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage1/clean1/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove duplicates</td>
+            <td><a href="stage1/clean2"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage1/clean2/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove extra attributes</td>
+            <td><a href="stage1/final"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage1/final/html">html</a></td>
+         </tr>
+      </table>
+      <h3>Apply stage 2 filter</h3>
+      <table border="solid" cellpadding="10" cellspacing="0">
+         <tr>
+            <td>Apply filter</td>
+            <td>
+               <a href="stage2">xml</a> 
+                   (<a
+                  href="stage2/count">Count</a>)
+               </td>
+         </tr>
+         <tr>
+            <td>Convert to OLAC repository</td>
+            <td><a href="stage2/olac"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage2/olac/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Clean up</td>
+            <td><a href="stage2/clean1"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage2/clean1/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove duplicates</td>
+            <td><a href="stage2/clean2"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage2/clean2/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove extra attributes</td>
+            <td><a href="stage2/final"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="stage2/final/html">html</a></td>
+         </tr>
+      </table>
+   </body>
+</html>

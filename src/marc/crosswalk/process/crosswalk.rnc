@@ -1,0 +1,94 @@
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+namespace dc = "http://purl.org/dc/elements/1.1/"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# Possible abstract syntax for the MARC to OLAC crosswalk
+# G. Simons, 17 Jan 2009
+# Last updated: 20 March 2009
+# The two stages of the filter for determining the record set
+# have a complete design, but the crosswalk part is unspecified
+
+grammar {
+
+start = element crosswalk {
+   attribute name { xsd:string },
+   header, select-stage, reject-stage, mapping }
+
+# The header gives the metadata for the crosswalk definition itself
+header = 
+   element header { dc-title, dc-contributor, dc-date, dc-description }
+   
+dc-title =
+    element dc:title {text}
+    
+dc-contributor =
+    element dc:contributor {text}
+    
+dc-date =
+    element dc:date  {text}
+    
+dc-description =
+    element dc:description  {text}
+    
+   # Something that must be included within the header is all the 
+   # information needed to construct the provenance element that
+   # will be added in the records that go through the crosswalk
+
+# A record passes through the first stage filter if it matches at least 
+# one of the criteria for selection
+select-stage = 
+   element select-stage { select-all | criterion+ }
+
+# Select-all: every record passes through stage one
+select-all = 
+   element select-all { empty }
+   
+# The set of criterion tests used in both stages of the filter
+criterion = leader | control-field | data-field 
+
+# A test on a positional subfield within the record leader
+leader = element leader {
+   attribute position { xsd:unsignedByte },
+   attribute length { xsd:unsignedByte },
+   attribute test { "exists" | "equals" },
+   text
+  }
+ 
+ # A test on a positional subfield within a named control field
+control-field = element control-field {
+   attribute tag { xsd:string {pattern='[0-9][0-9][0-9]'} },
+   attribute position { xsd:unsignedByte },
+   attribute length { xsd:unsignedByte },
+   attribute test { "exists" | "equals" },
+   text   # element content has value for equals test,
+            # but is empty for exists test 
+  } 
+  
+ # A test on a named subfield within a named data field
+data-field = element data-field {
+# x is a wildcard; only xxx, dxx, ddx are allowed
+   attribute tag { xsd:string {pattern='[0-9x][0-9x][0-9x]'} },
+# if @code is empty, all subfields are searched. If @code is not
+# emptyr, it is a list of the subfields to search in
+   attribute code { xsd:string {pattern='[a-z0-9]*'} },
+   attribute test { "exists" | "equals" | "contains" | "starts-with"  },
+   text
+  } 
+  
+# A record passes through the second stage filter if it does not match  
+# any of the criteria for rejection
+reject-stage = 
+   element reject-stage { criterion* }
+
+# The records that have passed through both stages of the filter
+# are mapped to an equivalent OLAC record
+mapping = 
+   element mapping { empty }
+   
+map =
+   element map { criterion }
+   
+# Some built-in things: 
+#   conversion of 008 control field positions to W3CDTF,
+#   conversion of 034 subtags to dcterms:Box value   
+}

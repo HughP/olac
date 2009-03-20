@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+   <head>
+      <title>Crosswalk Index</title>
+      <script type="text/javascript">
+         function start() {
+            name =
+            location.href.substring(location.href.indexOf('/crosswalk/') + 10, location.href.length);
+            name = name.substring(1, name.length - 6);
+            document.getElementById('h1') .innerHTML = 'MARC data set: ' + name;
+         }
+         
+         window.onload = start;</script>
+   </head>
+   <body>
+      <h1 id="h1">Page URL</h1>
+      <blockquote>
+         <p>Total records: <a href="count">count</a></p>
+      </blockquote>
+      <table border="solid" cellpadding="10" cellspacing="0">
+         <tr>
+            <td>Convert to OLAC repository</td>
+            <td><a href="none/stage2/olac"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="none/stage2/olac/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Clean up</td>
+            <td><a href="none/stage2/clean1"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="none/stage2/clean1/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove duplicates</td>
+            <td><a href="none/stage2/clean2"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="none/stage2/clean2/html">html</a></td>
+         </tr>
+         <tr>
+            <td>Remove extra attributes</td>
+            <td><a href="none/stage2/final"
+                  >xml</a>&#160;&#160;
+                   <a
+                  href="none/stage2/final/html">html</a></td>
+         </tr>
+      </table>
+      <h3>Available filters</h3>
+      <table border="solid" cellpadding="10" cellspacing="0">
+         <tr>
+            <td/>
+            <td>Final result</td>
+            <td>All intermediate results</td>
+         </tr>
+         <tr>
+            <td>Pass through</td>
+            <td align="center">
+               <a href="passthrough/stage2/final/html">html</a>
+            </td>
+            <td align="center">
+               <a href="passthrough/index">link</a>
+            </td>
+         </tr>
+         <tr>
+            <td>Sample</td>
+            <td align="center">
+               <a href="sample/stage2/final/html">html</a>
+            </td>
+            <td align="center">
+               <a href="sample/index">link</a>
+            </td>
+         </tr>
+         <!-- Copy and edit the <tr> above to add a new filter to the workbench.
+               The first path element in the two hrefs is the file name of the filter 
+               minus the beginning "filter-" and the ending ".xml"
+         -->
+      </table>
+   </body>
+</html>
