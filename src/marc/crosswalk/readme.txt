@@ -1,5 +1,5 @@
 
-MARC-to-OLAC Crosswalk
+MARC-to-OLAC CROSSWALK
 
 Last updated: 20 March 2009
 
@@ -15,7 +15,7 @@ Simply click on the links to exercise all of the functionality supported in the 
 
 A data set must be a MARC XML Collection.  That is, the root element is <collection xmlns="http://www.loc.gov/MARC21/slim"> and contains a set of <record> elements.
 
-To add a new data set to the workbench, simply place the XML file in the crosswalk/data/ folder.  Refresh the home page and it will add a link for the new data set.
+To add a new data set to the workbench, simply place the XML file in the /MARC_data/ folder.  Refresh the home page and it will add a link for the new data set.
 
 
 2. Adding a new data filter
@@ -28,6 +28,8 @@ The workbench does not yet automatically detect filters, so in order to show up 
 3. Installing the crosswalk
 
 If Cocoon is already installed, simply copy the complete crosswalk folder into the mount folder.
+
+Then create a /MARC_data folder at the root level. This is where all the MARC XML data sets will be placed. There are two small examples in the crosswalk/data folder that you can copy into the /MARC_data folder to get things started.
 
 If Cocoon is not installed, first install Apache Tomcat.  Test http://localhost:8080/ make sure Tomcat is running. Then install Apache Cocoon in the webapps folder. Test http://localhost:8080/cocoon-2.1.11/ to make sure Cocoon is running. Then copy the crosswalk folder in the mount folder.  The following URL should then run the workbench:
 
