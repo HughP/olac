@@ -40,8 +40,7 @@
          </map:match>
 
          <map:match pattern="index">
-            <map:generate label="raw" src="data"
-               type="directory"/>
+            <map:generate label="raw" src="/MARC_data" type="directory"/>
             <map:transform src="index1.xsl"/>
             <map:serialize/>
          </map:match>
@@ -59,7 +58,7 @@
 
          <!-- Count the records in the selected data set {1} -->
          <map:match pattern="*/count">
-            <map:generate src="data/{1}"/>
+            <map:generate src="/MARC_data/{1}"/>
             <map:transform src="process/count-records.xsl"/>
             <map:serialize type="xml"/>
          </map:match>
@@ -94,13 +93,13 @@
 
          <!-- "none" means no filter; just read the data file -->
          <map:match pattern="*/none/stage2">
-            <map:generate src="data/{1}"/>
+            <map:generate src="/MARC_data/{1}"/>
             <map:serialize type="xml"/>
          </map:match>
 
          <!-- Apply stage 1 of the filter {2} to the record set {1} -->
          <map:match pattern="*/*/stage1">
-            <map:generate src="data/{1}"/>
+            <map:generate src="/MARC_data/{1}"/>
             <map:transform src="cocoon:/{1}/{2}/compile1"/>
             <map:serialize type="xml"/>
          </map:match>
