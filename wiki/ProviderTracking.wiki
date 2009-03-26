@@ -2,7 +2,7 @@
 
 = Guidelines =
 
-Guidelines for using the issue tracker to document progress in OLAC participation for data providers. A distinction is made between tracking progress of work with archives who are already participating as data providers, and tracking progress of contact with archives who are potential participants.
+These are guidelines for using the issue tracker to document progress in OLAC participation for data providers. A distinction is made between tracking progress of work with archives who are already participating as data providers, and tracking progress of contact with archives who are potential participants.
 
 == Existing providers ==
 
