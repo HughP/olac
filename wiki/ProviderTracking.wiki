@@ -6,7 +6,7 @@ These are guidelines for using the issue tracker to document progress in OLAC pa
 
 == Existing providers ==
 
-For an issue involving an existing data provider, create an issue of Type-Repository. The issue could be a defect to be fixed in the current implementation, the need for a complete re-implementation, or the need to upgrade from one OLAC version to another. The standard status sequence for software development is used: 
+For an issue involving an existing data provider, create an issue of Type-Repository. The issue could be a defect to be fixed in the current implementation, the need for a complete re-implementation, or the need to upgrade from one OLAC version to another. (Note that Type-Defect is used only for defects in the infrastructure at language-archives.org, and not for defects in participating data providers.) The standard status sequence for software development is used: 
 
   * *New* -- the implementation is newly proposed
   * *Accepted* -- it has been agreed that the issue should be fixed
