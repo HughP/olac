@@ -71,8 +71,10 @@ function get_archive_info($id)
     $o["Base URL"] = $r[BaseURL];
     $o["Repository ID"] = $r[RepositoryIdentifier];
     $o["OAI Version"] = $r[OaiVersion];
-    foreach ($tab2 as $v) {
-	$o["OLAC Version"] .= "$v[SchemaName] ";
+    if ($tab2) {
+      foreach ($tab2 as $v) {
+        $o["OLAC Version"] .= "$v[SchemaName] ";
+      }
     }
     $o["Records in Archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
     $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
