@@ -1,3 +1,5 @@
+import os
+import sys
 from mod_python import apache
 import MySQLdb
 from Cheetah.Template import Template
@@ -6,18 +8,22 @@ def handler(req):
     # get repository id
     if req.path_info:
         args = req.path_info.split('/')
-        if len(args) >= 2:
+        if len(args) == 2:
             repo_id = args[1]
-        else:
-            return apache.HTTP_FORBIDDEN
-        download = False
-        if len(args) >= 3:
+            download = False
+        elif len(args) == 3:
+            repo_id = args[1]
             if args[2] == 'download':
                 download = True
             else:
                 return apache.HTTP_FORBIDDEN
+        else:
+            return apache.HTTP_FORBIDDEN
     else:
-        return apache.HTTP_FORBIDDEN
+        return displayPickPage(req)
+
+    if not repo_id:
+        return displayPickPage(req)
 
     # check if repository by the id exists
     con = MySQLdb.connect(read_default_file='/home/olac/.my.cnf')
@@ -90,11 +96,45 @@ order by ic.Problem_Code
         return displayAsHtml(req, repo_id, errors, warnings)
 
 
+def get_base_dir(req):
+    # compute the current directory (base)
+    c = req.get_config()
+    scriptname = c['PythonHandler'] + ".py"
+    try:
+        paths = eval(c['PythonPath'])
+    except KeyError:
+        paths = sys.path
+    for d in paths:
+        if os.path.exists(os.path.join(d, scriptname)):
+            base = d
+            break
+    else:
+        base = ''  # the program will crash later
+    return base
+
+
+def get_archives_list():
+    con = MySQLdb.connect(read_default_file='/home/olac/.my.cnf')
+    cur = con.cursor()
+    sql = """select RepositoryIdentifier from OLAC_ARCHIVE
+    order by RepositoryIdentifier"""
+    cur.execute(sql)
+    repoids = [row[0] for row in cur.fetchall()]
+    cur.close()
+    con.close()
+    return repoids
+
+
 def displayAsHtml(req, repo_id, errors, warnings):
-    t = Template(file="/web/language-archives/mp/IntegrityChecks/templates/integrity_checks.tmpl")
+    base = get_base_dir(req)
+    repoids = get_archives_list()
+
+    t = Template(file=os.path.join(base,"templates/integrity_checks.tmpl"))
     t.repoid = repo_id
     t.errors = errors
     t.warnings = warnings
+    t.repoids = repoids
+    t.baseurl = '/' + os.path.basename(req.filename)
     req.content_type = 'text/html'
     req.send_http_header()
     req.write(str(t))
@@ -110,4 +150,17 @@ def displayAsTsv(req, repo_id, errors, warnings):
         req.write("\t".join(row[1:5]) + "\r\n")
     for row in warnings:
         req.write("\t".join(row[1:5]) + "\r\n")
+    return apache.OK
+
+def displayPickPage(req):
+    base = get_base_dir(req)
+    repoids = get_archives_list()
+    
+    # display the html page
+    t = Template(file=os.path.join(base,"templates/integrity_checks.tmpl"))
+    t.repoids = repoids
+    t.baseurl = '/' + os.path.basename(req.filename)
+    req.content_type = 'text/html'
+    req.send_http_header()
+    req.write(str(t))
     return apache.OK

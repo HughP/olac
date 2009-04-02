@@ -15,15 +15,48 @@ $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 <hr>
 <table cellpadding=10>
 <tr><td><a href="/"><img src="/images/olac100.gif" border=0></a></td>
-<td><h1>Integrity Checks: $repoid</h1></td></tr>
+<td><h1>Integrity Checks
+#if $getVar('repoid',None)
+: $repoid
+#end if
+</h1></td></tr>
 </table>
 <hr>
-#if $errors or $warnings
-<p>(Click <a href="$repoid/download">here</a> to download as a file.)
+
+#if $getVar('repoid',None)
+<p>Use the following form to check other archives.</p>
 #else
+<p>Select an archive to check from the list and click on the 'Submit Query'
+button.</p>
+#end if
+
+<script>
+function redirect() {
+  var list = document.getElementById('list');
+  window.location = '$baseurl/' + list.value;
+}
+</script>
+
+<p>
+<select id="list">
+#for repoid in $repoids
+#if $getVar('repoid',None)==repoid
+<option value="$repoid" selected>$repoid</option>
+#else
+<option value="$repoid">$repoid</option>
+#end if
+#end for
+</select>
+<button onclick="redirect();">Submit Query</button>
+</p>
+<hr>
+
+#if $getVar('errors',None) or $getVar('warnings',None)
+<p>(Click <a href="$repoid/download">here</a> to download as a file.)
+#elif $getVar('repoid',None)
 <p>There are no errors for this archive.</p>
 #end if
-#if $errors
+#if $getVar('errors',None)
 <h2>Errors:</h2>
 <p>The following errors have been detected in the metadata for this archive. Their presence counts against the Overall Rating for the archive.<p>
 <table border=1>
@@ -41,7 +74,7 @@ $re.sub(r"((?:http|https|ftp)://\S+)", r'<a href="\1">\1</a>', $s)
 #end for
 </table>
 #end if
-#if $warnings
+#if $getVar('warnings',None)
 <h2>Warnings:</h2>
 <p>The following potential problems have been detected and should be looked into. They are not severe enough to count against the archive's Overall Rating.</p>
 <table border=1>
