@@ -34,7 +34,21 @@ sqls = [
 
     "update Metrics set num_linguistic_fields=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-field') where archive_id=-1",
     
-    "update Metrics set num_linguistic_types=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-type' and Archive_ID=Metrics.archive_id)",
+    """
+    update Metrics m
+    left join (
+        select Archive_ID, count(distinct cd.Code) c
+        from ARCHIVED_ITEM ai, METADATA_ELEM me, CODE_DEFN cd
+        where ai.Item_ID=me.Item_ID
+        and me.Extension_ID=cd.Extension_ID
+        and me.Type='linguistic-type'
+        and me.Code=cd.Code
+        and me.Code != ''
+        and me.Code is not null
+        group by Archive_ID) x
+        on m.archive_id=x.Archive_ID
+    set m.num_linguistic_types=if(x.c is null, 0, x.c)
+    """,
 
     "update Metrics set num_linguistic_types=(select count(distinct cd.Code) from METADATA_ELEM me left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code where me.Type='linguistic-type') where archive_id=-1",
 
