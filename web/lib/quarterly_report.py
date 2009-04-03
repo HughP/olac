@@ -92,6 +92,7 @@ def generateMetricsTable(metrics, archiveId):
     for i in range(len(fields)):
         f = fields[i]
         v = row[f]
+        if v is None: v=0
         params.append(v)
         params.append(metrics.rank(f,v))
     return metricsTemplate % tuple(params)
@@ -103,10 +104,14 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
     """
     feedback = []
     date = lastUpdated
-    d = (date.today() - date).days / 365.25 * 12.0
-    if d <= 12.0 and score >= 9.0:
+    if date is None:
+        d = None
+    else:
+        d = (date.today() - date).days / 365.25 * 12.0
+    
+    if d is not None and d <= 12.0 and score >= 9.0:
         feedback.append("These metrics indicate that your archive is an exemplary member of the community. Congratulations!")
-    if d > 12.0 and score >= 9.0:
+    if d is not None and d > 12.0 and score >= 9.0:
         feedback.append("The quality of your metadata is exemplary. Congratulations!")
     if score < 7.0:
         feedback.append("Your average metadata quality could be improved. Doing so will improve the quality of search that can be offered for your records.")
@@ -114,10 +119,12 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
         feedback.append("Your average metadata quality is good, but could still be improved.")
     if score < 9.0:
         feedback.append("See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.\n\nhttp://www.language-archives.org/sample/%s" % archiveId)
-    if d > 12.0:
+    if d is not None and d > 12.0:
         feedback.append("Note that it is more than one year since your metadata repository was last updated. Even if your collection is static, you should verify the details in your <olac-archive> description and update the currentAsOf date. Please do so at your earliest convenience.")
-    if d <= 12.0 and d > 9.0:
+    if d is not None and d <= 12.0 and d > 9.0:
         feedback.append("Note that it will soon be one year since your metadata repository was last updated; please update it by %s." % (lastUpdated+datetime.timedelta(356.25)))
+    if d is None:
+        feedback.append("We couldn't determine the last updated date of your archive. Please verify the details in your <olac-archive> description and update the currentAsOf date.")
 
     return "\n\n".join(feedback)
 
