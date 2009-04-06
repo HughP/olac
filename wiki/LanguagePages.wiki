@@ -27,15 +27,13 @@ The OLAC database already has a table for the complete ISO639-3 code set. Use th
 
 (except suppress the addition of "language" when the name already contains the word).  Continue as follows:
 
-{{{ISO 639-3: _code_
+{{{ISO 639-3: _code_}}}
 
 Other known names and dialects: _comma delimited list_
 
-The combined catalog of all OLAC participants contains the following resources that are relevant to this language:
-
+{{{The combined catalog of all OLAC participants contains the following resources that are relevant to this language:
    * Resources in the language
    * Primary texts
    * Lexical resources
    * Language descriptions
-   * Other resources about the language
-}}}
+   * Other resources about the language}}}
