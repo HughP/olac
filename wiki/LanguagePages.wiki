@@ -1,0 +1,29 @@
+#summary Specification for language index pages
+
+= Objective =
+
+The objective is to create dynamically generated pages on the OLAC site that will serve as index pages for each known language. The URLs will be:
+
+   http://www.language-archives.org/language/xyz
+
+where _xyz_ is the ISO 639-3 code for the language. The page will have links to all OLAC records that are indexed against that language. It will also have all known alternate names for the language as well as dialect names so that a general Google search against one of those terms can retrieve OLAC index of all known resources for the language.
+
+= Reciprocal links =
+
+We will encourage OLAC participants to make links to these language index pages from their language-specific pages. This will serve a two-fold purpose:
+
+  # It offers a service to their users by informing them of all known resources for that language that are held by OLAC participants. 
+  # It should increase traffic to their site since users of other language sites will also be directed to their site, and perhaps more significantly, because more in-coming links to the OLAC language index page will increase its Google number which will increase the likelihood that a general Google search (using any known name for the language) will land on the OLAC language index page and thus direct users interested in that language to all OLAC participants.
+
+= Links from item pages =
+
+A parallel change to the site is that all ISO 639-3 codes appearing as metadata in an /item/_oai-id_ page will be made into links to the appropriate language page. In this anyone who discovers an OLAC item of interest (such as through a general Google search) will have a link to a list of all known resources relevant to the same language.
+
+= Page design =
+
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
