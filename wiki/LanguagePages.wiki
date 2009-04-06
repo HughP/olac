@@ -17,13 +17,25 @@ We will encourage OLAC participants to make links to these language index pages 
 
 = Links from item pages =
 
-A parallel change to the site is that all ISO 639-3 codes appearing as metadata in an /item/_oai-id_ page will be made into links to the appropriate language page. In this anyone who discovers an OLAC item of interest (such as through a general Google search) will have a link to a list of all known resources relevant to the same language.
+A parallel change to the site is that every ISO 639-3 codes appearing as a metadata value in an /item/_oai-id_ page will be made into a link to the appropriate language page. In this way, anyone who discovers an OLAC item of interest (such as through a general Google search) will have a link to a list of all known resources relevant to the same language.
 
 = Page design =
 
+The OLAC database already has a table for the complete ISO639-3 code set. Use this behind the dynamic /language page to resolve the code to a name and generate the following title and H1 heading for the page:
 
+   {{{Resources in and about the _Name_ language}}}
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+(except suppress the addition of "language" when the name already contains the word).  Continue as follows:
+
+{{{ISO 639-3: _code_
+
+Other known names and dialects: _comma delimited list_
+
+The combined catalog of all OLAC participants contains the following resources that are relevant to this language:
+
+   * Resources in the language
+   * Primary texts
+   * Lexical resources
+   * Language descriptions
+   * Other resources about the language
+}}}
