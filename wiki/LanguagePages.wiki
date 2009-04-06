@@ -32,7 +32,8 @@ ISO 639-3: _code_
 
 Other known names and dialects: _comma delimited list_
 
-The combined catalog of all OLAC participants contains the following resources that are relevant to this language:
+The combined catalog of all OLAC participants contains 
+the following resources that are relevant to this language:
 
    * Primary texts
    * Lexical resources
@@ -45,7 +46,7 @@ _H2 for each of the above that applies_
    _List of links to resources that match_
 
 Other search terms: _comma delimited list of synonyms 
-for text, lexicon, description_
+for language, dialect, text, lexicon, description_
 }}}
 
 = Implementation notes =
@@ -59,8 +60,15 @@ If the query returns no results, then do not include the "Other known names" hea
 
 The bulleted list serves as a table of contents to the page. Each list item is a link to a corresponding H2 heading further down the page. The list should contain only those items that have any associated resources.  That is,
 
-   * Primary texts: This subsection lists all resources that are indexed as {{{linguistic-type = primary_text}}} and {{{subject language = xyz}}}.
-   * Lexical resources: This subsection lists all resources that are indexed as {{{linguistic-type = lexicon}}} and {{{subject language = xyz}}}.
-   * Language descriptions: This subsection lists all resources that are indexed as {{{linguistic-type = language_description}}} and {{{subject language = xyz}}}.
-   * Other resources in the language: This subsection lists all resources for which {{{language = xyz}}} and NOT {{{subject language = xyz}}}. If there are no resources in one of the first three categories, then the label should be simply "Resources in the language".
-   * Other resources about the language: This subsection lists all resources for which {{{subject language = xyz}}} and there is no value for {{{linguistic-type}}}. If there are no resources in one of the first three categories, then the label should be simply "Resources about the language".
+   * *Primary texts:* This subsection lists all resources that are indexed as {{{linguistic-type = primary_text}}} and {{{subject language = xyz}}}.
+   * *Lexical resources:* This subsection lists all resources that are indexed as {{{linguistic-type = lexicon}}} and {{{subject language = xyz}}}.
+   * *Language descriptions:* This subsection lists all resources that are indexed as {{{linguistic-type = language_description}}} and {{{subject language = xyz}}}.
+   * *Other resources in the language:* This subsection lists all resources for which {{{language = xyz}}} and NOT {{{subject language = xyz}}}. If there are no resources in one of the first three categories, then the label should be simply "Resources in the language".
+   * *Other resources about the language:* This subsection lists all resources for which {{{subject language = xyz}}} and there is no value for {{{linguistic-type}}}. If there are no resources in one of the first three categories, then the label should be simply "Resources about the language".
+
+For the time being, the links to the resources may be simply the OAI identifier (as on the archive_records/ pages). Eventually we want to add a mini-citation format (which will be developed in Issues 70 and 79).
+
+The "Other search terms" at the bottom of the page combine with the alternate names at the top of the page to serve as "fly paper" for general Google searches by people who have never heard of OLAC. If they specify a known language name plus a known synonym of a linguistic type, then the OLAC language index page is a page they are probably interested in.  The synonyms will include synonyms in major languages. All pages will include synonyms for language and dialect. Inclusion of synonyms for primary text, lexicon, and language description is contingent on there being resources of that type for the language. (This is to avoid making the false statement, for instance, that the page is relevant to lexicons if it does not list any.) We need a work item to collect synonyms in major languages. In the meantime, start with the following English terms for the trhee linguistic types:
+  * text, discourse
+  * lexicon, dictionary, vocabulary, wordlist
+  * description, grammar, syntax, morphology, phonology
