@@ -33,6 +33,9 @@ function get_archive_info($id)
     $tab3 = $DB->sql("select Name, Role, Email " .
 		     "from   ARCHIVE_PARTICIPANT " .
 		     "where  Archive_ID=$archiveid");
+    $tab4 = $DB->sql("select max(DateStamp) DateStamp
+                      from ARCHIVED_ITEM
+                      where Archive_ID=$archiveid");
     $r = $tab[0];
 
     $o[Size] = $tab1[0][size];
@@ -80,7 +83,8 @@ function get_archive_info($id)
     $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
     $o["Last Harvested"] = $r[LastHarvested];
     $o["Current As Of"] = $r[CurrentAsOf];
-
+    if (count($tab4) > 0)
+      $o["Latest Datestamp"] = $tab4[0]['DateStamp'];
     $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
 
     return $o;
