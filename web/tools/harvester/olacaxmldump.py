@@ -109,7 +109,7 @@ def process_cmdline_options():
     
 def get_extension_db():
     sql = """
-    select Extension_ID, NS, Type from EXTENSION
+    select Extension_ID, NS, Type, NSPrefix, NSSchema from EXTENSION
     """
 
     extdb = {}
@@ -180,20 +180,30 @@ def init():
     init_sqls = [
         'create table t (tag,lang,content,extid,code,extlabel,codelabel,itemid)',
         'create index t_idx on t (itemid)',
-        """insert into t
+        """
+        insert into t
         select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
         ex.Label, cd.Label, Item_ID
-        from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
-        where  me.Extension_ID=ex.Extension_ID
-        and    me.Extension_ID=cd.Extension_ID
-        and    cd.Code=''""",
-        """insert into t
-        select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
-        ex.Label, cd.Label, Item_ID
-        from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
-        where  me.Extension_ID=ex.Extension_ID
-        and    me.Extension_ID=cd.Extension_ID
-        and    cd.Code!='' and me.Code=cd.Code""",
+        from METADATA_ELEM me
+        left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+        left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+        """,
+##         """insert into t
+##         select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
+##         ex.Label, cd.Label, Item_ID
+##         from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
+##         where  me.Extension_ID=ex.Extension_ID
+##         and    me.Extension_ID=cd.Extension_ID
+##         and    cd.Code=''
+##         """,
+##         """insert into t
+##         select TagName,  Lang,     Content, me.Extension_ID, cd.Code,
+##         ex.Label, cd.Label, Item_ID
+##         from   METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd
+##         where  me.Extension_ID=ex.Extension_ID
+##         and    me.Extension_ID=cd.Extension_ID
+##         and    cd.Code!='' and me.Code=cd.Code
+##         """,
         ]
 
     for sql in init_sqls:
@@ -205,29 +215,29 @@ def init():
     
 def get_olac_container():
     e = doc.createElement("olac:olac")
-    e.setAttribute(
-        "xmlns:dc",
-        "http://purl.org/dc/elements/1.1/")
-    e.setAttribute(
-        "xmlns:dcterms",
-        "http://purl.org/dc/terms/")
-    e.setAttribute(
-        "xmlns:olac",
-        "http://www.language-archives.org/OLAC/1.0/")
+##     e.setAttribute(
+##         "xmlns:dc",
+##         "http://purl.org/dc/elements/1.1/")
+##     e.setAttribute(
+##         "xmlns:dcterms",
+##         "http://purl.org/dc/terms/")
     e.setAttribute(
         "xmlns:xsi",
         "http://www.w3.org/2001/XMLSchema-instance")
-    e.setAttribute(
-        "xsi:schemaLocation",
-        """http://purl.org/dc/elements/1.1/
-        http://www.language-archives.org/OLAC/1.0/dc.xsd
-        http://purl.org/dc/terms/
-        http://www.language-archives.org/OLAC/1.0/dcterms.xsd
-        http://www.language-archives.org/OLAC/1.0/
-        http://www.language-archives.org/OLAC/1.0/olac.xsd""")
+##     e.setAttribute(
+##         "xmlns:olac",
+##         "http://www.language-archives.org/OLAC/1.0/")
+##     e.setAttribute(
+##         "xsi:schemaLocation",
+##         """http://purl.org/dc/elements/1.1/
+##         http://www.language-archives.org/OLAC/1.0/dc.xsd
+##         http://purl.org/dc/terms/
+##         http://www.language-archives.org/OLAC/1.0/dcterms.xsd
+##         http://www.language-archives.org/OLAC/1.0/
+##         http://www.language-archives.org/OLAC/1.0/olac.xsd""")
     return e
 
-def get_metadata_element(row):
+def get_metadata_element(row, nsinfo):
     tag = row[0]
     lang = row[1]
     content = row[2]
@@ -243,16 +253,17 @@ def get_metadata_element(row):
     if content:
         txt = doc.createTextNode(content)
         me.appendChild(txt)
-    ns, tt = extdb[extid]
-    if ns == 'http://www.language-archives.org/OLAC/1.0/':
-        me.setAttribute('xsi:type', 'olac:%s' % tt)
-        if code:
-            me.setAttribute('olac:code', code)
-    elif ns == 'http://purl.org/dc/terms/':
-        me.setAttribute('olac:code', code)
-    else:
-        # ignore the code value if it is from other namespace
-        pass
+    if extid in extdb:
+        ns, tt, nsprefix, nsschema = extdb[extid]
+        if ns:
+            if ns in nsinfo:
+                nsprefix, nsschema = nsinfo[ns]
+            else:
+                nsinfo[ns] = (nsprefix, nsschema)
+            me.setAttribute('xsi:type', '%s:%s' % (nsprefix, tt))
+            if code and nsprefix=='olac':
+                me.setAttribute('olac:code', code)
+        
     return me
 
 def get_record_container(row):
@@ -281,7 +292,12 @@ def main():
     utf8encoder = codecs.getencoder('utf-8')
     utf8writer = codecs.getwriter('utf-8')
     lrout = utf8writer(gzip.open(lrfile,"w"))
-    
+    nsinfo0 = {
+        "http://purl.org/dc/elements/1.1/":
+        ("dc", "http://www.language-archives.org/OLAC/1.1/dc.xsd"),
+        "http://purl.org/dc/terms/":
+        ("dcterms", "http://www.language-archives.org/OLAC/1.1/dcterms.xsd"),
+        }
     print >>lrout, lrheader
     
     sql = """
@@ -291,16 +307,22 @@ def main():
     """
 
     csr.execute(sql)
-
     row = csr.fetchone()
     while row:
         r, m = get_record_container(row)
         olac = get_olac_container()
         sql = "select * from t where itemid=?"
         csr2.execute(sql, (row[2],))
+        nsinfo = dict(nsinfo0)
         for mdata in csr2.fetchall():
-            me = get_metadata_element(mdata)
+            me = get_metadata_element(mdata, nsinfo)
             olac.appendChild(me)
+        schemaloc = []
+        for ns, (nsprefix, nsschema) in nsinfo.items():
+            olac.setAttribute("xmlns:%s" % nsprefix, ns)
+            schemaloc.append(ns)
+            schemaloc.append(nsschema)
+        olac.setAttribute("xsi:schemaLocation", " ".join(schemaloc))
         m.appendChild(olac)
         s = r.toprettyxml()
         print >>lrout, s
