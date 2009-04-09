@@ -71,5 +71,5 @@ For the time being, the links to the resources may be simply the OAI identifier 
 The "Other search terms" at the bottom of the page combine with the alternate names at the top of the page to serve as "flypaper" for general Google searches by people who have never heard of OLAC. If they specify a known language name plus a known synonym of a linguistic type, then the OLAC language index page is a page they are probably interested in.  The synonyms will include synonyms in major languages. All pages will include synonyms for language and dialect. Inclusion of synonyms for primary text, lexicon, and language description is contingent on there being resources of that type for the language. (This is to avoid making the false statement, for instance, that the page is relevant to lexicons if it does not list any.) We need a work item to collect synonyms in major languages. In the meantime, start with the following English terms for the synonym sets:
   * language, dialect
   * text, discourse
-  * lexicon, dictionary, vocabulary, wordlist
-  * description, grammar, syntax, morphology, phonology
+  * lexicon, dictionary, vocabulary, wordlist, phrase book
+  * description, grammar, syntax, morphology, phonology, orthography
