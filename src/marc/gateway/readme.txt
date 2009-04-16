@@ -23,3 +23,21 @@ test-sample.bat
 To create a real example, create a new gateway specification file that conforms to gateway.rnc and make a batch file for it by copying test-sample.bat, renaming it, and editing the contents to name your new gateway file and the input file you want to use.
  
 
+15 Apr 2009
+
+Added compilation of the inverse of the stage 1 and 2 filters.
+
+filter.bat is the batch file that compiles the two filters and their two inverses and then runs them all on a test data file to produce four output files.  The doc in the file is:
+
+rem Syntax: filter gateway-spec input
+rem    where "gateway-spec" is without the .xml extention,
+rem    but "input" does include the extension
+rem
+rem The outputs are:
+rem    stage1-yes.xml  Records accepted by stage 1 filter
+rem    stage1-no.xml   Records rejeted by stage 1 filter
+rem    stage2-yes.xml  Records accepted by stage 2 filter
+rem    stage2-no.xml   Records rejeted by stage 2 filter
+
+filter-sample.bat calls the above on filter-sample.xml and ..\sample.xml
+
