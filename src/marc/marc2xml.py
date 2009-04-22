@@ -13,14 +13,20 @@ except:
 
 f = open(output,'w')
 ctr = 0
+error = 0
 marcset = pymarc.MARCReader(open(input))
 f.write('<?xml version="1.0" encoding="UTF-8" ?>\n<collection xmlns="http://www.loc.gov/MARC21/slim">')
 for rec in marcset:
-    xmlrec = pymarc.record_to_xml(rec)
-    #xmlrec = libxml2.parseDoc(xmlrec)
-    f.write(xmlrec + '\n')
-    ctr += 1
+    try:
+        xmlrec = pymarc.record_to_xml(rec)
+        #xmlrec = libxml2.parseDoc(xmlrec)
+        f.write(xmlrec + '\n')
+        ctr += 1
+    except IndexError:
+        print "error in record",rec[001].value()
+        error += 1
     if ctr % 500 == 0: print "writing %sth record..." % ctr
+    if ctr > 4500: print rec['001'].value(),rec['245'].value()
     #if ctr == 100: break
 f.write('</collection>')
 f.close()
@@ -33,3 +39,4 @@ f.close()
 #f.close()
 
 print "%s MARC records written as XML to %s" % (ctr,output)
+if (error > 0): print "%s error(s) encountered" % error
