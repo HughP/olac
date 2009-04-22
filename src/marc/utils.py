@@ -44,7 +44,15 @@ def apply_stylesheets(inputfilename,config):
 
     # apply xsl stylesheets using Saxon on the command line
     for xsl_file in config.get('system','xsl_stylesheet_list').split(','):
-        os.system('java -jar %s -xsl:%s.xsl -s:%s -o:%s' % \
-            (config.get('system','saxon_jar_file'),xsl_file,inputfilename,xml_output))
-        os.remove(inputfilename)
-        os.rename(xml_output,inputfilename)
+        print 'inputfilename = ',inputfilename
+        print 'xml_output = ',xml_output
+        systemstring = 'java -jar %s -xsl:%s.xsl -s:%s -o:%s' % \
+            (config.get('system','saxon_jar_file'),xsl_file,inputfilename,xml_output)
+        print 'sys = ',systemstring
+        os.system(systemstring)
+        #os.remove(inputfilename)
+        try:
+            os.rename(xml_output,inputfilename)
+        except WindowsError:
+            print "No output resulted from the transformation.  There is probably an error in your XML data or the stylesheet"
+            break
