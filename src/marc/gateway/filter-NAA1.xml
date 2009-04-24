@@ -2,9 +2,9 @@
 <?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
 <gateway name="filter-test">
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-      <dc:title>Simple test filter</dc:title>
+      <dc:title>NAA test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
-      <dc:date>2009-04-19</dc:date>
+      <dc:date>2009-04-24</dc:date>
       <dc:description>This filter for NAA record set mostly to remove unwanted image records.</dc:description>
    </header>
    <select-stage>
@@ -22,25 +22,37 @@
       </test>
       <test>
          <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
             <text>dictionar</text>
-            <text>lexicon</text>
-            <text>lexical</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
             <text>language</text>
+            <text>Vocabular</text>
             <text>vocabular</text>
+            <text>Linguistic</text>
             <text>linguistic</text>
-            <text>grammatical</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
             <text>phonolog</text>
          </data-field>
       </test>
       <test>
          <data-field test="contains" tag="520" code="">
+            <text>Dictionar</text>
             <text>dictionar</text>
-            <text>lexicon</text>
-            <text>lexical</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
             <text>language</text>
+            <text>Vocabular</text>
             <text>vocabular</text>
+            <text>Linguistic</text>
             <text>linguistic</text>
-            <text>grammatical</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
             <text>phonolog</text>
          </data-field>
       </test>
@@ -49,33 +61,32 @@
    <reject-stage>
       <test>
          <data-field test="contains" tag="245" code="">
-            <text>painting</text>
-            <text>drawing</text>
+            <text>Photograph</text>
             <text>photograph</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="contains" tag="300" code="">
-            <text>photograph</text>
-            <text>picture</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="contains" tag="593" code="">
-            <text>photo</text>
-            <text>picture</text>
+            <text>Engraving</text>
+            <text>engraving</text>
          </data-field>
       </test>
       <test>
          <data-field test="contains" tag="596" code="">
-            <text>photograph</text>
-            <text>picture</text>
+            <text>Photograph</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="655" code="">
+            <text>Photograph</text>
          </data-field>
       </test>
       <test>
          <data-field test="contains" tag="673" code="">
+            <text>Photograph</text>
             <text>photograph</text>
-            <text>picture</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="equals" tag="001" code="">
+            <text>21</text>
+            <text>37</text>
          </data-field>
       </test>
    </reject-stage>
