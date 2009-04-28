@@ -1,4 +1,5 @@
 import os
+import re
 
 # slurp a file into a string
 def file2string(fileName):
@@ -33,6 +34,25 @@ def getstringfromfile(filename,start,end):
     endindex = doc.find(end) + len(end)
     return doc[startindex:endindex]
 
+def parseOLACRepository(filename):
+    """parseOLACRepository(xml_filename)
+    purpose: extract three elements from an OLAC XML Repository file:
+            1) olac header (text that precedes the start of the first record)
+            2) olac_records, not including the <sr:ListRecords> wrapper tags
+            3) olac footer (text that follows the last record)
+    returns: string tuple:
+        olac_header (string)
+        olac_records (string)
+        olac_footer (string)
+        """
+    s = file2string(filename)
+    p = re.compile("^(.*<sr:ListRecords[^>]+>)(.*)(</sr:ListRecords>.*)$",re.DOTALL)
+    m = p.search(s)
+    if m:
+        return (m.group(1),m.group(2),m.group(3))
+    else:
+        return ('','','')
+
 def apply_stylesheets(inputfilename,config):
     """apply_stylesheets(xml_filename)
     purpose: apply XSL stylesheets defined in config file
@@ -44,15 +64,16 @@ def apply_stylesheets(inputfilename,config):
 
     # apply xsl stylesheets using Saxon on the command line
     for xsl_file in config.get('system','xsl_stylesheet_list').split(','):
-        print 'inputfilename = ',inputfilename
-        print 'xml_output = ',xml_output
+        #print 'inputfilename = ',inputfilename
+        #print 'xml_output = ',xml_output
         systemstring = 'java -jar %s -xsl:%s.xsl -s:%s -o:%s' % \
             (config.get('system','saxon_jar_file'),xsl_file,inputfilename,xml_output)
-        print 'sys = ',systemstring
+        #print 'sys = ',systemstring
         os.system(systemstring)
         #os.remove(inputfilename)
         try:
-            os.rename(xml_output,inputfilename)
+            import shutil
+            shutil.move(xml_output,inputfilename)
         except WindowsError:
             print "No output resulted from the transformation.  There is probably an error in your XML data or the stylesheet"
             break
