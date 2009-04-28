@@ -5,7 +5,8 @@
       <dc:title>NAA test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-04-24</dc:date>
-      <dc:description>This filter for NAA record set mostly to remove unwanted image records.</dc:description>
+      <dc:description>This filter for NAA record set mostly to remove unwanted image
+      records.</dc:description>
    </header>
    <select-stage>
       <!--
@@ -15,13 +16,13 @@
          do not use the leader to indicate record type.
       -->
       <test>
-         <data-field test="exists" tag="546" code=""/>
+         <data-field code="" tag="546" test="exists"/>
       </test>
       <test>
-         <data-field test="exists" tag="695" code=""/>
+         <data-field code="" tag="695" test="exists"/>
       </test>
       <test>
-         <data-field test="contains" tag="24x" code="">
+         <data-field code="" tag="24x" test="contains">
             <text>Dictionar</text>
             <text>dictionar</text>
             <text>Lexic</text>
@@ -39,7 +40,7 @@
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="520" code="">
+         <data-field code="" tag="520" test="contains">
             <text>Dictionar</text>
             <text>dictionar</text>
             <text>Lexic</text>
@@ -57,10 +58,10 @@
          </data-field>
       </test>
    </select-stage>
-   
+
    <reject-stage>
       <test>
-         <data-field test="contains" tag="245" code="">
+         <data-field code="" tag="245" test="contains">
             <text>Photograph</text>
             <text>photograph</text>
             <text>Engraving</text>
@@ -68,26 +69,26 @@
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="596" code="">
+         <data-field code="" tag="596" test="contains">
             <text>Photograph</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="655" code="">
+         <data-field code="" tag="655" test="contains">
             <text>Photograph</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="673" code="">
+         <data-field code="" tag="673" test="contains">
             <text>Photograph</text>
             <text>photograph</text>
          </data-field>
       </test>
       <test>
-         <data-field test="equals" tag="001" code="">
+         <control-field tag="001" test="equals">
             <text>21</text>
             <text>37</text>
-         </data-field>
+         </control-field>
       </test>
    </reject-stage>
    <crosswalk/>
