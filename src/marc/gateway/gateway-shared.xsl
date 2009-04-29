@@ -65,7 +65,7 @@
       </xsl:choose>
    </xsl:template>
 
-   <xsl:template match="data-field | control-field[@tag != '008']" mode="compile-test">
+   <xsl:template match="data-field | control-field[@tag &lt; '006']" mode="compile-test">
       <xsl:variable name="test" select="@test"/>
       <xsl:if test="@test != 'exists'">
          <xsl:text>[</xsl:text>
@@ -111,7 +111,7 @@
          @tag, $sq, ']'  )"/>
    </xsl:template>
    <!-- Compile @test, @position, and @length into an xpath [predicate] -->
-   <xsl:template match="control-field[@tag='008'] | leader" mode="compile-test">
+   <xsl:template match="control-field[@tag > '005'] | leader" mode="compile-test">
       <xsl:choose>
          <xsl:when test="@test = 'exists'">
             <xsl:value-of
