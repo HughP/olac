@@ -5,8 +5,8 @@
       <dc:title>NAA test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-04-24</dc:date>
-      <dc:description>This filter for NAA record set mostly to remove unwanted image
-      records.</dc:description>
+      <dc:description>This filter for NAA record set mostly to remove unwanted image records,
+         but does use the select stage to explicitly select desired records.</dc:description>
    </header>
    <select-stage>
       <!--
@@ -16,13 +16,13 @@
          do not use the leader to indicate record type.
       -->
       <test>
-         <data-field code="" tag="546" test="exists"/>
+         <data-field test="exists" tag="546" code=""/>
       </test>
       <test>
-         <data-field code="" tag="695" test="exists"/>
+         <data-field test="exists" tag="695" code=""/>
       </test>
       <test>
-         <data-field code="" tag="24x" test="contains">
+         <data-field test="contains" tag="24x" code="">
             <text>Dictionar</text>
             <text>dictionar</text>
             <text>Lexic</text>
@@ -40,7 +40,7 @@
          </data-field>
       </test>
       <test>
-         <data-field code="" tag="520" test="contains">
+         <data-field test="contains" tag="520" code="">
             <text>Dictionar</text>
             <text>dictionar</text>
             <text>Lexic</text>
@@ -58,10 +58,10 @@
          </data-field>
       </test>
    </select-stage>
-
+   
    <reject-stage>
       <test>
-         <data-field code="" tag="245" test="contains">
+         <data-field test="contains" tag="245" code="">
             <text>Photograph</text>
             <text>photograph</text>
             <text>Engraving</text>
@@ -69,17 +69,17 @@
          </data-field>
       </test>
       <test>
-         <data-field code="" tag="596" test="contains">
+         <data-field test="contains" tag="596" code="">
             <text>Photograph</text>
          </data-field>
       </test>
       <test>
-         <data-field code="" tag="655" test="contains">
+         <data-field test="contains" tag="655" code="">
             <text>Photograph</text>
          </data-field>
       </test>
       <test>
-         <data-field code="" tag="673" test="contains">
+         <data-field test="contains" tag="673" code="">
             <text>Photograph</text>
             <text>photograph</text>
          </data-field>
