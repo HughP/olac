@@ -41,3 +41,11 @@ rem    stage2-no.xml   Records rejeted by stage 2 filter
 
 filter-sample.bat calls the above on filter-sample.xml and ..\sample.xml
 
+
+4 May 2009
+
+Added generation of XSLT 2.0 version of the "yes" filters for use in
+Python app.  The result is two additional outputs:
+
+rem    %1-stage1.xsl   The final stage 1 filter (in XLST 2.0)
+rem    %1-stage2.xsl   The final stage 2 filter (in XLST 2.0)

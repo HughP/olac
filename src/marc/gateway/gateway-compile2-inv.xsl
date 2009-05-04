@@ -40,7 +40,8 @@
       <xsl:variable name="criteria">
          <xsl:apply-templates select="*"/>
       </xsl:variable>
-      <alias:template match="marc:record{$criteria}" priority="1">
+      <alias:template match="marc:record{$criteria}" 
+         priority="{position()}">
          <alias:copy-of select="self::node()"/>
       </alias:template>
    </xsl:template>
