@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
+<gateway name="filter-test">
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>GIAL test filter</dc:title>
+      <dc:contributor>Joan Spanne</dc:contributor>
+      <dc:date>2009-04-26</dc:date>
+      <dc:description>This filter for GIAL record set.</dc:description>
+   </header>
+   <select-stage>
+      <!--
+         The GIAL records use a 590 to specify the ISO 639-3 language
+         that is the focus of the work (whether its subject or its 
+         minority language of content)
+         590  ..	‡lmbd‡2ISO 639-3¶
+         
+      -->
+      <test>
+         <data-field test="exists" tag="590" code="l"/>
+      </test>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="">
+            <text>language</text>
+         </data-field>
+      </test>
+   </select-stage>
+   
+   <reject-stage>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>Greek language, Biblical</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="245" code="">
+            <text>Photograph</text>
+            <text>photograph</text>
+            <text>Engraving</text>
+            <text>engraving</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Ability testing</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Acquisition</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Business</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Composition</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Data processing</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Grammar</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Popular</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Pronunciation</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Rhetoric</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Study and teaching</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Technical</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Terms and phrases</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="x">
+            <text>Usage</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="v">
+            <text>Textbooks</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="v">
+            <text>Handbooks</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>English language</text>
+         </data-field>
+         <data-field test="contains" tag="650" code="z">
+            <text>United States</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>Language and languages</text>
+         </data-field>
+      </test>
+   </reject-stage>
+   <crosswalk/>
+</gateway>
