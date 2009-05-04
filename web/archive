@@ -67,7 +67,7 @@ function get_archive_info($id)
     if ($tab3) {
       $participant_arr = array();
       foreach ($tab3 as $p) {
-	$participant_arr[] = "<a href=\"mailto:$p[Email]\">$p[Name]</a>($p[Role])";
+	$participant_arr[] = "<a href=\"mailto:$p[Email]\">$p[Name]</a> ($p[Role])";
       }
       $o[Participants] = implode(", ", $participant_arr);
     }
