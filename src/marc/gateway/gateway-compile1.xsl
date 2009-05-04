@@ -2,17 +2,19 @@
 <!-- gateway-compile1.xsl
         Compile the stage 1 ("select") filter for a gateway
         G. Simons, 4 Feb 2009
-        Last updated: 12 Feb 2009
+        Last updated: 4 May 2009
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:alias="AliasForXSLT"
    xmlns:marc="http://www.loc.gov/MARC21/slim"
    version="1.0">
   <xsl:output method="xml"/>
+   <!-- Create an XSLT v. 1.0 stylesheet by default -->
+   <xsl:param name="version">1.0</xsl:param>
    <xsl:include href="gateway-shared.xsl"/>
    <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>
    <xsl:template match="/gateway">
-         <alias:stylesheet version="1.0">
+         <alias:stylesheet version="{$version}">
             <alias:output method="xml"/>
             <alias:strip-space elements="marc:collection"/>
             <alias:template match="marc:collection">
@@ -38,8 +40,14 @@
    <xsl:template match="test">
       <xsl:variable name="criteria">
          <xsl:apply-templates select="*"/>
-      </xsl:variable>
-      <alias:template match="marc:record{$criteria}" priority="1">
+      </xsl:variable> <!-- Giving each criterion a different priority simply
+         prevents the XSLT processor from reporting warnings that
+         multiple templates matched. It is okay that multiple
+         templates match and it does not matter which one it
+         chooses since they all do the same thing, namely, copy the
+         record. -->
+      <alias:template match="marc:record{$criteria}" 
+         priority="{position()}">
          <alias:copy-of select="self::node()"/>
       </alias:template>
    </xsl:template>
