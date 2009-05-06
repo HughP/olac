@@ -45,8 +45,8 @@ We can dispense with putting the role of non-authors in parentheses if that seem
 The *date* part is formed as follows:
 
  # Find the DC dumbed-down date string following the order of element preference given in section 1 of http://olac.wiki.sourceforge.net/Display+format+and+DC+crosswalk
- # If no date elements are present, return "n.d."
- # If the date string contains hyphen, return everything up to the first hyphen; othersie return the full date string.
+ # If none of the date elements are present, return "n.d."
+ # If the date string contains a hyphen, return everything up to the first hyphen; otherwise return the full date string.
 
 
 The *publisher* part is formed as follows:
