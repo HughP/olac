@@ -8,14 +8,19 @@ On the item pages we need a short citation form to go at the bottom of the page 
 
 = Approach =
 
-For the Google search application, a search hit for an item page looks like this:
+For the Google search application, a search hit for "iso639_aaa" looks like this:
 
- _*Ghotuo: a language of Nigeria*_<br>
+ _Ghotuo: a language of Nigeria_<br>
  ... oai:ethnologue.com:aaa. DateStamp: 2008-07-21. GetRecord: OAI-PMH request for 
- simple  DC format. Search Info. Terms, dcmi_Text iso639_aaa iso639_eng.<br>
+ simple  DC format. Search Info. Terms, dcmi_Text *iso639_aaa* iso639_eng.<br>
  http://www.language-archives.org/item/oai:ethnologue.com:aaa 
 
-the title of the resource is already placed in the page title for the item page. Thus the main heading for a Google hit is already the title and we do not need to repeat it in the 
+The <dc:title> is already placed in the page title for the item page, so it already appears as the heading for a Google hit and we do not need to repeat it in our citation string. What we want to do is put something more useful in the second line, specifically the author, date, and publisher so that we get something more like this:
+
+ _Ghotuo: a language of Nigeria_<br>
+ ... Search Info. Citation: Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). Terms: dcmi_Text *iso639_aaa* iso639_eng.<br>
+ http://www.language-archives.org/item/oai:ethnologue.com:aaa 
+
 
 = Details =
 
