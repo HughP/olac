@@ -11,26 +11,46 @@ On the item pages we need a short citation form to go at the bottom of the page 
 For the Google search application, a search hit for "iso639_aaa" looks like this:
 
  _Ghotuo: a language of Nigeria_<br>
- ... oai:ethnologue.com:aaa. DateStamp: 2008-07-21. GetRecord: OAI-PMH request for 
+ ... oai:ethnologue.com:aaa. !DateStamp: 2008-07-21. !GetRecord: OAI-PMH request for 
  simple  DC format. Search Info. Terms, dcmi_Text *iso639_aaa* iso639_eng.<br>
  http://www.language-archives.org/item/oai:ethnologue.com:aaa 
 
 The <dc:title> is already placed in the page title for the item page, so it already appears as the heading for a Google hit and we do not need to repeat it in our citation string. What we want to do is put something more useful in the second line, specifically the author, date, and publisher so that we get something more like this:
 
  _Ghotuo: a language of Nigeria_<br>
- ... Search Info. Citation: Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). Terms: dcmi_Text *iso639_aaa* iso639_eng.<br>
+ ... Search Info. Citation: Gordon, Raymond G., Jr (editor). 2005. SIL International (www.sil.org). Terms: dcmi_Text *iso639_aaa* iso639_eng.<br>
  http://www.language-archives.org/item/oai:ethnologue.com:aaa 
 
 On the language index page, the same item could be represented as follows:
 
- * _Ghotuo: a language of Nigeria_. Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). [http://www.language-archives.org/item/oai:ethnologue.com:aaa oai:ethnologue.com:aaa] 
+ * _Ghotuo: a language of Nigeria_. Gordon, Raymond G., Jr (editor). 2005. SIL International (www.sil.org). [http://www.language-archives.org/item/oai:ethnologue.com:aaa oai:ethnologue.com:aaa] 
 
+This is formed by making a list item of the dc:title (in italics), the short ciation string, and the OAI identifier as a link to the item page.
 
 = Details =
 
-1a. the text content of all creator elements separated by semicolon
-1b. if there's no creator element, the text content of all contributor
-elements separated by semicolon
-2. the DC dumbed-down date following section 1 of
-http://olac.wiki.sourceforge.net/Display+format+and+DC+crosswalk
-3. the text content of the first publisher field if it exists
+The short citation string has three parts, each of which is terminated by a period:
+
+   Author(s). Date. Publisher.
+
+The *author* part is formed as follows:
+
+ * If the record has a <dc:creator> element, return the contents of all all creator elements separated by semicolon and space;
+ * Else if the record has <dc:contributor> element with `olac:code="author"`, return the contents of all contributor elements where `olac:code="author"` separated by semicolon and space;
+ * Else return the contents of all contributor elements with the role code following in parenthesis and individual contributors separated by semicolon and space.
+
+We can dispense with putting the role of non-authors in parentheses if that seems excessively costly in terms of implementation.
+
+
+The *date* part is formed as follows:
+
+ # Find the DC dumbed-down date string following the order of element preference given in section 1 of http://olac.wiki.sourceforge.net/Display+format+and+DC+crosswalk
+ # If no date elements are present, return "n.d."
+ # If the date string contains hyphen, return everything up to the first hyphen; othersie return the full date string.
+
+
+The *publisher* part is formed as follows:
+
+ * If the record has <dcterms:bibliographicCitation>, return its contents;
+ * Else if the record has <dc:publisher>, return its contents;
+ * Else return the name of the archive that published the record.
