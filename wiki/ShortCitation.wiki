@@ -1,8 +1,20 @@
-# Specification for the short citation string for an item
+#summary Specification for the short citation string for an item
 
 = Objective =
 
-On the language index pages (and no doubt elsewhere), we need a short citation form for an item so that a user can skim the list of resources to spot ones of interest which can be inspected in full via a link to the /item page.
+On the language index pages (and no doubt elsewhere), we need a short citation form for an item so that a user can skim the list of resources to spot ones of interest which can be inspected in full via a link to the /item page. (Issue 79)
+
+On the item pages we need a short citation form to go at the bottom of the page with the search terms so that Google searches on the search terms will return something more useful. (Issue 70)
+
+= Approach =
+
+For the Google search application, a search hit for an item page looks like this:
+
+*Ghotuo: a language of Nigeria*
+... oai:ethnologue.com:aaa. DateStamp: 2008-07-21. GetRecord: OAI-PMH request for simple DC format. Search Info. Terms, dcmi_Text iso639_aaa iso639_eng.
+http://www.language-archives.org/item/oai:ethnologue.com:aaa 
+
+the title of the resource is already placed in the page title for the item page. Thus the main heading for a Google hit is already the title and we do not need to repeat it in the 
 
 = Details =
 
