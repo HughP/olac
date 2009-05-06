@@ -23,9 +23,7 @@ The <dc:title> is already placed in the page title for the item page, so it alre
 
 On the language index page, the same item could be represented as follows:
 
- * _Ghotuo: a language of Nigeria_.
- Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). 
- [oai:ethnologue.com:aaa] 
+ * _Ghotuo: a language of Nigeria_. Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). [http://www.language-archives.org/item/oai:ethnologue.com:aaa oai:ethnologue.com:aaa] 
 
 
 = Details =
