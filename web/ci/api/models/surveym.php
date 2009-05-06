@@ -19,7 +19,7 @@ class SurveyM extends Model {
 		$sql = <<<EOF
 select count(*) Freq, Lang, Type, Code, Content
 from METADATA_ELEM where Tag_ID = $id
-group by Lang, Type, Code, Content
+group by Content, Lang, Type, Code
 order by Freq desc
 EOF;
 		$query = $this->db->query($sql);
