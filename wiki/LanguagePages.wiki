@@ -77,4 +77,4 @@ The "Other search terms" at the bottom of the page combine with the alternate na
   * lexicon, dictionary, vocabulary, wordlist, phrase book
   * description, grammar, syntax, morphology, phonology, orthography
 
-Except the English terms "language, dialect, text, lexicon, description" need not be included since they are already on the page in the headings.
+Except the English terms "language, dialect, text, description" need not be included since they are already on the page in the headings.
