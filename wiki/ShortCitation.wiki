@@ -21,6 +21,12 @@ The <dc:title> is already placed in the page title for the item page, so it alre
  ... Search Info. Citation: Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). Terms: dcmi_Text *iso639_aaa* iso639_eng.<br>
  http://www.language-archives.org/item/oai:ethnologue.com:aaa 
 
+On the language index page, the same item could be represented as follows:
+
+ * _Ghotuo: a language of Nigeria_.
+ Gordon, Raymond G., Jr. 2005. SIL International (www.sil.org). 
+ [oai:ethnologue.com:aaa] 
+
 
 = Details =
 
