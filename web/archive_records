@@ -12,7 +12,6 @@
 require_once("/web/language-archives/lib/php/OLACDB.php");
 $DB = new OLACDB("olac2");
 ?>
-
 <HTML>
 <HEAD>
 <TITLE>List Records from an OLAC Archive</TITLE>
