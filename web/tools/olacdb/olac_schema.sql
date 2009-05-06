@@ -178,11 +178,11 @@ insert into ELEMENT_DEFN values (1500,1500,   0,1500, 'type',        'Type',		1)
 
 insert into ELEMENT_DEFN values ( 201, 200,   0, 201, 'spatial',         'Spatial Coverage',	1);
 insert into ELEMENT_DEFN values ( 202, 200,   0, 202, 'temporal',        'Temporal Coverage',	1);
-insert into ELEMENT_DEFN values ( 401, 400,   0, 401, 'created',         'Created',		1);
-insert into ELEMENT_DEFN values ( 402, 400,   0, 402, 'valid',           'Valid',		1);
-insert into ELEMENT_DEFN values ( 403, 400,   0, 403, 'available',       'Available',		1);
-insert into ELEMENT_DEFN values ( 404, 400,   0, 404, 'issued',          'Issued',		1);
-insert into ELEMENT_DEFN values ( 405, 400,   0, 405, 'modified',        'Modified',		1);
+insert into ELEMENT_DEFN values ( 401, 400,   0, 401, 'created',         'Date Created',		1);
+insert into ELEMENT_DEFN values ( 402, 400,   0, 402, 'valid',           'Date Valid',		1);
+insert into ELEMENT_DEFN values ( 403, 400,   0, 403, 'available',       'Date Available',		1);
+insert into ELEMENT_DEFN values ( 404, 400,   0, 404, 'issued',          'Date Issued',		1);
+insert into ELEMENT_DEFN values ( 405, 400,   0, 405, 'modified',        'Date Modified',		1);
 insert into ELEMENT_DEFN values ( 406, 400,   0, 406, 'dateAccepted',    'Date Accepted',	1);
 insert into ELEMENT_DEFN values ( 407, 400,   0, 407, 'dateCopyrighted', 'Date Copyrighted',	1);
 insert into ELEMENT_DEFN values ( 408, 400,   0, 408, 'dateSubmitted',   'Date Submitted',	1);
@@ -611,6 +611,21 @@ create table LanguageCodes (
 #   load data infile "LanguageCodes.tab" into table LanguageCodes
 #        fields terminated by '\t' ignore 14 lines;
 #
+
+
+##################################################################
+# Table                : LanguageIndex
+# Description          : Ethnologue 15th Ed. Language Index
+##################################################################
+
+create table LanguageIndex (
+	LangID			char(3),
+	CountryID		char(2),
+	NameType		char(2),
+	Name			varchar(75)
+) engine=innodb, charset=utf8;
+
+create index LanguageIndex_LangID on LanguageIndex (LangID);
 
 
 ##################################################################
