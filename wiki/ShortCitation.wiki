@@ -1,0 +1,14 @@
+# Specification for the short citation string for an item
+
+= Objective =
+
+On the language index pages (and no doubt elsewhere), we need a short citation form for an item so that a user can skim the list of resources to spot ones of interest which can be inspected in full via a link to the /item page.
+
+= Details =
+
+1a. the text content of all creator elements separated by semicolon
+1b. if there's no creator element, the text content of all contributor
+elements separated by semicolon
+2. the DC dumbed-down date following section 1 of
+http://olac.wiki.sourceforge.net/Display+format+and+DC+crosswalk
+3. the text content of the first publisher field if it exists
