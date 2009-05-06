@@ -30,16 +30,19 @@ The OLAC database already has a table for the complete ISO639-3 code set. Use th
 {{{
 ISO 639-3: _code_
 
-Other known names and dialects: _comma delimited list_
-
 The combined catalog of all OLAC participants contains 
 the following resources that are relevant to this language:
 
-   * Primary texts
+   * Primary texts 
    * Lexical resources
    * Language descriptions
    * Other resources about the language
    * Other resources in the language
+
+   (_The above is a bulleted list of links to the H2s below;
+    only those which apply are listed._)
+
+Other known names and dialect names: _comma delimited list_
 
 _H2 for each of the above that applies_
 
