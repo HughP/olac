@@ -20,18 +20,21 @@ if ($DB->saw_error())
 elseif (count($tab) == 0)
   error("no language found for language code '$langcode'");
 $langname = $tab[0]['Ref_Name'];
-$langname = preg_replace('/\s+language\s*/', '', $langname);
+$langname = preg_replace('/\s*\(.*\)\s*$/', '', $langname);
+$langname = trim($langname);
+if (preg_match('/\s+language\s*$/i', $langname))
+  $title = "Resources in and about the $langname";
+else
+  $title = "Resources in and about the $langname language";
 
 # get other names and dialects
-$sql = "select distinct Name from LanguageIndex where LangID='$langcode'
+$sql = "select distinct Name from LanguageIndex
+        where LangID='$langcode' and Name!='$langname'
         order by Name";
 $tab = $DB->sql($sql);
 if ($DB->saw_error()) error("internal server error");
 $arr = array();
-if ($tab)
-  foreach ($tab as $row) $arr[] = $row['Name'];
-else
-  $arr[] = $langname;
+if ($tab) foreach ($tab as $row) $arr[] = $row['Name'];
 $langnames = implode(', ', $arr);
 
 # get primary texts
@@ -137,7 +140,7 @@ if (count($lexical_resources) > 0) {
   $arr[] = "wordlist";
 }
 if (count($language_descriptions) > 0) {
-  $arr[] = "grammer";
+  $arr[] = "grammar";
   $arr[] = "syntax";
   $arr[] = "morphology";
   $arr[] = "phonology";
@@ -147,9 +150,7 @@ $search_terms = implode(", ", $arr);
 ?>
 <html>
 <head>
-<title>
-Resources in and about the <?=$langname?> language
-</title>
+<title><?=$title?></title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/olac.css">
 <head>
@@ -161,8 +162,7 @@ Resources in and about the <?=$langname?> language
 <TD> <A HREF="http://www.language-archives.org/"><IMG
 SRC="http://www.language-archives.org/images/olac100.gif"
 BORDER="0"></A></TD>
-<TD><H1><FONT COLOR="0x00004a"
->Resources in and about the <?=$langname?> language</FONT></H1>
+<TD><H1><FONT COLOR="0x00004a"><?=$title?></FONT></H1>
 </TD>
 </TR>
 </TABLE>
@@ -206,9 +206,9 @@ if (count($other_resources2) > 0) {
 ?>
 </ul>
 
-<p>Other known names and dialect names: <?=$langnames?></p>
-
 <?php
+if ($langnames)
+  echo "<p>Other known names and dialect names: $langnames</p>";
 
 if (count($primary_texts) > 0) {
   echo '<a name="primary_text"/>';
@@ -260,9 +260,10 @@ if (count($other_resources2) > 0) {
   echo "</ol>";
 }
 
-?>
+if ($search_terms)
+  echo "<p>Other search terms: $search_terms</p>";
 
-<p>Other search terms: <?=$search_terms?></p>
+?>
 
 </body>
 </html>
