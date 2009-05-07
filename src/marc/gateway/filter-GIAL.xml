@@ -43,6 +43,11 @@
    
    <reject-stage>
       <test>
+         <data-field test="contains" tag="999" code="a">
+            <text>TEMPORARY RECORD</text>
+         </data-field>
+      </test>
+      <test>
          <data-field test="contains" tag="650" code="a">
             <text>Greek language, Biblical</text>
          </data-field>
