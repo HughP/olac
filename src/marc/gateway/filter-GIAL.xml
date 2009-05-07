@@ -35,7 +35,7 @@
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="">
+         <data-field test="contains" tag="650" code="a">
             <text>language</text>
          </data-field>
       </test>
@@ -43,13 +43,13 @@
    
    <reject-stage>
       <test>
-         <data-field test="contains" tag="999" code="a">
+         <data-field test="starts-with" tag="999" code="a">
             <text>TEMPORARY RECORD</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
-            <text>Greek language, Biblical</text>
+         <data-field test="starts-with" tag="630" code="a">
+            <text>Bible</text>
          </data-field>
       </test>
       <test>
@@ -61,166 +61,249 @@
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Ability testing</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Acquisition</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Business</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Composition</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Data processing</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Discourse analysis</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
             <text>Grammar</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Intonation</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Phonetics</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Political</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
             <text>Popular</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Pronunciation</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Rhetoric</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
-            <text>Study and teaching</text>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Semantics</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Social aspects</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Study and teaching</text>
+            <text>Study &amp; teaching</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Style</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
             <text>Technical</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Terms and phrases</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="x">
+         <data-field test="starts-with" tag="650" code="x">
             <text>Usage</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="v">
+         <data-field test="starts-with" tag="650" code="v">
             <text>Textbooks</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="v">
+         <data-field test="starts-with" tag="650" code="v">
             <text>Handbooks</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>English language</text>
+            <text>Spanish language</text>
          </data-field>
-         <data-field test="contains" tag="650" code="z">
+         <data-field test="starts-with" tag="650" code="z">
             <text>United States</text>
+            <text>U.S.</text>
          </data-field>
       </test>
       <test>
-         <data-field test="contains" tag="650" code="a">
+         <data-field test="starts-with" tag="650" code="a">
             <text>Language and languages</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Pragmatics</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="v">
+            <text>Periodicals</text>
          </data-field>
       </test>
    </reject-stage>
