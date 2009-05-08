@@ -11,11 +11,17 @@ def handler(req):
         '<?xml version="1.0" encoding="UTF-8"?>'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 
-    cur.execute("select RepositoryIdentifier, CurrentAsOf from OLAC_ARCHIVE")
+    cur.execute("select RepositoryIdentifier, max(DateStamp) from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai where oa.Archive_ID=ai.Archive_ID group by oa.Archive_ID")
     for row in cur.fetchall():
         repoid, date = row
-        if date is None: date="2008-03-08"
+        if date is None: date='2008-03-08'
         req.write("<url><loc>http://www.language-archives.org/archive_records/%s</loc><lastmod>%s</lastmod></url>" % (repoid, date))
+
+    cur.execute("select distinct Code, max(DateStamp) from (METADATA_ELEM me, ISO_639_3) left join ARCHIVED_ITEM ai on me.Item_ID=ai.Item_ID where Extension_ID in (13,18) and Code=Id group by Id")
+    for row in cur.fetchall():
+        langid, date = row
+        req.write("<url><loc>http://www.language-archives.org/language/%s</loc><lastmod>%s</lastmod></url>" % (langid, date))
+
     req.write("</urlset>")
     
     cur.close()
