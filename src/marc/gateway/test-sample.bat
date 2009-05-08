@@ -1,3 +1,3 @@
-call test filter-sample ..\sample.xml
+call filter filter-sample ..\sample.xml
 pause
 
