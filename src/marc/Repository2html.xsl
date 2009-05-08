@@ -8,32 +8,66 @@
    xmlns:sr="http://www.openarchives.org/OAI/2.0/static-repository" 
    xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/" 
+   xmlns:olaca="http://www.language-archives.org/OLAC/1.1/olac-archive"
    xmlns:dc="http://purl.org/dc/elements/1.1/" 
    xmlns:dcterms="http://purl.org/dc/terms/" 
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
     <xsl:output method="html"/>
    
    <xsl:template match="/">
-      <xsl:variable name="title" select="concat( 'Repository: ',
-         //oai:repositoryName)"></xsl:variable>
+      <xsl:variable name="title" select="//oai:repositoryName"></xsl:variable>
       <html>
          <head>
             <title><xsl:value-of select="$title"/></title>
          </head>
          <body>
-            <h1><xsl:value-of select="$title"/></h1>
-            <xsl:apply-templates select="//sr:Identify//olac:olac-archive"/>
+            <hr/>
+            <i>OLAC Static Repository</i>
+            <h1 style="margin-top: 12"><xsl:value-of select="$title"/></h1>
+            <hr/>
+            <xsl:apply-templates
+               select="//sr:Identify/oai:description/olaca:olac-archive"/>
             <xsl:apply-templates select="//sr:ListRecords/oai:record"/>
          </body>
       </html>
    </xsl:template>
    
-   <xsl:template match="olac:olac-archive">
+   <xsl:template match="olaca:olac-archive">
       <h2>OLAC archive description</h2>
       <table cellpadding="1" cellspacing="6">
          <xsl:apply-templates select="@currentAsOf | *"
             mode="olac-archive"/>
       </table>
+   </xsl:template>
+   
+   <xsl:template match="olaca:participant" mode="olac-archive">
+      <tr valign="top">
+         <td bgcolor="silver">
+            <b>
+               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+               <xsl:value-of select="name()"/>
+               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+            </b>
+         </td>
+         <td bgcolor="#f0f0f0">
+            <xsl:value-of select="concat( @name, ' (', @role, '), ',
+               @email) "/>
+         </td>
+      </tr>
+   </xsl:template>
+   <xsl:template match="@* | *" mode="olac-archive">
+      <tr valign="top">
+         <td bgcolor="silver">
+            <b>
+               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+               <xsl:value-of select="name()"/>
+               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+            </b>
+         </td>
+         <td bgcolor="#f0f0f0">
+            <xsl:value-of select="."/>
+         </td>
+      </tr>
    </xsl:template>
    
    <xsl:template match="oai:record">

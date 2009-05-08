@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="Repository2html.xsl"?>
 <sr:Repository xmlns:dcterms="http://purl.org/dc/terms/"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xmlns:marc="http://www.loc.gov/MARC21/slim"
@@ -7,8 +8,7 @@
                xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
                xmlns:dc="http://purl.org/dc/elements/1.1/"
                xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository           http://www.language-archives.org/OLAC/1.1/static-repository.xsd          http://www.language-archives.org/OLAC/1.1/          http://www.language-archives.org/OLAC/1.1/olac.xsd          http://purl.org/dc/elements/1.1/          http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd          http://purl.org/dc/terms/          http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
-   <Identify xmlns="http://www.openarchives.org/OAI/2.0/static-repository"
-             xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository              http://www.language-archives.org/OLAC/1.1/static-repository.xsd         http://www.openarchives.org/OAI/2.0/              http://www.language-archives.org/OLAC/1.1/OLAC-PMH.xsd">
+   <sr:Identify>
       <oai:repositoryName>Graduate Institute of Applied Linguistics Library</oai:repositoryName>
       <oai:baseURL>http://www.gial.edu/library/olac_repository.xml</oai:baseURL>
       <oai:protocolVersion>2.0</oai:protocolVersion>
@@ -41,7 +41,7 @@
             <access>Items are available for checkout to all GIAL faculty and students, members of Bible translation organizations, and International Linguistics Center employees and volunteers</access>
          </olac-archive>
       </oai:description>
-   </Identify>
+   </sr:Identify>
    <sr:ListMetadataFormats>
       <oai:metadataFormat>
          <oai:metadataPrefix>olac</oai:metadataPrefix>
