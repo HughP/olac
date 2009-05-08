@@ -22,9 +22,18 @@
          </head>
          <body>
             <h1><xsl:value-of select="$title"/></h1>
+            <xsl:apply-templates select="//sr:Identify//olac:olac-archive"/>
             <xsl:apply-templates select="//sr:ListRecords/oai:record"/>
          </body>
       </html>
+   </xsl:template>
+   
+   <xsl:template match="olac:olac-archive">
+      <h2>OLAC archive description</h2>
+      <table cellpadding="1" cellspacing="6">
+         <xsl:apply-templates select="@currentAsOf | *"
+            mode="olac-archive"/>
+      </table>
    </xsl:template>
    
    <xsl:template match="oai:record">
@@ -170,7 +179,7 @@
       <xsl:param name="prefix"/>
       <xsl:param name="scheme"/>
       <xsl:choose>
-         <xsl:when test="$scheme='language'">&#160;(ISO639-3)</xsl:when>
+         <xsl:when test="$scheme='language'">&#160;(ISO639)</xsl:when>
          <xsl:when test="$scheme='DCMIType'">&#160;(DCMI)</xsl:when>
          <xsl:when test="$scheme='role'">
             <xsl:value-of
