@@ -66,7 +66,7 @@ def apply_stylesheets(inputfilename,config):
     for xsl_file in config.get('system','xsl_stylesheet_list').split(','):
         #print 'inputfilename = ',inputfilename
         #print 'xml_output = ',xml_output
-        systemstring = 'java -jar %s -xsl:%s.xsl -s:%s -o:%s' % \
+        systemstring = 'java -jar %s -xsl:%s.xsl -s:"%s" -o:%s' % \
             (config.get('system','saxon_jar_file'),xsl_file,inputfilename,xml_output)
         #print 'sys = ',systemstring
         os.system(systemstring)

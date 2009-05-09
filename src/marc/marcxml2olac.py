@@ -14,16 +14,17 @@ import re
 import sys
 import os
 import xml.sax
-import saxsplit
+import shutil
 
 # local function library
 import utils
-import filter
+import saxsplit
 
 # get marc source file from command line
 try:
     marcxml_filename = sys.argv.pop(1)
     olacxml_filename = sys.argv.pop(1)
+    
 except:
     print "please specify\n1) marc xml input file 2) olac xml output file"
     sys.exit(2)
@@ -32,16 +33,25 @@ except:
 config = ConfigParser.ConfigParser()
 config.read("marc2olac.cfg")
 
-# process XML file with SAX
-chunksize = config.get('system','records_per_transform')
-parser = xml.sax.make_parser()
-generator = xml.sax.handler.ContentHandler() # null sink
-splitter = saxsplit.XMLSplit(parser, generator, marcxml_filename,chunksize)
 
-# this creates a bunch of temp files
-print "Splitting MARCXML file into chunks of %s records" % chunksize
-splitter.parse(marcxml_filename)
-splitfiles = splitter.getChunkNames()
+splitfiles = ''
+if os.path.isfile(marcxml_filename):
+    # process XML file with SAX
+    chunksize = config.get('system','records_per_transform')
+    parser = xml.sax.make_parser()
+    generator = xml.sax.handler.ContentHandler() # null sink
+    splitter = saxsplit.XMLSplit(parser, generator, marcxml_filename,chunksize)
+
+    # this creates a bunch of temp files
+    print "Splitting %s into chunks of %s records" % (marcxml_filename,chunksize)
+    splitter.parse(marcxml_filename)
+    splitfiles = splitter.getChunkNames()
+else: # this is a directory
+    print "Skipping SAX split..."
+
+    # make backup of directory
+    shutil.copytree(marcxml_filename,marcxml_filename + '_backup')
+    splitfiles = ['\\'.join([marcxml_filename,p]) for p in os.listdir(marcxml_filename)]
 
 seen_olac_header = 0
 olac_footer = ''
@@ -55,11 +65,17 @@ for f in splitfiles:
     if seen_olac_header == 0:
         olac_xml_f.write(header)
         olac_footer = footer
+        seen_olac_header = 1
     # write records out to file
     olac_xml_f.write(olac_recs)
 olac_xml_f.write(olac_footer)
 olac_xml_f.close()
 
-# clean up temporary files
-for f in splitfiles:
-    os.remove(f)
+# clean up temporary files, if necessary
+if os.path.isfile(marcxml_filename):
+    for f in splitfiles:
+        os.remove(f)
+else:
+    # remove processing directory, restore original files from backup
+    shutil.rmtree(marcxml_filename)
+    os.rename(marcxml_filename + '_backup',marcxml_filename)

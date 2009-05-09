@@ -10,19 +10,6 @@
     <xsl:template match="olac:olac">
 
         <xsl:copy>
-            <xsl:for-each select="*[@olac:code]">
-                <xsl:variable name="currentname" select="name()" />
-                <xsl:variable name="currentcode" select="@olac:code" />
-                <xsl:choose>
-                    <xsl:when
-                        test="following-sibling::*[name() = $currentname][@olac:code = $currentcode]">
-			</xsl:when>
-                    <xsl:otherwise>
-                        <xsl:copy-of select="self::node()"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:for-each>
-            
             <xsl:for-each select="*[not(@olac:code)]">
                 <xsl:variable name="currentname" select="name()" />
                 <xsl:variable name="currenttext" select="text()" />
@@ -35,6 +22,20 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:for-each>
+            
+            <xsl:for-each select="*[@olac:code]">
+                <xsl:variable name="currentname" select="name()" />
+                <xsl:variable name="currentcode" select="@olac:code" />
+                <xsl:choose>
+                    <xsl:when
+                        test="following-sibling::*[name() = $currentname][@olac:code = $currentcode]">
+			</xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="self::node()"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+           
             
         </xsl:copy>
     </xsl:template>

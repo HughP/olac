@@ -580,6 +580,20 @@ local cataloging practices.
                     </xsl:call-template>
                 </dc:publisher>
             </xsl:when>
+                <xsl:when test="count(marc:subfield[@code='c']) gt 1">
+                    <xsl:for-each select="marc:subfield[@code='c']">
+                        <xsl:choose>
+                            <xsl:when test="substring( . ,1,1) = 'c'">
+                                <dcterms:dateCopyrighted>
+                                    <xsl:call-template name="show-source">
+                                        <xsl:with-param name="subfield">c</xsl:with-param>
+                                    </xsl:call-template>
+                                    <xsl:value-of select="substring( . ,2)"/>
+                                </dcterms:dateCopyrighted>
+                            </xsl:when>
+                        </xsl:choose>                      
+                    </xsl:for-each>
+                </xsl:when>
             <xsl:when test="marc:subfield[@code='c' and substring( . ,1,1) = 'c']">
                 <dcterms:dateCopyrighted>
                     <xsl:call-template name="show-source">
