@@ -73,6 +73,7 @@
                <dc:subject xsi:type="dcterms:LCSH">Spanish language--Verbs--Tables</dc:subject>
                <dcterms:alternative>Five hundred one Spanish verbs fully conjugated in all the tenses in a new easy to learn format</dcterms:alternative>
                <dcterms:alternative>Five hundred and one Spanish verbs fully conjugated in all the tenses in a new easy to learn format</dcterms:alternative>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="morphology"></dc:subject>
             </olac:olac>
          </oai:metadata>
       </oai:record>
