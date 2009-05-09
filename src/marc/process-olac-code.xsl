@@ -15,7 +15,6 @@
         <!-- only one of the following params are necessary  -->
         <xsl:param name="lcsh"/>
         <xsl:param name="lccn"/>
-
         <!-- map LCSH to ISO639-3 -->
         <xsl:choose>
             <xsl:when test="$lcsh">

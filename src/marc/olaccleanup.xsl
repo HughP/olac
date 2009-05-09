@@ -66,8 +66,13 @@
         </xsl:copy>
     </xsl:template>
 
-
-    <!-- do not copy empty elements with no attributes -->
-    <xsl:template mode="cleanup" match="*[not(node()|@*)]"/>
-
+    <!-- If the element does not have any text, only copy it if there is an attribute named (in the list below) -->
+    <xsl:template mode="cleanup" match="*[@olac:code|@xsi:type]" priority="-1">
+        <xsl:copy>
+            <xsl:copy-of select="@*" />
+            </xsl:copy>
+    </xsl:template>
+    
+    <!-- catch all to do nothing -->
+    <xsl:template mode="cleanup" match="@*|node()" priority="-2" />
 </xsl:stylesheet>
