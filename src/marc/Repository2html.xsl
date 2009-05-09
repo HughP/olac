@@ -142,12 +142,8 @@
                </xsl:when>
                <xsl:when test="@xsi:type='olac:linguistic-field'">
                   <xsl:call-template name="olac-display-format">
-                     <xsl:with-param name="primaryCode">
-                        <xsl:call-template name="capitalize">
-                           <xsl:with-param name="label">
-                              <xsl:value-of select="$code"/>
-                           </xsl:with-param>
-                        </xsl:call-template>
+                     <xsl:with-param name="primaryCode">                        
+                        <xsl:value-of select="$code"/>
                      </xsl:with-param>
                   </xsl:call-template>
                </xsl:when>
@@ -224,9 +220,11 @@
             <xsl:value-of select="concat( '&#160;(', $scheme, ')' )"/>
          </xsl:otherwise>
       </xsl:choose>
-      
-      
    </xsl:template>
+   
+   <!-- This all needs to be cleaned up (and above).  We aren't doing
+      the primary and secondary code model any more in our display
+      format -->
    <xsl:template name="olac-display-format">
       <xsl:param name="label"/>
       <xsl:param name="primaryCode"/>
@@ -238,10 +236,12 @@
       <xsl:choose>
          <xsl:when test="$primaryCode">
             <xsl:value-of select="$primaryCode"/>
-            <xsl:if test=". != ''">
+            <!--
+            <xsl:if test=". != '' ">
                <xsl:text>, </xsl:text>
                <xsl:call-template name="element-content"/>
             </xsl:if>
+            -->
          </xsl:when>
          <xsl:when test="$secondaryCode">
             <xsl:call-template name="element-content"/>
