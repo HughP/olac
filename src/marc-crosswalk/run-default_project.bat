@@ -1,2 +1,3 @@
-python lib\marcxml2olac.py default_project
+@echo off
+python lib\marc2olac.py default_project
 pause

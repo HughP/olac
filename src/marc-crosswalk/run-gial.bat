@@ -1,2 +1,3 @@
-python lib\marcxml2olac.py gial
+@echo off
+python lib\marc2olac.py gial
 pause
