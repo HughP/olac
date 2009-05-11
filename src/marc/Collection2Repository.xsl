@@ -8,7 +8,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
    xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/">
    <xsl:import href="marc2olac_v1.xsl"/>
-   <xsl:include href="LocalCustomizations.xsl"/>
+   <xsl:include href="importmap.xsl"/>
    <xsl:output method="xml"/>
 
    <xsl:template match="/marc:collection">

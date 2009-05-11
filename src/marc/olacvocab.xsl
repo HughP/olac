@@ -22,7 +22,6 @@
             <xsl:variable name="code">
                 <xsl:value-of select="marc:subfield[@code=$subfield]"/>
             </xsl:variable>
-            <xsl:variable name="codeval">
                 <xsl:choose>
                     <xsl:when test="$code = 'ann'">annotator</xsl:when>
                     <xsl:when test="$code = 'cwt'">annotator</xsl:when>
@@ -65,11 +64,6 @@
                     <xsl:when test="$code = 'trc'">transcriber</xsl:when>
                     <xsl:when test="$code = 'trl'">translator</xsl:when>
                 </xsl:choose>
-            </xsl:variable>
-            <xsl:if test="$codeval !=''">
-                <xsl:attribute name="olac:code" select="$codeval"/>
-                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
-            </xsl:if>
         </xsl:if>
     </xsl:template>
 

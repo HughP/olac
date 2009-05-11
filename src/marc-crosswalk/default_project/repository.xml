@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sr:Repository xmlns:dcterms="http://purl.org/dc/terms/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:marc="http://www.loc.gov/MARC21/slim"
+               xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+               xmlns:sr="http://www.openarchives.org/OAI/2.0/static-repository"
+               xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+               xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository           http://www.language-archives.org/OLAC/1.1/static-repository.xsd          http://www.language-archives.org/OLAC/1.1/          http://www.language-archives.org/OLAC/1.1/olac.xsd          http://purl.org/dc/elements/1.1/          http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd          http://purl.org/dc/terms/          http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
+   <Identify xmlns="http://www.openarchives.org/OAI/2.0/static-repository"
+             xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository              http://www.language-archives.org/OLAC/1.1/static-repository.xsd         http://www.openarchives.org/OAI/2.0/              http://www.language-archives.org/OLAC/1.1/OLAC-PMH.xsd">
+      <oai:repositoryName>The name of your institution</oai:repositoryName>
+      <oai:baseURL>http://www.institution.edu/library/olac_repository.xml</oai:baseURL>
+      <oai:protocolVersion>2.0</oai:protocolVersion>
+      <oai:adminEmail>admin@institution.edu</oai:adminEmail>
+      <oai:earliestDatestamp>YYYY-MM-DD</oai:earliestDatestamp>
+      <oai:deletedRecord>no</oai:deletedRecord>
+      <oai:granularity>YYYY-MM-DD</oai:granularity>
+      <oai:description>
+         <oai-identifier xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+                         xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier           http://www.language-archives.org/OLAC/1.1/oai-identifier.xsd">
+            <scheme>oai</scheme>
+            <repositoryIdentifier>institution.edu</repositoryIdentifier>
+            <delimiter>:</delimiter>
+            <sampleIdentifier>oai:institution.edu:114</sampleIdentifier>
+         </oai-identifier>
+      </oai:description>
+      <oai:description>
+         <olac-archive xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
+                       type="institutional"
+                       currentAsOf="YYYY-MM-DD"
+                       xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive               http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
+            <archiveURL>http://www.institution.edu/library</archiveURL>
+            <participant name="Joe Librarian" role="Library Director" email="library@institution.edu"/>
+            <participant name="Barb Consultant" role="Automation Consultant"
+                         email="barb_consultant@institution.edu"/>
+            <institution>Your Institution Name</institution>
+            <institutionURL>http://www.institution.edu</institutionURL>
+            <shortLocation>Dallas, TX</shortLocation>
+            <location>where is this archive located...</location>
+            <synopsis>purpose of the archive...</synopsis>
+            <access>Brief description of how items can be accessed...</access>
+         </olac-archive>
+      </oai:description>
+   </Identify>
+   <sr:ListMetadataFormats>
+      <oai:metadataFormat>
+         <oai:metadataPrefix>olac</oai:metadataPrefix>
+         <oai:schema>http://www.language-archives.org/OLAC/1.1/olac.xsd</oai:schema>
+         <oai:metadataNamespace>http://www.language-archives.org/OLAC/1.1/</oai:metadataNamespace>
+      </oai:metadataFormat>
+   </sr:ListMetadataFormats>
+   <sr:ListRecords metadataPrefix="olac">
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:114</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1975</dc:date>
+               <dc:identifier from="020">ISBN: 0878400400</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PC4021.C55 1974</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082">460</dc:subject>
+               <dc:title from="245abnp">1974 Colloquium on Spanish and Portuguese Linguistics : [selected papers]</dc:title>
+               <dc:publisher from="260ab">Washington : Georgetown University Press</dc:publisher>
+               <dcterms:extent from="300a">v, 148 p</dcterms:extent>
+               <dc:description from="504">Includes bibliographies</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Spanish language--Congresses</dc:subject>
+               <dc:contributor from="700abcdeq">Milan, William G</dc:contributor>
+               <dc:contributor from="700abcdeq">Staczek, John J</dc:contributor>
+               <dc:contributor from="700abcdeq">Zamora, Juan C</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:language" olac:code="spa" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:122</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1970</dc:date>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645.H25</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082">492.45</dc:subject>
+               <dc:title from="245abnp">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged</dc:title>
+               <dc:publisher from="260ab">Woodbury, N.Y. : Barron's Educational Series</dc:publisher>
+               <dcterms:extent from="300a">xiii, 425 p</dcterms:extent>
+               <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Hebrew language--Verb--Tables</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:contributor olac:code="author" xsi:type="olac:role" from="100abcdeq">Halkin, Abraham S., 1903-</dc:contributor>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+   </sr:ListRecords>
+</sr:Repository>

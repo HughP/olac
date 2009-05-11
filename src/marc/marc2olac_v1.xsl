@@ -161,13 +161,13 @@ local cataloging practices.
                 </dc:date>
             </xsl:when>
             <xsl:when test="$datecode = 's' and substring( . ,8,4) != '    '">
-                <!-- s - dcterms:issued (07-10) -->
-                <dcterms:issued xsi:type="dcterms:W3CDTF">
+                <!-- s - dc:date (07-10) -->
+                <dc:date xsi:type="dcterms:W3CDTF">
                     <xsl:call-template name="show-source">
                         <xsl:with-param name="subfield">-07-10</xsl:with-param>
                     </xsl:call-template>
                     <xsl:value-of select="translate(substring( . ,8,4),' u','00')"/>
-                </dcterms:issued>
+                </dc:date>
             </xsl:when>
             <xsl:when
                 test="$datecode = 't' and substring( . ,8,4) != '    ' and substring( . ,12,4) != '    '">
@@ -400,28 +400,54 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='100']">
-        <dc:contributor>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
-            </xsl:call-template>
+        <xsl:variable name="relcode">
             <xsl:call-template name="process-role">
                 <xsl:with-param name="subfield">e</xsl:with-param>
             </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdq</xsl:with-param>
-            </xsl:call-template>
-        </dc:contributor>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="$relcode != ''">
+                <dc:contributor>
+                    <xsl:attribute name="olac:code" select="$relcode"/>
+                    <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:call-template name="subfieldSelect">
+                        <xsl:with-param name="codes">abcdq</xsl:with-param>
+                    </xsl:call-template>
+                </dc:contributor>
+            </xsl:when>
+            <xsl:otherwise>
+                <dc:creator>
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">abcdeq</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:call-template name="subfieldSelect">
+                        <xsl:with-param name="codes">abcdq</xsl:with-param>
+                    </xsl:call-template>
+                </dc:creator>
+            </xsl:otherwise>
+        </xsl:choose>
+        
+
     </xsl:template>
 
 
 
     <xsl:template match="marc:datafield[@tag='110']">
-        <dc:contributor>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
-            </xsl:call-template>
+        <xsl:variable name="relcode">
             <xsl:call-template name="process-role">
                 <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <dc:contributor>
+            <xsl:if test="$relcode != ''">
+                <xsl:attribute name="olac:code" select="$relcode"/>
+                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -644,13 +670,14 @@ local cataloging practices.
     </xsl:template>
 
 
-
+<!-- 2009-05-09 decided that this should not be included - cjh
     <xsl:template match="marc:datafield[@tag='490']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dcterms:isPartOf>
     </xsl:template>
+    -->
 
 
 
@@ -1186,12 +1213,18 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='700']">
-        <dc:contributor>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
-            </xsl:call-template>
+        <xsl:variable name="relcode">
             <xsl:call-template name="process-role">
                 <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <dc:contributor>
+            <xsl:if test="$relcode != ''">
+                <xsl:attribute name="olac:code" select="$relcode"/>
+                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -1203,12 +1236,18 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='710']">
-        <dc:contributor>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
-            </xsl:call-template>
+        <xsl:variable name="relcode">
             <xsl:call-template name="process-role">
                 <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <dc:contributor>
+            <xsl:if test="$relcode != ''">
+                <xsl:attribute name="olac:code" select="$relcode"/>
+                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcdeq</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcdq</xsl:with-param>
@@ -1231,20 +1270,24 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='720']">
-        <dc:contributor>
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abcde</xsl:with-param>
-            </xsl:call-template>
+        <xsl:variable name="relcode">
             <xsl:call-template name="process-role">
                 <xsl:with-param name="subfield">e</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <dc:contributor>
+            <xsl:if test="$relcode != ''">
+                <xsl:attribute name="olac:code" select="$relcode"/>
+                <xsl:attribute name="xsi:type">olac:role</xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcde</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
                 <xsl:with-param name="codes">abcd</xsl:with-param>
             </xsl:call-template>
         </dc:contributor>
     </xsl:template>
-
-
 
 
 
@@ -1258,7 +1301,9 @@ local cataloging practices.
 
 
 
-    <xsl:template match="marc:datafield[@tag='740']">
+
+    <xsl:template match="marc:datafield[@tag='740'][@ind2='2']">
+        <!-- ind2=2 says that this is an analytical added entry -->
         <dcterms:alternative>
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
@@ -1345,7 +1390,9 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='800']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+            </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
 
@@ -1355,7 +1402,9 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='810']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+            </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
 
@@ -1365,7 +1414,9 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='811']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+            </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
 
@@ -1375,7 +1426,9 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='830']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+            </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
 
