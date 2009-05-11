@@ -168,11 +168,25 @@ BORDER="0"></A></TD>
 </TABLE>
 <HR>
 
-<p>ISO 639-3: <?=$langcode?></p>
+<p>ISO 639-3:
+<a href="http://www.sil.org/iso639-3/documentation.asp?id=<?=$langcode?>">
+<?=$langcode?></a>
+</p>
 
-<p>The combined catalog of all OLAC participants contains
-the following resources that are relevant to this language:</p>
-
+<p>
+<?php
+if (count($primaty_text) > 0 or
+    count($lexical_resources) > 0 or
+    count($other_resources1) > 0 or
+    count($other_resources2) > 0) {
+  echo "The combined catalog of all OLAC participants contains ";
+  echo "the following resources that are relevant to this language:";
+} else {
+  echo "The combined catalog of all OLAC participants does not yet ";
+  echo "contain any resources that are relevant to this language.";
+}
+?>
+</p>
 <ul>
 <?php
 
@@ -207,30 +221,53 @@ if (count($other_resources2) > 0) {
 </ul>
 
 <?php
+$descriptorspec = array(0 => array("pipe", "r"),
+			1 => array("pipe", "w"),
+			2 => array("file", "/dev/null", "w"));
+$citeproc = proc_open("lib/cite.py", $descriptorspec, $pipes,
+		      NULL, NULL, array("binary_pipes"));
+function print_list_item($oaiid) {
+  global $pipes;
+  global $DB;
+  fwrite($pipes[0], $oaiid . "\n");
+  $citation = stream_get_line($pipes[1], 8192);
+  $sql  = "select Content from ARCHIVED_ITEM ai, METADATA_ELEM me ";
+  $sql .= "where ai.OaiIdentifier='$oaiid' and ai.Item_ID=me.Item_ID ";
+  $sql .= "and me.TagName='title'";
+  echo "<li>";
+  $tab = $DB->sql($sql);
+  if ($tab) echo "<i>" . $tab[0]['Content'] . ".</i> ";
+  echo "$citation <a href=\"/item/$oaiid\">$oaiid</a>";
+  echo "</li>";
+}
+
 if ($langnames)
   echo "<p>Other known names and dialect names: $langnames</p>";
 
 if (count($primary_texts) > 0) {
   echo '<a name="primary_text"/>';
   echo "<h2>Primary texts</h2><ol>";
-  foreach ($primary_texts as $oaiid)
-    echo "<li><a href=\"/item/$oaiid\">$oaiid</a>";
+  foreach ($primary_texts as $oaiid) {
+    print_list_item($oaiid);
+  }
   echo "</ol>";
 }
 
 if (count($lexical_resources) > 0) {
   echo '<a name="lexical_resources"/>';
   echo "<h2>Lexical resources</h2><ol>";
-  foreach ($lexical_resources as $oaiid)
-    echo "<li><a href=\"/item/$oaiid\">$oaiid</a>";
+  foreach ($lexical_resources as $oaiid) {
+    print_list_item($oaiid);
+  }
   echo "</ol>";
 }
 
 if (count($language_descriptions) > 0) {
   echo '<a name="language_descriptions"/>';
   echo "<h2>Language descriptions</h2><ol>";
-  foreach ($language_descriptions as $oaiid)
-    echo "<li><a href=\"/item/$oaiid\">$oaiid</a>";
+  foreach ($language_descriptions as $oaiid) {
+    print_list_item($oaiid);
+  }
   echo "</ol>";
 }
 
@@ -243,8 +280,9 @@ if (count($other_resources1) > 0) {
   else
     echo "<h2>Resources about the language</h2>";
   echo "<ol>";
-  foreach ($other_resources1 as $oaiid)
-    echo "<li><a href=\"/item/$oaiid\">$oaiid</a>";
+  foreach ($other_resources1 as $oaiid) {
+    print_list_item($oaiid);
+  }
   echo "</ol>";
 }
 
@@ -255,14 +293,16 @@ if (count($other_resources2) > 0) {
   else
     echo "<h2>Resources in the language</h2>";
   echo "<ol>";
-  foreach ($other_resources2 as $oaiid)
-    echo "<li><a href=\"/item/$oaiid\">$oaiid</a>";
+  foreach ($other_resources2 as $oaiid) {
+    print_list_item($oaiid);
+  }
   echo "</ol>";
 }
 
 if ($search_terms)
   echo "<p>Other search terms: $search_terms</p>";
 
+proc_close($citeproc);
 ?>
 
 </body>
