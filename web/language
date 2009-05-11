@@ -129,21 +129,24 @@ if ($tab) {
 }
 
 # compute search terms
-$arr = array();
+$arr = array("dialect", "vernacular");
 if (count($primary_texts) > 0) {
   $arr[] = "discourse";
+  $arr[] = "documentation";
 }
 if (count($lexical_resources) > 0) {
   $arr[] = "lexicon";
   $arr[] = "dictionary";
   $arr[] = "vocabulary";
   $arr[] = "wordlist";
+  $arr[] = "phrase book";
 }
 if (count($language_descriptions) > 0) {
   $arr[] = "grammar";
   $arr[] = "syntax";
   $arr[] = "morphology";
   $arr[] = "phonology";
+  $arr[] = "orthography";
 }
 $search_terms = implode(", ", $arr);
 
