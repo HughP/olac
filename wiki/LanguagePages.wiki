@@ -28,7 +28,7 @@ The OLAC database already has a table for the complete ISO639-3 code set. Use th
 (except suppress the addition of "language" when the name already contains the word).  Continue as follows:
 
 {{{
-ISO 639-3: _code_
+ISO 639-3: _code_   (as a link to http://www.sil.org/iso639-3/documentation.asp?id=code)
 
 The combined catalog of all OLAC participants contains 
 the following resources that are relevant to this language:
@@ -50,6 +50,13 @@ _H2 for each of the above that applies_
 
 Other search terms: _comma delimited list of synonyms 
 for language, dialect, text, lexicon, description_
+}}}
+
+When there are no items indexed against a valid ISO 639-3 code, the contents (following the first line with the link to the code documentation page) should be:
+
+{{{
+The combined catalog of all OLAC participants does not yet contain 
+any resources that are relevant to this language.
 }}}
 
 = Implementation notes =
