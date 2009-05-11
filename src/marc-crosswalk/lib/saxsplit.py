@@ -5,6 +5,7 @@
 
 import xml.sax
 import os
+import sys
 from xml.sax.saxutils import XMLFilterBase, XMLGenerator
 
 #Define constants
@@ -19,6 +20,7 @@ class XMLSplit(XMLFilterBase):
         self.rec_count = 0
         self.chunknames = []
         self.tempdir = ''
+        self.verbose = False
 
     def pushHandler(self, handler):
         self.handlers.append(self.getContentHandler())
@@ -37,6 +39,8 @@ class XMLSplit(XMLFilterBase):
             #chunkname = "%s_%05d%s" % (self.tempdir + os.sep + base, (self.rec_count / self.chunksize) + 1, ext)
             chunkname = "%ssaxsplit_%05d.xml" % (self.tempdir + os.sep, (self.rec_count / self.chunksize) + 1)
             self.chunknames.append(chunkname)
+            if self.verbose:
+                sys.stdout.write('.')
             self.pushHandler(XMLGenerator(open(chunkname, "w"), 'utf-8'))
             self.startDocument()
             self.downstream.startElement("marc:collection", {'xmlns:marc':'http://www.loc.gov/MARC21/slim'})
@@ -53,6 +57,8 @@ class XMLSplit(XMLFilterBase):
             self.downstream.characters(u"\n") # Indentation (optional)
             self.downstream.endDocument()
             self.popHandler()
+            if self.verbose:
+                sys.stdout.write('\n')
         self.downstream.endElement(name)
         if name == "marc:record" and self.rec_count % self.chunksize == 0:
             # End of chunk
@@ -70,6 +76,9 @@ class XMLSplit(XMLFilterBase):
         # chomp trailing slash
         dir = dir.rstrip(os.sep)
         self.tempdir = dir
+
+    def setVerbose(self,flag):
+        self.verbose = flag
 
         
 if __name__ == "__main__":

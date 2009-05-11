@@ -40,7 +40,7 @@ elif len(args) > 1:
 
 # figure out base path (i.e. are we in the lib directory or not?)
 basepath = os.getcwd()
-if os.path.exists(basepath + sep + 'marcxml2olac.py'):
+if os.path.exists(basepath + sep + 'marc2olac.py'):
     basepath = os.path.dirname(basepath)
 libpath = basepath + sep + 'lib'
 tmppath = basepath + sep + 'tmp'
@@ -83,6 +83,7 @@ if os.path.isfile(marcxml_filename):
     generator = xml.sax.handler.ContentHandler() # null sink
     splitter = saxsplit.XMLSplit(parser, generator, marcxml_filename,chunksize)
     splitter.setTempDir(tmppath)
+    splitter.setVerbose(True)
 
     # this creates a bunch of temp files
     print "Creating %s record batches using SAX" % (chunksize)
@@ -101,7 +102,7 @@ olac_xml_f = open(olacxml_filename,'w')
 # loop over each XML chunk and apply stylesheet chain
 ctr = 1
 for f in splitfiles:
-    print "transforming %d of %d" % (ctr,len(splitfiles))
+    print "transforming batch %d of %d" % (ctr,len(splitfiles))
     utils.applyStylesheets(f,config)
     header,olac_recs,footer = utils.parseOLACRepository(f)
     if ctr == 1:
