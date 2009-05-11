@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
+<gateway name="filter-test">
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>NAA test filter</dc:title>
+      <dc:contributor>Joan Spanne</dc:contributor>
+      <dc:date>2009-04-24</dc:date>
+      <dc:description>This filter for NAA record set mostly to remove unwanted image records,
+         but does use the select stage to explicitly select desired records.</dc:description>
+   </header>
+   <select-stage>
+      <!--
+         The NAA record set contains a 546 Language Note or a 695 locally defined subject term
+         noting language or ethnolinguistic group information for most desired records.
+         The set also contains numerous graphics of little or no interest. However, they
+         do not use the leader to indicate record type.
+      -->
+      <test>
+         <data-field test="exists" tag="546" code=""/>
+      </test>
+      <test>
+         <data-field test="exists" tag="695" code=""/>
+      </test>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
+            <text>language</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="520" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
+            <text>language</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+   </select-stage>
+   
+   <reject-stage>
+      <test>
+         <data-field test="contains" tag="245" code="">
+            <text>Photograph</text>
+            <text>photograph</text>
+            <text>Engraving</text>
+            <text>engraving</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="596" code="">
+            <text>Photograph</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="655" code="">
+            <text>Photograph</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="673" code="">
+            <text>Photograph</text>
+            <text>photograph</text>
+         </data-field>
+      </test>
+      <test>
+         <control-field tag="001" test="equals">
+            <text>21</text>
+            <text>37</text>
+         </control-field>
+      </test>
+   </reject-stage>
+   <crosswalk/>
+</gateway>
