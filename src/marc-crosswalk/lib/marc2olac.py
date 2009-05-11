@@ -92,6 +92,11 @@ if os.path.isfile(marcxml_filename):
 else: # this is a directory
     print "Skipping SAX split..."
 
+    # check if backup directory exists; if it does, previous run failed.
+    # try and run from backup instead
+    if os.path.isdir(marcxml_filename + '_backup'):
+        if os.path.isdir(marcxml_filename): shutil.rmtree(marcxml_filename)
+        os.rename(marcxml_filename + '_backup',marcxml_filename)
     # make backup of directory
     shutil.copytree(marcxml_filename,marcxml_filename + '_backup')
     splitfiles = [sep.join([marcxml_filename,p]) for p in os.listdir(marcxml_filename)]

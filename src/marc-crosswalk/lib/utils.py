@@ -1,5 +1,6 @@
 import os
 import re
+import codecs
 
 # slurp a file into a string
 def file2string(fileName):
@@ -120,10 +121,10 @@ def writeImportMap(config):
     localpath = projpath + sep + config.get('system','local_customizations')
     localpath = localpath.replace(sep,'/')
 
-    f = open(libpath + sep + 'importmap.xsl','w')
+    f = codecs.open(libpath + sep + 'importmap.xsl', encoding='utf-8', mode='w')
     string = """<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:include href="file:///%s"/>
 </xsl:stylesheet>""" % localpath
-    f.write(string)
+    f.write(unicode(string))
     f.close()
