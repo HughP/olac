@@ -2,6 +2,10 @@
 <!-- 
       Expresses local customizations for the process of converting a 
       collection of MARC records to an OLAC static repository
+   
+   For repository: GIAL Library
+   Developed by: Chris Hirt
+   Revision date:  2008-08-27
 -->
 <xsl:stylesheet version="2.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -22,7 +26,7 @@
    
    <!-- Fill in the web domain name that uniquely identifies your
       archive -->
-      <xsl:variable name="repository-id">nmnh.si.edu/naa</xsl:variable>
+   <xsl:variable name="repository-id">naa.nmnh.si.edu</xsl:variable>
    
    <!-- The function that extracts the unique identifier for the
       record from the MARC record. By default it is the MARC 001
@@ -51,7 +55,7 @@
          <oai:protocolVersion>2.0</oai:protocolVersion>
          <!-- Fill in the email address of the person responsible for
             the implementation and maintenance of the repository -->
-         <oai:adminEmail>who?</oai:adminEmail>
+         <oai:adminEmail>email?</oai:adminEmail>
          <!-- Don't touch any of the following up to the next comment -->
          <oai:earliestDatestamp><xsl:value-of
             select="$metadata-version-date"/></oai:earliestDatestamp>
@@ -82,12 +86,12 @@
                -->
                <archiveURL>http://www.nmnh.si.edu/naa/</archiveURL>
                <!-- Make as many copies of <participant> as you need -->
-               <participant name="somebody"
-                  role="some role" email="email"/>
+               <participant name="Who"
+                  role="Role?" email="email?"/>
                <institution>National Anthropological Archives</institution>
                <institutionURL>http://www.nmnh.si.edu/naa/</institutionURL>
                <shortLocation>Suitland, MD</shortLocation>
-               <location>The archives are located in the Smithsonian Institution’s Museum Support Center in Suitland, MD, approximately six miles southeast of the museums on the National Mall</location>
+               <location>The archives are located in the Smithsonian Institution's Museum Support Center in Suitland, MD, approximately six miles southeast of the museums on the National Mall</location>
                <synopsis>purpose of the archive...</synopsis>
                <access>The Smithsonian operates a free hourly shuttle bus service between the Mall and MSC; please request a pass when you schedule your appointment. Public transportation is also available via Metrorail; the Museum Support Center is a 10-15 minute walk from the Suitland Station. Free parking is available if you prefer to drive.  Archivists are available to assist visitors with reference inquries and guide them to appropriate materials. The NAA and HSFA also accept reference inquiries by email and phone.</access>
             </olac-archive>
@@ -98,6 +102,33 @@
    <!-- Place any templates below that are local overrides of the
           templates as defined in the marc2olac stylesheet -->
 
+	      <!-- JAS: GIAL_Marc_590sample1.mrc contains a sample set of records that includes the patterns
+        found thus far with regard to use of 590. 
+        patterns:
+        =590  \\$aEthnologue 15 = ISO 639-3 bca (52 records of the whole set of 29000+ have this pattern)
+        =590  \\$aarz Ethnologue 15 = ISO 639-3
+        =590  \\$askl$2Ethnologue 15 = ISO 639-3
+        
+        Also 594:
+        =594  \\$aEthnologue 15 = ISO/DIS 639-3 piu
+        =594  \\$aEthnologue 15 = ISO/DIS 639-3 sml, sse
+        (usually the tag is repeated)
+        =594  \\$abhk$2Ethnologue 15=ISO 639-3
+        =594  \\$acmn$2Ethnologue 15/ISO/DIS 639-3
+        =594  \\$acmn$hEthnologue: ISO/DIS 639-3
+        =594  \\$aort$2Ethnologue:ISO/DIS 639-3
+        =594  \\$anya$2ISO/DIS 639-3
+    -->
+    <xsl:template match="marc:datafield[@tag='590' or @tag='594']">
+        <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
+            <dc:subject xsi:type="olac:language">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">a</xsl:with-param>
+                </xsl:call-template>
+               <xsl:attribute name="olac:code" select="marc:subfield[@code='a']" />
+            </dc:subject>
+        </xsl:if>
+    </xsl:template>
 
    
 </xsl:stylesheet>

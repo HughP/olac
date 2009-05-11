@@ -665,7 +665,13 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='440']">
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">anpvx</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">anpvx</xsl:with-param>
+            </xsl:call-template>
+            
         </dcterms:isPartOf>
     </xsl:template>
 
@@ -1391,7 +1397,7 @@ local cataloging practices.
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+                <xsl:with-param name="codes">anptv</xsl:with-param>
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
@@ -1403,7 +1409,7 @@ local cataloging practices.
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+                <xsl:with-param name="codes">abnptv</xsl:with-param>
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
@@ -1415,7 +1421,7 @@ local cataloging practices.
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+                <xsl:with-param name="codes">anpdctv</xsl:with-param>
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
@@ -1427,7 +1433,7 @@ local cataloging practices.
         <dcterms:isPartOf>
             <xsl:call-template name="show-source"/>
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abcdefghjklmnopqrstuv4</xsl:with-param>
+                <xsl:with-param name="codes">anpv</xsl:with-param>
             </xsl:call-template>
         </dcterms:isPartOf>
     </xsl:template>
