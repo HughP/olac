@@ -5,8 +5,18 @@ import datetime
 from optionparser import OptionParser
 
 def remove_unregistered_archives():
-    sql = "delete oa.*, ai.*, me.* from (select oa.Archive_ID from OLAC_ARCHIVE oa left join ARCHIVES a on oa.RepositoryIdentifier=a.ID and oa.BaseURL=a.BaseURL where a.ID is null) x, OLAC_ARCHIVE oa, ARCHIVED_ITEM ai, METADATA_ELEM me where x.Archive_ID=oa.Archive_ID and oa.Archive_ID=ai.Archive_ID and ai.Item_ID=me.Item_ID"
+    sql = "select oa.Archive_ID from OLAC_ARCHIVE oa " \
+          "left join ARCHIVES a on oa.RepositoryIdentifier=a.ID " \
+          "and oa.BaseURL=a.BaseURL where a.ID is null"
     cur.execute(sql)
+    for aid, in cur.fetchall():
+        sql = "delete ai.*, me.* from ARCHIVED_ITEM ai, METADATA_ELEM me " \
+              "where ai.Archive_ID=%s and ai.Item_ID=me.Item_ID"
+        cur.execute(sql, aid)
+        sql = "delete from ARCHIVE_PARTICIPANT where Archive_ID=%s"
+        cur.execute(sql, aid)
+        sql = "delete from OLAC_ARCHIVE where Archive_ID=%s"
+        cur.execute(sql, aid)
 
 def remove_archives_with_no_baseurl():
     sql = "delete oa.*, ai.*, me.* " \
