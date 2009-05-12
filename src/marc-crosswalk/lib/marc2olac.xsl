@@ -391,8 +391,12 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='082']">
         <dc:subject xsi:type="dcterms:DDC">
-            <xsl:call-template name="show-source"/>
-            <xsl:value-of select="."/>
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">ab</xsl:with-param>
+                    </xsl:call-template>
+                    <xsl:call-template name="subfieldSelect">
+                        <xsl:with-param name="codes">ab</xsl:with-param>
+                    </xsl:call-template>
         </dc:subject>
     </xsl:template>
 
