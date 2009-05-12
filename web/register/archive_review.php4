@@ -442,7 +442,17 @@ switch ($_POST[decision]) {
       echo "system_error";
       break;
     }
-    $DB->sql("delete oa.*, ai.*, me.* from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai, METADATA_ELEM me where oa.Archive_ID=$_POST[id] and oa.Archive_ID=ai.Archive_ID and ai.Item_ID=me.Item_ID");
+    $DB->sql("delete ai.*, me.* from ARCHIVED_ITEM ai, METADATA_ELEM me where ai.Archive_ID=$_POST[id] and ai.Item_ID=me.Item_ID");
+    if ($DB->saw_error()) {
+      echo "system_error";
+      break;
+    }
+    $DB->sql("delete from ARCHIVE_PARTICIPANT where Archive_ID=$_POST[id]");
+    if ($DB->saw_error()) {
+      echo "system_error";
+      break;
+    }
+    $DB->sql("delete from OLAC_ARCHIVE where Archive_ID=$_POST[id]");
     if ($DB->saw_error()) {
       echo "system_error";
       break;
