@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
+    iso639.xsl - Maps an LCSH or LCCN to an ISO639-3 code. Returns "failed" if
+    there is no match.
     This stylesheet is intended to be included by the main marc2olac stylesheet
 -->
 <xsl:stylesheet version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -10,11 +12,12 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <xsl:output method="xml" indent="yes"/>
-    <xsl:template name="process-olac-code">
+    <xsl:template name="map-to-iso639">
 
         <!-- only one of the following params are necessary  -->
         <xsl:param name="lcsh"/>
         <xsl:param name="lccn"/>
+        
         <!-- map LCSH to ISO639-3 -->
         <xsl:choose>
             <xsl:when test="$lcsh">
@@ -5552,6 +5555,7 @@
                         >zun</xsl:when>
                     <xsl:when test="contains($lcsh,&quot;Zway language&quot;)"
                         >zwa</xsl:when>
+                    <xsl:otherwise>failed</xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
 
@@ -8326,6 +8330,7 @@
                     <xsl:when test="$lccn = 'sh85150044'">zul</xsl:when>
                     <xsl:when test="$lccn = 'sh85150062'">zun</xsl:when>
                     <xsl:when test="$lccn = 'sh00010161'">zwa</xsl:when>
+                    <xsl:otherwise>failed</xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
         </xsl:choose>
