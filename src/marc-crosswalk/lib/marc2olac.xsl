@@ -1035,13 +1035,28 @@ local cataloging practices.
         
         <xsl:choose>
             <xsl:when test="@ind2='0'">
+                <xsl:variable name="sub-a"
+                    select="lower-case(marc:subfield[@code='a'])"/>
                 <xsl:variable name="code">
-                    <xsl:call-template name="process-olac-code">
-                        <xsl:with-param name="lcsh" select="."/>
-                    </xsl:call-template>
+                    <xsl:if test="contains($sub-a, 'language')">
+                        <xsl:choose>
+                            <!-- Bail out if it is not an individual language LCSH -->
+                            <xsl:when test="starts-with($sub-a, 'language')"/>
+                            <xsl:when test="starts-with($sub-a, 'second language')"/>
+                            <xsl:when test="starts-with($sub-a, 'natural language')"/>
+                            <xsl:when test="starts-with($sub-a, 'sign language')"/>
+                            <xsl:when test="contains($sub-a, 'languages')"/>
+                            <!-- Map to a code, returning either three letters or "failed" -->                            
+                            <xsl:otherwise>
+                                <xsl:call-template name="map-to-iso639">
+                                    <xsl:with-param name="lcsh" select="$sub-a"/>
+                                </xsl:call-template>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
                 </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:if test="$code = '' and contains( lower-case( . ) ,'language')">
+                    <xsl:if test="$code = 'failed' ">
                         <xsl:attribute name="no_code">1</xsl:attribute>
                     </xsl:if>
                     <xsl:call-template name="show-source"/>
@@ -1050,7 +1065,7 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
-                <xsl:if test="$code != ''">
+                <xsl:if test="$code != '' and $code != 'failed' ">
                     <dc:subject xsi:type="olac:language">
                         <xsl:attribute name="olac:code" select="$code"/>
                         <xsl:call-template name="show-source"/>
