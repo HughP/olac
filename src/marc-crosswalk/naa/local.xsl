@@ -7,27 +7,24 @@
    Developed by: Chris Hirt
    Revision date:  2008-08-27
 -->
-<xsl:stylesheet version="2.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:marc="http://www.loc.gov/MARC21/slim"
-	xmlns:oai="http://www.openarchives.org/OAI/2.0/"
-	xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:dcterms="http://purl.org/dc/terms/"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+   xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
    <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
    <xsl:variable name="metadata-version-date">2009-05-11</xsl:variable>
-   
+
    <!-- Fill in today's date (as the date as of which the archive
       description and participant list is current) -->
    <xsl:variable name="current-as-of-date">2009-05-11</xsl:variable>
-   
+
    <!-- Fill in the web domain name that uniquely identifies your
       archive -->
    <xsl:variable name="repository-id">naa.nmnh.si.edu</xsl:variable>
-   
+
    <!-- The function that extracts the unique identifier for the
       record from the MARC record. By default it is the MARC 001
       control field, but you may need to change it for your
@@ -35,12 +32,11 @@
    <xsl:template match="marc:record" mode="record-id">
       <xsl:value-of select="marc:controlfield[@tag=001]"/>
    </xsl:template>
-   
+
    <!-- Fill in descriptors for your repository and institution as
       directed below -->
    <xsl:template name="identify-response">
-      <Identify
-         xmlns="http://www.openarchives.org/OAI/2.0/static-repository"
+      <Identify xmlns="http://www.openarchives.org/OAI/2.0/static-repository"
          xmlns:oai="http://www.openarchives.org/OAI/2.0/"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository
@@ -57,17 +53,19 @@
             the implementation and maintenance of the repository -->
          <oai:adminEmail>email?</oai:adminEmail>
          <!-- Don't touch any of the following up to the next comment -->
-         <oai:earliestDatestamp><xsl:value-of
-            select="$metadata-version-date"/></oai:earliestDatestamp>
+         <oai:earliestDatestamp>
+            <xsl:value-of select="$metadata-version-date"/>
+         </oai:earliestDatestamp>
          <oai:deletedRecord>no</oai:deletedRecord>
          <oai:granularity>YYYY-MM-DD</oai:granularity>
          <oai:description>
-            <oai-identifier
-               xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+            <oai-identifier xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
                xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier 
          http://www.language-archives.org/OLAC/1.1/oai-identifier.xsd">
                <scheme>oai</scheme>
-               <repositoryIdentifier><xsl:value-of select="$repository-id"/></repositoryIdentifier>
+               <repositoryIdentifier>
+                  <xsl:value-of select="$repository-id"/>
+               </repositoryIdentifier>
                <delimiter>:</delimiter>
                <sampleIdentifier>
                   <xsl:value-of select="concat( 'oai:', $repository-id, ':' )"/>
@@ -76,8 +74,7 @@
             </oai-identifier>
          </oai:description>
          <oai:description>
-            <olac-archive type="institutional"
-               currentAsOf="{$current-as-of-date}"
+            <olac-archive type="institutional" currentAsOf="{$current-as-of-date}"
                xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
                xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
               http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
@@ -86,49 +83,99 @@
                -->
                <archiveURL>http://www.nmnh.si.edu/naa/</archiveURL>
                <!-- Make as many copies of <participant> as you need -->
-               <participant name="Who"
-                  role="Role?" email="email?"/>
+               <participant name="Who" role="Role?" email="email?"/>
                <institution>National Anthropological Archives</institution>
                <institutionURL>http://www.nmnh.si.edu/naa/</institutionURL>
                <shortLocation>Suitland, MD</shortLocation>
-               <location>The archives are located in the Smithsonian Institution's Museum Support Center in Suitland, MD, approximately six miles southeast of the museums on the National Mall</location>
+               <location>The archives are located in the Smithsonian Institution's Museum Support
+                  Center in Suitland, MD, approximately six miles southeast of the museums on the
+                  National Mall</location>
                <synopsis>purpose of the archive...</synopsis>
-               <access>The Smithsonian operates a free hourly shuttle bus service between the Mall and MSC; please request a pass when you schedule your appointment. Public transportation is also available via Metrorail; the Museum Support Center is a 10-15 minute walk from the Suitland Station. Free parking is available if you prefer to drive.  Archivists are available to assist visitors with reference inquries and guide them to appropriate materials. The NAA and HSFA also accept reference inquiries by email and phone.</access>
+               <access>The Smithsonian operates a free hourly shuttle bus service between the Mall
+                  and MSC; please request a pass when you schedule your appointment. Public
+                  transportation is also available via Metrorail; the Museum Support Center is a
+                  10-15 minute walk from the Suitland Station. Free parking is available if you
+                  prefer to drive. Archivists are available to assist visitors with reference
+                  inquries and guide them to appropriate materials. The NAA and HSFA also accept
+                  reference inquiries by email and phone.</access>
             </olac-archive>
          </oai:description>
       </Identify>
    </xsl:template>
-   
+
    <!-- Place any templates below that are local overrides of the
           templates as defined in the marc2olac stylesheet -->
 
-	      <!-- JAS: GIAL_Marc_590sample1.mrc contains a sample set of records that includes the patterns
-        found thus far with regard to use of 590. 
-        patterns:
-        =590  \\$aEthnologue 15 = ISO 639-3 bca (52 records of the whole set of 29000+ have this pattern)
-        =590  \\$aarz Ethnologue 15 = ISO 639-3
-        =590  \\$askl$2Ethnologue 15 = ISO 639-3
-        
-        Also 594:
-        =594  \\$aEthnologue 15 = ISO/DIS 639-3 piu
-        =594  \\$aEthnologue 15 = ISO/DIS 639-3 sml, sse
-        (usually the tag is repeated)
-        =594  \\$abhk$2Ethnologue 15=ISO 639-3
-        =594  \\$acmn$2Ethnologue 15/ISO/DIS 639-3
-        =594  \\$acmn$hEthnologue: ISO/DIS 639-3
-        =594  \\$aort$2Ethnologue:ISO/DIS 639-3
-        =594  \\$anya$2ISO/DIS 639-3
-    -->
-    <xsl:template match="marc:datafield[@tag='590' or @tag='594']">
-        <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
-            <dc:subject xsi:type="olac:language">
-                <xsl:call-template name="show-source">
-                    <xsl:with-param name="subfield">a</xsl:with-param>
-                </xsl:call-template>
-               <xsl:attribute name="olac:code" select="marc:subfield[@code='a']" />
-            </dc:subject>
-        </xsl:if>
-    </xsl:template>
+   <xsl:template match="marc:datafield[@tag='650']">
+      <xsl:call-template name="process-linguistic-type"/>
+      <xsl:call-template name="process-linguistic-subject"/>
+      <xsl:if test="not(contains( marc:subfield[@code='a'] , 'Language and language'))">
+         <xsl:choose>
+            <xsl:when test="@ind2='0'">
+               <xsl:variable name="code">
+                  <xsl:call-template name="process-olac-code">
+                     <xsl:with-param name="lcsh" select="."/>
+                  </xsl:call-template>
+               </xsl:variable>
+               <dc:subject xsi:type="dcterms:LCSH">
+                  <xsl:if test="$code = '' and contains( lower-case( . ) ,'language')">
+                     <xsl:attribute name="no_code">1</xsl:attribute>
+                  </xsl:if>
+                  <xsl:call-template name="show-source"/>
+                  <xsl:call-template name="subfieldSelect">
+                     <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
+                     <xsl:with-param name="delimiter">--</xsl:with-param>
+                  </xsl:call-template>
+               </dc:subject>
+               <xsl:if test="$code != ''">
+                  <dc:subject xsi:type="olac:language">
+                     <xsl:attribute name="olac:code" select="$code"/>
+                     <xsl:call-template name="show-source"/>
+                  </dc:subject>
+               </xsl:if>
+            </xsl:when>
+            <xsl:when test="@ind2='2'">
+               <dc:subject xsi:type="dcterms:MESH">
+                  <xsl:call-template name="show-source"/>
+                  <xsl:call-template name="subfieldSelect">
+                     <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
+                     <xsl:with-param name="delimiter">--</xsl:with-param>
+                  </xsl:call-template>
+               </dc:subject>
+            </xsl:when>
+            <xsl:otherwise>
+               <dc:subject>
+                  <xsl:call-template name="show-source"/>
+                  <xsl:call-template name="subfieldSelect">
+                     <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
+                     <xsl:with-param name="delimiter">--</xsl:with-param>
+                  </xsl:call-template>
+               </dc:subject>
+            </xsl:otherwise>
+         </xsl:choose>
+         <xsl:if test="marc:subfield[@code='y']">
+            <dcterms:temporal>
+               <xsl:call-template name="show-source">
+                  <xsl:with-param name="subfield">y</xsl:with-param>
+               </xsl:call-template>
+               <xsl:call-template name="subfieldSelect">
+                  <xsl:with-param name="codes">y</xsl:with-param>
+               </xsl:call-template>
+            </dcterms:temporal>
+         </xsl:if>
+         <xsl:if test="marc:subfield[@code='z']">
+            <dcterms:spatial>
+               <xsl:call-template name="show-source">
+                  <xsl:with-param name="subfield">z</xsl:with-param>
+               </xsl:call-template>
+               <xsl:call-template name="subfieldSelect">
+                  <xsl:with-param name="codes">z</xsl:with-param>
+                  <xsl:with-param name="delimiter">, </xsl:with-param>
+               </xsl:call-template>
+            </dcterms:spatial>
+         </xsl:if>
+      </xsl:if>
+   </xsl:template>
 
-   
+
 </xsl:stylesheet>

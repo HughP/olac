@@ -1038,7 +1038,7 @@ local cataloging practices.
                 <xsl:variable name="sub-a"
                     select="lower-case(marc:subfield[@code='a'])"/>
                 <xsl:variable name="code">
-                    <xsl:if test="contains($sub-a, 'language')">
+                    <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
                         <xsl:choose>
                             <!-- Bail out if it is not an individual language LCSH -->
                             <xsl:when test="starts-with($sub-a, 'language')"/>

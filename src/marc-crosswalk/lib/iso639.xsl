@@ -22,5538 +22,5538 @@
         <xsl:choose>
             <xsl:when test="$lcsh">
                 <xsl:choose>
-                    <xsl:when test="contains($lcsh,&quot;!Xõ language&quot;)">huc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abaknon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;!Xõ language&quot;)">huc</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abaknon language&quot;)"
                         >abx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abau language&quot;)"
                         >aau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abazin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abazin language&quot;)"
                         >abq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abe language&quot;)">any</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abidji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abe language&quot;)">any</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abidji language&quot;)"
                         >abi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abipon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abipon language&quot;)"
                         >axb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abkhaz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abkhaz language&quot;)"
                         >abk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abo language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abo language (Cameroon)&quot;)"
                         >abb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abor language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abua language&quot;)"
                         >abn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abujhmaria language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abujhmaria language&quot;)"
                         >mrr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abulas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abulas language&quot;)"
                         >abt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abun language&quot;)"
                         >kgr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Abure language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Abure language&quot;)"
                         >abu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Acawai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Acawai language&quot;)"
                         >ake</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Achagua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Achagua language&quot;)"
                         >aca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Achang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Achang language&quot;)"
                         >acn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Achinese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Achinese language&quot;)"
                         >ace</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Achomawi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Achomawi language&quot;)"
                         >acv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Achuar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Achuar language&quot;)"
                         >acu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Acoli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Acoli language&quot;)"
                         >ach</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Acoma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Acoma language&quot;)"
                         >kjq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Adangme language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Adangme language&quot;)"
                         >ada</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Adiwasi Oriya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Adiwasi Oriya language&quot;)"
                         >ort</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aduma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aduma language&quot;)"
                         >dma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Adygei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Adygei language&quot;)"
                         >ady</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Adyukru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Adyukru language&quot;)"
                         >adj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Adzhar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Adzhar language&quot;)"
                         >kat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aekyom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aekyom language&quot;)"
                         >awi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aeolic Greek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aeolic Greek language&quot;)"
                         >grc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Afade language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Afade language&quot;)"
                         >aal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Afar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Afar language&quot;)"
                         >aar</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Afrihili language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Afrihili language (Artificial)&quot;)"
                         >afh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Afrikaans language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Afrikaans language&quot;)"
                         >afr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Afshar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Afshar language&quot;)"
                         >azb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agarabe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agarabe language&quot;)"
                         >agd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agau language&quot;)"
                         >awn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aglemiut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aglemiut language&quot;)"
                         >esu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agri language&quot;)"
                         >knn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agta language&quot;)"
                         >agt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aguacatec language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aguacatec language&quot;)"
                         >agu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aguaruna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aguaruna language&quot;)"
                         >agr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agul language&quot;)"
                         >agx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agusan Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agusan Manobo language&quot;)"
                         >msm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Agutaynon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Agutaynon language&quot;)"
                         >agn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ahirani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ahirani language&quot;)"
                         >ahr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ahom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ahom language&quot;)"
                         >aho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ahtena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ahtena language&quot;)"
                         >aht</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Aja language (Benin and Togo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Aja language (Benin and Togo)&quot;)"
                         >ajg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aja language (Sudan)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aja language (Sudan)&quot;)"
                         >aja</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ajie language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ajie language&quot;)"
                         >aji</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Aka language (Central African Republic)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Aka language (Central African Republic)&quot;)"
                         >axk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akan language&quot;)"
                         >aka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akatek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akatek language&quot;)"
                         >knj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akei language&quot;)"
                         >tsr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akhwakh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akhwakh language&quot;)"
                         >akv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akit language&quot;)"
                         >kvr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akka language&quot;)"
                         >che</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Akkadian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Akkadian language&quot;)"
                         >akk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aklanon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aklanon language&quot;)"
                         >akl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alabama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alabama language&quot;)"
                         >akz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alacaluf language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alacaluf language&quot;)"
                         >alc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aladian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aladian language&quot;)"
                         >ald</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alamblak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alamblak language&quot;)"
                         >amp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alangan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alangan language&quot;)"
                         >alj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alas language&quot;)"
                         >btz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alawa language&quot;)"
                         >alh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Albanian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Albanian language&quot;)"
                         >sqi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aleut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aleut language&quot;)"
                         >ale</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Algonquin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Algonquin language&quot;)"
                         >alq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alsea language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alsea language&quot;)"
                         >aes</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alu-Kurumba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alu-Kurumba language&quot;)"
                         >xua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alune language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alune language&quot;)"
                         >alp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alur language&quot;)"
                         >alz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alutor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alutor language&quot;)"
                         >alr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Alyawarra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Alyawarra language&quot;)"
                         >aly</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Ama language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Ama language (Papua New Guinea)&quot;)"
                         >amm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amahuaca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amahuaca language&quot;)"
                         >amc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amanab language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amanab language&quot;)"
                         >amn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amarag language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amarag language&quot;)"
                         >amg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ambai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ambai language&quot;)"
                         >amk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ambo language (Zambia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ambo language (Zambia)&quot;)"
                         >leb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ambonese Malay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ambonese Malay language&quot;)"
                         >abs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amdo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amdo language&quot;)"
                         >adx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amele language&quot;)"
                         >aey</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;American Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;American Sign Language&quot;)"
                         >ase</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amganad Ifugao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amganad Ifugao language&quot;)"
                         >ifa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amharic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amharic language&quot;)"
                         >amh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amikwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amikwa language&quot;)"
                         >ciw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amis language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amis language&quot;)"
                         >ami</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ammassalimiut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ammassalimiut language&quot;)"
                         >kal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ampale language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ampale language&quot;)"
                         >apz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Amuesha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Amuesha language&quot;)"
                         >ame</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anakalang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anakalang language&quot;)"
                         >akg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anal language&quot;)"
                         >anm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Andilyaugwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Andilyaugwa language&quot;)"
                         >aoi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Andoque language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Andoque language&quot;)"
                         >ano</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aneityum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aneityum language&quot;)"
                         >aty</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anem language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anem language&quot;)"
                         >anz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aneme Wake language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aneme Wake language&quot;)"
                         >aby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anesu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anesu language&quot;)"
                         >ane</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Angal Heneng language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Angal Heneng language&quot;)"
                         >akh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Angami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Angami language&quot;)"
                         >njm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Angas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Angas language&quot;)"
                         >anc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anggor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anggor language&quot;)"
                         >agg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Angika language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Angika language&quot;)"
                         >anp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Angkola language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Angkola language&quot;)"
                         >akb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anglo-Norman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anglo-Norman language&quot;)"
                         >xno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ankave language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ankave language&quot;)"
                         >aak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anmatyerre language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anmatyerre language&quot;)"
                         >amx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Annobon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Annobon language&quot;)"
                         >fab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Antaisaka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Antaisaka language&quot;)"
                         >bjq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anuak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anuak language&quot;)"
                         >anu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anufo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anufo language&quot;)"
                         >cko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anuta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anuta language&quot;)"
                         >aud</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anyang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anyang language&quot;)"
                         >ken</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Anyi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Anyi language&quot;)"
                         >any</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ao language&quot;)">njo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aomie language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ao language&quot;)">njo</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aomie language&quot;)"
                         >aom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Apalachee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Apalachee language&quot;)"
                         >xap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Apalai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Apalai language&quot;)"
                         >apy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Apatani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Apatani language&quot;)"
                         >apt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arabana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arabana language&quot;)"
                         >ard</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arabela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arabela language&quot;)"
                         >arl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arabic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arabic language&quot;)"
                         >ara</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arakanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arakanese language&quot;)"
                         >rki</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aramaic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aramaic language&quot;)"
                         >arc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aranda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aranda language&quot;)"
                         >are</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Araona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Araona language&quot;)"
                         >aro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arapaho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arapaho language&quot;)"
                         >arp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arawak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arawak language&quot;)"
                         >arw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arbore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arbore language&quot;)"
                         >arv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Archi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Archi language&quot;)"
                         >aqc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Areare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Areare language&quot;)"
                         >alu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arecuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arecuna language&quot;)"
                         >aoc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arekena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arekena language&quot;)"
                         >gae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Argobba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Argobba language&quot;)"
                         >agj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aribwatsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aribwatsa language&quot;)"
                         >laz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arikara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arikara language&quot;)"
                         >ari</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Armenian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Armenian language&quot;)"
                         >hye</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Armenian, Classical language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Armenian, Classical language&quot;)"
                         >xcl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Armenian, Middle language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Armenian, Middle language&quot;)"
                         >axm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Armenian, Modern language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Armenian, Modern language&quot;)"
                         >hye</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aromanian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aromanian language&quot;)"
                         >rup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Arosi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Arosi language&quot;)"
                         >aia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Asaro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Asaro language&quot;)"
                         >aso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Assamese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Assamese language&quot;)"
                         >asm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Assiniboine language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Assiniboine language&quot;)"
                         >asb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Asu language&quot;)">ppt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Asuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Asu language&quot;)">ppt</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Asuri language&quot;)"
                         >asr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ata Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ata Manobo language&quot;)"
                         >atd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atacameno language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atacameno language&quot;)"
                         >kuz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atakapa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atakapa language&quot;)"
                         >aqp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atchin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atchin language&quot;)"
                         >upv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Athpare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Athpare language&quot;)"
                         >aph</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atinggola language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atinggola language&quot;)"
                         >bld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atisa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atisa language&quot;)"
                         >epi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atsera language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atsera language&quot;)"
                         >adz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atsina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atsina language&quot;)"
                         >ats</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atsugewi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atsugewi language&quot;)"
                         >atw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Atta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Atta language&quot;)"
                         >att</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Attic Greek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Attic Greek language&quot;)"
                         >grc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Attie language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Attie language&quot;)"
                         >ati</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Au language&quot;)">avt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aulua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Au language&quot;)">avt</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aulua language&quot;)"
                         >aul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Australian Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Australian Sign Language&quot;)"
                         >asf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Auyana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Auyana language&quot;)"
                         >kze</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Avaric language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Avaric language&quot;)"
                         >ava</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Avestan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Avestan language&quot;)"
                         >ave</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Awa language (Eastern Highlands Province, Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Awa language (Eastern Highlands Province, Papua New Guinea)&quot;)"
                         >awb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Awabakal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Awabakal language&quot;)"
                         >awk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Awadhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Awadhi language&quot;)"
                         >awa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ayangan Ifugao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ayangan Ifugao language&quot;)"
                         >ifb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ayizo-gbe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ayizo-gbe language&quot;)"
                         >ayb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Aymara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Aymara language&quot;)"
                         >aym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ayta Anchi Sambal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ayta Anchi Sambal language&quot;)"
                         >sgb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ayta Mag Indi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ayta Mag Indi language&quot;)"
                         >blx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Azerbaijani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Azerbaijani language&quot;)"
                         >aze</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Babine language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Babine language&quot;)"
                         >bcr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bable language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bable language&quot;)"
                         >ast</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bada language (Indonesia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bada language (Indonesia)&quot;)"
                         >bhz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Badaga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Badaga language&quot;)"
                         >bfq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Badakhshani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Badakhshani language&quot;)"
                         >drw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Badyara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Badyara language&quot;)"
                         >pbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bafia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bafia language&quot;)"
                         >ksf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bafut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bafut language&quot;)"
                         >bfd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagheli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagheli language&quot;)"
                         >bfy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagirmi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagirmi language&quot;)"
                         >bmi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagobo language&quot;)"
                         >obo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagri language&quot;)"
                         >bgq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagulal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagulal language&quot;)"
                         >kva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bagyele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bagyele language&quot;)"
                         >gyi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baham language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baham language&quot;)"
                         >bdw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bahinemo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bahinemo language&quot;)"
                         >bjh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bahing language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bahing language&quot;)"
                         >bhj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bahnar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bahnar language&quot;)"
                         >bdq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bai language (China)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bai language (China)&quot;)"
                         >bca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baining language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baining language&quot;)"
                         >byx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baiso language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baiso language&quot;)"
                         >bsw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bajau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bajau language&quot;)"
                         >bdl</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Baka language (Cameroon and Gabon)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Baka language (Cameroon and Gabon)&quot;)"
                         >bkc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baka language&quot;)"
                         >bdh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bakairi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bakairi language&quot;)"
                         >bkq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bakhtiari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bakhtiari language&quot;)"
                         >bqi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bakossi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bakossi language&quot;)"
                         >bss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bakumpai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bakumpai language&quot;)"
                         >bkr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bakundu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bakundu language&quot;)"
                         >bdu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balaesang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balaesang language&quot;)"
                         >bls</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balangao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balangao language&quot;)"
                         >blw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balangingì language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balangingì language&quot;)"
                         >sse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balantak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balantak language&quot;)"
                         >blz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balante language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balante language&quot;)"
                         >ble</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balinese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balinese language&quot;)"
                         >ban</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Balti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Balti language&quot;)"
                         >bft</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baluchi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baluchi language&quot;)"
                         >bal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bambara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bambara language&quot;)"
                         >bam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bambatana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bambatana language&quot;)"
                         >baa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bamu River language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bamu River language&quot;)"
                         >bcf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bamun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bamun language&quot;)"
                         >bax</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banda language (Indonesia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banda language (Indonesia)&quot;)"
                         >bnd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banda language&quot;)"
                         >liy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bandjalang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bandjalang language&quot;)"
                         >bdy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bandjoun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bandjoun language&quot;)"
                         >bbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bangaru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bangaru language&quot;)"
                         >bgc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banggai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banggai language&quot;)"
                         >bgz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bangubangu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bangubangu language&quot;)"
                         >bnx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bangwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bangwa language&quot;)"
                         >nwe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baniwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baniwa language&quot;)"
                         >bwi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banjar Hulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banjar Hulu language&quot;)"
                         >bjn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banjarese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banjarese language&quot;)"
                         >bjn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bankudu-Balue language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bankudu-Balue language&quot;)"
                         >bdu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bantawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bantawa language&quot;)"
                         >bap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banten language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banten language&quot;)"
                         >jav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banton language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banton language&quot;)"
                         >bno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Banyjima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Banyjima language&quot;)"
                         >pnw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bara language (Madagascar)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bara language (Madagascar)&quot;)"
                         >bhr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Barai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Barai language&quot;)"
                         >bbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Barambu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Barambu language&quot;)"
                         >brm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Barasana del Norte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Barasana del Norte language&quot;)"
                         >bao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Barasana del Sur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Barasana del Sur language&quot;)"
                         >bsn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bard language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bard language&quot;)"
                         >bcj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baré language&quot;)"
                         >bae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bareë language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bareë language&quot;)"
                         >pmf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bari language&quot;)"
                         >bfa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baria language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baria language&quot;)"
                         >nrb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bariai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bariai language&quot;)"
                         >bch</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bariba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bariba language&quot;)"
                         >bba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bartang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bartang language&quot;)"
                         >sgh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baruya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baruya language&quot;)"
                         >byr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Basa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Basa language&quot;)"
                         >bas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Basap language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Basap language&quot;)"
                         >bdb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bashgali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bashgali language&quot;)"
                         >bsh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bashkir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bashkir language&quot;)"
                         >bak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Basque language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Basque language&quot;)"
                         >eus</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Bassa language (Liberia and Sierra Leone)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Bassa language (Liberia and Sierra Leone)&quot;)"
                         >bsq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bassari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bassari language&quot;)"
                         >bsc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Batad Ifugao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Batad Ifugao language&quot;)"
                         >ifb</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Batak language (Philippines)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Batak language (Philippines)&quot;)"
                         >bya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Batak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Batak language&quot;)"
                         >bya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Batan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Batan language&quot;)"
                         >ivv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bati language&quot;)"
                         >btc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bats language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bats language&quot;)"
                         >bbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bau-Jagoi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bau-Jagoi language&quot;)"
                         >sne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Baule language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Baule language&quot;)"
                         >bci</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bauré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bauré language&quot;)"
                         >brg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bauzi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bauzi language&quot;)"
                         >bvz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bawo language (Indonesia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bawo language (Indonesia)&quot;)"
                         >lbx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bayungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bayungu language&quot;)"
                         >bxj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Be language&quot;)">onb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Béarnais language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Be language&quot;)">onb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Béarnais language&quot;)"
                         >oci</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bedik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bedik language&quot;)"
                         >tnr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Begak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Begak language&quot;)"
                         >dbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Beja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Beja language&quot;)"
                         >bej</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bekwarra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bekwarra language&quot;)"
                         >bkv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Belarusian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Belarusian language&quot;)"
                         >bel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bella Coola language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bella Coola language&quot;)"
                         >blc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bemba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bemba language&quot;)"
                         >bem</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Bembe language (Congo (Brazzaville))&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Bembe language (Congo (Brazzaville))&quot;)"
                         >beq</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Bembe language (Lake Tanganyika)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Bembe language (Lake Tanganyika)&quot;)"
                         >bmb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Benabena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Benabena language&quot;)"
                         >bef</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Beng language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Beng language&quot;)"
                         >nhb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Benga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Benga language&quot;)"
                         >bng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bengali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bengali language&quot;)"
                         >ben</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Benge language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Benge language&quot;)"
                         >bww</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bengkulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bengkulu language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Beothuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Beothuk language&quot;)"
                         >bue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Berik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Berik language&quot;)"
                         >bkl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Besemah language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Besemah language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Betawi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Betawi language&quot;)"
                         >bew</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bete language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bete language&quot;)"
                         >byf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Betsileo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Betsileo language&quot;)"
                         >plt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Betsimisaraka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Betsimisaraka language&quot;)"
                         >bjq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bezhta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bezhta language&quot;)"
                         >kap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bhadrawahi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bhadrawahi language&quot;)"
                         >bhd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bhalesi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bhalesi language&quot;)"
                         >bhd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bhili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bhili language&quot;)"
                         >bhb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bhojpuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bhojpuri language&quot;)"
                         >bho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bhumij language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bhumij language&quot;)"
                         >unr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biak language&quot;)"
                         >bhw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biali language&quot;)"
                         >beh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biangai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biangai language&quot;)"
                         >big</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biat language&quot;)"
                         >cmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biatah language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biatah language&quot;)"
                         >bth</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bidiyo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bidiyo language&quot;)"
                         >bid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bidjara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bidjara language&quot;)"
                         >bym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Big Nambas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Big Nambas language&quot;)"
                         >nmb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bihari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bihari language&quot;)"
                         >bih</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bijago language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bijago language&quot;)"
                         >bjg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bikaneri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bikaneri language&quot;)"
                         >rwr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bikol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bikol language&quot;)"
                         >bik</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bilaspuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bilaspuri language&quot;)"
                         >kfs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biliau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biliau language&quot;)"
                         >bcu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bilin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bilin language&quot;)"
                         >byn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biloxi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biloxi language&quot;)"
                         >bll</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bimanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bimanese language&quot;)"
                         >bhp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Binandere language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Binandere language&quot;)"
                         >bhg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bini language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bini language&quot;)"
                         >bin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Binongko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Binongko language&quot;)"
                         >bhq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bintauna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bintauna language&quot;)"
                         >bne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Binukid Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Binukid Manobo language&quot;)"
                         >bkd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Binumarien language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Binumarien language&quot;)"
                         >bjr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Birhor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Birhor language&quot;)"
                         >biy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Biri language (Australia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Biri language (Australia)&quot;)"
                         >bzr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Birom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Birom language&quot;)"
                         >bom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Birri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Birri language&quot;)"
                         >bvq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bisa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bisa language&quot;)"
                         >leb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bishnupuriya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bishnupuriya language&quot;)"
                         >bpy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bisio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bisio language&quot;)"
                         >nmg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bislama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bislama language&quot;)"
                         >bis</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bisorio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bisorio language&quot;)"
                         >bir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Black Carib language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Black Carib language&quot;)"
                         >cab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Black Hmong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Black Hmong language&quot;)"
                         >hea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Black Tai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Black Tai language&quot;)"
                         >blt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Blagar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Blagar language&quot;)"
                         >beu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Blang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Blang language&quot;)"
                         >blr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bobangi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bobangi language&quot;)"
                         >bni</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bobo Fing language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bobo Fing language&quot;)"
                         >bbo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bodega Miwok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bodega Miwok language&quot;)"
                         >csi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bohairic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bohairic language&quot;)"
                         >cop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Boiken language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Boiken language&quot;)"
                         >bzf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bokar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bokar language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bolaang Mongondow language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bolaang Mongondow language&quot;)"
                         >mog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bolia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bolia language&quot;)"
                         >bli</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bolinao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bolinao language&quot;)"
                         >smk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bolongan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bolongan language&quot;)"
                         >blj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bom language&quot;)">boj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Boma language (Congo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bom language&quot;)">boj</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Boma language (Congo)&quot;)"
                         >boh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bomitaba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bomitaba language&quot;)"
                         >zmx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bonan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bonan language&quot;)"
                         >peh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bonda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bonda language&quot;)"
                         >bfw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bondei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bondei language&quot;)"
                         >bou</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bongo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bongo language&quot;)"
                         >bot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bongu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bongu language&quot;)"
                         >bpu</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Boni language (French Guiana and Suriname)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Boni language (French Guiana and Suriname)&quot;)"
                         >djk</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Boni language (Kenya and Somalia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Boni language (Kenya and Somalia)&quot;)"
                         >bob</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Boomu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Boomu language&quot;)"
                         >bmq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bor language (Dinka)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bor language (Dinka)&quot;)"
                         >dks</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bor language (Lwo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bor language (Lwo)&quot;)"
                         >bxb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bora language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bora language&quot;)"
                         >boa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Boran language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Boran language&quot;)"
                         >gax</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bori language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bori language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bororo language (Brazil)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bororo language (Brazil)&quot;)"
                         >bor</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Bororo language (West Africa)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Bororo language (West Africa)&quot;)"
                         >fuv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Boruca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Boruca language&quot;)"
                         >brn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bosnian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bosnian language&quot;)"
                         >bos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bote-Mahi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bote-Mahi language&quot;)"
                         >bmj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Botlikh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Botlikh language&quot;)"
                         >bph</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Botolan Sambal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Botolan Sambal language&quot;)"
                         >sbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bouyei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bouyei language&quot;)"
                         >pcc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Brahui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Brahui language&quot;)"
                         >brh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Braj language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Braj language&quot;)"
                         >bra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Breton language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Breton language&quot;)"
                         >bre</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bribri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bribri language&quot;)"
                         >bzd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Brissa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Brissa language&quot;)"
                         >any</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;British Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;British Sign Language&quot;)"
                         >bfi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Brokpa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Brokpa language&quot;)"
                         >bkk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bube language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bube language&quot;)"
                         >bvb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Budukh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Budukh language&quot;)"
                         >bdk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buduma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buduma language&quot;)"
                         >bdm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bugis language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bugis language&quot;)"
                         >bug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bugotu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bugotu language&quot;)"
                         >bgt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bugun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bugun language&quot;)"
                         >bgg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buin language&quot;)"
                         >buo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bukar Sadong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bukar Sadong language&quot;)"
                         >sdo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bukawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bukawa language&quot;)"
                         >buk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bukusu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bukusu language&quot;)"
                         >bxk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bulgarian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bulgarian language&quot;)"
                         >bul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buli language&quot;)"
                         >bwu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bulu language&quot;)"
                         >bum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bunaba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bunaba language&quot;)"
                         >bck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bunak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bunak language&quot;)"
                         >bfn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bunama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bunama language&quot;)"
                         >bdd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bundeli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bundeli language&quot;)"
                         >bns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bune Bonda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bune Bonda language&quot;)"
                         >swu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bungku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bungku language&quot;)"
                         >bkz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bunun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bunun language&quot;)"
                         >bnn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buol language&quot;)"
                         >blf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Burarra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Burarra language&quot;)"
                         >bvr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buriat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buriat language&quot;)"
                         >bua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Burji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Burji language&quot;)"
                         >bji</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Burmese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Burmese language&quot;)"
                         >mya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Buru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Buru language&quot;)"
                         >mhs</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Burum language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Burum language (Papua New Guinea)&quot;)"
                         >bmu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Burushaski language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Burushaski language&quot;)"
                         >bsk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bushoong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bushoong language&quot;)"
                         >buf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bwaidoga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bwaidoga language&quot;)"
                         >bwd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Bwamu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Bwamu language&quot;)"
                         >bww</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Byangsi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Byangsi language&quot;)"
                         >bee</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cabecar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cabecar language&quot;)"
                         >cjp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cacua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cacua language&quot;)"
                         >cbv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Caddo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Caddo language&quot;)"
                         >cad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cahuilla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cahuilla language&quot;)"
                         >chl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Caingua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Caingua language&quot;)"
                         >kgk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cajun French language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cajun French language&quot;)"
                         >frc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cakavian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cakavian language&quot;)"
                         >hrv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Callahuaya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Callahuaya language&quot;)"
                         >caw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Caló language (Romani)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Caló language (Romani)&quot;)"
                         >rmr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Caluyanun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Caluyanun language&quot;)"
                         >clu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Camaracoto language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Camaracoto language&quot;)"
                         >aoc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Campa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Campa language&quot;)"
                         >cni</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Camsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Camsa language&quot;)"
                         >kbh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Camuhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Camuhi language&quot;)"
                         >cam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cañari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cañari language&quot;)"
                         >quf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Candoshi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Candoshi language&quot;)"
                         >cbu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Canella language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Canella language&quot;)"
                         >ram</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Canichana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Canichana language&quot;)"
                         >caz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Capanahua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Capanahua language&quot;)"
                         >kaq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cape Verde Creole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cape Verde Creole language&quot;)"
                         >kea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Caquinte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Caquinte language&quot;)"
                         >cot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Car Nicobarese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Car Nicobarese language&quot;)"
                         >caq</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Carapana language (Tucanoan)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Carapana language (Tucanoan)&quot;)"
                         >cbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Carian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Carian language&quot;)"
                         >xcr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Carib language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Carib language&quot;)"
                         >car</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Carolinian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Carolinian language&quot;)"
                         >cal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Carpatho-Rusyn language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Carpatho-Rusyn language&quot;)"
                         >rue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Carrier language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Carrier language&quot;)"
                         >crx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cashibo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cashibo language&quot;)"
                         >cbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cashinawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cashinawa language&quot;)"
                         >cbs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Catalan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Catalan language&quot;)"
                         >cat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Catawba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Catawba language&quot;)"
                         >chc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Catio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Catio language&quot;)"
                         >cto</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cauqui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cauqui language&quot;)"
                         >jqr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cavineño language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cavineño language&quot;)"
                         >cav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cayapa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cayapa language&quot;)"
                         >cbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cayapo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cayapo language&quot;)"
                         >txu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cayuga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cayuga language&quot;)"
                         >cay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cayuvava language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cayuvava language&quot;)"
                         >cyb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cebuano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cebuano language&quot;)"
                         >ceb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Celtiberian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Celtiberian language&quot;)"
                         >xce</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Central Bontoc language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Central Bontoc language&quot;)"
                         >bnc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Central Mnong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Central Mnong language&quot;)"
                         >cmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Central Sama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Central Sama language&quot;)"
                         >sml</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Central Subanen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Central Subanen language&quot;)"
                         >syb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Central Yupik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Central Yupik language&quot;)"
                         >esu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chabacano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chabacano language&quot;)"
                         >cbk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chacobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chacobo language&quot;)"
                         >cao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chagatai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chagatai language&quot;)"
                         >chg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chaha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chaha language&quot;)"
                         >sgw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chahar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chahar language&quot;)"
                         >mvf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chakhesang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chakhesang language&quot;)"
                         >nri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chakma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chakma language&quot;)"
                         >ccp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamacoco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamacoco language&quot;)"
                         >ceg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamalal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamalal language&quot;)"
                         >cji</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamba Daka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamba Daka language&quot;)"
                         >ccg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamba Lahuli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamba Lahuli language&quot;)"
                         >lae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chambiali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chambiali language&quot;)"
                         >cdh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chambri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chambri language&quot;)"
                         >can</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamí language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamí language&quot;)"
                         >cmi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamicuro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamicuro language&quot;)"
                         >ccc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamling language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamling language&quot;)"
                         >rab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chamorro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chamorro language&quot;)"
                         >cha</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chang language&quot;)"
                         >nbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chantel language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chantel language&quot;)"
                         >chx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chattisgarhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chattisgarhi language&quot;)"
                         >hne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chayahuita language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chayahuita language&quot;)"
                         >cbt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chechen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chechen language&quot;)"
                         >che</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cheke Holo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cheke Holo language&quot;)"
                         >mrn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chemehuevi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chemehuevi language&quot;)"
                         >ute</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chemgui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chemgui language&quot;)"
                         >ady</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chepang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chepang language&quot;)"
                         >cdm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cherokee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cherokee language&quot;)"
                         >chr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cheso language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cheso language&quot;)"
                         >arg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chewa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chewa language&quot;)"
                         >nya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cheyenne language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cheyenne language&quot;)"
                         >chy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiapanec language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiapanec language&quot;)"
                         >cip</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chibcha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chibcha language&quot;)"
                         >chb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chickasaw language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chickasaw language&quot;)"
                         >cic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiga language&quot;)"
                         >cgg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chilean Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chilean Sign Language&quot;)"
                         >csg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chilliwack language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chilliwack language&quot;)"
                         >hur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chimane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chimane language&quot;)"
                         >cas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chimariko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chimariko language&quot;)"
                         >cid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chinali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chinali language&quot;)"
                         >cih</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chinbon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chinbon language&quot;)"
                         >cnb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chinese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chinese language&quot;)"
                         >zho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chinese Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chinese Sign Language&quot;)"
                         >csl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chinook language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chinook language&quot;)"
                         >chh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chipaya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chipaya language&quot;)"
                         >cap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chipewyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chipewyan language&quot;)"
                         >chp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiquito language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiquito language&quot;)"
                         >cax</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiricahua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiricahua language&quot;)"
                         >apm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiriguano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiriguano language&quot;)"
                         >gui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chiripá language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chiripá language&quot;)"
                         >nhd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chitapavani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chitapavani language&quot;)"
                         >gom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chitimacha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chitimacha language&quot;)"
                         >ctm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chocho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chocho language&quot;)"
                         >coz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Choctaw language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Choctaw language&quot;)"
                         >cho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chokwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chokwe language&quot;)"
                         >cjk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cholon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cholon language&quot;)"
                         >cht</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chontaquiro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chontaquiro language&quot;)"
                         >cuj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chopi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chopi language&quot;)"
                         >cce</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Choroti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Choroti language&quot;)"
                         >crt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chorti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chorti language&quot;)"
                         >caa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chrau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chrau language&quot;)"
                         >crw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chuave language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chuave language&quot;)"
                         >cjv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chugach language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chugach language&quot;)"
                         >ems</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chukchi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chukchi language&quot;)"
                         >ckt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chulupí language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chulupí language&quot;)"
                         >cag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chumash language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chumash language&quot;)"
                         >chs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Church Slavic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Church Slavic language&quot;)"
                         >chu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chutiya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chutiya language&quot;)"
                         >der</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Chuvash language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Chuvash language&quot;)"
                         >chv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cia-cia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cia-cia language&quot;)"
                         >cia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cifundi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cifundi language&quot;)"
                         >swh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cimbrian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cimbrian language&quot;)"
                         >cim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cirebon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cirebon language&quot;)"
                         >sun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Clallam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Clallam language&quot;)"
                         >clm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Coahuilteco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Coahuilteco language&quot;)"
                         >xcw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cocama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cocama language&quot;)"
                         >cod</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cocopa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cocopa language&quot;)"
                         >coc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cofán language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cofán language&quot;)"
                         >con</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Colorado language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Colorado language&quot;)"
                         >cof</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Colville language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Colville language&quot;)"
                         >oka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Comanche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Comanche language&quot;)"
                         >com</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Comorian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Comorian language&quot;)"
                         >swb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Coos language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Coos language&quot;)"
                         >csz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Coptic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Coptic language&quot;)"
                         >cop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Coquille language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Coquille language&quot;)"
                         >coq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cora language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cora language&quot;)"
                         >crn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Coreguaje language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Coreguaje language&quot;)"
                         >coe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cornish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cornish language&quot;)"
                         >cor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Costa Rican Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Costa Rican Sign Language&quot;)"
                         >csr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cotabato Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cotabato Manobo language&quot;)"
                         >mta</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cree language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cree language&quot;)"
                         >cre</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Creek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Creek language&quot;)"
                         >mus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Crimean Tatar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Crimean Tatar language&quot;)"
                         >crh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Crioulo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Crioulo language&quot;)"
                         >pov</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Croatian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Croatian language&quot;)"
                         >hrv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Crow language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Crow language&quot;)"
                         >cro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cua language&quot;)">cua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cuaiquer language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cua language&quot;)">cua</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cuaiquer language&quot;)"
                         >kwi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cubeo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cubeo language&quot;)"
                         >cub</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cubulco Achi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cubulco Achi language&quot;)"
                         >acc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cueva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cueva language&quot;)"
                         >cuk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cuiba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cuiba language&quot;)"
                         >cui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Culina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Culina language&quot;)"
                         >cul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cuna language&quot;)"
                         >cuk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cupeño language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cupeño language&quot;)"
                         >cup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Curripaco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Curripaco language&quot;)"
                         >kpc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Cuyunon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Cuyunon language&quot;)"
                         >cyo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Czech language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Czech language&quot;)"
                         >ces</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Daa language&quot;)">kzf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Daba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Daa language&quot;)">kzf</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Daba language&quot;)"
                         >dbq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dabida language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dabida language&quot;)"
                         >dav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dacian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dacian language&quot;)"
                         >xdc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dafla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dafla language&quot;)"
                         >dap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Daga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Daga language&quot;)"
                         >dgz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dagbani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dagbani language&quot;)"
                         >dag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dagur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dagur language&quot;)"
                         >dta</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dahalo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dahalo language&quot;)"
                         >dal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dairi Pakpak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dairi Pakpak language&quot;)"
                         >btd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dakhini language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dakhini language&quot;)"
                         >dcc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dakota language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dakota language&quot;)"
                         >dak</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Dalmatian language (Romance)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Dalmatian language (Romance)&quot;)"
                         >dlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Damana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Damana language&quot;)"
                         >mbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dampelasa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dampelasa language&quot;)"
                         >dms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dan language&quot;)">daf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dangaleat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dan language&quot;)">daf</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dangaleat language&quot;)"
                         >daa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Danish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Danish language&quot;)"
                         >dan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dänjong-kä language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dänjong-kä language&quot;)"
                         >sip</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Danuwar Rai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Danuwar Rai language&quot;)"
                         >dhw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Darai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Darai language&quot;)"
                         >dry</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dargari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dargari language&quot;)"
                         >dhr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dargwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dargwa language&quot;)"
                         >dar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dari language&quot;)"
                         >prs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Daribi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Daribi language&quot;)"
                         >mps</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dawawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dawawa language&quot;)"
                         >dww</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Day language (Chad)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Day language (Chad)&quot;)"
                         >dai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dayak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dayak language&quot;)"
                         >knx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Daza language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Daza language&quot;)"
                         >dzd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dedua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dedua language&quot;)"
                         >ded</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Degema language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Degema language&quot;)"
                         >deg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dehawali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dehawali language&quot;)"
                         >vas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dehu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dehu language&quot;)"
                         >dhv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Delaware language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Delaware language&quot;)"
                         >del</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Deli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Deli language&quot;)"
                         >zlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dena&apos;ina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dena&apos;ina language&quot;)"
                         >tfn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dendi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dendi language&quot;)"
                         >ddn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dengese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dengese language&quot;)"
                         >dez</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Desana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Desana language&quot;)"
                         >des</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Deswali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Deswali language&quot;)"
                         >bgc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dhalandji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dhalandji language&quot;)"
                         >dhl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dharawal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dharawal language&quot;)"
                         >tbh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dhimal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dhimal language&quot;)"
                         >dhi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dhodia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dhodia language&quot;)"
                         >dho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dhurga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dhurga language&quot;)"
                         >dhu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dibabawon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dibabawon language&quot;)"
                         >mbd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dido language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dido language&quot;)"
                         >ddo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Diegueño language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Diegueño language&quot;)"
                         >coj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Digaro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Digaro language&quot;)"
                         >mhu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Digo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Digo language&quot;)"
                         >dig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dimasa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dimasa language&quot;)"
                         >dis</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ding language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ding language&quot;)"
                         >diz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dingal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dingal language&quot;)"
                         >mwr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dinka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dinka language&quot;)"
                         >din</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Diola Kasa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Diola Kasa language&quot;)"
                         >csk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Diola language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Diola language&quot;)"
                         >dyu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Diriku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Diriku language&quot;)"
                         >diu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Divehi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Divehi language&quot;)"
                         >div</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Diyari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Diyari language&quot;)"
                         >dif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dizi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dizi language&quot;)"
                         >mdx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djapu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djapu language&quot;)"
                         >duj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djaru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djaru language&quot;)"
                         >ddj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djimini language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djimini language&quot;)"
                         >dyi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djinang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djinang language&quot;)"
                         >dji</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djingili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djingili language&quot;)"
                         >jig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djirbal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djirbal language&quot;)"
                         >dbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Djuka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Djuka language&quot;)"
                         >djk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dobel language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dobel language&quot;)"
                         >kvo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dobu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dobu language&quot;)"
                         >dob</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dogri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dogri language&quot;)"
                         >dgo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dogrib language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dogrib language&quot;)"
                         >dgr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Doko language (Congo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Doko language (Congo)&quot;)"
                         >ngc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dolakha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dolakha language&quot;)"
                         >new</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dolgan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dolgan language&quot;)"
                         >dlg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Domaaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Domaaki language&quot;)"
                         >dmk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dompago language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dompago language&quot;)"
                         >dop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dongola-Kenuz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dongola-Kenuz language&quot;)"
                         >kzh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dongxiang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dongxiang language&quot;)"
                         >sce</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Doric Greek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Doric Greek language&quot;)"
                         >grc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Doyayo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Doyayo language&quot;)"
                         >dow</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Duala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Duala language&quot;)"
                         >dua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dukawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dukawa language&quot;)"
                         >dud</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Dumagat language (Casiguran)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Dumagat language (Casiguran)&quot;)"
                         >dgc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dumagat language (Umirey)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dumagat language (Umirey)&quot;)"
                         >due</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dumbea language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dumbea language&quot;)"
                         >duf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dumi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dumi language&quot;)"
                         >dus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Duna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Duna language&quot;)"
                         >duc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dungan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dungan language&quot;)"
                         >dng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dupaninan Agta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dupaninan Agta language&quot;)"
                         >duo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Duruma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Duruma language&quot;)"
                         >dug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dusun Deyah language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dusun Deyah language&quot;)"
                         >dun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dutch language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dutch language&quot;)"
                         >nld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dutch Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dutch Sign Language&quot;)"
                         >dse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Duungidjawu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Duungidjawu language&quot;)"
                         >wkw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dyan language&quot;)"
                         >dya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dyula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dyula language&quot;)"
                         >dyu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Dzongkha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Dzongkha language&quot;)"
                         >dzo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;East Armenian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;East Armenian language&quot;)"
                         >hye</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;East Makian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;East Makian language&quot;)"
                         >mky</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;East Uvean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;East Uvean language&quot;)"
                         >wls</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eastern Arrernte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eastern Arrernte language&quot;)"
                         >aer</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eastern Bontoc language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eastern Bontoc language&quot;)"
                         >bkb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eastern Mnong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eastern Mnong language&quot;)"
                         >mng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eastern Pomo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eastern Pomo language&quot;)"
                         >peb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eastern Yugur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eastern Yugur language&quot;)"
                         >yuy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ebira language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ebira language&quot;)"
                         >igb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eblaite language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eblaite language&quot;)"
                         >xeb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Edolo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Edolo language&quot;)"
                         >etr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Edopi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Edopi language&quot;)"
                         >dbf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Efik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Efik language&quot;)"
                         >efi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eggon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eggon language&quot;)"
                         >ego</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Egyptian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Egyptian language&quot;)"
                         >egy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eipo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eipo language&quot;)"
                         >eip</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ejagham language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ejagham language&quot;)"
                         >etu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ekajuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ekajuk language&quot;)"
                         >eka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ekonda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ekonda language&quot;)"
                         >lol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ekpeye language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ekpeye language&quot;)"
                         >ekp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Elamite language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Elamite language&quot;)"
                         >elx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Embaloh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Embaloh language&quot;)"
                         >emb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Embu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Embu language&quot;)"
                         >ebu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Emerillon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Emerillon language&quot;)"
                         >eme</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Enga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Enga language&quot;)"
                         >enq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Engenni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Engenni language&quot;)"
                         >enn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Enggano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Enggano language&quot;)"
                         >eno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;English language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;English language&quot;)"
                         >eng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Enim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Enim language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Enya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Enya language&quot;)"
                         >gey</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Epena Saija language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Epena Saija language&quot;)"
                         >sja</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eromanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eromanga language&quot;)"
                         >erg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ese Ejja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ese Ejja language&quot;)"
                         >ese</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Esselen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Esselen language&quot;)"
                         >esq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Estonian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Estonian language&quot;)"
                         >est</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Esuulaalu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Esuulaalu language&quot;)"
                         >csk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eteocretan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eteocretan language&quot;)"
                         >ecr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ethiopic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ethiopic language&quot;)"
                         >gez</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Etruscan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Etruscan language&quot;)"
                         >ett</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Etsako language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Etsako language&quot;)"
                         >ets</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eudeve language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eudeve language&quot;)"
                         >opt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Even language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Even language&quot;)"
                         >eve</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Evenki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Evenki language&quot;)"
                         >evn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ewe language&quot;)">ewe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ewondo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ewe language&quot;)">ewe</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ewondo language&quot;)"
                         >ewo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Eyak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Eyak language&quot;)"
                         >eya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ezaa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ezaa language&quot;)"
                         >izi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Faiwol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Faiwol language&quot;)"
                         >fai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Falam Chin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Falam Chin language&quot;)"
                         >cfm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fali language&quot;)"
                         >fli</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Faliscan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Faliscan language&quot;)"
                         >xfa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Falor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Falor language&quot;)"
                         >fap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fang language&quot;)"
                         >fan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fanti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fanti language&quot;)"
                         >fat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Faroese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Faroese language&quot;)"
                         >fao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fasu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fasu language&quot;)"
                         >faa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fataluku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fataluku language&quot;)"
                         >ddg</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Fe&apos;fe&apos; language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Fe&apos;fe&apos; language&quot;)"
                         >fmp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fiji Hindi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fiji Hindi language&quot;)"
                         >hif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fijian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fijian language&quot;)"
                         >fij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Filipino language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Filipino language&quot;)"
                         >fil</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Finnish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Finnish language&quot;)"
                         >fin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Florida language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Florida language&quot;)"
                         >nlg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Foi language&quot;)">foi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Folopa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Foi language&quot;)">foi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Folopa language&quot;)"
                         >ppo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fon language&quot;)">fon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fordata language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fon language&quot;)">fon</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fordata language&quot;)"
                         >frd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fore language&quot;)"
                         >for</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Forest Nenets language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Forest Nenets language&quot;)"
                         >yrk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fox language&quot;)">sac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;French language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fox language&quot;)">sac</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;French language&quot;)"
                         >fra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Friulian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Friulian language&quot;)"
                         >fur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fuliru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fuliru language&quot;)"
                         >flr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fulnio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fulnio language&quot;)"
                         >fun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fur language&quot;)">fvr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Furu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fur language&quot;)">fvr</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Furu language&quot;)"
                         >fuu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Futuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Futuna language&quot;)"
                         >fud</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Futuna-Aniwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Futuna-Aniwa language&quot;)"
                         >fut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fuyuge language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fuyuge language&quot;)"
                         >fuy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Fyam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Fyam language&quot;)"
                         >pym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;G//ana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;G//ana language&quot;)"
                         >gnk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;G/wi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;G/wi language&quot;)"
                         >gwj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gã language&quot;)">gaa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gabri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gã language&quot;)">gaa</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gabri language&quot;)"
                         >gab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gadaba language (Dravidian)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gadaba language (Dravidian)&quot;)"
                         >gau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gadaba language (Munda)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gadaba language (Munda)&quot;)"
                         >gbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gaddang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gaddang language&quot;)"
                         >gad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gade language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gade language&quot;)"
                         >ged</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gadi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gadi language&quot;)"
                         >gbk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gadsup language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gadsup language&quot;)"
                         >gaj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gafat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gafat language&quot;)"
                         >gft</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gagadu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gagadu language&quot;)"
                         >gbu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gagauz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gagauz language&quot;)"
                         >gag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gagu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gagu language&quot;)"
                         >ggu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gahuku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gahuku language&quot;)"
                         >gah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Galela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Galela language&quot;)"
                         >gbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Galician language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Galician language&quot;)"
                         >glg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gallong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gallong language&quot;)"
                         >adl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Galoli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Galoli language&quot;)"
                         >gal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gambai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gambai language&quot;)"
                         >sba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gamit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gamit language&quot;)"
                         >gbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gamo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gamo language&quot;)"
                         >gmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gananwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gananwa language&quot;)"
                         >nso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ganda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ganda language&quot;)"
                         >lug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gangte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gangte language&quot;)"
                         >gnb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ganguela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ganguela language&quot;)"
                         >nba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gapapaiwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gapapaiwa language&quot;)"
                         >pwg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Garawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Garawa language&quot;)"
                         >gbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Garhwali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Garhwali language&quot;)"
                         >gbm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Garo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Garo language&quot;)"
                         >grt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gascon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gascon language&quot;)"
                         >oci</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gata&apos; language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gata&apos; language&quot;)"
                         >gaq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gawigl language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gawigl language&quot;)"
                         >ubu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gayardilt language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gayardilt language&quot;)"
                         >gyd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gayo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gayo language&quot;)"
                         >gay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gbagyi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gbagyi language&quot;)"
                         >gbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gbandi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gbandi language&quot;)"
                         >bza</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gbari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gbari language&quot;)"
                         >gby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gbaya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gbaya language&quot;)"
                         >gba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gedaged language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gedaged language&quot;)"
                         >gdd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gedeo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gedeo language&quot;)"
                         >drs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gen-Gbe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gen-Gbe language&quot;)"
                         >gej</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Georgian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Georgian language&quot;)"
                         >kat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;German language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;German language&quot;)"
                         >deu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gidabal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gidabal language&quot;)"
                         >bdy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gilaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gilaki language&quot;)"
                         >glk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gilbertese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gilbertese language&quot;)"
                         >gil</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gilyak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gilyak language&quot;)"
                         >niv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gimi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gimi language&quot;)"
                         >gim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ginukh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ginukh language&quot;)"
                         >gin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Giryama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Giryama language&quot;)"
                         >nyf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gisu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gisu language&quot;)"
                         >myx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Glavda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Glavda language&quot;)"
                         >glw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Glosa language (Artificial)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Glosa language (Artificial)&quot;)"
                         >gls</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Goajiro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Goajiro language&quot;)"
                         >guc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Godoberi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Godoberi language&quot;)"
                         >gdo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Godye language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Godye language&quot;)"
                         >god</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gogo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gogo language&quot;)"
                         >gog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gogodala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gogodala language&quot;)"
                         >ggw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gokana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gokana language&quot;)"
                         >gkn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gola language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gola language&quot;)"
                         >gol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Golin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Golin language&quot;)"
                         >gvf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gólo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gólo language&quot;)"
                         >bbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gondi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gondi language&quot;)"
                         >gon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gonja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gonja language&quot;)"
                         >gjn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gope language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gope language&quot;)"
                         >kiw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gorani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gorani language&quot;)"
                         >hac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gorontalo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gorontalo language&quot;)"
                         >gor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gothic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gothic language&quot;)"
                         >got</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Grebo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Grebo language&quot;)"
                         >grb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Greek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Greek language&quot;)"
                         >grc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Greek Tatar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Greek Tatar language&quot;)"
                         >uum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guahibo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guahibo language&quot;)"
                         >guh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guanano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guanano language&quot;)"
                         >gvc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guanche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guanche language&quot;)"
                         >gnc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guarani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guarani language&quot;)"
                         >grn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guarayo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guarayo language&quot;)"
                         >gyr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guarijío language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guarijío language&quot;)"
                         >var</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guatuso language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guatuso language&quot;)"
                         >gut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guayabero language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guayabero language&quot;)"
                         >guo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guayaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guayaki language&quot;)"
                         >guq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guaymi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guaymi language&quot;)"
                         >gym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gude language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gude language&quot;)"
                         >gde</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gugada language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gugada language&quot;)"
                         >ktd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guguyimidjir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guguyimidjir language&quot;)"
                         >kky</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guhu-Samane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guhu-Samane language&quot;)"
                         >ghs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gujarati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gujarati language&quot;)"
                         >guj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gujuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gujuri language&quot;)"
                         >gju</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gumasi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gumasi language&quot;)"
                         >gvs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gumatj language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gumatj language&quot;)"
                         >gnn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gungabula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gungabula language&quot;)"
                         >gyf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gun-Gbe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gun-Gbe language&quot;)"
                         >guw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gunian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gunian language&quot;)"
                         >gni</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gunu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gunu language&quot;)"
                         >yas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gunwinggu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gunwinggu language&quot;)"
                         >gup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gupapuyngu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gupapuyngu language&quot;)"
                         >guf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gureng Gureng language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gureng Gureng language&quot;)"
                         >gnr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gurian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gurian language&quot;)"
                         >kat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gurma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gurma language&quot;)"
                         >gux</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gusii language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gusii language&quot;)"
                         >guz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Guyuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Guyuk language&quot;)"
                         >lnu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gwa language (Ghana)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gwa language (Ghana)&quot;)"
                         >gwx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gwandara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gwandara language&quot;)"
                         >gwn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gwedena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gwedena language&quot;)"
                         >gdn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gwich&apos;in language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gwich&apos;in language&quot;)"
                         >gwi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Gyarung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Gyarung language&quot;)"
                         >jya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ha language&quot;)">haq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Haida language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ha language&quot;)">haq</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Haida language&quot;)"
                         >hai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Haisla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Haisla language&quot;)"
                         >has</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Haka Chin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Haka Chin language&quot;)"
                         >cnh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hakétia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hakétia language&quot;)"
                         >lad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Halbi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Halbi language&quot;)"
                         >hlb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Halia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Halia language&quot;)"
                         >hla</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Halopa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Halopa language&quot;)"
                         >gaw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ham language&quot;)">dad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hanga language (Ghana)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ham language&quot;)">dad</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hanga language (Ghana)&quot;)"
                         >hag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hanga language (Kenya)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hanga language (Kenya)&quot;)"
                         >luy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hani language&quot;)"
                         >hni</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hanunóo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hanunóo language&quot;)"
                         >hnn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Harari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Harari language&quot;)"
                         >har</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Harauti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Harauti language&quot;)"
                         >hoj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Haroi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Haroi language&quot;)"
                         >hro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Harsusi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Harsusi language&quot;)"
                         >hss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hatam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hatam language&quot;)"
                         >had</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hattic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hattic language&quot;)"
                         >xht</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hausa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hausa language&quot;)"
                         >hau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Havasupai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Havasupai language&quot;)"
                         >yuf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hawaiian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hawaiian language&quot;)"
                         >haw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Haya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Haya language&quot;)"
                         >hay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hayu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hayu language&quot;)"
                         >vay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hazara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hazara language&quot;)"
                         >haz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hazili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hazili language&quot;)"
                         >kup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hedi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hedi language&quot;)"
                         >xed</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hehe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hehe language&quot;)"
                         >heh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Heiltsuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Heiltsuk language&quot;)"
                         >hei</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Herero language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Herero language&quot;)"
                         >her</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hidatsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hidatsa language&quot;)"
                         >hid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Higaonon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Higaonon language&quot;)"
                         >mba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hiligaynon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hiligaynon language&quot;)"
                         >hil</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Himachali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Himachali language&quot;)"
                         >him</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Himba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Himba language&quot;)"
                         >dhm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hindi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hindi language&quot;)"
                         >hin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hiri Motu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hiri Motu language&quot;)"
                         >hmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hitchiti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hitchiti language&quot;)"
                         >mik</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hittite language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hittite language&quot;)"
                         >hit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hixkaryana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hixkaryana language&quot;)"
                         >hix</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hmar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hmar language&quot;)"
                         >hmr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hmong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hmong language&quot;)"
                         >hmn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hmong Njua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hmong Njua language&quot;)"
                         >hnj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ho language&quot;)">hoc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Holoholo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ho language&quot;)">hoc</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Holoholo language&quot;)"
                         >hoo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hopi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hopi language&quot;)"
                         >hop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hre language&quot;)">hre</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hre language&quot;)">hre</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Hua language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Hua language (Papua New Guinea)&quot;)"
                         >ygr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hua Hmong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hua Hmong language&quot;)"
                         >hmd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hua Lisu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hua Lisu language&quot;)"
                         >lis</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hualapai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hualapai language&quot;)"
                         >yuf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Huambisa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Huambisa language&quot;)"
                         >hub</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Huanca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Huanca language&quot;)"
                         >qvw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Huao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Huao language&quot;)"
                         >auc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Huichol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Huichol language&quot;)"
                         >hch</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hula language&quot;)"
                         >hul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Huli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Huli language&quot;)"
                         >hui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hunde language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hunde language&quot;)"
                         >hke</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hungana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hungana language&quot;)"
                         >hum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hungarian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hungarian language&quot;)"
                         >hun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hunzib language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hunzib language&quot;)"
                         >huz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hupa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hupa language&quot;)"
                         >hup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Hurrian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Hurrian language&quot;)"
                         >xhu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iai language&quot;)">iai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iamalele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iai language&quot;)">iai</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iamalele language&quot;)"
                         >yml</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iatmul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iatmul language&quot;)"
                         >ian</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ibaloi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ibaloi language&quot;)"
                         >ibl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iban language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iban language&quot;)"
                         >iba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ibanag language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ibanag language&quot;)"
                         >ibg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ibani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ibani language&quot;)"
                         >iby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iberian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iberian language&quot;)"
                         >xib</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ibibio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ibibio language&quot;)"
                         >ibb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ica language&quot;)">arh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Icelandic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ica language&quot;)">arh</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Icelandic language&quot;)"
                         >isl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Idaca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Idaca language&quot;)"
                         >idd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Idaté language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Idaté language&quot;)"
                         >idt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Idoma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Idoma language&quot;)"
                         >idu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Idu language&quot;)">clk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iduna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Idu language&quot;)">clk</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iduna language&quot;)"
                         >viv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Igala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Igala language&quot;)"
                         >igl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Igbo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Igbo language&quot;)"
                         >ibo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Igede language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Igede language&quot;)"
                         >ige</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iha language&quot;)">ihp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ijebu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iha language&quot;)">ihp</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ijebu language&quot;)"
                         >yor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ijo language&quot;)">ijc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ik language&quot;)">ikx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ikwere language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ijo language&quot;)">ijc</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ik language&quot;)">ikx</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ikwere language&quot;)"
                         >ikw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ikwo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ikwo language&quot;)"
                         >izi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ila language&quot;)">ilb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ilianen Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ila language&quot;)">ilb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ilianen Manobo language&quot;)"
                         >mbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Illinois language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Illinois language&quot;)"
                         >mia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iloko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iloko language&quot;)"
                         >ilo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ilongot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ilongot language&quot;)"
                         >ilk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Imbo Ungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Imbo Ungu language&quot;)"
                         >imo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Imeretian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Imeretian language&quot;)"
                         >kat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inapari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inapari language&quot;)"
                         >inp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inari Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inari Sami language&quot;)"
                         >smn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Indonesian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Indonesian language&quot;)"
                         >ind</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Indonesian Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Indonesian Sign Language&quot;)"
                         >inl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingalik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingalik language&quot;)"
                         >ing</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingano language&quot;)"
                         >inj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingassana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingassana language&quot;)"
                         >tbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingilo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingilo language&quot;)"
                         >kat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingrian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingrian language&quot;)"
                         >izh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ingush language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ingush language&quot;)"
                         >inh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inoke language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inoke language&quot;)"
                         >ino</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inor language&quot;)"
                         >ior</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Interglossa language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Interglossa language (Artificial)&quot;)"
                         >igs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inuktitut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inuktitut language&quot;)"
                         >iku</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inupiaq language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inupiaq language&quot;)"
                         >ipk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Inuvialuktun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Inuvialuktun language&quot;)"
                         >ikt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ionic Greek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ionic Greek language&quot;)"
                         >grc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iowa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iowa language&quot;)"
                         >iow</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ipili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ipili language&quot;)"
                         >ipi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ipurina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ipurina language&quot;)"
                         >apu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iquito language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iquito language&quot;)"
                         >iqu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Irahutu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Irahutu language&quot;)"
                         >irh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iranxe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iranxe language&quot;)"
                         >irn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iraqw language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iraqw language&quot;)"
                         >irk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Irish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Irish language&quot;)"
                         >gle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Irula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Irula language&quot;)"
                         >iru</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Irumu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Irumu language&quot;)"
                         >iou</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ishkashmi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ishkashmi language&quot;)"
                         >sgl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Isinay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Isinay language&quot;)"
                         >inn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Island Carib language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Island Carib language&quot;)"
                         >crb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Isleta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Isleta language&quot;)"
                         >tix</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Isneg language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Isneg language&quot;)"
                         >isd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Istro-Romanian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Istro-Romanian language&quot;)"
                         >ruo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Italian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Italian language&quot;)"
                         >ita</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Italian Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Italian Sign Language&quot;)"
                         >ise</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Itawis language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Itawis language&quot;)"
                         >itv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Itbayat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Itbayat language&quot;)"
                         >ivb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Itonama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Itonama language&quot;)"
                         >ito</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Itsekiri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Itsekiri language&quot;)"
                         >its</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Itzá language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Itzá language&quot;)"
                         >itz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iwaidji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iwaidji language&quot;)"
                         >ibd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Iwam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Iwam language&quot;)"
                         >iwm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ixcateco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ixcateco language&quot;)"
                         >ixc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Izi language&quot;)">izi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jabo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Izi language&quot;)">izi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jabo language&quot;)"
                         >grj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jah Hut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jah Hut language&quot;)"
                         >jah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jaipuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jaipuri language&quot;)"
                         >dhd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jama Mapun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jama Mapun language&quot;)"
                         >sjm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jamee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jamee language&quot;)"
                         >min</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jaminaua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jaminaua language&quot;)"
                         >yaa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Japanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Japanese language&quot;)"
                         >jpn</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Japanese--Heian period, 794-1185 language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Japanese--Heian period, 794-1185 language&quot;)"
                         >ojp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jarai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jarai language&quot;)"
                         >jra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jaunsari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jaunsari language&quot;)"
                         >jns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Javanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Javanese language&quot;)"
                         >jav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jebel Nefusa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jebel Nefusa language&quot;)"
                         >jbn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jeh language&quot;)">jeh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jeli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jeh language&quot;)">jeh</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jeli language&quot;)"
                         >jek</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jemez language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jemez language&quot;)"
                         >tow</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jenukuruba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jenukuruba language&quot;)"
                         >kan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jicaque language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jicaque language&quot;)"
                         >jic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jicarilla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jicarilla language&quot;)"
                         >apj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jindjibandji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jindjibandji language&quot;)"
                         >yij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jirel language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jirel language&quot;)"
                         >jul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jita language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jita language&quot;)"
                         >jit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jongor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jongor language&quot;)"
                         >mmy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Juang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Juang language&quot;)"
                         >jun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Judeo-Arabic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Judeo-Arabic language&quot;)"
                         >jrb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Judeo-Italian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Judeo-Italian language&quot;)"
                         >itk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Judeo-Persian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Judeo-Persian language&quot;)"
                         >jpr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Judeo-Tajik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Judeo-Tajik language&quot;)"
                         >bhh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Judeo-Tat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Judeo-Tat language&quot;)"
                         >jdt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jukun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jukun language&quot;)"
                         >jbu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jupda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jupda language&quot;)"
                         >jup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Jurchen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Jurchen language&quot;)"
                         >juc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kabardian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kabardian language&quot;)"
                         >kbd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kabre language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kabre language&quot;)"
                         >kbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kabyle language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kabyle language&quot;)"
                         >kab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kachchhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kachchhi language&quot;)"
                         >kfr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kachin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kachin language&quot;)"
                         >kac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kadu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kadu language&quot;)"
                         >kdv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaffa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaffa language&quot;)"
                         >kbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kagaba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kagaba language&quot;)"
                         >kog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kagate language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kagate language&quot;)"
                         >syw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kagayanen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kagayanen language&quot;)"
                         >cgc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kagoma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kagoma language&quot;)"
                         >kdm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kagoro language (Nigeria)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kagoro language (Nigeria)&quot;)"
                         >kcg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaguru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaguru language&quot;)"
                         >kki</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kahayan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kahayan language&quot;)"
                         >nij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaike language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaike language&quot;)"
                         >kzq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaili language&quot;)"
                         >pbz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaingang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaingang language&quot;)"
                         >kgp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kairi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kairi language&quot;)"
                         >klq</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Kaiwa language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Kaiwa language (Papua New Guinea)&quot;)"
                         >kbm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaje language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaje language&quot;)"
                         >kaj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kajkavian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kajkavian language&quot;)"
                         >hrv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaki Ae language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaki Ae language&quot;)"
                         >tbd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kako language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kako language&quot;)"
                         >kkj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kakwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kakwa language&quot;)"
                         >keo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalabari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalabari language&quot;)"
                         >ijn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalabra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalabra language&quot;)"
                         >kzz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalagan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalagan language&quot;)"
                         >kqe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalam language&quot;)"
                         >kmh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalamian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalamian language&quot;)"
                         >tbk</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Kalanga language (Botswana and Zimbabwe)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Kalanga language (Botswana and Zimbabwe)&quot;)"
                         >kck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalapuya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalapuya language&quot;)"
                         >kyl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalash language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalash language&quot;)"
                         >kls</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalâtdlisut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalâtdlisut language&quot;)"
                         >kal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalenjin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalenjin language&quot;)"
                         >kln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalispel language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalispel language&quot;)"
                         >fla</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalkatungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalkatungu language&quot;)"
                         >ktg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kalmyk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kalmyk language&quot;)"
                         >xal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaluli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaluli language&quot;)"
                         >bco</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamaiurá language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamaiurá language&quot;)"
                         >kay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamano language&quot;)"
                         >kbq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamasau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamasau language&quot;)"
                         >kms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamassin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamassin language&quot;)"
                         >xas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamba language&quot;)"
                         >kam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kambera language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kambera language&quot;)"
                         >xbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamchadal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamchadal language&quot;)"
                         >itl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamilaroi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamilaroi language&quot;)"
                         >kld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamoro language&quot;)"
                         >kgq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamtuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamtuk language&quot;)"
                         >kmt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamula language&quot;)"
                         >xla</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kamwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kamwe language&quot;)"
                         >hig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kana language&quot;)"
                         >ogo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanakuru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanakuru language&quot;)"
                         >kna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanauji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanauji language&quot;)"
                         >bjj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanauri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanauri language&quot;)"
                         >kfk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanembu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanembu language&quot;)"
                         >kbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kangri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kangri language&quot;)"
                         >xnr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanite language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanite language&quot;)"
                         >kmu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanjobal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanjobal language&quot;)"
                         >kjb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kankanay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kankanay language&quot;)"
                         >kne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kannada language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kannada language&quot;)"
                         >kan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kanuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kanuri language&quot;)"
                         >kau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaonde language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaonde language&quot;)"
                         >kqn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kapau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kapau language&quot;)"
                         >hmt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kapauku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kapauku language&quot;)"
                         >ekg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kapingamarangi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kapingamarangi language&quot;)"
                         >kpg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kapone language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kapone language&quot;)"
                         >kdk</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Kara language (Central African Republic and Sudan)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Kara language (Central African Republic and Sudan)&quot;)"
                         >kah</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Kara language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Kara language (Papua New Guinea)&quot;)"
                         >leu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karachay-Balkar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karachay-Balkar language&quot;)"
                         >krc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karaim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karaim language&quot;)"
                         >kdr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kara-Kalpak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kara-Kalpak language&quot;)"
                         >kaa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karamojong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karamojong language&quot;)"
                         >kdj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karang language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karang language (Cameroon)&quot;)"
                         >kzr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karanga language&quot;)"
                         >kth</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karao language&quot;)"
                         >kyj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karata language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karata language&quot;)"
                         >kpt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kare language&quot;)"
                         >kbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karelian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karelian language&quot;)"
                         >krl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karipuna Creole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karipuna Creole language&quot;)"
                         >kmv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kariri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kariri language&quot;)"
                         >kzw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karitiana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karitiana language&quot;)"
                         >ktn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karko language&quot;)"
                         >kko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karksi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karksi language&quot;)"
                         >est</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karo language (Brazil)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karo language (Brazil)&quot;)"
                         >arr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karo-Batak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karo-Batak language&quot;)"
                         >btx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karok language&quot;)"
                         >kyh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Karré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Karré language&quot;)"
                         >kbn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kasaba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kasaba language&quot;)"
                         >iru</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kasem language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kasem language&quot;)"
                         >xsm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kashaya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kashaya language&quot;)"
                         >kju</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kashmiri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kashmiri language&quot;)"
                         >kas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kashubian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kashubian language&quot;)"
                         >csb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kassonke language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kassonke language&quot;)"
                         >kao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Katab language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Katab language&quot;)"
                         >kcg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kâte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kâte language&quot;)"
                         >kmg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Katingan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Katingan language&quot;)"
                         >nij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kato language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kato language&quot;)"
                         >ktw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kattang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kattang language&quot;)"
                         >kda</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Katu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Katu language&quot;)"
                         >kax</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaulong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaulong language&quot;)"
                         >pss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaure language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaure language&quot;)"
                         >bpp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaurna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaurna language&quot;)"
                         >zku</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaw language&quot;)">ahk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kawaiisu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaw language&quot;)">ahk</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kawaiisu language&quot;)"
                         >xaw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kawi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kawi language&quot;)"
                         >kaw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kayabi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kayabi language&quot;)"
                         >kyz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kayan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kayan language&quot;)"
                         >pdu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kayapa Kallahan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kayapa Kallahan language&quot;)"
                         >kak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kaytetye language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kaytetye language&quot;)"
                         >gbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kayu Agung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kayu Agung language&quot;)"
                         >kge</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kazakh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kazakh language&quot;)"
                         >kaz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kedang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kedang language&quot;)"
                         >ksx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kekchi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kekchi language&quot;)"
                         >kek</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kela language&quot;)"
                         >kel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kele language&quot;)"
                         >keb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Keley-i Kallahan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Keley-i Kallahan language&quot;)"
                         >ify</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kemak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kemak language&quot;)"
                         >kem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kemant language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kemant language&quot;)"
                         >ahg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kenga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kenga language&quot;)"
                         >kyq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kera language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kera language&quot;)"
                         >ker</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kerebe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kerebe language&quot;)"
                         >ked</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kerinci language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kerinci language&quot;)"
                         >kvr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ket language&quot;)">ket</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kete language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ket language&quot;)">ket</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kete language&quot;)"
                         >kcv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ketengban language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ketengban language&quot;)"
                         >xte</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kgalagadi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kgalagadi language&quot;)"
                         >xkv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khalaj language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khalaj language&quot;)"
                         >kjf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khaling language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khaling language&quot;)"
                         >klr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khalkha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khalkha language&quot;)"
                         >khk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kham language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kham language&quot;)"
                         >xam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khamti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khamti language&quot;)"
                         >kht</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khandesi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khandesi language&quot;)"
                         >khn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khanty language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khanty language&quot;)"
                         >kca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khari Boli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khari Boli language&quot;)"
                         >hin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kharia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kharia language&quot;)"
                         >khr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khasi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khasi language&quot;)"
                         >kha</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khetrani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khetrani language&quot;)"
                         >xhe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khezha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khezha language&quot;)"
                         >nkh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khinalugh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khinalugh language&quot;)"
                         >kjj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khitan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khitan language&quot;)"
                         >zkt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khmu&apos; language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khmu&apos; language&quot;)"
                         >kjg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khoikhoi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khoikhoi language&quot;)"
                         >xuu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khorezmian Turkic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khorezmian Turkic language&quot;)"
                         >zkh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khotanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khotanese language&quot;)"
                         >kho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khotta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khotta language&quot;)"
                         >mai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khowar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khowar language&quot;)"
                         >khw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khuf language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khuf language&quot;)"
                         >sgh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khumi Awa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khumi Awa language&quot;)"
                         >cka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khumi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khumi language&quot;)"
                         >cnk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khün language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khün language&quot;)"
                         >kkh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khvarshi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khvarshi language&quot;)"
                         >khv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Khyang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Khyang language&quot;)"
                         >csh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kiangan Ifugao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kiangan Ifugao language&quot;)"
                         >ifk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kickapoo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kickapoo language&quot;)"
                         >kic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kifuliru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kifuliru language&quot;)"
                         >flr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kikuyu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kikuyu language&quot;)"
                         >kik</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kildin Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kildin Sami language&quot;)"
                         >sjd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kiliwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kiliwa language&quot;)"
                         >klb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kimbundu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kimbundu language&quot;)"
                         >kmb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kinaray-a language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kinaray-a language&quot;)"
                         >krj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kinga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kinga language&quot;)"
                         >zga</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kingwana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kingwana language&quot;)"
                         >swc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kinyarwanda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kinyarwanda language&quot;)"
                         >kin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kiowa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kiowa language&quot;)"
                         >kio</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kipchak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kipchak language&quot;)"
                         >kue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kipsikis language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kipsikis language&quot;)"
                         >kln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kiriwinian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kiriwinian language&quot;)"
                         >kij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kisa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kisa language&quot;)"
                         >luy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kisar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kisar language&quot;)"
                         >kje</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kissi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kissi language&quot;)"
                         >kiz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kitabwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kitabwa language&quot;)"
                         >tap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kitja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kitja language&quot;)"
                         >gia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kituba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kituba language&quot;)"
                         >ktu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Klamath language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Klamath language&quot;)"
                         >kla</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Klingon language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Klingon language (Artificial)&quot;)"
                         >tlh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kluet language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kluet language&quot;)"
                         >btz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koasati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koasati language&quot;)"
                         >cku</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kobon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kobon language&quot;)"
                         >kpw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kodagu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kodagu language&quot;)"
                         >kfa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koho language&quot;)"
                         >kpm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kohumono language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kohumono language&quot;)"
                         >bcs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koiari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koiari language&quot;)"
                         >kbk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kok Borok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kok Borok language&quot;)"
                         >trp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kolo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kolo language&quot;)"
                         >bhp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kolokuma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kolokuma language&quot;)"
                         >ijc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kom language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kom language (Cameroon)&quot;)"
                         >bkm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kom language (India)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kom language (India)&quot;)"
                         >kmm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komba language&quot;)"
                         >kpf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kombai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kombai language&quot;)"
                         >tyn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kombe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kombe language&quot;)"
                         >nui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komering language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komering language&quot;)"
                         >kge</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komi language&quot;)"
                         >kom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komi-Permyak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komi-Permyak language&quot;)"
                         >koi</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Komi-Yaz&apos;va language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Komi-Yaz&apos;va language&quot;)"
                         >kpv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komo language (Congo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komo language (Congo)&quot;)"
                         >kmw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komodo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komodo language&quot;)"
                         >kvh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Komunku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Komunku language&quot;)"
                         >snp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Konda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Konda language&quot;)"
                         >kfc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kongara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kongara language&quot;)"
                         >nas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kongo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kongo language&quot;)"
                         >kon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koniagmiut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koniagmiut language&quot;)"
                         >ems</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Konkani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Konkani language&quot;)"
                         >kok</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Konkomba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Konkomba language&quot;)"
                         >xon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Konyak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Konyak language&quot;)"
                         >nbe</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Koongo language (Western Kongo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Koongo language (Western Kongo)&quot;)"
                         >kng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koozime language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koozime language&quot;)"
                         >ozm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kopagmiut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kopagmiut language&quot;)"
                         >ikt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korana language&quot;)"
                         >kqz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korape language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korape language&quot;)"
                         >kpr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korean language&quot;)"
                         >kor</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Korean--Middle Korean, 935-1500 language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Korean--Middle Korean, 935-1500 language&quot;)"
                         >okm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korean--To 935 language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korean--To 935 language&quot;)"
                         >oko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korekore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korekore language&quot;)"
                         >sna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koronadal Blaan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koronadal Blaan language&quot;)"
                         >bpr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korowai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korowai language&quot;)"
                         >khe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Korwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Korwa language&quot;)"
                         >kfp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koryak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koryak language&quot;)"
                         >kpy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kosarek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kosarek language&quot;)"
                         >kkl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kosena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kosena language&quot;)"
                         >kze</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koshti language (Marathi)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koshti language (Marathi)&quot;)"
                         >mar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kota language (India)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kota language (India)&quot;)"
                         >kfe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kott language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kott language&quot;)"
                         >zko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koya language&quot;)"
                         >kff</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koyraboro Senni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koyraboro Senni language&quot;)"
                         >ses</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Koyukon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Koyukon language&quot;)"
                         >koy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kpelle language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kpelle language&quot;)"
                         >kpe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kposo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kposo language&quot;)"
                         >kpo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kraho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kraho language&quot;)"
                         >xra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kreish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kreish language&quot;)"
                         >kpl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Krio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Krio language&quot;)"
                         >kri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kriol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kriol language&quot;)"
                         >rop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kristang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kristang language&quot;)"
                         >mcm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Krongo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Krongo language&quot;)"
                         >kgo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kru language&quot;)">klu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuanyama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kru language&quot;)">klu</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuanyama language&quot;)"
                         >kua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kubachi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kubachi language&quot;)"
                         >dar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kubu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kubu language&quot;)"
                         >kvb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kudali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kudali language&quot;)"
                         >gom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kui language (Mon-Khmer)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kui language (Mon-Khmer)&quot;)"
                         >kdt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kui language&quot;)">kxu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kukatja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kui language&quot;)">kxu</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kukatja language&quot;)"
                         >kux</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuki language&quot;)"
                         >tcz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuku language&quot;)"
                         >bfa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuku-Yalanji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuku-Yalanji language&quot;)"
                         >gvn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kukwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kukwa language&quot;)"
                         >kkw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kùláál language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kùláál language&quot;)"
                         >glj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kului language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kului language&quot;)"
                         >kfx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kulung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kulung language&quot;)"
                         >kle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kumak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kumak language&quot;)"
                         >nee</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kumali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kumali language&quot;)"
                         >kra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kumauni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kumauni language&quot;)"
                         >kfy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kumbainggar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kumbainggar language&quot;)"
                         >kgs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kumyk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kumyk language&quot;)"
                         >kum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kunabi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kunabi language&quot;)"
                         >knn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kunama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kunama language&quot;)"
                         >kun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kunimaipa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kunimaipa language&quot;)"
                         >kup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuo language&quot;)">xuo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kupia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuo language&quot;)">xuo</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kupia language&quot;)"
                         >key</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurada language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurada language&quot;)"
                         >kud</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuranko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuranko language&quot;)"
                         >knk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurdish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurdish language&quot;)"
                         >kur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuria language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuria language&quot;)"
                         >kuj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurku language&quot;)"
                         >kfq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurmali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurmali language&quot;)"
                         >kyw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurukh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurukh language&quot;)"
                         >kru</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kurumba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kurumba language&quot;)"
                         >kfi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kusaal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kusaal language&quot;)"
                         >kus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kusaie language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kusaie language&quot;)"
                         >kos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kusunda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kusunda language&quot;)"
                         >kgg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kutenai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kutenai language&quot;)"
                         >kut</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Kuuku Ya&apos;u language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Kuuku Ya&apos;u language&quot;)"
                         >kuy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuvakan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuvakan language&quot;)"
                         >bak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kuvi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kuvi language&quot;)"
                         >kxv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwafi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwafi language&quot;)"
                         >mas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwaio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwaio language&quot;)"
                         >kwd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwakiutl language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwakiutl language&quot;)"
                         >kwk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwami language&quot;)"
                         >ksq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwangali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwangali language&quot;)"
                         >kwn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwara&apos;ae language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwara&apos;ae language&quot;)"
                         >kwf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwatay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwatay language&quot;)"
                         >cwt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kweni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kweni language&quot;)"
                         >goa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwerba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwerba language&quot;)"
                         >kwe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwese language&quot;)"
                         >kws</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kwiri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kwiri language&quot;)"
                         >bri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Kyrgyz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Kyrgyz language&quot;)"
                         >kir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laadi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laadi language&quot;)"
                         >ldi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laal language&quot;)"
                         >gdm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laamang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laamang language&quot;)"
                         >hia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Labo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Labo language&quot;)"
                         >mwi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lacandon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lacandon language&quot;)"
                         >lac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ladakhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ladakhi language&quot;)"
                         >lbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ladin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ladin language&quot;)"
                         >lld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ladino language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ladino language&quot;)"
                         >lad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laguna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laguna language&quot;)"
                         >kjq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laha language (Vietnam)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laha language (Vietnam)&quot;)"
                         >lkh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lahnda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lahnda language&quot;)"
                         >lah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lahu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lahu language&quot;)"
                         >lhu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lahuli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lahuli language&quot;)"
                         >lbf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laizo language (Burma)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laizo language (Burma)&quot;)"
                         >cfm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lak language&quot;)">lbe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lakher language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lak language&quot;)">lbe</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lakher language&quot;)"
                         >mrh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lakona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lakona language&quot;)"
                         >lkn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lakota language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lakota language&quot;)"
                         >lkt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lala language&quot;)"
                         >nrz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lamaholot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lamaholot language&quot;)"
                         >slp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lamalama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lamalama language&quot;)"
                         >lby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lamandau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lamandau language&quot;)"
                         >xdy</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Lamba language (Zambia and Congo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Lamba language (Zambia and Congo)&quot;)"
                         >lam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lambadi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lambadi language&quot;)"
                         >lmn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lambau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lambau language&quot;)"
                         >snp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lamé language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lamé language (Cameroon)&quot;)"
                         >lme</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lamma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lamma language&quot;)"
                         >lev</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lampung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lampung language&quot;)"
                         >ljp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lanao Moro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lanao Moro language&quot;)"
                         >mrw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lango language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lango language&quot;)"
                         >lno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lao language&quot;)">lao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laqua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lao language&quot;)">lao</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laqua language&quot;)"
                         >laq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lardil language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lardil language&quot;)"
                         >lbz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Larike-Wakasihu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Larike-Wakasihu language&quot;)"
                         >alo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Larrakia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Larrakia language&quot;)"
                         >lrg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lashkh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lashkh language&quot;)"
                         >sva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Latin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Latin language&quot;)"
                         >lat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Latvian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Latvian language&quot;)"
                         >lav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lau language&quot;)">llu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lavongai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lau language&quot;)">llu</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lavongai language&quot;)"
                         >lcm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lavukaleve language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lavukaleve language&quot;)"
                         >lvk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lawangan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lawangan language&quot;)"
                         >lbx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Laz language&quot;)">lzz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lebou language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Laz language&quot;)">lzz</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lebou language&quot;)"
                         >wol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lefana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lefana language&quot;)"
                         >lef</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Leko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Leko language&quot;)"
                         >lse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lele language (Chad)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lele language (Chad)&quot;)"
                         >lln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lematang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lematang language&quot;)"
                         >mui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lembak Bilide language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lembak Bilide language&quot;)"
                         >liw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lenakel language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lenakel language&quot;)"
                         >tnl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lenca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lenca language&quot;)"
                         >len</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lendu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lendu language&quot;)"
                         >led</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lengua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lengua language&quot;)"
                         >leg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lenje language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lenje language&quot;)"
                         >leh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lepcha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lepcha language&quot;)"
                         >lep</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lese language&quot;)"
                         >les</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Letri lgona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Letri lgona language&quot;)"
                         >lex</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Leuangiua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Leuangiua language&quot;)"
                         >ojv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lezgian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lezgian language&quot;)"
                         >lez</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lhomi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lhomi language&quot;)"
                         >lhm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lhota language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lhota language&quot;)"
                         >njh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Li language&quot;)">dij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Liangmai Naga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Li language&quot;)">dij</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Liangmai Naga language&quot;)"
                         >njn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ligbi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ligbi language&quot;)"
                         >lig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lilima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lilima language&quot;)"
                         >kck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lillooet language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lillooet language&quot;)"
                         >lil</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Limbu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Limbu language&quot;)"
                         >lif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Limbum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Limbum language&quot;)"
                         >lmp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Limburgish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Limburgish language&quot;)"
                         >lim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Limilngan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Limilngan language&quot;)"
                         >lmc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Linda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Linda language&quot;)"
                         >liy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lindrou language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lindrou language&quot;)"
                         >lid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lintang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lintang language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lisu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lisu language&quot;)"
                         >lis</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lithuanian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lithuanian language&quot;)"
                         >lit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Livonian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Livonian language&quot;)"
                         >liv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lobedu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lobedu language&quot;)"
                         >nso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Logo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Logo language&quot;)"
                         >log</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Logooli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Logooli language&quot;)"
                         >rag</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Lojban language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Lojban language (Artificial)&quot;)"
                         >jbo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Loko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Loko language&quot;)"
                         >lok</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lolak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lolak language&quot;)"
                         >llq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lom language&quot;)">mfb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Loma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lom language&quot;)">mfb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Loma language&quot;)"
                         >lom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lombard language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lombard language&quot;)"
                         >lmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Longgu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Longgu language&quot;)"
                         >lgu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Longuda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Longuda language&quot;)"
                         >lnu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Loniu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Loniu language&quot;)"
                         >los</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lonwolwol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lonwolwol language&quot;)"
                         >crc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lopa language (Nepal)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lopa language (Nepal)&quot;)"
                         >loy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lorhon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lorhon language&quot;)"
                         >lor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Losengo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Losengo language&quot;)"
                         >lse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lote language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lote language&quot;)"
                         >uvl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lotuko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lotuko language&quot;)"
                         >lot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lou language&quot;)">loj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lovari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lou language&quot;)">loj</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lovari language&quot;)"
                         >rmy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lower Sorbian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lower Sorbian language&quot;)"
                         >dsb</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Lower Tanudan Kalinga language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Lower Tanudan Kalinga language&quot;)"
                         >kml</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lozi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lozi language&quot;)"
                         >loz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lü language&quot;)">khb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luba-Katanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lü language&quot;)">khb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luba-Katanga language&quot;)"
                         >lub</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luba-Lulua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luba-Lulua language&quot;)"
                         >lua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lucazi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lucazi language&quot;)"
                         >lch</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ludic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ludic language&quot;)"
                         >lud</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lugbara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lugbara language&quot;)"
                         >lgg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luiseño language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luiseño language&quot;)"
                         >lui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lule language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lule language&quot;)"
                         >vil</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lule Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lule Sami language&quot;)"
                         >smj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lumbu language (Gabon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lumbu language (Gabon)&quot;)"
                         >lup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lummi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lummi language&quot;)"
                         >str</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lunda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lunda language&quot;)"
                         >lun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lungchang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lungchang language&quot;)"
                         >nst</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lungu language&quot;)"
                         >mgr</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Luo language (Kenya and Tanzania)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Luo language (Kenya and Tanzania)&quot;)"
                         >luo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lushai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lushai language&quot;)"
                         >lus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lusi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lusi language&quot;)"
                         >khl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luvale language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luvale language&quot;)"
                         >lue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luwian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luwian language&quot;)"
                         >hit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luxembourgish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luxembourgish language&quot;)"
                         >ltz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luyana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luyana language&quot;)"
                         >lyn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Luyia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Luyia language&quot;)"
                         >luy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lwo language (Sudan)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lwo language (Sudan)&quot;)"
                         >lwo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lycian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lycian language&quot;)"
                         >xlc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lydian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lydian language&quot;)"
                         >xld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Lyele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Lyele language&quot;)"
                         >gnh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ma language&quot;)">grg</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ma language&quot;)">grg</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Maa language (Southeastern Asia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Maa language (Southeastern Asia)&quot;)"
                         >cma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maa language (Vietnam)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maa language (Vietnam)&quot;)"
                         >cma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maanyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maanyan language&quot;)"
                         >mhy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maba language&quot;)"
                         >mde</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maban language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maban language&quot;)"
                         >mfz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mabuiag language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mabuiag language&quot;)"
                         >mwp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maca language&quot;)"
                         >mca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Macaguan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Macaguan language&quot;)"
                         >mbn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Macedonian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Macedonian language&quot;)"
                         >mkd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Machiguenga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Machiguenga language&quot;)"
                         >mcb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Macú language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Macú language&quot;)"
                         >mbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Macuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Macuna language&quot;)"
                         >myy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Macusi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Macusi language&quot;)"
                         >mbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mada language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mada language (Cameroon)&quot;)"
                         >mxu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Madaglashti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Madaglashti language&quot;)"
                         >prs</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Ma&apos;di language (Uganda and Sudan)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Ma&apos;di language (Uganda and Sudan)&quot;)"
                         >mhi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Madiya-Gondi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Madiya-Gondi language&quot;)"
                         >mrr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Madurese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Madurese language&quot;)"
                         >mad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mafa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mafa language&quot;)"
                         >maf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Magahi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Magahi language&quot;)"
                         >mag</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Magi language (Southern Highlands Province, Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Magi language (Southern Highlands Province, Papua New Guinea)&quot;)"
                         >aoe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Magindanao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Magindanao language&quot;)"
                         >mdh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mahas-Fiyadikka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mahas-Fiyadikka language&quot;)"
                         >fia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mahican language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mahican language&quot;)"
                         >mjy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mahri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mahri language&quot;)"
                         >gdq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mai Brat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mai Brat language&quot;)"
                         >ayz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mailu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mailu language&quot;)"
                         >mgu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maisin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maisin language&quot;)"
                         >mbq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maithili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maithili language&quot;)"
                         >mai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maiya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maiya language&quot;)"
                         >mvy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Majingai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Majingai language&quot;)"
                         >mwm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maka language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maka language (Cameroon)&quot;)"
                         >mcp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Makasai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Makasai language&quot;)"
                         >mkz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Makasar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Makasar language&quot;)"
                         >mak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Makonde language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Makonde language&quot;)"
                         >kde</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Maku&apos;a language (Indonesia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Maku&apos;a language (Indonesia)&quot;)"
                         >lva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malagasy language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malagasy language&quot;)"
                         >mlg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malayalam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malayalam language&quot;)"
                         >mal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Male language (Ethiopia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Male language (Ethiopia)&quot;)"
                         >mdy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malfaxal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malfaxal language&quot;)"
                         >mlx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malgwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malgwa language&quot;)"
                         >mfi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maltese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maltese language&quot;)"
                         >mlt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malto language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malto language&quot;)"
                         >mjt</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Malu language (Solomon Islands)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Malu language (Solomon Islands)&quot;)"
                         >mlu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Malvi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Malvi language&quot;)"
                         >mup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mamanwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mamanwa language&quot;)"
                         >mmn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mamara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mamara language&quot;)"
                         >myk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mambai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mambai language&quot;)"
                         >mgm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mambwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mambwe language&quot;)"
                         >mgr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mambwe-Lungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mambwe-Lungu language&quot;)"
                         >mgr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mampruli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mampruli language&quot;)"
                         >maw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mamvu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mamvu language&quot;)"
                         >mdi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Managalasi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Managalasi language&quot;)"
                         >mcq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manam language&quot;)"
                         >mva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manambu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manambu language&quot;)"
                         >mle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manchu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manchu language&quot;)"
                         >mnc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandaean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandaean language&quot;)"
                         >mid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandak language&quot;)"
                         >mmx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandan language&quot;)"
                         >mhq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandar language&quot;)"
                         >mdr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandeali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandeali language&quot;)"
                         >mjl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandegusu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandegusu language&quot;)"
                         >sbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandingo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandingo language&quot;)"
                         >man</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandjak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandjak language&quot;)"
                         >mfv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mandjildjara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mandjildjara language&quot;)"
                         >mpj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangaian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangaian language&quot;)"
                         >rar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangala language&quot;)"
                         >mem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangap language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangap language&quot;)"
                         >mna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangarayi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangarayi language&quot;)"
                         >mpc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangareva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangareva language&quot;)"
                         >mrv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangbetu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangbetu language&quot;)"
                         >mdj</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Manggarai language (Indonesia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Manggarai language (Indonesia)&quot;)"
                         >mqy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangseng language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangseng language&quot;)"
                         >mbh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangue language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangue language&quot;)"
                         >cjr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mangyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mangyan language&quot;)"
                         >iry</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manipuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manipuri language&quot;)"
                         >mni</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mankanya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mankanya language&quot;)"
                         >knf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mankon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mankon language&quot;)"
                         >nge</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mano language&quot;)"
                         >mev</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mansaka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mansaka language&quot;)"
                         >msk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mansi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mansi language&quot;)"
                         >mns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manui language&quot;)"
                         >wow</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manuvu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manuvu language&quot;)"
                         >obo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manx language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manx language&quot;)"
                         >glv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Manyika language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Manyika language&quot;)"
                         >mxc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mao Naga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mao Naga language&quot;)"
                         >nbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maonan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maonan language&quot;)"
                         >mmd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maori language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maori language&quot;)"
                         >mri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mapuche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mapuche language&quot;)"
                         >arn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mara language (Australia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mara language (Australia)&quot;)"
                         >mec</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maram language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maram language&quot;)"
                         >nma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maranao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maranao language&quot;)"
                         >mrw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maranungku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maranungku language&quot;)"
                         >zmr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marari language&quot;)"
                         >bfy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marathi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marathi language&quot;)"
                         >mar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Margany language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Margany language&quot;)"
                         >zmc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maricopa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maricopa language&quot;)"
                         >mrc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marigl language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marigl language&quot;)"
                         >gvf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maring language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maring language&quot;)"
                         >mbw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marovo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marovo language&quot;)"
                         >mvo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marshallese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marshallese language&quot;)"
                         >mah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Martu Wangka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Martu Wangka language&quot;)"
                         >mpj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Martuyhunira language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Martuyhunira language&quot;)"
                         >vma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maru language&quot;)"
                         >mhx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Marwari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Marwari language&quot;)"
                         >mwr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Masa language (Chadic)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Masa language (Chadic)&quot;)"
                         >mcn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Masacali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Masacali language&quot;)"
                         >mbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Masai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Masai language&quot;)"
                         >mas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Masbateno language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Masbateno language&quot;)"
                         >msb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mascoi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mascoi language&quot;)"
                         >emo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mashco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mashco language&quot;)"
                         >amr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Masikoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Masikoro language&quot;)"
                         >msh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Massachuset language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Massachuset language&quot;)"
                         >wam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;MatigSalug language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;MatigSalug language&quot;)"
                         >mbt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Matlatzinca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Matlatzinca language&quot;)"
                         >mat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mator language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mator language&quot;)"
                         >mtm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mattole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mattole language&quot;)"
                         >mvb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Matumbi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Matumbi language&quot;)"
                         >mgw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mau language&quot;)">mxx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maue language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mau language&quot;)">mxx</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maue language&quot;)"
                         >mav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maung language&quot;)"
                         >mph</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mawasangka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mawasangka language&quot;)"
                         >mnb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Maxi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Maxi language&quot;)"
                         >mxl</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Ma&apos;ya language (Indonesia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Ma&apos;ya language (Indonesia)&quot;)"
                         >slz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mayo language (Piman)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mayo language (Piman)&quot;)"
                         >mfy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mayoruna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mayoruna language&quot;)"
                         >mcf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mayoyao Ifugao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mayoyao Ifugao language&quot;)"
                         >ifu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbai language (Moissala)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbai language (Moissala)&quot;)"
                         >myb</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Mbala language (Bandundu, Congo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Mbala language (Bandundu, Congo)&quot;)"
                         >mdp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbara language (Chad)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbara language (Chad)&quot;)"
                         >mpk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbaya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbaya language&quot;)"
                         >kbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbete language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbete language&quot;)"
                         >mdt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbili language&quot;)"
                         >baw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbinsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbinsa language&quot;)"
                         >liz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbo language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbo language (Cameroon)&quot;)"
                         >mbo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbosi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbosi language&quot;)"
                         >mdw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbugu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbugu language&quot;)"
                         >mhd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbugwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbugwe language&quot;)"
                         >mgz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbukushu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbukushu language&quot;)"
                         >mhw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbum language&quot;)"
                         >mdd</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Mbunda language (Angola and Zambia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Mbunda language (Angola and Zambia)&quot;)"
                         >mck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mbya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mbya language&quot;)"
                         >gun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Meax language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Meax language&quot;)"
                         >mej</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Median language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Median language&quot;)"
                         >xme</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Medlpa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Medlpa language&quot;)"
                         >med</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Medumba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Medumba language&quot;)"
                         >byv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mekeo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mekeo language&quot;)"
                         >mek</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mekongga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mekongga language&quot;)"
                         >lbw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Melebuganon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Melebuganon language&quot;)"
                         >pwm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mele-Fila language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mele-Fila language&quot;)"
                         >mxe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Memba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Memba language&quot;)"
                         >tsj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mendalam Kayan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mendalam Kayan language&quot;)"
                         >xkd</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Mende language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Mende language (Papua New Guinea)&quot;)"
                         >sim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mende language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mende language&quot;)"
                         >men</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Menominee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Menominee language&quot;)"
                         >mez</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mentawai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mentawai language&quot;)"
                         >mwv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Meratus language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Meratus language&quot;)"
                         >bvu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Meroitic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Meroitic language&quot;)"
                         >xmr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Meru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Meru language&quot;)"
                         >mer</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mescalero language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mescalero language&quot;)"
                         >apm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Messapian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Messapian language&quot;)"
                         >cms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mewari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mewari language&quot;)"
                         >mtr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mewati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mewati language&quot;)"
                         >wtm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mexican Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mexican Sign Language&quot;)"
                         >mfs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mi Gangam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mi Gangam language&quot;)"
                         >gng</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Miami language (Ind. and Okla.)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Miami language (Ind. and Okla.)&quot;)"
                         >mia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mianmin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mianmin language&quot;)"
                         >mpt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Michif language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Michif language&quot;)"
                         >crg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Micmac language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Micmac language&quot;)"
                         >mic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Midob language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Midob language&quot;)"
                         >mei</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Migili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Migili language&quot;)"
                         >mgi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Miji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Miji language&quot;)"
                         >sjl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Miju language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Miju language&quot;)"
                         >mxj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mikasuki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mikasuki language&quot;)"
                         >mik</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mikir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mikir language&quot;)"
                         >mjw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Milang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Milang language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Minaean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Minaean language&quot;)"
                         >inm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Minangkabau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Minangkabau language&quot;)"
                         >min</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Minaveha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Minaveha language&quot;)"
                         >mvn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mingrelian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mingrelian language&quot;)"
                         >xmf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mirandese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mirandese language&quot;)"
                         >mwl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mishar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mishar language&quot;)"
                         >tat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mishmi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mishmi language&quot;)"
                         >clk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Misima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Misima language&quot;)"
                         >mpx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Misima-Panayati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Misima-Panayati language&quot;)"
                         >mpx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Miskito language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Miskito language&quot;)"
                         >miq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mituku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mituku language&quot;)"
                         >zmq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Miya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Miya language&quot;)"
                         >mkf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Miyemu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Miyemu language&quot;)"
                         >mux</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mkaa&apos; language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mkaa&apos; language&quot;)"
                         >bqz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mlabri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mlabri language&quot;)"
                         >mra</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Mo language (Côte d&apos;Ivoire and Ghana)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Mo language (Côte d&apos;Ivoire and Ghana)&quot;)"
                         >mzw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moba language&quot;)"
                         >mfq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mocha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mocha language&quot;)"
                         >moy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mochó language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mochó language&quot;)"
                         >mhc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moghol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moghol language&quot;)"
                         >mhj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moguex language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moguex language&quot;)"
                         >gum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mohave language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mohave language&quot;)"
                         >mov</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mohawk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mohawk language&quot;)"
                         >moh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mohegan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mohegan language&quot;)"
                         >mof</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mojo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mojo language&quot;)"
                         >ign</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moken language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moken language&quot;)"
                         >mwt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mokilese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mokilese language&quot;)"
                         >mkj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moklen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moklen language&quot;)"
                         >mkm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moklum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moklum language&quot;)"
                         >nst</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moksha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moksha language&quot;)"
                         >mdf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mokulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mokulu language&quot;)"
                         >moz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moldavian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moldavian language&quot;)"
                         >mol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Molima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Molima language&quot;)"
                         >mox</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moluche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moluche language&quot;)"
                         >arn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mon language&quot;)">mnw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mongolian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mon language&quot;)">mnw</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mongolian language&quot;)"
                         >mon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mongo-Nkundu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mongo-Nkundu language&quot;)"
                         >lol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mongour language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mongour language&quot;)"
                         >mjg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Monjombo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Monjombo language&quot;)"
                         >moj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mono language (Congo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mono language (Congo)&quot;)"
                         >mnh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mono-Alu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mono-Alu language&quot;)"
                         >mte</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Montagnais language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Montagnais language&quot;)"
                         >moe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Monumbo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Monumbo language&quot;)"
                         >mxk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mooré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mooré language&quot;)"
                         >mos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mopan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mopan language&quot;)"
                         >mop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moplah language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moplah language&quot;)"
                         >mal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mori language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mori language&quot;)"
                         >mzq</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Moro language (South America)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Moro language (South America)&quot;)"
                         >ayo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moro language (Sudan)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moro language (Sudan)&quot;)"
                         >mor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moronene language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moronene language&quot;)"
                         >mqn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mortlock language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mortlock language&quot;)"
                         >mrl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moru language&quot;)"
                         >mgd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moseten language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moseten language&quot;)"
                         >cas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Moshang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Moshang language&quot;)"
                         >nmh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mota language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mota language&quot;)"
                         >mtt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Motilon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Motilon language&quot;)"
                         >mot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Motlav language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Motlav language&quot;)"
                         >mlv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Motu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Motu language&quot;)"
                         >meu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mouk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mouk language&quot;)"
                         >mqt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mountain Arapesh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mountain Arapesh language&quot;)"
                         >ape</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mountain Koiari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mountain Koiari language&quot;)"
                         >kpx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Movima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Movima language&quot;)"
                         >mzp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mpongwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mpongwe language&quot;)"
                         >mye</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mpus language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mpus language&quot;)"
                         >mug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muana language&quot;)"
                         >moa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mudburra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mudburra language&quot;)"
                         >mwd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muduva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muduva language&quot;)"
                         >muv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mugil language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mugil language&quot;)"
                         >mlp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muinane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muinane language&quot;)"
                         >bmr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mukawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mukawa language&quot;)"
                         >mwc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mukomuko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mukomuko language&quot;)"
                         >min</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mukri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mukri language&quot;)"
                         >ckb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mulao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mulao language&quot;)"
                         >mlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mulgi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mulgi language&quot;)"
                         >est</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mullukmulluk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mullukmulluk language&quot;)"
                         >mpb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mumuye language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mumuye language&quot;)"
                         >mzm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mün Chin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mün Chin language&quot;)"
                         >mwq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muna language&quot;)"
                         >mnb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mundang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mundang language&quot;)"
                         >mua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mundani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mundani language&quot;)"
                         >mnf</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Mundu language (Sudan and Congo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Mundu language (Sudan and Congo)&quot;)"
                         >muh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Munduruku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Munduruku language&quot;)"
                         >my</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mungaka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mungaka language&quot;)"
                         >mhk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Munichi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Munichi language&quot;)"
                         >myr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Munji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Munji language&quot;)"
                         >mnj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Münkü language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Münkü language&quot;)"
                         >irn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Munsee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Munsee language&quot;)"
                         >umu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muong language&quot;)"
                         >mtq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mupun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mupun language&quot;)"
                         >sur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mura language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mura language&quot;)"
                         >myp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Murle language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Murle language&quot;)"
                         >mur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Murrinhpatha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Murrinhpatha language&quot;)"
                         >mwf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Murui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Murui language&quot;)"
                         >huu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muruwari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muruwari language&quot;)"
                         >zmu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Musei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Musei language&quot;)"
                         >mse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Musgu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Musgu language&quot;)"
                         >mug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Musi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Musi language&quot;)"
                         >mui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Musom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Musom language&quot;)"
                         >msu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mutsun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mutsun language&quot;)"
                         >css</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Muyuw language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Muyuw language&quot;)"
                         >myw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mwaghavul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mwaghavul language&quot;)"
                         >sur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mwamba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mwamba language&quot;)"
                         >wbh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mwenyi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mwenyi language&quot;)"
                         >sie</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mysian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mysian language&quot;)"
                         >yms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Mzab language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Mzab language&quot;)"
                         >mzb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nabak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nabak language&quot;)"
                         >naf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nafaanra language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nafaanra language&quot;)"
                         >nfr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nahu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nahu language&quot;)"
                         >nca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nahuatl language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nahuatl language&quot;)"
                         >nah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nakanai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nakanai language&quot;)"
                         >nak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nali language&quot;)"
                         >nss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nalik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nalik language&quot;)"
                         >nal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nama language&quot;)"
                         >naq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Namakura language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Namakura language&quot;)"
                         >nmk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nambya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nambya language&quot;)"
                         >nmq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Namia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Namia language&quot;)"
                         >nnm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nanai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nanai language&quot;)"
                         >gld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nancere language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nancere language&quot;)"
                         >nnc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nancowry language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nancowry language&quot;)"
                         >ncb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nande language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nande language&quot;)"
                         >nnb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nandi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nandi language&quot;)"
                         >kln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nankanse language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nankanse language&quot;)"
                         >gur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nankina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nankina language&quot;)"
                         >nnk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nanticoke language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nanticoke language&quot;)"
                         >nnt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Napu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Napu language&quot;)"
                         >npy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Narak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Narak language&quot;)"
                         >nac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Narragansett language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Narragansett language&quot;)"
                         >mof</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Narrinyeri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Narrinyeri language&quot;)"
                         >nay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Naskapi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Naskapi language&quot;)"
                         >nsk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Natchez language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Natchez language&quot;)"
                         >ncz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nateni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nateni language&quot;)"
                         >ntm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nauru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nauru language&quot;)"
                         >nau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Navajo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Navajo language&quot;)"
                         >nav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nawdm language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nawdm language&quot;)"
                         >nmz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Naxi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Naxi language&quot;)"
                         >nbf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nchumburu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nchumburu language&quot;)"
                         >ncu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndau language&quot;)"
                         >ndc</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Ndebele language (South Africa)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Ndebele language (South Africa)&quot;)"
                         >nbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndebele language (Zimbabwe)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndebele language (Zimbabwe)&quot;)"
                         >nde</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndjebbana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndjebbana language&quot;)"
                         >djj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndonga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndonga language&quot;)"
                         >ndo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndumu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndumu language&quot;)"
                         >nmd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ndunga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ndunga language&quot;)"
                         >ndt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Negidal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Negidal language&quot;)"
                         >neg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nehan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nehan language&quot;)"
                         >nsn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nembe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nembe language&quot;)"
                         >ijs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nemi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nemi language&quot;)"
                         >nem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nenets language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nenets language&quot;)"
                         >yrk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nengone language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nengone language&quot;)"
                         >nen</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nenusa-Miangas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nenusa-Miangas language&quot;)"
                         >tld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nepali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nepali language&quot;)"
                         >nep</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;New Zealand Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;New Zealand Sign Language&quot;)"
                         >nzs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Newari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Newari language&quot;)"
                         >new</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nez Percé language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nez Percé language&quot;)"
                         >nez</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngaanyatjara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngaanyatjara language&quot;)"
                         >ntj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngada language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngada language&quot;)"
                         >nxg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngadju language (Australia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngadju language (Australia)&quot;)"
                         >nju</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngaju language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngaju language&quot;)"
                         >nij</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngalakan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngalakan language&quot;)"
                         >nig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngaliwuru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngaliwuru language&quot;)"
                         >djd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngama language&quot;)"
                         >nmc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nganasan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nganasan language&quot;)"
                         >nio</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngandi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngandi language&quot;)"
                         >nid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngankikurungkurr language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngankikurungkurr language&quot;)"
                         >nam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngarinyin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngarinyin language&quot;)"
                         >ung</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngarinyman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngarinyman language&quot;)"
                         >nbj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngarluma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngarluma language&quot;)"
                         >nrl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngatik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngatik language&quot;)"
                         >ngm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngaun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngaun language&quot;)"
                         >cnw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngawun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngawun language&quot;)"
                         >nxn</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Ngbaka ma&apos;bo language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Ngbaka ma&apos;bo language&quot;)"
                         >nbm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngemba language (Cameroon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngemba language (Cameroon)&quot;)"
                         >nge</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngiti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngiti language&quot;)"
                         >niy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngizim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngizim language&quot;)"
                         >ngi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngologa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngologa language&quot;)"
                         >xkv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngomba language (Bamileke)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngomba language (Bamileke)&quot;)"
                         >jgo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngombe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngombe language&quot;)"
                         >ngc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngonde language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngonde language&quot;)"
                         >nyy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nguôn language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nguôn language&quot;)"
                         >nuo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngwa language&quot;)"
                         >ibo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ngyemboon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ngyemboon language&quot;)"
                         >nnh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nharo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nharo language&quot;)"
                         >nhr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nias language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nias language&quot;)"
                         >nia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nicaraguan Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nicaraguan Sign Language&quot;)"
                         >ncs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nielim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nielim language&quot;)"
                         >nie</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nihali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nihali language&quot;)"
                         >nll</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nii language&quot;)">nii</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nilamba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nii language&quot;)">nii</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nilamba language&quot;)"
                         >nim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nimadi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nimadi language&quot;)"
                         >noe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nimboran language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nimboran language&quot;)"
                         >nir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nipissing language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nipissing language&quot;)"
                         >ojc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nirere language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nirere language&quot;)"
                         >kib</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nisenan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nisenan language&quot;)"
                         >nsz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Niska language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Niska language&quot;)"
                         >ncg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nisqually language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nisqually language&quot;)"
                         >lut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Niuean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Niuean language&quot;)"
                         >niu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nkoya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nkoya language&quot;)"
                         >nka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nkunya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nkunya language&quot;)"
                         >nko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nocte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nocte language&quot;)"
                         >njb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nogai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nogai language&quot;)"
                         >nog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nogugu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nogugu language&quot;)"
                         >nkk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nomaante language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nomaante language&quot;)"
                         >lem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nomatsiguenga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nomatsiguenga language&quot;)"
                         >not</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Noon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Noon language&quot;)"
                         >snf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Noone language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Noone language&quot;)"
                         >nhu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nootka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nootka language&quot;)"
                         >noo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Norn language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Norn language&quot;)"
                         >nrn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;North Efate language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;North Efate language&quot;)"
                         >llp</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;North Straits Salish language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;North Straits Salish language&quot;)"
                         >str</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northeastern Kiwai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northeastern Kiwai language&quot;)"
                         >kiw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Altai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Altai language&quot;)"
                         >atv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Bullom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Bullom language&quot;)"
                         >buy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Kankanay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Kankanay language&quot;)"
                         >xnn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Khanty language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Khanty language&quot;)"
                         >kca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Paiute language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Paiute language&quot;)"
                         >pao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Pomo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Pomo language&quot;)"
                         >pej</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Roglai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Roglai language&quot;)"
                         >rog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Sami language&quot;)"
                         >sme</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Northern Sierra Miwok language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Northern Sierra Miwok language&quot;)"
                         >nsq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Sotho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Sotho language&quot;)"
                         >nso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Northern Thai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Northern Thai language&quot;)"
                         >nod</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Norwegian language (Nynorsk)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Norwegian language (Nynorsk)&quot;)"
                         >nno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Norwegian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Norwegian language&quot;)"
                         >nor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Notsi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Notsi language&quot;)"
                         >ncf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Notu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Notu language&quot;)"
                         >nou</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Novial language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Novial language (Artificial)&quot;)"
                         >nov</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ntlakyapamuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ntlakyapamuk language&quot;)"
                         >thp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ntomba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ntomba language&quot;)"
                         >nto</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nubi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nubi language&quot;)"
                         >kcn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nuer language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nuer language&quot;)"
                         >nus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nukahiva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nukahiva language&quot;)"
                         >mrq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nukunu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nukunu language&quot;)"
                         >nnv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nukuoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nukuoro language&quot;)"
                         >nkr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Numfor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Numfor language&quot;)"
                         >bhw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nung language&quot;)"
                         >nun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nunggubuyu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nunggubuyu language&quot;)"
                         >nuy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nunuma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nunuma language&quot;)"
                         >xsm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nupe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nupe language&quot;)"
                         >nup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyabwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyabwa language&quot;)"
                         >nwb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyah Kur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyah Kur language&quot;)"
                         >cbn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyaheun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyaheun language&quot;)"
                         >nev</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyalayu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyalayu language&quot;)"
                         >yly</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyambo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyambo language&quot;)"
                         >now</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyamwezi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyamwezi language&quot;)"
                         >nym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyaneka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyaneka language&quot;)"
                         >nyk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyanga language&quot;)"
                         >nyj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyangumarta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyangumarta language&quot;)"
                         >nna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyanja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyanja language&quot;)"
                         >nya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyankole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyankole language&quot;)"
                         >nyn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyiha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyiha language&quot;)"
                         >nih</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyikina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyikina language&quot;)"
                         >nyh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyore language&quot;)"
                         >nyd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyoro language&quot;)"
                         >nyo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyulnyul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyulnyul language&quot;)"
                         >nyv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nyungwe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nyungwe language&quot;)"
                         >nyu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nzakara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nzakara language&quot;)"
                         >nzk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nzebi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nzebi language&quot;)"
                         >nzb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Nzima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Nzima language&quot;)"
                         >nzi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Obo Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Obo Manobo language&quot;)"
                         >obo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Obolo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Obolo language&quot;)"
                         >ann</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ocaina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ocaina language&quot;)"
                         >oca</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Occidental language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Occidental language (Artificial)&quot;)"
                         >ile</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Occitan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Occitan language&quot;)"
                         >oci</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ocuiltec language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ocuiltec language&quot;)"
                         >ocu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Odual language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Odual language&quot;)"
                         >odu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ofo language&quot;)">ofo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ogan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ofo language&quot;)">ofo</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ogan language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ogbronuagum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ogbronuagum language&quot;)"
                         >ogu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oghuz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oghuz language&quot;)"
                         >ozn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oirat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oirat language&quot;)"
                         >xal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ojibwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ojibwa language&quot;)"
                         >oji</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Okanagan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Okanagan language&quot;)"
                         >oka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Okrika language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Okrika language&quot;)"
                         >okr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oksapmin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oksapmin language&quot;)"
                         >opm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Olcha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Olcha language&quot;)"
                         >ulc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Old Norse language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Old Norse language&quot;)"
                         >non</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Old Persian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Old Persian language&quot;)"
                         >peo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Old Saxon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Old Saxon language&quot;)"
                         >osx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Old Turkic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Old Turkic language&quot;)"
                         >otk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Olo language&quot;)">ong</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Olonets language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Olo language&quot;)">ong</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Olonets language&quot;)"
                         >olo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oluta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oluta language&quot;)"
                         >plo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Omaha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Omaha language&quot;)"
                         >oma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ombo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ombo language&quot;)"
                         >oml</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ona language&quot;)">ona</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oneida language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ona language&quot;)">ona</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oneida language&quot;)"
                         >one</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Önge language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Önge language&quot;)"
                         >oon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ono language&quot;)">ons</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Onondaga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ono language&quot;)">ons</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Onondaga language&quot;)"
                         >ono</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oowekyala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oowekyala language&quot;)"
                         >hei</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Opata language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Opata language&quot;)"
                         >opt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ordos language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ordos language&quot;)"
                         >mvf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orejón language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orejón language&quot;)"
                         >ore</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oriya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oriya language&quot;)"
                         >ori</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orma language&quot;)"
                         >orc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ormu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ormu language&quot;)"
                         >orz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ormuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ormuri language&quot;)"
                         >oru</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oroch language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oroch language&quot;)"
                         >oac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orok language&quot;)"
                         >oaa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orokaiva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orokaiva language&quot;)"
                         >okv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orokolo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orokolo language&quot;)"
                         >oro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oromo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oromo language&quot;)"
                         >orm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oron language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oron language&quot;)"
                         >enw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oroqen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oroqen language&quot;)"
                         >orh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Orya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Orya language&quot;)"
                         >ury</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Osage language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Osage language&quot;)"
                         >osa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oscan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oscan language&quot;)"
                         >osc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Osing language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Osing language&quot;)"
                         >osi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ossetic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ossetic language&quot;)"
                         >oss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ot Danum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ot Danum language&quot;)"
                         >otd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Oto language&quot;)">iow</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ottawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Oto language&quot;)">iow</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ottawa language&quot;)"
                         >otw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ouargla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ouargla language&quot;)"
                         >oua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ozumacín language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ozumacín language&quot;)"
                         >chz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paama language&quot;)"
                         >pma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pacific Gulf Yupik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pacific Gulf Yupik language&quot;)"
                         >ems</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pacoh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pacoh language&quot;)"
                         >pac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Padam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Padam language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Padang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Padang language&quot;)"
                         >dip</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paduko language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paduko language&quot;)"
                         >pbi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paez language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paez language&quot;)"
                         >pbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pahlavi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pahlavi language&quot;)"
                         >pal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pahri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pahri language&quot;)"
                         >new</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paici language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paici language&quot;)"
                         >pri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pailibo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pailibo language&quot;)"
                         >adi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paipai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paipai language&quot;)"
                         >ppi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paite language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paite language&quot;)"
                         >pck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paiwan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paiwan language&quot;)"
                         >pwn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pakaasnovos language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pakaasnovos language&quot;)"
                         >pav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paku language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paku language&quot;)"
                         >pku</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pala language&quot;)"
                         >gfk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Palaic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Palaic language&quot;)"
                         >plq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Palan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Palan language&quot;)"
                         >kpy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Palauan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Palauan language&quot;)"
                         >pau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pali language&quot;)"
                         >pli</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Palicur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Palicur language&quot;)"
                         >plu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pamoa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pamoa language&quot;)"
                         >tav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pamona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pamona language&quot;)"
                         >pmf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pampanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pampanga language&quot;)"
                         >pam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panamint language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panamint language&quot;)"
                         >par</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panare language&quot;)"
                         >pbh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panayati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panayati language&quot;)"
                         >mpx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pangasinan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pangasinan language&quot;)"
                         >pag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pangutaran Sama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pangutaran Sama language&quot;)"
                         >slm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pangwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pangwa language&quot;)"
                         >pbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panjabi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panjabi language&quot;)"
                         >pan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panobo language&quot;)"
                         >pno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Panzaleo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Panzaleo language&quot;)"
                         >pbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Papabuco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Papabuco language&quot;)"
                         >zpw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paranan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paranan language&quot;)"
                         >agp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paraujano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paraujano language&quot;)"
                         >pbg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parengi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parengi language&quot;)"
                         >pcj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Paressi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Paressi language&quot;)"
                         >pab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parintintin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parintintin language&quot;)"
                         >pah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parji language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parji language&quot;)"
                         >pci</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parsi-Gujarati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parsi-Gujarati language&quot;)"
                         >guj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parthian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parthian language&quot;)"
                         >xpr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parvati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parvati language&quot;)"
                         >gbm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Parya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Parya language&quot;)"
                         >paq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pasaale language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pasaale language&quot;)"
                         >sig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pasir language (Lawangan)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pasir language (Lawangan)&quot;)"
                         >lbx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pasir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pasir language&quot;)"
                         >zlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Passamaquoddy language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Passamaquoddy language&quot;)"
                         >pqm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Patamona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Patamona language&quot;)"
                         >pbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Patep language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Patep language&quot;)"
                         >ptp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pattani language (India)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pattani language (India)&quot;)"
                         >lae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pattani language (Thailand)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pattani language (Thailand)&quot;)"
                         >mfa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pauserna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pauserna language&quot;)"
                         >psm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pawaian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pawaian language&quot;)"
                         >pwa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pawari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pawari language&quot;)"
                         >bns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pawnee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pawnee language&quot;)"
                         >paw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pay language&quot;)">ped</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pazeh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pay language&quot;)">ped</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pazeh language&quot;)"
                         >uun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pear language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pear language&quot;)"
                         >pcb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pehuenche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pehuenche language&quot;)"
                         >arn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pekal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pekal language&quot;)"
                         >pel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pelende language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pelende language&quot;)"
                         >ppp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pemón language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pemón language&quot;)"
                         >aoc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pende language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pende language&quot;)"
                         >pem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Penesak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Penesak language&quot;)"
                         >mui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pengo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pengo language&quot;)"
                         >peg</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Pennsylvania German language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Pennsylvania German language&quot;)"
                         >pdc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Penobscot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Penobscot language&quot;)"
                         >aaq</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Peranakan Indonesian language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Peranakan Indonesian language&quot;)"
                         >pea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pero language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pero language&quot;)"
                         >pip</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Persian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Persian language&quot;)"
                         >fas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Petats language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Petats language&quot;)"
                         >pex</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Phalura language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Phalura language&quot;)"
                         >phl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Phoenician language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Phoenician language&quot;)"
                         >phn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Phom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Phom language&quot;)"
                         >nph</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Phrygian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Phrygian language&quot;)"
                         >xpg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Phu Thai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Phu Thai language&quot;)"
                         >pht</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Piapoco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Piapoco language&quot;)"
                         >pio</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Piaroa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Piaroa language&quot;)"
                         >pid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pilaga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pilaga language&quot;)"
                         >plg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pileni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pileni language&quot;)"
                         >piv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pima Bajo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pima Bajo language&quot;)"
                         >pia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pima language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pima language&quot;)"
                         >ood</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pinai-Hagahai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pinai-Hagahai language&quot;)"
                         >pnn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pingelap language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pingelap language&quot;)"
                         >pif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pintupi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pintupi language&quot;)"
                         >piu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pinyin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pinyin language&quot;)"
                         >pny</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pipil language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pipil language&quot;)"
                         >ppl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pirahá language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pirahá language&quot;)"
                         >myp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Piratapuyo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Piratapuyo language&quot;)"
                         >pir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Piro language (Tanoan)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Piro language (Tanoan)&quot;)"
                         >pie</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pitcairnese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pitcairnese language&quot;)"
                         >pih</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pitjantjatjara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pitjantjatjara language&quot;)"
                         >pjt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pitta Pitta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pitta Pitta language&quot;)"
                         >pit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Plains Miwok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Plains Miwok language&quot;)"
                         >pmw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pochury language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pochury language&quot;)"
                         >npo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pogoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pogoro language&quot;)"
                         >poy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Polabian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Polabian language&quot;)"
                         >pox</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Polish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Polish language&quot;)"
                         >pol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ponape language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ponape language&quot;)"
                         >pon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ponosakan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ponosakan language&quot;)"
                         >pns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Port Sandwich language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Port Sandwich language&quot;)"
                         >psw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Portuguese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Portuguese language&quot;)"
                         >por</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Portuguese Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Portuguese Sign Language&quot;)"
                         >psr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Potawatomi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Potawatomi language&quot;)"
                         >pot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pothwari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pothwari language&quot;)"
                         >phr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Powari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Powari language&quot;)"
                         >pwr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Powhatan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Powhatan language&quot;)"
                         >pim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Provençal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Provençal language&quot;)"
                         >pro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Prussian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Prussian language&quot;)"
                         >prg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Puelche language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Puelche language&quot;)"
                         >pue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pular language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pular language&quot;)"
                         >fuf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Puluwat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Puluwat language&quot;)"
                         >puw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Punic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Punic language&quot;)"
                         >xpu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Punu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Punu language&quot;)"
                         >puu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Puoc language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Puoc language&quot;)"
                         >puo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Puquina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Puquina language&quot;)"
                         >puq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Purari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Purari language&quot;)"
                         >iar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Purik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Purik language&quot;)"
                         >prx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Purupuru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Purupuru language&quot;)"
                         >pad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Pushto language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Pushto language&quot;)"
                         >pus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Qottu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Qottu language&quot;)"
                         >hae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quara language&quot;)"
                         >ahg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quebec Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quebec Sign Language&quot;)"
                         >fcs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quechua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quechua language&quot;)"
                         >que</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Quenya language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Quenya language (Artificial)&quot;)"
                         >qya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quileute language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quileute language&quot;)"
                         >qui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quinault language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quinault language&quot;)"
                         >qun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Quioucohanock language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Quioucohanock language&quot;)"
                         >pim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rabha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rabha language&quot;)"
                         >rah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rade language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rade language&quot;)"
                         >rad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Raetian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Raetian language&quot;)"
                         >xrr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Raeto-Romance language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Raeto-Romance language&quot;)"
                         >roh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rai language&quot;)">aph</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rajasthani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rai language&quot;)">aph</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rajasthani language&quot;)"
                         >raj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rajbangsi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rajbangsi language&quot;)"
                         >rjs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rama language&quot;)"
                         >rma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ramoaaina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ramoaaina language&quot;)"
                         >rai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ranau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ranau language&quot;)"
                         >ljp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rang Pas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rang Pas language&quot;)"
                         >rgk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rangdania language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rangdania language&quot;)"
                         >rah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rangi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rangi language&quot;)"
                         >lag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rao language&quot;)">rao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rapanui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rao language&quot;)">rao</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rapanui language&quot;)"
                         >rap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rarotongan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rarotongan language&quot;)"
                         >rar</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ratahan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ratahan language&quot;)"
                         >rth</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rawa language&quot;)"
                         >rwo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rawang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rawang language&quot;)"
                         >raw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rawas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rawas language&quot;)"
                         >mui</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Rejang language (Sumatra, Indonesia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Rejang language (Sumatra, Indonesia)&quot;)"
                         >rej</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rembarrnga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rembarrnga language&quot;)"
                         >rmb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rembong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rembong language&quot;)"
                         >reb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rendille language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rendille language&quot;)"
                         >rel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rengao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rengao language&quot;)"
                         >ren</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rengma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rengma language&quot;)"
                         >nre</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rennellese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rennellese language&quot;)"
                         >mnv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Resigero language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Resigero language&quot;)"
                         >rgr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Riang-lang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Riang-lang language&quot;)"
                         >ril</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rif language&quot;)">rif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rikbaktsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rif language&quot;)">rif</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rikbaktsa language&quot;)"
                         >rkb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ritarungo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ritarungo language&quot;)"
                         >rit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Roma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Roma language&quot;)"
                         >rmm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Romani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Romani language&quot;)"
                         >rom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Romanian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Romanian language&quot;)"
                         >ron</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ron language&quot;)">cla</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ronga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ron language&quot;)">cla</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ronga language&quot;)"
                         >rng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rongmei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rongmei language&quot;)"
                         >nbu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Roro language (New Guinea)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Roro language (New Guinea)&quot;)"
                         >rro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Roti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Roti language&quot;)"
                         >rgu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rotokas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rotokas language&quot;)"
                         >roo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rotuman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rotuman language&quot;)"
                         >rtm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Roviana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Roviana language&quot;)"
                         >rug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ruc language&quot;)">scb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rue language&quot;)">bwg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rundi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ruc language&quot;)">scb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rue language&quot;)">bwg</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rundi language&quot;)"
                         >run</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Runga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Runga language&quot;)"
                         >rou</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Russian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Russian language&quot;)"
                         >rus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Rutul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Rutul language&quot;)"
                         >rut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ruund language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ruund language&quot;)"
                         >rnd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saa language&quot;)">apb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saanich language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saa language&quot;)">apb</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saanich language&quot;)"
                         >str</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sabaean language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sabaean language&quot;)"
                         >xsa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sabaot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sabaot language&quot;)"
                         >spy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sabela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sabela language&quot;)"
                         >auc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saberi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saberi language&quot;)"
                         >srl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sacapulteco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sacapulteco language&quot;)"
                         >quv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sadani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sadani language&quot;)"
                         >sck</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saek language&quot;)"
                         >skb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Safwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Safwa language&quot;)"
                         >sbk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sagara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sagara language&quot;)"
                         >kki</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sahidic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sahidic language&quot;)"
                         >cop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saho language&quot;)"
                         >ssy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sahu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sahu language&quot;)"
                         >saj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saisiyat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saisiyat language&quot;)"
                         >xsy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sakalava language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sakalava language&quot;)"
                         >skg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sakata language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sakata language&quot;)"
                         >skt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sakau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sakau language&quot;)"
                         >sku</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Salampasu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Salampasu language&quot;)"
                         >slx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Salar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Salar language&quot;)"
                         >slr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Salinan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Salinan language&quot;)"
                         >sln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saliva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saliva language&quot;)"
                         >sbe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sama Sibutu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sama Sibutu language&quot;)"
                         >ssb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Samaritan Aramaic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Samaritan Aramaic language&quot;)"
                         >sam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Samaritan Hebrew language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Samaritan Hebrew language&quot;)"
                         >smp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sambalpuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sambalpuri language&quot;)"
                         >ori</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sambas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sambas language&quot;)"
                         >zlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Samburu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Samburu language&quot;)"
                         >saq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sami language&quot;)"
                         >raq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Samo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Samo language&quot;)"
                         >smq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Samoan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Samoan language&quot;)"
                         >smo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sandawe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sandawe language&quot;)"
                         >sad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sanga language&quot;)"
                         >sng</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sangil language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sangil language&quot;)"
                         >snl</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Sangir language (Indonesia and Philippines)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Sangir language (Indonesia and Philippines)&quot;)"
                         >sxn</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Sango language (Ubangi Creole)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Sango language (Ubangi Creole)&quot;)"
                         >sag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sangtam language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sangtam language&quot;)"
                         >nsa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sangu language (Gabon)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sangu language (Gabon)&quot;)"
                         >snq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sangu language (Tanzania)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sangu language (Tanzania)&quot;)"
                         >sbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sanskrit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sanskrit language&quot;)"
                         >san</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Santali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Santali language&quot;)"
                         >sat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Santee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Santee language&quot;)"
                         >dak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sanwi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sanwi language&quot;)"
                         >any</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saposa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saposa language&quot;)"
                         >sps</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sapuan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sapuan language&quot;)"
                         >spu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sara language&quot;)"
                         >sre</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saramaccan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saramaccan language&quot;)"
                         >srm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sarangani Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sarangani Manobo language&quot;)"
                         >mbs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sardinian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sardinian language&quot;)"
                         >srd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sarikoli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sarikoli language&quot;)"
                         >srh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sarsi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sarsi language&quot;)"
                         >srs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sart language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sart language&quot;)"
                         >uzn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sasak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sasak language&quot;)"
                         >sas</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;sauraseni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;sauraseni language&quot;)"
                         >psu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saurashtri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saurashtri language&quot;)"
                         >saz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sawai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sawai language&quot;)"
                         >szw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Saweru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Saweru language&quot;)"
                         >swr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sawi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sawi language&quot;)"
                         >saw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sawos language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sawos language&quot;)"
                         >gbf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sawu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sawu language&quot;)"
                         >hvn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sayula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sayula language&quot;)"
                         >pos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Scots language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Scots language&quot;)"
                         >sco</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sea Islands Creole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sea Islands Creole language&quot;)"
                         >gul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sechelt language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sechelt language&quot;)"
                         >sec</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Secoya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Secoya language&quot;)"
                         >sey</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sedang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sedang language&quot;)"
                         >sed</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sedik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sedik language&quot;)"
                         >trv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sekani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sekani language&quot;)"
                         >sek</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Selepet language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Selepet language&quot;)"
                         >spl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Selkup language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Selkup language&quot;)"
                         >sel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sema language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sema language&quot;)"
                         >nsm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Semai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Semai language&quot;)"
                         >sea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Semang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Semang language&quot;)"
                         >kns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sembla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sembla language&quot;)"
                         >sos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Semelai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Semelai language&quot;)"
                         >sza</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Semendo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Semendo language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Seminole language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Seminole language&quot;)"
                         >mus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sena language&quot;)"
                         >seh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Senari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Senari language&quot;)"
                         >sef</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Seneca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Seneca language&quot;)"
                         >see</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Senga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Senga language&quot;)"
                         >nse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sentani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sentani language&quot;)"
                         >set</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Senya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Senya language&quot;)"
                         >afu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Serawai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Serawai language&quot;)"
                         >pse</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Serbian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Serbian language&quot;)"
                         >srp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Serbo-Croatian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Serbo-Croatian language&quot;)"
                         >hbs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Serer language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Serer language&quot;)"
                         >srr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Seri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Seri language&quot;)"
                         >sei</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Seruyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Seruyan language&quot;)"
                         >kkx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Setu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Setu language&quot;)"
                         >est</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sgaw Karen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sgaw Karen language&quot;)"
                         >ksw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shambala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shambala language&quot;)"
                         >ksb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shan language&quot;)"
                         >shn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sharanahua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sharanahua language&quot;)"
                         >mcd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shasta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shasta language&quot;)"
                         >sht</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shauri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shauri language&quot;)"
                         >shv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shawnee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shawnee language&quot;)"
                         >sjw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shekhawati language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shekhawati language&quot;)"
                         >swv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sherbro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sherbro language&quot;)"
                         >bun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sherdukpen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sherdukpen language&quot;)"
                         >sdp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sherpa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sherpa language&quot;)"
                         >xsr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shi language&quot;)">shr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shilha language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shi language&quot;)">shr</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shilha language&quot;)"
                         >jbn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shilluk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shilluk language&quot;)"
                         >shk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shimaore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shimaore language&quot;)"
                         >swb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shina language&quot;)"
                         >scl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shipibo-Conibo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shipibo-Conibo language&quot;)"
                         >shp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shona language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shona language&quot;)"
                         >sna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shor language&quot;)"
                         >cjs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shoshoni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shoshoni language&quot;)"
                         >shh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shuar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shuar language&quot;)"
                         >jiv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shughni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shughni language&quot;)"
                         >sgh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Shuswap language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Shuswap language&quot;)"
                         >shs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siane language&quot;)"
                         >snp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sibo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sibo language&quot;)"
                         >nco</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sicuane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sicuane language&quot;)"
                         >cui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sidamo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sidamo language&quot;)"
                         >sid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sierra Popoluca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sierra Popoluca language&quot;)"
                         >poi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sigi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sigi language&quot;)"
                         >lew</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sikka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sikka language&quot;)"
                         >ski</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siksika language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siksika language&quot;)"
                         >bla</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Silti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Silti language&quot;)"
                         >mvz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Simelungun language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Simelungun language&quot;)"
                         >bts</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Simeulue language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Simeulue language&quot;)"
                         >smr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Simte language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Simte language&quot;)"
                         >smt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sinagoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sinagoro language&quot;)"
                         >snc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sindang Kelingi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sindang Kelingi language&quot;)"
                         >liw</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Sindarin language (Artificial)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Sindarin language (Artificial)&quot;)"
                         >sjn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sindhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sindhi language&quot;)"
                         >snd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sinhalese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sinhalese language&quot;)"
                         >sin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sio language&quot;)">xsi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sioni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sio language&quot;)">xsi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sioni language&quot;)"
                         >snn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sipacapense language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sipacapense language&quot;)"
                         >qum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sira language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sira language&quot;)"
                         >swj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siraiki Hindki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siraiki Hindki language&quot;)"
                         >skr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siraiki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siraiki language&quot;)"
                         >skr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siraiki Sindhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siraiki Sindhi language&quot;)"
                         >skr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siriano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siriano language&quot;)"
                         >sri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sirinek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sirinek language&quot;)"
                         >ysr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sirmauri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sirmauri language&quot;)"
                         >srx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siroi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siroi language&quot;)"
                         >ssd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sissala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sissala language&quot;)"
                         >sld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sissano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sissano language&quot;)"
                         >sso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siuslaw language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siuslaw language&quot;)"
                         >sis</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siwa language&quot;)"
                         >siz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siwai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siwai language&quot;)"
                         >siw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Siyin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Siyin language&quot;)"
                         >csy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Skolt Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Skolt Sami language&quot;)"
                         >sms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Skou language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Skou language&quot;)"
                         >skv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Slovak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Slovak language&quot;)"
                         >slk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Slovenian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Slovenian language&quot;)"
                         >slv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Slovincian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Slovincian language&quot;)"
                         >csb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Snohomish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Snohomish language&quot;)"
                         >sno</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;So language (Uganda)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;So language (Uganda)&quot;)"
                         >teu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sobei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sobei language&quot;)"
                         >sob</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sobojo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sobojo language&quot;)"
                         >tlv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Soga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Soga language&quot;)"
                         >xog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sogdian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sogdian language&quot;)"
                         >sog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sokotri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sokotri language&quot;)"
                         >sqt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Soliga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Soliga language&quot;)"
                         >sle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Solon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Solon language&quot;)"
                         >evn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Somali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Somali language&quot;)"
                         >som</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Somba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Somba language&quot;)"
                         >tbz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Songye language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Songye language&quot;)"
                         >sop</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Soninke language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Soninke language&quot;)"
                         >snk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sora language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sora language&quot;)"
                         >srb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sotang Kura language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sotang Kura language&quot;)"
                         >kle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sotho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sotho language&quot;)"
                         >sot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;South African Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;South African Sign Language&quot;)"
                         >sfs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;South Efate language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;South Efate language&quot;)"
                         >erk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southeastern Pomo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southeastern Pomo language&quot;)"
                         >pom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Arapesh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Arapesh language&quot;)"
                         >aoj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Bontoc language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Bontoc language&quot;)"
                         >bkb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Kalinga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Kalinga language&quot;)"
                         >ksc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Khanty language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Khanty language&quot;)"
                         >kca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Mofu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Mofu language&quot;)"
                         >mif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Paiute language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Paiute language&quot;)"
                         >ute</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Sami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Sami language&quot;)"
                         >sma</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Subanen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Subanen language&quot;)"
                         >laa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Thai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Thai language&quot;)"
                         >sou</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Southern Tutchone language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Southern Tutchone language&quot;)"
                         >tce</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Spanish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Spanish language&quot;)"
                         >spa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Spanish Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Spanish Sign Language&quot;)"
                         >ssp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Spokane language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Spokane language&quot;)"
                         >spo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Squawmish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Squawmish language&quot;)"
                         >squ</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sranan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sranan language&quot;)"
                         >srn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Srê language&quot;)">kpm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Stalo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Srê language&quot;)">kpm</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Stalo language&quot;)"
                         >hur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Stokavian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Stokavian language&quot;)"
                         >srp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suau language&quot;)"
                         >swp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Subiya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Subiya language&quot;)"
                         >sbs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suena language&quot;)"
                         >sue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sui language&quot;)">swi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suk language&quot;)">pko</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suku language (Congo)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sui language&quot;)">swi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suk language&quot;)">pko</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suku language (Congo)&quot;)"
                         >sub</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sukuma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sukuma language&quot;)"
                         >suk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sulka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sulka language&quot;)"
                         >sua</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sulod language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sulod language&quot;)"
                         >srg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sulu language&quot;)"
                         >tsg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sulung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sulung language&quot;)"
                         >suv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sumbawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sumbawa language&quot;)"
                         >smw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sumerian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sumerian language&quot;)"
                         >sux</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sumo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sumo language&quot;)"
                         >sum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sundanese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sundanese language&quot;)"
                         >sun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sunwar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sunwar language&quot;)"
                         >suz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suppire language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suppire language&quot;)"
                         >spp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suquamish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suquamish language&quot;)"
                         >squ</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Suriname Hindustani language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Suriname Hindustani language&quot;)"
                         >hns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sursurunga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sursurunga language&quot;)"
                         >sgz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Susquehanna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Susquehanna language&quot;)"
                         >sqn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Susu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Susu language&quot;)"
                         >sus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Suwawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Suwawa language&quot;)"
                         >swu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Svan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Svan language&quot;)"
                         >sva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Swahili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Swahili language&quot;)"
                         >swh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Swazi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Swazi language&quot;)"
                         >ssw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Swedish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Swedish language&quot;)"
                         >swe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Swedish Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Swedish Sign Language&quot;)"
                         >swl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Syènara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Syènara language&quot;)"
                         >shz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Sylheti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Sylheti language&quot;)"
                         >syl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Syriac language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Syriac language&quot;)"
                         >syr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Székely language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Székely language&quot;)"
                         >hun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tabasaran language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tabasaran language&quot;)"
                         >tab</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tabla language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tabla language&quot;)"
                         >tnm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tabwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tabwa language&quot;)"
                         >tap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tacana language (Bolivia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tacana language (Bolivia)&quot;)"
                         >tna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taensa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taensa language&quot;)"
                         >ncz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagabawa Manobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagabawa Manobo language&quot;)"
                         >bgs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagakaolo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagakaolo language&quot;)"
                         >klg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagalog language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagalog language&quot;)"
                         >tgl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagbana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagbana language&quot;)"
                         >tgw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagbanua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagbanua language&quot;)"
                         >tbw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagin language&quot;)"
                         >dap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagoi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagoi language&quot;)"
                         >tag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tagula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tagula language&quot;)"
                         >tgo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tahitian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tahitian language&quot;)"
                         >tah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tai Nüa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tai Nüa language&quot;)"
                         >tdd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taimoro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taimoro language&quot;)"
                         >mlg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taino language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taino language&quot;)"
                         >tnq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taita language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taita language&quot;)"
                         >dav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taiwano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taiwano language&quot;)"
                         >bsn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tajik language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tajik language&quot;)"
                         >tgk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Takelma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Takelma language&quot;)"
                         >tkm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Talaud language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Talaud language&quot;)"
                         >tld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Talinga-Bwisi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Talinga-Bwisi language&quot;)"
                         >tlj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Talise language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Talise language&quot;)"
                         >tlr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Talysh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Talysh language&quot;)"
                         >tly</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tami language&quot;)"
                         >tmy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tamil language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tamil language&quot;)"
                         >tam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tampulma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tampulma language&quot;)"
                         >tpm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tamu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tamu language&quot;)"
                         >gvr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tanacross language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tanacross language&quot;)"
                         >tcb</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Tanga language (Tanga Islands)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Tanga language (Tanga Islands)&quot;)"
                         >tgg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tangale language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tangale language&quot;)"
                         >tan</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tangkhul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tangkhul language&quot;)"
                         >nmf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tangsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tangsa language&quot;)"
                         >nst</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tangut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tangut language&quot;)"
                         >txg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tanimuca-Retuama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tanimuca-Retuama language&quot;)"
                         >ynu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tapanta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tapanta language&quot;)"
                         >abq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tapirapé language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tapirapé language&quot;)"
                         >taf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tarascan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tarascan language&quot;)"
                         >tsz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tariana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tariana language&quot;)"
                         >tae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tarok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tarok language&quot;)"
                         >yer</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tat language&quot;)">ttt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tatana&apos; language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tat language&quot;)">ttt</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tatana&apos; language&quot;)"
                         >txx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tatar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tatar language&quot;)"
                         >tat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taungthu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taungthu language&quot;)"
                         >blk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taurepan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taurepan language&quot;)"
                         >aoc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tausug language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tausug language&quot;)"
                         >tsg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tauya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tauya language&quot;)"
                         >tya</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Tavara language (Papua New Guinea)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Tavara language (Papua New Guinea)&quot;)"
                         >tbo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Taveta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Taveta language&quot;)"
                         >tvs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tawahka language (Honduras)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tawahka language (Honduras)&quot;)"
                         >sum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tawoyan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tawoyan language&quot;)"
                         >twy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tay-Nung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tay-Nung language&quot;)"
                         >nut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tayo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tayo language&quot;)"
                         >cks</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tboli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tboli language&quot;)"
                         >tbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tchien language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tchien language&quot;)"
                         >kqo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tectiteco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tectiteco language&quot;)"
                         >ttc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Teda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Teda language&quot;)"
                         >tuq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Téén language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Téén language&quot;)"
                         >lor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tegal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tegal language&quot;)"
                         >jav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tehit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tehit language&quot;)"
                         >kps</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Teke language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Teke language&quot;)"
                         >teg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Telefol language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Telefol language&quot;)"
                         >tlf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Teleut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Teleut language&quot;)"
                         >atv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Telugu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Telugu language&quot;)"
                         >tel</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tem language&quot;)">kdh</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tem language&quot;)">kdh</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Tembo language (Sud-Kivu, Congo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Tembo language (Sud-Kivu, Congo)&quot;)"
                         >tbt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Temiar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Temiar language&quot;)"
                         >tea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Temne language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Temne language&quot;)"
                         >tem</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tenetehara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tenetehara language&quot;)"
                         >tqb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tengger language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tengger language&quot;)"
                         >tes</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tenharim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tenharim language&quot;)"
                         >pah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Teop language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Teop language&quot;)"
                         >tio</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tepera language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tepera language&quot;)"
                         >tnm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tepo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tepo language&quot;)"
                         >ted</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tera language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tera language&quot;)"
                         >ttr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Terena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Terena language&quot;)"
                         >ter</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ternate language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ternate language&quot;)"
                         >tft</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Terraba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Terraba language&quot;)"
                         >tfr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Teso language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Teso language&quot;)"
                         >teo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tetela language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tetela language&quot;)"
                         >tll</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tetum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tetum language&quot;)"
                         >tet</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tewa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tewa language&quot;)"
                         >tew</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thado language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thado language&quot;)"
                         >tcz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thai language&quot;)"
                         >tha</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thakali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thakali language&quot;)"
                         >ths</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thao language&quot;)"
                         >ssf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tharaka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tharaka language&quot;)"
                         >thk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thayore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thayore language&quot;)"
                         >thd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tho language&quot;)">tou</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thracian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tho language&quot;)">tou</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thracian language&quot;)"
                         >txh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Thulung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Thulung language&quot;)"
                         >tdh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tibetan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tibetan language&quot;)"
                         >bod</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiddim Chin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiddim Chin language&quot;)"
                         >ctd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tidore language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tidore language&quot;)"
                         >tvo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiéfo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiéfo language&quot;)"
                         >tiq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tifal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tifal language&quot;)"
                         >tif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tigak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tigak language&quot;)"
                         >tgc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tigré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tigré language&quot;)"
                         >tig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tigrinya language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tigrinya language&quot;)"
                         >tir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tikar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tikar language&quot;)"
                         >tik</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tikopia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tikopia language&quot;)"
                         >tkp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tilamuta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tilamuta language&quot;)"
                         >gor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tillamook language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tillamook language&quot;)"
                         >til</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Timbe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Timbe language&quot;)"
                         >tim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Timucua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Timucua language&quot;)"
                         >tjm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tina Sambal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tina Sambal language&quot;)"
                         >xsb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tinputz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tinputz language&quot;)"
                         >tpz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tinrin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tinrin language&quot;)"
                         >cir</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiruray language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiruray language&quot;)"
                         >tiy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiv language&quot;)">tiv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiv language&quot;)">tiv</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiwa language&quot;)"
                         >lax</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tiwi language (Australia)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tiwi language (Australia)&quot;)"
                         >tiw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tlakluit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tlakluit language&quot;)"
                         >wac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tlingit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tlingit language&quot;)"
                         >tli</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toaripi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toaripi language&quot;)"
                         >tqo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toba language (Indian)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toba language (Indian)&quot;)"
                         >tob</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toba-Batak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toba-Batak language&quot;)"
                         >bbc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tobelo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tobelo language&quot;)"
                         >tlb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tobote language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tobote language&quot;)"
                         >bud</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toda language (India)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toda language (India)&quot;)"
                         >tcx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tofa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tofa language&quot;)"
                         >kim</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Tohono O&apos;Odham language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Tohono O&apos;Odham language&quot;)"
                         >ood</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tojolabal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tojolabal language&quot;)"
                         >toj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tok Pisin language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tok Pisin language&quot;)"
                         >tpi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tokelauan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tokelauan language&quot;)"
                         >tkl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tolai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tolai language&quot;)"
                         >ksd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tolaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tolaki language&quot;)"
                         >lbw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tolitoli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tolitoli language&quot;)"
                         >txe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toma language&quot;)"
                         >tod</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tombonuwo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tombonuwo language&quot;)"
                         >txa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tombulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tombulu language&quot;)"
                         >tom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tondano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tondano language&quot;)"
                         >tdn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tonga language (Inhambane)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tonga language (Inhambane)&quot;)"
                         >toh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tonga language (Nyasa)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tonga language (Nyasa)&quot;)"
                         >tog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tongan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tongan language&quot;)"
                         >ton</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tonkawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tonkawa language&quot;)"
                         >tqw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tonsea language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tonsea language&quot;)"
                         >txs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tontemboan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tontemboan language&quot;)"
                         >tnt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tooro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tooro language&quot;)"
                         >ttj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toposa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toposa language&quot;)"
                         >toq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Toraja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Toraja language&quot;)"
                         >sda</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Toraja Sa&apos;dan language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Toraja Sa&apos;dan language&quot;)"
                         >sda</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Torgut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Torgut language&quot;)"
                         >xal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Torwali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Torwali language&quot;)"
                         >trw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Trio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Trio language&quot;)"
                         >tri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Trumai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Trumai language&quot;)"
                         >tpy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsaiwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsaiwa language&quot;)"
                         >atb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsakhur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsakhur language&quot;)"
                         >tkr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsakonian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsakonian language&quot;)"
                         >tsd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsattine language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsattine language&quot;)"
                         >bea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsimihety language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsimihety language&quot;)"
                         >xmw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsimshian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsimshian language&quot;)"
                         >tsi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsogo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsogo language&quot;)"
                         >tsv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsonga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsonga language&quot;)"
                         >tso</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tsou language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tsou language&quot;)"
                         >tsu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tswa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tswa language&quot;)"
                         >tsc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tswana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tswana language&quot;)"
                         >tsn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuamotuan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuamotuan language&quot;)"
                         >pmt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tubatulabal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tubatulabal language&quot;)"
                         >tub</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tubetube language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tubetube language&quot;)"
                         >tte</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tucano language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tucano language&quot;)"
                         >tuo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tucuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tucuna language&quot;)"
                         >tca</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tugen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tugen language&quot;)"
                         >tuy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tulu language&quot;)"
                         >tcy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tulung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tulung language&quot;)"
                         >duu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tumak language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tumak language&quot;)"
                         >tmc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tumbuka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tumbuka language&quot;)"
                         >tum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tumleo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tumleo language&quot;)"
                         >tmq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tunen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tunen language&quot;)"
                         >baz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tunica language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tunica language&quot;)"
                         >tun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tunni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tunni language&quot;)"
                         >tqq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tupi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tupi language&quot;)"
                         >tpw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tupuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tupuri language&quot;)"
                         >tui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tura language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tura language&quot;)"
                         >neb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Turkana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Turkana language&quot;)"
                         >tuv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Turkish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Turkish language&quot;)"
                         >tur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Turkmen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Turkmen language&quot;)"
                         >tuk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuscarora language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuscarora language&quot;)"
                         >tus</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tutelo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tutelo language&quot;)"
                         >tta</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tutong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tutong language&quot;)"
                         >bsb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tutsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tutsa language&quot;)"
                         >tvt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuvaluan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuvaluan language&quot;)"
                         >tvl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuvinian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuvinian language&quot;)"
                         >tyv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuwali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuwali language&quot;)"
                         >ifk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tuyuca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tuyuca language&quot;)"
                         >tue</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Twi language&quot;)">twi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tyembara language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Twi language&quot;)">twi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tyembara language&quot;)"
                         >sef</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Tzoneca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Tzoneca language&quot;)"
                         >teh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uare language&quot;)"
                         >ksj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ubir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ubir language&quot;)"
                         >ubr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ubykh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ubykh language&quot;)"
                         >uby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Udekhe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Udekhe language&quot;)"
                         >ude</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Udi language&quot;)">udi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Udmurt language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Udi language&quot;)">udi</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Udmurt language&quot;)"
                         >udm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uduk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uduk language&quot;)"
                         >udu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ugaritic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ugaritic language&quot;)"
                         >uga</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uighur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uighur language&quot;)"
                         >uig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ukhrul language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ukhrul language&quot;)"
                         >nmf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uki language&quot;)">bld</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ukrainian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uki language&quot;)">bld</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ukrainian language&quot;)"
                         >ukr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ulawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ulawa language&quot;)"
                         >apb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uldeme language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uldeme language&quot;)"
                         >udl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ulithi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ulithi language&quot;)"
                         >li</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ulva language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ulva language&quot;)"
                         >sum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uma language&quot;)">ppk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Umbrian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uma language&quot;)">ppk</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Umbrian language&quot;)"
                         >xum</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Umbundu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Umbundu language&quot;)"
                         >umb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Umpila language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Umpila language&quot;)"
                         >ump</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Una language&quot;)">mtg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Upper Chehalis language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Una language&quot;)">mtg</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Upper Chehalis language&quot;)"
                         >cjh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Upper Kuskokwim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Upper Kuskokwim language&quot;)"
                         >kuu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Upper Sorbian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Upper Sorbian language&quot;)"
                         >hsb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Upper Tanana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Upper Tanana language&quot;)"
                         >tau</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Upper Tanudan Kalinga language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Upper Tanudan Kalinga language&quot;)"
                         >kgh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ura language (Vanuatu)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ura language (Vanuatu)&quot;)"
                         >uur</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Urak Lawoi&apos; language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Urak Lawoi&apos; language&quot;)"
                         >urk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urali language&quot;)"
                         >url</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urarina language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urarina language&quot;)"
                         >ura</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urartian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urartian language&quot;)"
                         >xur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urdu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urdu language&quot;)"
                         >urd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urhobo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urhobo language&quot;)"
                         >urh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urii language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urii language&quot;)"
                         >uvh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urim language&quot;)"
                         >uri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uripiv language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uripiv language&quot;)"
                         >upv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uru language&quot;)">ure</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urubu Kaapor language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uru language&quot;)">ure</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urubu Kaapor language&quot;)"
                         >urb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Urubu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Urubu language&quot;)"
                         >urb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Usan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Usan language&quot;)"
                         >wnu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Usarufa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Usarufa language&quot;)"
                         >usa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uspanteca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uspanteca language&quot;)"
                         >usp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ute language&quot;)">ute</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uwana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ute language&quot;)">ute</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uwana language&quot;)"
                         >hau</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Uzbek language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Uzbek language&quot;)"
                         >uzb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vaagri Boli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vaagri Boli language&quot;)"
                         >vaa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vagala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vagala language&quot;)"
                         >vag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vai language&quot;)">vai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vaiphei language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vai language&quot;)">vai</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vaiphei language&quot;)"
                         >vap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Valman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Valman language&quot;)"
                         >van</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vandal language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vandal language&quot;)"
                         >xvn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Varhadi-Nagpuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Varhadi-Nagpuri language&quot;)"
                         >vah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vata language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vata language&quot;)"
                         >dic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vaturanga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vaturanga language&quot;)"
                         >gri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vaudois language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vaudois language&quot;)"
                         >frp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vayu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vayu language&quot;)"
                         >vay</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Veddah language (Sinhalese)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Veddah language (Sinhalese)&quot;)"
                         >ved</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vegliote language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vegliote language&quot;)"
                         >dlm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vejoz language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vejoz language&quot;)"
                         >wlv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Venda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Venda language&quot;)"
                         >ven</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Venetic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Venetic language&quot;)"
                         >xve</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Venezuelan Sign Language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Venezuelan Sign Language&quot;)"
                         >vsl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Veps language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Veps language&quot;)"
                         >vep</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vietnamese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vietnamese language&quot;)"
                         >vie</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vige language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vige language&quot;)"
                         >vig</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vili language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vili language&quot;)"
                         >vif</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Votic language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Votic language&quot;)"
                         >vot</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vulum language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vulum language&quot;)"
                         >mug</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Vute language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Vute language&quot;)"
                         >vut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wa language&quot;)">wbm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wa language&quot;)">wbm</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waama language&quot;)"
                         >wwa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waffa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waffa language&quot;)"
                         >waj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wagdi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wagdi language&quot;)"
                         >wbr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wageman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wageman language&quot;)"
                         >waq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wahgi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wahgi language&quot;)"
                         >wgi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waigali language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waigali language&quot;)"
                         >wbk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wailpi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wailpi language&quot;)"
                         >adt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waima&apos;a language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waima&apos;a language&quot;)"
                         >wmh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waiwai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waiwai language&quot;)"
                         >waw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waja language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waja language&quot;)"
                         >wja</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wakawaka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wakawaka language&quot;)"
                         >wkw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wakhi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wakhi language&quot;)"
                         >wbl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Walamo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Walamo language&quot;)"
                         >wal</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Walbiri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Walbiri language&quot;)"
                         >wbp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Walloon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Walloon language&quot;)"
                         >wln</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Walmatjari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Walmatjari language&quot;)"
                         >wmt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Walser language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Walser language&quot;)"
                         >wae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wambon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wambon language&quot;)"
                         >wms</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wampanoag language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wampanoag language&quot;)"
                         >wam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wampar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wampar language&quot;)"
                         >lbq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wancho language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wancho language&quot;)"
                         >nnp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wandala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wandala language&quot;)"
                         >mfi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wandamen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wandamen language&quot;)"
                         >wad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wandarang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wandarang language&quot;)"
                         >wnd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wanetsi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wanetsi language&quot;)"
                         >wne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wangganguru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wangganguru language&quot;)"
                         >wgg</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Wangkumara language (Galali)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Wangkumara language (Galali)&quot;)"
                         >nbx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wan&apos;guri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wan&apos;guri language&quot;)"
                         >dhg</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wantoat language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wantoat language&quot;)"
                         >wnc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wappo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wappo language&quot;)"
                         >wao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;War language&quot;)">aml</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Warao language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;War language&quot;)">aml</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Warao language&quot;)"
                         >wba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Warapu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Warapu language&quot;)"
                         >wra</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waray language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waray language&quot;)"
                         >wrz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wardaman language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wardaman language&quot;)"
                         >wrr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Warembori language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Warembori language&quot;)"
                         >wsa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waris language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waris language&quot;)"
                         >wrs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wariyangga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wariyangga language&quot;)"
                         >wri</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waropen language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waropen language&quot;)"
                         >wrp</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Warrwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Warrwa language&quot;)"
                         >wwr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Warumungu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Warumungu language&quot;)"
                         >wrm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wasco language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wasco language&quot;)"
                         >wac</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Washkuk language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Washkuk language&quot;)"
                         >kmo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Washo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Washo language&quot;)"
                         >was</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wasi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wasi language&quot;)"
                         >ata</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waskia language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waskia language&quot;)"
                         >wsk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Watjari language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Watjari language&quot;)"
                         >wbv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Waunana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Waunana language&quot;)"
                         >noa</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wawenock language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wawenock language&quot;)"
                         >aaq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wayampi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wayampi language&quot;)"
                         >oym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wayana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wayana language&quot;)"
                         >way</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wedau language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wedau language&quot;)"
                         >wed</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Welsh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Welsh language&quot;)"
                         >cym</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Werchikwar language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Werchikwar language&quot;)"
                         >bsk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;West Armenian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;West Armenian language&quot;)"
                         >hye</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;West Makian language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;West Makian language&quot;)"
                         >mqs</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Western Apache language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Western Apache language&quot;)"
                         >apw</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Western Bukidnon Manobo language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Western Bukidnon Manobo language&quot;)"
                         >mbb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Western Dani language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Western Dani language&quot;)"
                         >dnw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Western Meohang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Western Meohang language&quot;)"
                         >raf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Western Subanon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Western Subanon language&quot;)"
                         >suc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Western Yugur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Western Yugur language&quot;)"
                         >ybe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wewewa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wewewa language&quot;)"
                         >wew</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;White Hmong language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;White Hmong language&quot;)"
                         >mww</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;White Mountain Apache language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;White Mountain Apache language&quot;)"
                         >apw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;White Tai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;White Tai language&quot;)"
                         >twh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wichita language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wichita language&quot;)"
                         >wic</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wik-Munkan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wik-Munkan language&quot;)"
                         >wim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Winnebago language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Winnebago language&quot;)"
                         >win</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wintu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wintu language&quot;)"
                         >wit</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wiradjuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wiradjuri language&quot;)"
                         >wrh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wirangu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wirangu language&quot;)"
                         >wiw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wiru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wiru language&quot;)"
                         >wiu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wiyot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wiyot language&quot;)"
                         >wiy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wobe language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wobe language&quot;)"
                         >wob</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Woccon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Woccon language&quot;)"
                         >xwc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Woisika language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Woisika language&quot;)"
                         >woi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wojokeso language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wojokeso language&quot;)"
                         >apz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Woleai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Woleai language&quot;)"
                         >woe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wolio language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wolio language&quot;)"
                         >wlo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wolof language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wolof language&quot;)"
                         >wol</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wongaibon language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wongaibon language&quot;)"
                         >wyb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Worora language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Worora language&quot;)"
                         >unp</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Wotapuri-Katarqalai language&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Wotapuri-Katarqalai language&quot;)"
                         >wsv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wotu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wotu language&quot;)"
                         >wtw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wule language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wule language&quot;)"
                         >dgi</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wuvulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wuvulu language&quot;)"
                         >wuv</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Wyandot language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Wyandot language&quot;)"
                         >wya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Xaragure language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Xaragure language&quot;)"
                         >axx</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Xavante language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Xavante language&quot;)"
                         >xav</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Xhosa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Xhosa language&quot;)"
                         >xho</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Xinca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Xinca language&quot;)"
                         >xin</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Ya language&quot;)">cuu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaayuwee language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Ya language&quot;)">cuu</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaayuwee language&quot;)"
                         >gya</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yabim language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yabim language&quot;)"
                         >jae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yabiyufa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yabiyufa language&quot;)"
                         >yby</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yagaria language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yagaria language&quot;)"
                         >ygr</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaghnobi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaghnobi language&quot;)"
                         >yai</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaghwatadaxa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaghwatadaxa language&quot;)"
                         >gdf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yagua language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yagua language&quot;)"
                         >yad</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yahgan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yahgan language&quot;)"
                         >yag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yahi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yahi language&quot;)"
                         >ynn</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Yaka language (Congo and Angola)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Yaka language (Congo and Angola)&quot;)"
                         >yaf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yakama language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yakama language&quot;)"
                         >yak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yakan language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yakan language&quot;)"
                         >yka</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yakö language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yakö language&quot;)"
                         >yaz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yakoma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yakoma language&quot;)"
                         >yky</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yakut language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yakut language&quot;)"
                         >sah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yala language&quot;)"
                         >yba</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yalunka language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yalunka language&quot;)"
                         >yal</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Yamba language (Cameroon and Nigeria)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Yamba language (Cameroon and Nigeria)&quot;)"
                         >yam</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yambeta language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yambeta language&quot;)"
                         >yat</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yamdena language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yamdena language&quot;)"
                         >jmd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yami language&quot;)"
                         >tao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yamphu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yamphu language&quot;)"
                         >ybi</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Yana language (Burkina Faso and Togo)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Yana language (Burkina Faso and Togo)&quot;)"
                         >mos</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yana language&quot;)"
                         >ynn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yangoru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yangoru language&quot;)"
                         >bzf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yankton language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yankton language&quot;)"
                         >dak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yanomamo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yanomamo language&quot;)"
                         >guu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yanyuwa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yanyuwa language&quot;)"
                         >jao</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yanzi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yanzi language&quot;)"
                         >yns</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yao language (Africa)&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yao language (Africa)&quot;)"
                         >yao</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Yao language (Southeastern Asia)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Yao language (Southeastern Asia)&quot;)"
                         >ium</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaouré language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaouré language&quot;)"
                         >yre</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yapese language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yapese language&quot;)"
                         >yap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaqay language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaqay language&quot;)"
                         >jaq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaqui language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaqui language&quot;)"
                         >yaq</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yareba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yareba language&quot;)"
                         >yrb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yaruro language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yaruro language&quot;)"
                         >yae</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yau language&quot;)">yyu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yavapai language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yau language&quot;)">yyu</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yavapai language&quot;)"
                         >yuf</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yawa language&quot;)"
                         >yva</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yay language&quot;)">pcc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yazghulami language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yay language&quot;)">pcc</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yazghulami language&quot;)"
                         >yah</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yecuana language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yecuana language&quot;)"
                         >mch</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yele language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yele language&quot;)"
                         >yle</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yellow Uighur language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yellow Uighur language&quot;)"
                         >ybe</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yemba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yemba language&quot;)"
                         >ybb</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yemsa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yemsa language&quot;)"
                         >jnj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yerava language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yerava language&quot;)"
                         >yea</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yerukala language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yerukala language&quot;)"
                         >yeu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yessan-Mayo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yessan-Mayo language&quot;)"
                         >yss</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yeyi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yeyi language&quot;)"
                         >yey</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yiddish language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yiddish language&quot;)"
                         >yid</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yidiny language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yidiny language&quot;)"
                         >yii</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yimas language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yimas language&quot;)"
                         >yee</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yimchungru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yimchungru language&quot;)"
                         >yim</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yinggarda language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yinggarda language&quot;)"
                         >yia</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yir-Yoront language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yir-Yoront language&quot;)"
                         >yiy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yogad language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yogad language&quot;)"
                         >yog</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yogli language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yogli language&quot;)"
                         >nst</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yokuts language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yokuts language&quot;)"
                         >yok</xsl:when>
                     <xsl:when
-                        test="contains($lcsh,&quot;Yombe language (Congo and Angola)&quot;)"
+                        test="lower-case($lcsh) = lower-case(&quot;Yombe language (Congo and Angola)&quot;)"
                         >yom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yongkom language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yongkom language&quot;)"
                         >yon</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yopno language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yopno language&quot;)"
                         >yut</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yoruba language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yoruba language&quot;)"
                         >yor</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuchi language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuchi language&quot;)"
                         >yuc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yucuna language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yucuna language&quot;)"
                         >ycn</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yugh language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yugh language&quot;)"
                         >yuu</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yugumbir language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yugumbir language&quot;)"
                         >bdy</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yui language&quot;)">sll</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuit language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yui language&quot;)">sll</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuit language&quot;)"
                         >ess</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuki language&quot;)"
                         >yuk</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yulu language&quot;)"
                         >yul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yunca language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yunca language&quot;)"
                         >omc</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yupa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yupa language&quot;)"
                         >yup</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuracare language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuracare language&quot;)"
                         >yuz</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuri language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuri language&quot;)"
                         >yuj</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yurok language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yurok language&quot;)"
                         >yur</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Yuruti language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Yuruti language&quot;)"
                         >yui</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zaghawa language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zaghawa language&quot;)"
                         >zag</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zanaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zanaki language&quot;)"
                         >zak</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zande language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zande language&quot;)"
                         >zne</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zang Zung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zang Zung language&quot;)"
                         >xzh</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zaparo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zaparo language&quot;)"
                         >zro</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zapotec language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zapotec language&quot;)"
                         >zap</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zarma language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zarma language&quot;)"
                         >dje</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zaza language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zaza language&quot;)"
                         >zza</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zebaki language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zebaki language&quot;)"
                         >sgl</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zeme language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zeme language&quot;)"
                         >nzm</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zenaga language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zenaga language&quot;)"
                         >zen</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zezuru language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zezuru language&quot;)"
                         >sna</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zhuang language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zhuang language&quot;)"
                         >zha</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zigula language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zigula language&quot;)"
                         >ziw</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zoró language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zoró language&quot;)"
                         >gvo</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zotung language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zotung language&quot;)"
                         >czt</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zou language&quot;)">zom</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zulgo language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zou language&quot;)">zom</xsl:when>
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zulgo language&quot;)"
                         >gnd</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zulu language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zulu language&quot;)"
                         >zul</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zuni language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zuni language&quot;)"
                         >zun</xsl:when>
-                    <xsl:when test="contains($lcsh,&quot;Zway language&quot;)"
+                    <xsl:when test="lower-case($lcsh) = lower-case(&quot;Zway language&quot;)"
                         >zwa</xsl:when>
                     <xsl:otherwise>failed</xsl:otherwise>
                 </xsl:choose>
