@@ -292,7 +292,7 @@ local cataloging practices.
                     <dc:language>
                         <xsl:call-template name="show-source"/>
                         <xsl:attribute name="xsi:type" select="$xsitype"/>
-                        <xsl:value-of select="substring($str,1,3)"/>
+                        <xsl:attribute name="olac:code" select="substring($str,1,3)"/>
                     </dc:language>
                     <xsl:call-template name="process-041">
                         <xsl:with-param name="xsitype" select="$xsitype"/>
@@ -391,12 +391,12 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='082']">
         <dc:subject xsi:type="dcterms:DDC">
-                    <xsl:call-template name="show-source">
-                        <xsl:with-param name="subfield">ab</xsl:with-param>
-                    </xsl:call-template>
-                    <xsl:call-template name="subfieldSelect">
-                        <xsl:with-param name="codes">ab</xsl:with-param>
-                    </xsl:call-template>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">ab</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">ab</xsl:with-param>
+            </xsl:call-template>
         </dc:subject>
     </xsl:template>
 
@@ -822,14 +822,16 @@ local cataloging practices.
             <xsl:text>Also available as: </xsl:text>
             <xsl:value-of select="."/>
         </dcterms:hasFormat>
-        <dcterms:hasFormat xsi:type="dcterms:URI">
-            <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">u</xsl:with-param>
-            </xsl:call-template>
-            <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">u</xsl:with-param>
-            </xsl:call-template>
-        </dcterms:hasFormat>
+        <xsl:if test="marc:subfield[@code='u']">
+            <dcterms:hasFormat xsi:type="dcterms:URI">
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">u</xsl:with-param>
+                </xsl:call-template>
+                <xsl:call-template name="subfieldSelect">
+                    <xsl:with-param name="codes">u</xsl:with-param>
+                </xsl:call-template>
+            </dcterms:hasFormat>
+        </xsl:if>
     </xsl:template>
 
 
@@ -953,7 +955,7 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='610']">
-        <xsl:if test="not(contains( . , 'Thesis'))" >
+        <xsl:if test="not(contains( . , 'Thesis'))">
             <xsl:choose>
                 <xsl:when test="@ind2='0'">
                     <dc:subject xsi:type="dcterms:LCSH">
@@ -1032,11 +1034,10 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='650']">
         <xsl:call-template name="process-linguistic-type"/>
         <xsl:call-template name="process-linguistic-subject"/>
-        
+
         <xsl:choose>
             <xsl:when test="@ind2='0'">
-                <xsl:variable name="sub-a"
-                    select="lower-case(marc:subfield[@code='a'])"/>
+                <xsl:variable name="sub-a" select="lower-case(marc:subfield[@code='a'])"/>
                 <xsl:variable name="code">
                     <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
                         <xsl:choose>
@@ -1046,7 +1047,7 @@ local cataloging practices.
                             <xsl:when test="starts-with($sub-a, 'natural language')"/>
                             <xsl:when test="starts-with($sub-a, 'sign language')"/>
                             <xsl:when test="contains($sub-a, 'languages')"/>
-                            <!-- Map to a code, returning either three letters or "failed" -->                            
+                            <!-- Map to a code, returning either three letters or "failed" -->
                             <xsl:otherwise>
                                 <xsl:call-template name="map-to-iso639">
                                     <xsl:with-param name="lcsh" select="$sub-a"/>
