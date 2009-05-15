@@ -10,9 +10,8 @@ local cataloging practices.
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:import href="utils.xsl"/>
-    <xsl:import href="vocab.xsl"/>
-    <xsl:import href="iso639.xsl"/>
+    <xsl:include href="vocab.xsl"/>
+    <xsl:include href="iso639.xsl"/>
     <xsl:output indent="yes" method="xml"/>
 
     <xsl:template match="/marc:collection">
@@ -1057,7 +1056,7 @@ local cataloging practices.
                     </xsl:if>
                 </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:if test="$code = 'failed' ">
+                    <xsl:if test="$no_code and $code = 'failed' ">
                         <xsl:attribute name="no_code">1</xsl:attribute>
                     </xsl:if>
                     <xsl:call-template name="show-source"/>

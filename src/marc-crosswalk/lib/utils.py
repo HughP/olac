@@ -1,6 +1,7 @@
 import os
 import re
 import codecs
+import sys
 
 # slurp a file into a string
 def file2string(fileName):
@@ -73,20 +74,34 @@ def applyStylesheets(inputfilename,config):
     sep = config.get('system','sep')
     xml_output = config.get('system','tmppath') + sep + 'xml_output.tmp'
 
-    stylesheetlist = [libpath + sep + item for item in config.get('system','xsl_stylesheet_list').split(',')]
+    #collection2repository params
+    c2r_params = ''
+    if config.get('system','no_code') == 'yes':
+        c2r_params = c2r_params + 'no_code=yes '
+    if config.get('system','marc_tags') == 'yes':
+        c2r_params = c2r_params + 'marc_tags=yes '
 
-    filterlist = [config.get('system','filter_accept'),
-            config.get('system','filter_reject')]
+    # a list of tuple(stylesheet,params)
+    stylesheetlist = [(libpath + sep + s,p) for s,p in \
+           [('collection2repository',c2r_params),('cleanup','')
+               ,('remove_duplicates','')]]
+
+    filterlist = [(config.get('system','filter_accept'),''),
+            (config.get('system','filter_reject'),'')]
 
     # apply xsl stylesheets using Saxon on the command line
-    for xsl_file in filterlist + stylesheetlist:
-        transform(config,xsl_file,inputfilename,xml_output)
-        try:
-            import shutil
+    for (xsl_file,params) in filterlist + stylesheetlist:
+        sys.stdout.write('.')
+        transform(config,xsl_file,inputfilename,xml_output,params)
+        import shutil
+        if os.path.exists(xml_output):
             shutil.move(xml_output,inputfilename)
-        except WindowsError:
-            print "No output resulted from the transformation.  There is probably an error in your XML data or the stylesheet"
+        else:
+            print "Error transforming XML %s with stylesheet %s" \
+                    % (os.path.basename(inputfilename), \
+                    os.path.basename(xsl_file))
             break
+    sys.stdout.write('\n')
 
 # need to implement this
 def checkValidSystem(config):
