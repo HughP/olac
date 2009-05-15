@@ -62,7 +62,7 @@
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1975</dc:date>
                <dc:identifier from="020">ISBN: 0878400400</dc:identifier>
                <dc:subject xsi:type="dcterms:LCC" from="050">PC4021.C55 1974</dc:subject>
-               <dc:subject xsi:type="dcterms:DDC" from="082">460</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">460</dc:subject>
                <dc:title from="245abnp">1974 Colloquium on Spanish and Portuguese Linguistics : [selected papers]</dc:title>
                <dc:publisher from="260ab">Washington : Georgetown University Press</dc:publisher>
                <dcterms:extent from="300a">v, 148 p</dcterms:extent>
@@ -86,7 +86,7 @@
                <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1970</dc:date>
                <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645.H25</dc:subject>
-               <dc:subject xsi:type="dcterms:DDC" from="082">492.45</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">492.45</dc:subject>
                <dc:title from="245abnp">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged</dc:title>
                <dc:publisher from="260ab">Woodbury, N.Y. : Barron's Educational Series</dc:publisher>
                <dcterms:extent from="300a">xiii, 425 p</dcterms:extent>

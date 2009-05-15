@@ -27,16 +27,23 @@ sep = os.sep
 # define command-line options and parse them
 usage = "usage: %prog [options] [projectname]\n'projectname' is the directory name of all of your project files, including the config file 'setup.cfg'."
 clparser = OptionParser(usage)
+clparser.add_option("-m", "--marc-tags", action="store_true",
+        dest="marc_tags", default=False,
+        help="include source Marc tag as an attribute in the output")
+clparser.add_option("-n", "--no-code", action="store_true",
+        dest="no_code", default=False,
+        help="include no_code attribute for LCSH strings that failed to parse to an OLAC code")
+clparser.add_option("-g", "--html", action="store_true",
+        dest="do_html_output", default=False,
+        help="generate a human-readable HTML version of the OLAC repository")
 (options, args) = clparser.parse_args()
-
-# update config dict with options from command line
-# TODO Implement this
 
 projectname = 'default_project'
 if len(args) == 1:
     projectname = args[0]
 elif len(args) > 1:
     clparser.error("more than 1 argument specified")
+print "Processing %s" % projectname
 
 # figure out base path (i.e. are we in the lib directory or not?)
 basepath = os.getcwd()
@@ -61,6 +68,18 @@ config.set('system','projpath',projpath)
 config.set('system','tmppath',tmppath)
 config.set('system','projectname',projectname)
 config.set('system','libpath',libpath)
+
+# update config dict with options from command line
+# TODO Implement the rest of this
+if options.no_code:
+    config.set('system','no_code','yes')
+else:
+    config.set('system','no_code','no')
+if options.marc_tags:
+    config.set('system','marc_tags','yes')
+else:
+    config.set('system','marc_tags','no')
+
 
 # check to make sure required files exist
 # TODO Implement this
@@ -99,7 +118,12 @@ else: # this is a directory
         os.rename(marcxml_filename + '_backup',marcxml_filename)
     # make backup of directory
     shutil.copytree(marcxml_filename,marcxml_filename + '_backup')
-    splitfiles = [sep.join([marcxml_filename,p]) for p in os.listdir(marcxml_filename)]
+    # only use xml files
+    directory = []
+    for f in os.listdir(marcxml_filename):
+        base,ext = os.path.splitext(f)
+        if ext == '.xml': directory.append(f)
+    splitfiles = [sep.join([marcxml_filename,p]) for p in directory]
 
 olac_footer = ''
 olac_xml_f = open(olacxml_filename,'w')
@@ -107,7 +131,7 @@ olac_xml_f = open(olacxml_filename,'w')
 # loop over each XML chunk and apply stylesheet chain
 ctr = 1
 for f in splitfiles:
-    print "transforming batch %d of %d" % (ctr,len(splitfiles))
+    print "Transforming batch %d of %d" % (ctr,len(splitfiles))
     utils.applyStylesheets(f,config)
     header,olac_recs,footer = utils.parseOLACRepository(f)
     if ctr == 1:
@@ -127,5 +151,11 @@ else:
     # remove processing directory, restore original files from backup
     shutil.rmtree(marcxml_filename)
     os.rename(marcxml_filename + '_backup',marcxml_filename)
+
+# generate an HTML file, if appropriate
+if options.do_html_output:
+    print "Generating HTML output to %s" % config.get('system','html_output')
+    utils.transform(config,libpath + sep + 'repository2html',olacxml_filename,
+            projpath + sep + config.get('system','html_output'))
 
 print "Done.  OLAC Repository %s generated in %s." % (config.get('system','output'),projectname) 

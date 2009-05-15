@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py default_project
+python lib\marc2olac.py --html --no-code --marc-tags default_project
 pause

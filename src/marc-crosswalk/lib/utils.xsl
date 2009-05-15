@@ -74,11 +74,11 @@
 
     <!-- show source adds a from= attribute to affected nodes, indicating the MARC tag
         from which the node was created -->
-    <xsl:param name="show-source">yes</xsl:param>
+    <xsl:param name="marc_tags">yes</xsl:param>
     <xsl:template name="show-source">
         <xsl:param name="subfield"/>
         <!-- Optional parameter -->
-        <xsl:if test="$show-source='yes'">
+        <xsl:if test="$marc_tags='yes'">
             <xsl:attribute name="from">
                 <xsl:choose>
                     <xsl:when test="self::marc:leader">leader</xsl:when>
