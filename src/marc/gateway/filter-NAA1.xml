@@ -4,7 +4,7 @@
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:title>NAA test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
-      <dc:date>2009-04-24</dc:date>
+      <dc:date>2009-05-14</dc:date>
       <dc:description>This filter for NAA record set mostly to remove unwanted image records,
          but does use the select stage to explicitly select desired records.</dc:description>
    </header>
@@ -66,6 +66,8 @@
             <text>photograph</text>
             <text>Engraving</text>
             <text>engraving</text>
+            <text>Painting</text>
+            <text>painting</text>
          </data-field>
       </test>
       <test>
