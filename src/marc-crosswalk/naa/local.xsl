@@ -299,4 +299,35 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template match="marc:datafield[@tag='695']">
+        <xsl:variable name="code">
+            <xsl:if test="marc:subfield[@code='a']">
+                <xsl:call-template name="map-to-iso639">
+                    <xsl:with-param name="lcsh"
+                        select="concat( marc:subfield[@code='a'] , ' language')"/>
+                </xsl:call-template>
+            </xsl:if>
+        </xsl:variable>
+        <dc:subject>
+            <xsl:if test="$no_code = 'yes' and $code and $code = 'failed' ">
+                <xsl:attribute name="no_code">1</xsl:attribute>
+            </xsl:if>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">abcexz</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcexz</xsl:with-param>
+                <xsl:with-param name="delimiter">--</xsl:with-param>
+            </xsl:call-template>
+        </dc:subject>
+        <xsl:if test="$code and $code != '' and $code != 'failed' ">
+            <dc:subject xsi:type="olac:language">
+                <xsl:attribute name="olac:code" select="$code"/>
+                <xsl:call-template name="show-source">
+                    <xsl:with-param name="subfield">a</xsl:with-param>
+                </xsl:call-template>
+            </dc:subject>
+        </xsl:if>
+    </xsl:template>
+
 </xsl:stylesheet>

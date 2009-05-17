@@ -14,18 +14,6 @@ local cataloging practices.
     <xsl:include href="iso639.xsl"/>
     <xsl:output indent="yes" method="xml"/>
 
-    <xsl:template match="/marc:collection">
-        <olac:olacCollection>
-            <!-- We haven't yet defined such an
-            element in olac.xsd -->
-            <xsl:apply-templates mode="olac" select="marc:record"/>
-        </olac:olacCollection>
-    </xsl:template>
-    <xsl:template match="/marc:record">
-        <xsl:apply-templates mode="olac" select="."/>
-    </xsl:template>
-
-
     <xsl:template match="marc:record" mode="olac">
         <olac:olac
             xsi:schemaLocation=" http://purl.org/dc/elements/1.1/    http://www.language-archives.org/OLAC/1.1/dc.xsd    http://purl.org/dc/terms/    http://www.language-archives.org/OLAC/1.1/dcterms.xsd    http://www.language-archives.org/OLAC/1.1/    http://www.language-archives.org/OLAC/1.1/olac.xsd    http://www.compuling.net/projects/olac/    http://www.language-archives.org/OLAC/1.1/third-party/software.xsd ">
@@ -645,10 +633,13 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag=300]">
         <dcterms:extent>
+            <!-- cjh: we originally were just selecting $a.  Selecting all fields is currently experimental -->
             <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">a</xsl:with-param>
+                <xsl:with-param name="subfield">abcefg</xsl:with-param>
             </xsl:call-template>
-            <xsl:value-of select="marc:subfield[@code='a']"/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcefg</xsl:with-param>
+            </xsl:call-template>
         </dcterms:extent>
     </xsl:template>
 
@@ -657,17 +648,19 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag=340]">
         <dcterms:medium>
+            <!-- cjh: we originally were just selecting $a.  Selecting all fields is currently experimental -->
             <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">a</xsl:with-param>
+                <xsl:with-param name="subfield">abcdefhi</xsl:with-param>
             </xsl:call-template>
-            <xsl:value-of select="marc:subfield[@code='a']"/>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdefhi</xsl:with-param>
+            </xsl:call-template>
         </dcterms:medium>
     </xsl:template>
 
 
     <xsl:template match="marc:datafield[@tag='440']">
         <dcterms:isPartOf>
-            <xsl:call-template name="show-source"/>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">anpvx</xsl:with-param>
             </xsl:call-template>

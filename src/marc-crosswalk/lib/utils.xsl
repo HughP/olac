@@ -74,7 +74,7 @@
 
     <!-- show source adds a from= attribute to affected nodes, indicating the MARC tag
         from which the node was created -->
-    <xsl:param name="marc_tags">yes</xsl:param>
+    <xsl:param name="marc_tags"></xsl:param>
     <xsl:template name="show-source">
         <xsl:param name="subfield"/>
         <!-- Optional parameter -->
