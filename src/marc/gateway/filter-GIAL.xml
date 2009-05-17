@@ -147,6 +147,26 @@
             <text>French language</text>
          </data-field>
          <data-field test="starts-with" tag="650" code="x">
+            <text>Orthography</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Phonemics</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>English language</text>
+            <text>Spanish language</text>
+            <text>French language</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
             <text>Phonetics</text>
          </data-field>
       </test>
@@ -286,9 +306,17 @@
             <text>English language</text>
             <text>Spanish language</text>
          </data-field>
-         <data-field test="starts-with" tag="650" code="z">
+         <data-field test="starts-with" tag="650" code="xz">
             <text>United States</text>
             <text>U.S.</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Children</text>
+         </data-field>
+         <data-field test="starts-with" tag="650" code="x">
+            <text>Language</text>
          </data-field>
       </test>
       <test>
