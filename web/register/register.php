@@ -1094,7 +1094,7 @@ if ($_POST["action"] == "VALIDATE" && $POSTEDURL) {
     $POSTEDURL = "http://$POSTEDURL";
   }
   $URLTOFILE = 'tmp/'.myurlencode($POSTEDURL);
-  exec("rm -f $URLTOFILE*");
+  exec("rm -f \"$URLTOFILE\"*");
 
   if (validate()) {
     switch (check_repository_status()) {
