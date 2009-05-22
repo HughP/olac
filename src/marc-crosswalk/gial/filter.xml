@@ -4,8 +4,13 @@
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:title>GIAL test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
-      <dc:date>2009-04-26</dc:date>
-      <dc:description>This filter for GIAL record set.</dc:description>
+      <dc:date>2009-05-22</dc:date>
+      <dc:description>This filter for GIAL record set. This filter streamlines the rejection steps and 
+      expands them to address major European languages wherein dialects are not as highly divergent
+      (as, for example, with other major languages like Chinese and Arabic).
+      
+      5/22 has a pretty major rewrite of the reject section to try to deal with this issue. Still
+      have not done to well on the general works not associated with any specific language</dc:description>
    </header>
    <select-stage>
       <!--
@@ -32,6 +37,8 @@
             <text>gramma</text>
             <text>Phonolog</text>
             <text>phonolog</text>
+            <text>Texts</text>
+            <text>texts</text>
          </data-field>
       </test>
       <test>
@@ -61,223 +68,39 @@
          </data-field>
       </test>
       <test>
-         <data-field test="starts-with" tag="650" code="a">
+         <data-field test="equals" tag="650" code="a">
             <text>English language</text>
             <text>Spanish language</text>
             <text>French language</text>
+            <text>Portuguese language</text>
+            <text>German language</text>
+            <text>Italian language</text>
+            <text>Dutch language</text>
          </data-field>
          <data-field test="starts-with" tag="650" code="x">
             <text>Ability testing</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Acquisition</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Business</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Composition</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Data processing</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Discourse analysis</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Grammar</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Intonation</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Phonetics</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
+            <text>Phonology</text>
             <text>Political</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Popular</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Pronunciation</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
+            <text>Readers</text>
             <text>Rhetoric</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Semantics</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
-            <text>Social aspects</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
-            <text>Study and teaching</text>
-            <text>Study &amp; teaching</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
+            <text>Study</text>
             <text>Style</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
+            <text>Syntax</text>
             <text>Technical</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Terms and phrases</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="x">
             <text>Usage</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="v">
             <text>Textbooks</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="starts-with" tag="650" code="a">
-            <text>English language</text>
-            <text>Spanish language</text>
-            <text>French language</text>
-         </data-field>
-         <data-field test="starts-with" tag="650" code="v">
             <text>Handbooks</text>
          </data-field>
       </test>
@@ -287,6 +110,7 @@
             <text>Spanish language</text>
          </data-field>
          <data-field test="starts-with" tag="650" code="z">
+            <text>Social aspects</text>
             <text>United States</text>
             <text>U.S.</text>
          </data-field>
