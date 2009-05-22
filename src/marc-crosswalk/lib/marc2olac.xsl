@@ -392,9 +392,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='100']">
         <xsl:variable name="relcode">
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
+            <xsl:if test="count(marc:subfield[@code='e']) = 1">
+                <xsl:call-template name="process-role">
+                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$relcode != ''">
@@ -428,9 +430,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='110']">
         <xsl:variable name="relcode">
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
+            <xsl:if test="count(marc:subfield[@code='e']) = 1">
+                <xsl:call-template name="process-role">
+                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:variable>
         <dc:contributor>
             <xsl:if test="$relcode != ''">
@@ -540,12 +544,28 @@ local cataloging practices.
     <xsl:template match="marc:datafield[@tag='245']">
         <dc:title>
             <xsl:call-template name="show-source">
-                <xsl:with-param name="subfield">abnp</xsl:with-param>
+                <xsl:with-param name="subfield">abknps</xsl:with-param>
             </xsl:call-template>
             <xsl:call-template name="subfieldSelect">
-                <xsl:with-param name="codes">abnp</xsl:with-param>
+                <xsl:with-param name="codes">abknps</xsl:with-param>
             </xsl:call-template>
         </dc:title>
+        <dcterms:created>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">fg</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">fg</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:created>
+        <dcterms:medium>
+            <xsl:call-template name="show-source">
+                <xsl:with-param name="subfield">h</xsl:with-param>
+            </xsl:call-template>
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">h</xsl:with-param>
+            </xsl:call-template>
+        </dcterms:medium>
     </xsl:template>
 
 
@@ -1259,9 +1279,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='700']">
         <xsl:variable name="relcode">
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
+            <xsl:if test="count(marc:subfield[@code='e']) = 1">
+                <xsl:call-template name="process-role">
+                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:variable>
         <dc:contributor>
             <xsl:if test="$relcode != ''">
@@ -1282,9 +1304,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='710']">
         <xsl:variable name="relcode">
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
+            <xsl:if test="count(marc:subfield[@code='e']) = 1">
+                <xsl:call-template name="process-role">
+                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:variable>
         <dc:contributor>
             <xsl:if test="$relcode != ''">
@@ -1316,9 +1340,11 @@ local cataloging practices.
 
     <xsl:template match="marc:datafield[@tag='720']">
         <xsl:variable name="relcode">
-            <xsl:call-template name="process-role">
-                <xsl:with-param name="subfield">e</xsl:with-param>
-            </xsl:call-template>
+            <xsl:if test="count(marc:subfield[@code='e']) = 1">
+                <xsl:call-template name="process-role">
+                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:variable>
         <dc:contributor>
             <xsl:if test="$relcode != ''">

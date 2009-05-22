@@ -5,8 +5,8 @@
       <dc:title>NAA test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-04-24</dc:date>
-      <dc:description>This filter for NAA record set mostly to remove unwanted image records,
-         but does use the select stage to explicitly select desired records.</dc:description>
+      <dc:description>This filter for NAA record set mostly to remove unwanted image records, but
+         does use the select stage to explicitly select desired records.</dc:description>
    </header>
    <select-stage>
       <!--
@@ -58,7 +58,7 @@
          </data-field>
       </test>
    </select-stage>
-   
+
    <reject-stage>
       <test>
          <data-field test="contains" tag="245" code="">
@@ -86,8 +86,62 @@
       </test>
       <test>
          <control-field tag="001" test="equals">
+            <text>9</text>
+            <text>10</text>
+            <text>11</text>
+            <text>17</text>
             <text>21</text>
+            <text>22</text>
+            <text>36</text>
             <text>37</text>
+            <text>45</text>
+            <text>46</text>
+            <text>65</text>
+            <text>75</text>
+            <text>135</text>
+            <text>151</text>
+            <text>345</text>
+            <text>494</text>
+            <text>495</text>
+            <text>517</text>
+            <text>520</text>
+            <text>549</text>
+            <text>560</text>
+            <text>565</text>
+            <text>567</text>
+            <text>572</text>
+            <text>575</text>
+            <text>713</text>
+            <text>888</text>
+            <text>889</text>
+            <text>898</text>
+            <text>922</text>
+            <text>923</text>
+            <text>924</text>
+            <text>925</text>
+            <text>926</text>
+            <text>927</text>
+            <text>928</text>
+            <text>929</text>
+            <text>930</text>
+            <text>931</text>
+            <text>932</text>
+            <text>933</text>
+            <text>934</text>
+            <text>935</text>
+            <text>936</text>
+            <text>1104</text>
+            <text>1128</text>
+            <text>1220</text>
+            <text>1231</text>
+            <text>1235</text>
+            <text>1240</text>
+            <text>1248</text>
+            <text>1441</text>
+            <text>1442</text>
+            <text>1458</text>
+            <text>1460</text>
+            <text>281449</text>
          </control-field>
       </test>
    </reject-stage>
