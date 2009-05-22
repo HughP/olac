@@ -18,11 +18,11 @@
    
    <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
-   <xsl:variable name="metadata-version-date">2008-08-26</xsl:variable>
+   <xsl:variable name="metadata-version-date">2009-03-27</xsl:variable>
    
    <!-- Fill in today's date (as the date as of which the archive
       description and participant list is current) -->
-   <xsl:variable name="current-as-of-date">2008-08-27</xsl:variable>
+   <xsl:variable name="current-as-of-date">2009-05-20</xsl:variable>
    
    <!-- Fill in the web domain name that uniquely identifies your
       archive -->
