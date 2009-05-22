@@ -308,9 +308,21 @@
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>
+        <xsl:variable name="code2">
+            <xsl:if test="$code and $code = 'failed'">
+            <xsl:call-template name="map695">
+                <xsl:with-param name="string695">
+                    <xsl:call-template name="subfieldSelect">
+                        <xsl:with-param name="codes">abcexz</xsl:with-param>
+                        <xsl:with-param name="delimiter">--</xsl:with-param>
+                    </xsl:call-template>
+                </xsl:with-param>
+            </xsl:call-template>
+            </xsl:if>
+        </xsl:variable>
         <dc:subject>
-            <xsl:if test="$no_code = 'yes' and $code and $code = 'failed' ">
-                <xsl:attribute name="no_code">1</xsl:attribute>
+            <xsl:if test="$no_code = 'yes' and $code and $code = 'failed' and $code2 and $code2 = 'failed'">
+                    <xsl:attribute name="no_code">1</xsl:attribute>
             </xsl:if>
             <xsl:call-template name="show-source">
                 <xsl:with-param name="subfield">abcexz</xsl:with-param>
@@ -320,14 +332,283 @@
                 <xsl:with-param name="delimiter">--</xsl:with-param>
             </xsl:call-template>
         </dc:subject>
-        <xsl:if test="$code and $code != '' and $code != 'failed' ">
+        <xsl:variable name="displaycode">
+            <xsl:choose>
+                <xsl:when test="$code and $code != 'failed'">
+                    <xsl:value-of select="$code" />
+                </xsl:when>
+                <xsl:when test="$code2 and $code2 != 'failed'">
+                    <xsl:value-of select="$code" />
+                </xsl:when>
+                <xsl:otherwise>failed</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:if test="$displaycode and $displaycode != '' and $displaycode != 'failed' ">
             <dc:subject xsi:type="olac:language">
-                <xsl:attribute name="olac:code" select="$code"/>
+                <xsl:attribute name="olac:code" select="$displaycode"/>
                 <xsl:call-template name="show-source">
                     <xsl:with-param name="subfield">a</xsl:with-param>
                 </xsl:call-template>
             </dc:subject>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="map695">
+        <xsl:param name="string695"/>
+        <xsl:choose>
+            <xsl:when test="$string695 = 'Acadians'">fra</xsl:when>
+            <xsl:when test="$string695 = 'Ahtna'">aht</xsl:when>
+            <xsl:when test="$string695 = 'Ahtna[?]'">aht</xsl:when>
+            <xsl:when test="$string695 = &quot;Akwa'ala&quot;">ppi</xsl:when>
+            <xsl:when test="$string695 = 'Alabama Indians'">akz</xsl:when>
+            <xsl:when test="$string695 = 'Algonkin'">alg</xsl:when>
+            <xsl:when test="$string695 = 'Algonquian'">alg</xsl:when>
+            <xsl:when test="$string695 = 'Alibamu'">akz</xsl:when>
+            <xsl:when test="$string695 = 'Apache'">apa</xsl:when>
+            <xsl:when test="$string695 = 'Assiniboin'">asb</xsl:when>
+            <xsl:when test="$string695 = 'Athapascan Indians'">ath</xsl:when>
+            <xsl:when test="$string695 = 'Athapaskan'">ath</xsl:when>
+            <xsl:when test="$string695 = 'Bannock'">pao</xsl:when>
+            <xsl:when test="$string695 = 'Basques'">eus</xsl:when>
+            <xsl:when test="$string695 = 'Beaver'">bea</xsl:when>
+            <xsl:when test="$string695 = 'Bellacoola'">blc</xsl:when>
+            <xsl:when test="$string695 = 'Bhutanese'">dzo</xsl:when>
+            <xsl:when test="$string695 = 'Blackfeet'">bla</xsl:when>
+            <xsl:when test="$string695 = 'Blackfoot'">bla</xsl:when>
+            <xsl:when test="$string695 = 'Caddoan'">cad</xsl:when>
+            <xsl:when test="$string695 = 'Caddoan Indians'">cad</xsl:when>
+            <xsl:when test="$string695 = 'Cahuilla?'">chl</xsl:when>
+            <xsl:when test="$string695 = 'Canela'">ram</xsl:when>
+            <xsl:when test="$string695 = 'Cayuse'">xcy</xsl:when>
+            <xsl:when test="$string695 = 'Chemakum'">cmk</xsl:when>
+            <xsl:when test="$string695 = 'Chepewyan'">chp</xsl:when>
+            <xsl:when test="$string695 = 'Cherokee Indians'">chr</xsl:when>
+            <xsl:when test="$string695 = 'Chetco'">ctc</xsl:when>
+            <xsl:when test="$string695 = 'Chickasaw Indians'">cic</xsl:when>
+            <xsl:when test="$string695 = 'Chiga (African people)'">cgg</xsl:when>
+            <xsl:when test="$string695 = 'Chilcotin'">clc</xsl:when>
+            <xsl:when test="$string695 = 'Chimalapa'">zoh</xsl:when>
+            <xsl:when test="$string695 = 'Chippewa'">ciw</xsl:when>
+            <xsl:when test="$string695 = 'Chitimachan'">ctm</xsl:when>
+            <xsl:when test="$string695 = 'Chiwere'">iow</xsl:when>
+            <xsl:when test="$string695 = 'Choctaw Indians'">cho</xsl:when>
+            <xsl:when test="$string695 = 'Chuckchee'">ckt</xsl:when>
+            <xsl:when test="$string695 = 'Chukchee'">ckt</xsl:when>
+            <xsl:when test="$string695 = 'Cochimi'">coj</xsl:when>
+            <xsl:when test="$string695 = 'Comecrudo'">xcm</xsl:when>
+            <xsl:when test="$string695 = 'Comeya'">dih</xsl:when>
+            <xsl:when test="$string695 = 'Comox'">coo</xsl:when>
+            <xsl:when test="$string695 = 'Cotonam'">xcn</xsl:when>
+            <xsl:when test="$string695 = 'Cotoname'">xcn</xsl:when>
+            <xsl:when test="$string695 = 'Coushatta Indians'">cku</xsl:when>
+            <xsl:when test="$string695 = 'Cowichan'">hur</xsl:when>
+            <xsl:when test="$string695 = 'Cowlitz'">cow</xsl:when>
+            <xsl:when test="$string695 = 'Creek Indians'">mus</xsl:when>
+            <xsl:when test="$string695 = 'Cubeo Indians'">cub</xsl:when>
+            <xsl:when test="$string695 = 'Diegueno'">dih</xsl:when>
+            <xsl:when test="$string695 = 'Diola (African people)'">dyo</xsl:when>
+            <xsl:when test="$string695 = 'Diriku (African people)'">diu</xsl:when>
+            <xsl:when test="$string695 = 'Dodoth (African people)'">kdj</xsl:when>
+            <xsl:when test="$string695 = 'Duau'">dva</xsl:when>
+            <xsl:when test="$string695 = 'Duwamish'">slh</xsl:when>
+            <xsl:when test="$string695 = 'Ebon'">mah</xsl:when>
+            <xsl:when test="$string695 = 'Efe (African people)'">efe</xsl:when>
+            <xsl:when test="$string695 = 'Flathead'">fla</xsl:when>
+            <xsl:when test="$string695 = 'Fox Indians'">sac</xsl:when>
+            <xsl:when test="$string695 = 'Fox language'">sac</xsl:when>
+            <xsl:when test="$string695 = 'Gabrieleno'">xgf</xsl:when>
+            <xsl:when test="$string695 = 'Gabrielino'">xgf</xsl:when>
+            <xsl:when test="$string695 = 'Gabrielino Indians'">xgf</xsl:when>
+            <xsl:when test="$string695 = 'Galabi'">car</xsl:when>
+            <xsl:when test="$string695 = 'Galice Creek'">gce</xsl:when>
+            <xsl:when test="$string695 = 'Gisu (African people)'">myx</xsl:when>
+            <xsl:when test="$string695 = 'Gros Ventre'">ats</xsl:when>
+            <xsl:when test="$string695 = 'Guajiro'">wayuu</xsl:when>
+            <xsl:when test="$string695 = 'Gullah'">gul</xsl:when>
+            <xsl:when test="$string695 = 'Han'">haa</xsl:when>
+            <xsl:when test="$string695 = 'Hindu'">hin</xsl:when>
+            <xsl:when test="$string695 = 'Hindustani'">hin</xsl:when>
+            <xsl:when test="$string695 = 'Hoh'">qui</xsl:when>
+            <xsl:when test="$string695 = 'Hopi Indians'">hop</xsl:when>
+            <xsl:when test="$string695 = 'Hupa Indians'">hup</xsl:when>
+            <xsl:when test="$string695 = 'Huron'">way</xsl:when>
+            <xsl:when test="$string695 = 'Igbo (African people)'">ibo</xsl:when>
+            <xsl:when test="$string695 = 'Iroquoian'">iro</xsl:when>
+            <xsl:when test="$string695 = 'Iroquois'">iro</xsl:when>
+            <xsl:when test="$string695 = 'Izi (African People)'">izi</xsl:when>
+            <xsl:when test="$string695 = 'Juaneno'">lui</xsl:when>
+            <xsl:when test="$string695 = 'Kansa'">ksk</xsl:when>
+            <xsl:when test="$string695 = 'Karamojong (African people)'">kdj</xsl:when>
+            <xsl:when test="$string695 = 'Karankawa'">zkk</xsl:when>
+            <xsl:when test="$string695 = 'Karkin'">krb</xsl:when>
+            <xsl:when test="$string695 = 'Karok Indians'">kyh</xsl:when>
+            <xsl:when test="$string695 = 'Karuk'">kyh</xsl:when>
+            <xsl:when test="$string695 = 'Kasua'">khs</xsl:when>
+            <xsl:when test="$string695 = 'Kechua'">que</xsl:when>
+            <xsl:when test="$string695 = 'Kichai'">kii</xsl:when>
+            <xsl:when test="$string695 = 'Kili'">keb</xsl:when>
+            <xsl:when test="$string695 = 'Kiliwi'">kib</xsl:when>
+            <xsl:when test="$string695 = 'Klikitat'">yak</xsl:when>
+            <xsl:when test="$string695 = 'Koasati Indians'">cku</xsl:when>
+            <xsl:when test="$string695 = 'Kootenai'">kut</xsl:when>
+            <xsl:when test="$string695 = 'Kula'">tpg</xsl:when>
+            <xsl:when test="$string695 = 'Kulanapan'">poo</xsl:when>
+            <xsl:when test="$string695 = 'Kutchin'">gwi</xsl:when>
+            <xsl:when test="$string695 = 'Kuvale (African people)'">her</xsl:when>
+            <xsl:when test="$string695 = 'Kwalhioqua'">qwt</xsl:when>
+            <xsl:when test="$string695 = 'Lamut'">eve</xsl:when>
+            <xsl:when test="$string695 = 'Leya (African people)'">toi</xsl:when>
+            <xsl:when test="$string695 = 'Loma (African people)'">lom</xsl:when>
+            <xsl:when test="$string695 = 'Luganda'">lug</xsl:when>
+            <xsl:when test="$string695 = 'LuisenÌƒo'">lui</xsl:when>
+            <xsl:when test="$string695 = 'Luiseno'">lui</xsl:when>
+            <xsl:when test="$string695 = 'Luiseno/Diegueno'">lui</xsl:when>
+            <xsl:when test="$string695 = 'Lumbee'">lmz</xsl:when>
+            <xsl:when test="$string695 = 'Magyars'">hun</xsl:when>
+            <xsl:when test="$string695 = 'Makah'">myh</xsl:when>
+            <xsl:when test="$string695 = 'Malay'">msa</xsl:when>
+            <xsl:when test="$string695 = 'Malecite'">pqm</xsl:when>
+            <xsl:when test="$string695 = 'Massachusett'">wam</xsl:when>
+            <xsl:when test="$string695 = 'Mbandieru (African people)'">her</xsl:when>
+            <xsl:when test="$string695 = 'Miami'">mia</xsl:when>
+            <xsl:when test="$string695 = 'Modoc'">kla</xsl:when>
+            <xsl:when test="$string695 = 'Molala'">mbe</xsl:when>
+            <xsl:when test="$string695 = 'Monachi'">mnr</xsl:when>
+            <xsl:when test="$string695 = 'Montauk'">mof</xsl:when>
+            <xsl:when test="$string695 = 'Moquelummnan'">skd</xsl:when>
+            <xsl:when test="$string695 = 'Mosquito'">miq</xsl:when>
+            <xsl:when test="$string695 = 'Munsee Indians'">umu</xsl:when>
+            <xsl:when test="$string695 = 'Nahane'">kkz</xsl:when>
+            <xsl:when test="$string695 = 'Nanaimo'">hur</xsl:when>
+            <xsl:when test="$string695 = 'Narraganset'">mof</xsl:when>
+            <xsl:when test="$string695 = 'Nascapi'">nsk</xsl:when>
+            <xsl:when test="$string695 = 'Natick'">wam</xsl:when>
+            <xsl:when test="$string695 = 'Navaho'">nav</xsl:when>
+            <xsl:when test="$string695 = 'Nepalese'">nep</xsl:when>
+            <xsl:when test="$string695 = 'Netsilik Eskimos'">iku</xsl:when>
+            <xsl:when test="$string695 = 'Nez Perce'">nez</xsl:when>
+            <xsl:when test="$string695 = 'Nicola'">thp</xsl:when>
+            <xsl:when test="$string695 = 'Nisqualli'">slh</xsl:when>
+            <xsl:when test="$string695 = 'Nooksak'">nok</xsl:when>
+            <xsl:when test="$string695 = 'Nottoway'">ntw</xsl:when>
+            <xsl:when test="$string695 = 'Nyaturu (African people)'">rim</xsl:when>
+            <xsl:when test="$string695 = 'Okanagan Indians'">oka</xsl:when>
+            <xsl:when test="$string695 = 'Otawa'">otw</xsl:when>
+            <xsl:when test="$string695 = 'Pamlico'">pmk</xsl:when>
+            <xsl:when test="$string695 = 'Papago'">ood</xsl:when>
+            <xsl:when test="$string695 = 'Patagonian'">cym</xsl:when>
+            <xsl:when test="$string695 = 'Pawnee Indians'">paw</xsl:when>
+            <xsl:when test="$string695 = 'Pentlatch'">ptw</xsl:when>
+            <xsl:when test="$string695 = 'Peoria'">mia</xsl:when>
+            <xsl:when test="$string695 = 'Pequot'">mof</xsl:when>
+            <xsl:when test="$string695 = 'Piegan'">bla</xsl:when>
+            <xsl:when test="$string695 = 'Pohnpeian (Micronesian people)'">pon</xsl:when>
+            <xsl:when test="$string695 = 'Pokot'">pko</xsl:when>
+            <xsl:when test="$string695 = 'Ponapean'">pon</xsl:when>
+            <xsl:when test="$string695 = 'Ponca'">oma</xsl:when>
+            <xsl:when test="$string695 = 'Ponka'">oma</xsl:when>
+            <xsl:when test="$string695 = 'Poosepatuck'">mof</xsl:when>
+            <xsl:when test="$string695 = 'Portueguese'">por</xsl:when>
+            <xsl:when test="$string695 = 'Potowatomi'">pot</xsl:when>
+            <xsl:when test="$string695 = 'Puelchean'">pue</xsl:when>
+            <xsl:when test="$string695 = 'Quiche'">quc</xsl:when>
+            <xsl:when test="$string695 = 'Sac &amp; Fox'">sac</xsl:when>
+            <xsl:when test="$string695 = 'Safwa (African people)'">sbk</xsl:when>
+            <xsl:when test="$string695 = 'Samaritan'">smp</xsl:when>
+            <xsl:when test="$string695 = 'Samoans'">smo</xsl:when>
+            <xsl:when test="$string695 = 'Sandia'">tix</xsl:when>
+            <xsl:when test="$string695 = 'Sarcee'">srs</xsl:when>
+            <xsl:when test="$string695 = 'Sauk'">sac</xsl:when>
+            <xsl:when test="$string695 = 'Seminole Indians'">mus</xsl:when>
+            <xsl:when test="$string695 = 'Serian'">sei</xsl:when>
+            <xsl:when test="$string695 = 'Serrano'">ser</xsl:when>
+            <xsl:when test="$string695 = 'Shawnee Indians'">sjw</xsl:when>
+            <xsl:when test="$string695 = 'Shoshone'">shh</xsl:when>
+            <xsl:when test="$string695 = 'Shoshonean'">shh</xsl:when>
+            <xsl:when test="$string695 = 'Shoshonian'">shh</xsl:when>
+            <xsl:when test="$string695 = 'Sioux'">dak</xsl:when>
+            <xsl:when test="$string695 = 'Squamish'">squ</xsl:when>
+            <xsl:when test="$string695 = 'Suk (African people)'">pko</xsl:when>
+            <xsl:when test="$string695 = 'Tagalog (Philippine people)'">tgl</xsl:when>
+            <xsl:when test="$string695 = 'Tanaina'">tfn</xsl:when>
+            <xsl:when test="$string695 = 'Tenino'">tgn</xsl:when>
+            <xsl:when test="$string695 = 'Tibetans'">bod</xsl:when>
+            <xsl:when test="$string695 = 'Timucua Indians'">tjm</xsl:when>
+            <xsl:when test="$string695 = 'Tlatskanai'">qwt</xsl:when>
+            <xsl:when test="$string695 = 'Tlingit ?'">tli</xsl:when>
+            <xsl:when test="$string695 = 'Tolowa'">tol</xsl:when>
+            <xsl:when test="$string695 = 'Toma (African people)'">tod</xsl:when>
+            <xsl:when test="$string695 = 'Tonto-Apache'">apw</xsl:when>
+            <xsl:when test="$string695 = 'Trobriand Islanders'">kij</xsl:when>
+            <xsl:when test="$string695 = 'Trukese (Micronesian people)'">chk</xsl:when>
+            <xsl:when test="$string695 = 'Tsimshian[?]'">tsi</xsl:when>
+            <xsl:when test="$string695 = 'Tubare'">tbu</xsl:when>
+            <xsl:when test="$string695 = 'Tuolumne'">csm</xsl:when>
+            <xsl:when test="$string695 = 'Tututni'">tuu</xsl:when>
+            <xsl:when test="$string695 = 'Twana'">twa</xsl:when>
+            <xsl:when test="$string695 = 'Tzotzil'">tzo</xsl:when>
+            <xsl:when test="$string695 = 'Umpqua'">xup</xsl:when>
+            <xsl:when test="$string695 = 'Wailaki'">wlk</xsl:when>
+            <xsl:when test="$string695 = 'Walapai'">yuf</xsl:when>
+            <xsl:when test="$string695 = 'Walla Walla'">waa</xsl:when>
+            <xsl:when test="$string695 = 'Wallawalla'">waa</xsl:when>
+            <xsl:when test="$string695 = 'Wintun'">wit</xsl:when>
+            <xsl:when test="$string695 = 'Yakima'">yak</xsl:when>
+            <xsl:when test="$string695 = 'Yakona'">aes</xsl:when>
+            <xsl:when test="$string695 = 'Yakutat Tlingit'">tli</xsl:when>
+            <xsl:when test="$string695 = 'Yana Indians'">ynn</xsl:when>
+            <xsl:when test="$string695 = 'Yapese (Micronesian people)'">yap</xsl:when>
+            <xsl:when test="$string695 = 'Yaquina'">aes</xsl:when>
+            <xsl:when test="$string695 = 'Yoruba (African people)'">yor</xsl:when>
+            <xsl:when test="$string695 = 'Yuchean'">yuc</xsl:when>
+            <xsl:when test="$string695 = 'Yuchi Indians'">yuc</xsl:when>
+            <xsl:when test="$string695 = 'Yuki ?'">yuk</xsl:when>
+            <xsl:when test="$string695 = 'Yuma'">yum</xsl:when>
+            <xsl:when test="$string695 = 'Yurok ?'">yur</xsl:when>
+            <xsl:when test="$string695 = 'Zapoteco'">zap</xsl:when>
+            <xsl:when test="$string695 = 'Zulu (African people)'">zul</xsl:when>
+
+            <xsl:when test="$string695 = 'Apache--Chiricahua'">apm</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Jicarilla'">apj</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Jicarilla--medicine lodge'">apj</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Lipan'">apl</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Mescalero'">apm</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Sierra Blanca'">apw</xsl:when>
+            <xsl:when test="$string695 = 'Apache--Tonto'">apw</xsl:when>
+            <xsl:when test="$string695 = 'Apache--White Mountain'">apw</xsl:when>
+            <xsl:when test="$string695 = 'Apaches--Sierra Blanco'">apw</xsl:when>
+            <xsl:when test="$string695 = 'Athapascan--Northern'">ath</xsl:when>
+            <xsl:when test="$string695 = 'Baluba--ethnobotany'">lua</xsl:when>
+            <xsl:when test="$string695 = 'Chehalis, Lower--Literature, Folklore'">cea</xsl:when>
+            <xsl:when test="$string695 = 'Dakota Indians--Folklore'">dak</xsl:when>
+            <xsl:when test="$string695 = 'Delaware (tribe)--linguistics'">del</xsl:when>
+            <xsl:when test="$string695 = 'Gabrielino + Luiseno--Music, Songs'">lui</xsl:when>
+            <xsl:when test="$string695 = 'Gabrielino + Serrano--Music, Songs--Dance, War'"
+                >ser</xsl:when>
+            <xsl:when test="$string695 = 'Gila River--etymology'">mrc</xsl:when>
+            <xsl:when test="$string695 = 'Ilocano--linguistics'">ilo</xsl:when>
+            <xsl:when test="$string695 = 'Iroquois--Oneida'">one</xsl:when>
+            <xsl:when test="$string695 = 'Iroquois--Onondaga'">ono</xsl:when>
+            <xsl:when test="$string695 = 'Iroquois--Seneca'">see</xsl:when>
+            <xsl:when test="$string695 = 'Iroquois--Tuscarora'">tus</xsl:when>
+            <xsl:when test="$string695 = 'Irouqois--Onondaga--tobacco'">ono</xsl:when>
+            <xsl:when test="$string695 = 'Italians--United States'">ita</xsl:when>
+            <xsl:when test="$string695 = 'Maya--Kekchi'">kek</xsl:when>
+            <xsl:when test="$string695 = 'Maya--Tzotzil'">tzo</xsl:when>
+            <xsl:when test="$string695 = 'Mayan--Cakchiquel'">cak</xsl:when>
+            <xsl:when test="$string695 = 'Mayan--Quiche'">quc</xsl:when>
+            <xsl:when test="$string695 = 'Nooksaak--vocabulary'">nok</xsl:when>
+            <xsl:when test="$string695 = 'Okinagan--Saimilkameen--vocabulary'">oka</xsl:when>
+            <xsl:when test="$string695 = 'Paiute--Northern'">pao</xsl:when>
+            <xsl:when test="$string695 = 'Paiute--Southern'">ute</xsl:when>
+            <xsl:when test="$string695 = 'Sauk and Fox--gentes'">sac</xsl:when>
+            <xsl:when test="$string695 = 'Skagit--vocabulary'">ska</xsl:when>
+            <xsl:when test="$string695 = 'Tipai--linguistics'">dih</xsl:when>
+            <xsl:when test="$string695 = 'Towa--Jemez'">tow</xsl:when>
+            <xsl:when test="$string695 = 'Towa--Old Pecos'">tow</xsl:when>
+            <xsl:when test="$string695 = 'Umpqua--Upper'">xup</xsl:when>
+            <xsl:otherwise>failed</xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
 </xsl:stylesheet>

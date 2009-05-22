@@ -16,12 +16,10 @@
 
     <xsl:template name="process-role">
         <!-- process MARC relator codes into OLAC roles -->
-        <xsl:param name="subfield"/>
-        <!-- required param -->
-        <xsl:if test="marc:subfield[@code=$subfield] and marc:subfield[@code=$subfield] != ''">
-            <xsl:variable name="code">
-                <xsl:value-of select="marc:subfield[@code=$subfield]"/>
-            </xsl:variable>
+        <xsl:param name="code"/>
+        <xsl:param name="term" />
+        <!-- one of the above params is required -->
+        <xsl:if test="$code and $code != ''">
                 <xsl:choose>
                     <xsl:when test="$code = 'ann'">annotator</xsl:when>
                     <xsl:when test="$code = 'cwt'">annotator</xsl:when>
@@ -64,6 +62,55 @@
                     <xsl:when test="$code = 'trc'">transcriber</xsl:when>
                     <xsl:when test="$code = 'trl'">translator</xsl:when>
                 </xsl:choose>
+        </xsl:if>
+        <xsl:if test="$term and $term != ''">
+            <xsl:variable name="lcterm" select="lower-case($term)" />
+            <xsl:choose>
+                <xsl:when test="$lcterm = 'annotator'">annotator</xsl:when>
+                <xsl:when test="$lcterm = 'commentator for written text'">annotator</xsl:when>
+                <xsl:when test="$lcterm = 'author'">author</xsl:when>
+                <xsl:when test="$lcterm = 'author of dialog'">author</xsl:when>
+                <xsl:when test="$lcterm = 'lyricist'">author</xsl:when>
+                <xsl:when test="$lcterm = 'collector'">compiler</xsl:when>
+                <xsl:when test="$lcterm = 'compiler'">compiler</xsl:when>
+                <xsl:when test="$lcterm = 'consultant'">consultant</xsl:when>
+                <xsl:when test="$lcterm = 'consultant to a project'">consultant</xsl:when>
+                <xsl:when test="$lcterm = 'scientific advisor'">consultant</xsl:when>
+                <xsl:when test="$lcterm = 'markup editor'">data_inputter</xsl:when>
+                <xsl:when test="$lcterm = 'depositor'">depositor</xsl:when>
+                <xsl:when test="$lcterm = 'programmer'">developer</xsl:when>
+                <xsl:when test="$lcterm = 'editor'">editor</xsl:when>
+                <xsl:when test="$lcterm = 'film editor'">editor</xsl:when>
+                <xsl:when test="$lcterm = 'illustrator'">illustrator</xsl:when>
+                <xsl:when test="$lcterm = 'interviewer'">interviewer</xsl:when>
+                <xsl:when test="$lcterm = 'actor'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'dancer'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'instrumentalist'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'musician'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'performer'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'puppeteer'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'storyteller'">performer</xsl:when>
+                <xsl:when test="$lcterm = 'photographer'">photographer</xsl:when>
+                <xsl:when test="$lcterm = 'recording engineer'">recorder</xsl:when>
+                <xsl:when test="$lcterm = 'videographer'">recorder</xsl:when>
+                <xsl:when test="$lcterm = 'research team head'">researcher</xsl:when>
+                <xsl:when test="$lcterm = 'research team member'">researcher</xsl:when>
+                <xsl:when test="$lcterm = 'researcher'">researcher</xsl:when>
+                <xsl:when test="$lcterm = 'signer'">signer</xsl:when>
+                <xsl:when test="$lcterm = 'singer'">singer</xsl:when>
+                <xsl:when test="$lcterm = 'vocalist'">singer</xsl:when>
+                <xsl:when test="$lcterm = 'narrator'">speaker</xsl:when>
+                <xsl:when test="$lcterm = 'speaker'">speaker</xsl:when>
+                <xsl:when test="$lcterm = 'funder'">sponsor</xsl:when>
+                <xsl:when test="$lcterm = 'patron'">sponsor</xsl:when>
+                <xsl:when test="$lcterm = 'sponsor'">sponsor</xsl:when>
+                <xsl:when test="$lcterm = 'transcriber'">transcriber</xsl:when>
+                <xsl:when test="$lcterm = 'translator'">translator</xsl:when>
+                
+                
+                <!-- the following terms are not LOC relator terms -->
+                <xsl:when test="$term = 'informant'">consultant</xsl:when>
+            </xsl:choose>
         </xsl:if>
     </xsl:template>
 
