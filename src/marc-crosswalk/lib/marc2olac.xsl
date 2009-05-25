@@ -271,7 +271,7 @@ local cataloging practices.
     </xsl:template>
 
     <xsl:template name="process-041">
-        <xsl:param name="xsitype">dcterms:ISO639-2</xsl:param>
+        <xsl:param name="xsitype">olac:language</xsl:param>
         <xsl:param name="str"/>
         <xsl:choose>
             <xsl:when test="count($str) = 1">
