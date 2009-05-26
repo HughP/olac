@@ -178,11 +178,13 @@ local cataloging practices.
 
 
     <xsl:template match="marc:datafield[@tag='020']">
-        <dc:identifier>
-            <xsl:call-template name="show-source"/>
-            <xsl:text>ISBN: </xsl:text>
-            <xsl:value-of select="marc:subfield[@code='a']"/>
-        </dc:identifier>
+        <xsl:if test="marc:subfield[@code='a']">
+            <dc:identifier>
+                <xsl:call-template name="show-source"/>
+                <xsl:text>ISBN: </xsl:text>
+                <xsl:value-of select="marc:subfield[@code='a']"/>
+            </dc:identifier>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="marc:datafield[@tag='033']">
@@ -1049,7 +1051,8 @@ local cataloging practices.
 
         <xsl:choose>
             <xsl:when test="@ind2='0'">
-                <xsl:variable name="sub-a" select="lower-case(marc:subfield[@code='a'])"/>
+                <!-- sub-a is lower case and with trailing period stripped, if it exists -->
+                <xsl:variable name="sub-a" select="replace(lower-case(marc:subfield[@code='a']),'\.','')"/>
                 <xsl:variable name="code">
                     <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
                         <xsl:choose>
