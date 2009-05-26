@@ -71,16 +71,25 @@ vocabulary; linguistics; linguistic data; language data">
 
 <p><i>This page lists tools for implementers of OLAC repositories.</i>
 
-<h2>OLAC Metadata in XML</h2>
+<h2>Get all OLAC Metadata</h2>
 
 <p>
-The latest dump of all OLAC metadata records is available in XML
-format, compressed using gzip:
+<li><a href="http://www.language-archives.org/tools/ovester2/ListRecords.xml.gz">Latest dump of OLAC records in XML, gzipped</a>
+<li><a href="http://www.language-archives.org/cgi-bin/olaca3.pl">An OAI data provider containing all OLAC records</a>
+
+<h2>Data Providers</h2>
 
 <p>
-<li><a href="http://www.language-archives.org/tools/ovester2/ListRecords.xml.gz">ListRecords.xml.gz</a>
+<li><a href="tools/faq.html">OLAC Implementers' FAQ</a>
+<li><a href="/register/register.php">Validate/Register an OLAC Data Provider</a>
+<li><a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai">Interact with a data provider using the OAI Repository Explorer</a>
+<li><a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/addarchive">Test the conformance of a repository using the OAI Repository Explorer</a>
+<li><a href="tools/survey.php4">OLAC Metadata usage survey</a>
+<li><a href="/sr">OLAC Static Repository Gateway</a> - providing an OAI interface to repositories published as an XML file
+<li><a href="https://sourceforge.net/project/showfiles.php?group_id=6577&package_id=200507&release_id=439285">Convert BibTeX file to OLAC Static Repository</a>
+<li><a href="http://www.openarchives.org/pmh/tools/tools.php">OAI Tools</a>
 
-<h2>OLAC Metadata Schema Version 1.1</h2>
+<h2>OLAC Metadata Schema</h2>
 
 <p>
 <li><a href="OLAC/1.1/olac.xsd">olac.xsd</a> - OLAC Metadata Schema 1.1
@@ -103,22 +112,6 @@ format definition
 Here is the schema used by all OLAC services:
 <a href="/tools/olac_schema.sql">olac_schema.sql</a>.
 
-<h2>Data Providers</h2>
-
-<p>
-<li><a href="tools/faq.html">OLAC Implementers' FAQ</a>
-<li><a href="/register/register.php">Validate/Register an OLAC Data Provider</a>
-<li><a href="http://www.openarchives.org/pmh/tools/tools.php">OAI Tools</a>
-
-<p>
-<b>OLAC Static Repositories:</b>
-OLAC repositories can be stored in a single XML file.
-OLACA, the OLAC Aggregator, maps this to OAI_DC for OAI harvesters.
-
-<p>
-<li><a href="/sr">Static Repository Gateway</a>
-<li><a href="/devel/sr/">Example static repositories</a>
-
 <h2>OLAC Service Providers</h2>
 
 <p>
@@ -137,52 +130,14 @@ archives.
 for harvester and aggregator</a>
 <li><a href="http://svn.sourceforge.net/viewcvs.cgi/olac/">Browse 
 the Subversion repository</a>
-<li><a href="http://www.language-archives.org/cgi-bin/olaca3.pl">OLAC Aggregator (OLACA)</a>
 <li><a href="register/service.html">Register an OLAC Service Provider</a>
 <li><a href="services.php4">View registered OLAC Service Providers</a>
-<li><a href="/tools/search.php4">Simple Service provider on OLAC site</a>
 
-<h2>Repository Explorer</h2>
-
-<p>
-The <a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai">repository explorer</a>
-is a very convenient way to test out your data provider.
+<h2>OLAC Logo</h2>
 
 <p>
-There is also a service to
-<a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/addarchive">test
-the conformance of a repository</a>.
-
-<p>
-NB. Xerces validation of metadata records involving the dcterms
-namespace currently fails.  Use the XSV validator in the
-repository explorer instead.
-
-<h2>Web Crawler Gateway</h2>
-
-<p>
-OLAC provides a set of static pages containing up-to-date records from
-all OLAC archives.  Web crawlers can index these pages, allowing end-users
-to discover OLAC records using conventional web search.  This software is
-adapted from the OAI web crawler gateway.
-
-<li><a href="http://www.language-archives.org/dp9/">OLAC web crawler gateway</a>
-<li><a href="http://arc.cs.odu.edu:8080/dp9/index.jsp">OAI web crawler gateway</a>
-
-<h2>Kepler</h2>
-
-<p>Kepler is a system for individuals to self-archive their resources.
-Kepler includes support for OLAC metadata.
-
-<li><a href="http://kepler.cs.odu.edu/">Kepler system</a>
-<li><a href="http://kepler.cs.odu.edu/publications/stepsKepler.html">Kepler OLAC support</a>
-
-<h2>BibTeX to OLAC Converter</h2>
-
-<p>BibTeX2OLAC is a conversion library which creates an OLAC Static Repository from
-a BibTeX data source.
-
-<li><a href="https://sourceforge.net/project/showfiles.php?group_id=6577&package_id=200507&release_id=439285">Download BibTeX2OLAC</a>
+Please make use of the <a href="/logo.html">OLAC Logo</a> on your
+site, and link it to www.language-archives.org.
 
 </td><td width=50%>
 
@@ -217,15 +172,6 @@ see a list of archives).
 <input type="text" size="16" maxlength="80"  name="archive" value="">
 <input type="submit">
 </form>
-
-<h2>Metadata usage survey</h2>
-
-<p>
-Look at the way OLAC repositories use any of the OLAC and DC metadata
-elements.
-
-<li><a href="tools/survey.php4">usage survey</a>
-
 
 <h2>OLAC-Implementers Mailing List</h2>
 
@@ -269,23 +215,6 @@ OAI: Building a low-barrier interoperability framework</a>
 <li><a href="http://www.openarchives.org/documents/index.html">More
 OAI documents...</a>
 
-<h2>Help Develop OLAC Tools</h2>
-
-<p>
-OLAC is a community-based project and we would like to hear from
-any tool developers who have skills to donate.  Here are some
-project ideas:
-
-<p>
-
-<li>
-<b>New services</b>: download the OLAC suite, harvest OLAC metadata,
-and provide a new service to the language resources community.
-
-<p>
-To learn more, please contact:
-<a href="mailto:olac-admin@language-archives.org">olac-admin@language-archives.org</a>
-
 <h2>Useful Resources</h2>
 
 <ul>
@@ -315,12 +244,6 @@ To learn more, please contact:
 | <a href="http://www.language-archives.org/tools/xsv/">Xerces-J Schame Validator</a>
 </ul>
 
-<h2>OLAC Logo</h2>
-
-<p>
-Please make use of the <a href="/logo.html">OLAC Logo</a> on your
-site, and link it to www.language-archives.org.
-
 <!-- FOOTER -->
 </td></tr></table>
 
@@ -330,7 +253,7 @@ site, and link it to www.language-archives.org.
 <div class=timestamp>
 http://www.language-archives.org/tools.html<br>
 <!-- hhmts start -->
-Last modified: Tue May 16 10:56:32 EST 2006
+Last modified: Tue May 26 11:41:29 EST 2009
 <!-- hhmts end -->
 </div>
 
