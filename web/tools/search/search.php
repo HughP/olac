@@ -170,8 +170,7 @@ $banner =
 	</TABLE>
 </td>
 <td valign=top>
-	<a href=\"searchDoc.html\"><small>User Guide</small></a><BR>
-	<A HREF=\"mailto:olac-search-dev@cs.mu.oz.au\"><small>Contact Support</small></A>
+	<a href=\"searchDoc.html\"><small>User Guide</small></a>
 </td>
 </tr>
 </table>
@@ -1074,16 +1073,10 @@ function headerLinks($queryString)
 
 		    }
 
-			#Language ID search link
-  			$output .= "<a href=$_SERVER[PHP_SELF]?"
-				. "langCode=$ar[LangID]"
-				. "&phrasemode=$phrasemode"
-				. "&allmode=$allmode"
-	### badenh 20050105
-	### fixed this so it only looks up $LangCode
-				#. "&query=$q>"
-				. "&query=>"
-				. "Look up resources for Ethnologue Code '$ar[LangID]'"
+			#Language page  [SB 2009-05-26]
+  			$output .= "<a href=\"http://www.language-archives.org/language/"
+				. strtolower($ar[LangID])
+				. "\">Visit OLAC page for ISO code '$ar[LangID]'"
 				. "</a><br />\n";
 
 	### badenh 20050105
@@ -1715,7 +1708,7 @@ print $output;
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">
-_uacct = "UA-427085-3";
+_uacct = "UA-427085-4";
 urchinTracker();
 </script>
 
