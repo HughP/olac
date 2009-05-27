@@ -3,9 +3,9 @@
       Expresses local customizations for the process of converting a 
       collection of MARC records to an OLAC static repository
    
-   For repository: GIAL Library
+   For repository: National Anthropological Archives (NAA)
    Developed by: Chris Hirt
-   Revision date:  2008-08-27
+   Revision date:  2009-05-27
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/"
@@ -15,11 +15,11 @@
 
     <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
-    <xsl:variable name="metadata-version-date">2009-05-11</xsl:variable>
+    <xsl:variable name="metadata-version-date">2009-05-27</xsl:variable>
 
     <!-- Fill in today's date (as the date as of which the archive
       description and participant list is current) -->
-    <xsl:variable name="current-as-of-date">2009-05-11</xsl:variable>
+    <xsl:variable name="current-as-of-date">2009-05-27</xsl:variable>
 
     <!-- Fill in the web domain name that uniquely identifies your
       archive -->
@@ -83,21 +83,33 @@
                -->
                     <archiveURL>http://www.nmnh.si.edu/naa/</archiveURL>
                     <!-- Make as many copies of <participant> as you need -->
+                    <participant name="Robert Leopold" role="Director" email="leopold@si.edu"/>
                     <participant name="Who" role="Role?" email="email?"/>
                     <institution>National Anthropological Archives</institution>
                     <institutionURL>http://www.nmnh.si.edu/naa/</institutionURL>
                     <shortLocation>Suitland, MD</shortLocation>
                     <location>The archives are located in the Smithsonian Institution's Museum
-                        Support Center in Suitland, MD, approximately six miles southeast of the
-                        museums on the National Mall</location>
-                    <synopsis>purpose of the archive...</synopsis>
-                    <access>The Smithsonian operates a free hourly shuttle bus service between the
-                        Mall and MSC; please request a pass when you schedule your appointment.
-                        Public transportation is also available via Metrorail; the Museum Support
-                        Center is a 10-15 minute walk from the Suitland Station. Free parking is
-                        available if you prefer to drive. Archivists are available to assist
+                        Support Center, 4210 Silver Hill Road,  Suitland, MD, approximately six miles southeast of the
+                        museums on the National Mall.</location>
+                    <synopsis>The National Anthropological Archives  collect and preserve 
+                        historical and contemporary anthropological materials that document the
+                        world's cultures and the history of anthropology. Their collections 
+                        represent the four fields of anthropology &#x2014; ethnology, linguistics, 
+                        archaeology, and physical anthropology &#x2014; and include fieldnotes, 
+                        journals, manuscripts, correspondence, photographs, maps, 
+                        sound recordings, film and video created by Smithsonian 
+                        anthropologists and other preeminent scholars  This OLAC
+                        repository encodes the subset of holdings
+                        that are cataloged with the subject heading: 
+                        Language and languages&#x2014;Documentation .
+                    </synopsis>
+                    <access>The National Anthropological Archives may
+                        be visited by appointment only. For an online
+                        appointment request form and directions for
+                        finding the archives, see http://www.nmnh.si.edu/naa/about.htm#visiting.
+                        Archivists are available to assist
                         visitors with reference inquries and guide them to appropriate materials.
-                        The NAA and HSFA also accept reference inquiries by email and
+                        The NAA also accepts reference inquiries by email and
                         phone.</access>
                 </olac-archive>
             </oai:description>
