@@ -5,7 +5,7 @@
    
    For repository: GIAL Library
    Developed by: Chris Hirt
-   Revision date:  2008-08-27
+   Revision date:  2009-05-27
 -->
 <xsl:stylesheet version="2.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -18,11 +18,11 @@
    
    <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
-   <xsl:variable name="metadata-version-date">2009-03-27</xsl:variable>
+   <xsl:variable name="metadata-version-date">2009-05-27</xsl:variable>
    
    <!-- Fill in today's date (as the date as of which the archive
       description and participant list is current) -->
-   <xsl:variable name="current-as-of-date">2009-05-20</xsl:variable>
+   <xsl:variable name="current-as-of-date">2009-05-27</xsl:variable>
    
    <!-- Fill in the web domain name that uniquely identifies your
       archive -->
@@ -94,12 +94,23 @@
                   (GIAL)</institution>
                <institutionURL>http://www.gial.edu</institutionURL>
                <shortLocation>Dallas, TX</shortLocation>
-               <location>where is this archive located...</location>
-               <synopsis>purpose of the archive...</synopsis>
-               <access>Items are available for checkout to all GIAL
-                  faculty and students, members of Bible translation
-                  organizations, and International Linguistics Center
-                  employees and volunteers</access>
+               <location>The GIAL Library is located in the Pike Building (A1)
+                  on the International Linguistics Center at 7500 W. Camp 
+                  Wisdom Road, Dallas, TX 75236. </location>
+               <synopsis>The mission of the Graduate Institute of Applied 
+                  Linguistics, as an institution of higher education, is to provide 
+                  training and research opportunities leading to graduate 
+                  degrees in applied linguistics and development of languages.
+                  In support of that mission, GIAL maintains a 
+                  research library with over 35,000 volumes. This OLAC
+                  repository encodes the subset of library holdings
+                  that are cataloged as pertaining to specific
+                  languages of the world.
+               </synopsis>
+               <access>The library stacks are open to visitors. 
+                  Items are available for checkout to GIAL
+                  faculty and students, and to International Linguistics Center
+                  employees and volunteers.</access>
             </olac-archive>
          </oai:description>
       </Identify>
