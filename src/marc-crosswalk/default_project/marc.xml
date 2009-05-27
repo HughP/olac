@@ -1,8 +1,139 @@
-<?xml version="1.0" encoding="UTF-8" ?><marc:collection xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
-    <marc:record><marc:leader>00983pam a2200265 i 4500</marc:leader>
-        <marc:controlfield tag="008">750825s1975    dcu      b    10010 eng  </marc:controlfield>
-        <marc:datafield tag="010" ind1=" " ind2=" "><marc:subfield code="a">   75028427</marc:subfield></marc:datafield><marc:datafield tag="020" ind1=" " ind2=" "><marc:subfield code="a">0878400400 :</marc:subfield><marc:subfield code="c">$3.95</marc:subfield></marc:datafield><marc:datafield tag="040" ind1=" " ind2=" "><marc:subfield code="a">DLC</marc:subfield><marc:subfield code="c">DLC</marc:subfield><marc:subfield code="d">TxDaGIAL</marc:subfield></marc:datafield><marc:datafield tag="050" ind1="0" ind2=" "><marc:subfield code="a">PC4021</marc:subfield><marc:subfield code="b">.C55 1974</marc:subfield></marc:datafield><marc:datafield tag="082" ind1=" " ind2=" "><marc:subfield code="a">460</marc:subfield></marc:datafield><marc:datafield tag="111" ind1="2" ind2="0"><marc:subfield code="a">Colloquium on Spanish and Portuguese Linguistics</marc:subfield><marc:subfield code="d">(1974 :</marc:subfield><marc:subfield code="c">University of Massachusetts)</marc:subfield></marc:datafield><marc:datafield tag="245" ind1="1" ind2="0"><marc:subfield code="a">1974 Colloquium on Spanish and Portuguese Linguistics :</marc:subfield><marc:subfield code="b">[selected papers] /</marc:subfield><marc:subfield code="c">William G. Milan, John J. Staczek, Juan C. Zamora: editors.</marc:subfield></marc:datafield><marc:datafield tag="260" ind1="0" ind2=" "><marc:subfield code="a">Washington :</marc:subfield><marc:subfield code="b">Georgetown University Press,</marc:subfield><marc:subfield code="c">c1975.</marc:subfield></marc:datafield><marc:datafield tag="300" ind1=" " ind2=" "><marc:subfield code="a">v, 148 p. ;</marc:subfield><marc:subfield code="c">23 cm.</marc:subfield></marc:datafield><marc:datafield tag="504" ind1=" " ind2=" "><marc:subfield code="a">Includes bibliographies.</marc:subfield></marc:datafield><marc:datafield tag="650" ind1=" " ind2="0"><marc:subfield code="a">Spanish language</marc:subfield><marc:subfield code="v">Congresses.</marc:subfield></marc:datafield><marc:datafield tag="700" ind1="1" ind2="0"><marc:subfield code="a">Milan, William G.</marc:subfield></marc:datafield><marc:datafield tag="700" ind1="1" ind2="0"><marc:subfield code="a">Staczek, John J.</marc:subfield></marc:datafield><marc:datafield tag="700" ind1="1" ind2="0"><marc:subfield code="a">Zamora, Juan C.</marc:subfield></marc:datafield><marc:datafield tag="035" ind1=" " ind2=" "><marc:subfield code="a">(TxDaGIAL)37741100007017</marc:subfield></marc:datafield><marc:controlfield tag="005">20080624154319.0</marc:controlfield><marc:controlfield tag="001">114</marc:controlfield><marc:controlfield tag="003">TxDaGIAL</marc:controlfield><marc:datafield tag="852" ind1=" " ind2=" "><marc:subfield code="p">37741100007017</marc:subfield><marc:subfield code="a">Library</marc:subfield><marc:subfield code="x">COPYID:116</marc:subfield><marc:subfield code="x">FSC@aRegular@c19950818</marc:subfield><marc:subfield code="h">460 C714 1974</marc:subfield><marc:subfield code="z">4561</marc:subfield></marc:datafield></marc:record>
-    <marc:record><marc:leader>00721cam a2200205   4500</marc:leader>
-        <marc:controlfield tag="008">701022s1970    nyu           00100 eng  </marc:controlfield>
-        <marc:datafield tag="010" ind1=" " ind2=" "><marc:subfield code="a">   70102878 //r85</marc:subfield></marc:datafield><marc:datafield tag="040" ind1=" " ind2=" "><marc:subfield code="a">DLC</marc:subfield><marc:subfield code="c">DLC</marc:subfield><marc:subfield code="d">TxDaGIAL</marc:subfield></marc:datafield><marc:datafield tag="050" ind1="0" ind2=" "><marc:subfield code="a">PJ4645</marc:subfield><marc:subfield code="b">.H25</marc:subfield></marc:datafield><marc:datafield tag="082" ind1=" " ind2=" "><marc:subfield code="a">492.45</marc:subfield></marc:datafield><marc:datafield tag="100" ind1="1" ind2="0"><marc:subfield code="a">Halkin, Abraham S.,</marc:subfield><marc:subfield code="d">1903-</marc:subfield><marc:subfield code="e">aut</marc:subfield></marc:datafield><marc:datafield tag="245" ind1="1" ind2="0"><marc:subfield code="a">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged /</marc:subfield><marc:subfield code="c">Abraham S. Halkin.</marc:subfield></marc:datafield><marc:datafield tag="260" ind1="0" ind2=" "><marc:subfield code="a">Woodbury, N.Y. :</marc:subfield><marc:subfield code="b">Barron's Educational Series,</marc:subfield><marc:subfield code="c">c1970.</marc:subfield></marc:datafield><marc:datafield tag="300" ind1=" " ind2=" "><marc:subfield code="a">xiii, 425 p. ;</marc:subfield><marc:subfield code="c">21 cm.</marc:subfield></marc:datafield><marc:datafield tag="650" ind1=" " ind2="0"><marc:subfield code="a">Hebrew language</marc:subfield><marc:subfield code="x">Verb</marc:subfield><marc:subfield code="v">Tables.</marc:subfield></marc:datafield><marc:datafield tag="035" ind1=" " ind2=" "><marc:subfield code="a">(TxDaGIAL)37741100007662</marc:subfield></marc:datafield><marc:controlfield tag="005">20080624154321.0</marc:controlfield><marc:controlfield tag="001">122</marc:controlfield><marc:controlfield tag="003">TxDaGIAL</marc:controlfield><marc:datafield tag="852" ind1=" " ind2=" "><marc:subfield code="p">37741100007662</marc:subfield><marc:subfield code="a">Library</marc:subfield><marc:subfield code="x">COPYID:125</marc:subfield><marc:subfield code="x">FSC@aRegular@c19950906</marc:subfield><marc:subfield code="h">492.45 H173t 1970</marc:subfield><marc:subfield code="z">510</marc:subfield></marc:datafield></marc:record>
+<?xml version="1.0" encoding="UTF-8" ?>
+<marc:collection xmlns:marc="http://www.loc.gov/MARC21/slim"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+    <marc:record>
+        <marc:leader>00983pam a2200265 i 4500</marc:leader>
+        <marc:controlfield tag="008">750825s1975 dcu b 10010 eng </marc:controlfield>
+        <marc:datafield tag="010" ind1=" " ind2=" ">
+            <marc:subfield code="a"> 75028427</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="020" ind1=" " ind2=" ">
+            <marc:subfield code="a">0878400400 :</marc:subfield>
+            <marc:subfield code="c">$3.95</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="040" ind1=" " ind2=" ">
+            <marc:subfield code="a">DLC</marc:subfield>
+            <marc:subfield code="c">DLC</marc:subfield>
+            <marc:subfield code="d">TxDaGIAL</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="050" ind1="0" ind2=" ">
+            <marc:subfield code="a">PC4021</marc:subfield>
+            <marc:subfield code="b">.C55 1974</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="082" ind1=" " ind2=" ">
+            <marc:subfield code="a">460</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="111" ind1="2" ind2="0">
+            <marc:subfield code="a">Colloquium on Spanish and Portuguese Linguistics</marc:subfield>
+            <marc:subfield code="d">(1974 :</marc:subfield>
+            <marc:subfield code="c">University of Massachusetts)</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="245" ind1="1" ind2="0">
+            <marc:subfield code="a">1974 Colloquium on Spanish and Portuguese Linguistics
+                :</marc:subfield>
+            <marc:subfield code="b">[selected papers] /</marc:subfield>
+            <marc:subfield code="c">William G. Milan, John J. Staczek, Juan C. Zamora:
+                editors.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="260" ind1="0" ind2=" ">
+            <marc:subfield code="a">Washington :</marc:subfield>
+            <marc:subfield code="b">Georgetown University Press,</marc:subfield>
+            <marc:subfield code="c">c1975.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="300" ind1=" " ind2=" ">
+            <marc:subfield code="a">v, 148 p. ;</marc:subfield>
+            <marc:subfield code="c">23 cm.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="504" ind1=" " ind2=" ">
+            <marc:subfield code="a">Includes bibliographies.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="650" ind1=" " ind2="0">
+            <marc:subfield code="a">Spanish language</marc:subfield>
+            <marc:subfield code="v">Congresses.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="700" ind1="1" ind2="0">
+            <marc:subfield code="a">Milan, William G.</marc:subfield>
+            <marc:subfield code="e">edt</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="700" ind1="1" ind2="0">
+            <marc:subfield code="a">Staczek, John J.</marc:subfield>
+            <marc:subfield code="e">edt</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="700" ind1="1" ind2="0">
+            <marc:subfield code="a">Zamora, Juan C.</marc:subfield>
+            <marc:subfield code="e">edt</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="035" ind1=" " ind2=" ">
+            <marc:subfield code="a">(TxDaGIAL)37741100007017</marc:subfield>
+        </marc:datafield>
+        <marc:controlfield tag="005">20080624154319.0</marc:controlfield>
+        <marc:controlfield tag="001">114</marc:controlfield>
+        <marc:controlfield tag="003">TxDaGIAL</marc:controlfield>
+        <marc:datafield tag="852" ind1=" " ind2=" ">
+            <marc:subfield code="p">37741100007017</marc:subfield>
+            <marc:subfield code="a">Library</marc:subfield>
+            <marc:subfield code="x">COPYID:116</marc:subfield>
+            <marc:subfield code="x">FSC@aRegular@c19950818</marc:subfield>
+            <marc:subfield code="h">460 C714 1974</marc:subfield>
+            <marc:subfield code="z">4561</marc:subfield>
+        </marc:datafield>
+    </marc:record>
+    <marc:record>
+        <marc:leader>00721cam a2200205 4500</marc:leader>
+        <marc:controlfield tag="008">701022s1970 nyu 00100 eng </marc:controlfield>
+        <marc:datafield tag="010" ind1=" " ind2=" ">
+            <marc:subfield code="a"> 70102878 //r85</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="040" ind1=" " ind2=" ">
+            <marc:subfield code="a">DLC</marc:subfield>
+            <marc:subfield code="c">DLC</marc:subfield>
+            <marc:subfield code="d">TxDaGIAL</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="050" ind1="0" ind2=" ">
+            <marc:subfield code="a">PJ4645</marc:subfield>
+            <marc:subfield code="b">.H25</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="082" ind1=" " ind2=" ">
+            <marc:subfield code="a">492.45</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="100" ind1="1" ind2="0">
+            <marc:subfield code="a">Halkin, Abraham S.,</marc:subfield>
+            <marc:subfield code="d">1903-</marc:subfield>
+            <marc:subfield code="e">aut</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="245" ind1="1" ind2="0">
+            <marc:subfield code="a">201 Hebrew verbs fully conjugated in all the tenses,
+                alphabeticallyarranged /</marc:subfield>
+            <marc:subfield code="c">Abraham S. Halkin.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="260" ind1="0" ind2=" ">
+            <marc:subfield code="a">Woodbury, N.Y. :</marc:subfield>
+            <marc:subfield code="b">Barron's Educational Series,</marc:subfield>
+            <marc:subfield code="c">c1970.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="300" ind1=" " ind2=" ">
+            <marc:subfield code="a">xiii, 425 p. ;</marc:subfield>
+            <marc:subfield code="c">21 cm.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="650" ind1=" " ind2="0">
+            <marc:subfield code="a">Hebrew language</marc:subfield>
+            <marc:subfield code="x">Verb</marc:subfield>
+            <marc:subfield code="v">Tables.</marc:subfield>
+        </marc:datafield>
+        <marc:datafield tag="035" ind1=" " ind2=" ">
+            <marc:subfield code="a">(TxDaGIAL)37741100007662</marc:subfield>
+        </marc:datafield>
+        <marc:controlfield tag="005">20080624154321.0</marc:controlfield>
+        <marc:controlfield tag="001">122</marc:controlfield>
+        <marc:controlfield tag="003">TxDaGIAL</marc:controlfield>
+        <marc:datafield tag="852" ind1=" " ind2=" ">
+            <marc:subfield code="p">37741100007662</marc:subfield>
+            <marc:subfield code="a">Library</marc:subfield>
+            <marc:subfield code="x">COPYID:125</marc:subfield>
+            <marc:subfield code="x">FSC@aRegular@c19950906</marc:subfield>
+            <marc:subfield code="h">492.45 H173t 1970</marc:subfield>
+            <marc:subfield code="z">510</marc:subfield>
+        </marc:datafield>
+    </marc:record>
 </marc:collection>
