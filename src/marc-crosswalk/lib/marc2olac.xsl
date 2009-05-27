@@ -396,7 +396,7 @@ local cataloging practices.
         <xsl:variable name="relcode">
             <xsl:if test="count(marc:subfield[@code='e']) = 1">
                 <xsl:call-template name="process-role">
-                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                    <xsl:with-param name="relator" select="marc:subfield[@code='e']"/>
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>
@@ -434,7 +434,7 @@ local cataloging practices.
         <xsl:variable name="relcode">
             <xsl:if test="count(marc:subfield[@code='e']) = 1">
                 <xsl:call-template name="process-role">
-                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                    <xsl:with-param name="relator" select="marc:subfield[@code='e']"/>
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>
@@ -1284,7 +1284,7 @@ local cataloging practices.
         <xsl:variable name="relcode">
             <xsl:if test="count(marc:subfield[@code='e']) = 1">
                 <xsl:call-template name="process-role">
-                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                    <xsl:with-param name="relator" select="marc:subfield[@code='e']"/>
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>
@@ -1309,7 +1309,7 @@ local cataloging practices.
         <xsl:variable name="relcode">
             <xsl:if test="count(marc:subfield[@code='e']) = 1">
                 <xsl:call-template name="process-role">
-                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                    <xsl:with-param name="relator" select="marc:subfield[@code='e']"/>
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>
@@ -1345,7 +1345,7 @@ local cataloging practices.
         <xsl:variable name="relcode">
             <xsl:if test="count(marc:subfield[@code='e']) = 1">
                 <xsl:call-template name="process-role">
-                    <xsl:with-param name="term" select="marc:subfield[@code='e']"/>
+                    <xsl:with-param name="relator" select="marc:subfield[@code='e']"/>
                 </xsl:call-template>
             </xsl:if>
         </xsl:variable>

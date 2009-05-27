@@ -10,6 +10,7 @@
     <xsl:template match="olac:olac">
 
         <xsl:copy>
+            <!-- case for elements that don't have an olac:code -->
             <xsl:for-each select="*[not(@olac:code)]">
                 <xsl:variable name="currentname" select="name()" />
                 <xsl:variable name="currenttext" select="text()" />
@@ -23,7 +24,8 @@
                 </xsl:choose>
             </xsl:for-each>
             
-            <xsl:for-each select="*[@olac:code]">
+            <!-- case for elements that DO have an OLAC code, but don't have text -->
+            <xsl:for-each select="*[@olac:code][not(text())]">
                 <xsl:variable name="currentname" select="name()" />
                 <xsl:variable name="currentcode" select="@olac:code" />
                 <xsl:choose>
@@ -36,6 +38,20 @@
                 </xsl:choose>
             </xsl:for-each>
            
+           <!--  case for elements with an OLAC code, and also with text -->
+            <xsl:for-each select="*[@olac:code][text()]">
+                <xsl:variable name="currentname" select="name()" />
+                <xsl:variable name="currenttext" select="text()" />
+                <xsl:variable name="currentcode" select="@olac:code" />
+                <xsl:choose>
+                    <xsl:when
+                        test="following-sibling::*[name() = $currentname][text() = $currenttext] and following-sibling::*[name() = $currentname][@olac:code = $currentcode]">
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:copy-of select="self::node()"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
             
         </xsl:copy>
     </xsl:template>

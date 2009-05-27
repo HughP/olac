@@ -61,18 +61,18 @@
                <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1975</dc:date>
                <dc:identifier from="020">ISBN: 0878400400</dc:identifier>
-               <dc:subject xsi:type="dcterms:LCC" from="050">PC4021.C55 1974</dc:subject>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PC4021 .C55 1974</dc:subject>
                <dc:subject xsi:type="dcterms:DDC" from="082ab">460</dc:subject>
-               <dc:title from="245abnp">1974 Colloquium on Spanish and Portuguese Linguistics : [selected papers]</dc:title>
+               <dc:title from="245abknps">1974 Colloquium on Spanish and Portuguese Linguistics : [selected papers]</dc:title>
                <dc:publisher from="260ab">Washington : Georgetown University Press</dc:publisher>
-               <dcterms:extent from="300a">v, 148 p</dcterms:extent>
+               <dcterms:extent from="300abcefg">v, 148 p. ; 23 cm</dcterms:extent>
                <dc:description from="504">Includes bibliographies</dc:description>
                <dc:subject xsi:type="dcterms:LCSH" from="650">Spanish language--Congresses</dc:subject>
-               <dc:contributor from="700abcdeq">Milan, William G</dc:contributor>
-               <dc:contributor from="700abcdeq">Staczek, John J</dc:contributor>
-               <dc:contributor from="700abcdeq">Zamora, Juan C</dc:contributor>
-               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code=""/>
                <dc:subject xsi:type="olac:language" olac:code="spa" from="650"/>
+               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Milan, William G</dc:contributor>
+               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Staczek, John J</dc:contributor>
+               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Zamora, Juan C</dc:contributor>
             </olac:olac>
          </oai:metadata>
       </oai:record>
@@ -85,13 +85,13 @@
             <olac:olac>
                <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1970</dc:date>
-               <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645.H25</dc:subject>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645 .H25</dc:subject>
                <dc:subject xsi:type="dcterms:DDC" from="082ab">492.45</dc:subject>
-               <dc:title from="245abnp">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged</dc:title>
+               <dc:title from="245abknps">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged</dc:title>
                <dc:publisher from="260ab">Woodbury, N.Y. : Barron's Educational Series</dc:publisher>
-               <dcterms:extent from="300a">xiii, 425 p</dcterms:extent>
+               <dcterms:extent from="300abcefg">xiii, 425 p. ; 21 cm</dcterms:extent>
                <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Hebrew language--Verb--Tables</dc:subject>
-               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code=""/>
                <dc:contributor olac:code="author" xsi:type="olac:role" from="100abcdeq">Halkin, Abraham S., 1903-</dc:contributor>
             </olac:olac>
          </oai:metadata>
