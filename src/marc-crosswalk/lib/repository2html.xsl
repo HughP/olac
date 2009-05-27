@@ -100,6 +100,7 @@
             <xsl:call-template name="add-scheme">
                <xsl:with-param name="prefix" select="substring-before(@xsi:type, ':')"/>
                <xsl:with-param name="scheme" select="substring-after(@xsi:type, ':')"/>
+               <xsl:with-param name="code" select="@olac:code"/>
             </xsl:call-template>
          </xsl:if>
       </xsl:variable>
@@ -208,12 +209,13 @@
    <xsl:template name="add-scheme">
       <xsl:param name="prefix"/>
       <xsl:param name="scheme"/>
+      <xsl:param name="code"/>
       <xsl:choose>
          <xsl:when test="$scheme='language'">&#160;(ISO639)</xsl:when>
          <xsl:when test="$scheme='DCMIType'">&#160;(DCMI)</xsl:when>
          <xsl:when test="$scheme='role'">
             <xsl:value-of
-               select="concat( '&#160;(', @olac:code, ')' )"/>
+               select="concat( '&#160;(', $code, ')' )"/>
          </xsl:when>
          <xsl:when test="$prefix='olac'">&#160;(OLAC)</xsl:when>
          <xsl:otherwise>
