@@ -75,13 +75,13 @@ local cataloging practices.
         <!-- JAS: prefer 041 and parse, or 590  
         Must repent of believing the librarian: GIAL data has 1501 records with 094 tags
         probably 13th or 14th ed. Ethnologue -->
-        <xsl:if test="substring( . ,36,3) != '   '">
+        <xsl:if test="matches(lower-case(substring( . ,36,3)),'^[a-z][a-z][a-z]$')">
             <dc:language xsi:type="olac:language">
                 <xsl:call-template name="show-source">
                     <xsl:with-param name="subfield">-35</xsl:with-param>
                 </xsl:call-template>
                 <xsl:attribute name="olac:code">
-                    <xsl:value-of select="substring( . ,36,3)"/>
+                    <xsl:value-of select="lower-case(substring( . ,36,3))"/>
                 </xsl:attribute>
             </dc:language>
         </xsl:if>
@@ -278,11 +278,13 @@ local cataloging practices.
         <xsl:choose>
             <xsl:when test="count($str) = 1">
                 <xsl:if test="string-length($str) mod 3 = 0 and string-length($str) > 0">
-                    <dc:language>
-                        <xsl:call-template name="show-source"/>
-                        <xsl:attribute name="xsi:type" select="$xsitype"/>
-                        <xsl:attribute name="olac:code" select="substring($str,1,3)"/>
-                    </dc:language>
+                    <xsl:if test="matches(lower-case(substring($str,1,3)),'[a-z][a-z][a-z]')">
+                        <dc:language>
+                            <xsl:call-template name="show-source"/>
+                            <xsl:attribute name="xsi:type" select="$xsitype"/>
+                            <xsl:attribute name="olac:code" select="substring($str,1,3)"/>
+                        </dc:language>
+                    </xsl:if>
                     <xsl:call-template name="process-041">
                         <xsl:with-param name="xsitype" select="$xsitype"/>
                         <xsl:with-param name="str" select="substring($str,4)"/>
@@ -292,10 +294,12 @@ local cataloging practices.
             <xsl:when test="count($str) > 1">
                 <!-- multiple $a present -->
                 <xsl:for-each select="$str">
-                    <dc:language>
-                        <xsl:attribute name="xsi:type" select="$xsitype"/>
-                        <xsl:value-of select="substring( . ,1,3)"/>
-                    </dc:language>
+                    <xsl:if test="matches(lower-case(substring( . ,1,3)),'[a-z][a-z][a-z]')">
+                        <dc:language>
+                            <xsl:attribute name="xsi:type" select="$xsitype"/>
+                            <xsl:attribute name="olac:code" select="substring( . ,1,3)"/>
+                        </dc:language>
+                    </xsl:if>
                     <xsl:call-template name="process-041">
                         <xsl:with-param name="xsitype" select="$xsitype"/>
                         <xsl:with-param name="str" select="substring( . ,4,3)"/>
@@ -1052,7 +1056,8 @@ local cataloging practices.
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <!-- sub-a is lower case and with trailing period stripped, if it exists -->
-                <xsl:variable name="sub-a" select="replace(lower-case(marc:subfield[@code='a']),'\.','')"/>
+                <xsl:variable name="sub-a"
+                    select="replace(lower-case(marc:subfield[@code='a']),'\.','')"/>
                 <xsl:variable name="code">
                     <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
                         <xsl:choose>
@@ -1072,7 +1077,7 @@ local cataloging practices.
                     </xsl:if>
                 </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:if test="$no_code and $code = 'failed' ">
+                    <xsl:if test="$no_code = 'yes' and $code = 'failed' ">
                         <xsl:attribute name="no_code">1</xsl:attribute>
                     </xsl:if>
                     <xsl:call-template name="show-source"/>
@@ -1549,17 +1554,26 @@ local cataloging practices.
             <xsl:when
                 test="marc:subfield[@code='3' and contains(lower-case( . ),'abstract') or 
                             contains(lower-case( . ),'summary') or contains(lower-case( . ),'description')]">
-                <dcterms:abstract from="856" xsi:type="dcterms:URI">
+                <dcterms:abstract xsi:type="dcterms:URI">
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">u</xsl:with-param>
+                    </xsl:call-template>
                     <xsl:value-of select="marc:subfield[@code='u']"/>
                 </dcterms:abstract>
             </xsl:when>
             <xsl:when test="marc:subfield[@code='3' and contains(lower-case( . ),'contents')]">
-                <dcterms:tableOfContents from="856" xsi:type="dcterms:URI">
+                <dcterms:tableOfContents xsi:type="dcterms:URI">
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">u</xsl:with-param>
+                    </xsl:call-template>
                     <xsl:value-of select="marc:subfield[@code='u']"/>
                 </dcterms:tableOfContents>
             </xsl:when>
             <xsl:otherwise>
-                <dc:description from="856">
+                <dc:description>
+                    <xsl:call-template name="show-source">
+                        <xsl:with-param name="subfield">u3</xsl:with-param>
+                    </xsl:call-template>
                     <xsl:value-of select="marc:subfield[@code='3']"/>
                     <xsl:text> : </xsl:text>
                     <xsl:value-of select="marc:subfield[@code='u']"/>

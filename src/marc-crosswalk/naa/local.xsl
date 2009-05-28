@@ -46,12 +46,12 @@
             <!-- Fill in the full name of the repository -->
             <oai:repositoryName>National Anthropological Archives</oai:repositoryName>
             <!-- Fill in the URL where the static repository resides on the web -->
-            <oai:baseURL>http://www.nmnh.si.edu/naa/olac_repository.xml</oai:baseURL>
+            <oai:baseURL>http://www.gial.edu/olac/repository/naa/repository.xml</oai:baseURL>
             <!-- Don't touch this -->
             <oai:protocolVersion>2.0</oai:protocolVersion>
             <!-- Fill in the email address of the person responsible for
             the implementation and maintenance of the repository -->
-            <oai:adminEmail>email?</oai:adminEmail>
+            <oai:adminEmail>email@naa.nmnh.si.edu</oai:adminEmail>
             <!-- Don't touch any of the following up to the next comment -->
             <oai:earliestDatestamp>
                 <xsl:value-of select="$metadata-version-date"/>
@@ -84,7 +84,7 @@
                     <archiveURL>http://www.nmnh.si.edu/naa/</archiveURL>
                     <!-- Make as many copies of <participant> as you need -->
                     <participant name="Robert Leopold" role="Director" email="leopold@si.edu"/>
-                    <participant name="Who" role="Role?" email="email?"/>
+                    <participant name="Who" role="Role?" email="email@naa.nmnh.si.edu"/>
                     <institution>National Anthropological Archives</institution>
                     <institutionURL>http://www.nmnh.si.edu/naa/</institutionURL>
                     <shortLocation>Suitland, MD</shortLocation>
@@ -122,7 +122,7 @@
 
     <xsl:template match="marc:controlfield[@tag='008']">
         <!-- ignore 'und' code because it is useless in the NAA set -->
-        <xsl:if test="substring( . ,36,3) != 'und' and substring( . ,36,3) != '   '">
+        <xsl:if test="substring( . ,36,3) != 'und' and matches(lower-case(substring( . ,36,3)),'[a-z][a-z][a-z]')">
             <dc:language xsi:type="olac:language">
                 <xsl:call-template name="show-source">
                     <xsl:with-param name="subfield">-35</xsl:with-param>
@@ -251,7 +251,7 @@
                         </xsl:if>
                     </xsl:variable>
                     <dc:subject xsi:type="dcterms:LCSH">
-                        <xsl:if test="$code = 'failed' ">
+                        <xsl:if test="$no_code = 'yes' and $code = 'failed' ">
                             <xsl:attribute name="no_code">1</xsl:attribute>
                         </xsl:if>
                         <xsl:call-template name="show-source"/>
