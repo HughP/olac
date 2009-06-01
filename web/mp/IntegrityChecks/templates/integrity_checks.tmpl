@@ -39,11 +39,11 @@ function redirect() {
 
 <p>
 <select id="list">
-#for repoid in $repoids
-#if $getVar('repoid',None)==repoid
-<option value="$repoid" selected>$repoid</option>
+#for rid in $repoids
+#if $getVar('repoid',None)==rid
+<option value="$rid" selected>$rid</option>
 #else
-<option value="$repoid">$repoid</option>
+<option value="$rid">$rid</option>
 #end if
 #end for
 </select>
