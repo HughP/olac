@@ -14,6 +14,7 @@
     <xsl:include href="Google_Analytics.xsl"/>
    <xsl:strip-space elements="*"/>
    <xsl:preserve-space elements="eg"/>
+   <xsl:key name="Ref" match="ref" use="@abbrev"/>
    <xsl:variable name="baseURL">
       <xsl:text>http://www.language-archives.org/</xsl:text>
       <xsl:choose>
@@ -959,10 +960,19 @@
    <xsl:template match="cit">
       <xsl:text>[</xsl:text>
       <a>
-         <xsl:attribute name="href">
-            <xsl:text>#</xsl:text>
-            <xsl:value-of select="."/>
-         </xsl:attribute>
+         <xsl:choose>
+            <xsl:when test="key('Ref',.)/url">
+               <xsl:attribute name="href">
+                  <xsl:value-of select="key('Ref',.)/url"/>
+               </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:attribute name="href">
+                  <xsl:text>#</xsl:text>
+                  <xsl:value-of select="."/>
+               </xsl:attribute>
+            </xsl:otherwise>
+         </xsl:choose>
          <xsl:value-of select="."/>
       </a>
       <xsl:text>]</xsl:text>
