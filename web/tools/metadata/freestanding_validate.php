@@ -1,4 +1,4 @@
-<?
+<?php
 # freestanding_validate.php
 #
 # Validate a free-standing OLAC metadata document
@@ -132,6 +132,7 @@ for ($i=0; $i<count($matches[0]); $i++) {
     $pfxmap[$nssym] = $prefix;
   }
 }
+
 # matches all xsi:type attributes
 # NOTE: this pattern may fail on unanticipated inputs
 preg_match_all("{<[^>]*?(\S+?):type\s*=\s*}s", $metadata, &$matches);
@@ -215,30 +216,28 @@ if (preg_match($pat, $olactag, $group)) {
 }
 
 ##
-## Replace existing namespace declarations with standard namespaces.
-## If not declared, declare it.
+## Add namespace declarations and schema locations if missing.
 ##
 
-foreach ($pfxmap as $default => $used) {
-  $ns = $namespaces[$default];
-  if (preg_match("{xmlns:$used\s*=}", $olactag)) {
-    $olactag = preg_replace("{(xmlns:$used\s*=\s*[\"']).*?([\"'])}", "$1$ns$2", $olactag);
+#foreach ($pfxmap as $default => $used) {
+foreach ($namespaces as $default => $ns) {
+  if (array_key_exists($default, $pfxmap)) {
+    $used = $pfxmap[$default];
+    if (!preg_match("{xmlns:$used\s*=}", $olactag)) {
+      $olactag .= " xmlns:$used=\"$ns\"";
+    }
   } else {
-    $olactag .= " xmlns:$used=\"$ns\"";
+    $olactag .= " xmlns:$default=\"$ns\"";
+  }
+
+  if ($default != 'xsi') {
+    $schema = $schemas[$ns];
+    if (!preg_match("@$ns\s+@", $schemaLoc)) {
+      $schemaLoc .= " $ns $schema";
+    }
   }
 }
 
-##
-## Replace existing olac schema locations with standard one.
-##
-
-$ns = $namespaces["olac"];
-$schema = $schemas[$ns];
-if (preg_match("@$ns@", $schemaLoc)) {
-  $schemaLoc = preg_replace("{($ns\s+)([^\n\t \"']+)}s", "$1$schema", $schemaLoc);
-} else {
-  $schemaLoc .= " $ns $schema";
-}
 $xsiprefix = $pfxmap["xsi"];
 if ($xsiprefix) $xsiprefix .= ":";
 $olactag = "<$olacprefix:olac $olactag ${xsiprefix}schemaLocation=\"$schemaLoc\">";
@@ -325,9 +324,9 @@ EOT;
 
   header("Content-Type: text/html"); 
   print join("\n", $result);
-
 ?>
-<?
+<?php
+
   } else {
 
 # Return the HTML page reporting validation errors
@@ -357,26 +356,11 @@ ALT="OLAC Logo"> </A> </TD>
 <HR>
 <P>The following validation errors were detected in the document you uploaded:</P>
 <BLOCKQUOTE><PRE>
-<?  print join("\n", $result);  ?>
+<?=join("\n", $result);?>
 </PRE></BLOCKQUOTE>
 <P>The document is not a valid OLAC metadata record. Go back to the previous page and correct this before proceeding to the step of display formatting.</P>
-
-<?
-# The following didn't do anything:
-# <P> Here are the results from another parser ...</P>
-# <BLOCKQUOTE>
-# <?
-#     $command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xsv_html $tmpfile";
-#     exec($command, $result2, $errcode);
-#     print join("\n", $result2);
-# ?>
-# </BLOCKQUOTE>
-?>
-
 </BODY>
 </HTML>
-
-<?
-  }
+<?php
+    }
 ?>
-
