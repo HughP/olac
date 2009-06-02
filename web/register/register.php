@@ -1044,7 +1044,7 @@ your repository.</p>
 
 <p>An OLAC archive can be in the form of either a dynamic or static repository.
 Before registration, please make sure that your repository conforms to the
-following stadards, against which your repository will be tested during
+following standards, against which your repository will be tested during
 the registration process:
 
 <dl>
