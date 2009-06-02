@@ -118,7 +118,11 @@ function old_meta_tag_formatting($tab)
       $padding = ' ';
     }
     if ($answer[Content]) {
-      $value .= $padding . $answer[Content];
+      $s = $answer["Content"];
+      #$s = preg_replace("/</", "&lt;", $s);
+      #$s = preg_replace("/>/", "&gt;", $s);
+      $s = preg_replace("/\"/", "&quot;", $s);
+      $value .= $padding . $s;
       $padding = ' ';
     } else {
       if ($answer['Type'] == 'language' && $answer['Code']) {
