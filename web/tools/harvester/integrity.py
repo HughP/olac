@@ -251,7 +251,15 @@ def check_urls(con, archive_id=None):
                 sqls.append((sql,(row[0],url)))
         elif url.startswith('http'):
             try:
-                res = http_check(url)
+                while True:
+                    res = http_check(url)
+                    if res != '200' and url[-1] in '()<>;:,.\'"':
+                        # if the URL ends with suspicious characters,
+                        # try again with those characters chopped off
+                        url = url[:-1]
+                        continue
+                    else:
+                        break
             except Exception, e:
                 log("%s" % e)
                 continue
