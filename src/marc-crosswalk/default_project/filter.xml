@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
-<gateway name="filter-test">
+<?oxygen RNGSchema="file:../lib/marc-filter.rnc" type="compact"?>
+<marc-filter>
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:title>GIAL test filter</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-04-26</dc:date>
-      <dc:description>This filter for GIAL record set.</dc:description>
+      <dc:description>This is a test filter for the GIAL record set.</dc:description>
    </header>
    <select-stage>
       <!--
@@ -307,5 +307,4 @@
          </data-field>
       </test>
    </reject-stage>
-   <crosswalk/>
-</gateway>
+</marc-filter>
