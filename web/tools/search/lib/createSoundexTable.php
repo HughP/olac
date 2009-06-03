@@ -5,7 +5,7 @@ include "olacdb.php";
 $DB = new OLACDB();
 $DEBUG=0;
 
-$allMetaQuery = "select	distinct Content from METADATA_ELEM";
+$allMetaQuery = "select	distinct Content from METADATA_ELEM_MYISAM";
 
 if ($DEBUG) { echo "$allMetaQuery\n"; }
 

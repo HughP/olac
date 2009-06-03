@@ -63,8 +63,8 @@ INSTALLATION
 		  Creates the indices:
 			SOUNDEX_INDEX on SOUNDEX_TABLE
 			LangSoundexIndex on LanguageSoundex
-			metadataContentIndex - FULLTEXT index 
-					       on METADATA_ELEM(Content)
+			METADATA_ELEM_INDEX_CONTENT - FULLTEXT index 
+					       on METADATA_ELEM_MYISAM(Content)
 		]
 
   5. Populate soundex and ranking tables:
