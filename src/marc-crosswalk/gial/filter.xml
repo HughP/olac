@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
-<gateway name="filter-test">
+<?oxygen RNGSchema="file:../lib/marc-filter.rnc" type="compact"?>
+<marc-filter>
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-      <dc:title>GIAL test filter</dc:title>
+      <dc:title>MARC filter for GIAL crosswalk</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-05-22</dc:date>
-      <dc:description>This filter for GIAL record set. This filter streamlines the rejection steps and 
+      <dc:description>This filter is for the GIAL record set. This filter streamlines the rejection steps and 
       expands them to address major European languages wherein dialects are not as highly divergent
       (as, for example, with other major languages like Chinese and Arabic).
       
-      5/22 has a pretty major rewrite of the reject section to try to deal with this issue. Still
+      This version is a pretty major rewrite of the reject section to try to deal with this issue. Still
       have not done to well on the general works not associated with any specific language</dc:description>
    </header>
    <select-stage>
@@ -131,5 +131,4 @@
          </data-field>
       </test>
    </reject-stage>
-   <crosswalk/>
-</gateway>
+</marc-filter>

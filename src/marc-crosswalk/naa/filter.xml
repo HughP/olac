@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?oxygen RNGSchema="file:gateway.rnc" type="compact"?>
-<gateway name="filter-test">
+<?oxygen RNGSchema="file:../lib/marc-filter.rnc" type="compact"?>
+<marc-filter>
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-      <dc:title>NAA test filter</dc:title>
+      <dc:title>MARC filter for the NAA crosswalk</dc:title>
       <dc:contributor>Joan Spanne</dc:contributor>
       <dc:date>2009-04-24</dc:date>
-      <dc:description>This filter for NAA record set mostly to remove unwanted image records, but
+      <dc:description>This filter for the NAA record set mostly serves
+         to remove unwanted image records, but
          does use the select stage to explicitly select desired records.</dc:description>
    </header>
    <select-stage>
@@ -145,5 +146,4 @@
          </control-field>
       </test>
    </reject-stage>
-   <crosswalk/>
-</gateway>
+</marc-filter>
