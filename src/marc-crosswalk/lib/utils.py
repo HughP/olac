@@ -121,9 +121,9 @@ def compileFilters(config):
     config.set('system','filter_accept',accept)
 
     # compile filters here
-    filter_compiler = libpath + sep + 'gateway-compile1'
+    filter_compiler = libpath + sep + 'filter-compile1'
     transform(config,filter_compiler,filter,accept + '.xsl','version="2.0"')
-    filter_compiler = libpath + sep + 'gateway-compile2'
+    filter_compiler = libpath + sep + 'filter-compile2'
     transform(config,filter_compiler,filter,reject + '.xsl','version="2.0"')
     
     return config
