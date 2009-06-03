@@ -10,28 +10,30 @@
 #   <oai-id>  OAI record identifier
 #
 # changes:
+#   2008-05-16  modify GA script to include tracker for ArchiveURL -SB
+#   2008-03-03  obtain item identifier from the path info as well -HL
+#   2008-02-06  added GA script; added search terms -HL
+#   2008-01-28  fixed an sql query because it didn't pick up all
+#               metadata elements -HL
+#   2004-11-10  set character encoding to UTF-8 - HL
 #   2003-02-28  use olac2 - HL
 #   2003-02-26  revised for OLAC 1.0 with "display" format - HL
 #   2002-??-??  Haejoong Lee revised it
 #   2002-??-??  Steven Bird wrote it originally
 ######################################################################
 
-#require_once("/mnt/unagi/speechd8/ldc/wwwhome/htdocs/language-archives/lib/php/OLACDB.php");
-
-include "searchInclude.php";
-
-include LIB . "olacdb.php";
-$DB = new OLACDB();
+define(OLAC_DB_NAME, 'olac2');
+require_once("/web/language-archives/lib/php/OLACDB.php");
+$DB = new OLACDB(OLAC_DB_NAME);
+$DB->sql("set names 'utf8'");
 
 
 function draw_form() {
-$LIB = LIB;
-global $STYLE;
   print <<<END
 <html>
 <head>
 <title>OLAC Metadata Lookup</title>
-<link rel="stylesheet" type="text/css" href="{$STYLE}olac.css">
+<link rel="stylesheet" type="text/css" href="/olac.css">
 </head>
 <body>
 
@@ -48,13 +50,11 @@ END;
 }
 
 function error_page($msg) {
-$LIB=LIB;
-global $STYLE;
     print <<<END
 <html>
 <head>
 <title>OLAC Metadata Lookup</title>
-<link rel="stylesheet" type="text/css" href="{$STYLE}olac.css">
+<link rel="stylesheet" type="text/css" href="/olac.css">
 </head>
 <body>
 <p><b><font color=red>$msg</font></b>
@@ -63,182 +63,6 @@ global $STYLE;
 END;
     exit;
 }
-
-
-
-$_GET['identifier'] or draw_form();
-
-$_GET['identifier'] = trim( $_GET['identifier'] );
-
-$identifier = $_GET['identifier'];
-
-$tab = $DB->sql("
-    select OA.RepositoryName, OA.BaseURL,       OA.Archive_ID,
-           AI.Item_ID,        AI.OaiIdentifier, AI.DateStamp
-    from   OLAC_ARCHIVE OA, ARCHIVED_ITEM AI
-    where  AI.OaiIdentifier = '$_GET[identifier]'
-    and    OA.Archive_ID = AI.Archive_ID");
-$DB->saw_error() and error_page("Query failed");
-$tab or error_page("Record not found");
-
-$body = "<h2>OLAC Record: $_GET[identifier]</h2>\n";
-
-$answer = $tab[0];
-
-$olac_info = <<<END
-<tr>
-  <td colspan=3><br><p><b>OLAC Info</b></td>
-</tr>
-<tr>
-  <td class=lookup><i>Archive:&nbsp;</i></td>
-  <td></td>
-  <td>$answer[RepositoryName]</td>
-</tr>
-<tr>
-  <td class=lookup><i>Description:&nbsp;</i></td>
-  <td></td>
-  <td><a href="http://www.language-archives.org/archive.php4?id=$answer[Archive_ID]">http://www.language-archives.org/archive.php4?id=$answer[Archive_ID]</a></td>
-</tr>
-END;
-
-$oai_info = <<<END
-<tr>
-  <td colspan=3><br><p><b>OAI Info</b></td>
-</tr>
-<tr>
-  <td class=lookup><i>OaiIdentifier:&nbsp;</i></td>
-  <td></td>
-  <td>$answer[OaiIdentifier]</td>
-</tr>
-<tr>
-  <td class=lookup><i>DateStamp:&nbsp;</i></td>
-  <td></td><td>$answer[DateStamp]</td>
-</tr>
-<tr>
-  <td class=lookup><i>GetRecord:&nbsp;</i></td>
-  <td></td>
-  <td><a href="$answer[BaseURL]?verb=GetRecord&identifier=$identifier&metadataPrefix=olac">$answer[BaseURL]?verb=GetRecord&identifier=$identifier&metadataPrefix=olac</a></td>
-</tr>
-<tr>
-  <td class=lookup><i>Lookup Arc:&nbsp;</i></td>
-  <td></td>
-  <td><a href="http://arc.cs.odu.edu:8080/oai/servlet/search?formname=detail&id=$_GET[identifier]">http://arc.cs.odu.edu:8080/oai/servlet/search?formname=detail&id=$_GET[identifier]</a>
-</tr>
-END;
-
-$queryString = "
-    select ed.Label as TagLabel, ed2.Label as DcTag,
-           Lang, Content, ex.Label as Type, cd.Label as Code
-    from   ELEMENT_DEFN ed, ELEMENT_DEFN ed2,
-           METADATA_ELEM me, EXTENSION ex, CODE_DEFN cd 
-    where  Item_ID=$answer[Item_ID]
-    and    ed2.Tag_ID = ed.DcElement
-    and    me.Extension_ID=ex.Extension_ID
-    and    me.Extension_ID=cd.Extension_ID
-    and    (cd.Code='' or me.Code=cd.Code)
-    and    me.Tag_ID = ed.Tag_ID
-    order by ed.Rank";
-
-$queryString = "
-select 	me.Content, ed2.Label as DcTag, cd.Label as Code, ex.Label as Type,
-		ed.Label as DcTag, ed.Label as TagLabel
-from 	ELEMENT_DEFN ed, CODE_DEFN cd, ELEMENT_DEFN ed2, EXTENSION ex 
-		RIGHT OUTER JOIN 
-		METADATA_ELEM me
-		ON ex.Extension_ID = me.Extension_ID
-where 	ed.Tag_ID = me.Tag_ID
-and	ed2.Tag_ID = ed.DcElement
-and	cd.Extension_ID = me.Extension_ID
-and	(cd.Code='' or me.Code=cd.Code)
-and	me.Item_ID=$answer[Item_ID]
-order by ed.Rank
-";
-
-echo "<!-- $queryString -->";
-$tab = $DB->sql($queryString);
-$DB->saw_error() and error_page("Query failed");
-
-$prev_field = "";
-$meta = "";
-$meta_description = "";
-$meta_keywords = "";
-$body .= "<p><table cellspacing=0 cellpadding=2 border=0>\n";
-$body .= "<tr><td colspan=3><b>Metadata</b></td></tr>\n";
-
-foreach ($tab as $answer) {
-    $tag = $meta_name = $answer['DcTag'];
-    $padding = '';
-    $value = '';
-    if ($answer['Type']) {
-	if ($answer['Code']) {
-	    $value = "[$answer[Type] = $answer[Code]]";
-        } else {
-            $value = "[$answer[Type]]";
-        }
-	$padding = ' ';
-    }
-    if ($answer['Content']) {
-        $value .= $padding . $answer['Content'];
-        $padding = ' ';
-    }
-    if ($answer['TagLabel'] != $answer['DcTag']) {
-        $value .= $padding . "[$answer[TagLabel]]";
-    }
-	
-    $meta_content = $value;
-    $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\">\\1</a>", $value);
-    $body .= "<tr><td class=lookup><i>";
-    if ($tag != $prev_field) {
-        $body .= "$tag:";
-    }
-    $body .= "&nbsp;</i></td><td></td><td>$value</td></tr>\n";
-
-    $meta_name = "DC." . ereg_replace(" .*", "", $meta_name);
-    $meta .= "<meta name=\"$meta_name\" content=\"$meta_content\">\n";
-
-    switch ($tag) {
-	case "Title":
-	    $title = $meta_content;
-	    break;
-	case "Description":
-	    $meta_description .= "$meta_content ";
-	    break;
-	case "Subject":
-	case "Subject language":
-	case "Coverage":
-	case "Type.linguistic":
-	    $meta_keywords .= "$meta_content;";
-	    break;
-    }
-
-    $prev_field = $tag;
-}
-
-$body .= $olac_info;
-$body .= $oai_info;
-$body .= "</table>\n";
-
-if ($meta_description && $meta_keywords) {
-    $meta_description = substr($meta_description, 0, -1);
-    $meta_keywords = substr($meta_keywords, 0, -1);
-    $meta .= "<meta name=\"Description\" content=\"$meta_description\">\n";
-    $meta .= "<meta name=\"Keywords\" content=\"$meta_keywords\">\n";
-}
-
-?>
-
-<!--
-<HTML>
-<HEAD>
-<TITLE><?=$title?></TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="<? print $STYLE; ?>olac.css">
-<?=$meta?>
-</HEAD>
-
-<BODY>
--->
-
-<? 
 
 function tokenizeQuery($queryString)
 {
@@ -262,31 +86,461 @@ function tokenizeQuery($queryString)
                 # FIXME
                 $i--;
         }
-	else
-	{
+        else
+        {
         $tokens[$i] = $tok;
-	}
+        }
         $tok = strtok( $separators );
         $i++;
-	
+
     }
 
     return $tokens;
 
 }
 
-        $queryTokens = tokenizeQuery( $_GET['queryTerms'] );
-        foreach( $queryTokens as $tok )
-        {
-                # Case insensitive matching of query keywords
-                $body = ereg_replace( sql_regcase($tok),
-                "<em>\\0</em>", $body );
-        }
+
+function old_meta_tag_formatting($tab)
+{
+  $meta = "";
+  $meta_description = "";
+  $meta_keywords = "";
+  foreach ($tab as $answer) {
+    $tag = $meta_name = $answer[DcTag];
+    $padding = '';
+    $value = '';
+    if ($answer[Type]) {
+      if ($answer[Code]) {
+	$value = "[$answer[Type] = $answer[Code]]";
+      } else {
+	$value = "[$answer[Type]]";
+      }
+      $padding = ' ';
+    }
+    if ($answer[Content]) {
+      $s = $answer["Content"];
+      #$s = preg_replace("/</", "&lt;", $s);
+      #$s = preg_replace("/>/", "&gt;", $s);
+      $s = preg_replace("/\"/", "&quot;", $s);
+      $value .= $padding . $s;
+      $padding = ' ';
+    } else {
+      if ($answer['Type'] == 'language' && $answer['Code']) {
+	$value .= $padding . $answer['CodeName'];
+      }
+    }
+    if ($answer[TagLabel] != $answer[DcTag]) {
+      $value .= $padding . "[$answer[TagLabel]]";
+    }
+    
+    $meta_content = $value;
+    $meta_name = "DC." . ereg_replace(" .*", "", $meta_name);
+    if ($meta_name == "DC.Description") $meta_name="Description";
+    $meta .= "<meta name=\"$meta_name\" content=\"$meta_content\">\n";
+    
+    switch ($tag) {
+    case "Title":
+      $title = $meta_content;
+      break;
+    case "Description":
+      $meta_description .= "$meta_content ";
+      break;
+    case "Subject":
+    case "Subject language":
+    case "Coverage":
+    case "Type.linguistic":
+      $meta_keywords .= "$meta_content;";
+      break;
+    }
+  }
+
+  if ($meta_description && $meta_keywords) {
+    $meta_description = substr($meta_description, 0, -1);
+    $meta_keywords = substr($meta_keywords, 0, -1);
+    $meta .= "<meta name=\"Description\" content=\"$meta_description\">\n";
+    $meta .= "<meta name=\"Keywords\" content=\"$meta_keywords\">\n";
+  }
+  return $meta;
+}
 
 
-echo $body; 
+function same_elements($e1, $e2)
+{
+  $n = count($e1);
+  if ($n != count($e2)) return false;
+  for ($i=0; $i < $n; $i++) {
+    if ($e1[$i] != $e2[$i])
+      return false;
+  }
+  return true;
+}
 
+function found_in($x, $list)
+{
+  foreach ($list as $element) {
+    if (same_elements($x, $element))
+      return true;
+  }
+  return false;
+}
+
+function uniq($a) {
+  $r = array();
+  foreach ($a as $element) {
+    if (!found_in($element, $r))
+      $r[] = $element;
+  }
+  return $r;
+}
+
+function olac_display_process($tab, &$search_terms)
+{
+  $elements = array();
+  foreach ($tab as $answer) {
+
+    $tag = $answer['TagName'];
+    $tagname = $answer['TagLabel'];
+    $content = $answer['Content'];
+    $ext = $answer['Type'];
+    $code = $answer['Code'];
+    $prefix = $answer['NSPrefix'];
+    
+    if ($ext == 'language' && $answer['LangID']) {
+      array_push($search_terms, "iso639_" . $answer['LangID']);
+    } elseif (($ext == 'linguistic-type' ||
+	       $ext == 'linguistic-field' ||
+	       $ext == 'discourse-type') && $code) {
+      array_push($search_terms, "olac_" . $code);
+    } else if ($ext == 'DCMIType' && $content) {
+      array_push($search_terms, "dcmi_" . $content);
+    }
+
+    if ($tag == "type" && $ext == "discourse-type") {
+      if ($code) {
+	$elements[] = array($tag, $code, $ext, '', $tagname, $prefix);
+      }
+    }
+    elseif ($tag == 'type' && $ext == 'linguistic-type') {
+      if ($code) {
+	$elements[] = array($tag, $code, $ext, '', $tagname, $prefix);
+      }
+    }
+    elseif ($tag == 'subject' && $ext == 'linguistic-field') {
+      if ($code) {	
+	$elements[] = array($tag, $code, $ext, '', $tagname, $prefix);
+      }
+      if ($content) {
+	$elements[] = array($tag, $content, '', '', $tagname, '');
+      }
+    }
+    elseif ($tag == 'subject' && $ext == 'language') {
+      if ($code) {
+	$s = "<a href=\"/language/$code\">$code</a>";
+	$elements[] = array($tag, $s, $ext, '', $tagname, $prefix);
+      }
+      if ($answer['CodeName']) {
+	$new_content = $answer['CodeName'];
+	if (!strstr($new_content, 'language'))
+	  $new_content .= " language";
+	$elements[] = array($tag, $new_content, '', '', $tagname, '');
+      }
+      if ($content && $content!=$answer['CodeName']) {
+	$elements[] = array($tag, $content, '', '', $tagname, '');
+      }
+    }
+    elseif ($tag == 'language' && $ext == 'language') {
+      if ($code) {	
+	$s = "<a href=\"/language/$code\">$code</a>";
+	$elements[] = array($tag, $s, $ext, '', $tagname, $prefix);
+      }
+      if ($content) {
+	$langname = $answer['CodeName'];
+	if ($langname && !strstr($content,$langname))
+	  $new_content = "$langname; $content";
+	else
+	  $new_content = $content;
+	$elements[] = array($tag, $new_content, '', '', $tagname, '');
+      }
+      else {
+	$elements[] = array($tag, $answer['CodeName'], '', '', $tagname, '');
+      }
+    }
+    else {
+      $elements[] = array($tag, $content, $ext, $code, $tagname, $prefix);
+    }
+  }
+
+  return uniq($elements);
+}
+
+
+function cmp_html_tab_entries($a, $b)
+{
+  if ($a[0] == 'Title' && $b[0] != 'Title')
+    return -1;
+  elseif ($a[0] != 'Title' && $b[0] == 'Title')
+    return 1;
+  $r = strcmp($a[0], $b[0]);
+  if ($r != 0)
+    return $r;
+  if ($a[2] < $b[2])
+    return -1;
+  elseif ($a[2] > $b[2])
+    return 1;
+  else
+    return 0;
+}
+
+function generate_html_format($elements)
+{
+  $tab = array();
+  foreach ($elements as $record) {
+
+    $tag = $record[0];
+    $content = $record[1];
+    $ext = $record[2];
+    $code = $record[3];
+    $tagname = $record[4];
+    $prefix = $record[5];
+
+    if (!$content) continue;
+
+    if ($prefix=="olac" && $ext == "language")
+      $newtag = "$tagname (ISO639)";
+    else if ($prefix=="olac" && ($ext == "linguistic-field" || $ext == "linguistic-type"))
+      $newtag = "$tagname (OLAC)";
+    else if ($prefix=="olac" && $ext == "role" && $code)
+      $newtag = "$tagname ($code)";
+    else if ($prefix=="olac" && $ext == "discourse-type")
+      $newtag = "$tagname (Discourse)";
+    else if ($prefix=="dcterms" && $tag == "type" && $ext == "DCMIType")
+      $newtag = "$tagname (DCMI)";
+    else if ($prefix=="dcterms" && $ext)
+      $newtag = "$tagname ($ext)";
+    else
+      $newtag = $tagname;
+
+    $value = $content;
+    $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\" $analytics_link>\\1</a>", $value);
+    $value = ereg_replace("(oai:[^: ]+:[^: ]+)", "<a href=\"/item/\\1\">\\1</a>", $value);
+
+    $tab[] = array($newtag, $value, count($tab));
+  }
+
+  usort($tab, "cmp_html_tab_entries");
+  return $tab;
+}
+
+
+$itemid=$_GET['identifier'];
+if (!$itemid) {
+	$arr = explode('?', $_SERVER["REQUEST_URI"]);
+	$arr = explode('/oai:', $arr[0]);
+	$itemid = "oai:" . $arr[1];
+}
+$itemid or draw_form();
+
+$tab = $DB->sql("
+    select OA.RepositoryName, OA.BaseURL,       OA.Archive_ID,
+           AI.Item_ID,        AI.OaiIdentifier, AI.DateStamp,
+	   OA.RepositoryIdentifier
+    from   OLAC_ARCHIVE OA, ARCHIVED_ITEM AI
+    where  AI.OaiIdentifier = '$itemid'
+    and    OA.Archive_ID = AI.Archive_ID");
+if ($DB->saw_error()) {
+    header("HTTP/1.0 500 Internal Server Error");
+    error_page("Query failed");
+}
+if (!$tab) {
+    header("HTTP/1.0 404 Not Found");
+    error_page("Record not found");
+}
+$title = "OLAC Record: $itemid";
+$body = "";
+
+$answer = $tab[0];
+
+$olac_info = <<<END
+<tr>
+  <td colspan=3><br><p><b>OLAC Info</b></td>
+</tr>
+<tr>
+  <td class=lookup><i>Archive:&nbsp;</i></td>
+  <td></td>
+  <td>$answer[RepositoryName]</td>
+</tr>
+<tr>
+  <td class=lookup><i>Description:&nbsp;</i></td>
+  <td></td>
+  <td><a href="http://www.language-archives.org/archive/$answer[RepositoryIdentifier]">http://www.language-archives.org/archive/$answer[RepositoryIdentifier]</a></td>
+</tr>
+<tr>
+  <td class=lookup><i>GetRecord:&nbsp;</i></td>
+  <td></td>
+  <td><a href="$answer[BaseURL]?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
+END;
+
+$oai_info = <<<END
+<tr>
+  <td colspan=3><br><p><b>OAI Info</b></td>
+</tr>
+<tr>
+  <td class=lookup><i>OaiIdentifier:&nbsp;</i></td>
+  <td></td>
+  <td><a href="/item/$answer[OaiIdentifier]">$answer[OaiIdentifier]</a></td>
+</tr>
+<tr>
+  <td class=lookup><i>DateStamp:&nbsp;</i></td>
+  <td></td><td>$answer[DateStamp]</td>
+</tr>
+<tr>
+  <td class=lookup><i>GetRecord:&nbsp;</i></td>
+  <td></td>
+  <td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
+</tr>
+END;
+
+$analytics = <<<END
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-427085-3";
+urchinTracker('item/');
+urchinTracker('archive_item_hits/$answer[RepositoryIdentifier]');
+</script>
+END;
+
+$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[RepositoryIdentifier]')\"";
+
+$tab = $DB->sql("
+	select ed.TagName, ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content,
+          me.Type Type,
+# me.Code Code, lc.LangID, lc.Name LangName
+cd.Code Code, cd.Label CodeName, ex.NSPrefix, lc.Id LangID
+	from METADATA_ELEM me
+	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
+	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
+	left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+        left join EXTENSION ex on ex.Extension_ID=me.Extension_ID
+        left join ISO_639_3 lc on me.Code=lc.Id
+	where Item_ID=$answer[Item_ID]
+	order by ed.Rank
+");
+$DB->saw_error() and error_page("Query failed");
+
+$prev_tag = "";
+$rowcount = 0;
+$meta_keywords = "";
+$body .= "<p><table class=lookuptable cellspacing=1 cellpadding=2 border=0>\n";
+$body .= "<tr><td colspan=3><b>Metadata</b></td></tr>\n";
+$search_terms = array();
+$queryTokens = tokenizeQuery( $_GET['queryTerms'] );
+
+$elements = olac_display_process($tab, $search_terms);
+$html_tab = generate_html_format($elements);
+
+foreach ($html_tab as $record) {
+
+  $tag = $record[0];
+  $value = $record[1];
+
+  if ($tag != $prev_tag) {
+    if ($rowcount > 0) {
+      if ($rowcount > 1)
+	$rowspan = "rowspan=$rowcount";
+      else
+	$rowspan = "";
+      $body .= "<tr><td class=lookup $rowspan>" . $body1;
+    }
+    $body1 = "<i>$tag:</i></td>";
+    $rowcount = 0;
+  }
+  else {
+    $body1 .= "<tr>";
+  }
+
+  # search term highlighting
+  foreach( $queryTokens as $tok ) {
+    $tok = str_replace("(","\(",$tok);
+    # Case insensitive matching of query keywords
+    $value = eregi_replace($tok, '<em style="background:yellow">\\0</em>', $value );
+  }
+
+  $body1 .= "<td></td><td>$value</td></tr>\n";
+  $rowcount += 1;
+  $prev_tag = $tag;
+}
+
+if ($rowcount > 0) {
+  if ($rowcount > 1)
+    $rowspan = "rowspan=$rowcount";
+  else
+    $rowspan = "";
+  $body .= "<tr><td class=lookup $rowspan>" . $body1;
+}
+
+$descriptorspec = array(0 => array("pipe", "r"),
+			1 => array("pipe", "w"),
+			2 => array("file", "/dev/null", "w"));
+$citeproc = proc_open("lib/cite.py", $descriptorspec, $pipes,
+		      NULL, NULL, array("binary_pipes"));
+fwrite($pipes[0], $itemid . "\n");
+fclose($pipes[0]);
+$citation = stream_get_line($pipes[1], 8192);
+fclose($pipes[1]);
+proc_close($citeproc);
+if ($citation or $search_terms)
+  $search_info = "<tr><td colspan=3><br><p><b>Search Info</b></td></tr>";
+if ($citation) {
+  $search_info .= "<tr><td class=lookup><i>Citation:&nbsp;</i></td><td></td>";
+  $search_info .= "<td>$citation</td></tr>";
+}
+if ($search_terms) {
+  sort($search_terms);
+  $search_terms = array_unique($search_terms);
+  $s = implode(" ", $search_terms);
+  $search_info .= "<tr><td class=lookup><i>Terms:&nbsp;</i></td><td></td>";
+  $search_info .= "<td>$s</td></tr>";
+}
+
+
+$body .= $olac_info;
+$body .= $oai_info;
+$body .= $search_info;
+$body .= "</table>\n";
+
+$meta = old_meta_tag_formatting($tab);
 
 ?>
+<HTML>
+<HEAD>
+<TITLE><?=$title?></TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?=$meta?>
+<style>
+.lookup {width: 25%;}
+.lookuptable {width: 100%;}
+</style>
+</HEAD>
+
+<BODY>
+<HR>
+<TABLE CELLPADDING="10">
+<TR>
+<TD> <A HREF="http://www.language-archives.org/"><IMG
+SRC="http://www.language-archives.org/images/olac100.gif"
+BORDER="0"></A></TD>
+<TD><span style="color:#00004a; font-size:24pt; font-weight:bold"
+>OLAC Record</span><br/><span style="font-size:18pt"
+><?=$itemid?></span></FONT></H1></TD>
+</TR>
+</TABLE>
+<HR>
+
+<?php
+echo $body;
+echo $analytics;
+?>
+
 </BODY>
 </HTML>

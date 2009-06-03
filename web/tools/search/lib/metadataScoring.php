@@ -215,7 +215,7 @@ var $maxUsageRank = 3;
 					# content is left blank
             (me.Code != '' and me.Extension_ID != 0) as codeExists
 
-            from EXTENSION ex, METADATA_ELEM me
+            from EXTENSION ex, METADATA_ELEM_MYISAM me
             LEFT OUTER JOIN CODE_DEFN cd
             on (cd.Extension_ID = me.Extension_ID
                 and me.Code = cd.Code)
@@ -229,7 +229,7 @@ var $maxUsageRank = 3;
     function buildElemAbsentQuery()
     {
 	$returnQuery = "select me.Tag_ID, me.TagName
-        		from METADATA_ELEM me
+        		from METADATA_ELEM_MYISAM me
         		where me.Item_ID = " .  $this->id . "
 			and me.TagName in (";
 
@@ -248,7 +248,7 @@ var $maxUsageRank = 3;
                 (temp.Tag_ID is null) as tagAbsent, tu.Rank
             from ELEMENT_DEFN ed LEFT OUTER JOIN
                     (select Tag_ID, TagName
-                    from METADATA_ELEM me
+                    from METADATA_ELEM_MYISAM me
                     where Item_ID = '"
             . $this->id . "')
                 as temp
