@@ -1,0 +1,87 @@
+<?php
+
+require_once('lib/php/OLACDB.php');
+$DB = new OLACDB('olac2');
+
+function error($msg) {
+  echo "<p>ERROR: $msg</p>";
+  exit(0);
+}
+
+# get area name
+$path = preg_split('#/#', $_SERVER['PHP_SELF']);
+$area_name = $path[2];
+
+$s = mysql_real_escape_string($area_name);
+$sql = "select count(*) c from CountryCodes where Area='$s'";
+$tab = $DB->sql($sql);
+if ($DB->saw_error()) error("internal server error");
+if ($tab[0]['c'] == 0) error("unrecognized area name: $area_name");
+
+# get language table
+$sql = "select li.Name, li.CountryID, count(distinct ai.Item_ID) c
+        from ARCHIVED_ITEM ai,
+             METADATA_ELEM me,
+             (select distinct cc.Name, cc.CountryID, li.LangID
+              from LanguageIndex li, CountryCodes cc
+              where li.CountryID=cc.CountryID
+                and cc.Area='$area_name'
+                and li.NameType='L') li
+        where ai.Item_ID=me.Item_ID
+          and me.TagName in ('subject','language')
+          and me.Code=li.LangID
+        group by li.Name
+        order by li.Name";
+$tab = $DB->sql($sql);
+if ($DB->saw_error()) error("internal server error");
+
+# compose title
+$title = "Resources for languages in $area_name";
+
+?>
+<html>
+<head>
+<title><?=$title?></title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="/olac.css">
+</head>
+<body>
+
+<HR>
+<TABLE CELLPADDING="10">
+<TR>
+<TD> <A HREF="http://www.language-archives.org/"><IMG
+SRC="http://www.language-archives.org/images/olac100.gif"
+BORDER="0"></A></TD>
+<TD><H1><FONT COLOR="0x00004a"><?=$title?></FONT></H1>
+</TD>
+</TR>
+</TABLE>
+<HR>
+
+<p>The combined OLAC catalog has resources for languages that are spoken in
+<?=$area_name?>. The number in parentheses is the number of items cataloged for
+languages spoken in the given country.</p>
+
+<table>
+<tr><td><ul>
+<?php
+$n = ceil(sizeof($tab) / 4);
+$c = 0;
+foreach ($tab as $row) {
+  if ($c > 0 && $c % $n == 0)
+    echo "</ul></td><td><ul>";
+  #$a = preg_split('#\s*,\s*#', $row['LangName']);
+  #$langname = rtrim("$a[1] $a[0]");
+  $langname = $row['Name'];
+  echo "<li>";
+  echo "<a href=\"/country/$row[CountryID]\">$langname</a> ($row[c])";
+  echo "</li>";
+  $c += 1;
+}
+?>
+</ul></td></tr>
+</table>
+
+</body>
+</html>
