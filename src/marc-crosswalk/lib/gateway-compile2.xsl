@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- gateway-compile2.xsl
-   Compile the stage 2 ("reject") filter for a gateway
+<!-- filter-compile2.xsl
+   Compile the stage 2 ("reject") filter for a MARC-to-OLAC crosswalk
    G. Simons, 4 Feb 2009
    Last updated: 4 May 2009
 -->
@@ -11,9 +11,9 @@
    <xsl:output method="xml"/>
    <!-- Create an XSLT v. 1.0 stylesheet by default -->
    <xsl:param name="version">1.0</xsl:param>
-   <xsl:include href="gateway-shared.xsl"/>
+   <xsl:include href="filter-shared.xsl"/>
    <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>
-   <xsl:template match="/gateway">
+   <xsl:template match="/marc-filter">
       <alias:stylesheet version="{$version}">
             <alias:output method="xml"/>
             <alias:template match="marc:collection">
