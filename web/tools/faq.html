@@ -78,6 +78,7 @@
         <li><a href="#quality">How do I improve the quality of the metadata in my repository?</a></li>
         <li><a href="#update">What do I do when I want to update the information in my repository?</a></li>
         <li><a href="#changes">Why aren't my changes being harvested?</a></li>
+        <li><a href="#move">How do I move my repository?</a></li>
     </ol>
     
     <h4>General questions</h4>
@@ -557,17 +558,82 @@ OLAC metadata?</a> </li>
         and then click "Analyze" again to test the result.</p>
     
     <h3 class="Question"><a name="update">What do I do when I want to update the information in my repository?</a></h3>
-    <p>Forthcoming.</p>
-    
+    <p>Simply update it. There is no need to inform OLAC. As long as
+        the repository is at the same base URL, it will be harvested on
+        the regular schedule (explained in next answer) 
+        and your updates will be automatically
+        uploaded into the database.</p>
+   
     <h3 class="Question"><a name="changes">Why aren't my changes being harvested?</a></h3>
-    <p>Forthcoming.</p>
-
+    <p>Incremental harvesting takes place every eight hours. Before
+        issuing the <tt>ListRecords</tt> command of the OAI-PMH
+        protocol, the
+        harvester looks up the date of the last successful harvest of
+        the repository and adds that date as the value of the
+        <tt>from</tt> parameter. All records with an
+        <tt>oai:datestamp</tt> in their header that is equal to or later
+        than that date will be returned by the data provider and
+        uploaded by the harvester.</p>
+    <p>If more than eight hours have elapsed since you updated your
+        repository and the changes you made are not showing when you
+        go to <a
+            href="http://www.language-archives.org/archive_records/">http://www.language-archives.org/archive_records/</a>
+        to inspect your records, then look at the 
+        <a href="http://www.language-archives.org/archives.php">Participating
+        Archives</a> page to see if your repository is successfully
+        harvesting. There are two possible cases:
+    </p>
+    <ul>
+        <li><p>If the end of the line for your repository shows a red
+            X, then the last harvest failed. (Click on "More Details"; you
+            will
+            see the date of the last successful harvest near the bottom of
+            the page.) Failure to harvest means that your base URL is not
+            accessible or that your repository has a serious validation
+            problem; enter your base URL into the 
+            <a href="http://www.language-archives.org/register/register.php">registration</a> page
+            to generate a validation report.</p></li>
+        <li><p>If the end of the line for your repository shows a yellow check
+            mark, then it is harvesting successfully. The reason for
+            failure to update is likely to be the datestamps in the record
+            headers. Remember that the datestamp is the revision date
+            for the metadata record, not for the resource it
+            describes. Thus if the datestamp is not updated to the
+            current date when a record is updated, then it will not be
+            picked up by an incremental harvest. The remedy is to
+            update the datestamps.</p></li>
+    </ul>
+    <p>As a guard against failure to update datestamps, a complete
+        reharvest of every repository is performed once each month.
+        This reharvest takes care of another problem, namely, the
+        purging of deleted records. In a dynamic repository it is
+        possible to specify <tt>status="deleted"</tt> on a record and
+        the incremental harvest will delete it from the database.
+        However, static repositories do not support deletion.
+        Therefore, any record that is deleted from a static repository
+        will persist in the OLACA database for up to one month until the
+        monthly reharvest is performed.</p>
+    
+    <h3 class="Question"><a name="move">How do I move my repository?</a></h3>
+    <p>If you want to move the base URL for your repository (without
+        changing the repository identifier), you must re-register.
+        Go to the 
+        <a href="http://www.language-archives.org/register/register.php">registration</a>
+        page, enter your new base URL, and click the Validate button.
+        If there are no validation errors, you will be presented with
+        a "Change Registration" button. Clicking it will move your
+        repository to the new base URL. If you also want to change the
+    repository identifier, then you must contact the OLAC
+    administrators who will manually remove your existing repository
+    and registration, and then
+    instruct you to register the new repository.</p>
+    
 <hr/>
     <p><i>Comments? Further questions? Please click the </i>mailto:<i> link
         below to give us feedback so that
         we can make this page more helpful to future implementers.</i></p>
     <p><tt>http://www.language-archives.org/tools/faq.html</tt><br/>
-        Last revised: 28 July 2008</p>
+        Last revised: 3 June 2009</p>
     <p><font size="-2"> <a
 href="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary
 Simons</a> </font> </p>
