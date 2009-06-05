@@ -573,8 +573,14 @@ OLAC metadata?</a> </li>
         <tt>from</tt> parameter. All records with an
         <tt>oai:datestamp</tt> in their header that is equal to or later
         than that date will be returned by the data provider and
-        uploaded by the harvester.</p>
-    <p>If more than eight hours have elapsed since you updated your
+        uploaded by the harvester. In the case of a static repository,
+        it requires two harvesting cycles to propagate updates &#x2014; the first
+        harvesting request
+        following an update fails because the static repository gateway 
+        recognizes that it must refresh its cache of records; thus by the next
+        request the gateway is able to respond with the updated
+        records.</p>
+    <p>If more than sixteen hours have elapsed since you updated your
         repository and the changes you made are not showing when you
         go to <a
             href="http://www.language-archives.org/archive_records/">http://www.language-archives.org/archive_records/</a>
@@ -593,18 +599,24 @@ OLAC metadata?</a> </li>
             problem; enter your base URL into the 
             <a href="http://www.language-archives.org/register/register.php">registration</a> page
             to generate a validation report.</p></li>
-        <li><p>If the end of the line for your repository shows a yellow check
+        <li><p>If the end of the line for your repository shows a
+            light green check
             mark, then it is harvesting successfully. The reason for
             failure to update is likely to be the datestamps in the record
             headers. Remember that the datestamp is the revision date
             for the metadata record, not for the resource it
             describes. Thus if the datestamp is not updated to the
-            current date when a record is updated, then it will not be
+            current date when a record is updated, it will not be
             picked up by an incremental harvest. The remedy is to
             update the datestamps.</p></li>
     </ul>
     <p>As a guard against failure to update datestamps, a complete
-        reharvest of every repository is performed once each month.
+        reharvest of every repository is performed approximately
+        monthly. The date of full harvesting for any given repository
+        cannot be predicted exactly since the scheduling algorithm is
+        dynamic &#x2014; using randomization to spread the load across the month
+        and recalibrating
+        priorities when a particular repository fails to harvest.
         This reharvest takes care of another problem, namely, the
         purging of deleted records. In a dynamic repository it is
         possible to specify <tt>status="deleted"</tt> on a record and
@@ -633,7 +645,7 @@ OLAC metadata?</a> </li>
         below to give us feedback so that
         we can make this page more helpful to future implementers.</i></p>
     <p><tt>http://www.language-archives.org/tools/faq.html</tt><br/>
-        Last revised: 3 June 2009</p>
+        Last revised: 5 June 2009</p>
     <p><font size="-2"> <a
 href="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary
 Simons</a> </font> </p>
