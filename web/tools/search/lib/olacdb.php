@@ -15,6 +15,7 @@ class OLACDB
                 die ("Could not connect to database");
 
         mysql_select_db ($dbname) or die ("Could not select database: $dbname");
+        mysql_query("set names 'utf8'");
     }
 
     function sql($query)
