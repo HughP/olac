@@ -653,14 +653,13 @@ function buildIsLangQuery($query)
 		#	in Ethnologue
 
 	$returnQuery = "select distinct ls.Name as queryName, 
-			ls.LangID, ls2.Name as primaryName  #,cc.Name as country
-			from LanguageSoundex ls INNER JOIN LanguageSoundex ls2
-				ON ls2.LangID = ls.LangID
-			#INNER JOIN CountryCodes cc
-			#ON (cc.CountryID = ls2.CountryID)
+			ls.LangID, ls2.Name primaryName
+			from LanguageSoundex ls
+                             INNER JOIN LanguageSoundex ls2
+			     ON ls2.LangID = ls.LangID
 			where ls2.NameType = 'L'
 			and (ls.Name = '$query'";
-			#and ( ( MATCH(ls.Name) AGAINST('$query') ) ";
+                        #and ( ( MATCH(ls.Name) AGAINST('$query') ) ";
 			# Any record with exact word or token
 
 	/* Or any token is a language name (can result in large list) */
@@ -1062,68 +1061,21 @@ function headerLinks($queryString)
 			else
 			{ $allmode = ""; }
 
-			#Alternate names link
-		    if ($prevLang != $ar['queryName'])
-		    {
-                    $output .= "<a href=\"$_SERVER[PHP_SELF]?"
-			. "altNames=$q&page=1"
-			. "\">"
-                        . "List alternate names for "
-			. "'$ar[queryName]'</a><br />\n";
-
-		    }
-
-			#Language page  [SB 2009-05-26]
-  			$output .= "<a href=\"http://www.language-archives.org/language/"
-				. strtolower($ar[LangID])
-				. "\">Visit OLAC page for ISO code '$ar[LangID]'"
-				. "</a><br />\n";
-
-	### badenh 20050105
-	### added another instantiation for a language name search link
-
-			#Language name search link
-  			$output .= "<a href=$_SERVER[PHP_SELF]?"
-				#. "langCode=$ar[LangID]"
-				. "&phrasemode=$phrasemode"
-				. "&allmode=$allmode"
-				. "&query=$q>"
-				. "Look up resources for language name '$q'"
-				. "</a><br />\n";
-
-			#Visit Ethnologue link
-                    $output .= "<a href=http://www.ethnologue.com/"
-			. "show_language.asp?code="
-                        . $ar['LangID']
-                        . ">Visit Ethnologue entry for language "
-			. "'$ar[queryName]'</a>\n";
-		
-			if ($ar['primaryName'] != $ar['queryName'] ) 
-			{ 
-			    $output .= " ($ar[primaryName])"; 
-			}
-			$output .= "<br />";
-
-			#Google search link
-
-		    if ( $prevLang != $ar['queryName'] )
-		    {
-		    $output .= "<table cellpadding=0 cellspacing=0><tr>";
-		    $output .= "<td>Search Google for '$ar[queryName]':</td>";
-		    $output .= "<td>";
-		    foreach($googleResourceTypes as $type)
-		    {
-			$ar['queryName'] 
-				= str_replace(" ", "+", $ar['queryName']);
-			$output .=" <a href=\"http://www.google.com/search?"
-				. "q={$ar['queryName']}+$type\">$type</a>";
-		    }
-
-			$output .= "</td><td>";
-		        $output .= " " . languageNamesDropDown();
-		        $output .= "</td></tr></table>";
-			$output .= "<br />\n";
-		    }
+			#Language page
+                        $tab = $DB->sql("
+                        select cc.CountryID, cc.Name, cc.Area
+                        from CountryCodes cc, LanguageCodes lc
+                        where lc.LangID='$ar[LangID]' and lc.CountryID=cc.CountryID");
+                        $countryID = $tab[0]['CountryID'];
+                        $countryName = $tab[0]['Name'];
+                        $a = preg_split('/\s*,\s*/', $countryName);
+                        if (count($a) > 0) $countryName = "$a[1] $a[0]";
+                        $area = $tab[0]['Area'];
+  			$output .= "Visit OLAC report for: "
+			  . "<a href=\"/language/$ar[LangID]\">$ar[primaryName]</a>, "
+			  . "<a href=\"/country/$countryID\">$countryName</a>, "
+			  . "<a href=\"/area/$area\">$area</a>"
+			  . "</a><br />\n";
 
 		    $prevLang = $ar['queryName'];
 
