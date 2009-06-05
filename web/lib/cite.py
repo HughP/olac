@@ -44,7 +44,10 @@ def get_date(data):
                 'dateAccepted', 'dateSubmitted', 'modified', 'valid'):
         try:
             row = find(data,TagName=tag).next()
-            return row['Content'].strip().split('-')[0]
+            if row['Type'] == 'W3CDTF':
+                return row['Content'].strip().split('-')[0]
+            else:
+                return row['Content'].strip()
         except StopIteration:
             pass
     return 'n.d.'
