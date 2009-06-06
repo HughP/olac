@@ -8,9 +8,16 @@ WorldCat (http://www.worldcat.org/) provides web search access to OCLC's union c
 Rather, we propose to develop a "metasearch" service. Our service would create a static repository with a name like "WorldCat Language Resource Search". Each record would include a URL in a dc:description element that encodes a search query for a particular kind of language resource in a particular language. Thus a user who queries OLAC about that language will be presented with the link to a WorldCat search that will retrieve results about that language. The service would test queries in advance so that only queries that are known to return results will be cataloged within OLAC records.
 
 
-= Details =
+= Query construction =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Describe how the queries are constructed
+
+
+= Metadata records =
+
+Give specifications for the records to be generated for the static repository
+
+
+= Implementation =
+
+Give other specifications for the program that implements the service
