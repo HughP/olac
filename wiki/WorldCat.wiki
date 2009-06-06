@@ -1,0 +1,16 @@
+#summary Specification for a metasearch data provider based on WorldCat
+
+= Introduction =
+
+WorldCat (http://www.worldcat.org/) provides web search access to OCLC's union catalog containing over 1.4 billion items from over 10,000 libraries worldwide.  The terms of use 
+(http://www.oclc.org/worldcat/policies/terms/) prohibit the "use of bots ... to mine or harvest material amounts of Data" and thus we may not offer a metadata service like the typical OLAC data provider.
+
+Rather, we propose to develop a "metasearch" service. Our service would create a static repository with a name like "WorldCat Language Resource Search". Each record would include a URL in a dc:description element that encodes a search query for a particular kind of language resource in a particular language. Thus a user who queries OLAC about that language will be presented with the link to a WorldCat search that will retrieve results about that language. The service would test queries in advance so that only queries that are known to return results will be cataloged within OLAC records.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
