@@ -10,7 +10,19 @@ Rather, we propose to develop a "metasearch" service. Our service would create a
 
 = Query construction =
 
-Describe how the queries are constructed
+The WorldCat advanced search page (http://www.worldcat.org/advancedsearch) permits searching by subject. We can find resources about a particular language by searching specifically for its standardized Library of Congress Subject Heading. Furthermore, standard subject headings have subfields that designate the type of resource.  Thus, the following three subject headings for the Lau language of Solomon Islands (ISO639-3 code: llu) correspond to the three OLAC linguistic types (primary_text, lexicon, langauge_description):
+
+{{{
+Lau language--Texts
+Lau language--Dictionaries
+Lau language--Grammar
+}}}
+
+Searching for these with the advanced search page reveals that a prefix of "su:" is appended to indicate subject search.  Also, the subject heading must be placed in quotes to ensure that the exact sequence is matched in a single subject heading. Otherwise, each of the words need only occur somewhere in one of the subject headings. After the colon and space are URL encoded, the following ends up being the URL to search for the first subject heading listed above:
+
+http://www.worldcat.org/search?q=su%3A"Lau+language--Texts"
+
+Clicking the above link reveals that WorldCat retrieves 14 items with that subject heading.
 
 
 = Metadata records =
