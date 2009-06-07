@@ -22,7 +22,17 @@ Searching for these with the advanced search page reveals that a prefix of "su:"
 
 http://www.worldcat.org/search?q=su%3A%22Lau+language--Texts%22
 
-Clicking the above link reveals that !WorldCat retrieves 14 items with that subject heading.
+Clicking the above link reveals that !WorldCat retrieves 14 items with that subject heading. Clicking on any one item generates a report showing all the metadata for the item plus a list of libraries that have the item (listed in order of increasing distance from the user's location).
+
+In fact there are multiple subfields that could be relevant to a particular data type. For instance, the following have been observed as candidates for the OLAC type "lexicon":
+
+{{{
+Dictionaries
+Glossaries, Vocabularies, etc.
+Terms and Phrases
+Vocabulary
+}}}
+
 
 
 = Metadata records =
