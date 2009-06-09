@@ -2192,7 +2192,7 @@
                     <xsl:when test="$lcsh_lc = &quot;south african sign language&quot;"
                         >sfs</xsl:when>
                     <xsl:when test="$lcsh_lc = &quot;romanian language&quot;"
-                        >ron/rum</xsl:when>
+                        >ron</xsl:when>
                     <xsl:when test="$lcsh_lc = &quot;bororo (brazil) language&quot;"
                         >bor</xsl:when>
                     <xsl:when test="$lcsh_lc = &quot;dii language&quot;">bta</xsl:when>
@@ -3651,6 +3651,11 @@
                     <xsl:when test="$lcsh_lc = &quot;limbum language&quot;">lmp</xsl:when>
                     <xsl:when test="$lcsh_lc = &quot;tutong language&quot;">bsb</xsl:when>
                     <xsl:when test="$lcsh_lc = &quot;warrwa language&quot;">wwr</xsl:when>
+                    
+                    <!-- cjh: added later - not from original spreadsheet -->
+                    <xsl:when test="$lcsh_lc = &quot;greek language, biblical&quot;">grc</xsl:when>
+                    <xsl:when test="$lcsh_lc = &quot;greek language, hellenistic (300 b.c.-600 a.d.)&quot;">grc</xsl:when>
+                    <xsl:when test="$lcsh_lc = &quot;greek language, modern&quot;">ell</xsl:when>
                     <xsl:otherwise>failed</xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -4593,7 +4598,7 @@
                     <xsl:when test="$lccn = 'sh85082280'">mav</xsl:when>
                     <xsl:when test="$lccn = 'sh92000448'">str</xsl:when>
                     <xsl:when test="$lccn = 'sh93002028'">jns</xsl:when>
-                    <xsl:when test="$lccn = 'sh85115036'">ron/rum</xsl:when>
+                    <xsl:when test="$lccn = 'sh85115036'">ron</xsl:when>
                     <xsl:when test="$lccn = 'sh88005740'">cuk</xsl:when>
                     <xsl:when test="$lccn = 'sh87007478'">rai</xsl:when>
                     <xsl:when test="$lccn = 'sh87007479'">gbf</xsl:when>

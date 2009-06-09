@@ -364,14 +364,14 @@ local cataloging practices.
     </xsl:template>
 
 
-
+<!-- cjh: this was deemed unnecessary, especially since we couldn't get dcterms:NLM to validate (broken dcterms schema, perhaps?)
     <xsl:template match="marc:datafield[@tag='060']">
         <dc:subject xsi:type="dcterms:NLM">
             <xsl:call-template name="show-source"/>
             <xsl:value-of select="."/>
         </dc:subject>
     </xsl:template>
-
+-->
 
 
     <xsl:template match="marc:datafield[@tag='080']">
