@@ -50,7 +50,7 @@
          <!-- Fill in the full name of the repository -->
          <oai:repositoryName>Graduate Institute of Applied Linguistics Library</oai:repositoryName>
          <!-- Fill in the URL where the static repository resides on the web -->
-         <oai:baseURL>http://www.gial.edu/library/olac/gial/repository.xml</oai:baseURL>
+         <oai:baseURL>http://www.gial.edu/library/olac/repository/gial/repository.xml</oai:baseURL>
          <!-- Don't touch this -->
          <oai:protocolVersion>2.0</oai:protocolVersion>
          <!-- Fill in the email address of the person responsible for
@@ -115,6 +115,34 @@
          </oai:description>
       </Identify>
    </xsl:template>
+   
+   
+   
+   
+   <!-- local map to ISO639
+      This is typically just an empty stub template.  It can be customized to provide additional institution-specific mappings that 
+      the delivered iso639 mapping does not provide.
+   -->
+   <xsl:template name="local-map-to-iso639">
+      <xsl:param name="lcsh"/>
+      <xsl:if test="$lcsh">
+         <xsl:variable name="lcsh_lc" select="lower-case($lcsh)"/>
+         <xsl:choose>
+            <!-- replace the line below with a real LC subject heading and cooresponding 3 letter ISO639 code-->
+            <xsl:when test="$lcsh_lc = &quot;hebrew language&quot;">heb</xsl:when>
+            <!-- Below are additional examples of how to provide your own LCSH to ISO639 mappings that may be specific to you institution
+               <xsl:when test="$lcsh_lc = &quot;bacama language&quot;">bcy</xsl:when>
+               <xsl:when test="$lcsh_lc = &quot;yaqay language&quot;">jaq</xsl:when>
+               <xsl:when test="$lcsh_lc = &quot;attie language&quot;">ati</xsl:when>
+            -->
+            
+            <!-- if this template does not define any real mappings, it is normal for it to always return 'failed' -->
+            <xsl:otherwise>failed</xsl:otherwise>
+         </xsl:choose>
+      </xsl:if>
+   </xsl:template>
+   
+   
    
    <!-- Place any templates below that are local overrides of the
           templates as defined in the marc2olac stylesheet -->

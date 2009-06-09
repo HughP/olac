@@ -364,7 +364,7 @@ local cataloging practices.
     </xsl:template>
 
 
-<!-- cjh: this was deemed unnecessary, especially since we couldn't get dcterms:NLM to validate (broken dcterms schema, perhaps?)
+    <!-- cjh: this was deemed unnecessary, especially since we couldn't get dcterms:NLM to validate (broken dcterms schema, perhaps?)
     <xsl:template match="marc:datafield[@tag='060']">
         <dc:subject xsi:type="dcterms:NLM">
             <xsl:call-template name="show-source"/>
@@ -1058,7 +1058,7 @@ local cataloging practices.
                 <!-- sub-a is lower case and with trailing period stripped, if it exists -->
                 <xsl:variable name="sub-a"
                     select="replace(lower-case(marc:subfield[@code='a']),'\.','')"/>
-                <xsl:variable name="code">
+                <xsl:variable name="code1">
                     <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
                         <xsl:choose>
                             <!-- Bail out if it is not an individual language LCSH -->
@@ -1076,8 +1076,20 @@ local cataloging practices.
                         </xsl:choose>
                     </xsl:if>
                 </xsl:variable>
+                <xsl:variable name="code2">
+                <xsl:choose>
+                    <xsl:when test="$code1 = 'failed' ">
+                        <xsl:call-template name="local-map-to-iso639">
+                            <xsl:with-param name="lcsh" select="$sub-a"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$code1" />
+                    </xsl:otherwise>
+                </xsl:choose>
+                </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:if test="$no_code = 'yes' and $code = 'failed' ">
+                    <xsl:if test="$no_code = 'yes' and $code2 = 'failed' ">
                         <xsl:attribute name="no_code">1</xsl:attribute>
                     </xsl:if>
                     <xsl:call-template name="show-source"/>
@@ -1086,9 +1098,9 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
-                <xsl:if test="$code != '' and $code != 'failed' ">
+                <xsl:if test="$code2 != '' and $code2 != 'failed' ">
                     <dc:subject xsi:type="olac:language">
-                        <xsl:attribute name="olac:code" select="$code"/>
+                        <xsl:attribute name="olac:code" select="$code2"/>
                         <xsl:call-template name="show-source"/>
                     </dc:subject>
                 </xsl:if>
