@@ -130,5 +130,84 @@
             <text>Periodicals</text>
          </data-field>
       </test>
+
+      <!-- cjh: additional reject rules - "definitely not" -->
+            <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>Computer program</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Mass media</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Metalanguage</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Motion in language</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Music in language</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>Sexism</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Space and time</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Standard language</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Body language</text>
+         </data-field>
+      </test>
+
+      <!-- cjh: additional reject rules - "probably not" -->
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Christian education and language</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Sublanguage</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Colloquial language</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>Language Arts</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Native language and education</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="starts-with" tag="650" code="a">
+            <text>Urban dialects</text>
+         </data-field>
+      </test>
    </reject-stage>
 </marc-filter>
