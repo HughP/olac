@@ -1069,7 +1069,7 @@ local cataloging practices.
                             <xsl:when test="contains($sub-a, 'languages')"/>
                             <!-- Map to a code, returning either three letters or "failed" -->
                             <xsl:otherwise>
-                                <xsl:call-template name="map-to-iso639">
+                                <xsl:call-template name="local-map-to-iso639">
                                     <xsl:with-param name="lcsh" select="$sub-a"/>
                                 </xsl:call-template>
                             </xsl:otherwise>
@@ -1079,7 +1079,7 @@ local cataloging practices.
                 <xsl:variable name="code2">
                 <xsl:choose>
                     <xsl:when test="$code1 = 'failed' ">
-                        <xsl:call-template name="local-map-to-iso639">
+                        <xsl:call-template name="map-to-iso639">
                             <xsl:with-param name="lcsh" select="$sub-a"/>
                         </xsl:call-template>
                     </xsl:when>
