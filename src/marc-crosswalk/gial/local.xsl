@@ -87,7 +87,7 @@
                <archiveURL>http://www.gial.edu/library</archiveURL>
                <!-- Make as many copies of <participant> as you need -->
                <participant name="Ferne Weimer"
-                  role="Library Director" email="library@gial.edu"/>
+                  role="Library Director" email="library_dallas@gial.edu"/>
                <participant name="Joan Spanne"
                   role="Automation Consultant" email="joan_spanne@sil.org"/>
                <institution>Graduate Institute of Applied Linguistics
