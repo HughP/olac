@@ -131,6 +131,16 @@
          </data-field>
       </test>
 
+<!-- reject based on DDC value -->
+      <test>
+         <data-field test="starts-with" tag="082" code="a">
+            <text>30</text>
+            <text>40</text>
+            <text>41</text>
+         </data-field>
+      </test>
+
+
       <!-- cjh: additional reject rules - "definitely not" -->
             <test>
          <data-field test="contains" tag="650" code="a">
