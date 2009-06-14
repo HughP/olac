@@ -1,0 +1,85 @@
+
+
+Reading the Data
+================
+
+The training/test corpora are in the oai_classifier_trn subdirectory.
+The README file in that directory explains the format of each file.
+The two files that get used by the classifier are "olacdb.tab" and
+"oaidb.tab", which contain records for language resources and
+non-language resources, respectively.  These files can be read using
+the python module 'tabdbreader', which defines an NLTK-style corpus
+reader.  See the module's docstring for an explanation of how it works
+and how to use it.  Basically, it gives you back a list (really a lazy
+data structure) of dictionaries that look like this:
+
+    {'Archive_ID': '1',
+     'Item_ID': '920998',
+     'title': "Acquiring and Exploiting the User's "
+              "Knowledge in Guidance Interactions",
+     'creator': 'Eyal Shifroni\nUzzi Ornan',
+     'contributor': 'Uzzi Ornan',
+     'identifier': 'http://www.aclweb.org/anthology/A92-1042'}
+
+The Archive_ID and Item_ID keys are special, and will always be
+present.  You should *not* use their values as features.  The
+remaining keys can vary from record to record.  The classifier does an
+initial pass through the data to find a list of all fields that are
+used by an record -- print that list (oai_classifier.FIELDS) if you
+want to see the list.  The list of fields for the current training
+files are also given in the docstring of the tabdbreader module.
+
+Splitting the Data
+==================
+When performing the train/test split, it's important not to randomly
+shuffle the records first.  In particular, the records come from a
+variety of different archives, which have a fairly high internal
+consistency; but the different archives for a given category (language
+resource or non-language resource) are not very consistent with one
+another.  
+
+When this is applied to new data, it will typically be run on archives
+that have not been seen before.  So in order for the test data to give
+a result that we can trust, we need to make sure that it's being
+applied to archives that the classifier has never seen in the training
+data.  Splitting the data into train/test without randomly shuffling
+it (roughly) accomplishes this.
+
+Training the Classifier
+=======================
+
+The oai_classifier module builds a maxent classifier, using
+oai_classifier.TRAIN_PERCENT of the corpus as training data, and
+evaluates it on the remaining data.  The classifier model is saved
+to the variable 'classifier'.  You can pickle the classifier to 
+save it to disk (see the docs for the python pickle module).
+
+Maxent is a fairly suitable model for this problem because:
+
+  - It can deal well with skewed data (more examples of one category
+    than of another).
+  - It can deal well with mutually dependent features.
+  - NLTK has support for building it using external machine learning
+    packages, which are fairly fast.
+
+But you can feel free to play with other classifier models.
+
+Finding Good Features
+=====================
+Most of the improvements that can be made involve changing the
+feature detector function.  Unfortunately, there's not actually a 
+lot of data to work with.  One thing I'd recommend is looking at
+including features that check if any words in one or more fields
+(probably description, maybe others) match a word in a given word
+list.  E.g., you could have one such feature for language names, 
+one for linguistics terms, etc.
+
+Tweaking the Classifier
+=======================
+
+If you believe that the data that the model is run on will have a
+different ratio of positive:negative examples than the training data,
+then it may make sense to tweak the model to accomadate that.  You can
+do so by directly modifying the weight of the 'alwayson' feature.
+
+
