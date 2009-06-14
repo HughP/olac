@@ -1,0 +1,34 @@
+AUTHOR: Haejoong Lee <haejoong@ldc.upenn.edu>
+DATE: 2009-04-01
+
+
+Files contained in this package
+===============================
+
+olacdb.tab
+----------
+
+A table of OLAC metadata directly from the OLAC database. An OLAC archive
+consits of archive items, and an archive item in turn consists of metadata
+elements. A "record" usually mean an archive item. The metadata elements
+contained in the record collectively describe the resource.
+
+oaidb.tab
+---------
+
+This table has the same format as olacdb.tab, but some fields are just empty,
+i.e. the Type and Code fields are empty, since OAI archives don't provide such
+information. This table contains metadata elements from archives that
+supposedly have nothing to do with linguistic resources. The oai_selected.tab
+file lists the archives from which the content of this table comes.
+
+oai_selected.tab
+----------------
+
+A list of OAI archives whose metadata constitute the oaidb.tab file.
+
+oai_catalog.tab
+---------------
+
+A list of all OAI archives contained in our database.
+
