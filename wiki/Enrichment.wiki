@@ -6,20 +6,18 @@ One strategy for extending the coverage of OLAC is to harvest general catalogs (
 
 Our first thought was to use machine learning techniques to build a binary classifier to recognize language resources; then apply further classifiers to identify subject languages and language resource types for the selected language resources. Subsequent thinking, however, has revealed that the problem should be solved in the other order.  That is, apply classifiers to identify subject languages and linguistic data types first, and then use these results as the basis for identifying language resources. That is, the basic logic is this:
 
- If a resource has at least one identifiable subject language
-    and it has at least one identifiable language resource type,
- then it is a language resource.
-
 {{{
-
  If a resource has at least one identifiable subject language
     and it has at least one identifiable language resource type,
  then it is a language resource.
 }}}
 
-= Details =
+With classifiers for subject language and language resource type in hand, the binary choice could be made on the basis of Boolean logic. Furthermore, it is to our advantage to put the effort of classifier construction into these two separate and more focused problems, since we need those classifiers anyway in order to meet the metadata enrichment need that we already have. We have OLAC records that have been supplied by participating archives which have been identified by them as language resources, but for which they have not followed our best practice recommendations of supplying language codes and resource type codes.  Ideally, the classifiers built for that task could also be used to posit languages or resources types for general resources as an input to deciding whether or not they are language resources.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+The remainder of this page discusses design specifications for the various classifiers.
+
+= The subject language classifier =
+
+= The language resource type classifier =
+
+= The language resource recognizer =
