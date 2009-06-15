@@ -1,0 +1,15 @@
+#summary Automatic metadata enrichment for language resources
+
+= Introduction =
+
+One strategy for extending the coverage of OLAC is to harvest general catalogs (like OAIster or the Library of Congress), extract the language resources within them, and enrich those metadata records with the controlled vocabulary descriptors that are crucial for language resources, particularly language and linguistic data type.
+
+We originally conceived of this as a binary classification problem
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
