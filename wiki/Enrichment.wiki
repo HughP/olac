@@ -2,10 +2,20 @@
 
 = Introduction =
 
-One strategy for extending the coverage of OLAC is to harvest general catalogs (like OAIster or the Library of Congress), extract the language resources within them, and enrich those metadata records with the controlled vocabulary descriptors that are crucial for language resources, particularly language and linguistic data type.
+One strategy for extending the coverage of OLAC is to harvest general catalogs (like OAIster and the Library of Congress), extract the language resources within them, and enrich those metadata records with the controlled vocabulary descriptors that are crucial for language resources, particularly subject language and language resource type.
 
-We originally conceived of this as a binary classification problem
+Our first thought was to use machine learning techniques to build a binary classifier to recognize language resources; then apply further classifiers to identify subject languages and language resource types for the selected language resources. Subsequent thinking, however, has revealed that the problem should be solved in the other order.  That is, apply classifiers to identify subject languages and linguistic data types first, and then use these results as the basis for identifying language resources. That is, the basic logic is this:
 
+ If a resource has at least one identifiable subject language
+    and it has at least one identifiable language resource type,
+ then it is a language resource.
+
+{{{
+
+ If a resource has at least one identifiable subject language
+    and it has at least one identifiable language resource type,
+ then it is a language resource.
+}}}
 
 = Details =
 
