@@ -47,7 +47,14 @@
 
    <xsl:template match="marc:record">
       <xsl:variable name="modified-date">
-         <xsl:value-of select="substring(marc:controlfield[@tag=005], 1, 8)"/>
+         <xsl:choose>
+            <xsl:when test="count(marc:controlfield[@tag=005]) > 1">
+               <xsl:value-of select="substring(marc:controlfield[@tag=005][1], 1, 8)"/>               
+            </xsl:when>
+            <xsl:otherwise>
+               <xsl:value-of select="substring(marc:controlfield[@tag=005], 1, 8)"/>   
+            </xsl:otherwise>
+         </xsl:choose>
       </xsl:variable>
       <!-- The datestamp for the record is the later of the
                metadata version date or the record creation date  -->
