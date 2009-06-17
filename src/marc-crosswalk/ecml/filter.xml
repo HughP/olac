@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:../lib/marc-filter.rnc" type="compact"?>
+<marc-filter>
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>MARC filter for the ECML crosswalk</dc:title>
+      <dc:contributor>Chris Hirt</dc:contributor>
+      <dc:date>2009-04-17</dc:date>
+      <dc:description>ECML Filter.</dc:description>
+   </header>
+   <select-stage>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+            <text>Texts</text>
+            <text>texts</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="690" code="a">
+            <text>language</text>
+         </data-field>
+      </test>
+   </select-stage>
+
+   <reject-stage>
+   </reject-stage>
+</marc-filter>

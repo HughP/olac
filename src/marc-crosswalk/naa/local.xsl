@@ -46,7 +46,7 @@
             <!-- Fill in the full name of the repository -->
             <oai:repositoryName>National Anthropological Archives</oai:repositoryName>
             <!-- Fill in the URL where the static repository resides on the web -->
-            <oai:baseURL>http://www.gial.edu/olac/repository/naa/repository.xml</oai:baseURL>
+            <oai:baseURL>http://www.gial.edu/olac/naa.xml</oai:baseURL>
             <!-- Don't touch this -->
             <oai:protocolVersion>2.0</oai:protocolVersion>
             <!-- Fill in the email address of the person responsible for
