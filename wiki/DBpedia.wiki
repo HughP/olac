@@ -1,0 +1,31 @@
+#summary Using DPpedia to create a data provider for Wikipedia article
+
+= Introduction =
+
+This page gives specifications for developing an OLAC data provider that provides an index by language code to all of the Wikipedia articles about languages.  This will be fairly straightforward since Wikipedia already uses its Infobox technology to identify any article that is about a language and to assign the corresponding ISO 639-3 code. Here is the spec for the language infobox template:
+
+ http://en.wikipedia.org/wiki/Template:Infobox_Language
+
+One way to harvest these is through the DBpedia which has built a huge Linked Data (i.e. RDF) data set based on all the structured information in infoboxes.  "Language" is a top-level concept in the DBpedia ontology:
+
+ http://dbpedia.org/ontology/Language
+
+For instance, the following SPARQL query (at http://dbpedia.org/sparql) lists the language concept URIs with their Wikipedia page URL and ISO code:
+
+{{{
+select ?language, ?page, ?code
+where {
+   ?language a dbpedia-owl:Language.
+   ?language foaf:page ?page.
+   ?language dbpprop:iso ?code.
+}
+}}}
+
+Still to be solved: Why aren't we seeing property names that distinguish part 1, 2, and 3 codes? This query only returns 1000 hits (as can be seen by returning a spreadsheet).  How do we get them all?
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
