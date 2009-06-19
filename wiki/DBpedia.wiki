@@ -1,4 +1,5 @@
-#summary Using DPpedia to create a data provider for Wikipedia article
+#summary Using DPpedia to create a data provider for Wikipedia language articles
+
 
 = Introduction =
 
@@ -23,9 +24,6 @@ where {
 
 Still to be solved: Why aren't we seeing property names that distinguish part 1, 2, and 3 codes? This query only returns 1000 hits (as can be seen by returning a spreadsheet).  How do we get them all?
 
-= Details =
+= Deliverable =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+A process that can be periodically rerun to create a static repository that is an index of Wikipedia articles about languages.  Each record will have a <dc:identifier> with the URL of the Wikipedia article, and a <dc:subject> with the three-letter language code. There could also be a <dc:identifier> with the corresponding !DBpedia resource URL. As many other metadata elements as can be supplied should also be included.
