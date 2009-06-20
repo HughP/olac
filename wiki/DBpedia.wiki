@@ -27,3 +27,11 @@ Still to be solved: Why aren't we seeing property names that distinguish part 1,
 = Deliverable =
 
 A process that can be periodically rerun to create a static repository that is an index of Wikipedia articles about languages.  Each record will have a <dc:identifier> with the URL of the Wikipedia article, and a <dc:subject> with the three-letter language code. There could also be a <dc:identifier> with the corresponding !DBpedia resource URL. As many other metadata elements as can be supplied should also be included.
+
+= A scraping approach =
+
+Rather than harvesting triples from DBpedia, another possible approach could be to scrape the Wikipedia site beginning with the page:
+
+ http://en.wikipedia.org/wiki/Category:Languages_by_country
+
+We could recursively follow links and make records for pages that have a Language Infobox on them.
