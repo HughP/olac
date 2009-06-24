@@ -28,7 +28,8 @@ class EthnologueTrainingDataParser:
         self.Parser.CharacterDataHandler = self.handleCharData
         self.Parser.StartElementHandler = self.handleStartElement
         self.Parser.EndElementHandler = self.handleEndElement
-
+        
+        self.altlist = '' # temporarily stores a possibly partial list of alternate names, because the XML parser seems to sometimes find the CharData for alternate names in chunks instead of in one go.
         self.curr_print_name = None
         self.curr_iso = None
 
@@ -44,24 +45,32 @@ class EthnologueTrainingDataParser:
             self.curr_print_name = data
         elif self.path[-1]=="ISO_code":
             self.model.num_langs += 1
-            self.curr_iso = data
+            self.curr_iso = data.encode('utf-8')
             self.model.add_lang(self.curr_iso,Lang(self.curr_print_name,True))
         elif self.path[-1]=="alternate_names":
-            alt_names = data.split(', ')
-            for alt in alt_names:
-                self.model.add_lang(self.curr_iso,Lang(alt,False))
+            self.altlist += data.encode('utf-8')
 
     def handleStartElement(self, name, attrs):
         self.path.append(name)
 
     def handleEndElement(self, name):
-        self.path.pop() # presumably, the XML is well-formed and an end element is obligatorily the closets preceding unclosed begin tag.
+        if name=="alternate_names":
+            for alt in self.altlist.split(', '):
+                if alt:
+                    self.model.add_lang(self.curr_iso,Lang(alt,False))
+            self.altlist = ''
+        self.path.pop() # presumably, the XML is well-formed and an end element is necessarily the closest preceding unclosed begin tag.
 
 class Lang:
     """Simple class just to store language name and whether or not it is a primary name."""
     def __init__(self, langname, primary):
-        self.langname = langname # string of language name
+        self.langname = langname.strip('"') # string of language name
         self.primary = primary # boolean of whether or not the language is the primary name
+        
+        if self.primary:
+            if "," in self.langname:
+                splitname = self.langname.split(',')
+                self.langname = (splitname[1]+" "+splitname[0]).strip()
 
 class isoLangModel:
     """This class manages the counts and conditional and prior probabilities for a Naive Bayes
