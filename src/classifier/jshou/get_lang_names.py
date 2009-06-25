@@ -21,6 +21,7 @@ class XMLParse:
         self.Parser.StartElementHandler = self.handleStartElement
         self.Parser.EndElementHandler = self.handleEndElement
         
+        self.primlist = ''
         self.altlist = ''
         self.lang_names = set()
 
@@ -29,7 +30,7 @@ class XMLParse:
 
     def handleCharData(self, data):
         if self.path[-1]=="print_name":
-            self.lang_names.add(data.encode('utf-8'))
+            self.primlist += data.encode('utf-8')
         elif self.path[-1]=="alternate_names":
             self.altlist += data.encode('utf-8')
 
@@ -38,14 +39,19 @@ class XMLParse:
 
     def handleEndElement(self, name):
         if name=="alternate_names":
+#            self.lang_names.add(self.altlist.encode('utf-8'))
             for alt in self.altlist.split(", "):
-                self.lang_names.add(alt)
+                self.lang_names.add(alt.strip('" '))
             self.altlist = ''
+        elif name=="print_name":
+            self.lang_names.add(self.primlist.strip('" '))
+            self.primlist = ''
         self.path.pop()
     
     def print_lang_names(self):
         for lang_name in self.lang_names:
-            print>>self.output, lang_name
+            if lang_name:
+                print>>self.output, lang_name
 
 if __name__=="__main__":
     if len(sys.argv)!=3:
