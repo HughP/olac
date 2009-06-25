@@ -62,7 +62,8 @@ class EthnologueTrainingDataParser:
         self.path.pop() # presumably, the XML is well-formed and an end element is necessarily the closest preceding unclosed begin tag.
 
 class Lang:
-    """Simple class just to store language name and whether or not it is a primary name."""
+    """Simple class just to store language name and whether or not it is a primary name.
+    Strips off quotes and spaces on the ends of the name, and uninverts names with a comma in them."""
     def __init__(self, langname, primary):
         self.langname = langname.strip('"') # string of language name
         self.primary = primary # boolean of whether or not the language is the primary name
@@ -83,10 +84,14 @@ class isoLangModel:
         self.prior = {} # iso -> probability
 
     def train(self, trg_data_filename):
+        """Parses the XML Ethnologue database dump.  The parser counts the iso and language name occurrences
+        and calls the add_lang() method in this class to count each language and iso."""
         etdp = EthnologueTrainingDataParser(trg_data_filename, self)
         etdp.parse()
 
     def add_lang(self, iso, lang):
+        """Adds a language name iso pair to the counts of language names to isos for use in
+        calculating probabilities later."""
         try:
             self.iso_langs[iso].append(lang)
         except KeyError:
@@ -97,11 +102,15 @@ class isoLangModel:
             self.lang_isos[lang] = [iso]
 
     def calc_prior(self): # right now, the prior P(iso) is just one over the number of isos, it will later take population and geography into effect
+        """Calculates the prior probabilities, P(iso), for each iso and saves the
+        values."""
         prior_prob = 1.0/self.num_langs
         for iso in self.conditional:
             self.prior[iso] = prior_prob
 
     def calc_conditional(self):
+        """Calculates the conditional probabilities, P(lang|iso) for each lang-iso pair
+        and saves the values."""
         for iso in self.iso_langs:
             self.conditional[iso] = {}
             num_langs = len(self.iso_langs[iso]) # number of language names for a given iso
@@ -113,12 +122,34 @@ class isoLangModel:
                     self.conditional[iso][lang] = 1.0/denom
     
     def print_model(self, outstream):
+        """Prints model to a textfile with the following format:
+        
+        iso1 prior_prob1
+        iso2 prior_prob2
+        iso1 lang_name1 conditional_prob1
+        iso1 lang_name2 conditional_prob2
+        iso2 lang_name1 conditional_prob3
+        """
         for iso in self.prior:
             print>>outstream, iso, self.prior[iso]
         for iso in self.conditional:
             for lang in self.conditional[iso]:
                 print>>outstream, iso, lang.langname, self.conditional[iso][lang]
-
+    
+    def read_model(self, filename):
+        """Clears out the current model and reads in a model from a textfile."""
+        self.prior = {}
+        self.conditional = {}
+        for line in open(filename).readlines():
+            splitline = line.split()
+            if len(splitline)==2: # prior
+                self.prior[splitline[0]] = float(splitline[1])
+            else: # conditional
+                try:
+                    self.conditional[splitline[0]][splitline[1]] = float(splitline[2])
+                except KeyError:
+                    self.conditional[splitline[0]] = { splitline[1]:float(splitline[2]) }
+            
 if __name__=="__main__":
     if len(sys.argv)!=4:
         print "Usage: ./iso_extract_modeler.py Ethnologue-classifier-training-data.xml model_format model_output"
