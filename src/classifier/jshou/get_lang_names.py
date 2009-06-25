@@ -44,7 +44,12 @@ class XMLParse:
                 self.lang_names.add(alt.strip('" '))
             self.altlist = ''
         elif name=="print_name":
-            self.lang_names.add(self.primlist.strip('" '))
+            print_name = self.primlist.strip('" ')
+            if "," in print_name:
+                splitname = print_name
+                print_name = (splitname[1]+" "+splitname[0]).strip()
+            self.lang_names.add(print_name)
+            
             self.primlist = ''
         self.path.pop()
     
