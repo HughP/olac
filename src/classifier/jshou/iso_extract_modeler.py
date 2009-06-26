@@ -29,127 +29,102 @@ class EthnologueTrainingDataParser:
         self.Parser.StartElementHandler = self.handleStartElement
         self.Parser.EndElementHandler = self.handleEndElement
         
-        self.altlist = '' # temporarily stores a possibly partial list of alternate names, because the XML parser seems to sometimes find the CharData for alternate names in chunks instead of in one go.
+        self.tempalt = '' # temporarily stores a possibly partial list of alternate names, because the XML parser seems to sometimes find the CharData for alternate names in chunks instead of in one go.
+        self.tempprim = ''
+        self.tempiso = ''
+        self.tempcountry = ''
+        self.tempregion = ''
+        
         self.curr_print_name = None
         self.curr_iso = None
 
     def parse(self):
-        try:
+#        try:
             self.Parser.ParseFile(open(self.xml_file))
-        except:
-            print "File", self.xml_file, "could not be opened."
-            sys.exit(1)
+#        except:
+#            print "File", self.xml_file, "could not be opened."
+#            sys.exit(1)
 
     def handleCharData(self, data):
         if self.path[-1]=="print_name":
-            self.curr_print_name = data
+            self.tempprim += data.encode('utf-8')
         elif self.path[-1]=="ISO_code":
-            self.model.num_langs += 1
-            self.curr_iso = data.encode('utf-8')
-            self.model.add_lang(self.curr_iso,Lang(self.curr_print_name,True))
+            self.tempiso += data.encode('utf-8')
         elif self.path[-1]=="alternate_names":
-            self.altlist += data.encode('utf-8')
+            self.tempalt += data.encode('utf-8')
+        elif self.path[-1]=="country_name":
+            self.tempcountry += data.encode('utf-8')
 
     def handleStartElement(self, name, attrs):
         self.path.append(name)
 
     def handleEndElement(self, name):
         if name=="alternate_names":
-            for alt in self.altlist.split(', '):
+            for alt in self.tempalt.split(', '):
                 if alt:
-                    self.model.add_lang(self.curr_iso,Lang(alt,False))
+                    self.model.add_iso(alt, isoLang(self.curr_iso, alt, False))
             self.altlist = ''
+        elif name=="print_name":
+            self.curr_print_name = self.tempprim
+            self.tempprim = ''
+        elif name=="ISO_code":
+            self.curr_iso = self.tempiso
+            self.tempiso = ''
+            self.model.add_iso(self.curr_print_name, isoLang(self.curr_iso, self.curr_print_name, True))
+        elif name=="country_name":
+            try:
+                self.model.c_iso_country[self.tempcountry].append(self.curr_iso)
+            except KeyError:
+                self.model.c_iso_country[self.tempcountry] = [self.curr_iso]
+            self.tempcountry = ''
         self.path.pop() # presumably, the XML is well-formed and an end element is necessarily the closest preceding unclosed begin tag.
 
-class Lang:
-    """Simple class just to store language name and whether or not it is a primary name.
-    Strips off quotes and spaces on the ends of the name, and uninverts names with a comma in them."""
-    def __init__(self, langname, primary):
-        self.langname = langname.strip('"') # string of language name
-        self.primary = primary # boolean of whether or not the language is the primary name
-        
-        if self.primary:
-            if "," in self.langname:
-                splitname = self.langname.split(',')
-                self.langname = (splitname[1]+" "+splitname[0]).strip()
+class isoLang:
+    """Class that defines an iso-language name pair.  self.primary indicates
+    whether this language name is the primary name for the iso code."""
+    def __init__(self, iso, lang_name, primary):
+        self.iso = iso
+        self.lang_name = lang_name
+        self.primary = primary
 
 class isoLangModel:
-    """This class manages the counts and conditional and prior probabilities for a Naive Bayes
-    model of the Ethnologue data for classifying language names to their respective ISO codes."""
     def __init__(self):
-        self.num_langs = 0 # for calculating P(iso)
-        self.iso_langs = {} # list of Langs for each iso; this is what we are using to calculate probabilities
-        self.lang_isos = {} # list of isos per lang, so that in decode stage, we don't have to iterate over the entire iso searchspace.
-        self.conditional = {} # iso -> lang -> probability
-        self.prior = {} # iso -> probability
-
+        self.c_iso_lang = {} # Dictionary from lang to iso.  lang -> list of isos
+        self.c_iso_country = {} # Dictionary from country -> list of isos
+        self.c_iso_region = {} # Dictionary from region -> list of isos
+        
+        self.p_iso_lang = {} # Dictionary of P(iso|lang).  lang -> iso -> prob
+    
     def train(self, trg_data_filename):
-        """Parses the XML Ethnologue database dump.  The parser counts the iso and language name occurrences
-        and calls the add_lang() method in this class to count each language and iso."""
         etdp = EthnologueTrainingDataParser(trg_data_filename, self)
         etdp.parse()
-
-    def add_lang(self, iso, lang):
-        """Adds a language name iso pair to the counts of language names to isos for use in
-        calculating probabilities later."""
+    
+    def add_iso(self, lang, iso_lang):
+        """iso_lang must be of type isoLang"""
         try:
-            self.iso_langs[iso].append(lang)
+            self.c_iso_lang[lang].append(iso_lang)
         except KeyError:
-            self.iso_langs[iso] = [lang]
-        try:
-            self.lang_isos[lang].append(iso)
-        except KeyError:
-            self.lang_isos[lang] = [iso]
-
-    def calc_prior(self): # right now, the prior P(iso) is just one over the number of isos, it will later take population and geography into effect
-        """Calculates the prior probabilities, P(iso), for each iso and saves the
-        values."""
-        prior_prob = 1.0/self.num_langs
-        for iso in self.conditional:
-            self.prior[iso] = prior_prob
-
-    def calc_conditional(self):
-        """Calculates the conditional probabilities, P(lang|iso) for each lang-iso pair
-        and saves the values."""
-        for iso in self.iso_langs:
-            self.conditional[iso] = {}
-            num_langs = len(self.iso_langs[iso]) # number of language names for a given iso
-            denom = num_langs + 1 # this is so that the probabilities still add up to one, when I give primary langs a little weight push
-            for lang in self.iso_langs[iso]:
-                if lang.primary:
-                    self.conditional[iso][lang] = 2.0/denom
+            self.c_iso_lang[lang] = [iso_lang]
+        
+    def calc_probs(self):
+        for lang in self.c_iso_lang:
+            self.p_iso_lang[lang] = {}
+            p_iso = self.p_iso_lang[lang]
+            denom = 0
+            for isoLang in self.c_iso_lang[lang]:
+                if isoLang.primary:
+                    p_iso[isoLang.iso] = 2.0
                 else:
-                    self.conditional[iso][lang] = 1.0/denom
+                    p_iso[isoLang.iso] = 1.0
+                denom += p_iso[isoLang.iso]
+            for iso in p_iso:
+                p_iso[isoLang.iso] /= denom
     
     def print_model(self, outstream):
-        """Prints model to a textfile with the following format:
-        
-        iso1 prior_prob1
-        iso2 prior_prob2
-        iso1 lang_name1 conditional_prob1
-        iso1 lang_name2 conditional_prob2
-        iso2 lang_name1 conditional_prob3
-        """
-        for iso in self.prior:
-            print>>outstream, iso, self.prior[iso]
-        for iso in self.conditional:
-            for lang in self.conditional[iso]:
-                print>>outstream, iso, lang.langname, self.conditional[iso][lang]
-    
-    def read_model(self, filename):
-        """Clears out the current model and reads in a model from a textfile."""
-        self.prior = {}
-        self.conditional = {}
-        for line in open(filename).readlines():
-            splitline = line.split()
-            if len(splitline)==2: # prior
-                self.prior[splitline[0]] = float(splitline[1])
-            else: # conditional
-                try:
-                    self.conditional[splitline[0]][splitline[1]] = float(splitline[2])
-                except KeyError:
-                    self.conditional[splitline[0]] = { splitline[1]:float(splitline[2]) }
-            
+        for lang in self.p_iso_lang:
+            for iso in self.p_iso_lang[lang]:
+                print>>outstream, iso, lang, self.p_iso_lang[lang][iso]
+   
 if __name__=="__main__":
     if len(sys.argv)!=4:
         print "Usage: ./iso_extract_modeler.py Ethnologue-classifier-training-data.xml model_format model_output"
@@ -157,8 +132,7 @@ if __name__=="__main__":
         sys.exit(1)
     ilm = isoLangModel()
     ilm.train(sys.argv[1])
-    ilm.calc_conditional()
-    ilm.calc_prior()
+    ilm.calc_probs()
     if sys.argv[2]=="0":
         ilm.print_model(open(sys.argv[3],'w'))
     else:
