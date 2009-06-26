@@ -7,12 +7,18 @@
 # out each description on a line.  This is just for me to scan through a lot of
 # descriptions at a time so I can see what features I might use for iso detection.
 import sys
-import nltk
+import os
 from tabdbreader import TabDBCorpusReader
 
 if len(sys.argv)!=2:
     print "Usage: python extract_descriptions.py output_file"
     sys.exit(1)
+elif os.path.exists(os.path.join(os.getcwd(),sys.argv[1])):
+    answer = raw_input("File "+sys.argv[1]+" exists.  Overwrite? [y/n] ")
+    if not answer.lower()=="y":
+        sys.exit(1)
+    else:
+        print "Overwriting..."
 out = open(sys.argv[1],'w')
 reader = TabDBCorpusReader('../oai_classifier_trn', '.*db\.tab')
 
