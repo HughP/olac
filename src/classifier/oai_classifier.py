@@ -14,7 +14,7 @@ TRAIN_PERCENT = 50
 """Indicates what percent of the corpus should be used for training
    (vs testing)."""
 
-ALGORITHM = 'MEGAM'
+ALGORITHM = 'LBFGSB'
 """Use megam for training the maxent classifier, since it's fast and
    does a good job.  If you don't want to install megam, then change
    this to None to use the default algorithm, or to any other supported
