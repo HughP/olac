@@ -12,7 +12,9 @@
 # probabilities in a given model file.
 
 import sys
+import re
 import pickle
+import string
 from xml.parsers import expat
 
 class EthnologueTrainingDataParser:
@@ -54,6 +56,8 @@ class EthnologueTrainingDataParser:
             self.tempalt += data.encode('utf-8')
         elif self.path[-1]=="country_name":
             self.tempcountry += data.encode('utf-8')
+        elif self.path[-1]=="region":
+            self.tempregion += data.encode('utf-8')
 
     def handleStartElement(self, name, attrs):
         self.path.append(name)
@@ -77,6 +81,9 @@ class EthnologueTrainingDataParser:
             except KeyError:
                 self.model.c_iso_country[self.tempcountry] = [self.curr_iso]
             self.tempcountry = ''
+        elif name=="region":
+            self.model.add_region(self.curr_iso, self.tempregion)
+            self.tempregion = ''
         self.path.pop() # presumably, the XML is well-formed and an end element is necessarily the closest preceding unclosed begin tag.
 
 class isoLang:
@@ -94,6 +101,7 @@ class isoLangModel:
         self.c_iso_region = {} # Dictionary from region -> list of isos
         
         self.p_iso_lang = {} # Dictionary of P(iso|lang).  lang -> iso -> prob
+        self.region_NE = re.compile(r'([A-Z]\w*\s?)+')
     
     def train(self, trg_data_filename):
         etdp = EthnologueTrainingDataParser(trg_data_filename, self)
@@ -105,7 +113,20 @@ class isoLangModel:
             self.c_iso_lang[lang].append(iso_lang)
         except KeyError:
             self.c_iso_lang[lang] = [iso_lang]
-        
+    
+    def add_region(self, iso, region_string):
+        region_NEs = self.region_extract(region_string)
+        for ne in region_NEs:
+            try:
+                self.c_iso_region[ne].append(iso)
+            except KeyError:
+                self.c_iso_region[ne] = [iso]
+    
+    def region_extract(self, region_string):
+        """Returns a list of region named entities, where region NEs are defined
+        as consecutive capitalized words."""
+        return map(string.strip, self.region_NE.findall(region_string))
+    
     def calc_probs(self):
         for lang in self.c_iso_lang:
             self.p_iso_lang[lang] = {}
