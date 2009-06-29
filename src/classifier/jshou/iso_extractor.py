@@ -11,7 +11,7 @@ from operator import itemgetter
 from iso_extract_modeler import *
 
 class isoClassifier:
-    def __init__(self, model_file, lang_names_file):
+    def __init__(self, model_file):
         self.model = pickle.load(open(model_file,'rb'))
     
     def classify_record(self, record):
