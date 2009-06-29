@@ -56,6 +56,7 @@ control-field =
       },
       attribute position { xsd:unsignedByte }?, # obligatory for 008; otherwise, obligatorily absent
       attribute length { xsd:unsignedByte }?, # ditto
+           # N.B. use position numbers as counted by MARC (beginning with position 0)
       attribute test { "exists" | "equals"  | "contains" | "starts-with" }, # only the first two with 008
       text-element*
    }
