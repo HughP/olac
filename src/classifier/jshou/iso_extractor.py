@@ -15,12 +15,6 @@ class isoClassifier:
         self.model = pickle.load(open(model_file,'rb'))
         self.lang_names = set([i.strip() for i in open(lang_names_file).readlines()]) # normalizing for case
         x = open('lang_name_file_for_testing','w')
-
-    def classify(self, lang):
-        """This method returns a dictionary iso codes and probabilities given a language name."""
-        results = {}
-        for iso in self.model.lang_isos[lang]:
-            results[iso] = self.model.prior[iso] * self.model.conditional[iso][lang]
     
     def classify_record(self, record):
         """This method goes through the different fields of a record and gets the language names."""
@@ -39,29 +33,46 @@ class isoClassifier:
             bag_of_words += ' '+record['description']
         except KeyError:
             pass
-        for word in bag_of_words.strip().split():
-            if word in self.lang_names:
-                langs.append(word)
-        """title, subject, description"""
-        print langs
-        for lang in langs:
-            try:
-                results[lang] = self.classify(lang)
-            except KeyError:
-                pass
-        return results
+        
+        iso_set = set()
+        for lang_name in self.model.c_iso_lang:
+            if lang_name in bag_of_words:
+                iso_set.update(self.model.c_iso_lang[lang_name])
+        
+        country_iso_set = set()
+        for country_name in self.model.c_iso_country:
+            if country_name in bag_of_words:
+                country_iso_set.update(self.model.c_iso_country[country_name])
+        
+        region_iso_set = set()
+        for region in self.model.c_iso_region:
+            if region in bag_of_words:
+                region_iso_set.update(self.model.c_iso_region[region])
+        
+        country_intersection = iso_set.intersection(country_iso_set)
+        if country_intersection:
+            iso_set = country_intersection
+        region_intersection = iso_set.intersection(region_iso_set)
+        if region_intersection:
+            iso_set = region_intersection
+        # title, subject, description
+        return iso_set
 
 if __name__=="__main__":
-    if len(sys.argv)!=4:
-        print "Usage: python iso_extractor.py model.pkl lang_names_file tabfile"
+    if len(sys.argv)!=5:
+        print "Usage: python iso_extractor.py model.pkl lang_names_file tabfile outfile"
         sys.exit(1)
     
     ic = isoClassifier(sys.argv[1], sys.argv[2])
 
     reader = TabDBCorpusReader('../oai_classifier_trn', '.*db\.tab')
     olac_records = reader.records('olacdb.tab')
+    
+    outfile = open(sys.argv[4],'w') 
     for record in olac_records:
         results = ic.classify_record(record)
-        for lang in results:
-            print "resulting"
-            print record['Archive_ID'], record['Item_ID'], record['title'], lang, sorted(results[lang], key=itemgetter(1), reverse=True)
+        try:
+            title = record['title']
+        except KeyError:
+            title = 'TITLE_UNKNOWN'
+        print>>outfile, '\t'.join([record['Archive_ID'], record['Item_ID'], title, ' '.join(results)])
