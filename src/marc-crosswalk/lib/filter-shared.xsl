@@ -110,13 +110,15 @@
       <xsl:value-of select="concat('[@tag = ', $sq,
          @tag, $sq, ']'  )"/>
    </xsl:template>
-   <!-- Compile @test, @position, and @length into an xpath [predicate] -->
+   <!-- Compile @test, @position, and @length into an xpath [predicate] 
+          Add 1 to @position since MARC counts positions from 0 -->
    <xsl:template match="control-field[@tag > '005'] | leader" mode="compile-test">
       <xsl:choose>
          <xsl:when test="@test = 'exists'">
             <xsl:value-of
-               select="concat('[normalize-space(substring( . ,', @position,
-               ',', @length, ')) != ', $sq, ' ', $sq, ']'  )"
+               select="concat('[normalize-space(substring( . ,',
+               @position+1, ',', @length, ')) != ', $sq, 
+               substring('      ', 1, @length),  $sq, ']'  )"
             />
          </xsl:when>
          <xsl:when test="@test = 'equals'">
@@ -124,7 +126,7 @@
             <xsl:for-each select="text">
                <xsl:if test="position() != 1"> or </xsl:if>
                <xsl:value-of
-                  select="concat('substring( . ,', ../@position,
+                  select="concat('substring( . ,', ../@position+1,
                ',', ../@length, ') = ', $sq, ., $sq )"
                />
             </xsl:for-each>
