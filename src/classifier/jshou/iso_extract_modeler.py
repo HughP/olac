@@ -67,7 +67,7 @@ class EthnologueTrainingDataParser:
             self.tempalt = self.spaces.sub(' ', self.tempalt)
             for alt in self.tempalt.split(', '):
                 if alt:
-                    self.model.add_iso(alt, isoLang(self.curr_iso, alt, False))
+                    self.model.add_iso(alt, self.curr_iso)
             self.tempalt = ''
         elif name=="print_name":
             self.curr_print_name = self.spaces.sub(' ',self.tempprim)
@@ -75,7 +75,7 @@ class EthnologueTrainingDataParser:
         elif name=="ISO_code":
             self.curr_iso = self.tempiso
             self.tempiso = ''
-            self.model.add_iso(self.curr_print_name, isoLang(self.curr_iso, self.curr_print_name, True))
+            self.model.add_iso(self.curr_print_name, self.curr_iso)
         elif name=="country_name":
             self.tempcountry = self.spaces.sub(' ', self.tempcountry)
             self.model.add_country(self.tempcountry, self.curr_iso)
@@ -98,7 +98,7 @@ class isoLangModel:
     """Class that keeps track of ISO 639-3 codes associated with each country, region, and language name
     as stored in the Ethnologue."""
     def __init__(self):
-        self.c_iso_lang = {} # Dictionary from lang to iso.  lang -> list of isoLangss
+        self.c_iso_lang = {} # Dictionary from lang to iso.  lang -> list of isos
         self.c_iso_country = {} # Dictionary from country -> list of isos
         self.c_iso_region = {} # Dictionary from region -> list of isos
         
@@ -110,16 +110,16 @@ class isoLangModel:
         etdp = EthnologueTrainingDataParser(trg_data_filename, self)
         etdp.parse()
     
-    def add_iso(self, lang, iso_lang):
-        """Adds iso_lang to language name lang.  iso_lang must be of type isoLang."""
+    def add_iso(self, lang, iso):
+        """Adds iso_lang to language name lang"""
         lang = lang.strip('"')
         if "," in lang:
             splitname = lang.split(',')
             lang = (splitname[1]+' '+splitname[0]).strip()
         try:
-            self.c_iso_lang[lang].append(iso_lang)
+            self.c_iso_lang[lang].append(iso)
         except KeyError:
-            self.c_iso_lang[lang] = [iso_lang]
+            self.c_iso_lang[lang] = [iso]
     
     def add_region(self, iso, region_string):
         """Adds iso to region."""
@@ -165,7 +165,7 @@ class isoLangModel:
         for country in self.c_iso_country:
             print>>outstream, "Country"+'\t'+country+'\t'+' '.join(self.c_iso_country[country])
         for lang in self.c_iso_lang:
-            print>>outstream, "Language_name"+'\t'+lang+'\t'+' '.join([x.iso for x in self.c_iso_lang[lang]])
+            print>>outstream, "Language_name"+'\t'+lang+'\t'+' '.join(self.c_iso_lang[lang])
         for region in self.c_iso_region:
             print>>outstream, "Region"+'\t'+region+'\t'+' '.join(self.c_iso_region[region])
 #        this code below is the function for printing part of the old model with probabilities
