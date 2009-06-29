@@ -55,6 +55,25 @@ def parseOLACRepository(filename):
     else:
         return ('','','')
 
+def parseMARCCollection(filename):
+    """parseMARCCollection(xml_filename)
+    purpose: extract three elements from a MARC XML Collection file:
+            1) marc collection header (text that precedes the start of the first record)
+            2) marc_records, not including the <marc:collection> wrapper tags
+            3) marc collection footer (text that follows the last record)
+    returns: string tuple:
+        marc_header (string)
+        marc_records (string)
+        marc_footer (string)
+        """
+    s = file2string(filename)
+    p = re.compile("^(.*<marc:collection[^>]+>)(.*)(</marc:collection>.*)$",re.DOTALL)
+    m = p.search(s)
+    if m:
+        return (m.group(1),m.group(2),m.group(3))
+    else:
+        return ('','','')
+
 def transform(config,stylesheet,input,output,params = ''):
     saxon = config.get('system','libpath') + config.get('system','sep') + \
         config.get('system','saxon_jar_file')
@@ -89,8 +108,13 @@ def applyStylesheets(inputfilename,config):
     filterlist = [(config.get('system','filter_accept'),''),
             (config.get('system','filter_reject'),'')]
 
+    if config.get('system', 'filter_only') == 'yes':
+        xsllist = filterlist
+    else:
+        xsllist = filterlist + stylesheetlist
+
     # apply xsl stylesheets using Saxon on the command line
-    for (xsl_file,params) in filterlist + stylesheetlist:
+    for (xsl_file,params) in xsllist:
         sys.stdout.write('.')
         transform(config,xsl_file,inputfilename,xml_output,params)
         import shutil
