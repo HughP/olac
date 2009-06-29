@@ -13,8 +13,6 @@ from iso_extract_modeler import *
 class isoClassifier:
     def __init__(self, model_file, lang_names_file):
         self.model = pickle.load(open(model_file,'rb'))
-        self.lang_names = set([i.strip() for i in open(lang_names_file).readlines()]) # normalizing for case
-        x = open('lang_name_file_for_testing','w')
     
     def classify_record(self, record):
         """This method goes through the different fields of a record and gets the language names."""
@@ -59,16 +57,16 @@ class isoClassifier:
         return iso_set
 
 if __name__=="__main__":
-    if len(sys.argv)!=5:
-        print "Usage: python iso_extractor.py model.pkl lang_names_file tabfile outfile"
+    if len(sys.argv)!=4:
+        print "Usage: python iso_extractor.py model.pkl tabfile outfile"
         sys.exit(1)
     
-    ic = isoClassifier(sys.argv[1], sys.argv[2])
+    ic = isoClassifier(sys.argv[1])
 
     reader = TabDBCorpusReader('../oai_classifier_trn', '.*db\.tab')
     olac_records = reader.records('olacdb.tab')
     
-    outfile = open(sys.argv[4],'w') 
+    outfile = open(sys.argv[3],'w') 
     for record in olac_records:
         results = ic.classify_record(record)
         try:
