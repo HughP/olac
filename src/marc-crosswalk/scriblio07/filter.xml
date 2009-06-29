@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?oxygen RNGSchema="file:../lib/marc-filter.rnc" type="compact"?>
+<marc-filter>
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Library of Congress rough cut filter</dc:title>
+      <dc:contributor>Joan Spanne</dc:contributor>
+      <dc:date>2009-06-26</dc:date>
+      <dc:description>This filter for the Library of Congress record set. 
+            It is only a rough cut filter to narrow the set of records
+            to a reasonable subset of likely "language resources" on which to 
+            perform more rigorous processing. </dc:description>
+   </header>
+   <select-stage>
+      <!--
+         Get only records containing these language codes in the 008
+         These are collective codes and some macrolanguage codes¶
+         
+      -->
+      <test>
+         <control-field test="equals" tag="008" position="36" length="3">
+            <text>afa</text>
+            <text>alg</text>
+            <text>apa</text>
+            <text>art</text>
+            <text>ath</text>
+            <text>aus</text>
+            <text>bad</text>
+            <text>bai</text>
+            <text>bat</text>
+            <text>ber</text>
+            <text>bih</text>
+            <text>bik</text>
+            <text>bnt</text>
+            <text>btk</text>
+            <text>bua</text>
+            <text>cai</text>
+            <text>cau</text>
+            <text>cel</text>
+            <text>chm</text>
+            <text>cmc</text>
+            <text>cpe</text>
+            <text>cpf</text>
+            <text>cpp</text>
+            <text>cre</text>
+            <text>crp</text>
+            <text>cus</text>
+            <text>day</text>
+            <text>del</text>
+            <text>den</text>
+            <text>din</text>
+            <text>doi</text>
+            <text>dra</text>
+            <text>fiu</text>
+            <text>hai</text>
+            <text>ful</text>
+            <text>gba</text>
+            <text>gem</text>
+            <text>gon</text>
+            <text>grb</text>
+            <text>grn</text>
+            <text>him</text>
+            <text>hmn</text>
+            <text>ijo</text>
+            <text>iku</text>
+            <text>inc</text>
+            <text>ine</text>
+            <text>ipk</text>
+            <text>ira</text>
+            <text>iro</text>
+            <text>jrb</text>
+            <text>kar</text>
+            <text>khi</text>
+            <text>kom</text>
+            <text>kon</text>
+            <text>kpe</text>
+            <text>kro</text>
+            <text>man</text>
+            <text>map</text>
+            <text>mkh</text>
+            <text>mlg</text>
+            <text>mno</text>
+            <text>mun</text>
+            <text>myn</text>
+            <text>nah</text>
+            <text>nai</text>
+            <text>pra</text>
+            <text>nic</text>
+            <text>nor</text>
+            <text>nub</text>
+            <text>oji</text>
+            <text>orm</text>
+            <text>oto</text>
+            <text>paa</text>
+            <text>phi</text>
+            <text>que</text>
+            <text>roa</text>
+            <text>rom</text>
+            <text>sai</text>
+            <text>sal</text>
+            <text>sem</text>
+            <text>sgn</text>
+            <text>sio</text>
+            <text>sit</text>
+            <text>sla</text>
+            <text>smi</text>
+            <text>son</text>
+            <text>ssa</text>
+            <text>tai</text>
+            <text>tmh</text>
+            <text>tup</text>
+            <text>tut</text>
+            <text>wak</text>
+            <text>wen</text>
+            <text>ypk</text>
+            <text>zap</text>
+            <text>znd</text>
+         </control-field>
+      </test>
+      <!-- 
+               Also select all records containing "language oriented" subject terms, only in a 650
+      -->
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>language</text>
+            <text>languages</text>
+            <text>dialect</text>
+         </data-field>
+      </test>
+   </select-stage>
+   
+   <reject-stage/>
+   <crosswalk/>
+</marc-filter>

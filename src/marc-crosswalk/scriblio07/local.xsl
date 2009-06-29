@@ -3,7 +3,7 @@
       Expresses local customizations for the process of converting a 
       collection of MARC records to an OLAC static repository
    
-   For repository: European Counsel of Modern Languages (ECML)
+   For repository: Scriblio LOC records (about 7.5 million)
    Developed by: Chris Hirt
    Revision date:  2009-06-16
 -->
@@ -15,15 +15,15 @@
 
     <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
-    <xsl:variable name="metadata-version-date">2009-06-16</xsl:variable>
+    <xsl:variable name="metadata-version-date">2009-06-26</xsl:variable>
 
     <!-- Fill in today's date (as the date as of which the archive
       description and participant list is current) -->
-    <xsl:variable name="current-as-of-date">2009-06-16</xsl:variable>
+    <xsl:variable name="current-as-of-date">2009-06-26</xsl:variable>
 
     <!-- Fill in the web domain name that uniquely identifies your
       archive -->
-    <xsl:variable name="repository-id">ecml.at</xsl:variable>
+    <xsl:variable name="repository-id">scriblio07</xsl:variable>
 
     <!-- The function that extracts the unique identifier for the
       record from the MARC record. By default it is the MARC 001
@@ -44,14 +44,14 @@
         http://www.openarchives.org/OAI/2.0/
              http://www.language-archives.org/OLAC/1.1/OLAC-PMH.xsd">
             <!-- Fill in the full name of the repository -->
-            <oai:repositoryName>European Centre for Modern Languages</oai:repositoryName>
+            <oai:repositoryName>Scriblio 07 download</oai:repositoryName>
             <!-- Fill in the URL where the static repository resides on the web -->
-            <oai:baseURL>http://www.gial.edu/olac/ecml.xml</oai:baseURL>
+            <oai:baseURL>http://www.gial.edu/olac/scriblio07.xml</oai:baseURL>
             <!-- Don't touch this -->
             <oai:protocolVersion>2.0</oai:protocolVersion>
             <!-- Fill in the email address of the person responsible for
             the implementation and maintenance of the repository -->
-            <oai:adminEmail>Catherine.Seewald@ecml.at</oai:adminEmail>
+            <oai:adminEmail>chris@hirtfamily.net</oai:adminEmail>
             <!-- Don't touch any of the following up to the next comment -->
             <oai:earliestDatestamp>
                 <xsl:value-of select="$metadata-version-date"/>
@@ -81,15 +81,13 @@
                     <!-- Fill in the remainder of these fields following the definitions give in:
                   http://www.language-archives.org/OLAC/repositories.html#OLAC%20archive%20description
                -->
-                    <archiveURL>http://www.ecml.at/doccentre/doccentre.asp?t=rescentre</archiveURL>
+                    <archiveURL></archiveURL>
                     <!-- Make as many copies of <participant> as you need -->
-                    <participant name="Catherine Seewald" role="Documentalist"
-                        email="catherine.seewald@ecml.at"/>
-                    <participant name="Waldemar Martyniuk" role="Executive Director"
-                        email="waldemar.martyniuk@ecml.at"/>
-                    <institution>European Centre for Modern Languages</institution>
-                    <institutionURL>http://www.ecml.at</institutionURL>
-                    <shortLocation>Graz, Austria</shortLocation>
+                    <participant name="" role=""
+                        email=""/>
+                    <institution>Scriblio 07 test set</institution>
+                    <institutionURL></institutionURL>
+                    <shortLocation></shortLocation>
                     <location/>
                     <synopsis/>
                     <access/>
@@ -130,87 +128,6 @@
     <!-- Place any templates below that are local overrides of the
           templates as defined in the marc2olac stylesheet -->
 
-<xsl:template name="process-690">
-    <xsl:param name="content" />
-    <xsl:param name="lang" />
-        
-    <!-- sub-a is lower case and with trailing period stripped, if it exists -->
-    <xsl:variable name="sub-a" select="replace(lower-case( $content ),'\.','')"/>
-    <xsl:variable name="code1">
-        <xsl:if test="contains($sub-a, 'language') or contains($sub-a, 'dialect')">
-            <xsl:choose>
-                <!-- Bail out if it is not an individual language LCSH -->
-                <xsl:when test="starts-with($sub-a, 'language')"/>
-                <xsl:when test="starts-with($sub-a, 'second language')"/>
-                <xsl:when test="starts-with($sub-a, 'natural language')"/>
-                <xsl:when test="starts-with($sub-a, 'sign language')"/>
-                <xsl:when test="contains($sub-a, 'languages')"/>
-                <!-- Map to a code, returning either three letters or "failed" -->
-                <xsl:otherwise>
-                    <xsl:call-template name="local-map-to-iso639">
-                        <xsl:with-param name="lcsh" select="$sub-a"/>
-                    </xsl:call-template>
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:if>
-    </xsl:variable>
-    <xsl:variable name="code2">
-        <xsl:choose>
-            <xsl:when test="$code1 = 'failed' ">
-                <xsl:call-template name="map-to-iso639">
-                    <xsl:with-param name="lcsh" select="$sub-a"/>
-                </xsl:call-template>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:value-of select="$code1"/>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:variable>
-    <dc:subject>
-        <xsl:if test="$no_code = 'yes' and $code2 = 'failed' ">
-            <xsl:attribute name="no_code">1</xsl:attribute>
-        </xsl:if>
-        <xsl:if test="$marc_tags='yes'">
-            <xsl:attribute name="from">690a</xsl:attribute>
-        </xsl:if>
-        <xsl:if test="$lang != '' ">
-            <xsl:attribute name="xml:lang" select="$lang" />
-        </xsl:if>
-        <xsl:value-of select="$content" />
-    </dc:subject>
-    
-    <xsl:if test="$code2 != '' and $code2 != 'failed' ">
-        <dc:subject xsi:type="olac:language">
-            <xsl:attribute name="olac:code" select="$code2"/>
-            <xsl:if test="$marc_tags='yes'">
-                <xsl:attribute name="from">690a</xsl:attribute>
-            </xsl:if>
-        </dc:subject>
-    </xsl:if>
-</xsl:template>
-
-
-    <xsl:template match="marc:datafield[@tag='690']">
-        <xsl:choose>
-            <xsl:when test="count(marc:subfield[@code='a']) = 2">
-                <xsl:call-template name="process-690">
-                    <xsl:with-param name="content" select="marc:subfield[@code='a'][1]" />
-                    <xsl:with-param name="lang">fra</xsl:with-param>
-                </xsl:call-template>
-                <xsl:call-template name="process-690">
-                    <xsl:with-param name="content" select="marc:subfield[@code='a'][2]" />
-                    <xsl:with-param name="lang">eng</xsl:with-param>
-                </xsl:call-template>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:for-each select="marc:subfield[@code='a']">
-                    <xsl:call-template name="process-690">
-                        <xsl:with-param name="content" select=" . " />
-                    </xsl:call-template>
-                </xsl:for-each>                
-            </xsl:otherwise>
-        </xsl:choose>
-        
 
 
 

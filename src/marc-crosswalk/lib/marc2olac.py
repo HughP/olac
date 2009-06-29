@@ -36,6 +36,9 @@ clparser.add_option("-n", "--no-code", action="store_true",
 clparser.add_option("-g", "--html", action="store_true",
         dest="do_html_output", default=False,
         help="generate a human-readable HTML version of the OLAC repository")
+clparser.add_option("-f", "--filter-only", action="store_true",
+        dest="filter_only", default=False,
+        help="only run the filter stage, and output filtered MARCXML to a .filtered.xml file")
 (options, args) = clparser.parse_args()
 
 projectname = 'default_project'
@@ -79,6 +82,10 @@ if options.marc_tags:
     config.set('system','marc_tags','yes')
 else:
     config.set('system','marc_tags','no')
+if options.filter_only:
+    config.set('system','filter_only','yes')
+else:
+    config.set('system','filter_only','no')
 
 
 # check to make sure required files exist
@@ -125,23 +132,34 @@ else: # this is a directory
         if ext == '.xml': directory.append(f)
     splitfiles = [sep.join([marcxml_filename,p]) for p in directory]
 
-olac_footer = ''
-olac_xml_f = open(olacxml_filename,'w')
+xml_footer = ''
+
+if config.get('system', 'filter_only') == 'yes':
+    filename = marcxml_filename + '.filtered.xml'
+    print "Running in 'Filter Only' mode.  Filtered records are in '%s'" % filename
+    output_xml_f = open(filename,'w')
+else:
+    output_xml_f = open(olacxml_filename,'w')
 
 # loop over each XML chunk and apply stylesheet chain
 ctr = 1
 for f in splitfiles:
     print "Transforming batch %d of %d" % (ctr,len(splitfiles))
     utils.applyStylesheets(f,config)
-    header,olac_recs,footer = utils.parseOLACRepository(f)
+
+    if config.get('system', 'filter_only') == 'yes':
+        header,xml_recs,footer = utils.parseMARCCollection(f)
+    else:
+        header,xml_recs,footer = utils.parseOLACRepository(f)
+
     if ctr == 1:
-        olac_xml_f.write(header)
-        olac_footer = footer
+        output_xml_f.write(header)
+        xml_footer = footer
     # write records out to file
-    olac_xml_f.write(olac_recs)
+    output_xml_f.write(xml_recs)
     ctr += 1
-olac_xml_f.write(olac_footer)
-olac_xml_f.close()
+output_xml_f.write(xml_footer)
+output_xml_f.close()
 
 # clean up temporary files, if necessary
 if os.path.isfile(marcxml_filename):
@@ -153,9 +171,12 @@ else:
     os.rename(marcxml_filename + '_backup',marcxml_filename)
 
 # generate an HTML file, if appropriate
-if options.do_html_output:
+if options.do_html_output and not options.filter_only:
     print "Generating HTML output to %s" % config.get('system','html_output')
     utils.transform(config,libpath + sep + 'repository2html',olacxml_filename,
             projpath + sep + config.get('system','html_output'))
 
-print "Done.  OLAC Repository %s generated in %s." % (config.get('system','output'),projectname) 
+if options.filter_only:
+    print "Done."
+else:
+    print "Done.  OLAC Repository %s generated in %s." % (config.get('system','output'),projectname) 
