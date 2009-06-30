@@ -30,9 +30,9 @@ class XMLParse:
 
     def handleCharData(self, data):
         if self.path[-1]=="print_name":
-            self.primlist += data.encode('utf-8')
+            self.primlist += " "+data.encode('utf-8').strip()
         elif self.path[-1]=="alternate_names":
-            self.altlist += data.encode('utf-8')
+            self.altlist += " "+data.encode('utf-8').strip()
 
     def handleStartElement(self, name, attrs):
         self.path.append(name)
