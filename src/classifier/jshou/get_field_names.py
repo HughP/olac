@@ -32,7 +32,7 @@ class XMLParse:
 
     def handleCharData(self, data):
         if self.path[-1]==self.field_name:
-            self.flist += data.encode('utf-8')
+            self.flist += data.encode('utf-8').strip('\n')
 
     def handleStartElement(self, name, attrs):
         self.path.append(name)
