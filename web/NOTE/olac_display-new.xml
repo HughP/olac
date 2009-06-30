@@ -8,7 +8,7 @@
 		<title>Specifications for the OLAC metadata display format and
 			the OLAC-to-OAI_DC crosswalk</title>
 		<baseName>olac_display</baseName>
-		<issued>20090627</issued>
+		<issued>20090629</issued>
 		<previousIssued>20060515</previousIssued>
 		<abstract>
 			<p>In addition to the <tt>olac</tt> metadata format, the
@@ -103,10 +103,11 @@
 		</section>
 		<section>
 			<heading>Design principles</heading>
-			<p>The OLAC metadata format is an application profile of qualified
-				DC <cit>DC-Q</cit>. The standard algorithm for "dumbing
+			<p>The OLAC metadata format is an application profile based on the
+				full set of DC metadata terms, also known as "qualified
+				DC" <cit>DC-Q</cit>. The standard algorithm for "dumbing
 				down" qualified
-				DC into simple DC is:
+				DC into the 15 basic DC elements, or "simple DC" <cit>DC-Simple</cit>, is:
 				</p>
 
 			<ol>
@@ -284,11 +285,11 @@
 			<p>In order to participate in the wider community of 
 				OAI service providers, OLAC
 				data providers must also publish their metadata
-				records in the Dublin Core format prescribed by the
+				records in the simple Dublin Core format prescribed by the
 				OAI <cit>OAI_DC</cit>. There is no need for OLAC data
 				providers to store the records in both formats,
 				however, since the information in the <tt>oai_dc</tt> format is
-				a subset of the information in the OLAC format. An
+				a subset of the information in the <tt>olac</tt> format. An
 				<tt>oai_dc</tt> record may thus be automatically derived from
 				an OLAC record. A program that transforms a metadata
 				record from one format to another is conventionally
@@ -301,48 +302,56 @@
 				transformation to <tt>oai_dc</tt> format upon request. Transforming a
 				metadata record from OLAC format to <tt>olac_display</tt>
 				format goes most of the way toward implementing the
-				OLAC-to-OAI_DC crosswalk. In order to
+				OLAC-to-OAI_DC crosswalk. In order to complete the mapping and
 				transform an eleemnt in an <tt>olac_display</tt> record to 
-				the corresponding element of the <tt>oai_dc</tt> record, do all of
-				the following that apply:
+				the corresponding element of the <tt>oai_dc</tt> record, the
+				following special cases are observed:
 				</p>
 			<ul>
 				<li>
 					<p>If the element has an <tt>xsi:type</tt> of
 						<tt>olac:linguistic-type</tt>, <tt>olac:linguistic-field</tt>,
 						or <tt>olac:discourse-type</tt>, change all underscores
-						in the content to spaces.</p>
+						in the element contents to spaces.</p>
 				</li>
-				<li><p>From the standpoint of the cataloging community in general,
-					the OLAC discourse type is more like a description than a type.
-					Thus iff the element is <tt>&lt;dc:type
-					xsi:type=&quot;olac:discourse-type&quot;&gt;</tt>,
-					change it to <tt>&lt;dc:description&gt;</tt> and
-					prepend &quot;Discourse type:&quot; to the
-					contents.</p></li>
-				
 				<li><p>If the element is <tt>&lt;dc:type
 					xsi:type=&quot;olac:linguistic-type&quot;&gt;</tt>,
 					prepend <tt>&quot;Linguistic type:&quot;</tt> to
-					the contents.</p></li>
-				<li><p>If the element is &lt;dc:contributor
-					olac:code=&quot;author&quot;&gt;,
+					the element contents.</p></li>
+				<li><p>If the element is <tt>&lt;dc:type
+					xsi:type=&quot;olac:discourse-type&quot;&gt;</tt>,
+					change it to <tt>&lt;dc:description&gt;</tt> and
+					prepend &quot;Discourse type:&quot; to the element
+					contents. (The logic behind this rule is that from the standpoint of the cataloging community in general,
+					the OLAC discourse type is more like a description than a type.)</p></li>
+				
+				<li><p>If the element is <tt>&lt;dc:contributor
+					olac:code=&quot;author&quot;&gt;</tt>,
 					generate the result as a
 					<tt>&lt;dc:creator&gt;</tt> element.</p></li>
 				
 				<li><p>If the element is <tt>&lt;dc:subject
-					xsi:type=&quot;olac:language&quot;&gt;</tt>,
-					generate a <tt>&lt;dc:language&gt;</tt> element if
-					there is not already one with the same code value;
-					otherwise, generate nothing.</p></li>
+				xsi:type=&quot;olac:language&quot;&gt;</tt> and the record
+					already has a <tt>&lt;dc:language&gt;</tt> with the 
+					same value for <tt>olac:code</tt> as this <tt>&lt;dc:subject&gt;</tt>
+					element, then discard this element. Otherwise,
+					generate a <tt>&lt;dc:language&gt;</tt> element with the 
+					value of <tt>olac:code</tt> as its contents. (The logic behind
+					this rule is that the DC standard expects ISO 639 codes with 
+					the <tt>&lt;dc:language&gt;</tt> element, but not with <tt>&lt;dc:subject&gt;</tt>.) 
+					</p></li>
 				<li><p>Generate only one <tt>&lt;dc:date&gt;</tt> element
-					using the content of the first available element
+					using the contents of the first available date-related element
 					in this order of preference: <tt>dc:date</tt>,
 					<tt>dcterms:issued</tt>, <tt>dcterms:dateCopyrighted</tt>,
 					<tt>dcterms:created</tt>, <tt>dcterms:available</tt>,
 					<tt>dcterms:dateAccepted</tt>, <tt>dcterms:dateSubmitted</tt>,
 					<tt>dcterms:modified</tt>, <tt>dcterms:valid</tt>. Discard all other
-					date-related elements.</p></li>
+					date-related elements. (The logic behind this rule is that a
+					simple DC record should have only one <tt>&lt;dc:date&gt;</tt>
+					element; for instance, see <cit>DRIVER</cit>.)</p></li></ul>
+			<p>Then the following two dumb-down rules apply in general:</p>
+			<ul>
 				<li><p>If the element is in the <tt>dcterms</tt> namespace, output
 					it as its more generic <tt>dc</tt> equivalent.</p></li>
 				
@@ -356,18 +365,21 @@
 	<references>
 		<ref abbrev="Zeng2007">Zeng, Marcia Lei. 2007. Metadata Crosswalks.<br/>
 			&lt;<url>http://www.slis.kent.edu/~mzeng/metadata/crosswalks.htm</url>&gt;</ref>
-		<ref abbrev="OLACA">OLACA: the OLAC Aggregator.<br/>
+		<ref abbrev="DRIVER">DRIVER Guidelines 2.0: Guidelines for content
+			providers &#x2014; Exposing textual resources with OAI-PMH, Novermber
+			2008.<br/>
+			&lt;<url>http://www.driver-support.eu/documents/DRIVER_Guidelines_v2_Final_2008-11-13.pdf</url>&gt;</ref>
+		<ref abbrev="OLACA">OLACA: The OLAC Aggregator.<br/>
 				&lt;<url>http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Document</url>&gt;</ref>
 		<ref abbrev="OLAC-Extensions">Recommended metadata extensions<br/>
 			&lt;<url>http://www.language-archives.org/REC/olac-extensions.html</url>&gt;</ref>
 		<ref abbrev="OLAC-Metadata">OLAC
-				Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
-		<ref abbrev="DC-Q">Dublin Core
-				Qualifiers.<br/>&lt;<url>http://dublincore.org/documents/dcmes-qualifiers/</url>&gt;</ref>
-		<ref abbrev="OAI_DC">Dublin Core Metadata Element Set, Version
-			1.1: Reference Description.<br/>
-			&lt;<url>http://dublincore.org/documents/1999/07/02/dces/</url>&gt;<br/>
-			XML schema for OAI implementation of Dublin Core
+			Metadata.<br/>&lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
+		<ref abbrev="DC-Simple">Dublin Core Metadata Element Set, Version 1.1.<br/>
+			&lt;<url>http://dublincore.org/documents/dces/</url>&gt;</ref>
+		<ref abbrev="DC-Q">DCMI Metadata Terms.<br/>
+			&lt;<url>http://dublincore.org/documents/dcmes-qualifiers/</url>&gt;</ref>
+		<ref abbrev="OAI_DC">XML schema for OAI implementation of Dublin Core
 				metadata.<br/>
 			&lt;<url>http://www.openarchives.org/OAI/1.1/dc.xsd</url>&gt;</ref>
 		<ref abbrev="ISO639-3">ISO 639-3 Downloads.<br/>
