@@ -15,9 +15,10 @@ class isoClassifier:
         self.model = pickle.load(open(model_file,'rb'))
     
     def classify_record(self, record, debug):
-        """This method goes through the different fields of a record and gets the language names."""
-        results = {}
-        langs = []
+        """This method goes through the title, subject, and descriptions fields of a record, and returns
+        an intersection of the sets of ISOs found from language names, country names, and regions found
+        in the above mentioned fields.  The method backs off region and country if the intersection returns
+        a null set."""
         bag_of_words = ''
         try:
             bag_of_words += record['title']
@@ -31,8 +32,10 @@ class isoClassifier:
             bag_of_words += ' '+record['description']
         except KeyError:
             pass
+
 # DEBUG MODE 
         if debug:
+            print "---------------------------------------------------"
             print record['Archive_ID'], record['Item_ID'], record['title']
 
         iso_set = set()
@@ -88,4 +91,8 @@ if __name__=="__main__":
             title = record['title']
         except KeyError:
             title = 'TITLE_UNKNOWN'
-        print>>outfile, '\t'.join([record['Archive_ID'], record['Item_ID'], title, ' '.join(results)])
+        try:
+            id = record['identifier'].strip()
+        except KeyError:
+            id = 'IDENTIFIER_UNKNOWN'
+        print>>outfile, '\t'.join([record['Archive_ID'], record['Item_ID'], id, title, ' '.join(results)])
