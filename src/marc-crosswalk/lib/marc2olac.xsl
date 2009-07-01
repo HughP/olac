@@ -10,7 +10,9 @@ local cataloging practices.
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:include href="vocab.xsl"/>
+    <xsl:include href="role.xsl"/>
+    <xsl:include href="type.xsl"/>
+    <xsl:include href="subject.xsl"/>
     <xsl:include href="iso639.xsl"/>
     <xsl:output indent="yes" method="xml"/>
 
