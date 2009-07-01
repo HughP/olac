@@ -22,6 +22,7 @@ http://olac.svn.sourceforge.net/viewvc/*checkout*/web/lib/python/optionparser.py
     sys.exit(1)
 
 XSI_SCHEMA = 'http://www.w3.org/2001/XMLSchema-instance'
+OAI_SR_SCHEMA = 'http://www.openarchives.org/OAI/2.0/static-repository'
 
 LOG = sys.stderr
 class Logger:
@@ -30,13 +31,20 @@ class Logger:
         joiner = "\n%s " % t
         print >>LOG, t, joiner.join(msg.split('\n'))
 
-UTF8CONDITIONER = "/web/language-archives/lib/utf8/utf8conditioner_unbuffered_stdout"
+UTF8CONDITIONER = "/web/language-archives/lib/utf8/utf8conditioner_unbuffered_stdout.sh"
 
-########################
-## Database Interface ##
-########################
 
 class DBI(Logger):
+    """
+    Datebase interface.
+
+    The processIdentify function process an Identify response (in an
+    intermediate format) to update the database.
+    
+    The processRecord function process an GetRecord response (stored as a
+    Record object) to update the database.
+    """
+    
     def __init__(self, conn):
         self.con = conn
         self.cur = conn.cursor()
@@ -220,7 +228,7 @@ class DBI(Logger):
                 self.cur.execute(sql, args)
                 dt1 = datetime.datetime(
                     *[int(x) for x in record.datestamp().split('-')])
-                if self.cur.rowcount > 0 or dt==dt1.date():
+                if self.cur.rowcount > 0 or dt<=dt1.date():
                     self.updatedRecordCount0 += 1
                     flagUpdateMetadata = True
                     sql = "delete from METADATA_ELEM where Item_ID=%s"
@@ -328,11 +336,6 @@ class DBI(Logger):
         self.updatedRecordCount0 = 0
         self.deletedRecordCount0 = 0
         self.ignoredRecordCount0 = 0
-
-
-##
-##
-######################################################################
 
 
 class Request:
@@ -459,6 +462,10 @@ class Record:
 
     
 class Schema:
+    """
+    Contains information on an XML schema.
+    """
+    
     def __init__(self, uri, loc=None):
         self.uri_ = uri
         self.loc_ = loc
@@ -492,11 +499,18 @@ class Schema:
 
 
 class Environment:
+    """
+    Nestable environment of variables.
+    """
+    
     def __init__(self):
         self.stack = []
 
-    def push(self, dic={}):
-        self.stack.append(dic)
+    def push(self, dic=None):
+        if dic is None:
+            self.stack.append({})
+        else:
+            self.stack.append(dic)
 
     def pop(self):
         if self.stack:
@@ -529,6 +543,7 @@ class Namespace:
     """
     Namespace object keeps track of the XML namespaces in an XML document.
     """
+    
     def __init__(self):
         self.schemaLocs = Environment()
         self.schemas = Environment()
@@ -620,8 +635,23 @@ class Namespace:
 
 class HandlerError(Exception): pass
 
+def create_record(build):
+    result = []
+    for L in build:
+        x = []      # (na,name,attrs,body)
+        for r in L:
+            schema, elName, atts = r[0]
+            body = ''.join(r[1:])
+            x.append((schema, elName, atts, body))
+        result.append(x)
+    if len(result) == 2:
+        return Record(result[0], result[1])
+    elif len(result) == 1:
+        return Record(result[0])
+
 class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
     """
+    An SAX handler.
     Calls identifyHandler with an Identify object (defined above)
     after parsing the Identify reponse.
     """
@@ -674,6 +704,7 @@ class IdentifyHandler(Logger, xml.sax.handler.ContentHandler):
             
 class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
     """
+    An SAX Handler.
     Calls recordHandler with a Record object as it parses through
     the ListRecords response.
     """
@@ -731,7 +762,7 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
         schema, name = self.ns.resolve(tag)
         
         if name == 'record':
-            record = self.createRecord()
+            record = create_record(self.build)
             #self.log("processing record: %s" % record.oaiId())
             if record: self.recordHandler(record)
         elif name in ('header','olac'):
@@ -744,23 +775,109 @@ class ListRecordsHandler(Logger, xml.sax.handler.ContentHandler):
         self.names.pop()
         self.ns.pop()
 
-    def createRecord(self):
-        result = []
-        for L in self.build:
-            x = []      # (na,name,attrs,body)
-            for r in L:
-                schema, elName, atts = r[0]
-                body = ''.join(r[1:])
-                x.append((schema, elName, atts, body))
-            result.append(x)
-        if len(result) == 2:
-            return Record(result[0], result[1])
-        elif len(result) == 1:
-            return Record(result[0])
-    
 
+class SrHandler(Logger, xml.sax.handler.ContentHandler):
+    """
+    An SAX handler for static repository.
+    """
+
+    ID_MODE = 1  # inside Identify element
+    LR_MODE = 2  # inside ListRecords element
+    
+    def __init__(self, dbi, fullHarvest):
+        xml.sax.handler.ContentHandler.__init__(self)
+        self.dbi = dbi
+        self.fullHarvest = fullHarvest
+        self.identifyHandler = dbi.processIdentify
+        self.recordHandler = dbi.processRecord
+        self.reset()
+        
+    def reset(self):
+        self.flag = False # indicates whether a record is open
+        self.error = {}
+        self.mode = None
+        self.ns = Namespace()
+        self.identify_data = []
+        self.names = []
+        self.ptr = []
+        self.recordids = set()
+
+    def startElement(self, tag, attrs):
+        #print "< >", tag
+        schema, name, atts = self.ns.push(tag, attrs)
+
+        self.names.append(name)
+        if self.mode == self.LR_MODE:
+            if name == 'record':
+                self.build = []
+            elif name == 'header':
+                self.build.append([[(schema,name,atts)]])
+                self.flag = True
+            elif name == 'olac':
+                # append the opening element to the 'header' record
+                # this is used to figure out the version of olac schema
+                self.build[-1].append([(schema,name,atts)])
+                # create a new 'olac' record
+                self.build.append([])
+                self.flag = True
+            elif self.flag:
+                self.build[-1].append([(schema,name,atts)])
+        elif self.mode == self.ID_MODE:
+            self.identify_data.append([name, atts, []])
+            self.ptr.append(len(self.identify_data)-1)
+        else:
+            if name == 'Identify' and schema == OAI_SR_SCHEMA:
+                self.mode = self.ID_MODE
+                self.identify_data.append([name, atts, []])
+                self.ptr.append(0)
+            elif name == 'ListRecords' and schema == OAI_SR_SCHEMA:
+                self.mode = self.LR_MODE
+                self.log("parsing ListRecords element...")
+                self.fromDate = ''
+                if not self.fullHarvest:
+                    last_harvested = self.dbi.lastHarvested()
+                    if last_harvested is not None:
+                        self.fromDate = last_harvested.strftime("%Y-%m-%d")
+            
+    def characters(self, content):
+        if self.mode == self.LR_MODE:
+            if self.flag:
+                if self.names[-1] not in ('header','olac'):
+                    self.build[-1][-1].append(content)
+        elif self.mode == self.ID_MODE:
+            self.identify_data[self.ptr[-1]][-1].append(content)
+            
+    def endElement(self, tag):
+        #print "</>", tag
+        schema, name = self.ns.resolve(tag)
+
+        if self.mode == self.LR_MODE:
+            if name == 'record':
+                record = create_record(self.build)
+                self.recordids.add(record.oaiId())
+                if record and record.datestamp() >= self.fromDate:
+                    self.recordHandler(record)
+            elif name in ('header','olac'):
+                self.flag = False
+            elif name == 'ListRecords' and schema == OAI_SR_SCHEMA:
+                self.mode = None
+        elif self.mode == self.ID_MODE:
+            if name == 'Identify' and schema == OAI_SR_SCHEMA:
+                self.log("done parsing Identify element")
+                self.log("processing Identify element...")
+                identify = Identify(self.identify_data)
+                self.identifyHandler(identify)
+                self.mode = None
+            self.ptr.pop()
+        self.names.pop()
+        self.ns.pop()
+
+     
 class Utf8Filter:
     def __init__(self, nextStep):
+        """
+        @param nextStep: an object providing feed(str) method
+        """
         self.nextStep = nextStep
         self.lock = threading.Lock()
         self.data = []
@@ -797,6 +914,7 @@ class Utf8Filter:
             self.datasize += len(data)
             self.data.append(data)
             self.lock.release()
+
         
 class StreamParser(Logger):
     def __init__(self, handler):
@@ -810,6 +928,7 @@ class StreamParser(Logger):
         except xml.sax.SAXParseException, e:
             msg = "parse error: %s" % e.getException()
             self.log(msg)
+            print data.split('\n')[e.getLineNumber()-1]
             return -1
 
     def close(self):
@@ -820,13 +939,27 @@ class StreamParser(Logger):
             self.log("document closed unexpectedly: %s" % e)
             return False
 
-        
-class Harvester(Logger):
-    def __init__(self, baseurl, handler, fullHarvest=False, streamFilter=None):
-        self.request = Request(baseurl, 'olac')
+
+class Data:
+    def __init__(self):
+        self.dat = StringIO()
+        self.n = 0
+    def reset(self):
+        self.dat.seek(0)
+        self.dat.truncate()
+        self.n = 0
+    def write(self, s):
+        self.n += len(s)
+        self.dat.write(s)
+    def dump(self):
+        return self.dat.getvalue()
+    
+
+class HarvesterBase(Logger):
+
+    def __init__(self, url, handler, fullHarvest=False, streamFilter=None):
+        self.url = url
         self.handler = handler
-        self.identifyHandler = handler.processIdentify
-        self.recordHandler = handler.processRecord
         self.fullHarvest = fullHarvest
         self.filter = streamFilter
         
@@ -837,28 +970,40 @@ class Harvester(Logger):
             #raise StopFetching()
 
     def _download(self, handler, url, retry):
+        self.log("downloading the url...")
+        dat = Data()
+        curl = MyCurl(dat.write, self._httpStatus, dat.reset)
+        try:
+            curl.fetch(MyUrl(url))
+        except pycurl.error, e:
+            self.log("pycurl error: %s" % e)
+            if e[0] == 28 and retry > 0:
+                self.log("retrying...")
+                return self._download(handler, url, retry-1)
+            else:
+                self.log("download failed")
+                return False
+        self.log("processing downloaded data...")
         if self.filter:
             parser = self.filter(StreamParser(handler))
         else:
             parser = StreamParser(handler)
-        curl = MyCurl(parser.feed, self._httpStatus)
         try:
-            curl.fetch(MyUrl(url))
-            return parser.close()
-        except pycurl.error, e:
-            self.log("pycurl error: %s" % e)
-            if e[0] == 28 and retry > 0:
-                parser.close()
-                handler.reset()
-                self.log("retrying...")
-                return self._download(handler, url, retry-1)
-            else:
-                parser.close()
-                return False
+            parser.feed(dat.dump())
+            return True
         except HandlerError, e:
             self.log("error: %s" %e)
             return False
-        
+
+    def harvest(self):
+        pass
+
+    
+class Harvester(HarvesterBase):
+    """
+    Dynamic repository harvester.
+    """
+    
     def harvest(self):
         self.log("harvester running on %s" % os.uname()[1])
         self.log("harvesting from %s" % self.request.baseUrl())
@@ -884,7 +1029,7 @@ class Harvester(Logger):
             handler = ListRecordsHandler(self.recordHandler, rtHandler)
             url = urls.pop()
             self.log("fetching and processing: %s" % url)
-            if not self._download(handler, url, 3):
+            if not self._download(handler, url, 2):
                 return False
             if handler.error:
                 if 'message' in handler.error:
@@ -897,14 +1042,53 @@ class Harvester(Logger):
         return True
 
 
+class SrHarvester(HarvesterBase):
+    """
+    Static repository harvester.
+    """
+
+    def harvest(self):
+        self.log("harvester running on %s" % os.uname()[1])
+        self.log("harvesting from %s" % self.url)
+        handler = SrHandler(self.handler, self.fullHarvest)
+        if not self._download(handler, self.url, 1):
+            return False
+        self.recordOaiIds = handler.recordids
+        return True
+
+
+def set_hfc(con, archiveid):
+    """
+    Set HFC code for the given archive
+    """
+    if archiveid:
+        cur = con.cursor()
+        sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
+        cur.execute(sql, archiveid)
+        sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'HFC')"
+        cur.execute(sql, archiveid)
+        cur.close()
+
+
+def get_last_modified(url):
+    f = lambda x: None
+    curl = MyCurl(f,f)
+    for row in curl.fetch(MyUrl(url),head=True):
+        if row.split(':')[0].lower() == 'last-modified':
+            return ":".join(row.split(':')[1:]).strip()
+
+
 ######################################################################
 ## Application code starts here
 ##
 
-def harvest(url, con, full=False, stream_filter=None):
+def harvest(url, con, full=False, stream_filter=None, static=False):
     try:
         dbi = DBI(con)
-        h = Harvester(url, dbi, full, stream_filter)
+        if static:
+            h = SrHarvester(url, dbi, full, stream_filter)
+        else:
+            h = Harvester(url, dbi, full, stream_filter)
         now = datetime.datetime.now()
         cur = con.cursor()
         if h.harvest():
@@ -913,6 +1097,18 @@ def harvest(url, con, full=False, stream_filter=None):
             cur.execute(sql, (now, dbi.archiveId()))
             sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
             cur.execute(sql, dbi.archiveId())
+            if static:
+                # implicit deletion
+                sql = "select OaiIdentifier from ARCHIVED_ITEM where Archive_ID=%s"
+                cur.execute(sql, dbi.archiveId())
+                for oaiid, in cur.fetchall():
+                    if oaiid not in h.recordOaiIds:
+                        sql = """
+                        delete me.* from ARCHIVED_ITEM ai, METADATA_ELEM me
+                        where ai.OaiIdentifier=%s and ai.Item_ID=me.Item_ID
+                        """
+                        #cur.execute(sql, oaiid)
+                        print odiid
         else:
             h.log("harvest failed")
             # dbi can provide archive id only when it has successfully
@@ -920,12 +1116,10 @@ def harvest(url, con, full=False, stream_filter=None):
             archiveid = dbi.archiveId()
             if archiveid is None:
                 cur.execute("select Archive_ID from OLAC_ARCHIVE where BaseURL=%s", url)
-                archiveid = cur.fetchone()[0]
+                if cur.rowcount > 0:
+                    archiveid = cur.fetchone()[0]
             if archiveid:
-                sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
-                cur.execute(sql, archiveid)
-                sql = "insert into INTEGRITY_CHECK (Object_ID, Problem_Code) values (%s, 'HFC')"
-                cur.execute(sql, archiveid)
+                set_hfc(con, archiveid)
         cur.close()
         dbi.commit()
         rc, nrc, urc, drc, irc = dbi.counts()
@@ -949,12 +1143,48 @@ def harvest_single(url,
                    host=None,
                    db=None,
                    full=False,
-                   stream_filter=None):
+                   stream_filter=None,
+                   static=False):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
     con = MySQLdb.connect(**opts)
-    harvest(url, con, full, stream_filter)
+
+    if static:
+        logger = Logger()
+        cur = con.cursor()
+        sql = "select Archive_ID, LastHarvested from OLAC_ARCHIVE where BaseURL=%s"
+        cur.execute(sql, url)
+        if cur.rowcount > 0:
+            archiveid, last_harvested = cur.fetchone()
+
+        if cur.rowcount == 0 or last_harvested is None:
+            # this is a new archive
+            harvest(url, con, full, stream_filter, static)
+        else:
+            # check if the file has a new last-modified date
+            logger.log("last harvested on %s" % last_harvested)
+            logger.log("checking Last-Modified date...")
+            s = get_last_modified(url)
+            if s is None:
+                # consider it an error if no Last-Modified date is provided
+                logger.log("failed checking")
+                logger.log("harvest failed")
+                set_hfc(con, archiveid)
+                con.commit()
+            else:
+                logger.log("got Last-Modified: %s" % s)
+                tstruct = time.strptime(s, "%a, %d %b %Y %H:%M:%S %Z") # GMT
+                t = time.mktime(tstruct) - time.altzone
+                t0 = time.mktime(last_harvested.timetuple())
+                if t >= t0:
+                    # the file has been modified
+                    harvest(url, con, full, stream_filter, static)
+                else:
+                    logger.log("assume no changes to harvest")
+        cur.close()
+    else:
+        harvest(url, con, full, stream_filter, static)
     con.close()
 
 
@@ -964,17 +1194,20 @@ def harvest_all(mycnf,
                 full=False,
                 numProc=5,
                 url=None,
-                stream_filter=None):
+                stream_filter=None,
+                static=False):
     opts = {"read_default_file":mycnf, "use_unicode":True, "charset":"utf8"}
     if host: opts["host"] = host
     if db: opts["db"] = db
     if url:
-        urls = [url]
+        urls = [(url,static)]
     else:
         con = MySQLdb.connect(**opts)
         cur = con.cursor()
-        cur.execute("select BASEURL from ARCHIVES order by rand()")
-        urls = list([x[0] for x in cur.fetchall()])
+        cur.execute("select BASEURL, Type from ARCHIVES "
+                    "where dateApproved is not null "
+                    "order by rand()")
+        urls = list([(x[0],x[1]=='Static') for x in cur.fetchall()])
         cur.close()
         con.close()
     
@@ -983,23 +1216,23 @@ def harvest_all(mycnf,
     def printlog(pid):
         url = P[pid]
         log = logs[url]
-        print >>sys.stderr, "**********************************************************************"
+        print >>sys.stderr, "*" * 79
         print >>sys.stderr, url
-        print >>sys.stderr, "**********************************************************************"
+        print >>sys.stderr, "*" * 79
         print >>sys.stderr, file(log).read()
         print >>sys.stderr
         print >>sys.stderr
         os.unlink(log)
     N = min(10, max(1, numProc))
     while urls:
-        url = urls.pop()
+        url, static = urls.pop()
         logs[url] = tempfile.mktemp()
 
         pid = os.fork()
         if pid == 0:
             global LOG
             LOG = file(logs[url], "w")
-            harvest_single(url, mycnf, host, db, full, stream_filter)
+            harvest_single(url, mycnf, host, db, full, stream_filter, static)
             sys.exit(0)
         else:
             P[pid] = url
@@ -1028,6 +1261,8 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
       -f          full harvest if this option presents
       -s <url>    harvest a single repository
       -u          turn on utf-8 cleaner
+      --static    used in conjunction with -s
+                  indicates the given URL is an OAI static repository
 
 """ % {"prog":os.path.basename(sys.argv[0])}
     
@@ -1045,7 +1280,9 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
         "*-d:",
         "*-f",
         "*-s:",
+        "*-t:",
         "*-u",
+        "*--static",
         )
     try:
         op.parse(sys.argv[1:])
@@ -1061,5 +1298,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
     sf = None  # stream filter
     if bool(op.get('-u')):
         sf = Utf8Filter
-        
-    harvest_all(mycnf, host, db, full=full, url=url, stream_filter=sf)
+    static = bool(op.get('--static'))
+    
+    harvest_all(mycnf, host, db, full=full, url=url, stream_filter=sf,
+                static=static)
