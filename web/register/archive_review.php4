@@ -26,23 +26,8 @@ Sincerely,
 OLAC administration team
 ";
 
-$subject[Finish] = "OLAC registration accepted";
-$message[Finish] =
-"Congratulations!
-Your request has been accepted. Your gateway URL is
-
-  $_POST[gwurl],
-
-and your archve will be posted on the following OLAC web page within 24 hours:
-
-  http://www.language-archives.org/archives.php4
-
-Thank you for registering your archive.
-
-Sincerely,
-
-OLAC administration team
-";
+$subject[Finish] = $subject[Accept];
+$message[Finish] = $message[Accept];
 
 $subject[Reject] = "OLAC registration rejected";
 $message[Reject] =
@@ -122,6 +107,7 @@ function draw_summary()
                    order by ID");
   if ($DB->saw_error()) { return FALSE; }
   $tab2 = $DB->sql("select  Archive_ID as sn,
+                            type,
 			    ID,
                             BASEURL
                    from     ARCHIVES
@@ -152,14 +138,13 @@ END;
   }
   echo "<tr><th></th><th bgcolor='#ffffdd' colspan='2'>Approved Archives</th><th></th></tr>\n";
   if ($tab2) foreach ($tab2 as $row) {
-    print <<<END
-<tr>
-<td></td>
-<td>$row[ID]</td>
-<td><a href="$EXPLORER?archive=$row[BASEURL]">$row[BASEURL]</a></td>
-<td><a href="$_SERVER[PHP_SELF]?id=$row[sn]">edit</a></td>
-</tr>
-END;
+    echo "<tr><td></td><td>$row[ID]</td>";
+    if ($row[type] == 'Dynamic') {
+      echo "<td><a href=\"$EXPLORER?archive=$row[BASEURL]\">$row[BASEURL]</a></td>";
+    } else {
+      echo "<td>$row[BASEURL]</td>";
+    }
+    echo "<td><a href=\"$_SERVER[PHP_SELF]?id=$row[sn]\">edit</a></td></tr>";
   }
   echo "</table>\n";
   return TRUE;
@@ -169,7 +154,7 @@ function draw_sr_reg_form($row)
 {
   global $EXPLORER;
 
-  $gwurl = preg_replace("'^http://'","http://www.language-archives.org/sr/",$row[BASEURL]);
+  #$gwurl = preg_replace("'^http://'","http://www.language-archives.org/sr/",$row[BASEURL]);
 
   print <<<END
 <p>
@@ -187,32 +172,21 @@ Repository information:
 <ul>
 <li>
 Step 1:
-<a href="/cgi-bin/gateway/registry.cgi?url=$row[BASEURL]">Register with gateway</a> (please use another browser window to open this link whenever possible)
-</li>
-
-<form action="register.php4" method="post">
-<li>
-Step 2:
-<input type="submit" value="OLAC DP Validation"/>
-(optional)
-</li>
-<input type="hidden" name="url" value="$gwurl"/>
-</form>
-
-<li>
-Step 3:
+<!--
 <a href="$EXPLORER?archive=$gwurl">Inspection using Repository Explorer</a>
 (optional)
+-->
+Inspection using Repository Explorer (this is not supported currently)
 </li>
 
 <form method="post">
 <li>
-Step 4:
+Step 2:
 <input type="submit" name="decision" value="Finish"/>
 </li>
 <input type="hidden" name="id" value="$row[Archive_ID]"/>
 <input type="hidden" name="ID" value="$row[ID]"/>
-<input type="hidden" name="gwurl" value="$gwurl"/>
+<input type="hidden" name="baseurl" value="$row[BASEURL]"/>
 <input type="hidden" name="contactEmail" value="$row[contactEmail]"/>
 </ul>
 
@@ -384,8 +358,8 @@ switch ($_POST[decision]) {
     break;
 
   case "Finish":
-    $setstr = "BASEURL='$_POST[gwurl]',";
-    $setstr .= "type='Gateway',";
+    $setstr = "BASEURL='$_POST[baseurl]',";
+    #$setstr .= "type='Gateway',";
     $setstr .= "dateApproved='" . date("Y-m-d") . "'";
     $DB->sql("update ARCHIVES set $setstr
               where Archive_ID=$_POST[id]");
