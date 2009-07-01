@@ -11,6 +11,7 @@ import traceback
 import time
 import re
 import random
+import urlparse
 
 __all__ = ["MyUrl", "MyCurl", "StopFetching"]
 
@@ -25,20 +26,24 @@ class MyUrl(unicode):
 
 class MyCurl:
 
-    def __init__(self, writefunc, statusfunc, debug=False):
+    def __init__(self, writefunc, statusfunc, resetfunc=None, debug=False):
 
         self.writefunc = writefunc
         self.statusfunc = statusfunc
+        if resetfunc:
+            self.resetfunc = resetfunc
+        else:
+            self.resetfunc = lambda: None
         self.debug = debug
 
         # this part of header doesn't change
         self._header = [
-            "Accept: image/png,*/*;q=0.5",
-            "Accept-Language: en-us,en;q=0.5",
-            "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7",
+            "Accept: text/xml, text/*;q=0.5",
+            "Accept-Language: en-us, en, *;q=0.7",
+            "Accept-Charset: utf-8, *;q=0.5",
             "Keep-Alive: 300",
             "Connection: keep-alive",
-            "User-Agent: Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.8.0.1) Gecko/20060208 Firefox/1.5.0.1",
+            "User-Agent: OLAC Harvester",
             ]
 
         # dynamic portion of header
@@ -50,10 +55,14 @@ class MyCurl:
             s += k + "=" + v + "; "
         return s.rstrip("; ")
         
-    def _mycurl(self, url):
+    def _mycurl(self, url, head=False):
         self._headerout = []
         curl = pycurl.Curl()
         curl.setopt(pycurl.URL, unicode(url).encode('utf-8'))
+        if head:
+            curl.setopt(pycurl.NOBODY, 1)
+        else:
+            curl.setopt(pycurl.HTTPGET, 1)
         curl.setopt(pycurl.HTTPHEADER, self._header)
         curl.setopt(pycurl.ENCODING, "gzip,deflate")
         if url.referer: curl.setopt(pycurl.REFERER, str(url.referer))
@@ -67,7 +76,8 @@ class MyCurl:
         curl.setopt(pycurl.VERBOSE, 0)
         curl.setopt(pycurl.DEBUGFUNCTION, self._callback_debugFunc)
         curl.setopt(pycurl.HEADERFUNCTION, self._callback_headerFunc)
-        curl.setopt(pycurl.TIMEOUT, 300)
+        # timeout works against large repository hosted on a slow machine
+        #curl.setopt(pycurl.TIMEOUT, 300)
         try:
             stderr = sys.stderr
             sys.stderr = open('/dev/null','w')
@@ -119,28 +129,23 @@ class MyCurl:
                 file("data_out.dat", "wb").write(data)
         return 0
 
-    def fetch(self, url):
-        # fetch url
-        # custom options AUTOREFERER & FOLLOWLOCATION are implemented
-        i = url.find('://')
-        if i == -1: i = -3
-        j = url.find('/',i+3)
-        if j >= 0:
-            baseUrl = url[:j]
-        else:
-            baseUrl = url
-
+    def fetch(self, url, head=False):
+        """
+        fetch url
+        custom options AUTOREFERER & FOLLOWLOCATION are implemented
+        @param head: header only
+        """
         try:
             self._location = None
-            self._mycurl(url)
+            self._mycurl(url, head)
             while self._location is not None:
+                self.resetfunc()
                 oldurl = url
-                if self._location.startswith('/'):
-                    url = MyUrl(baseUrl + self._location)
-                else:
-                    url = MyUrl(self._location)
+                url = MyUrl(urlparse.urljoin(oldurl, self._location))
                 url.referer = oldurl
                 self._location = None
-                self._mycurl(url)
+                self._mycurl(url, head)
         except StopFetching:
-            return
+            pass
+        if head: return self._headerout
+
