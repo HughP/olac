@@ -113,11 +113,12 @@ class EthnologueXMLParser:
         for iso in self.lang_info:
             for field in self.lang_info[iso]:
                 if isinstance(self.lang_info[iso][field],list):
-                    print>>outstream, iso + ":" + field + '\t' + ', '.join(self.lang_info[iso][field])
+                    for item in self.lang_info[iso][field]:
+                        print>>outstream, iso + "\t" + field + '\t' + item
                 else:
-                    print>>outstream, iso + ":" + field + '\t' + self.lang_info[iso][field]
+                    print>>outstream, iso + "\t" + field + '\t' + self.lang_info[iso][field]
         for country_name in self.country_idx:
-            print>>outstream, self.country_idx[country_name] + ":cn" + '\t' + country_name
+            print>>outstream, self.country_idx[country_name] + "\tcn" + '\t' + country_name
 
 if __name__=="__main__":
     if len(sys.argv)!=2:
