@@ -32,4 +32,4 @@ iso_names = iso_name_regex.findall(linguist_list_file)
 
 for iso_name in iso_names:
     iso, name = iso_name[0], iso_name[1]
-    print iso + ":sn" + "\t" + name
+    print iso + "\tsn" + "\t" + name
