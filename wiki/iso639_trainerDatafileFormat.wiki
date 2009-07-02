@@ -22,7 +22,7 @@ abc:sn    strong_name1, strong_name2
 abc:wn    weak_name1, weak_name2, weak_name3
 abc:cc    country_code1
 abc:rg    region1, region2, region3
-cc:cn    country_name1, country_name2, country_name3
+cc:cn    country_name
 }}}
 
 `abc` represents an ISO 639 three letter language code and `cc` is a two letter country code.
