@@ -32,8 +32,7 @@ class isoClassifier:
             bag_of_words += ' '+record['description']
         except KeyError:
             pass
-
-# DEBUG MODE 
+        
         if debug:
             print "---------------------------------------------------"
             print record['Archive_ID'], record['Item_ID'], record['title']
