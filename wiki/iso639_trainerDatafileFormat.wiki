@@ -1,0 +1,35 @@
+#summary iso639_trainer data file format specification
+
+= Introduction =
+
+This document specifies the format of the data file that the iso639_trainer will load and use in the construction of the iso639_classifier.
+
+
+= Specification =
+
+Each line of the data file follows this format:
+
+{{{
+language_or_country_code:list_type   item1, item2, item3
+}}}
+
+`language_or_country_code` and `list_type` are listed together, separated by a colon.  A tab character comes after `list_type`, followed by a comma separated list of items.  `language_or_country_code` is an ISO 639 three letter language code or a two letter country code.  `list_type` specifies what the items in the list are.  
+
+==Sample iso639_trainer data file==
+
+{{{
+abc:sn    strong_name1, strong_name2
+abc:wn    weak_name1, weak_name2, weak_name3
+abc:cc    country_code1
+abc:rg    region1, region2, region3
+cc:cn    country_name1, country_name2, country_name3
+}}}
+
+`abc` represents an ISO 639 three letter language code and `cc` is a two letter country code.
+
+==`list_type` legend==
+  * `sn`: _Strong name_ - A name that is commonly used for this three letter language code.  All print names in the Ethnologue are considered strong names.
+  * `wn`: _Weak name_ - A name for a given three letter language code whose use is deprecated.
+  * `cc`: _Country code_ - A two letter country code for the country in which this language is spoken.
+  * `rg`: _Region_ - A geographical region in which this language is spoken.
+  * `cn`: _Country name_ A country name for this country code.
