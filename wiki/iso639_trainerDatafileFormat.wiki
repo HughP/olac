@@ -1,4 +1,4 @@
-#summary iso639_trainer data file format specification
+#summary Specification for iso639_trainer data file format
 
 = Introduction =
 
@@ -20,16 +20,16 @@ language_or_country_code:list_type   item1, item2, item3
 {{{
 abc:sn    strong_name1, strong_name2
 abc:wn    weak_name1, weak_name2, weak_name3
-abc:cc    country_code1
+abc:cc    country_code1, country_code2, country_code3
 abc:rg    region1, region2, region3
-cc:cn    country_name
+AB:cn     country_name1, country_name2
 }}}
 
-`abc` represents an ISO 639 three letter language code and `cc` is a two letter country code.
+`abc` represents an ISO 639 three letter language code and `AB` is an ISO 3166 two letter country code.
 
 ==`list_type` legend==
-  * `sn`: _Strong name_ - A name that is commonly used for this three letter language code.  All print names in the Ethnologue are considered strong names.
-  * `wn`: _Weak name_ - A name for a given three letter language code whose use is deprecated.
-  * `cc`: _Country code_ - A two letter country code for the country in which this language is spoken.
-  * `rg`: _Region_ - A geographical region in which this language is spoken.
-  * `cn`: _Country name_ A country name for this country code.
+  * `sn`: _Strong name_ - Names that are commonly used for the language identified by this three letter language code.  All primary names in the Ethnologue and all names in the ISO 639 standard are treated as strong names.
+  * `wn`: _Weak name_ - Names that have been associated with the language identified by the given three letter language code but which are not now in common use. (The classifier may give more weight to the occurrence of a strong name than to a weak name.)
+  * `cc`: _Country code_ - Two letter codes from ISO 3166 for countries in which this language is spoken.
+  * `rg`: _Region_ - Names of geographical regions in which this language is spoken, or other place names associated with the language.
+  * `cn`: _Country name_ Names for the country identified by this country code.
