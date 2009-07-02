@@ -1,14 +1,16 @@
 '''Reads data from Ethnologue data dump, normalizes and prints to file.
 
+Created on Jul 2, 2009
+
+@author: Joshua S Hou
+
 Processes an XML Ethnologue dump and outputs the information to a normalized
 format as defined in wiki:iso639_trainerDatafileFormat.  Outputs both country
 codes and language codes.
 
 EthnologueXMLParser -- Parses XML and prints language and country data to stdout
 
-Created on Jul 2, 2009
-
-@author: Joshua S Hou
+Usage: python Ethnologue_data_preprocessor.py Ethnologue-classifier-training-data.xml >output
 '''
 
 import sys
