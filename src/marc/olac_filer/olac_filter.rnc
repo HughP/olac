@@ -1,0 +1,95 @@
+namespace rng = "http://relaxng.org/ns/structure/1.0"
+namespace dc = "http://purl.org/dc/elements/1.1/"
+datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+# Abstract syntax for specifying a filter on an OLAC repository
+# G. Simons, 2 July 2009
+# Last updated: 2 July 2009
+
+grammar {
+
+start = element olac-filter {
+   attribute name { xsd:string },
+   header, reject-rules, retain-rules }
+
+# The header gives the metadata for the filter definition itself
+header = 
+   element header { dc-title, dc-contributor, dc-date, dc-description }
+   
+dc-title =
+    element dc:title {text}
+    
+dc-contributor =
+    element dc:contributor {text}
+    
+dc-date =
+    element dc:date  {text}
+    
+dc-description =
+    element dc:description  {text}
+    
+   # Something that must be included within the header is all the 
+   # information needed to construct the provenance element that
+   # will be added in the records that go through the crosswalk
+
+# Any record that matches a test in the set of reject-rules is summarily
+# rejected, regardless of whether it matches one of the retain-rules
+reject-rules = 
+   element reject-rules { test* }
+   
+# After surviving the reject rules, any record that matches a test
+# in the retain-rules passes through the filter to the output;
+# otherwise, the record is rejected. 
+retain-rules = 
+   element retain-rules { retain-all | test+ }
+
+# Retain-all: every surviving record is retained
+retain-all = 
+   element retain-all { empty }
+   
+# A test is the AND of a set of criteria
+test =
+   element test {criterion+}
+
+# The set of criterion tests used in both stages of the filter
+criterion = dc-element 
+
+  
+ # A test on the contents of a named DC element
+dc-element = element dc-element {
+   # The tag must include the namespace prefix
+   attribute tag { text },
+   attribute negate {"yes"}?,
+   # If none of type, code, or content is present, it is a test for the
+   # mere presence of the element
+   type?, code?, content?
+  } 
+  
+# A test on the presence or the value of xsi:type
+type = element type {
+   attribute test { "exists" | "equals" | "contains" | "starts-with"  },
+   attribute negate {"yes"}?,
+   text-value*
+  } 
+  
+# A test on the presence or the value of olac:code
+code = element code {
+   attribute test { "exists" | "equals" | "contains" | "starts-with"  },
+   attribute negate {"yes"}?,
+   text-value*
+  } 
+  
+# A test on the presence or the value of element content
+content = element content {
+   attribute test { "exists" | "equals" | "contains" | "starts-with"  },
+   attribute negate {"yes"}?,
+   text-value*
+  } 
+  
+# The text element holds a value to be tested against. The element may
+# repeat within in a given test in which case the test is an OR over all 
+# specified text values.
+text-value =
+     element text { text }
+  
+}
