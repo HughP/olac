@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- dc_gateway-compile1.xsl
-        Compile the stage 1 ("select") filter for an OAI_DC gateway
-        G. Simons, 13 Feb 2009
-        Last updated: 16 Feb 2009
+<!-- olac_filter-compile.xsl
+        Compile the filter over an OLAC repository
+        G. Simons, 2 July 2009
+        Last updated: 2 July 2009
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:alias="AliasForXSLT"
    xmlns:sr="http://www.openarchives.org/OAI/2.0/static-repository" 
    xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:oai="http://www.openarchives.org/OAI/2.0/" 
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    version="1.0">
   <xsl:output method="xml"/>
    <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>
@@ -72,15 +74,23 @@
    <!-- Compile the criteria -->
    <xsl:template match="dc-element">
       <xsl:text>[</xsl:text>
-      <!-- The xpath test is the concatenation of the following predicates
-         which are thus ANDed together -->
-      <xsl:apply-templates select="self::node()"
-         mode="compile-tag"/>
-      <xsl:apply-templates select="self::node()"
-         mode="compile-test"/>
+      <xsl:choose>
+         <xsl:when test="@negate='yes'">
+            not(<xsl:value-of select="@tag"/>
+            <xsl:apply-templates select="*"/>)
+         </xsl:when>
+         <xsl:otherwise>
+            <xsl:value-of select="@tag"/>
+            <xsl:apply-templates select="*"/>
+         </xsl:otherwise>
+      </xsl:choose>
       <xsl:text>]</xsl:text>
    </xsl:template>
-   <!-- Compile the @tag into an xpath [predicate] -->
+   
+   <!-- The xpath for the test on the tag is the concatenation of
+      any of the following subtests which are present
+      which are ANDed together -->
+   <!-- Compile the test on @xsi:type into an xpath [predicate] -->
    <xsl:template match="dc-element" mode="compile-tag">
       <xsl:choose>
          <xsl:when test="not(@tag)">dc:*</xsl:when>
