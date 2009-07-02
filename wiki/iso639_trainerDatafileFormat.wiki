@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This document specifies the format of the data file that the iso639_trainer will load and use in the construction of the iso639_classifier.
+This document specifies the format of the data file that the iso639_trainer will load and use in the construction of the iso639_classifier.  Data files in this format should be saved with the extension ".itd" for iso639 Training Data
 
 
 = Specification =
