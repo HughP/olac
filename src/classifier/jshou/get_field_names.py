@@ -10,6 +10,7 @@
 # Usage: python get_field_names.py Ethnologue-classifier-training-data.xml field_name_output_file field_name
 import xml.parsers.expat
 import sys
+import re
 
 class XMLParse:
     def __init__(self, xml_file, output, field_name):
@@ -26,6 +27,7 @@ class XMLParse:
         self.field_name = field_name
         self.flist = ''
         self.field_names = set()
+        self.spaces = re.compile(r'\s+')
 
     def parse(self):
             self.Parser.ParseFile(open(self.xml_file))
@@ -38,8 +40,8 @@ class XMLParse:
         self.path.append(name)
 
     def handleEndElement(self, name):
-        if name=="country_name":
-            self.field_names.add(self.flist)
+        if name==self.field_name:
+            self.field_names.add(self.spaces.sub(' ',self.flist))
             self.flist = ''
         self.path.pop()
     
