@@ -734,6 +734,10 @@ create table ISO_639_3_Retirements (
 # magic_string         : a 40-char string to identify the confirmation request
 # repository_id        : oai repository identifier
 # repository_type      : Dynamic | Static
+# ctype                : Confirmation type
+#                        null: base url change
+#                           u: hostless repository update
+#                           h: full harvest
 # new_url              : new url
 # ts                   : time of data entry
 ##################################################################
@@ -742,6 +746,7 @@ create table PendingConfirmation (
 	magic_string		char(40),
 	repository_id		varchar(50),
 	new_url			varchar(255),
+        ctype			char(1),
 	ts			timestamp default current_timestamp,
 	primary key (magic_string)
 ) engine=innodb;
