@@ -1,3 +1,3 @@
-call test sample ..\sample-olac.xml
+call test sample ..\sample.olac
 pause
 

@@ -3,6 +3,13 @@
         Compile the filter over an OLAC repository
         G. Simons, 2 July 2009
         Last updated: 2 July 2009
+        
+     There are two parameters:
+        version   Defaults to "1.0". Call with value of "2.0" to
+                  create XSLT2 stylesheet
+        mode      Defaults to "retain", e.g. create stylesheet that
+                  retains desired records. Call with value of "reject" to create
+                  stylesheet that write the rejected records.
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:alias="AliasForXSLT"
@@ -13,12 +20,14 @@
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    version="1.0">
-  <xsl:output method="xml"/>
+  <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
    <xsl:namespace-alias stylesheet-prefix="alias" result-prefix="xsl"/>
+   <xsl:param name="mode">retain</xsl:param>
+   <xsl:param name="version">1.0</xsl:param>
    <xsl:variable name="sq">'</xsl:variable>
    <xsl:template match="/olac-filter">
-         <alias:stylesheet version="1.0">
-            <alias:output method="xml"/>
+         <alias:stylesheet version="{$version}">
+            <alias:output method="xml" encoding="UTF-8"/>
             <alias:template match="/sr:Repository">
                <alias:copy>
                   <alias:copy-of
@@ -31,15 +40,23 @@
                   <alias:apply-templates select="oai:record"/>
                </alias:copy>
             </alias:template>
-            <xsl:comment>Exclude any record that matches a
-               reject rule.</xsl:comment>
+            
+            <xsl:comment> The reject rules </xsl:comment>
             <xsl:apply-templates select="reject-rules/*"/>
-            <xsl:comment>Copy any record that matches a
-               retain rule.</xsl:comment>
+            
+            <xsl:comment> The retain rules </xsl:comment>
             <xsl:apply-templates select="retain-rules/*"/>
-            <xsl:comment>Exclude any remaining record that does not 
-               match the retention criteria.</xsl:comment>
+            
+            <xsl:comment> Handle records that match no rule </xsl:comment>
             <alias:template match="*" priority="-1">
+               <xsl:if test="$mode = 'reject'">
+                  <alias:copy>
+                     <alias:attribute name="rule">
+                        <alias:text>Not retained</alias:text>
+                     </alias:attribute>
+                     <alias:copy-of select="@* | *"/>
+                  </alias:copy>
+               </xsl:if>
             </alias:template>
          </alias:stylesheet>
    </xsl:template>
@@ -50,7 +67,16 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template 
-         match="oai:record[oai:metadata/olac:olac{$criteria}]" priority="2">
+         match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
+         priority="2">
+         <xsl:if test="$mode = 'reject'">
+            <alias:copy>
+               <alias:attribute name="rule">
+                  <xsl:value-of select="@name"/>
+               </alias:attribute>
+               <alias:copy-of select="@* | *"/>
+            </alias:copy>
+         </xsl:if>
       </alias:template>
    </xsl:template>
    
@@ -59,32 +85,37 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template
-         match="oai:record[oai:metadata/olac:olac{$criteria}]" priority="1">
-         <alias:copy-of select="self::node()"/>
+         match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]" priority="1">
+         <xsl:if test="$mode = 'retain'">
+            <alias:copy>
+               <alias:attribute name="rule">
+                  <xsl:value-of select="@name"/>
+               </alias:attribute>
+               <alias:copy-of select="@* | *"/>
+            </alias:copy>
+         </xsl:if>
       </alias:template>
    </xsl:template>
    
-   <xsl:template match="retain-all" priority="1">
-      <xsl:comment>Just copy every record to the output.</xsl:comment>
-      <alias:template match="*">
-         <alias:copy-of select="self::node()"/>
-      </alias:template>
+   <xsl:template match="retain-all">
+      <xsl:if test="$mode = 'retain'">
+         <xsl:comment> Just retain everything else </xsl:comment>
+         <alias:template match="*" priority="1">
+            <alias:copy-of select="self::node()"/>
+         </alias:template>
+      </xsl:if>
    </xsl:template>
    
    <!-- Compile the criteria -->
    <xsl:template match="dc-element">
-      <xsl:text>[</xsl:text>
       <xsl:choose>
          <xsl:when test="@negate='yes'">
-            not(<xsl:value-of select="@tag"/>
-            <xsl:apply-templates select="*"/>)
+            [not(<xsl:value-of select="@tag"/><xsl:apply-templates select="*"/>)]
          </xsl:when>
          <xsl:otherwise>
-            <xsl:value-of select="@tag"/>
-            <xsl:apply-templates select="*"/>
+            [<xsl:value-of select="@tag"/><xsl:apply-templates select="*"/>]
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:text>]</xsl:text>
    </xsl:template>
    
    <!-- The xpath for the test on the tag is the concatenation of
@@ -97,13 +128,10 @@
          <xsl:if test="self::code">@olac:code</xsl:if>
          <xsl:if test="self::content">.</xsl:if>
       </xsl:variable>
-      <xsl:text>[</xsl:text>
-      <xsl:if test="@negate='yes'">not(</xsl:if>
+      [<xsl:if test="@negate='yes'">not(</xsl:if>
       <xsl:choose>
          <xsl:when test="@test = 'exists'">
-            <xsl:value-of
-               select="concat($target, ' != ', $sq, $sq )"
-            />
+            <xsl:value-of select="concat($target, ' != ', $sq, $sq )"/>
          </xsl:when>
          <xsl:otherwise>
             <xsl:for-each select="text">
@@ -130,8 +158,7 @@
             </xsl:for-each>
          </xsl:otherwise>
       </xsl:choose>
-      <xsl:if test="@negate='yes'">)</xsl:if>
-      <xsl:text>]</xsl:text>
+      <xsl:if test="@negate='yes'">)</xsl:if>]
    </xsl:template>
    
    

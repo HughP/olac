@@ -2,31 +2,42 @@
 <?oxygen RNGSchema="olac_filter.rnc" type="compact"?>
 <olac-filter>
     <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:title>Sample OLAC filter</dc:title>
+        <dc:title>Final filter for NAA OLAC repository</dc:title>
         <dc:contributor>Gary Simons</dc:contributor>
         <dc:date>2 July 2009</dc:date>
-        <dc:description>This is a sample filter for test purposes.</dc:description>
+        <dc:description>At this point, it just accepts something if it
+            has one of the OLAC controlled vocabularies (other than
+            Role).</dc:description>
     </header>
     <reject-rules>
-        <test name="Missing issued">
-            <dc-element tag="dcterms:issued" negate="yes">
-                <!-- This should match two -->
-            </dc-element>
-        </test>
+        
     </reject-rules>
     <retain-rules>
-        <test name="Dictionary or grammar">
+        <test name="Content lang">
+            <dc-element tag="dc:language">
+                <type test="equals">
+                    <text>olac:language</text>
+                </type>
+            </dc-element>
+        </test>
+        <test name="Subject">
             <dc-element tag="dc:subject">
-                <content test="contains">
-                    <text>Dictionaries</text>
-                    <text>Grammar</text>
-                </content>
+                <type test="starts-with">
+                    <text>olac</text>
+                </type>
+            </dc-element>
+        </test>
+        <test name="Type">
+            <dc-element tag="dc:type">
+                <type test="starts-with">
+                    <text>olac</text>
+                </type>
             </dc-element>
         </test>
         <!-- If a resource has at least one identifiable subject language
             and it has at least one identifiable language resource type,
             then it is a language resource. -->
-      <!--  <test>
+        <!--   <test name="SubjLang + LangType">
             <dc-element tag="dc:subject">
                 <type test="equals">
                     <text>olac:language</text>
@@ -38,7 +49,7 @@
                     <text>olac</text><!- - e.g. linguistic type or
                     discourse type - ->
                 </type>
-            </dc-element>
+            </dc-element> 
         </test> -->
     </retain-rules>
 </olac-filter>
