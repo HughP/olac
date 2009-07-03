@@ -9,7 +9,6 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 grammar {
 
 start = element olac-filter {
-   attribute name { xsd:string },
    header, reject-rules, retain-rules }
 
 # The header gives the metadata for the filter definition itself
@@ -49,7 +48,9 @@ retain-all =
    
 # A test is the AND of a set of criteria
 test =
-   element test {criterion+}
+   element test {
+      attribute name { xsd:string },
+      criterion+}
 
 # The set of criterion tests used in both stages of the filter
 criterion = dc-element 
