@@ -990,9 +990,11 @@ class HarvesterBase(Logger):
             parser = StreamParser(handler)
         try:
             parser.feed(dat.dump())
+            parser.close()
             return True
         except HandlerError, e:
             self.log("error: %s" %e)
+            parser.close()
             return False
 
     def harvest(self):
@@ -1005,10 +1007,11 @@ class Harvester(HarvesterBase):
     """
     
     def harvest(self):
+        request = Request(self.url, 'olac')
         self.log("harvester running on %s" % os.uname()[1])
-        self.log("harvesting from %s" % self.request.baseUrl())
-        handler = IdentifyHandler(self.identifyHandler)
-        url = self.request.Identify()
+        self.log("harvesting from %s" % request.baseUrl())
+        handler = IdentifyHandler(self.handler.processIdentify)
+        url = request.Identify()
         self.log("fetching and processing: %s" % url)
         if not self._download(handler, url, 2):
             return False
@@ -1023,10 +1026,10 @@ class Harvester(HarvesterBase):
             fromDate = None
         else:
             fromDate = self.handler.lastHarvested()
-        urls = [self.request.ListRecords(fromDate=fromDate)]
-        rtHandler = lambda x: urls.append(self.request.ListRecords(x))
+        urls = [request.ListRecords(fromDate=fromDate)]
+        rtHandler = lambda x: urls.append(request.ListRecords(x))
         while urls:
-            handler = ListRecordsHandler(self.recordHandler, rtHandler)
+            handler = ListRecordsHandler(self.handler.processRecord, rtHandler)
             url = urls.pop()
             self.log("fetching and processing: %s" % url)
             if not self._download(handler, url, 2):
@@ -1107,8 +1110,7 @@ def harvest(url, con, full=False, stream_filter=None, static=False):
                         delete me.* from ARCHIVED_ITEM ai, METADATA_ELEM me
                         where ai.OaiIdentifier=%s and ai.Item_ID=me.Item_ID
                         """
-                        #cur.execute(sql, oaiid)
-                        print odiid
+                        cur.execute(sql, oaiid)
         else:
             h.log("harvest failed")
             # dbi can provide archive id only when it has successfully
