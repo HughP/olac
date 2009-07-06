@@ -48,7 +48,7 @@ function change_baseurl($repoid, $url)
     error("database error while updating the base url\n\n" .
 	 "repoid: $repoid\n" .
 	  "new url: $url\n" .
-	  "DB error msg: " . $DB->get_error_msg());
+	  "DB error msg: " . $DB->get_error_message());
     return false;
   }
   return true;
@@ -57,13 +57,14 @@ function change_baseurl($repoid, $url)
 $magic = $_GET["v"];
 $DB = new OLACDB("olac2");
 $sql = "select * from PendingConfirmation c, OLAC_ARCHIVE oa ";
-$sql .= "where c.repository_id=oa.RepositoryIdentifier and c.magic_string='$magic'";
+$sql .= "where c.repository_id=oa.RepositoryIdentifier ";
+$sql .= "and c.magic_string='$magic' and c.ctype is null";
 $rows = $DB->sql($sql);
 if ($DB->saw_error()) {
   error("database error while confirming change of base url request\n" .
 	"it happened while trying to retrieve the confirmation record\n\n" .
 	"Magic string: $magic\n" .
-	"DB error msg: " . $DB->get_error_msg());
+	"DB error msg: " . $DB->get_error_message());
   return;
 } else if (count($rows) == 0) {
   header("HTTP/1.1 404 not found");

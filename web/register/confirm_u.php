@@ -22,7 +22,7 @@ function error($msg)
   return;
 }
 
-function success($magic, $repoid, $baseurl)
+function success($magic)
 {
   global $DB;
   $DB->sql("delete from PendingConfirmation where magic_string='$magic'");
@@ -57,13 +57,14 @@ function update_repository($repoid, $postedurl)
 $magic = $_GET["v"];
 $DB = new OLACDB("olac2");
 $sql = "select * from PendingConfirmation c, OLAC_ARCHIVE oa ";
-$sql .= "where c.repository_id=oa.RepositoryIdentifier and c.magic_string='$magic'";
+$sql .= "where c.repository_id=oa.RepositoryIdentifier ";
+$sql .= "and c.magic_string='$magic' and c.ctype='u'";
 $rows = $DB->sql($sql);
 if ($DB->saw_error()) {
   error("database error while confirming change of base url request\n" .
 	"it happened while trying to retrieve the confirmation record\n\n" .
 	"Magic string: $magic\n" .
-	"DB error msg: " . $DB->get_error_msg());
+	"DB error msg: " . $DB->get_error_message());
   return;
 } else if (count($rows) == 0) {
   header("HTTP/1.1 404 not found");
@@ -93,10 +94,11 @@ BORDER="0"></A></TD>
 <?php
 
 
+$repoid = $rows[0]["repository_id"];
 $postedurl = $rows[0]["new_url"];
 
-if (update_repository($postedurl))
-  success($magic, $repoid, $baseurl);
+if (update_repository($repoid, $postedurl))
+  success($magic);
 
 
 ?>

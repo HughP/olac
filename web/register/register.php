@@ -9,6 +9,7 @@ define(OLAC_PATH, '/web/language-archives');
 define(OLAC_TOOLS, '/pkg/ldc/wwwhome/olac');
 require_once(OLAC_PATH.'/lib/php/OLAC_general.php');
 require_once(OLAC_PATH.'/lib/php/OLACDB.php');
+require_once(OLAC_PATH."/lib/php/utils.php");
 
 $POSTEDURL = "";
 
@@ -40,17 +41,6 @@ function myflush() {
   ob_end_flush();
   flush();
   ob_flush();
-}
-
-function mail_by_olac_admin($to, $subject, $msg, $cc="")
-{
-  $header = "From: OLAC Web Server <www@ldc.upenn.edu>\r\n";
-  $header .= "Reply-To: OLAC Administrator <olac-admin@language-archives.org>\r\n";
-  if ($cc) {
-    $header .= "Cc: $cc\r\n";
-  }
-  $header .= "X-Mailer: PHP/" . phpversion();
-  mail($to, $subject, $msg, $header);
 }
 
 
@@ -297,38 +287,6 @@ EOT;
 
 
 
-function get_admin_email_from_db($repoid)
-{
-  global $DB;
-  global $OLAC_SYS_ADMIN_EMAIL;
-  $sql = "select AdminEmail from OLAC_ARCHIVE ";
-  $sql .= "where RepositoryIdentifier=$repoid";
-  $rows = $DB->sql($sql);
-  if ($DB->saw_error())
-    return FALSE;
-  $adminemail = $rows[0]['AdminEmail'];
-  $adminemail = preg_replace("/^mailto:/", "", $adminemail);
-  return $adminemail;
-}
-
-
-function get_magic_string()
-{
-  global $DB;
-
-  while (true) {
-    # repeat until a uniq magic string is obtained
-    $magic = sha1(rand().rand().rand());
-    $sql = "select count(*) c from PendingConfirmation where magic_string='$magic'";
-    $rows = $DB->sql($sql);
-    if ($DB->saw_error())
-      return FALSE;
-    if ($rows[0]["c"] == 0)
-      return $magic;
-  }
-}
-
-
 function change_baseurl()
 {
   global $DB;
@@ -346,7 +304,7 @@ Please try it again later.  If problem continues, please let us know
 by email.  Sorry about the inconvenience.</p>
 EOT;
 
-  $adminemail = get_admin_email_from_db($repoid);
+  $adminemail = get_admin_email($DB, $repoid);
   if ($adminemail === FALSE) {
     $subject = "olac registration error (kind 1";
     $msg = "Database failed when obtaining adminEmail of $repoid.\n\n";
@@ -356,7 +314,7 @@ EOT;
     return;
   }
 
-  $magic = get_magic_string();
+  $magic = get_confirmation_magic_string($DB);
   $sql = "insert into PendingConfirmation (magic_string, repository_id, repository_type, new_url) ";
   $sql .= "values ('$magic', '$repoid', '$_POST[repositorytype]', '$baseurl')";
   $DB->sql($sql);
@@ -413,7 +371,7 @@ Please try it again later.  If problem continues, please let us know
 by email.  Sorry about the inconvenience.</p>
 EOT;
 
-  $adminemail = get_admin_email_from_db($repoid);
+  $adminemail = get_admin_email($DB, $repoid);
   if ($adminemail === FALSE) {
     $subject = "olac registration error (kind 3)";
     $msg = "Database failed when obtaining adminEmail for $repoid.\n\n";
@@ -423,9 +381,9 @@ EOT;
     return;
   }
 
-  $magic = get_magic_string();
-  $sql = "insert into PendingConfirmation (magic_string, repository_id, repository_type, new_url) ";
-  $sql .= "values ('$magic', '$repoid', 'Static', '$postedurl')";
+  $magic = get_confirmation_magic_string($DB);
+  $sql = "insert into PendingConfirmation (magic_string, repository_id, repository_type, new_url, ctype) ";
+  $sql .= "values ('$magic', '$repoid', 'Static', '$postedurl', 'u')";
   $DB->sql($sql);
   if ($DB->saw_error()) {
     $subject = "olac registration error (kind 4)";
@@ -1062,27 +1020,9 @@ function validation_response_for_new_hostless_file()
 {
   global $IDENTIFY_XML;
   global $POSTEDURL;
-  global $DB;
   $id = get_element('repositoryIdentifier', $IDENTIFY_XML);
-  $sql = "select count(*) c from OLAC_ARCHIVE where RepositoryIdentifier='$id'";
-  $rows = $DB->sql($sql);
-  if ($DB->saw_error()) {
-    echo <<<EOT
-<p>Your file is valid and there is a registered archive with the same
-repository ID. We cannot determine at this moment whether you can update
-the registered repository. If you would like to update the registered
-repository, please try again.</p>
-EOT;
-  } elseif ($rows[0]["c"] == 0) {
-    echo <<<EOT
-<p>Your file is valid and there is a registered archive with the same
-repository ID. The registered repository has yet to be harvested for the
-first time. If you would like to update the registered repository,
-please try again after it has been harvested.</p>
-EOT;
-    # it's only because we can't obtain the admin email until harvesting is done
-  } else {
-    echo <<<EOT
+
+  echo <<<EOT
 <p>Your file is a valid OLAC repository and is already registered. You can
 replace the registered repository with the one that you just uploaded by
 clicking the "UPDATE REPOSITORY" button below. If you click on the button,
@@ -1095,7 +1035,6 @@ email contains information needed for you to complete the update.</p>
 <input type="submit" name="action" value="UPDATE REPOSITORY"/>
 </form>
 EOT;
-  }
 }
 
 
