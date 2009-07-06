@@ -45,6 +45,18 @@ function initMetrics()
 
 }
 
+function computeRating(avg_quality_score, num_integrity_errors, num_records)
+{
+	var rating = avg_quality_score / 2.0;
+	var deduction = 0.0;
+	if (num_records > 0.0) {
+		deduction = Math.sqrt(num_integrity_errors / num_records);
+	}
+	rating = Math.round(rating - deduction);
+	if (rating < 0) rating = 0;
+	return rating;
+}
+
 function generateSumStatTab(arcid, containerId)
 {
 	var row = METRICS[""+arcid];  // "" is for IE
@@ -95,11 +107,10 @@ function generateSumStatTab(arcid, containerId)
 		}
 	}
 	if (arcid != -1) {
-		var rating = row['metadata_quality'];
-		rating = Math.round(rating/2.0);
-		if (Math.floor(row['integrity_problems']) > 0 && rating >= 1.0) {
-			rating = rating - 1.0;
-		}
+		var rating = computeRating(
+			row['metadata_quality'],
+			Math.floor(row['integrity_problems']),
+			row['num_resources']);
 		tab.push({name:'Overall Rating', value:rating});
 	}
 	var dataSource = new YAHOO.util.DataSource(tab);
@@ -385,9 +396,10 @@ function populateComparativeMetricsTable()
 				}
 			}
 		}
-		row["overall_rating"] = Math.round(row["metadata_quality"] / 2.0);
-		if (Math.floor(row["integrity_problems"]) > 0 && row["overall_rating"])
-			row["overall_rating"] -= 1;
+		row['overall_rating'] = computeRating(
+			row['metadata_quality'],
+			Math.floor(row['integrity_problems']),
+			row['num_resources']);
 		tab.push(row);
 	}
 	var dataSource = new YAHOO.util.DataSource(tab);

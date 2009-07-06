@@ -4,6 +4,24 @@ import MySQLdb
 import datetime
 import re
 import smtplib
+import math
+
+to_19 = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+         "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen",
+         "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+tens = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty",
+        "ninety"]
+
+def to_written_form(n):
+    n = int(round(n))
+    if n >= 1000: return str(n)
+    if n < 20: return to_19[n]
+    d1 = n % 10
+    d2 = (n - 20) / 10
+    if d1 == 0:
+        return tens[d2]
+    else:
+        return tens[d2] + " " + to_19[d1]
 
 template = """\
 Dear OLAC participant,
@@ -128,23 +146,29 @@ def determineFeedbackOnUpdate(lastUpdated, score, archiveId):
 
     return "\n\n".join(feedback)
 
-def determineFeedbackOnIntegrity(integrity_value, archiveId):
+def determineFeedbackOnIntegrity(integrity_value, archiveId, deduction):
     """
-    @param integrity_value: p.w where p is the number if errors and 0 <= w <= 2.
+    @param integrity_value: p.w where p is the number of errors and 0 <= w <= 2.
       If w > 0, there are warning(s).
     @param archiveId: sring archive id
+    @param deduction: number of star deductions
     """
     feedback = []
     p = int(integrity_value)
-    w = int((integrity_value % 1) % 10)
+    w = int((integrity_value % 1) * 10)
     if p == 0:
         if w == 0:
             return "Congratulations, there are no known integrity problems in your metadata."
         else:
-            return "Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to visit the following link to see a listing of the potential problems:\n\nhttp://www.language-archives.org/checks/%s" % archivedId
+            return "Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to visit the following link to see a listing of the potential problems:\n\nhttp://www.language-archives.org/checks/%s" % archiveId
     else:
-        return "Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. The presence of these problems is causing one star to be subtracted from your overall quality rating. Visit the following link to see a listing of the problems that need to be fixed:\n\nhttp://www.language-archives.org/checks/%s" % archiveId
-    
+        msg = "Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. Visit the following link to see a listing of the problems that need to be fixed:\n\nhttp://www.language-archives.org/checks/%s" % archiveId
+        if deduction > 0:
+            plural = 's'
+            if deduction == 1: plural = ''
+            msg += "\n\nThe presence of these problems is causing %s star%s to be subtracted from your overall quality rating. The rating will improve when you correct these problems." % (to_written_form(deduction), plural)
+        return msg
+
 def normalizeEmailAddress(s):
     s = re.sub(r"^mailto:", '', s)
     s = re.sub(r"[,; ].*", '', s)
@@ -160,13 +184,19 @@ def composeEmail(archiveId, metrics, usageh, usagec):
 
     lastUpdated = row["last_updated"]
     score = row["metadata_quality"]
-    starScore = int(score/2.0 + 0.5)
+    orgStarScore = round(score/2.0)
+    errors = int(row['integrity_problems'])
+    records = row['num_resources']
+    deduction = 0.0
+    if records > 0:
+        deduction = math.sqrt(float(errors) / records)
+    starScore = max(round(score / 2.0 - deduction), 0.0)
     # integrity_problems is a float number in the database, say p.w where
     # p is the number of errors and w, if positive, means existence of warnings
     starDeduction = ""
-    if int(row['integrity_problems']) > 0 and starScore > 0:
-        starScore -= 1
-        starDeduction = "(with one-star deducted for integrity problems)"
+    if orgStarScore > starScore:
+        s = to_written_form(orgStarScore-starScore).replace(' ','-')
+        starDeduction = "(with %s-star deducted for integrity problems)" % s
     pluralStar = 's'
     if starScore == 1: pluralStar=''
 
@@ -211,7 +241,7 @@ def composeEmail(archiveId, metrics, usageh, usagec):
         "numberOfArchives": metrics.size(),
         "adminEmail": normalizeEmailAddress(row["AdminEmail"]),
         "feedbackOnUpdate": determineFeedbackOnUpdate(lastUpdated, score, archiveId),
-        "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId),
+        "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId, orgStarScore - starScore),
         "metricsTable": generateMetricsTable(metrics, archiveId),
         "usagePeriodBeg": usagePeriodBeg,
         "usagePeriodEnd": usagePeriodEnd,
