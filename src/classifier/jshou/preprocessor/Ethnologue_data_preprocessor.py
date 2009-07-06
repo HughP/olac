@@ -97,7 +97,7 @@ class EthnologueXMLParser:
             # This is the first time that self.lang_info encounters this iso code so we have to initialize the dictionary here.
             self.lang_info[self.curr_iso] = {"sn":self.curr_print_name, "cc":[], "rg":[]}
         elif name=="alternate_names":
-            self.lang_info[self.curr_iso]["wn"] = [i.strip(' "') for i in self.temp[name].split(', ')]
+            self.lang_info[self.curr_iso]["wn"] = filter(lambda x: x,[i.strip(' "') for i in self.temp[name].split(', ')])
         elif name=="country_name":
             self.curr_country_name = self.temp[name]
         elif name=="country_code":
