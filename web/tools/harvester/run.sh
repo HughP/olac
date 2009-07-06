@@ -66,7 +66,7 @@ CWD=`pwd`; cd $ODIR
 ) | /usr/bin/tee $TMP_LOG >> $HARVEST_LOG
 
 new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=$5} END {print sum}'`
-if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" ] ; then
+if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f dirty] ; then
     (
         echo
         echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
@@ -100,22 +100,24 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" ] ; then
 	cd $SRECDIR
 	find . -name "*.xml" | sort | sed -E -e 's@^./(.*)@<li><a href="./\1">\1</a>@' > index.html
 	)
-	
+
+        rm -f dirty
+
     ) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 fi
 
 
 ######## BEGIN: ISO 630 report generation ########
-(
-	echo
-	echo "Generating ISO 639 conversion report..."
-	for u in `/usr/local/bin/curl "http://www.language-archives.org/register/archive_list.php4" 2> /dev/null | grep baseURL |sed -E -e 's/.*baseURL="//' -e 's/".*//'` ; do
-		echo $u
-		u2=`echo $u | sed -E -e 's#http://#http://www.language-archives.org/tools/eth15filter/gen_report.php/#' -e 's#$#?verb=ListRecords\&metadataPrefix=olac#'`
-		/usr/local/bin/curl "$u2" > /dev/null 2>&1
-	done
-	echo
-) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
+#(
+#	echo
+#	echo "Generating ISO 639 conversion report..."
+#	for u in `/usr/local/bin/curl "http://www.language-archives.org/register/archive_list.php4" 2> /dev/null | grep baseURL |sed -E -e 's/.*baseURL="//' -e 's/".*//'` ; do
+#		echo $u
+#		u2=`echo $u | sed -E -e 's#http://#http://www.language-archives.org/tools/eth15filter/gen_report.php/#' -e 's#$#?verb=ListRecords\&metadataPrefix=olac#'`
+#		/usr/local/bin/curl "$u2" > /dev/null 2>&1
+#	done
+#	echo
+#) | /usr/bin/tee -a $TMP_LOG >> $HARVEST_LOG
 ######## END: ISO 630 report generation ########
 
 
