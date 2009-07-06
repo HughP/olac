@@ -12,6 +12,7 @@ data is moved to the main database.
 
 AUTHOR: Haejoong Lee <haejoong@ldc.upenn.edu>
 CREATED: February 19, 2009
+UPDATED: July 6, 2009
 """
 
 import os
@@ -30,6 +31,7 @@ http://olac.svn.sourceforge.net/viewvc/*checkout*/web/lib/python/optionparser.py
 """
     sys.exit(1)
 
+HARVEST_INTERVAL = 28
 
 def logline(line):
     sys.stdout.write(line)
@@ -48,9 +50,9 @@ def log2(lines):
 
 def select_archives(archives, today=datetime.datetime.today()):
     N = len(archives)
-    D = 28.0    # harvesting interval
+    D = float(HARVEST_INTERVAL)
     C = sum([x[1] for x in archives]) / D  # avg number of records per day
-    CA = N / D  # avg number of archives per day
+    CA = max(1.0, N / D)  # avg number of archives per day
 
     if N == 0: return []
 
@@ -65,6 +67,8 @@ def select_archives(archives, today=datetime.datetime.today()):
         else:
             mediums.append(row)
 
+    # normalize archive size (row[1])
+    # it's at most CA and at least 0.5
     for row in bigs: row[1] = CA
     for row in mediums: row[1] = 1.0
     if smalls:
@@ -72,13 +76,12 @@ def select_archives(archives, today=datetime.datetime.today()):
         for row in smalls: row[1] = max(0.5, 1.0-discount)
 
     archives.sort(lambda row1,row2:cmp(row1[2],row2[2]))
-    c = 0.0
+    c = 0.0 # used capacity
     harvest_list = []
     for aid, size, date in archives:
         if (today-date).days >= D:
-            p1 = CA - c
-            p2 = c + size - CA
-            p = p1 / (p1 + p2)
+            p1 = CA - c           # current capacity (this can be negative)
+            p = p1 / max(size,p1) # the chance that this archive is selected
             if random.random() <= p:
                 if size >= CA: harvest_list = []
                 harvest_list.append(aid)
@@ -88,8 +91,11 @@ def select_archives(archives, today=datetime.datetime.today()):
 
 def get_all_archives(cur):
     cur.execute("""
-    select oa.BaseURL, count(*),
-    timestamp(if(LastFullHarvest is null, '2009-01-18', LastFullHarvest)) d
+    update OLAC_ARCHIVE set LastFullHarvest=subdate(now(),7)
+    where LastFullHarvest is null
+    """)
+    cur.execute("""
+    select oa.BaseURL, count(*), timestamp(LastFullHarvest) d
     from OLAC_ARCHIVE oa
     left join ARCHIVED_ITEM ai /* left join in case there are no records */
     on oa.Archive_ID=ai.Archive_ID
@@ -256,6 +262,17 @@ def move(cur, maindb, tmpdb, archiveid):
     """ % params)
     
     
+def defer(cur, maindb, archiveid, days=7):
+    "postphone harvesting by 1 week"
+    sql = """
+    update %s.OLAC_ARCHIVE
+    set LastFullHarvest=%%s
+    where Archive_ID=%%s
+    """ % maindb
+    d = datetime.datetime.today() - datetime.timedelta(HARVEST_INTERVAL-days)
+    cur.execute(sql, (d, archiveid))
+
+ 
 def get_archive_id(cur, db, baseurl):
     """
     @param cur:
@@ -263,6 +280,17 @@ def get_archive_id(cur, db, baseurl):
     @param baseurl:
     """
     template = "select Archive_ID from %s.OLAC_ARCHIVE where BaseURL=%%s" % db
+    cur.execute(template, baseurl)
+    if cur.rowcount > 0: return cur.fetchone()[0]
+
+
+def get_archive_type(cur, db, baseurl):
+    """
+    @param cur:
+    @param db: database name
+    @param baseurl:
+    """
+    template = "select type from ARCHIVES where BASEURL=%%s" % db
     cur.execute(template, baseurl)
     if cur.rowcount > 0: return cur.fetchone()[0]
 
@@ -335,6 +363,7 @@ if __name__ == "__main__":
 
     log("obtaining archive list...")
     archives = get_all_archives(cur)
+    con.commit()  # because LastFullHarvest is updated for new archives
 
     log("initializing the temp database...")
     initialize_tmp_db(cur, tmpdb, db)
@@ -343,25 +372,32 @@ if __name__ == "__main__":
     # run scheduler
     for url in select_archives(archives):
 
+        archiveid = get_archive_id(cur, db, url)
+        archivetype = get_archive_type(cur, db, url)
+
         log("harvesting:", url)
         base = os.path.dirname(sys.argv[0])
         harvester = os.path.join(base, "harvester.py")
         cmd = [sys.executable, harvester, "-c", mycnf,
                "-d", tmpdb, "-f", "-u", "-s", url]
+        if archivetype == 'Static': cmd.append('--static')
         if host: cmd += ["-H", host]
         proc = subprocess.Popen(
             cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
         if not re.search("harvest successful", stderr):
             log("harvest failed")
+            log("it will be tried again one week later at the latest")
+            defer(cur, db, archiveid)
+            con.commit()
             log("STDOUT:")
             log2(stdout.split('\n'))
             log("STDERR:")
             log2(stderr.split('\n'))
             continue
         log("ok")
-
-        archiveid = get_archive_id(cur, db, url)
+        con.commit()  # make sure that the newly harvested archive is seen
+        
         log("original archive id is:", archiveid)
         newaid = get_archive_id(cur, tmpdb, url)
         log("new archive id is:", newaid)
