@@ -20,12 +20,13 @@ if len(sys.argv)<3:
     sys.exit(1)
 
 classifier = pickle.load(open(sys.argv[1],'rb'))
-classifier.debug = sys.argv[3]=="1"
+if len(sys.argv)>3 and sys.argv[3]=="1":
+    classifier.debug=True
 
 reader = TabDBCorpusReader('../oai_classifier_trn', '.*db\.tab')
 olac_records = reader.records(sys.argv[2])
 
-for record in olac_records[:100]:
+for record in olac_records[:1000]:
     bag_of_words = ''
     try:
         bag_of_words += record['title']
