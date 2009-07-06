@@ -1073,6 +1073,34 @@ def set_hfc(con, archiveid):
         cur.close()
 
 
+def mark_success(con, archiveid):
+    """
+    Set LastHarvested date and clear HFC error.
+    """
+    if archiveid:
+        cur = con.cursor()
+        sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
+        now = datetime.datetime.now()
+        cur.execute(sql, (now, archiveid))
+        sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
+        cur.execute(sql, archiveid)
+        cur.close()
+
+
+def do_implicit_deletion(con, archiveid, harvested_ids):
+    cur = con.cursor()
+    sql = "select OaiIdentifier from ARCHIVED_ITEM where Archive_ID=%s"
+    cur.execute(sql, archiveid)
+    for oaiid, in cur.fetchall():
+        if oaiid not in harvested_ids:
+            sql = """
+            delete me.* from ARCHIVED_ITEM ai, METADATA_ELEM me
+            where ai.OaiIdentifier=%s and ai.Item_ID=me.Item_ID
+            """
+            cur.execute(sql, oaiid)
+    cur.close()
+
+
 def get_last_modified(url):
     f = lambda x: None
     curl = MyCurl(f,f)
@@ -1092,25 +1120,12 @@ def harvest(url, con, full=False, stream_filter=None, static=False):
             h = SrHarvester(url, dbi, full, stream_filter)
         else:
             h = Harvester(url, dbi, full, stream_filter)
-        now = datetime.datetime.now()
         cur = con.cursor()
         if h.harvest():
             h.log("harvest successful")
-            sql = "update OLAC_ARCHIVE set LastHarvested=%s where Archive_ID=%s"
-            cur.execute(sql, (now, dbi.archiveId()))
-            sql = "delete from INTEGRITY_CHECK where Object_ID=%s and Problem_Code='HFC'"
-            cur.execute(sql, dbi.archiveId())
+            mark_success(con, dbi.archiveId())
             if static:
-                # implicit deletion
-                sql = "select OaiIdentifier from ARCHIVED_ITEM where Archive_ID=%s"
-                cur.execute(sql, dbi.archiveId())
-                for oaiid, in cur.fetchall():
-                    if oaiid not in h.recordOaiIds:
-                        sql = """
-                        delete me.* from ARCHIVED_ITEM ai, METADATA_ELEM me
-                        where ai.OaiIdentifier=%s and ai.Item_ID=me.Item_ID
-                        """
-                        cur.execute(sql, oaiid)
+                do_implicit_deletion(con, dbi.archiveId(), h.recordOaiIds)
         else:
             h.log("harvest failed")
             # dbi can provide archive id only when it has successfully
@@ -1184,6 +1199,8 @@ def harvest_single(url,
                     harvest(url, con, full, stream_filter, static)
                 else:
                     logger.log("assume no changes to harvest")
+                    mark_success(con, archiveid)
+                    con.commit()
         cur.close()
     else:
         harvest(url, con, full, stream_filter, static)
