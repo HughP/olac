@@ -74,6 +74,10 @@ WORKAROUND: Removing the schemaLocation attribute from the root element solved t
 QUERYING DATA
 -------------
 
+1. Open the xquery document in <oXygen/> XML Editor (for instance, src/marc/olac_filter/repo-stats.xquery).
 
+2. Click the "Apply Tranformation Scenario" button in the toolbar.  The first time it will pop up the Configure Transformation dialog. Click on "Execute XQuery" to select it, then click Edit. In the next dialog, click the drop-down list for Transfomer and choose "eXist" from the list (or whatever you named your data connection). Then click OK.
+
+3. Now whenever you cklick the Transform button in the toolbar, it will run the XQuery.  In order to run the query on a different repository, change the name of the repository referenced in the doc() function in the first line after the namespace declarations.
 
 
