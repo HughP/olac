@@ -13,6 +13,7 @@ Usage: python iso639_trainer.py datafile classifier.pickle
 import sys
 import os
 import pickle
+from nltk import *
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
@@ -50,7 +51,7 @@ class iso639Classifier:
         region_iso639s = []
         lang_iso639s = []
         
-        tokens = text.split()
+        tokens = wordpunct_tokenize(text)
         for i in range(len(tokens)):
             if tokens[i][0].isupper():
                 iso639listlists = [self.country_lang[j] for j in self._identify(tokens[i:], 'cc', self.country_data)]
@@ -76,9 +77,10 @@ class iso639Classifier:
     def _identify(self, tokens, datatype, datastore):
         iso_list = []
         data = ''
+        ending = "<<END-OF-%s>>" % datatype
         for i in range(len(tokens)):
-            if "<<END-OF-%s>>" % datatype in datastore:
-                iso_list += datastore["<<END-OF-%s>>" % datatype]
+            if ending in datastore:
+                iso_list += datastore[ending]
                 if self.debug:
                     print datatype, data
             if tokens[i] in datastore:
@@ -86,6 +88,8 @@ class iso639Classifier:
                 data += ' '+tokens[i]
             else:
                 break
+        if ending in datastore: # checks the last word
+            iso_list += datastore[ending]
         return iso_list
     
     def train(self, datafile):
