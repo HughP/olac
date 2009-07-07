@@ -26,7 +26,9 @@ if len(sys.argv)>3 and sys.argv[3]=="1":
 reader = TabDBCorpusReader('../oai_classifier_trn', '.*db\.tab')
 olac_records = reader.records(sys.argv[2])
 
-for record in olac_records[:1000]:
+#print>>sys.stderr, "Number of olac records:", len(olac_records)
+
+for record in olac_records[-5000:]:
     bag_of_words = ''
     try:
         bag_of_words += record['title']
@@ -40,5 +42,11 @@ for record in olac_records[:1000]:
         bag_of_words += ' '+record['description']
     except KeyError:
         pass
+    
+    try:
+        title = record['title']
+    except KeyError:
+        title = ''
+    
     results = classifier.classify(bag_of_words)
-    print '\t'.join([record['Oai_ID'], ' '.join(results), record['title']])
+    print '\t'.join([record['Oai_ID'], ' '.join(results), title])
