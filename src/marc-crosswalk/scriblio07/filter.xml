@@ -17,7 +17,7 @@
          
       -->
       <test>
-         <control-field test="equals" tag="008" position="36" length="3">
+         <control-field test="equals" tag="008" position="35" length="3">
             <text>afa</text>
             <text>alg</text>
             <text>apa</text>
@@ -76,6 +76,7 @@
             <text>kro</text>
             <text>man</text>
             <text>map</text>
+            <text>mis</text>
             <text>mkh</text>
             <text>mlg</text>
             <text>mno</text>
@@ -115,16 +116,6 @@
             <text>zap</text>
             <text>znd</text>
          </control-field>
-      </test>
-      <!-- 
-               Also select all records containing "language oriented" subject terms, only in a 650
-      -->
-      <test>
-         <data-field test="contains" tag="650" code="a">
-            <text>language</text>
-            <text>languages</text>
-            <text>dialect</text>
-         </data-field>
       </test>
    </select-stage>
    
