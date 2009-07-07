@@ -2,7 +2,7 @@
 NOTES ON USING EXIST XMLDB with our reulsts
 
 G. Simons
-6 July 2009
+7 July 2009
 
 
 SETTING UP EXIST
@@ -65,7 +65,10 @@ Alternatively,
 
 4. Use the third toolbar button to create a new collection (e.g. olac) and the fourth to store a new document into it (e.g. an OLAC static respository).
 
-??? These were working on my home installation, but the office I am getting a "networking error" and am unable to load any data.
+
+BEWARE: Even though the configuration settings are for validation mode-"no" (which should accepted any well-formed data regardless of validity), it is not behaving that way.  I was getting failure to load an OLAC repository due to the extra @from attributes. The symptom was a non-helpful "networking error".  I found the real error message about validation failure by looking in exist\webapps\WEB-INF\logs\exist.log.
+
+WORKAROUND: Removing the schemaLocation attribute from the root element solved the problem.  However, not immediately--it kept complaining of the validation error even after removing the schemaLocation information. Thus there appears to be some file caching. I had to stop the exist server and restart it, and then it worked. 
 
 
 QUERYING DATA
