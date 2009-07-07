@@ -24,7 +24,7 @@ declare function local:precision-report($label, $recs, $total-records) {
      </tr> };
      
 let $repo := doc('/db/olac/gial09.olac.xml')
-let $repo-name := $repo/*/sr:Identify/oai:repositoryName
+let $repo-name := $repo/*/sr:Identify/oai:repositoryName/text()
 let $recs := $repo//oai:record
 let $total := count($recs)
 
@@ -45,12 +45,12 @@ let $disc-type-recs := $recs//olac:olac[dc:type[@xsi:type='olac:discourse-type']
 return
   <xhtml>
   <head>
-  <title>{$repo/*/sr:Identify/oai:repositoryName}</title>
+  <title>{$repo-name}</title>
   </head>
   <body>
      <hr/>
      <i>Metadata enrichment report for:</i><br/>
-     <h1>{$repo/*/sr:Identify/oai:repositoryName}</h1>
+     <h1>{$repo-name}</h1>
      <hr/>
      <p align="center">Total records: {$total}</p>
      <h3>Use of OLAC controlled vocabularies</h3>
