@@ -90,6 +90,8 @@ class iso639Classifier:
                 break
         if ending in datastore: # checks the last word
             iso_list += datastore[ending]
+            if self.debug:
+                print datatype, data
         return iso_list
     
     def train(self, datafile):
