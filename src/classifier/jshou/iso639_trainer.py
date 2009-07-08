@@ -19,8 +19,7 @@ class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
     other contextual clues.
     
-    classify -- Classifies stuff.  (I haven't written this method yet either.)
-    _identify -- 
+    classify -- Returns a list of ISO 639 language codes extracted from text.
     train -- reads in a datafile and stores the information.
     _add_item -- Method for adding country, region and language name data to the classifier's training.
     save -- Pickles the classifier to a file.
@@ -34,9 +33,10 @@ class iso639Classifier:
         country codes to iso639 language codes.  
         
         country_data, region_data, and lang_data are slightly more complicated,
-        but all follow the same format.  They are nested dictionaries such that
-        for a given country, region, or language name that has three tokens, the
-        iso codes associated with that name are accessed as follows:
+        but all follow the same format.  They are nested dictionaries that
+        essentially function as trees.  For a given country, region, or language
+        name that has three tokens, the iso codes associated with that name are
+        accessed as follows:
         
         xxx_data[token1][token2][token3]['<<END-OF-item_type>>'] -> [iso1, iso2]
         '''
@@ -47,6 +47,12 @@ class iso639Classifier:
         self.debug = False
 
     def classify(self, text):
+        '''For a string of text, uses _identify to identify language, country
+        and region names and creates sets of ISO 639 codes for the language,
+        country and region names identified.   Returns the intersection of the
+        three sets, backing off the region and country name sets if the
+        intersection returns a null set.
+        '''
         country_iso639s = []
         region_iso639s = []
         lang_iso639s = []
@@ -54,7 +60,8 @@ class iso639Classifier:
         tokens = wordpunct_tokenize(text)
         for i in range(len(tokens)):
             if tokens[i][0].isupper():
-                iso639listlists = [self.country_lang[j] for j in self._identify(tokens[i:], 'cc', self.country_data)]
+                iso639listlists = [self.country_lang[j] for j in\
+                                    self._identify(tokens[i:], 'cc', self.country_data)]
                 for iso639list in iso639listlists:
                     country_iso639s += iso639list
                 region_iso639s += self._identify(tokens[i:], 'rg', self.region_data)
@@ -75,14 +82,18 @@ class iso639Classifier:
 
                     
     def _identify(self, tokens, datatype, datastore):
+        '''Takes a list of tokens, a datatype, and a nested dictionary datastore
+        and traverses the datastore token by token to find language, country, or
+        region names in the list of tokens.  Returns a list of ISOs identified
+        from the language, country or region names found.  Prints out the
+        identified names if debug mode is on.
+        '''
         iso_list = []
         data = ''
         ending = "<<END-OF-%s>>" % datatype
         for i in range(len(tokens)):
             if ending in datastore:
                 iso_list += datastore[ending]
-                if self.debug:
-                    print datatype, data
             if tokens[i] in datastore:
                 datastore = datastore[tokens[i]]
                 data += ' '+tokens[i]
@@ -102,16 +113,16 @@ class iso639Classifier:
         for line in data:
             iso, item_type, item = line.split('\t')
             if item_type=="sn" or item_type=="wn":
-                self._add_item(item.strip().split(), self.lang_data, item_type, iso)
+                self._add_item(wordpunct_tokenize(item.strip()), self.lang_data, item_type, iso)
             elif item_type=="cc":
                 try:
                     self.country_lang[item].append(iso)
                 except KeyError:
                     self.country_lang[item] = [iso]
             elif item_type=="rg":
-                self._add_item(item.strip().split(), self.region_data, item_type, iso)
+                self._add_item(wordpunct_tokenize(item.strip()), self.region_data, item_type, iso)
             else:
-                self._add_item(item.strip().split(), self.country_data, item_type, iso)
+                self._add_item(wordpunct_tokenize(item.strip()), self.country_data, item_type, iso)
     
     def _add_item(self, tokens, node, item_type, iso):
         '''Recursive method for adding item_type:iso to one of the nested
