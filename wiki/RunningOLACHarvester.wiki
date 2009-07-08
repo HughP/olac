@@ -4,7 +4,7 @@
 
   * MySQL 5.x
   * Python 2.4.x ~ 2.6.x
-  * MySQL-Pyton (latest version that works with your MySQL and Python)
+  * MySQL-Python (latest version that works with your MySQL and Python)
   * curl (we need libcurl on which pycurl depends)
   * pycurl (latest version that works with your Python and libcurl)
 
