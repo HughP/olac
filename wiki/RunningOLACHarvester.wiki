@@ -101,7 +101,7 @@ option.
 
 For dynamic repositories, the harvester only performs an incremental harvesting
 at a time. This means that the harvester requests only the records that have
-changed since the last harvest. If you, for some reason, have the harvester
+changed since the last harvest. If you want to, for some reason, have the harvester
 process all records in the repository, use the `-f` option.
 
 For static repositories, the harvester has to download the whole repository
