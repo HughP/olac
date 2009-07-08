@@ -88,10 +88,14 @@ class TabDBCorpusView(StreamBackedCorpusView):
 
             # For fields with multiple values, use newlines to
             # separate them.
-            if tag_name in record:
-                content = record[tag_name] + '\n' + content
-                
-            record[tag_name] = content
+            if not (tag_name=='subject' and type=='language'):    
+                if tag_name in record:
+                    content = record[tag_name] + '\n' + content
+                record[tag_name] = content
+            elif type=='language':
+                if 'iso639' in record:
+                    code = record['iso639'] + ' ' + code
+                record['iso639'] = code
 
         return [record]
 
