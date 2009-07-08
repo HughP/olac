@@ -14,6 +14,7 @@ import sys
 import os
 import pickle
 from nltk import *
+from util import check_file
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
@@ -144,23 +145,8 @@ class iso639Classifier:
         '''Checks to see if the file already exists and asks for confirmation to
         overwrite if it does.  Pickles the classifier.
         '''
-        file = self._check_file(filename)
+        file = check_file(filename)
         pickle.dump(self, file)
-    
-    def _check_file(self,filename):
-        '''Checks to see if a file exists.  Asks for permission to overwrite if
-        it does.  Returns the file ready for writing if permission is given, or
-        or if the file does not already exist.
-        '''
-        if os.path.exists(os.path.join(os.getcwd(),filename)):
-            a = raw_input("file %s already exists.  Overwrite? [yn]: " % filename)
-            if not a.lower()=='y':
-                sys.exit(2)
-            else:
-                print "Overwriting..."
-                return open(filename,'wb')
-        else:
-            return open(filename,'wb')
 
 if __name__=="__main__":
     if len(sys.argv)!=3:
