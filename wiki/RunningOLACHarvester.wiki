@@ -115,7 +115,7 @@ silently removed from the database.
 Please do not use `-u` option at this moment. For it to work, you need to
 install a couple more components and edit the `harvester.py` file. The only
 problem is that without this option, the harvester will fail on any archives
-that uses invalid character encodings.
+that use invalid character encodings.
 
 = Last updated =
 
