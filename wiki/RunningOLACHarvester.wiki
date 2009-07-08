@@ -1,0 +1,110 @@
+#summary This document describes how to install and operate the OLAC harvester.
+
+= Prerequisite =
+
+MySQL 5.x
+Python 2.4.x ~ 2.6.x
+MySQL-Pyton (latest version that works with your MySQL and Python)
+curl (we need libcurl on which pycurl depends)
+pycurl (latest version that works with your Python and libcurl)
+
+For information about MySQL-Python, visit http://mysql-python.sourceforge.net/.
+
+For information about curl, visit http://curl.haxx.se/.
+
+For information about pycurl, visit http://pycurl.sourceforge.net/.
+
+We assume that you are using a UNIX system. The harvester will probably work on a Windows system, but we haven't tested it. The harvester has been working on Linux and FreeBSD systems.
+
+
+= Downloads =
+
+Download these files, and put them in a directory.
+
+http://olac.googlecode.com/svn/web/lib/python/optionparser.py
+http://olac.googlecode.com/svn/web/tools/harvester/harvester.py
+http://olac.googlecode.com/svn/web/tools/harvester/curl.py
+http://olac.googlecode.com/svn/web/tools/olacdb/olac_schema.sql
+http://olac.googlecode.com/svn/web/tools/olacdb/LanguageCodes.tab
+http://olac.googlecode.com/svn/web/tools/olacdb/iso-639-3-macrolanguages_20080218.tab
+http://olac.googlecode.com/svn/web/tools/olacdb/iso-639-3_20080529.tab
+http://olac.googlecode.com/svn/web/tools/olacdb/iso-639-3_Name_Index_20080603.tab
+http://olac.googlecode.com/svn/web/tools/olacdb/iso-639-3_Retirements_20080529.tab
+http://olac.googlecode.com/svn/web/tools/olacdb/load_olac_extensions.py
+http://olac.googlecode.com/svn/web/tools/olacdb/loadtab.py
+http://olac.googlecode.com/svn/web/tools/olacdb/README
+
+optionparser.py and curl.py are shared by other Python programs, so make sure that they are found by Python. The simplest way to achieve this is to put all downloaded files in one directory.
+
+
+= Database setup =
+
+We assume that the files downloaded in the previous section are stored in a single directory. Change directory to that directory, and take a look at the README file, which describes how to set up the database.
+
+== MySQL database and account ==
+
+Acquire a MySQL database, and a MySQL account that has full privileges on the database. Create a MySQL option file. If you create it under your home directory and name it .my.cnf, the MySQL utilities (programs that come with MySQL including the mysql command) will recognize it by default. The contents of the file look like this:
+
+[client]
+user = olac_mysql_user
+password = somepassword
+host = host1.somedomain.com
+database = olac_database
+
+Protect this file from users who don't need to know about the user name and password.
+
+Check if the option file has been created properly. If you named it ~/.my.cnf, just type "mysql". This should log you directly into your MySQL database. If you named the MySQL option file differently, you can use a command like "mysql --defaults-file=/path/to/the/file".
+
+== Create and populate tables ==
+
+Just follow the instructions found in the README file. If your MySQL option file (see the previous section) is not ~/.my.cnf, you should use "--defaults-file" option for the first command, e.g.
+
+  cat olac_schema.sql | mysql --defaults-file=/path/to/the/file
+
+Similarly, use this path, instead of ~/.my.cnf, for the -c option in the following commands, e.g.
+
+  ... python loadtab.py -c /path/to/the/file ...
+
+Finally, run the load_olac_extensions.py program one more time with the "-n 1.0" option. This is because we still have OLAC 1.0 archives in our collection.
+
+
+= Running harvester =
+
+To see the help message, type
+
+python harvester.py -h
+
+If your MySQL option file has all the information needed (host, database, user, and password), commands like the following should work:
+
+python harvester.py -c ~/.my.cnf -s http://host.domain.com/dynamic/repo
+
+python harvester.py -c ~/.my.cnf -s http://host.domain.com/static/repo.xml --static
+
+If the "-s" option is missing, the harvester will harvest archives found in the
+ARCHIVES table. To explain some fields of the ARCHIVES table: type is either
+"Static" or "Dynamic". ID is the OAI repository identifier for the archive.
+dataApproved should not be null. Other fields are not important for the
+harvester to run. The "--static" option is not necessary without the "-s"
+option.
+
+For dynamic repositories, the harvester only performs an incremental harvesting
+at a time. This means that the harvester requests only the records that have
+changed since the last harvest. If you, for some reason, have the harvester
+process all records in the repository, use the "-f" option.
+
+For static repositories, the harvester has to download the whole repository
+anyway. However, it only does so when the HTTP HEAD request against the
+repository returns a Last-Modified value that is later than the last harvest
+date. If the "-f" option is not used, the harvester will only process the
+records whose datestamp ls later than the last harvest date. Missing records
+(ones that were found in the repository last time but not this time) are
+silently removed from the database.
+
+Please do not use "-u" option at this moment. For it to work, you need to
+install a couple more components and edit the harvester.py file. The only
+problem is that without this option, the harvester will fail on any archives
+that uses invalid character encodings.
+
+= Last updated =
+
+July 9, 2009
