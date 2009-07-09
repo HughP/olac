@@ -928,7 +928,6 @@ class StreamParser(Logger):
         except xml.sax.SAXParseException, e:
             msg = "parse error: %s" % e.getException()
             self.log(msg)
-            print data.split('\n')[e.getLineNumber()-1]
             return -1
 
     def close(self):
