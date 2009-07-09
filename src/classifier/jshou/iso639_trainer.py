@@ -25,6 +25,7 @@ class iso639Classifier:
     train -- reads in a datafile and stores the information.
     _add_item -- Method for adding country, region and language name data to the classifier's training.
     save -- Pickles the classifier to a file.
+    _check_file -- Returns a writable file but asks for overwrite permission if necessary.
     '''
     def __init__(self):
         '''Initializes the four dictionaries that comprise the classifier's
@@ -39,7 +40,7 @@ class iso639Classifier:
         It returns a list of ISO 3166 codes for country names and ISO 639 codes
         for language and region names.  
         
-        tree[token1][token2][token3]['<<END>>'] -> {'sn': [iso1, iso2], 'rg':[iso3]}
+        xxx_data[token1][token2][token3]['<<END-OF-item_type>>'] -> [iso1, iso2]
         '''
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
         
@@ -53,21 +54,24 @@ class iso639Classifier:
         intersection returns a null set.
         '''
         tokens = wordpunct_tokenize(text)
-        NE_dict = {'sn':[], 'wn':[], 'cc':[], 'rg':[]}
+        NE_dict = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
+        iso_dict = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
         for i in range(len(tokens)):
             if tokens[i][0].isupper():
-                isos, NEs = self._identify(tokens)
-                if isos['cc']:
-                    isos['cc'] = reduce(operator.add,([self.country_lang[j] for j in isos['cc']]))
+                isos, NEs = self._identify(tokens[i:])
+                if isos['cn']:
+                    isos['cn'] = reduce(operator.add,([self.country_lang[j] for j in isos['cn']]))
+                for item_type in isos:
+                    iso_dict[item_type] += isos[item_type]
                 for item_type in NEs:
                     NE_dict[item_type] += NEs[item_type]
         
-        iso_set = set(isos['sn'] + isos['wn'])
-        country_set = set(isos['cc'])
+        iso_set = set(iso_dict['sn'] + iso_dict['wn'])
+        country_set = set(iso_dict['cn'])
         country_intersection = iso_set.intersection(country_set)
         if country_intersection:
             iso_set = country_intersection
-        region_set = set(isos['rg'])
+        region_set = set(iso_dict['rg'])
         region_intersection = iso_set.intersection(region_set)
         if region_intersection:
             iso_set = region_intersection
@@ -81,16 +85,17 @@ class iso639Classifier:
         region names in the list of tokens.  Returns a list of ISOs identified
         from the language, country or region names found.
         '''
-        iso_lists = {'sn':[], 'wn':[], 'cc':[], 'rg':[]}
-        NE_lists = {'sn':[], 'wn':[], 'cc':[], 'rg':[]}
+        iso_lists = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
+        NE_lists = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
         NE = ''
         ending = "<<END>>"
         node = self.tree
         for i in range(len(tokens)):
             if ending in node:
                 for datatype in node[ending]:
-                    iso_lists[datatype] += node[ending][datatype] 
-                    NE_lists[datatype].append(NE)
+                    if datatype in iso_lists:
+                        iso_lists[datatype] += node[ending][datatype]
+                        NE_lists[datatype].append(NE.strip())
             if tokens[i] in node:
                 node = node[tokens[i]]
                 NE += ' '+tokens[i]
@@ -99,7 +104,7 @@ class iso639Classifier:
         if ending in node: # checks the last word
             for datatype in node[ending]:
                 iso_lists[datatype] += node[ending][datatype]
-                NE_lists[datatype].append(NE)
+                NE_lists[datatype].append(NE.strip())
         return iso_lists, NE_lists
     
     def train(self, datafile):
@@ -108,7 +113,7 @@ class iso639Classifier:
         '''
         data = open(datafile).readlines()
         for line in data:
-            iso, item_type, item = line.split('\t')
+            iso, item_type, item = line.strip().split('\t')
             if item_type=="cc":
                 try:
                     self.country_lang[item].append(iso)
@@ -120,7 +125,7 @@ class iso639Classifier:
     def _add_item(self, tokens, node, item_type, iso):
         '''Recursive method for adding item_type:iso to one of the nested data
         dictionaries.  If there are more tokens left, keep descending into the
-        dictionary.  Otherwise, enter <<END>> -> { item_type:[iso] }.
+        dictionary.  Otherwise, enter <<END>> -> { item_type:iso }.
         '''
         if not tokens:
             ending = "<<END>>"
