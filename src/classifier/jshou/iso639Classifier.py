@@ -33,7 +33,6 @@ if len(args)<2:
 
 # Loads classifier and initializes corpus reader
 classifier = pickle.load(open(args[0],'rb'))
-classifier.debug = options.debug
 
 reader = TabDBCorpusReader('.', '.*db\.tab')
 olac_records = reader.records(args[1])
@@ -61,5 +60,10 @@ for record in olac_records:
     except KeyError:
         title = ''
     
-    results = classifier.classify(bag_of_words)
-    print '\t'.join([record['Oai_ID'], ' '.join(results), title])
+    iso_results, NE_results = classifier.classify(bag_of_words)
+    print '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
+    if options.debug:
+        print "NEs found:"
+        for item_type in NE_results:
+            print item_type + ":\t" + ' '.join(NE_results[item_type])
+        print "--------------------------------------------------"
