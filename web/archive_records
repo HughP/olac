@@ -36,9 +36,8 @@ BORDER="0"></A></TD>
 <p>This page permits the records of a particular
 <a href="/archives.php4">harvested archive</a>
 to be displayed.  It may be slow for large archives.
-For full-featured search, please see the
-<a href="http://saussure.linguistlist.org/olac/">
-LINGUIST List search interface</a>.
+To find particular records in OLAC archives, please use
+the <a href="http://www.language-archives.org/tools/search/">OLAC search interface</a>.
 
 <?
 function archives()
