@@ -42,12 +42,12 @@ In the following schemas for possible classifier logic, `^` represents set inter
   # Lang
   # Lang ^ Country, Lang
   # Lang ^ Region, Lang
-  # Lang ^ Country, Lang ^ Region, Lang
-  # Lang ^ Region, Lang ^ Country, Lang
-  # Lang ^ Country ^ Region, Lang ^ Country, Lang
-  # Lang ^ Country ^ Region, Lang ^ Region, Lang
-  # Lang ^ Country ^ Region, Lang ^ Country, Lang ^ Region, Lang
-  # Lang ^ Country ^ Region, Lang ^ Region, Lang ^ Country, Lang
+  # Lang `^` Country, Lang ^ Region, Lang
+  # Lang `^` Region, Lang ^ Country, Lang
+  # Lang `^` Country `^` Region, Lang ^ Country, Lang
+  # Lang `^` Country `^` Region, Lang ^ Region, Lang
+  # Lang `^` Country `^` Region, Lang `^` Country, Lang ^ Region, Lang
+  # Lang `^` Country `^` Region, Lang `^` Region, Lang ^ Country, Lang
   # Lang ^ (Country v Region), Lang
 
 The simplest classifier (1) just returns the set Lang. This would have maximum recall, but low precision (especially when a single name, e.g. Quechua, could be associated with dozens of language codes). We can thus make the classifier more precise by using the clues of country names and region names to narrow the choices down to the most likely candidates. In classifier (2) we return the intersection of Lang and Country, unless that is empty, in which case we fall back to Lang. Or we could do the same with Region (3). Classifiers (4) and (5) use all three sets, but never more than two at a time and differ by the preference they give to country names versus region names. (6) through (9) are same as (2) to (5) except they insert intersection of all three sets as the first preference. Finally, (10) gives equal credence to Country and Region and thus takes the union of the two sets as the set for intersecting with Lang.
