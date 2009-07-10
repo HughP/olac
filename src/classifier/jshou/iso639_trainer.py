@@ -90,7 +90,8 @@ class iso639Classifier:
         NE = ''
         ending = "<<END>>"
         node = self.tree
-        for i in range(len(tokens)):
+        i = 0 # a counter
+        while i<len(tokens):
             if ending in node:
                 for datatype in node[ending]:
                     if datatype in iso_lists:
@@ -100,8 +101,10 @@ class iso639Classifier:
                 node = node[tokens[i]]
                 NE += ' '+tokens[i]
             else:
+                i += 1
                 break
-        if ending in node: # checks the last word
+            i += 1
+        if ending in node and i>=len(tokens): # checks the last word
             for datatype in node[ending]:
                 iso_lists[datatype] += node[ending][datatype]
                 NE_lists[datatype].append(NE.strip())
@@ -129,10 +132,12 @@ class iso639Classifier:
         '''
         if not tokens:
             ending = "<<END>>"
+            if ending not in node:
+                node[ending] = {}
             try:
                 node[ending][item_type].append(iso)
             except KeyError:
-                node[ending] = { item_type:[iso] }
+                node[ending][item_type] = [iso]
         else:
             if tokens[0] not in node:
                 node[tokens[0]] = {}
