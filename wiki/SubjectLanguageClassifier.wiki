@@ -31,10 +31,27 @@ Two test data sets have been constructed:
 
 = A boolean classifier =
 
+First, we will experiment to discover the logic that works best for a simple boolean classifier that uses only set operations without any weights or thresholds. The basic idea is that when applying the knowledge from the training data to a metadata record, the classifier will construct three sets:
+
+  * Lang = the set of language codes associated with all of the language names discovered in the metadata
+  * Country = the set of language codes associated with all of the country names discovered in the metadata
+  * Region = the set of language codes associated with all of the other place names discovered in the metadata
+
+In the following schemas for possible classifier logic, `^` represents set intersection and `v` represents set union. The comma-delimited list means, "Moving from left to right, return the first set that is not null."  Based on the assumption that we never want to return a code that is not in Lang, the following 10 schemas are possible with the three sets above:
 
   # Lang
   # Lang ^ Country, Lang
   # Lang ^ Region, Lang
+  # Lang ^ Country, Lang ^ Region, Lang
+  # Lang ^ Region, Lang ^ Country, Lang
+  # Lang ^ Country ^ Region, Lang ^ Country, Lang
+  # Lang ^ Country ^ Region, Lang ^ Region, Lang
+  # Lang ^ Country ^ Region, Lang ^ Country, Lang ^ Region, Lang
+  # Lang ^ Country ^ Region, Lang ^ Region, Lang ^ Country, Lang
+  # Lang ^ (Country v Region), Lang
+
+The simplest classifier (1) just returns the set Lang. This would have maximum recall, but low precision (especially when a single name, e.g. Quechua, could be associated with dozens of language codes). We can thus make the classifier more precise by using the clues of country names and region names to narrow the choices down to the most likely candidates. In classifier (2) we return the intersection of Lang and Country, unless that is empty, in which case we fall back to Lang. Or we could do the same with Region (3). Classifiers (4) and (5) use all three sets, but never more than two at a time and differ by the preference they give to country names versus region names. (6) through (9) are same as (2) to (5) except they insert intersection of all three sets as the first preference. Finally, (10) gives equal credence to Country and Region and thus takes the union of the two sets as the set for intersecting with Lang.
+
 
 
 = A weighted classifier =
