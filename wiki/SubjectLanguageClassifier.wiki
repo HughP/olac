@@ -38,7 +38,9 @@ Thus the first version of the classifier will be a processor that maximizes reca
   * Case sensitive matching will work with English titles and descriptions, but in other European languages the names of languages may not be capitalized (such as when used adjectivally).
   * The actual name form occurring in a title or description may be an adjective which adds a suffix.
   * The actual name form occurring in a title or description may differ from our name form by the presence or absence of diacritics. This may especially be true when the metadata is in a language other than English.
-  * When our name form is multiple words, the actual name form occurring in a title or description may include the complete phrase or may have the words in a different order (potentially with intervening punctuation such as parenthesis or comma).
+  * When our name form is multiple words, the actual name form occurring in a title or description may include just a subphrase of the whole or may have the words in a different order (potentially with intervening punctuation such as parenthesis or comma).
+  * When our name form is a hyphenated combination of names, the actual name form occurring in a title or description may include just one of the component names.
+ 
 
 = A boolean classifier =
 
