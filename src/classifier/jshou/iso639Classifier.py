@@ -19,6 +19,7 @@ import pickle
 from optparse import OptionParser
 from tabdbreader2 import *
 from iso639_trainer import *
+from util import *
 
 # Parses arguments and options
 parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pickle input > classifier-output')
@@ -55,15 +56,13 @@ for record in olac_records:
     except KeyError:
         pass
     
-    try:
-        title = record['title']
-    except KeyError:
-        title = ''
     
     iso_results, NE_results = classifier.classify(bag_of_words)
-    print '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
+    print '\t'.join([record['Oai_ID'], ' '.join(iso_results), get_or_none(record,'title')])
     if options.debug:
-        print "NEs found:"
+        print '# subject: ' + get_or_none(record,'subject')
+        print '# description: ' + get_or_none(record,'description')
         for item_type in NE_results:
-            print item_type + ":\t" + ' '.join(NE_results[item_type])
-        print "--------------------------------------------------"
+            if NE_results[item_type]:
+                print "# " + item_type + ":\t" + ', '.join(NE_results[item_type])
+        print "#--------------------------------------------------"
