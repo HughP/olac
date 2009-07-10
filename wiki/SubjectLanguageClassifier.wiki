@@ -32,4 +32,9 @@ Two test data sets have been constructed:
 = A boolean classifier =
 
 
+  # Lang
+  # Lang ^ Country, Lang
+  # Lang ^ Region, Lang
+
+
 = A weighted classifier =
