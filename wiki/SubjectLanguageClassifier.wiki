@@ -33,7 +33,7 @@ Two test data sets have been constructed:
 
 The first problem to be solved by the classifier is to recognize names of languages in metadata. For this it will use information from the first four sets of training data listed above. The other information (like names of associated countries, regions, subgroups) will be used only to increase precision by narrowing the set of languages associated with the discovered names.
 
-Thus the first version of the classifier will be a processor that maximizes recall by identifying all known language names in the metadata and return the set of all associated language codes. It is not the case that every metadata record has the names of its subject languages in the available metadata. Thus the maximal recall will be well under 100%. The development strategy will be to examine the metadata records for which the classifier proposes no language codes to see if they contain language name instances that are not being found.  
+Thus the first version of the classifier will be a processor that maximizes recall by identifying all known language names in the metadata and returning the set of all associated language codes. It is not the case that every metadata record has the names of its subject languages in the available metadata. Thus the maximal recall will be well under 100%. The development strategy will be to examine the metadata records for which the classifier proposes no language codes to see if they indeed contain language name clues that are not being found.  Remedies will then be designed and tested. 
 
 = A boolean classifier =
 
