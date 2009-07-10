@@ -33,11 +33,16 @@ Two test data sets have been constructed:
 
 The first problem to be solved by the classifier is to recognize names of languages in metadata. For this it will use information from the first four sets of training data listed above. The other information (like names of associated countries, regions, subgroups) will be used only to increase precision by narrowing the set of languages associated with the discovered names.
 
-Thus the first version of the classifier will be a processor that maximizes recall by identifying all known language names in the metadata and returning the set of all associated language codes. It is not the case that every metadata record has the names of its subject languages in the available metadata. Thus the maximal recall will be well under 100%. The development strategy will be to examine the metadata records for which the classifier proposes no language codes to see if they indeed contain language name clues that are not being found.  Remedies will then be designed and tested. 
+Thus the first version of the classifier will be a processor that maximizes recall by identifying all known language names in the metadata and returning the set of all associated language codes. It is not the case that every metadata record has the names of its subject languages in the available metadata. Thus the maximal recall will be well under 100%. The development strategy will be to examine the metadata records for which the classifier proposes no language codes to see if they indeed contain language name clues that are not being found.  Remedies will then be designed and tested. It is already known that a simple matching of available name strings will fail to match a language name in the following cases:
+
+  * Case sensitive matching will work with English titles and descriptions, but in other European languages the names of languages may not be capitalized (such as when used adjectivally).
+  * The actual name form occurring in a title or description may be an adjective which adds a suffix.
+  * The actual name form occurring in a title or description may differ from our name form by the presence or absence of diacritics. This may especially be true when the metadata is in a language other than English.
+  * When our name form is multiple words, the actual name form occurring in a title or description may include the complete phrase or may have the words in a different order (potentially with intervening punctuation such as parenthesis or comma).
 
 = A boolean classifier =
 
-First, we will experiment to discover the logic that works best for a simple boolean classifier that uses only set operations without any weights or thresholds. The basic idea is that when applying the knowledge from the training data to a metadata record, the classifier will construct three sets:
+Once maximal recall is achieved, we will work to bring in the other available information (such as names of countries, regions, subgroups) to work on increasing the precision (without degrading the recall). We will first experiment to discover the logic that works best for a simple boolean classifier that uses only set operations without any weights or thresholds. The basic idea is that when applying the knowledge from the training data to a metadata record, the classifier will construct three sets:
 
   * Lang = the set of language codes associated with all of the language names discovered in the metadata
   * Country = the set of language codes associated with all of the country names discovered in the metadata
