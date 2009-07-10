@@ -61,7 +61,7 @@ In the following schemas for possible classifier logic, `^` represents set inter
   # Lang `^` Country `^` Region, Lang `^` Region, Lang `^` Country, Lang
   # Lang `^` (Country `v` Region), Lang
 
-The simplest classifier (1) just returns the set Lang. This would have maximum recall, but low precision (especially when a single name, e.g. Quechua, could be associated with dozens of language codes). We can thus make the classifier more precise by using the clues of country names and region names to narrow the choices down to the most likely candidates. In classifier (2) we return the intersection of Lang and Country, unless that is empty, in which case we fall back to Lang. Or we could do the same with Region (3). Classifiers (4) and (5) use all three sets, but never more than two at a time and differ by the preference they give to country names versus region names. (6) through (9) are same as (2) to (5) except they insert intersection of all three sets as the first preference. Finally, (10) gives equal credence to Country and Region and thus takes the union of the two sets as the set for intersecting with Lang.
+The simplest classifier (1) just returns the set Lang as described in the preceding section. This will have maximum recall, but low precision (especially when a single name, e.g. Quechua, could be associated with dozens of language codes). We can thus make the classifier more precise by using the clues of country names and region names to narrow the choices down to the most likely candidates. In classifier (2) we return the intersection of Lang and Country, unless that is empty, in which case we fall back to Lang. Or we could do the same with Region (3). Classifiers (4) and (5) use all three sets, but never more than two at a time and differ by the preference they give to country names versus region names. (6) through (9) are same as (2) to (5) except they insert intersection of all three sets as the first preference. Finally, (10) gives equal credence to Country and Region and thus takes the union of the two sets as the set for intersecting with Lang.
 
 We will run trials of all 10 classifier models against the test data, calculating recall and precision for each. In this way we will be able to evaluate which logic gives the best results.
 
@@ -71,14 +71,29 @@ Everything above has talked about matching names. The classifier must also be ab
 
 = A weighted classifier =
 
-The simple Lang classifier (1 above) offers the theoretical upper limit on recall. The refined models above seek to improve precision without degrading recall. If the level of precision achieved with best boolean classifier is still not high enough, then we can seek further precision by constructing a weighted classifier.
+The simple Lang classifier (1 above) offers the theoretical upper limit on recall. The refined models above seek to improve precision without degrading recall. If the level of precision achieved with the best boolean classifier is still not high enough, then we can seek further precision by constructing a weighted classifier.
 
-Rather than manipulating sets of language codes that are indicated by the occurrence of name strings in the metadata, a weighted classifier would manipulate vectors of scores associated with language codes. A score of 0 would indicate that there is no evidence for that language, while a non-zero score would indicate evidence for that language. The relative value of the score would indicate the relative weight.
+Rather than manipulating sets of language codes that are indicated by the occurrence of name strings in the metadata, a weighted classifier would manipulate vectors of scores associated with language codes. A score of 0 would indicate that there is no evidence for that language, while a non-zero score would indicate evidence for that language. The higher the score, the greater the weight for that conclusion.
+
+The basic idea is that when applying the knowledge from the training data to a metadata record, the classifier will construct three vectors of weights for possible codes:
+
+  * Lang = the vector of weights for language codes following identification of language names in the metadata
+  * Country = the vector of weights for language codes following identification of country names (and codes) in the metadata
+  * Region = the vector of weights for language codes following identification of region names in the metadata
+  *
+
+The classifier then depends on the definition of a "select" function which selects the most likely language codes out of the resulting vector. The following is a basic schema for the classifier logic, where '+' and 'x' represent arithmetic addition and multiplication of the weights of corresponding language codes in the two operand vectors to produce a new result vector, and 'a' and 'b' represent constant multipliers in the range of 0 to 1 which control the relative contribution of country and region clues. Based on the assumption that we never want to return a non-zero for a code that is not supported by the presence of a corresponding language name, the following 4 schemas are possible with the three sets above:
+
+  * select(Lang + a(Lang x Country) + b(Lang x Region))
+
+The use of multiplication serves to cancel out the evidence rendered by a particular country or region name when no language name associated with the code has been identified. The use of plus serves to reinforce the weight for the language when country and region names supporting the same code are discovered.
+
+Weighting could come from any or all of the following sources:
+
+  * Weighting by the type of information. That is, more weight could be initially given a strong language name than a weak language name (see page on [iso639_trainerDatafileFormat training data format]). 
+  * Weighting by the length of match.  That is, more weight could be given to a three-word name match than to a two-word match than to a single-word match.
+  * Weighting by the number of occurrences.  That is, every time the same name in encountered again, it could add to the weight for its associated codes.
+  * Weighting by the source fields. That is, a language name found in a title or subject could be given more weight than one found in a description (since, for instance, an abstract could make reference to languages that give a point of reference but which the resource is not really about.)
 
 
-
-  # Weighting by the type of information
-  # Weighting by the length of match
-  # Weighting by the number of occurrences
-  # Weighting by the source fields
 = Integration with harvester =
