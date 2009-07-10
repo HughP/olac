@@ -81,7 +81,9 @@ function generateSumStatTab(arcid, containerId)
 					var theday = new Date(a[0],a[1],a[2]);
 					if (theday >= targetdate) fresh_archives++;
 				}
-				if (METRICS[i].metadata_quality >= 9.0 && METRICS[i].integrity_problems < 1.0)
+				if (computeRating(METRICS[i].metadata_quality,
+						  Math.floor(METRICS[i].integrity_problems),
+						  METRICS[i].num_resources) == 5)
 					five_stars++;
 			}
 		}
