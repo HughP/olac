@@ -95,7 +95,7 @@ Weighting could come from any or all of the following sources:
   * Weighting by the type of information. That is, more weight could be initially given a strong language name than a weak language name (see page on [iso639_trainerDatafileFormat training data format]). 
   * Weighting by the length of match.  That is, more weight could be given to a three-word name match than to a two-word match than to a single-word match.
   * Weighting by the number of occurrences.  That is, every time the same name in encountered again, it could add to the weight for its associated codes.
-  * Weighting by the source fields. That is, a language name found in a title or subject could be given more weight than one found in a description (since, for instance, an abstract could make reference to languages that give a point of reference but which the resource is not really about.)
+  * Weighting by the source fields. That is, a language name found in a title or subject could be given more weight than one found in a description (since, for instance, an abstract could make reference to languages that give a point of reference but which the resource is not really about.) Alternatively, the description element could be treated by giving names near the beginning of the description more weight than names that are well into a long description.
 
 
 = Integration with harvester =
