@@ -17,8 +17,9 @@ def compare_classification(gold_standard, test_classification):
     returns precision and recall.'''
     tc = open(test_classification).readlines()
     gs = open(gold_standard).readlines()
+    len_tc = len(filter(lambda x: x[0]!='#', tc))
     
-    if len(tc)!=len(gs):
+    if len_tc!=len(gs):
         print "Error: test set has different number of records than gold standard."
         return None
     
@@ -26,13 +27,19 @@ def compare_classification(gold_standard, test_classification):
     G = 0 # number of codes in metadata (from gold standard)
     I = 0 # number of codes in intersection
     
-    for i in range(len(tc)):
-        test_isos = set(tc[i].strip('\n').split('\t')[1].split())
-        gs_isos = set(gs[i].strip('\n').split('\t')[1].split())
-        
-        T +=  len(test_isos)
-        G += len(gs_isos)
-        I += len(test_isos.intersection(gs_isos))
+    test_idx = 0
+    gs_idx = 0
+    
+    while test_idx<len(tc):
+        if tc[test_idx][0]!='#':
+            test_isos = set(tc[test_idx].strip('\n').split('\t')[1].split())
+            gs_isos = set(gs[gs_idx].strip('\n').split('\t')[1].split())
+            
+            T +=  len(test_isos)
+            G += len(gs_isos)
+            I += len(test_isos.intersection(gs_isos))
+            gs_idx += 1
+        test_idx += 1
     
     return {'precision':float(I)/T, 'recall':float(I)/G}
 
