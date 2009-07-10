@@ -20,3 +20,9 @@ def check_file(filename):
             return open(filename,'wb')
     else:
         return open(filename,'wb')
+
+def get_or_none(record, key):
+    try:
+        return record[key]
+    except KeyError:
+        return ''
