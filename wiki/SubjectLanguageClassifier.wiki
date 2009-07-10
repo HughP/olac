@@ -60,8 +60,14 @@ Everything above has talked about matching names. The classifier must also be ab
 
 = A weighted classifier =
 
-Weight the source fields
+The simple Lang classifier (1 above) offers the theoretical upper limit on recall. The refined models above seek to improve precision without degrading recall. If the level of precision achieved with best boolean classifier is still not high enough, then we can seek further precision by constructing a weighted classifier.
 
-Weight the length of match
+Rather than manipulating sets of language codes that are indicated by the occurrence of name strings in the metadata, a weighted classifier would manipulate vectors of scores associated with language codes. A score of 0 would indicate that there is no evidence for that language, while a non-zero score would indicate evidence for that language. The relative value of the score would indicate the relative weight.
 
-Weight the type of information
+
+
+  # Weighting by the type of information
+  # Weighting by the length of match
+  # Weighting by the number of occurrences
+  # Weighting by the source fields
+= Integration with harvester =
