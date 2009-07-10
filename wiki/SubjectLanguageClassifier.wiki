@@ -40,18 +40,28 @@ First, we will experiment to discover the logic that works best for a simple boo
 In the following schemas for possible classifier logic, `^` represents set intersection and `v` represents set union. The comma-delimited list means, "Moving from left to right, return the first set that is not null."  Based on the assumption that we never want to return a code that is not in Lang, the following 10 schemas are possible with the three sets above:
 
   # Lang
-  # Lang ^ Country, Lang
-  # Lang ^ Region, Lang
-  # Lang `^` Country, Lang ^ Region, Lang
-  # Lang `^` Region, Lang ^ Country, Lang
-  # Lang `^` Country `^` Region, Lang ^ Country, Lang
-  # Lang `^` Country `^` Region, Lang ^ Region, Lang
-  # Lang `^` Country `^` Region, Lang `^` Country, Lang ^ Region, Lang
-  # Lang `^` Country `^` Region, Lang `^` Region, Lang ^ Country, Lang
-  # Lang ^ (Country v Region), Lang
+  # Lang `^` Country, Lang
+  # Lang `^` Region, Lang
+  # Lang `^` Country, Lang `^` Region, Lang
+  # Lang `^` Region, Lang `^` Country, Lang
+  # Lang `^` Country `^` Region, Lang `^` Country, Lang
+  # Lang `^` Country `^` Region, Lang `^` Region, Lang
+  # Lang `^` Country `^` Region, Lang `^` Country, Lang `^` Region, Lang
+  # Lang `^` Country `^` Region, Lang `^` Region, Lang `^` Country, Lang
+  # Lang `^` (Country `v` Region), Lang
 
 The simplest classifier (1) just returns the set Lang. This would have maximum recall, but low precision (especially when a single name, e.g. Quechua, could be associated with dozens of language codes). We can thus make the classifier more precise by using the clues of country names and region names to narrow the choices down to the most likely candidates. In classifier (2) we return the intersection of Lang and Country, unless that is empty, in which case we fall back to Lang. Or we could do the same with Region (3). Classifiers (4) and (5) use all three sets, but never more than two at a time and differ by the preference they give to country names versus region names. (6) through (9) are same as (2) to (5) except they insert intersection of all three sets as the first preference. Finally, (10) gives equal credence to Country and Region and thus takes the union of the two sets as the set for intersecting with Lang.
 
+We will run trials of all 10 classifier models against the test data, calculating recall and precision for each. In this way we will be able to evaluate which logic gives the best results.
 
+Another experiment can take the most promising results with the three sets named above and test various ways of adding a fourth set that is available to us, namely, names of subgroups in the classification of a language.
+
+Everything above has talked about matching names. The classifier must also be able to match the ISO 3166 country codes directly since these may be encountered in Dublin Core metadata.  If the content of `<dc:coverage>` or `<dcterms:spatial>` is exactly two letters, then it should be matched against the ISO 3166 code list to give evidence for a country match.  (We should not try to match ISO 3166 codes in any other context as that will just reduce precision with extraneous matches of two-letter words.)
 
 = A weighted classifier =
+
+Weight the source fields
+
+Weight the length of match
+
+Weight the type of information
