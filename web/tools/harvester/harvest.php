@@ -73,7 +73,7 @@ http://www.language-archives.org/tools/harvest/confirm_h.php?v=$magic
 
 EOT;
 
-mail_by_olac_admin(OLAC_SYS_ADMIN_EMAIL, $subject, $msg);
+mail_by_olac_admin($adminemail, $subject, $msg);
 
 echo <<<EOT
 <p>An email has been sent to '$adminemail'. Please follow instructions

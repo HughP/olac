@@ -290,7 +290,7 @@ def get_archive_type(cur, db, baseurl):
     @param db: database name
     @param baseurl:
     """
-    template = "select type from ARCHIVES where BASEURL=%%s" % db
+    template = "select type from %s.ARCHIVES where BASEURL=%%s" % db
     cur.execute(template, baseurl)
     if cur.rowcount > 0: return cur.fetchone()[0]
 
