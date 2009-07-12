@@ -42,7 +42,7 @@ function mail_by_olac_admin($to, $subject, $msg, $cc="")
 function change_baseurl($repoid, $url)
 {
   global $DB;
-  $sql = "update ARCHIVE set BASEURL='$url' where ID='$repoid'";
+  $sql = "update ARCHIVES set BASEURL='$url' where ID='$repoid'";
   $DB->sql($sql);
   if ($DB->saw_error()) {
     error("database error while updating the base url\n\n" .
