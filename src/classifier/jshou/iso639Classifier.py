@@ -64,5 +64,6 @@ for record in olac_records:
         print '# description: ' + get_or_none(record,'description')
         for item_type in NE_results:
             if NE_results[item_type]:
-                print "# " + item_type + ":\t" + ', '.join(NE_results[item_type])
+                for NE in NE_results[item_type]:
+                    print "# " + item_type + "\t" + NE + "\t" + ' '.join(NE_results[item_type][NE]) 
         print "#--------------------------------------------------"

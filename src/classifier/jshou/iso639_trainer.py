@@ -43,7 +43,6 @@ class iso639Classifier:
         xxx_data[token1][token2][token3]['<<END-OF-item_type>>'] -> [iso1, iso2]
         '''
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
-        
         self.country_lang = {} # iso3166 -> list of iso639 codes
 
     def classify(self, text):
@@ -54,61 +53,65 @@ class iso639Classifier:
         intersection returns a null set.
         '''
         tokens = wordpunct_tokenize(text)
-        NE_dict = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
-        iso_dict = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
-        for i in range(len(tokens)):
+        NE_dict = {'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
+        iso_dict = {'sn':set(), 'wn':set(), 'cn':set(), 'rg':set()}
+        i = 0
+        while i<len(tokens):
             if tokens[i][0].isupper():
-                isos, NEs = self._identify(tokens[i:])
-                if isos['cn']:
-                    isos['cn'] = reduce(operator.add,([self.country_lang[j] for j in isos['cn']]))
-                for item_type in isos:
-                    iso_dict[item_type] += isos[item_type]
-                for item_type in NEs:
-                    NE_dict[item_type] += NEs[item_type]
+                NE, iso_types = self._identify(tokens[i:])
+                if NE:
+                    i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
+                    for type in iso_types:
+                        if type=='cn':
+                            iso_list = reduce(operator.add,[self.country_lang[j] for j in iso_types[type]])
+                        else:
+                            iso_list = iso_types[type]
+                        iso_dict[type].update(iso_list)
+                        NE_dict[type][NE] = iso_list
+            i += 1
         
-        iso_set = set(iso_dict['sn'] + iso_dict['wn'])
-        country_set = set(iso_dict['cn'])
-        country_intersection = iso_set.intersection(country_set)
-        if country_intersection:
-            iso_set = country_intersection
-        region_set = set(iso_dict['rg'])
-        region_intersection = iso_set.intersection(region_set)
-        if region_intersection:
-            iso_set = region_intersection
-        
+        iso_set = iso_dict['sn'].union(iso_dict['wn'])
+#        country_set = iso_dict['cn']
+#        country_intersection = iso_set.intersection(country_set)
+#        if country_intersection:
+#            iso_set = country_intersection
+#        region_set = iso_dict['rg']
+#        region_intersection = iso_set.intersection(region_set)
+#        if region_intersection:
+#            iso_set = region_intersection
+
+        # for now, don't bother looking at geography; we want to have as high recall as possible.
         return iso_set, NE_dict
 
                     
     def _identify(self, tokens):
-        '''Takes a list of tokens, a datatype, and a nested dictionary datastore
-        and traverses the datastore token by token to find language, country, or
-        region names in the list of tokens.  Returns a list of ISOs identified
-        from the language, country or region names found.
+        '''For a list of tokens, goes through the tree and returns the longest
+        language, country or region name it can find, along the item_type, and
+        the associated list of ISO 639 codes.
         '''
-        iso_lists = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
-        NE_lists = {'sn':[], 'wn':[], 'cn':[], 'rg':[]}
-        NE = ''
+        type_isos = {}
+        final_NE = ''
+        curr_NE = ''
         ending = "<<END>>"
         node = self.tree
         i = 0 # a counter
         while i<len(tokens):
             if ending in node:
-                for datatype in node[ending]:
-                    if datatype in iso_lists:
-                        iso_lists[datatype] += node[ending][datatype]
-                        NE_lists[datatype].append(NE.strip())
+                final_NE = curr_NE
+                curr_NE = ''
+                type_isos = node[ending]
             if tokens[i] in node:
                 node = node[tokens[i]]
-                NE += ' '+tokens[i]
+                curr_NE += ' '+tokens[i]
             else:
                 i += 1
                 break
             i += 1
         if ending in node and i>=len(tokens): # checks the last word
-            for datatype in node[ending]:
-                iso_lists[datatype] += node[ending][datatype]
-                NE_lists[datatype].append(NE.strip())
-        return iso_lists, NE_lists
+            curr_NE = ''
+            final_NE = curr_NE
+            type_isos = node[ending]
+        return final_NE, type_isos
     
     def train(self, datafile):
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
