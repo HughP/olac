@@ -7,7 +7,7 @@ Created on Jul 8, 2009
 Compares iso639Classifier results to a gold standard and prints out precision
 and recall numbers.
 
-Usage: python iso639_classifier_results.py gold_standard classifier_output > results
+Usage: python iso639_evaluator.py gold_standard classifier_output > results
 '''
 
 import sys
@@ -45,7 +45,7 @@ def compare_classification(gold_standard, test_classification):
 
 if __name__=="__main__":
     if len(sys.argv)!=3:
-        print "Usage: python iso639_classifier_results.py gold_standard classifier_output > results"
+        print "Usage: python iso639_evaluator.py gold_standard classifier_output > results"
         sys.exit(1)
     
     results = compare_classification(sys.argv[1], sys.argv[2])

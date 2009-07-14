@@ -15,7 +15,7 @@ import os
 import pickle
 import operator
 from nltk import *
-from util import check_file
+from util import *
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
@@ -44,6 +44,26 @@ class iso639Classifier:
         '''
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
         self.country_lang = {} # iso3166 -> list of iso639 codes
+        self.spaces = re.compile(r'\s+')
+        
+    def classify_records(self, debug, records, outstream):
+        '''Classifies a list of records and prints the results to outstream.'''
+        for record in records:
+            title = self.spaces.sub(' ',get_or_none(record, 'title'))
+            subject = self.spaces.sub(' ',get_or_none(record, 'subject'))
+            descr = self.spaces.sub(' ',get_or_none(record, 'description'))
+            bag_of_words = title + ' ' + subject + ' ' + descr
+
+            iso_results, NE_results = self.classify(bag_of_words)
+            print>>outstream, '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
+            if debug:
+                print>>outstream, '# subject: ' + subject
+                print>>outstream, '# description: ' + descr
+                for item_type in NE_results:
+                    if NE_results[item_type]:
+                        for NE in NE_results[item_type]:
+                            print>>outstream, "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[item_type][NE])+']' 
+                print>>outstream, "#--------------------------------------------------"
 
     def classify(self, text):
         '''For a string of text, uses _identify to identify language, country
@@ -63,11 +83,11 @@ class iso639Classifier:
                     i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
                     for type in iso_types:
                         if type=='cn':
-                            iso_list = reduce(operator.add,[self.country_lang[j] for j in iso_types[type]])
+                            isos = reduce(operator.add,[self.country_lang[j] for j in iso_types[type]])
                         else:
-                            iso_list = iso_types[type]
-                        iso_dict[type].update(iso_list)
-                        NE_dict[type][NE] = iso_list
+                            isos = iso_types[type]
+                        iso_dict[type].update(isos)
+                        NE_dict[type][NE] = isos
             i += 1
         
         iso_set = iso_dict['sn'].union(iso_dict['wn'])
@@ -107,9 +127,9 @@ class iso639Classifier:
                 i += 1
                 break
             i += 1
-        if ending in node and i>=len(tokens): # checks the last word
-            curr_NE = ''
+        if ending in node and i>len(tokens): # checks the last word
             final_NE = curr_NE
+            curr_NE = ''
             type_isos = node[ending]
         return final_NE, type_isos
     
@@ -122,9 +142,9 @@ class iso639Classifier:
             iso, item_type, item = line.strip().split('\t')
             if item_type=="cc":
                 try:
-                    self.country_lang[item].append(iso)
+                    self.country_lang[item].add(iso)
                 except KeyError:
-                    self.country_lang[item] = [iso]
+                    self.country_lang[item] = set([iso])
             else:
                 self._add_item(wordpunct_tokenize(item.strip()), self.tree, item_type, iso)
     
@@ -138,9 +158,9 @@ class iso639Classifier:
             if ending not in node:
                 node[ending] = {}
             try:
-                node[ending][item_type].append(iso)
+                node[ending][item_type].add(iso)
             except KeyError:
-                node[ending][item_type] = [iso]
+                node[ending][item_type] = set([iso])
         else:
             if tokens[0] not in node:
                 node[tokens[0]] = {}

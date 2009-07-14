@@ -18,6 +18,7 @@ import sys
 import pickle
 from optparse import OptionParser
 from tabdbreader2 import *
+from xmlreader import *
 from iso639_trainer import *
 from util import *
 
@@ -35,35 +36,14 @@ if len(args)<2:
 # Loads classifier and initializes corpus reader
 classifier = pickle.load(open(args[0],'rb'))
 
-reader = TabDBCorpusReader('.', '.*db\.tab')
+if args[1][-4:]!='.xml':
+    reader = TabDBCorpusReader('.', '.*db\.tab')
+else:
+    reader = XMLCorpusReader('.','.*\.xml')
 olac_records = reader.records(args[1])
 
 # Classifies each record
 if options.num:
     olac_records = olac_records[:options.num]
-for record in olac_records:
-    bag_of_words = ''
-    try:
-        bag_of_words += record['title']
-    except KeyError:
-        pass
-    try:
-        bag_of_words += ' '+record['subject']
-    except KeyError:
-        pass
-    try:
-        bag_of_words += ' '+record['description']
-    except KeyError:
-        pass
-    
-    
-    iso_results, NE_results = classifier.classify(bag_of_words)
-    print '\t'.join([record['Oai_ID'], ' '.join(iso_results), get_or_none(record,'title')])
-    if options.debug:
-        print '# subject: ' + get_or_none(record,'subject')
-        print '# description: ' + get_or_none(record,'description')
-        for item_type in NE_results:
-            if NE_results[item_type]:
-                for NE in NE_results[item_type]:
-                    print "# " + item_type + "\t" + NE + "\t" + ' '.join(NE_results[item_type][NE]) 
-        print "#--------------------------------------------------"
+
+classifier.classify_records(options.debug, olac_records, sys.stdout)
