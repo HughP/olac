@@ -107,7 +107,8 @@ class iso639Classifier:
     def _identify(self, tokens):
         '''For a list of tokens, goes through the tree and returns the longest
         language, country or region name it can find, along the item_type, and
-        the associated list of ISO 639 codes.
+        the associated list of ISO 639 codes.  Normalizes case, becaues the
+		data stored in the tree is all lower case.
         '''
         type_isos = {}
         final_NE = ''
@@ -120,9 +121,10 @@ class iso639Classifier:
                 final_NE = curr_NE
                 curr_NE = ''
                 type_isos = node[ending]
-            if tokens[i] in node:
-                node = node[tokens[i]]
-                curr_NE += ' '+tokens[i]
+            token_i = tokens[i].lower()
+            if token_i in node:
+                node = node[token_i]
+                curr_NE += ' '+token_i
             else:
                 i += 1
                 break
@@ -151,7 +153,8 @@ class iso639Classifier:
     def _add_item(self, tokens, node, item_type, iso):
         '''Recursive method for adding item_type:iso to one of the nested data
         dictionaries.  If there are more tokens left, keep descending into the
-        dictionary.  Otherwise, enter <<END>> -> { item_type:iso }.
+        dictionary.  Otherwise, enter <<END>> -> { item_type:iso }.  Normalizes
+		case.
         '''
         if not tokens:
             ending = "<<END>>"
@@ -162,6 +165,7 @@ class iso639Classifier:
             except KeyError:
                 node[ending][item_type] = set([iso])
         else:
+            tokens[0] = tokens[0].lower()
             if tokens[0] not in node:
                 node[tokens[0]] = {}
             self._add_item(tokens[1:], node[tokens[0]], item_type, iso)
