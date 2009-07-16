@@ -48,7 +48,7 @@ class XMLCorpusReader(CorpusReader):
     def records(self, fileids=None):
         if fileids is None: fileids = self._fileids
         elif isinstance(fileids, basestring): fileids = [fileids]
-        return concat([XMLCorpusView(fileid, encoding=enc)
+        return concat([XMLCorpusView(fileid, encoding='utf-8')
                        for (fileid, enc) in self.abspaths(fileids, True)])
 
 class XMLCorpusView(StreamBackedCorpusView):
