@@ -14,6 +14,7 @@ import sys
 import os
 import pickle
 import operator
+import codecs
 from nltk import *
 from util import *
 
@@ -49,9 +50,9 @@ class iso639Classifier:
     def classify_records(self, debug, records, outstream):
         '''Classifies a list of records and prints the results to outstream.'''
         for record in records:
-            title = self.spaces.sub(' ',get_or_none(record, 'title'))
-            subject = self.spaces.sub(' ',get_or_none(record, 'subject'))
-            descr = self.spaces.sub(' ',get_or_none(record, 'description'))
+            title = self.spaces.sub(' ',get_or_none(record, 'title')).encode('ascii','ignore')
+            subject = self.spaces.sub(' ',get_or_none(record, 'subject')).encode('ascii','ignore')
+            descr = self.spaces.sub(' ',get_or_none(record, 'description')).encode('ascii','ignore')
             bag_of_words = title + ' ' + subject + ' ' + descr
 
             iso_results, NE_results = self.classify(bag_of_words)
@@ -121,7 +122,7 @@ class iso639Classifier:
                 final_NE = curr_NE
                 curr_NE = ''
                 type_isos = node[ending]
-            token_i = tokens[i].lower()
+            token_i = tokens[i].lower().encode('ascii','ignore')
             if token_i in node:
                 node = node[token_i]
                 curr_NE += ' '+token_i
@@ -139,9 +140,9 @@ class iso639Classifier:
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
         and loads data into the classifier dictionaries.  
         '''
-        data = open(datafile).readlines()
+        data = codecs.open(datafile, encoding='utf-8').readlines()
         for line in data:
-            iso, item_type, item = line.strip().split('\t')
+            iso, item_type, item = [i.encode('ascii','ignore') for i in line.strip().split('\t')]
             if item_type=="cc":
                 try:
                     self.country_lang[item].add(iso)
