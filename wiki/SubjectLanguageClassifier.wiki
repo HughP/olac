@@ -82,7 +82,6 @@ The basic idea is that when applying the knowledge from the training data to a m
   * Lang = the vector of weights for language codes following identification of language names in the metadata
   * Country = the vector of weights for language codes following identification of country names (and codes) in the metadata
   * Region = the vector of weights for language codes following identification of region names in the metadata
-  *
 
 The classifier then depends on the definition of a "select" function which selects the most likely language codes out of the resulting vector. The following is a basic schema for the classifier logic, where '+' and 'x' represent arithmetic addition and multiplication of the weights of corresponding language codes in the two operand vectors to produce a new result vector, and 'a' and 'b' represent constant multipliers in the range of 0 to 1 which control the relative contribution of country and region clues. Based on the assumption that we never want to return a non-zero for a code that is not supported by the presence of a corresponding language name, the following 4 schemas are possible with the three sets above:
 
@@ -93,9 +92,18 @@ The use of multiplication serves to cancel out the evidence rendered by a partic
 Weighting could come from any or all of the following sources:
 
   * Weighting by the type of information. That is, more weight could be initially given a strong language name than a weak language name (see page on [iso639_trainerDatafileFormat training data format]). 
-  * Weighting by the length of match.  That is, more weight could be given to a three-word name match than to a two-word match than to a single-word match.
+  * Weighting by the length of match.  That is, more weight could be given to a three-word name match than to a two-word match than to a single-word match. Or, weight could be assigned in proportion to the total string length of the matched name.
   * Weighting by the number of occurrences.  That is, every time the same name in encountered again, it could add to the weight for its associated codes.
   * Weighting by the source fields. That is, a language name found in a title or subject could be given more weight than one found in a description (since, for instance, an abstract could make reference to languages that give a point of reference but which the resource is not really about.) Alternatively, the description element could be treated by giving names near the beginning of the description more weight than names that are well into a long description.
 
 
 = Integration with harvester =
+
+Currently, we anticipate three contexts in which the subject language classifier will be applied:
+
+  # Within the OLAC Aggregator to see if we can identify any subject languages for records that are lacking a coded subject language
+  # Within the OAI harvester to see if we can identify records from a general OAI data provider that have a subject language
+  # Within the MARC-to-OLAC crosswalk to see if we can identify any subject languages for records that lack a coded subject language after the crosswalking step
+
+To support these applications, we will need for the classifier to be a Python function with inputs as the contents of the relevant metadata fields and output as the language codes that score above the threshold value.
+
