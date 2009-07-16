@@ -23,5 +23,6 @@
     
     <xsl:template match="@from" />
     <xsl:template match="@no_code" />
+    <xsl:template match="@rule" />
     
 </xsl:stylesheet>
