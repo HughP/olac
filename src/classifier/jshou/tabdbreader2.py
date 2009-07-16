@@ -49,7 +49,7 @@ class TabDBCorpusReader(CorpusReader):
     def records(self, fileids=None):
         if fileids is None: fileids = self._fileids
         elif isinstance(fileids, basestring): fileids = [fileids]
-        return concat([TabDBCorpusView(fileid, encoding=enc)
+        return concat([TabDBCorpusView(fileid, encoding='utf-8')
                        for (fileid, enc) in self.abspaths(fileids, True)])
 
 class TabDBCorpusView(StreamBackedCorpusView):
@@ -90,7 +90,7 @@ class TabDBCorpusView(StreamBackedCorpusView):
             # separate them.
             if not (tag_name=='subject' and type=='language'):    
                 if tag_name in record:
-                    content = record[tag_name] + '\n' + content
+                    content = record[tag_name] + ' \n ' + content
                 record[tag_name] = content
             elif type=='language':
                 if 'iso639' in record:
