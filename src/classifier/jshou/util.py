@@ -1,3 +1,4 @@
+# coding=utf-8
 '''A compilation of a couple functions that are used often.
 Created on Jul 8, 2009
 
@@ -5,6 +6,7 @@ Created on Jul 8, 2009
 '''
 import sys
 import os
+import unicodedata
 
 def check_file(filename):
     '''Checks to see if a file exists.  Asks for permission to overwrite if
@@ -26,3 +28,7 @@ def get_or_none(record, key):
         return record[key]
     except KeyError:
         return ''
+
+def remove_diacritic(input):
+    input = input.replace(u'’',u"'")
+    return unicodedata.normalize('NFKD',input).encode('ascii','ignore')
