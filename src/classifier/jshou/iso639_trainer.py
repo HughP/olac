@@ -1,3 +1,4 @@
+# coding=utf-8
 '''Reads in training data and outputs a pickled ISO 639 classifier
 
 Created on Jul 6, 2009
@@ -46,13 +47,14 @@ class iso639Classifier:
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
         self.country_lang = {} # iso3166 -> list of iso639 codes
         self.spaces = re.compile(r'\s+')
+        self.first_chars = '‡!’/'
         
     def classify_records(self, debug, records, outstream):
         '''Classifies a list of records and prints the results to outstream.'''
         for record in records:
-            title = self.spaces.sub(' ',get_or_none(record, 'title')).encode('ascii','ignore')
-            subject = self.spaces.sub(' ',get_or_none(record, 'subject')).encode('ascii','ignore')
-            descr = self.spaces.sub(' ',get_or_none(record, 'description')).encode('ascii','ignore')
+            title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
+            subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
+            descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
             bag_of_words = title + ' ' + subject + ' ' + descr
 
             iso_results, NE_results = self.classify(bag_of_words)
@@ -78,7 +80,8 @@ class iso639Classifier:
         iso_dict = {'sn':set(), 'wn':set(), 'cn':set(), 'rg':set()}
         i = 0
         while i<len(tokens):
-            if tokens[i][0].isupper():
+            first_l = tokens[i][0]
+            if first_l.isupper() or first_l in self.first_chars:
                 NE, iso_types = self._identify(tokens[i:])
                 if NE:
                     i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
@@ -122,7 +125,7 @@ class iso639Classifier:
                 final_NE = curr_NE
                 curr_NE = ''
                 type_isos = node[ending]
-            token_i = tokens[i].lower().encode('ascii','ignore')
+            token_i = remove_diacritic(tokens[i].lower())
             if token_i in node:
                 node = node[token_i]
                 curr_NE += ' '+token_i
@@ -142,7 +145,7 @@ class iso639Classifier:
         '''
         data = codecs.open(datafile, encoding='utf-8').readlines()
         for line in data:
-            iso, item_type, item = [i.encode('ascii','ignore') for i in line.strip().split('\t')]
+            iso, item_type, item = [remove_diacritic(i) for i in line.strip().split('\t')]
             if item_type=="cc":
                 try:
                     self.country_lang[item].add(iso)
