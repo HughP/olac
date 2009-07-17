@@ -1,9 +1,10 @@
 """XMLCorpusReader
 Corpus readers for the OLAC XML dumps.  The corpus reader scans through the file
-and uses an XML parser to collect all of the elements for a given item together,
-returning them as a single "record".  A record is a dictionary with two special
-keys (Archive_ID and Item_ID) identifying the record item, along with keys for
-the individual elements in the table.  E.g.:
+and parses the XML to collect all of the elements for a given item together,
+returning them as a single "record".  Assumes no blank lines in the file. A
+record is a dictionary with two special keys (Archive_ID and Item_ID)
+identifying the record item, along with keys for the individual elements in the
+table.  E.g.:
 
     >>> reader = XMLCorpusReader('oai_classifier_trn', '.*\.xml')
     >>> olac_records = reader.records('olac_display.xml')
