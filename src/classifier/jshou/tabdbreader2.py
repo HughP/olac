@@ -49,7 +49,7 @@ class TabDBCorpusReader(CorpusReader):
     def records(self, fileids=None):
         if fileids is None: fileids = self._fileids
         elif isinstance(fileids, basestring): fileids = [fileids]
-        return concat([TabDBCorpusView(fileid, encoding='utf-8')
+        return concat([TabDBCorpusView(fileid,encoding=enc)
                        for (fileid, enc) in self.abspaths(fileids, True)])
 
 class TabDBCorpusView(StreamBackedCorpusView):
@@ -70,7 +70,7 @@ class TabDBCorpusView(StreamBackedCorpusView):
         record = {}
         while True:
             pos = stream.tell()
-            line = stream.readline()
+            line = stream.readline().decode('utf-8')
             if not line.strip(): break
             fieldvals = line.rstrip('\n').split('\t')
             (archive_id, item_id, elt_id, oai_id, tag_name,
