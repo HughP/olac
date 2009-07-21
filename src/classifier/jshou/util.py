@@ -6,9 +6,10 @@ Created on Jul 8, 2009
 '''
 import sys
 import os
+import codecs
 import unicodedata
 
-def check_file(filename):
+def check_file(filename, mode, utf=False):
     '''Checks to see if a file exists.  Asks for permission to overwrite if
     it does.  Returns the file ready for writing if permission is given, or
     or if the file does not already exist.
@@ -19,9 +20,15 @@ def check_file(filename):
             sys.exit(2)
         else:
             print "Overwriting..."
-            return open(filename,'wb')
+            if utf:
+                return codecs.open(filename, mode, encoding='utf-8')
+            else:
+                return open(filename, mode)
     else:
-        return open(filename,'wb')
+        if utf:
+            return codecs.open(filename, mode, encoding='utf-8')
+        else:
+            return open(filename, mode)
 
 def get_or_none(record, key):
     try:
@@ -31,4 +38,4 @@ def get_or_none(record, key):
 
 def remove_diacritic(input):
     input = input.replace(u'’',u"'")
-    return unicodedata.normalize('NFKD',input).encode('ascii','ignore')
+    return unicodedata.normalize('NFKD',input) # .encode('ascii','ignore')
