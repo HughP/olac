@@ -30,6 +30,7 @@ iso_name_regex = re.compile(r'(?<=cfm\?code=)([a-z]{3})\s*\">(([^\s]+\s)*[^\s]+)
 linguist_list_file = open(sys.argv[1]).read()
 iso_names = iso_name_regex.findall(linguist_list_file)
 
+print "# Linguist List data"
 for iso_name in iso_names:
     iso, name = iso_name[0], iso_name[1]
     print iso + "\tsn" + "\t" + name

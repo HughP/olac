@@ -54,6 +54,7 @@ class EthnologueXMLParser:
         
         self.spaces = re.compile(r'\s+')
         self.region_NE = re.compile(r'([A-Z]\w*\s?)+')
+        self.dialect_split = re.compile(r'\)?, | \(|\).')
         
         self.country_idx = {} # country_name -> country_code
         self.lang_info = {} # iso639 code -> { "sn":"print_name",
@@ -70,7 +71,9 @@ class EthnologueXMLParser:
                      "alternate_names":'',
                      "country_name":'',
                      "country_code":'',
-                     "region":''}
+                     "region":'',
+ #                    "dialects":''
+                     }
 
     def parse(self):
             self.Parser.ParseFile(open(self.xml_file))
@@ -98,6 +101,8 @@ class EthnologueXMLParser:
             self.lang_info[self.curr_iso] = {"sn":self.curr_print_name, "cc":[], "rg":[]}
         elif name=="alternate_names":
             self.lang_info[self.curr_iso]["wn"] = filter(lambda x: x,[i.strip(' "') for i in self.temp[name].split(', ')])
+#        elif name=="dialects":
+#            self.lang_info[self.curr_iso]["wn"] = filter(lambda x: x,[i.strip(' ".') for i in self.dialect_split.split(self.temp[name])])
         elif name=="country_name":
             self.curr_country_name = self.temp[name]
         elif name=="country_code":
@@ -110,6 +115,7 @@ class EthnologueXMLParser:
     
     def print_data(self, outstream):
         '''Prints data that has been processed out in normalized form.'''
+        print>>outstream, "# Ethnologue data"
         for iso in self.lang_info:
             for field in self.lang_info[iso]:
                 if isinstance(self.lang_info[iso][field],list):
