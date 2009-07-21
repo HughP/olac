@@ -15,6 +15,7 @@ import sys
 import os
 import pickle
 import operator
+import optparse
 import codecs
 from nltk import *
 from util import *
@@ -27,7 +28,6 @@ class iso639Classifier:
     train -- reads in a datafile and stores the information.
     _add_item -- Method for adding country, region and language name data to the classifier's training.
     save -- Pickles the classifier to a file.
-    _check_file -- Returns a writable file but asks for overwrite permission if necessary.
     '''
     def __init__(self):
         '''Initializes the four dictionaries that comprise the classifier's
@@ -47,7 +47,7 @@ class iso639Classifier:
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
         self.country_lang = {} # iso3166 -> list of iso639 codes
         self.spaces = re.compile(r'\s+')
-        self.first_chars = '‡!’/'
+        self.first_chars = u'‡!’/'
         
     def classify_records(self, debug, records, outstream):
         '''Classifies a list of records and prints the results to outstream.'''
@@ -145,7 +145,9 @@ class iso639Classifier:
         '''
         data = codecs.open(datafile, encoding='utf-8').readlines()
         for line in data:
-            iso, item_type, item = [remove_diacritic(i) for i in line.strip().split('\t')]
+            if line[0]=='#':
+                continue
+            iso, item_type, item = [remove_diacritic(i) for i in line.rstrip('\n').split('\t')]
             if item_type=="cc":
                 try:
                     self.country_lang[item].add(iso)
@@ -174,18 +176,25 @@ class iso639Classifier:
                 node[tokens[0]] = {}
             self._add_item(tokens[1:], node[tokens[0]], item_type, iso)
     
-    def save(self, filename):
+    def save(self, filename, force):
         '''Checks to see if the file already exists and asks for confirmation to
         overwrite if it does.  Pickles the classifier.
         '''
-        file = check_file(filename)
+        if force:
+            file = open(filename,'wb')
+        else:
+            file = check_file(filename, 'wb')
         pickle.dump(self, file)
 
 if __name__=="__main__":
-    if len(sys.argv)!=3:
-        print "Usage: python iso639_trainer.py datafile classifier.pickle"
+    parser = optparse.OptionParser(usage='python iso639_trainer.py [options] datafile classifier.pickle')
+    parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
+    (options,args) = parser.parse_args()
+
+    if len(args)!=2:
+        parser.print_help()
         sys.exit(1)
-    
+
     iso639c = iso639Classifier()
-    iso639c.train(sys.argv[1])
-    iso639c.save(sys.argv[2])
+    iso639c.train(args[0])
+    iso639c.save(args[1], options.force)
