@@ -49,7 +49,7 @@ class XMLCorpusReader(CorpusReader):
     def records(self, fileids=None):
         if fileids is None: fileids = self._fileids
         elif isinstance(fileids, basestring): fileids = [fileids]
-        return concat([XMLCorpusView(fileid, encoding='utf-8')
+        return concat([XMLCorpusView(fileid, encoding=enc)
                        for (fileid, enc) in self.abspaths(fileids, True)])
 
 class XMLCorpusView(StreamBackedCorpusView):
@@ -64,7 +64,7 @@ class XMLCorpusView(StreamBackedCorpusView):
         started = False
         while True:
             pos = stream.tell()
-            line = stream.readline()
+            line = stream.readline().decode('utf-8')
             if not line.strip():
                 break
             if '<olac:olac>' in line and not started:
@@ -78,7 +78,7 @@ class XMLCorpusView(StreamBackedCorpusView):
             else:
                 if started:
                     while not self.re_endline.search(line):
-                        line += stream.readline()
+                        line += stream.readline().decode('utf-8')
                     elt = self.re_elt.findall(line)[0]
                     content = self.re_content.findall(line)[0]
                     if elt=='subject' and 'xsi:type="olac:language"' in line:
