@@ -23,13 +23,14 @@ from iso639_trainer import *
 from util import *
 
 # Parses arguments and options
-parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pickle input > classifier-output')
+parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pickle input classifier-output')
+parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
 parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prints out the '+\
-                  'language, country and region names that the classifier recognizes.')
+                  'language, country and region names that the classifier recognizes')
 parser.add_option('-n', '--num', type='int', dest='num', default=0)
 (options, args) = parser.parse_args()
     
-if len(args)<2:
+if len(args)<3:
     parser.print_help()
     sys.exit(1)
 
@@ -45,5 +46,8 @@ olac_records = reader.records(args[1])
 # Classifies each record
 if options.num:
     olac_records = olac_records[:options.num]
-
-classifier.classify_records(options.debug, olac_records, sys.stdout)
+if options.force:
+    output = codecs.open(args[2],'w',encoding='utf-8')
+else:
+    output = check_file(args[2],'w',utf=True)
+classifier.classify_records(options.debug, olac_records, output)
