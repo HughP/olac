@@ -27,6 +27,7 @@ parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pic
 parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
 parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prints out the '+\
                   'language, country and region names that the classifier recognizes')
+parser.add_option('-i', '--index', dest='idx', type='int', default=1, help='The index of the classifier function to use.')
 parser.add_option('-n', '--num', type='int', dest='num', default=0)
 (options, args) = parser.parse_args()
     
@@ -50,4 +51,4 @@ if options.force:
     output = codecs.open(args[2],'w',encoding='utf-8')
 else:
     output = check_file(args[2],'w',utf=True)
-classifier.classify_records(options.debug, olac_records, output)
+classifier.classify_records(options.debug, olac_records, output, options.idx-1)
