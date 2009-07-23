@@ -11,6 +11,7 @@ in order to create a gold standard.
 Usage: python create_test_set.py test_set gold_standard  
 '''
 import sys
+from operator import iand
 from tabdbreader2 import *
 from util import check_file
 
@@ -42,8 +43,8 @@ if __name__=="__main__":
         sys.exit(1)
     records, test_set, gold_std = sys.argv[1:]
     
-    test_set = check_file(test_set)
-    gold_std = check_file(gold_std)
+    test_set = check_file(test_set,'w',utf=True)
+    gold_std = check_file(gold_std,'w',utf=True)
     
     reader = TabDBCorpusReader('.', '.*db\.tab')
     olac_records = reader.records(records)
@@ -51,7 +52,9 @@ if __name__=="__main__":
     iso639_records = []
     for record in olac_records:
         if 'iso639' in record:
-            iso639_records.append(record)
+            isos = record['iso639'].split()
+            if isos and reduce(iand, [len(i)==3 and i.islower() for i in isos]): # if it is a list of three letter codes
+                iso639_records.append(record)
     
     print_records(iso639_records,test_set)
     for record in iso639_records:
