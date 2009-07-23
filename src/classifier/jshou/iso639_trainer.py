@@ -19,6 +19,7 @@ import optparse
 import codecs
 from nltk import *
 from util import *
+import classifier_functions
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
@@ -48,8 +49,10 @@ class iso639Classifier:
         self.country_lang = {} # iso3166 -> list of iso639 codes
         self.spaces = re.compile(r'\s+')
         self.first_chars = u'‡!’/'
+        self.stoplist = set(['the','some']) # stoplist of tokens that are too common
+        self.functions = classifier_functions.functions
         
-    def classify_records(self, debug, records, outstream):
+    def classify_records(self, debug, records, outstream, function_idx):
         '''Classifies a list of records and prints the results to outstream.'''
         for record in records:
             title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
@@ -57,7 +60,7 @@ class iso639Classifier:
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
             bag_of_words = title + ' ' + subject + ' ' + descr
 
-            iso_results, NE_results = self.classify(bag_of_words)
+            iso_results, NE_results = self.classify(bag_of_words, function_idx)
             print>>outstream, '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
             if debug:
                 print>>outstream, '# subject: ' + subject
@@ -68,7 +71,7 @@ class iso639Classifier:
                             print>>outstream, "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[item_type][NE])+']' 
                 print>>outstream, "#--------------------------------------------------"
 
-    def classify(self, text):
+    def classify(self, text, function_idx):
         '''For a string of text, uses _identify to identify language, country
         and region names and creates sets of ISO 639 codes for the language,
         country and region names identified.   Returns the intersection of the
@@ -87,7 +90,7 @@ class iso639Classifier:
                     i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
                     for type in iso_types:
                         if type=='cn':
-                            isos = reduce(operator.add,[self.country_lang[j] for j in iso_types[type]])
+                            isos = reduce(set.union,[self.country_lang[j] for j in iso_types[type]])
                         else:
                             isos = iso_types[type]
                         iso_dict[type].update(isos)
@@ -95,17 +98,9 @@ class iso639Classifier:
             i += 1
         
         iso_set = iso_dict['sn'].union(iso_dict['wn'])
-#        country_set = iso_dict['cn']
-#        country_intersection = iso_set.intersection(country_set)
-#        if country_intersection:
-#            iso_set = country_intersection
-#        region_set = iso_dict['rg']
-#        region_intersection = iso_set.intersection(region_set)
-#        if region_intersection:
-#            iso_set = region_intersection
-
-        # for now, don't bother looking at geography; we want to have as high recall as possible.
-        return iso_set, NE_dict
+        country_set = iso_dict['cn']
+        region_set = iso_dict['rg']
+        return self.functions[function_idx](iso_set, country_set, region_set), NE_dict
 
                     
     def _identify(self, tokens):
@@ -114,30 +109,31 @@ class iso639Classifier:
         the associated list of ISO 639 codes.  Normalizes case, becaues the
 		data stored in the tree is all lower case.
         '''
-        type_isos = {}
-        final_NE = ''
-        curr_NE = ''
-        ending = "<<END>>"
-        node = self.tree
-        i = 0 # a counter
-        while i<len(tokens):
-            if ending in node:
-                final_NE = curr_NE
-                curr_NE = ''
-                type_isos = node[ending]
-            token_i = remove_diacritic(tokens[i].lower())
-            if token_i in node:
-                node = node[token_i]
-                curr_NE += ' '+token_i
-            else:
+        token_0 = remove_diacritic(tokens[0].lower())
+        if token_0 in self.tree:
+            type_isos = {}
+            curr_NE = token_0
+            ending = "<<END>>"
+            node = self.tree[token_0]
+            i = 1 # a counter
+            while i<len(tokens):
+                if ending in node:
+                    if curr_NE not in self.stoplist:
+                        type_isos = node[ending]
+                token_i = remove_diacritic(tokens[i].lower())
+                if token_i in node:
+                    node = node[token_i]
+                    curr_NE += ' '+token_i
+                else:
+                    i += 1
+                    break
                 i += 1
-                break
-            i += 1
-        if ending in node and i>len(tokens): # checks the last word
-            final_NE = curr_NE
-            curr_NE = ''
-            type_isos = node[ending]
-        return final_NE, type_isos
+            if ending in node and i>len(tokens): # checks the last word
+                if curr_NE not in self.stoplist:
+                    type_isos = node[ending]
+            return curr_NE, type_isos
+        else:
+            return '',{}
     
     def train(self, datafile):
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
@@ -147,13 +143,20 @@ class iso639Classifier:
         for line in data:
             if line[0]=='#':
                 continue
-            iso, item_type, item = [remove_diacritic(i) for i in line.rstrip('\n').split('\t')]
-            if item_type=="cc":
+            iso, item_type, item = line.rstrip('\n').split('\t')
+            if item_type==u"cc":
                 try:
                     self.country_lang[item].add(iso)
                 except KeyError:
                     self.country_lang[item] = set([iso])
             else:
+                item = remove_diacritic(item.lower())
+                if (item_type=='sn' or item_type=='wn') and '-' in item and ' ' not in item: # prevents Judeo-Iraqi Arabic from being split up
+                    for subitem in item.split('-'):
+                        if len(subitem)>4: # so we don't get Af-Tunni split into Af and Tunni or something
+                            self._add_item(wordpunct_tokenize(subitem.strip()), self.tree, item_type, iso)
+                if "'" in item: # also add version without apostrophe
+                    self._add_item(wordpunct_tokenize(item.strip().replace("'","")), self.tree, item_type, iso)
                 self._add_item(wordpunct_tokenize(item.strip()), self.tree, item_type, iso)
     
     def _add_item(self, tokens, node, item_type, iso):
@@ -171,7 +174,6 @@ class iso639Classifier:
             except KeyError:
                 node[ending][item_type] = set([iso])
         else:
-            tokens[0] = tokens[0].lower()
             if tokens[0] not in node:
                 node[tokens[0]] = {}
             self._add_item(tokens[1:], node[tokens[0]], item_type, iso)
