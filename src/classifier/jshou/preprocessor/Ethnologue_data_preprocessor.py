@@ -53,7 +53,8 @@ class EthnologueXMLParser:
         self.Parser.EndElementHandler = self.handleEndElement
         
         self.spaces = re.compile(r'\s+')
-        self.region_NE = re.compile(r'([A-Z]\w*\s?)+')
+        #self.region_NE = re.compile(r'(([A-Z]\w*\s?)+)')
+        self.region_NE = re.compile(r'(((St\.? )|(Mt\.? ))*([A-Z][^\s,\.\\;:\'\"]*)(( of| de)? [A-Z][^\s,\.\\;:\'\"]*)*)')
         self.dialect_split = re.compile(r'\)?, | \(|\).')
         
         self.country_idx = {} # country_name -> country_code
@@ -72,8 +73,18 @@ class EthnologueXMLParser:
                      "country_name":'',
                      "country_code":'',
                      "region":'',
- #                    "dialects":''
+                     "dialects":''
                      }
+
+        self.stoplist = ['North','South','East','West','Northeast','Northwest','Southeast',\
+            'Southwest','Central','Mt','St','The','Far','Both','Along',\
+            'Border','Island','Islands','Upper','Lowlands','Several','Center',\
+            'Ethnic','At','Middle','Northern','Southern','Eastern','Western',\
+            'Northeastern','Northwestern','Southeastern','Southwestern','Over',\
+            'Just','Refugees','Villages','L1','No','On','L2','All','Centered',\
+            'Inland','Towns','River','Between','Overlaps','Small','Lakes',\
+            'Used', 'Song Mao. Possibly']
+
 
     def parse(self):
             self.Parser.ParseFile(open(self.xml_file))
@@ -101,15 +112,18 @@ class EthnologueXMLParser:
             self.lang_info[self.curr_iso] = {"sn":self.curr_print_name, "cc":[], "rg":[]}
         elif name=="alternate_names":
             self.lang_info[self.curr_iso]["wn"] = filter(lambda x: x,[i.strip(' "') for i in self.temp[name].split(', ')])
-#        elif name=="dialects":
-#            self.lang_info[self.curr_iso]["wn"] = filter(lambda x: x,[i.strip(' ".') for i in self.dialect_split.split(self.temp[name])])
+        elif name=="dialects":
+            dialects = filter(lambda x: x,[i.strip(' ".') for i in self.dialect_split.split(self.temp[name])])
+            if "wn" in self.lang_info[self.curr_iso]:
+                dialects += self.lang_info[self.curr_iso]["wn"]
+            self.lang_info[self.curr_iso]["wn"] = dialects
         elif name=="country_name":
             self.curr_country_name = self.temp[name]
         elif name=="country_code":
             self.country_idx[self.curr_country_name] = self.temp[name]
             self.lang_info[self.curr_iso]["cc"].append(self.temp[name])
         elif name=="region":
-            self.lang_info[self.curr_iso]["rg"] += [i.strip(' "') for i in self.region_NE.findall(self.temp[name])]
+            self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist,[i[0].strip(' "') for i in self.region_NE.findall(self.temp[name])])
         self.temp[name] = ''
         self.path.pop()
     
