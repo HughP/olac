@@ -23,13 +23,13 @@ if options.ten:
         print classifier_functions.function_labels[i-1]+'\n'
         print "--CLASSIFYING TEST--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle iso639_test2.tab iso639_test2.classified' % (i-1))
+        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle iso639_test2.tab iso639_test2.classified' % i)
         print "--EVALUATING TEST--"
         sys.stdout.flush()
         os.system('python iso639_evaluator.py iso639_test2.gs iso639_test2.classified')
         print "--CLASSIFYING OLAC DISPLAY--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % (i-1))
+        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % i)
         print "--EVALUATING OLAC DISPLAY--"
         sys.stdout.flush()
         os.system('python iso639_evaluator.py olac_display_subset.gs olac_display_subset.classified')
