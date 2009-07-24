@@ -143,7 +143,7 @@ class iso639Classifier:
         for line in data:
             if line[0]=='#':
                 continue
-            iso, item_type, item = line.rstrip('\n').split('\t')
+            iso, item_type, item = line.rstrip('\r\n').split('\t')
             if item_type==u"cc":
                 try:
                     self.country_lang[item].add(iso)
