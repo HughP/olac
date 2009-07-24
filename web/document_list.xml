@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="document_headers.xsl" type="text/xsl"?>
 
-<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Gary Simons (SIL International) -->
 <!-- OLAC Document List
-       Last updated: 17 December 2008 
+       Last updated: 23 July 2009 
 
 This list must now maintain latest dates, just like the MAKEFILEs.
 -->
@@ -31,8 +30,8 @@ This list must now maintain latest dates, just like the MAKEFILEs.
       <document href="REC/role-20060406.xml"/>
       <document href="REC/type-20060406.xml"/>
 
-      <document href="NOTE/metrics-20090218.xml"/>
-      <document href="NOTE/olac_display-20060515.xml"/>
+      <document href="NOTE/metrics-20090629.xml"/>
+      <document href="NOTE/olac_display-20090723.xml"/>
       <document href="NOTE/query-20030729.xml"/>
       <document href="NOTE/third-party-extensions-20021204.xml"/>
       <document href="NOTE/toolbox-20060928.xml"/>

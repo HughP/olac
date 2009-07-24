@@ -8,8 +8,8 @@
        <!-- Promoted to Adopted on 2008-12-19 -->
         <title>OLAC Metadata Metrics</title>
         <baseName>metrics</baseName>
-        <issued>20090218</issued>
-       <previousIssued>20081016</previousIssued>
+        <issued>20090629</issued>
+        <previousIssued>20090218</previousIssued>
         <abstract>
             <p>Explains the metrics that are implemented on the OLAC web site for summarizing the
                 coverage of the participating archives and for evaluating the quality of their
@@ -20,11 +20,11 @@
         <copyright>2009 Gary Simons (SIL International and Graduate Institute of Applied
             Linguistics)</copyright>
         <changes>
-            <p>The original implementation flagged a private use
-               language code in the range <tt>qaa</tt> to <tt>qtz</tt> as a "Bad
-               Langauge Code" error. This is now treated as a "Private
-               Use Language Code" warning as described in the
-               section on <xref>Integrity checks</xref>.</p>
+            <p>The original implementation deducted one star from the
+                overall rating for the existence of any error. The
+                revised implementation weights the deduction by the
+                square root of the error rate as explained below under
+                <xref>Overall rating</xref>.</p>
         </changes>
     </header>
     <body>
@@ -193,27 +193,47 @@
         </section>
         <section>
             <heading>Overall rating</heading>
-            <p>The overall metadata quality is summarized graphically as a rating of 0 to 5 stars.
-                The overall rating is computed as a base rating minus a penalty if the metadata are
-                known to contain integrity violations.</p>
-            <p>The base rating is computed from the average of <xref>The quality score</xref> for
-                all records in the repository, The average quality score ranges from 0 to 10 and is
-                converted to stars by dividing by 2 and rounding to the nearest whole number. Thus,
-                an average quality score of 9 or higher converts to 5 stars, scores in the range of
-                7 to 9 convert to 4 stars, and so on.</p>
-            <p>In the absence of known integrity problems, the overall rating is reported as the
-                base rating. If integrity problems have been detected, one star is subtracted
-                from the base rating. The metrics report for the archive with identifier
-                   <i>archive-id</i> is found at:</p>
-           <eg>http://www.language-archives.org/metrics/archive-id</eg>
-           <p>If the reported number of "Known Integrity Problems" is greater
-              than 0, then one star has been deducted from the overall
-              rating. When the number is 0, but formatted as a link to
-              the integrity report, no deduction has been made but
-              there are warnings of potential problems. The next section describes
-                the integrity violations and warnings that are detected
-                automatically:</p>
-              </section>
+            <p>The overall metadata quality is summarized graphically
+                as a rating of 0 to 5 stars. The overall rating is
+                computed as a base rating minus a penalty if the
+                metadata are known to contain integrity
+                violations.</p>
+            <p>The base rating is computed from the average of
+                    <xref>The quality score</xref> for all records in
+                the repository. The average quality score (which ranges from
+                0 to 10) is converted to the base rating by dividing by 2 and
+                rounding to the nearest whole number. Thus, an average
+                quality score of 9 or higher converts to 5 stars,
+                scores in the range of 7 to 9 convert to 4 stars, and
+                so on.</p>
+            <p>In the absence of known integrity problems, the overall
+                rating is reported as the base rating. If integrity
+                problems have been detected, then a penalty is
+                deducted from the base rating before rounding to
+                the nearest whole number. The deduction is the square
+                root of the number of integrity errors per record. Thus, if
+                the repository averages one error per record, the
+                deduction is one star; if 4 errors per record, then 2
+                stars; if 9 errors per record, then 3 stars, and so on. 
+                Conversely, if there is one error every 4 records,
+                then the deduction is .5 stars; if one per 9 records,
+                then .33 stars, and so on. The formula for the overall
+                rating as a whole number of stars is therefore:
+            </p>
+            <eg>rating = round( (average_quality / 2) - (errors / records)^0.5 )</eg>
+            <p>The number of errors  for the
+                repository with identifier <i>archive-id</i> is found
+                in its metrics report at:</p>
+            <eg>http://www.language-archives.org/metrics/archive-id</eg>
+            <p>If the reported number of "Known Integrity Problems" is
+                greater than 0, then a deduction has been made in
+                assessing the overall rating. When the number is 0, but
+                formatted as a link to the integrity report, no
+                deduction has been made but there are warnings of
+                potential problems. The next section describes the
+                integrity violations and warnings that are detected
+                automatically. </p>
+        </section>
        
        <section>
           <heading>Integrity checks</heading>
