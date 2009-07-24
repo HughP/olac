@@ -103,7 +103,6 @@ Currently, we anticipate three contexts in which the subject language classifier
 
   # Within the OLAC Aggregator to see if we can identify any subject languages for records that are lacking a coded subject language
   # Within the OAI harvester to see if we can identify records from a general OAI data provider that have a subject language
-  # Within the MARC-to-OLAC crosswalk to see if we can identify any subject languages for records that lack a coded subject language after the crosswalking step
+  # Within the MARC-to-OLAC crosswalk to see if we can identify any subject languages for records that still lack a coded subject language after the crosswalking step
 
-To support these applications, we will need for the classifier to be a Python function with inputs as the contents of the relevant metadata fields and output as the language codes that score above the threshold value.
-
+To support these applications, we will need for the classifier to be a Python function that can be called from the harvesters and the crosswalk. For inputs it would have the contents of the relevant metadata fields from the record being classified. For the output it would have the possible language codes with their assigned weight. Alternatively, the weight threshold could be an input and the output just a set of codes that are above the threshold level.
