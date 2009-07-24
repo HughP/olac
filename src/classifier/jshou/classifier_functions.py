@@ -74,40 +74,40 @@ def f7(lang, country, region):
 def f8(lang, country, region):
     '''8. Lang ^ Country ^ Region, Lang ^ Country, Lang ^ Region, Lang'''
     intersect = lang.intersection(country).intersection(region)
-    if intersection:
+    if intersect:
         return intersect
     else:
-        intersection = lang.intersection(country)
-        if intersection:
-            return intersection
+        intersect = lang.intersection(country)
+        if intersect:
+            return intersect
         else:
-            intersection = lang.intersection(region)
-            if intersection:
-                return intersection
+            intersect = lang.intersection(region)
+            if intersect:
+                return intersect
             else:
                 return lang
 
 def f9(lang, country, region):
     '''9. Lang ^ Country ^ Region, Lang ^ Region, Lang ^ Country, Lang'''
     intersect = lang.intersection(country).intersection(region)
-    if intersection:
+    if intersect:
         return intersect
     else:
-        intersection = lang.intersection(region)
-        if intersection:
-            return intersection
+        intersect = lang.intersection(region)
+        if intersect:
+            return intersect
         else:
-            intersection = lang.intersection(country)
-            if intersection:
-                return intersection
+            intersect = lang.intersection(country)
+            if intersect:
+                return intersect
             else:
                 return lang
 
 def f10(lang, country, region):
     '''10. Lang ^ (Country v Region), Lang'''
-    intersection = lang.intersection(country.union(region))
-    if intersection:
-        return intersection
+    intersect = lang.intersection(country.union(region))
+    if intersect:
+        return intersect
     else:
         return lang
 
