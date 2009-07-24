@@ -4,11 +4,11 @@
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc>
 	<header>
-		<status code="draft" type="informational"/>
+		<status code="proposed" type="informational"/>
 		<title>Specifications for the OLAC metadata display format and
 			the OLAC-to-OAI_DC crosswalk</title>
 		<baseName>olac_display</baseName>
-		<issued>20090629</issued>
+		<issued>20090723</issued>
 		<previousIssued>20060515</previousIssued>
 		<abstract>
 			<p>In addition to the <tt>olac</tt> metadata format, the
