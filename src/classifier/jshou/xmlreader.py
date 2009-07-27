@@ -58,6 +58,7 @@ class XMLCorpusView(StreamBackedCorpusView):
         self.re_elt = re.compile(r'</dc.*?:(\w+)>')
         self.re_content = re.compile(r'>(.*?)<', re.S)
         self.re_endline = re.compile(r'</.*?>\s*?(\n|$)', re.M|re.S)
+        self.re_iso_attr = re.compile(r'(?<=olac:code=\")\w{3}(?=\")')
 
     def read_block(self, stream):
         record = {}
@@ -82,6 +83,8 @@ class XMLCorpusView(StreamBackedCorpusView):
                     elt = self.re_elt.findall(line)[0]
                     content = self.re_content.findall(line)[0]
                     if elt=='subject' and 'xsi:type="olac:language"' in line:
+                        if u'olac:code=' in line:
+                            content = self.re_iso_attr.findall(line)[0]
                         if 'iso639' in record:
                             content = record['iso639'] + ' ' + content
                         record['iso639'] = content
