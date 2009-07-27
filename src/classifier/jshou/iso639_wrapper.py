@@ -16,17 +16,20 @@ from util import *
 
 parser = optparse.OptionParser()
 parser.add_option('-t', '--ten', action='store_true', dest='ten', help='Run classifier over all 10 functions and print the performance results')
+parser.add_option('-f', '--file', dest='file', default='iso639_test2.tab', help='Specifies name of file to be classified.')
 (options, args) = parser.parse_args()
+
+header = options.file.split('.')[0]
 
 if options.ten:
     for i in range(1,11):
         print classifier_functions.function_labels[i-1]+'\n'
         print "--CLASSIFYING TEST--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle iso639_test2.tab iso639_test2.classified' % i)
+        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle %s %s.classified' % (i, options.file, header))
         print "--EVALUATING TEST--"
         sys.stdout.flush()
-        os.system('python iso639_evaluator.py iso639_test2.gs iso639_test2.classified')
+        os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
         print "--CLASSIFYING OLAC DISPLAY--"
         sys.stdout.flush()
         os.system('python iso639Classifier.py -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % i)
@@ -40,10 +43,10 @@ else:
     os.system('python iso639_trainer.py -f preprocessor/training_data.tab classifier.pickle')
     print "--CLASSIFYING TEST--"
     sys.stdout.flush()
-    os.system('python iso639Classifier.py -d -f classifier.pickle iso639_test2.tab iso639_test2.classified')
+    os.system('python iso639Classifier.py -d -f classifier.pickle %s %s.classified' % (options.file, header))
     print "--EVALUATING TEST--"
     sys.stdout.flush()
-    os.system('python iso639_evaluator.py iso639_test2.gs iso639_test2.classified')
+    os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
     print "--CLASSIFYING OLAC DISPLAY--"
     sys.stdout.flush()
     os.system('python iso639Classifier.py -d -f classifier.pickle olac_display_subset.xml olac_display_subset.classified')
