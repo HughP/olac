@@ -51,18 +51,29 @@ class iso639Classifier:
         self.first_chars = u'‡!’/'
         self.stoplist = set(['the','some']) # stoplist of tokens that are too common
         self.functions = classifier_functions.functions
+        self.gs = None # if it exists, this is a list of lines from the gold standard
         
-    def classify_records(self, debug, records, outstream, function_idx):
+    def classify_records(self, debug, records, outstream, threshold, function_idx):
         '''Classifies a list of records and prints the results to outstream.'''
+        i = -1
         for record in records:
+            i += 1
             title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
             subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
-            bag_of_words = title + ' ' + subject + ' ' + descr
+            bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
 
-            iso_results, NE_results = self.classify(bag_of_words, function_idx)
+            iso_dict, NE_results = self.classify(bag_of_words, function_idx)
+            iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
+            if iso_dict:
+                top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
+                if top_choice not in iso_results:
+                    iso_results.append(top_choice)
             print>>outstream, '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
             if debug:
+                if self.gs:
+                    print>>outstream, '# gs:', self.gs[i].rstrip().decode('utf-8')
+                print>>outstream, '# isos: ', iso_dict
                 print>>outstream, '# subject: ' + subject
                 print>>outstream, '# description: ' + descr
                 for item_type in NE_results:
@@ -97,12 +108,14 @@ class iso639Classifier:
                         NE_dict[type][NE] = isos
             i += 1
         
-        iso_set = iso_dict['sn'].union(iso_dict['wn'])
-        country_set = iso_dict['cn']
-        region_set = iso_dict['rg']
-        return self.functions[function_idx](iso_set, country_set, region_set), NE_dict
+#       iso_set = iso_dict['sn'].union(iso_dict['wn'])
+#       country_set = iso_dict['cn']
+#       region_set = iso_dict['rg']
+#       return self.functions[function_idx](iso_set, country_set, region_set), NE_dict
+        results = classifier_functions.weighted(NE_dict, 0.3, 0.2)
+        return results, NE_dict
+#       return filter(lambda x: x>0.0, results.keys()), NE_dict
 
-                    
     def _identify(self, tokens):
         '''For a list of tokens, goes through the tree and returns the longest
         language, country or region name it can find, along the item_type, and
