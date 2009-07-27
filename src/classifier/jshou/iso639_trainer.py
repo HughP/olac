@@ -125,10 +125,9 @@ class iso639Classifier:
                     node = node[token_i]
                     curr_NE += ' '+token_i
                 else:
-                    i += 1
                     break
                 i += 1
-            if ending in node and i>len(tokens): # checks the last word
+            if ending in node and i>=len(tokens): # checks the last word
                 if curr_NE not in self.stoplist:
                     type_isos = node[ending]
             return curr_NE, type_isos
