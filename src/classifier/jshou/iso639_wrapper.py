@@ -26,13 +26,13 @@ if options.ten:
         print classifier_functions.function_labels[i-1]+'\n'
         print "--CLASSIFYING TEST--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle %s %s.classified' % (i, options.file, header))
+        os.system('python iso639Classifier.py -g %s -d -f -i %d classifier.pickle %s %s.classified' % (header+'.gs', i, options.file, header))
         print "--EVALUATING TEST--"
         sys.stdout.flush()
         os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
         print "--CLASSIFYING OLAC DISPLAY--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % i)
+        os.system('python iso639Classifier.py -g olac_display_subset.gs -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % i)
         print "--EVALUATING OLAC DISPLAY--"
         sys.stdout.flush()
         os.system('python iso639_evaluator.py olac_display_subset.gs olac_display_subset.classified')
@@ -43,13 +43,13 @@ else:
     os.system('python iso639_trainer.py -f preprocessor/training_data.tab classifier.pickle')
     print "--CLASSIFYING TEST--"
     sys.stdout.flush()
-    os.system('python iso639Classifier.py -d -f classifier.pickle %s %s.classified' % (options.file, header))
+    os.system('python iso639Classifier.py -g %s -d -f classifier.pickle %s %s.classified' % (header+'.gs', options.file, header))
     print "--EVALUATING TEST--"
     sys.stdout.flush()
     os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
     print "--CLASSIFYING OLAC DISPLAY--"
     sys.stdout.flush()
-    os.system('python iso639Classifier.py -d -f classifier.pickle olac_display_subset.xml olac_display_subset.classified')
+    os.system('python iso639Classifier.py -g olac_display_subset.gs -d -f classifier.pickle olac_display_subset.xml olac_display_subset.classified')
     print "--EVALUATING OLAC DISPLAY--"
     sys.stdout.flush()
     os.system('python iso639_evaluator.py olac_display_subset.gs olac_display_subset.classified')
