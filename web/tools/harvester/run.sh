@@ -69,6 +69,11 @@ new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=
 if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f dirty ]; then
     (
         echo
+        echo "Resubmitting google sitemap ..."
+        echo
+        curl -I "http://www.google.com/webmasters/tools/ping?sitemap=http://www.language-archives.org/google-sitemap.xml"
+
+        echo
         echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
         echo
         echo "delete from METADATA_ELEM_MYISAM" | $MYSQL --defaults-file=$MYCNF
