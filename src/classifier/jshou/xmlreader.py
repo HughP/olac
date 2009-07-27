@@ -44,6 +44,7 @@ The set of elements that are used by the OLAC database are:
 import re
 from nltk.corpus.reader.util import *
 from nltk.corpus.reader.api import *
+import pdb
 
 class XMLCorpusReader(CorpusReader):
     def records(self, fileids=None):
@@ -55,10 +56,10 @@ class XMLCorpusReader(CorpusReader):
 class XMLCorpusView(StreamBackedCorpusView):
     def __init__(self, fileid, block_reader=None, startpos=0, encoding=None):
         StreamBackedCorpusView.__init__(self, fileid, block_reader, startpos, encoding)
-        self.re_elt = re.compile(r'</dc.*?:(\w+)>')
+        self.re_elt = re.compile(r'<dc(terms)?:(\w+)')
         self.re_content = re.compile(r'>(.*?)<', re.S)
-        self.re_endline = re.compile(r'</.*?>\s*?(\n|$)', re.M|re.S)
-        self.re_iso_attr = re.compile(r'(?<=olac:code=\")\w{3}(?=\")')
+        self.re_endline = re.compile(r'((</.*?>)|(/>))\s*?(\n|$)', re.M|re.S)
+        self.re_iso_attr = re.compile(r'(?<=olac:code=\")(.*?)(?=\")')
 
     def read_block(self, stream):
         record = {}
@@ -80,11 +81,12 @@ class XMLCorpusView(StreamBackedCorpusView):
                 if started:
                     while not self.re_endline.search(line):
                         line += stream.readline().decode('utf-8')
-                    elt = self.re_elt.findall(line)[0]
-                    content = self.re_content.findall(line)[0]
+                    elt = self.re_elt.findall(line)[0][1]
+                    if 'olac:code' in line:
+                        content = self.re_iso_attr.findall(line)[0].replace('/',' ')
+                    else:
+                        content = self.re_content.findall(line)[0].replace('/',' ')
                     if elt=='subject' and 'xsi:type="olac:language"' in line:
-                        if u'olac:code=' in line:
-                            content = self.re_iso_attr.findall(line)[0]
                         if 'iso639' in record:
                             content = record['iso639'] + ' ' + content
                         record['iso639'] = content
