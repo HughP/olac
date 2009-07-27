@@ -123,3 +123,40 @@ function_labels = [
     '8. Lang ^ Country ^ Region, Lang ^ Country, Lang ^ Region, Lang',
     '9. Lang ^ Country ^ Region, Lang ^ Region, Lang ^ Country, Lang',
     '10. Lang ^ (Country v Region), Lang']
+
+def weighted(NE_dict, a, b):
+    results = {}
+
+    langdict = {}
+    _populate_langdict(NE_dict['sn'], langdict, 1.0)
+    _populate_langdict(NE_dict['wn'], langdict, 0.7)
+    
+    if NE_dict['cn'].values():
+        country = reduce(set.union, NE_dict['cn'].values())
+    else:
+        country = set()
+    if NE_dict['rg'].values():
+        region = reduce(set.union, NE_dict['rg'].values())
+    else:
+        region = set()
+
+    for iso in langdict:
+        l = langdict[iso]
+        c = 0.0
+        r = 0.0
+        if iso in country:
+            c = 1.0
+        if iso in region:
+            r = 1.0
+        results[iso] = l + a*(l*c) + b*(l*r)
+
+    return results
+
+def _populate_langdict(input_dict, langdict, C):
+    for NE in input_dict:
+        NE_len = len(NE.split())
+        for iso in input_dict[NE]:
+            try:
+                langdict[iso] += NE_len*C
+            except KeyError:
+                langdict[iso] = NE_len*C
