@@ -48,10 +48,11 @@ class iso639Classifier:
         self.tree = {} # token1 -> token2 -> token3 -> <<END-OF-item_type>> -> [iso1,iso2]
         self.country_lang = {} # iso3166 -> list of iso639 codes
         self.spaces = re.compile(r'\s+')
-        self.first_chars = u'‡!’/'
+        self.first_chars = u"‡!’/'"
         self.stoplist = set(['the','some']) # stoplist of tokens that are too common
         self.functions = classifier_functions.functions
         self.gs = None # if it exists, this is a list of lines from the gold standard
+        self.ending = "<<END>>"
         
     def classify_records(self, debug, records, outstream, threshold, function_idx):
         '''Classifies a list of records and prints the results to outstream.'''
@@ -126,13 +127,12 @@ class iso639Classifier:
         if token_0 in self.tree:
             type_isos = {}
             curr_NE = token_0
-            ending = "<<END>>"
             node = self.tree[token_0]
             i = 1 # a counter
             while i<len(tokens):
-                if ending in node:
+                if self.ending in node:
                     if curr_NE not in self.stoplist:
-                        type_isos = node[ending]
+                        type_isos = node[self.ending]
                 token_i = remove_diacritic(tokens[i].lower())
                 if token_i in node:
                     node = node[token_i]
@@ -140,9 +140,9 @@ class iso639Classifier:
                 else:
                     break
                 i += 1
-            if ending in node and i>=len(tokens): # checks the last word
+            if self.ending in node and i>=len(tokens): # checks the last word
                 if curr_NE not in self.stoplist:
-                    type_isos = node[ending]
+                    type_isos = node[self.ending]
             return curr_NE, type_isos
         else:
             return '',{}
