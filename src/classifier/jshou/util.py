@@ -14,7 +14,7 @@ def check_file(filename, mode, utf=False):
     it does.  Returns the file ready for writing if permission is given, or
     or if the file does not already exist.
     '''
-    if os.path.exists(os.path.join(os.getcwd(),filename)):
+    if os.path.exists(filename):
         a = raw_input("File %s already exists.  Overwrite? [yn]: " % filename)
         if not a.lower()=='y':
             sys.exit(2)
