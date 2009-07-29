@@ -85,7 +85,7 @@ class XMLCorpusView(StreamBackedCorpusView):
                     if 'olac:code' in line:
                         content = self.re_iso_attr.findall(line)[0].replace('/',' ')
                     else:
-                        content = self.re_content.findall(line)[0].replace('/',' ')
+                        content = self.re_content.findall(line)[0]
                     if elt=='subject' and 'xsi:type="olac:language"' in line:
                         if 'iso639' in record:
                             content = record['iso639'] + ' ' + content
