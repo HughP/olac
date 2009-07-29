@@ -761,3 +761,14 @@ Code		varchar(64) unique
 
 insert into DCMITypeVocabulary (Code) values ('Collection'),('Dataset'),('Event'),('Image'),('InteractiveResource'),('MovingImage'),('PhysicalObject'),('Service'),('Software'),('Sound'),('StillImage'),('Text');
 
+##################################################################
+# Table                : SOUNDEX_TABLE
+##################################################################
+create table SOUNDEX_TABLE (
+SoundexValue	char(4),
+Word		varchar(128),
+primary key (SoundexValue, Word),
+key (SoundexValue)
+) engine=innodb, charset=utf8;
+
+
