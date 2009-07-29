@@ -123,7 +123,7 @@ class EthnologueXMLParser:
             self.country_idx[self.curr_country_name] = self.temp[name]
             self.lang_info[self.curr_iso]["cc"].append(self.temp[name])
         elif name=="region":
-            self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist,[i[0].strip(' "') for i in self.region_NE.findall(self.temp[name])])
+            self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "') for i in self.region_NE.findall(self.temp[name])])
         self.temp[name] = ''
         self.path.pop()
     
