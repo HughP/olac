@@ -49,7 +49,7 @@ class iso639Classifier:
         self.country_lang = {} # iso3166 -> list of iso639 codes
         self.spaces = re.compile(r'\s+')
         self.first_chars = u"‡!’/'"
-        self.stoplist = set(['the','some']) # stoplist of tokens that are too common
+        self.stoplist = set(['the','some','central','western','eastern','northern','southern','north','south','east','west']) # stoplist of tokens that are too common
         self.functions = classifier_functions.functions
         self.gs = None # if it exists, this is a list of lines from the gold standard
         self.ending = "<<END>>"
@@ -127,11 +127,13 @@ class iso639Classifier:
         if token_0 in self.tree:
             type_isos = {}
             curr_NE = token_0
+            final_NE = ''
             node = self.tree[token_0]
             i = 1 # a counter
             while i<len(tokens):
                 if self.ending in node:
                     if curr_NE not in self.stoplist:
+                        final_NE = curr_NE
                         type_isos = node[self.ending]
                 token_i = remove_diacritic(tokens[i].lower())
                 if token_i in node:
@@ -143,7 +145,7 @@ class iso639Classifier:
             if self.ending in node and i>=len(tokens): # checks the last word
                 if curr_NE not in self.stoplist:
                     type_isos = node[self.ending]
-            return curr_NE, type_isos
+            return final_NE, type_isos
         else:
             return '',{}
     
