@@ -38,4 +38,6 @@ def get_or_none(record, key):
 
 def remove_diacritic(input):
     input = input.replace(u'’',u"'")
+    input = input.replace(u'|', u'/')
+    input = input.replace(u'ǁ', u'//')
     return unicode(unicodedata.normalize('NFKD',input).encode('ascii','ignore'))
