@@ -771,4 +771,19 @@ primary key (SoundexValue, Word),
 key (SoundexValue)
 ) engine=innodb, charset=utf8;
 
+##################################################################
+# Table                : SERVICES
+##################################################################
+create table SERVICES (
+Service_ID	int auto_increment,
+serviceName	varchar(255),
+serviceURL	varchar(255),
+institution	varchar(255),
+institutionURL	varchar(255),
+contactPerson	varchar(255),
+contactEmail	varchar(255),
+description	text,
+dateApproved	date,
+primary key (Service_ID)
+) engine=innodb charset=utf8;
 
