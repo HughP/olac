@@ -92,28 +92,42 @@ def applyStylesheets(inputfilename,config):
     libpath = config.get('system','libpath')
     sep = config.get('system','sep')
     xml_output = config.get('system','tmppath') + sep + 'xml_output.tmp'
+    stage = int(config.get('system','stage'))
 
-    #collection2repository params
-    c2r_params = ''
-    if config.get('system','debug') == 'yes':
-        c2r_params = c2r_params + 'debug=yes'
+    # stage 1 (marc filter accept)
+    xsllist = [(config.get('stylesheet','stage1'),'','1')]
 
-    # a list of tuple(stylesheet,params)
-    stylesheetlist = [(libpath + sep + s,p) for s,p in \
-           [('collection2repository',c2r_params),('cleanup','')
-               ,('remove_duplicates','')]]
+    # stage 2 (marc filter reject)
+    if stage >= 2:
+        xsllist += [(config.get('stylesheet','stage2'),'','2')]
 
-    filterlist = [(config.get('system','filter_accept'),''),
-            (config.get('system','filter_reject'),'')]
+    # stage 3 (marc2olac transformation)
+    if stage >= 3:
+        stage3a_params = ''
+        stage3b_params = ''
+        inverse_param = 'inverse=yes'
+        if config.get('system','debug') == 'yes':
+            stage3a_params += 'debug=yes '
+        if config.get('system','inverse') == 'yes':
+            stage3a_params += inverse_param
+            stage3b_params += inverse_param
 
-    if config.get('system', 'filter_only') == 'yes':
-        xsllist = filterlist
-    else:
-        xsllist = filterlist + stylesheetlist
+        # a list of tuple(stylesheet,params)
+        xsllist += [(libpath + sep + s,p,st) for s,p,st in \
+               [('collection2repository',stage3a_params,'3a'),('cleanup', stage3b_params, '3b')
+                   ,('remove_duplicates','','3c')]]
+
+    # stage 4 (olac filter)
+    if stage >= 4:
+        stage4_params = ''
+        if config.get('system','debug') == 'yes':
+            stage4_params += 'debug=yes '
+        xsllist += [(config.get('stylesheet','stage4'), stage4_params, '4')]
 
     # apply xsl stylesheets using Saxon on the command line
-    for (xsl_file,params) in xsllist:
-        sys.stdout.write('.')
+    sys.stdout.write('\tstage ')
+    for (xsl_file,params,stage) in xsllist:
+        sys.stdout.write(stage + ' ')
         transform(config,xsl_file,inputfilename,xml_output,params)
         import shutil
         if os.path.exists(xml_output):
@@ -130,6 +144,22 @@ def checkValidSystem(config):
     return
 
 def compileOLACFilters(config):
+    sep = config.get('system','sep')
+    projectname = config.get('system','projectname')
+    tmppath = config.get('system','tmppath')
+    libpath = config.get('system','libpath')
+    projpath = config.get('system','projpath')
+    stage = int(config.get('system','stage'))
+
+    filter = projpath + sep + config.get('system','olacfilter')
+    filterstylesheet = tmppath + sep + projectname + '-olac-filter'
+    config.set('stylesheet','stage4',filterstylesheet)
+
+    filter_compiler = libpath + sep + 'olac-filter-compile'
+    p = 'version="2.0"'
+    if config.get('system','inverse') == 'yes' and stage == 4: p += ' mode=reject'
+    sys.stdout.write('.')
+    transform(config,filter_compiler,filter,filterstylesheet + '.xsl', p)
     return config
 
 def compileMARCFilters(config):
@@ -138,18 +168,30 @@ def compileMARCFilters(config):
     tmppath = config.get('system','tmppath')
     libpath = config.get('system','libpath')
     projpath = config.get('system','projpath')
+    stage = int(config.get('system','stage'))
 
-    filter = projpath + sep + config.get('system','filter')
+    filter = projpath + sep + config.get('system','marcfilter')
     reject = tmppath + sep + projectname + '-marc-filter-reject'
     accept = tmppath + sep + projectname + '-marc-filter-accept'
-    config.set('system','filter_reject',reject)
-    config.set('system','filter_accept',accept)
+    config.set('stylesheet','stage1',accept)
+    config.set('stylesheet','stage2',reject)
 
     # compile marc filters here
+
+    # stage 1
     filter_compiler = libpath + sep + 'marc-filter-compile1'
-    transform(config,filter_compiler,filter,accept + '.xsl','version="2.0"')
-    filter_compiler = libpath + sep + 'marc-filter-compile2'
-    transform(config,filter_compiler,filter,reject + '.xsl','version="2.0"')
+    p = 'version="2.0"'
+    if config.get('system','inverse') == 'yes' and stage == 1: p += ' inverse="yes"'
+    sys.stdout.write('.')
+    transform(config,filter_compiler,filter,accept + '.xsl', p)
+
+    # stage 2
+    if stage >= 2:
+        filter_compiler = libpath + sep + 'marc-filter-compile2'
+        p = 'version="2.0"'
+        if config.get('system','inverse') == 'yes' and stage == 2: p += ' inverse="yes"'
+        sys.stdout.write('.')
+        transform(config,filter_compiler,filter,reject + '.xsl', p)
     
     return config
 

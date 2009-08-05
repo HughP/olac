@@ -11,7 +11,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:import href="utils.xsl"/>
     <xsl:output method="xml" indent="yes"/>
-
+    <xsl:param name="inverse"/>
 
     <xsl:template match="dcterms:issued[@from = '533d']">
         <xsl:if
@@ -36,24 +36,34 @@
 
 
     <!--  match attribute and element "nodes" (not text though - see rule below)   -->
-    <xsl:template match="@*|*" priority="-1">
+    <xsl:template match="@*|*" priority="-2">
         <xsl:copy>
             <!-- copy the element -->
             <xsl:apply-templates select="@*|node()"/>
             <!-- apply templates for all node types, including text -->
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match="olac:olac">
-        <xsl:copy>
-            <xsl:apply-templates mode="cleanup" />
-        </xsl:copy>
+        <xsl:choose>
+            <xsl:when test="$inverse = 'yes'">
+                <xsl:copy>
+                    <xsl:apply-templates mode="inverse"/>
+                </xsl:copy>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:copy>
+                    <xsl:apply-templates mode="cleanup"/>
+                </xsl:copy>
+            </xsl:otherwise>
+        </xsl:choose>
+
     </xsl:template>
 
     <!-- clean up the text inside olac elements -->
     <xsl:template mode="cleanup" match="*[text()]">
         <xsl:copy>
-            <xsl:copy-of select="@*" />
+            <xsl:copy-of select="@*"/>
             <xsl:call-template name="removeFinalPeriod">
                 <xsl:with-param name="text">
                     <xsl:call-template name="removeTrailingChars">
@@ -65,14 +75,26 @@
             </xsl:call-template>
         </xsl:copy>
     </xsl:template>
+    
+    <!-- special rules for inverse processing -->
+    <xsl:template match="@*|*" mode="inverse" priority="-1">
+<!-- do nothing -->
+    </xsl:template>
+    <xsl:template match="marc:datafield" mode="inverse">
+        <xsl:copy-of select="." />
+    </xsl:template>
+    <xsl:template match="marc:controlfield" mode="inverse">
+        <xsl:copy-of select="." />
+    </xsl:template>
+    
 
     <!-- If the element does not have any text, only copy it if there is an attribute named (in the list below) -->
     <xsl:template mode="cleanup" match="*[@olac:code|@xsi:type]" priority="-1">
         <xsl:copy>
-            <xsl:copy-of select="@*" />
-            </xsl:copy>
+            <xsl:copy-of select="@*"/>
+        </xsl:copy>
     </xsl:template>
-    
+
     <!-- catch all to do nothing -->
-    <xsl:template mode="cleanup" match="@*|node()" priority="-2" />
+    <xsl:template mode="cleanup" match="@*|node()" priority="-3"/>
 </xsl:stylesheet>

@@ -10,6 +10,8 @@ local cataloging practices.
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:param name="inverse"></xsl:param>
+    
     <xsl:include href="role.xsl"/>
     <xsl:include href="type.xsl"/>
     <xsl:include href="subject.xsl"/>
@@ -24,12 +26,6 @@ local cataloging practices.
             <xsl:apply-templates select="marc:datafield"/>
         </olac:olac>
     </xsl:template>
-
-    <xsl:template match="marc:controlfield">
-        <!-- Ignore if it did not match a more specific template -->
-    </xsl:template>
-
-
 
     <!-- process the MARC  leader -->
     <xsl:template match="marc:leader">
@@ -1605,5 +1601,20 @@ local cataloging practices.
     <xsl:template match="marc:datafield" priority="0">
         <!-- For any datafield that does not match a specific
         template, just do nothing -->
+        
+        <!-- If however we have the "inverse" option, then we should output the marc fields that have no match in the templates above -->
+        <xsl:if test="$inverse = 'yes'">
+            <xsl:copy-of select="." />
+        </xsl:if>
     </xsl:template>
+    
+    <xsl:template match="marc:controlfield" priority="0">
+        <!-- Ignore if it did not match a more specific template -->
+        
+        <!-- If however we have the "inverse" option, then we should output the marc fields that have no match in the templates above -->
+        <xsl:if test="$inverse = 'yes'">
+            <xsl:copy-of select="." />
+        </xsl:if>
+    </xsl:template>
+    
 </xsl:stylesheet>
