@@ -27,18 +27,21 @@ sep = os.sep
 # define command-line options and parse them
 usage = "usage: %prog [options] [projectname]\n'projectname' is the directory name of all of your project files, including the config file 'setup.cfg'."
 clparser = OptionParser(usage)
-clparser.add_option("-m", "--marc-tags", action="store_true",
-        dest="marc_tags", default=False,
-        help="include source Marc tag as an attribute in the output")
-clparser.add_option("-n", "--no-code", action="store_true",
-        dest="no_code", default=False,
-        help="include no_code attribute for LCSH strings that failed to parse to an OLAC code")
+clparser.add_option("-d", "--debug", action="store_true",
+        dest="debug", default=False,
+        help="include extra debug information in the output XML, useful for analysis of the generated OLAC repository.  Warning: debug information will cause the OLAC repository not to validate.")
 clparser.add_option("-g", "--html", action="store_true",
         dest="do_html_output", default=False,
         help="generate a human-readable HTML version of the OLAC repository")
-clparser.add_option("-f", "--filter-only", action="store_true",
-        dest="filter_only", default=False,
-        help="only run the filter stage, and output filtered MARCXML to a .filtered.xml file")
+
+clparser.add_option("-s", "--stage", action="store",
+        dest="stage", default=4,
+        help="Run the process up through the specified stage")
+clparser.add_option("-i", "--inverse", action="store_true",
+        dest="inverse", default=False,
+        help="Output the inverse of the specified stage.  Useful for debugging, and usually used in conjunction with --stage=[num]")
+
+
 (options, args) = clparser.parse_args()
 
 projectname = 'default_project'
@@ -74,18 +77,22 @@ config.set('system','libpath',libpath)
 
 # update config dict with options from command line
 # TODO Implement the rest of this
-if options.no_code:
-    config.set('system','no_code','yes')
+stage = options.stage
+config.set('system','stage',stage)
+if options.debug:
+    print "\tNotice: --debug option in use; OLAC repository will NOT validate"
+    config.set('system','debug','yes')
 else:
-    config.set('system','no_code','no')
-if options.marc_tags:
-    config.set('system','marc_tags','yes')
+    config.set('system','debug','no')
+
+if options.inverse:
+    print "Notice: Inverse output will be generated"
+    config.set('system','inverse','yes')
 else:
-    config.set('system','marc_tags','no')
-if options.filter_only:
-    config.set('system','filter_only','yes')
-else:
-    config.set('system','filter_only','no')
+    config.set('system','inverse','no')
+
+if stage < 4:
+    print "Notice: Processing will finish after stage %d" % stage
 
 
 # check to make sure required files exist
@@ -94,12 +101,16 @@ else:
 utils.checkValidSystem(config)
 
 print "Compiling filters..."
-config = utils.compileFilters(config)
+config = utils.compileMARCFilters(config)
+
+if stage >= 4:
+    config = utils.compileOLACFilters(config)
 
 marcxml_filename = projpath + sep + config.get('system','input')
 olacxml_filename = projpath + sep + config.get('system','output')
 
-utils.writeImportMap(config)
+if stage >= 3:
+    utils.writeImportMap(config)
 
 splitfiles = ''
 if os.path.isfile(marcxml_filename):
@@ -132,17 +143,17 @@ else: # this is a directory
         if ext == '.xml': directory.append(f)
     splitfiles = [sep.join([marcxml_filename,p]) for p in directory]
 
-xml_footer = ''
 
-if config.get('system', 'filter_only') == 'yes':
-    filename = marcxml_filename + '.filtered.xml'
-    print "Running in 'Filter Only' mode.  Filtered records are in '%s'" % filename
-    output_xml_f = open(filename,'w')
-else:
-    output_xml_f = open(olacxml_filename,'w')
+# modify output filename
+if stage < 4:
+    olacxml_filename += '.stage' + stage
+if options.inverse:
+    olacxml_filename += '.inverse'
 
 # loop over each XML chunk and apply stylesheet chain
 ctr = 1
+xml_footer = ''
+output_xml_f = open(olacxml_filename,'w')
 for f in splitfiles:
     print "Transforming batch %d of %d" % (ctr,len(splitfiles))
     utils.applyStylesheets(f,config)

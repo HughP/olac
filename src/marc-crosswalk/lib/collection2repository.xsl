@@ -10,7 +10,6 @@
    <xsl:import href="marc2olac.xsl"/>
    <xsl:include href="importmap.xsl"/>
    <xsl:include href="utils.xsl" />
-   <xsl:param name="no_code"></xsl:param>
    
    <xsl:output method="xml"/>
 

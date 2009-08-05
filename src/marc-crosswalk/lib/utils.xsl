@@ -4,6 +4,7 @@
 -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/">
+    <xsl:param name="debug"></xsl:param>
 
     <!-- removeFinalPeriod
         it removes the final period in the text, unless the node name is an exception (see below)
@@ -74,11 +75,10 @@
 
     <!-- show source adds a from= attribute to affected nodes, indicating the MARC tag
         from which the node was created -->
-    <xsl:param name="marc_tags"></xsl:param>
     <xsl:template name="show-source">
         <xsl:param name="subfield"/>
         <!-- Optional parameter -->
-        <xsl:if test="$marc_tags='yes'">
+        <xsl:if test="$debug='yes'">
             <xsl:attribute name="from">
                 <xsl:choose>
                     <xsl:when test="self::marc:leader">leader</xsl:when>
