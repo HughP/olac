@@ -95,10 +95,8 @@ def applyStylesheets(inputfilename,config):
 
     #collection2repository params
     c2r_params = ''
-    if config.get('system','no_code') == 'yes':
-        c2r_params = c2r_params + 'no_code=yes '
-    if config.get('system','marc_tags') == 'yes':
-        c2r_params = c2r_params + 'marc_tags=yes '
+    if config.get('system','debug') == 'yes':
+        c2r_params = c2r_params + 'debug=yes'
 
     # a list of tuple(stylesheet,params)
     stylesheetlist = [(libpath + sep + s,p) for s,p in \
@@ -131,7 +129,10 @@ def applyStylesheets(inputfilename,config):
 def checkValidSystem(config):
     return
 
-def compileFilters(config):
+def compileOLACFilters(config):
+    return config
+
+def compileMARCFilters(config):
     sep = config.get('system','sep')
     projectname = config.get('system','projectname')
     tmppath = config.get('system','tmppath')
@@ -139,15 +140,15 @@ def compileFilters(config):
     projpath = config.get('system','projpath')
 
     filter = projpath + sep + config.get('system','filter')
-    reject = tmppath + sep + projectname + '-filter-reject'
-    accept = tmppath + sep + projectname + '-filter-accept'
+    reject = tmppath + sep + projectname + '-marc-filter-reject'
+    accept = tmppath + sep + projectname + '-marc-filter-accept'
     config.set('system','filter_reject',reject)
     config.set('system','filter_accept',accept)
 
-    # compile filters here
-    filter_compiler = libpath + sep + 'filter-compile1'
+    # compile marc filters here
+    filter_compiler = libpath + sep + 'marc-filter-compile1'
     transform(config,filter_compiler,filter,accept + '.xsl','version="2.0"')
-    filter_compiler = libpath + sep + 'filter-compile2'
+    filter_compiler = libpath + sep + 'marc-filter-compile2'
     transform(config,filter_compiler,filter,reject + '.xsl','version="2.0"')
     
     return config

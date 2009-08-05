@@ -1091,7 +1091,7 @@ local cataloging practices.
                 </xsl:choose>
                 </xsl:variable>
                 <dc:subject xsi:type="dcterms:LCSH">
-                    <xsl:if test="$no_code = 'yes' and $code2 = 'failed' ">
+                    <xsl:if test="$debug = 'yes' and $code2 = 'failed' ">
                         <xsl:attribute name="no_code">1</xsl:attribute>
                     </xsl:if>
                     <xsl:call-template name="show-source"/>
