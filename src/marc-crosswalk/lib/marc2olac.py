@@ -24,6 +24,9 @@ import saxsplit
 # os specific path separator
 sep = os.sep
 
+# final stage number (end of the process pipeline)
+final_stage = 4
+
 # define command-line options and parse them
 usage = "usage: %prog [options] [projectname]\n'projectname' is the directory name of all of your project files, including the config file 'setup.cfg'."
 clparser = OptionParser(usage)
@@ -34,8 +37,8 @@ clparser.add_option("-g", "--html", action="store_true",
         dest="do_html_output", default=False,
         help="generate a human-readable HTML version of the OLAC repository")
 
-clparser.add_option("-s", "--stage", action="store",
-        dest="stage", default=4,
+clparser.add_option("-s", "--stage", action="store", type="int", 
+        dest="stage", default=final_stage,
         help="Run the process up through the specified stage")
 clparser.add_option("-i", "--inverse", action="store_true",
         dest="inverse", default=False,
@@ -49,7 +52,14 @@ if len(args) == 1:
     projectname = args[0]
 elif len(args) > 1:
     clparser.error("more than 1 argument specified")
+if options.stage > 0 and options.stage <= final_stage:
+    stage = options.stage
+else:
+    clparser.error("specified stage must be between 1 and %d" % final_stage)
 print "Processing %s" % projectname
+
+
+
 
 # figure out base path (i.e. are we in the lib directory or not?)
 basepath = os.getcwd()
@@ -74,11 +84,11 @@ config.set('system','projpath',projpath)
 config.set('system','tmppath',tmppath)
 config.set('system','projectname',projectname)
 config.set('system','libpath',libpath)
+config.set('system','stage',str(stage))
+config.add_section('stylesheet')
 
 # update config dict with options from command line
 # TODO Implement the rest of this
-stage = options.stage
-config.set('system','stage',stage)
 if options.debug:
     print "\tNotice: --debug option in use; OLAC repository will NOT validate"
     config.set('system','debug','yes')
@@ -86,13 +96,13 @@ else:
     config.set('system','debug','no')
 
 if options.inverse:
-    print "Notice: Inverse output will be generated"
+    print "\tNotice: Inverse output will be generated at stage %d" % stage
     config.set('system','inverse','yes')
 else:
     config.set('system','inverse','no')
 
-if stage < 4:
-    print "Notice: Processing will finish after stage %d" % stage
+if stage < final_stage:
+    print "\tNotice: Processing will finish after stage %d of %d" % (stage,final_stage)
 
 
 # check to make sure required files exist
@@ -100,11 +110,12 @@ if stage < 4:
 # is this necessary?
 utils.checkValidSystem(config)
 
-print "Compiling filters..."
+sys.stdout.write("Compiling filters")
 config = utils.compileMARCFilters(config)
 
 if stage >= 4:
     config = utils.compileOLACFilters(config)
+sys.stdout.write('\n')
 
 marcxml_filename = projpath + sep + config.get('system','input')
 olacxml_filename = projpath + sep + config.get('system','output')
@@ -145,8 +156,8 @@ else: # this is a directory
 
 
 # modify output filename
-if stage < 4:
-    olacxml_filename += '.stage' + stage
+if stage < final_stage:
+    olacxml_filename += '.stage' + str(stage)
 if options.inverse:
     olacxml_filename += '.inverse'
 
@@ -158,10 +169,10 @@ for f in splitfiles:
     print "Transforming batch %d of %d" % (ctr,len(splitfiles))
     utils.applyStylesheets(f,config)
 
-    if config.get('system', 'filter_only') == 'yes':
-        header,xml_recs,footer = utils.parseMARCCollection(f)
-    else:
+    if stage >= 3:
         header,xml_recs,footer = utils.parseOLACRepository(f)
+    else:
+        header,xml_recs,footer = utils.parseMARCCollection(f)
 
     if ctr == 1:
         output_xml_f.write(header)
@@ -182,12 +193,12 @@ else:
     os.rename(marcxml_filename + '_backup',marcxml_filename)
 
 # generate an HTML file, if appropriate
-if options.do_html_output and not options.filter_only:
+if options.do_html_output and stage >= 3:
     print "Generating HTML output to %s" % config.get('system','html_output')
     utils.transform(config,libpath + sep + 'repository2html',olacxml_filename,
             projpath + sep + config.get('system','html_output'))
 
-if options.filter_only:
+if stage < final_stage:
     print "Done."
 else:
-    print "Done.  OLAC Repository %s generated in %s." % (config.get('system','output'),projectname) 
+    print "Done.  OLAC Repository %s generated in %s." % (olacxml_filename, projectname) 
