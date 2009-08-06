@@ -12,16 +12,27 @@
       version="2.0">
 
     <xsl:template match="marc:datafield[@tag='650']">
+        <xsl:variable name="heading">
+            <xsl:call-template name="subfieldSelect">
+                <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
+                <xsl:with-param name="delimiter">--</xsl:with-param>
+            </xsl:call-template>
+        </xsl:variable>
+        <!-- Note that the analysis below of elements within subject
+            headings is simply based on this assembled string. Whereas
+            the subfield types ought to help, in practice they are not
+            reliable since they are not applied consistently. E.g. the
+            form subdivision is just as likely to appear in $x as $v. -->
+        <!-- Also, everything will be mapped to lower-case for
+            matching. This is to account for the possibility of
+            different case conventions between libraries. -->
+        
         <xsl:choose>
-            <xsl:when test="@ind2='0'">
+            <xsl:when test="@ind2='0'"><!-- LCSH -->
+                
                 <xsl:variable name="langCode">
                     <xsl:call-template name="assign-subject-language">
-                        <xsl:with-param name="sub-a"
-                            select="replace(lower-case(marc:subfield[@code='a']),'\.','')"/>
-                        <xsl:with-param name="next"
-                        select="replace(lower-case(marc:subfield[@code='a']/following-sibling::subfield[1]),'\.','')"/>
-                        <!-- Is the first one always $a?  Can these
-                            just be subfield[1] and subfield[2]? -->
+                        <xsl:with-param name="h" select="lower-case($heading)"/>
                     </xsl:call-template>
                 </xsl:variable>
                 
@@ -30,10 +41,11 @@
                         <xsl:when test="$langCode">
                             <xsl:call-template
                                 name="assign-direct-type-for-language">
-                                <xsl:with-param name="last"
-                                    select="replace(lower-case(marc:subfield[fn:last()]),'\.','')"/>
-                                <xsl:with-param name="second"
-                                select="replace(lower-case(marc:subfield[@code='a']/following-sibling::subfield[1]),'\.','')"/>
+                                <xsl:with-param name="h" 
+                                select="lower-case(substring-after($heading, '--'))"/>
+                                <!-- This is an optimization to discard the 
+                                    language name so that the matches
+                                    do not have to scan over it. -->
                             </xsl:call-template>
                         </xsl:when>
                         <xsl:otherwise>
@@ -56,7 +68,9 @@
                             -->
                         </xsl:when>
                         <xsl:otherwise>
-                            
+                            <xsl:call-template name="assign-linguistic-field">
+                                <xsl:with-param name="h" select="lower-case($heading)"/>
+                            </xsl:call-template>
                         </xsl:otherwise>
                     </xsl:choose>
                     
@@ -64,63 +78,83 @@
                 
                 <dc:subject xsi:type="dcterms:LCSH">
                     <xsl:call-template name="show-source"/>
-                    <xsl:call-template name="subfieldSelect">
-                        <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
-                        <xsl:with-param name="delimiter">--</xsl:with-param>
-                    </xsl:call-template>
+                    <xsl:value-of select="$heading"/>
                 </dc:subject>
                 <xsl:if test="$langCode">
                     <dc:subject xsi:type="olac:language"
                        olac:code="{$langCode}"/>
                 </xsl:if>
+                <xsl:choose>
+                    <xsl:when test="$typeCode">
+                        <dc:type xsi:type="olac:resource-type"
+                            olac:code="{$typeCode}"/>
+                    </xsl:when>
+                    <xsl:when test="$langCode">
+                        
+                    </xsl:when>
+                </xsl:choose>
+                
                 
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
-                    <xsl:call-template name="subfieldSelect">
-                        <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
-                        <xsl:with-param name="delimiter">--</xsl:with-param>
-                    </xsl:call-template>
+                    <xsl:value-of select="$heading"/>
                 </dc:subject>
             </xsl:when>
             <xsl:otherwise>
                 <dc:subject>
                     <xsl:call-template name="show-source"/>
-                    <xsl:call-template name="subfieldSelect">
-                        <xsl:with-param name="codes">abcdexyzv</xsl:with-param>
-                        <xsl:with-param name="delimiter">--</xsl:with-param>
-                    </xsl:call-template>
+                    <xsl:value-of select="$heading"/>
                 </dc:subject>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
     
     <xsl:template name="assign-subject-language">
-        <xsl:param name="sub-a"></xsl:param>
-        <xsl:param name="next"></xsl:param>
+        <xsl:param name="h"/>
         <!-- Returns the ISO 639 code for the subject language.
              Returns nothing if there is no subject language.
-             Looks in subfield a ($sub-a) to match the language name.
-             The following subfield ($next) is also consulted for
-             cases like Middle English where a temporal scope is
-             used. 
         -->
+        <xsl:if test="contains($h, 'language') or contains($h,
+            'dialect')">
+            <!-- This test is simply an optimization.  If the heading
+                does not contain the string 'language' or 'dialect'
+                then there is no use comparing against 4,000 names -->
+        <!-- Use matches like 
+                  <xsl:when test="starts-with($h, 'english language')">eng</xsl:when>
+               For the historical languages, use something like:
+               starts-with($sh, "english language—middle english")
+               Note that these must come first to get longest-first
+               match. Also, they need not include dates (since there
+               seems to be some variation).
+        -->
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="assign-direct-type-for-language">
-        <xsl:param name="last"></xsl:param>
-        <xsl:param name="second"></xsl:param>
-        <!-- Returns the OLAC code for the language resource type in
-            the case where there is a subject language and the
-            resource type is directly known from matching either the
-            form subfield (in the $last position of the LCSH) or
-            thefirst topic subfield (in the $second position).
+        <xsl:param name="h"/>
+        <!-- The parameter is the rest of the subject heading
+            following subfield a containing the name.
+            Returns the OLAC code for the language resource type
+            when it is known directly from matching a form subdivision
+            (or in some cases, a distinctive topic). 
             Returns nothing if a resource type is not directly
             matched. (It may still be inferred later.) 
         -->
+        <!-- For forms, use matches like
+            <xsl:when test="contains($h, 'dictionaries')">language_lexicon</xsl:when>
+            Since a topic match should always be the first thing after
+            the name,
+            <xsl:when test="starts-with($h, 'antonyms')">language_lexicon</xsl:when>
+        -->
     </xsl:template>
     
+    <xsl:template name="assign-linguistic-field">
+        <xsl:param name="h"/>
+    </xsl:template>
+    
+    <!-- Defined elsewhere.  (Stubs here prevent validation errors.) -->
     <xsl:template name="show-source"/>
     <xsl:template name="subfieldSelect">
         <xsl:param name="codes"/>
