@@ -73,6 +73,17 @@
                             </xsl:call-template>
                         </xsl:otherwise>
                     </xsl:choose>
+                </xsl:variable>
+                
+                <xsl:variable name="inferredType">
+                    <xsl:choose>
+                        <xsl:when test="$langCode and $fieldCode">
+                            <xsl:call-template
+                                name="assign-inferred-type-for-language">
+                                <xsl:with-param name="f" select="$fieldCode"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                    </xsl:choose>
                     
                 </xsl:variable>
                 
@@ -90,6 +101,7 @@
                             olac:code="{$typeCode}"/>
                     </xsl:when>
                     <xsl:when test="$langCode">
+                        
                         
                     </xsl:when>
                 </xsl:choose>
@@ -135,19 +147,37 @@
     <xsl:template name="assign-direct-type-for-language">
         <xsl:param name="h"/>
         <!-- The parameter is the rest of the subject heading
-            following subfield a containing the name.
+            following subfield $a of language name.
             Returns the OLAC code for the language resource type
-            when it is known directly from matching a form subdivision
-            (or in some cases, a distinctive topic). 
+            when it is known directly from matching a form
+            subdivision.
             Returns nothing if a resource type is not directly
             matched. (It may still be inferred later.) 
         -->
-        <!-- For forms, use matches like
+        <!-- Use matches like
             <xsl:when test="contains($h, 'dictionaries')">language_lexicon</xsl:when>
-            Since a topic match should always be the first thing after
-            the name,
-            <xsl:when test="starts-with($h, 'antonyms')">language_lexicon</xsl:when>
         -->
+    </xsl:template>
+    
+    <xsl:template name="assign-inferred-type-for-language">
+        <xsl:param name="f"/>
+        <!-- The parameter is the linguistic field code.
+            Returns the OLAC code for the language resource type
+            that can be inferred from that field code (since we
+            already know that it is about a particular langauge).
+        -->
+        <xsl:choose>
+            <xsl:when test="$f='morphology'">langauge_description</xsl:when>
+            <xsl:when test="$f='phonetics'">langauge_description</xsl:when>
+            <xsl:when test="$f='phonology'">langauge_description</xsl:when>
+            <xsl:when test="$f='pragmatics'">langauge_description</xsl:when>
+            <xsl:when test="$f='semantics'">langauge_description</xsl:when>
+            <xsl:when test="$f='syntax'">langauge_description</xsl:when>
+            <xsl:when test="$f='writing_systems'">langauge_description</xsl:when>
+            <xsl:when test="$f='sociolinguistics'">langauge_situation</xsl:when>
+            <xsl:otherwise>unclassified</xsl:otherwise>
+        </xsl:choose>
+        
     </xsl:template>
     
     <xsl:template name="assign-linguistic-field">
