@@ -59,9 +59,9 @@
                 
                 <xsl:variable name="fieldCode">
                     <xsl:choose>
-                        <xsl:when test="$typeCode = 'langauge_lexicon'
-                            or $typeCode = 'langauge_text'
-                            or $typeCode = 'langauge_instruction'">
+                        <xsl:when test="$typeCode = 'language_lexicon'
+                            or $typeCode = 'language_text'
+                            or $typeCode = 'language_instruction'">
                             <!-- In these cases, do nothing since
                                 there is not also a linguistic subject
                                 field
