@@ -83,8 +83,8 @@
                                 <xsl:with-param name="f" select="$fieldCode"/>
                             </xsl:call-template>
                         </xsl:when>
+                        <!-- Other cases pending -->
                     </xsl:choose>
-                    
                 </xsl:variable>
                 
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -95,19 +95,20 @@
                     <dc:subject xsi:type="olac:language"
                        olac:code="{$langCode}"/>
                 </xsl:if>
-                <xsl:choose>
-                    <xsl:when test="$typeCode">
-                        <dc:type xsi:type="olac:resource-type"
-                            olac:code="{$typeCode}"/>
-                    </xsl:when>
-                    <xsl:when test="$langCode">
-                        
-                        
-                    </xsl:when>
-                </xsl:choose>
-                
-                
+                <xsl:if test="$typeCode">
+                     <dc:type xsi:type="olac:resource-type"
+                         olac:code="{$typeCode}"/>
+                </xsl:if>
+                <xsl:if test="$inferredType">
+                    <dc:type xsi:type="olac:resource-type"
+                        olac:code="{$inferredType}"/>
+                </xsl:if>
+                <xsl:if test="$fieldCode">
+                    <dc:subject xsi:type="olac:linguistic-field"
+                        olac:code="{$fieldCode}"/>
+                </xsl:if>
             </xsl:when>
+            
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
                     <xsl:call-template name="show-source"/>
@@ -183,13 +184,24 @@
             already know that it is about a particular language).
         -->
         <xsl:choose>
+            <xsl:when test="$f='computational_linguistics'">language_automation</xsl:when>
+            <xsl:when test="$f='discourse_analysis'">language_description</xsl:when>
+            <xsl:when test="$f='historical_linguistics'">language_description</xsl:when>
+            <xsl:when test="$f='lexicography'">language_description</xsl:when>
+            <xsl:when test="$f='linguistic_theories'">language_description</xsl:when>
+            <xsl:when test="$f='linguistics_and_literature'">language_description</xsl:when>
             <xsl:when test="$f='morphology'">language_description</xsl:when>
+            <xsl:when test="$f='philosophy_of_language'">language_description</xsl:when>
             <xsl:when test="$f='phonetics'">language_description</xsl:when>
             <xsl:when test="$f='phonology'">language_description</xsl:when>
             <xsl:when test="$f='pragmatics'">language_description</xsl:when>
+            <xsl:when test="$f='psycholinguistics'">language_description</xsl:when>
             <xsl:when test="$f='semantics'">language_description</xsl:when>
             <xsl:when test="$f='syntax'">language_description</xsl:when>
+            <xsl:when test="$f='translating_and_interpreting'">language_description</xsl:when>
             <xsl:when test="$f='writing_systems'">language_description</xsl:when>
+            <xsl:when test="$f='applied_linguistics'">language_instruction</xsl:when>
+            <xsl:when test="$f='anthropological_linguistics'">language_situation</xsl:when>
             <xsl:when test="$f='sociolinguistics'">language_situation</xsl:when>
             <xsl:otherwise>unclassified</xsl:otherwise>
         </xsl:choose>
