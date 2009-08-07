@@ -133,6 +133,22 @@
             <!-- This test is simply an optimization.  If the heading
                 does not contain the string 'language' or 'dialect'
                 then there is no use comparing against 4,000 names -->
+            <xsl:variable name="try1">
+                <xsl:call-template name="local-map-to-iso639">
+                    <xsl:with-param name="lcsh" select="$h"/>
+                </xsl:call-template>
+            </xsl:variable>
+            <xsl:choose>
+                <xsl:when test="$try1">
+                    <xsl:value-of select="$try1" />
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:call-template name="map-to-iso639">
+                        <xsl:with-param name="lcsh" select="$h"/>
+                    </xsl:call-template>
+                </xsl:otherwise>
+            </xsl:choose>
+
         <!-- Use matches like 
                   <xsl:when test="starts-with($h, 'english language')">eng</xsl:when>
                For the historical languages, use something like:
@@ -164,17 +180,17 @@
         <!-- The parameter is the linguistic field code.
             Returns the OLAC code for the language resource type
             that can be inferred from that field code (since we
-            already know that it is about a particular langauge).
+            already know that it is about a particular language).
         -->
         <xsl:choose>
-            <xsl:when test="$f='morphology'">langauge_description</xsl:when>
-            <xsl:when test="$f='phonetics'">langauge_description</xsl:when>
-            <xsl:when test="$f='phonology'">langauge_description</xsl:when>
-            <xsl:when test="$f='pragmatics'">langauge_description</xsl:when>
-            <xsl:when test="$f='semantics'">langauge_description</xsl:when>
-            <xsl:when test="$f='syntax'">langauge_description</xsl:when>
-            <xsl:when test="$f='writing_systems'">langauge_description</xsl:when>
-            <xsl:when test="$f='sociolinguistics'">langauge_situation</xsl:when>
+            <xsl:when test="$f='morphology'">language_description</xsl:when>
+            <xsl:when test="$f='phonetics'">language_description</xsl:when>
+            <xsl:when test="$f='phonology'">language_description</xsl:when>
+            <xsl:when test="$f='pragmatics'">language_description</xsl:when>
+            <xsl:when test="$f='semantics'">language_description</xsl:when>
+            <xsl:when test="$f='syntax'">language_description</xsl:when>
+            <xsl:when test="$f='writing_systems'">language_description</xsl:when>
+            <xsl:when test="$f='sociolinguistics'">language_situation</xsl:when>
             <xsl:otherwise>unclassified</xsl:otherwise>
         </xsl:choose>
         
@@ -185,7 +201,7 @@
     </xsl:template>
     
     <!-- Defined elsewhere.  (Stubs here prevent validation errors.) -->
-    <xsl:template name="show-source"/>
+    <xsl:template name="show-source" />
     <xsl:template name="subfieldSelect">
         <xsl:param name="codes"/>
         <xsl:param name="delimiter"/>
