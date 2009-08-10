@@ -61,18 +61,63 @@
                <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1975</dc:date>
                <dc:identifier from="020">ISBN: 0878400400</dc:identifier>
-               <dc:subject xsi:type="dcterms:LCC" from="050">PC4021 .C55 1974</dc:subject>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PC4021.C55 1974</dc:subject>
                <dc:subject xsi:type="dcterms:DDC" from="082ab">460</dc:subject>
                <dc:title from="245abknps">1974 Colloquium on Spanish and Portuguese Linguistics : [selected papers]</dc:title>
                <dc:publisher from="260ab">Washington : Georgetown University Press</dc:publisher>
                <dcterms:extent from="300abcefg">v, 148 p. ; 23 cm</dcterms:extent>
                <dc:description from="504">Includes bibliographies</dc:description>
                <dc:subject xsi:type="dcterms:LCSH" from="650">Spanish language--Congresses</dc:subject>
-               <dc:language xsi:type="olac:language" from="008-35" olac:code=""/>
+               <dc:contributor from="700abcdeq">Milan, William G</dc:contributor>
+               <dc:contributor from="700abcdeq">Staczek, John J</dc:contributor>
+               <dc:contributor from="700abcdeq">Zamora, Juan C</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
                <dc:subject xsi:type="olac:language" olac:code="spa" from="650"/>
-               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Milan, William G</dc:contributor>
-               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Staczek, John J</dc:contributor>
-               <dc:contributor olac:code="editor" xsi:type="olac:role" from="700abcdeq">Zamora, Juan C</dc:contributor>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:115</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1984</dc:date>
+               <dc:subject xsi:type="dcterms:LCC" from="050">P23.M53 1983</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">410</dc:subject>
+               <dc:title from="245abknps">1983 Mid-America Linguistics Conference papers</dc:title>
+               <dc:publisher from="260ab">Boulder, Colo. : Dept. of Linguistics, University of Colorado</dc:publisher>
+               <dcterms:extent from="300abcefg">vii, 425 p. : ill. ; 21 cm</dcterms:extent>
+               <dc:description from="504">Includes bibliographical references</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Linguistics--Congresses</dc:subject>
+               <dc:contributor from="700abcdeq">Rood, David S</dc:contributor>
+               <dc:contributor from="710abcdeq">University of Colorado, Boulder. Dept. of Linguistics</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="general_linguistics"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:116</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:title from="245abknps">1996 Mid-America Linguistics Conference papers</dc:title>
+               <dc:publisher from="260ab">Lawrence, Kan. : Dept. of Linguistics, University of Kansas</dc:publisher>
+               <dcterms:extent from="300abcefg">viii, 584 p. : ill., maps, charts ; 22 cm</dcterms:extent>
+               <dc:description from="504">Includes bibliographical references</dc:description>
+               <dc:description from="500">Includes six papers from a special session on "Endangered languages and language policy"</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Linguistics--Conferences</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Grammar, Comparative and general--Conferences</dc:subject>
+               <dc:subject from="650">Endangered languages</dc:subject>
+               <dc:contributor from="700abcdeq">Pye, Clifton</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="general_linguistics"/>
             </olac:olac>
          </oai:metadata>
       </oai:record>
@@ -85,14 +130,470 @@
             <olac:olac>
                <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
                <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1970</dc:date>
-               <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645 .H25</dc:subject>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PJ4645.H25</dc:subject>
                <dc:subject xsi:type="dcterms:DDC" from="082ab">492.45</dc:subject>
+               <dc:creator from="100abcdeq">Halkin, Abraham S., 1903-</dc:creator>
                <dc:title from="245abknps">201 Hebrew verbs fully conjugated in all the tenses, alphabeticallyarranged</dc:title>
                <dc:publisher from="260ab">Woodbury, N.Y. : Barron's Educational Series</dc:publisher>
                <dcterms:extent from="300abcefg">xiii, 425 p. ; 21 cm</dcterms:extent>
                <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Hebrew language--Verb--Tables</dc:subject>
-               <dc:language xsi:type="olac:language" from="008-35" olac:code=""/>
-               <dc:contributor olac:code="author" xsi:type="olac:role" from="100abcdeq">Halkin, Abraham S., 1903-</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:124</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1982</dc:date>
+               <dc:identifier from="020">ISBN: 0812026020</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PC4271.K38 1982</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">468.2/421</dc:subject>
+               <dc:creator from="100abcdeq">Kendris, Christopher</dc:creator>
+               <dc:title from="245abknps">501 Spanish verbs fully conjugated in all the tenses in a new easy to learn format</dc:title>
+               <dc:publisher from="260ab">Woodbury, N.Y. : Barron's Educational Series</dc:publisher>
+               <dcterms:extent from="300abcefg">xli, 556 p. ; 23 cm</dcterms:extent>
+               <dc:description from="500">Rev. ed. of: Dictionary of 501 Spanish verbs, fully conjugated in all the tenses, alphabetically arranged. 1971</dc:description>
+               <dc:description from="500">Includes indexes</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Spanish language--Verbs--Tables</dc:subject>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="spa"/>
+               <dc:subject xsi:type="olac:language" olac:code="spa" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:127</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1969</dc:date>
+               <dc:creator from="100abcdeq">Yamamoto, Kengo</dc:creator>
+               <dc:title from="245abknps">A classified dictionary of spoken Manchu : with Manchu, English and Japanese indexes</dc:title>
+               <dc:publisher from="260ab">Tōkyō : Institute for the Study of Languages and Cultures of Asia and Africa</dc:publisher>
+               <dcterms:extent from="300abcefg">234 p. ; 27 cm</dcterms:extent>
+               <dc:description from="500">Title page also in Japanese</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Manchu language--Dictionaries--Japanese</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Manchu language--Dictionaries--English</dc:subject>
+               <dcterms:spatial from="650z">English</dcterms:spatial>
+               <dc:language from="041" xsi:type="olac:language" olac:code="jpn"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="tut"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="lexicon"/>
+               <dc:subject xsi:type="olac:language" olac:code="mnc" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:128</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1969</dc:date>
+               <dc:identifier from="020">ISBN: 0253325706</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">P25.G6 1969</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">410/.8</dc:subject>
+               <dc:creator from="100abcdeq">Godel, Robert</dc:creator>
+               <dc:title from="245abknps">A Geneva school reader in linguistics</dc:title>
+               <dc:publisher from="260ab">Bloomington : Indiana University Press</dc:publisher>
+               <dcterms:extent from="300abcefg">viii, 361 p. : illus., ports. ; 25 cm</dcterms:extent>
+               <dc:description from="500">Collection of writings by Ferdinand de Saussure and his followers in the linguistic movement called "École genevoise."</dc:description>
+               <dc:description from="500">Texts in French; prefatory matter in English</dc:description>
+               <dc:description from="504">"The Geneva school of linguistics: a bibliographical record," by M. Mourelle-Lema: p. 1-25</dc:description>
+               <dc:description from="504">Includes bibliographical references</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Linguistics</dc:subject>
+               <dcterms:isPartOf from="810">Indiana. University. Indiana University studies in the history and theory of linguistics</dcterms:isPartOf>
+               <dc:language from="041" xsi:type="olac:language" olac:code="fre"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="general_linguistics"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:129</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1976</dc:date>
+               <dc:creator from="100abcdeq">Van Haitsma, Julia Dieterman</dc:creator>
+               <dc:title from="245abknps">A hierarchical sketch of Mixe as spoken in San José El Paraíso</dc:title>
+               <dc:publisher from="260ab">Norman, Okla. : Summer Institute of Linguistics, University of Oklahoma</dc:publisher>
+               <dcterms:extent from="300abcefg">xiv, 198 p. ; 24 cm</dcterms:extent>
+               <dc:description from="500">Bibliography: p.197-198</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Mixe language</dc:subject>
+               <dc:contributor from="700abcdeq">Van Haitsma, Willard</dc:contributor>
+               <dcterms:isPartOf from="830">Summer Institute of Linguistics publications in linguistics and related fields ; 44</dcterms:isPartOf>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="sai"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:130</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dcterms:issued xsi:type="dcterms:W3CDTF" from="008-07-10">1992</dcterms:issued>
+               <dc:date from="008-11-14">1887</dc:date>
+               <dc:identifier from="020">ISBN: 8170490588</dc:identifier>
+               <dc:creator from="100abcdeq">Portman, M. V. (Maurice Vidal), 1860-1935</dc:creator>
+               <dc:title from="245abknps">A manual of the Andamanese languages</dc:title>
+               <dc:publisher from="260ab">Delhi : Manas Publications</dc:publisher>
+               <dcterms:extent from="300abcefg">vi, 229 p. ; 23 cm</dcterms:extent>
+               <dc:description from="500">First published, 1887. Reprinted, 1992</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Andamanese language</dc:subject>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="mul"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:131</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PL4163.B86 1967</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">495.9/182421</dc:subject>
+               <dc:creator from="100abcdeq">Brown, J. Marvin, 1925-</dc:creator>
+               <dc:title from="245abknps">A.U.A. Language Center Thai course</dc:title>
+               <dc:publisher from="260ab">Bangkok, Thailand : American University Alumni Association Language Center</dc:publisher>
+               <dcterms:extent from="300abcefg">3 v. : ill. ; 26 cm</dcterms:extent>
+               <dc:description from="500">English and Thai (roman and Thai scripts)</dc:description>
+               <dc:description from="500">Includes indexes</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Thai language--Textbooks</dc:subject>
+               <dc:contributor from="710abcdeq">A.U.A. Language Center</dc:contributor>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="tha"/>
+               <dc:subject xsi:type="olac:language" olac:code="tha" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:133</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1978</dc:date>
+               <dc:identifier from="020">ISBN: 0717508005</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">P123.B39 1978</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">410</dc:subject>
+               <dc:creator from="100abcdeq">Baucom, Kenneth L</dc:creator>
+               <dc:title from="245abknps">The ABCs of literacy : lessons from linguistics</dc:title>
+               <dc:publisher from="260ab">Amersham : Hulton [for] the International Institute for Adult Literacy Methods</dc:publisher>
+               <dcterms:extent from="300abcefg">141 p. : ill. ; 23 cm</dcterms:extent>
+               <dcterms:isPartOf from="440anpvx">Literacy in development</dcterms:isPartOf>
+               <dc:description from="504">Bibliography: p. 132</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Linguistics</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Literacy</dc:subject>
+               <dc:contributor from="710abcdeq">International Institute for Adult Literacy Methods</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="general_linguistics"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:136</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1985</dc:date>
+               <dc:identifier from="020">ISBN: 0868923222 (pbk.)</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PL7003.A26 1985</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">499/.15</dc:subject>
+               <dc:title from="245abknps">Aboriginal and islander grammars : collected papers</dc:title>
+               <dc:publisher from="260ab">Darwin : Summer Institute of Linguistics, Australian Aborigines Branch</dc:publisher>
+               <dcterms:extent from="300abcefg">vii, 118 p. ; 26 cm</dcterms:extent>
+               <dcterms:isPartOf from="440anpvx">Work papers of SIL-AAB. 0810-9971. Series A. ; v. 9</dcterms:isPartOf>
+               <dc:description from="500">"November 1985."</dc:description>
+               <dc:description from="504">Bibliography: p. 117-118</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Australian languages--Grammar</dc:subject>
+               <dc:contributor from="700abcdeq">Ray, S. (Sandra), 1945-</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:138</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1971</dc:date>
+               <dc:identifier from="020">ISBN: 0140211314</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PL1111.N4</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">495.1</dc:subject>
+               <dc:creator from="100abcdeq">Newnham, Richard, 1932-</dc:creator>
+               <dc:title from="245abknps">About Chinese</dc:title>
+               <dc:publisher from="260ab">[Harmondsworth, Eng.] : Penguin Books</dc:publisher>
+               <dcterms:extent from="300abcefg">188 p. ; 18 cm</dcterms:extent>
+               <dc:description from="500">Added t.p. in Chinese</dc:description>
+               <dc:description from="504">Bibliography: p. 176-188</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Chinese language--Grammar</dc:subject>
+               <dc:contributor from="700abcdeq">Tan, Lin-tung</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+               <dc:subject xsi:type="olac:language" olac:code="zho" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:142</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1990</dc:date>
+               <dc:identifier from="020">ISBN: 0080402569 (text)</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">P128.T94H8 1990</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">410</dc:subject>
+               <dc:creator from="100abcdeq">Hutton, Christopher</dc:creator>
+               <dc:title from="245abknps">Abstraction and instance : the type-token relation in linguistic theory</dc:title>
+               <dc:publisher from="260ab">Oxford [England] ; New York : Pergamon Press</dc:publisher>
+               <dcterms:extent from="300abcefg">viii, 180 p. ; 24 cm</dcterms:extent>
+               <dcterms:isPartOf from="440anpvx">Language &amp; communication library ; v. 11</dcterms:isPartOf>
+               <dc:description from="500">Cover title: Abstraction &amp; instance</dc:description>
+               <dc:description from="504">Includes bibliographical references (p. 169-175) and indexes</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Type and token (Linguistics)</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Linguistic analysis (Linguistics)</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Aesthetics</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="general_linguistics"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:146</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1985</dc:date>
+               <dc:subject xsi:type="dcterms:LCC" from="050">PL4634.Z9A66 1985</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">494/.823/09543</dc:subject>
+               <dc:creator from="100abcdeq">Natarajan, G. V</dc:creator>
+               <dc:title from="245abknps">Abujhmaria grammar</dc:title>
+               <dc:publisher from="260ab">Mysore : Central Institute of Indian Languages</dc:publisher>
+               <dcterms:extent from="300abcefg">xiii, 335 p. ; 22 cm</dcterms:extent>
+               <dc:description from="500">English and Gondi (Gondi in roman)</dc:description>
+               <dc:description from="504">Bibliography: p. [317]-321</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Abujhmaria dialect--Grammar</dc:subject>
+               <dcterms:isPartOf from="830">Grammar series ; 14</dcterms:isPartOf>
+               <dc:language from="041" xsi:type="olac:language" olac:code="eng"/>
+               <dc:language from="041" xsi:type="olac:language" olac:code="gon"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:149</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1963</dc:date>
+               <dc:creator from="100abcdeq">Lehiste, Ilse</dc:creator>
+               <dc:title from="245abknps">Accent in Serbocroation : an experimental study</dc:title>
+               <dc:publisher from="260ab">Ann Arbor : [University of Michigan, Dept. of Slavic Languages and Literatures]</dc:publisher>
+               <dcterms:extent from="300abcefg">142 p. : illus., map. ; 28 cm</dcterms:extent>
+               <dc:description from="504">Bibliography: p. 136-142</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Serbo-Croatian language--Accents and accentuation</dc:subject>
+               <dc:contributor from="700abcdeq">Ivić, Pavle</dc:contributor>
+               <dcterms:isPartOf from="830">Michigan Slavic materials ; no. 4</dcterms:isPartOf>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:language" olac:code="hbs" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:159</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1959</dc:date>
+               <dc:creator from="100abcdeq">Fant, Gunnar</dc:creator>
+               <dc:title from="245abknps">Acoustic analysis and synthesis of speech with applications to Swedish</dc:title>
+               <dc:publisher from="260ab">[Stockholm] : Ericsson</dc:publisher>
+               <dcterms:extent from="300abcefg">108 p. : ill. ; 25 cm</dcterms:extent>
+               <dc:description from="500">Title from cover</dc:description>
+               <dc:description from="504">Bibliography: p. 104-106</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Speech</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Sound--Measurement</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Swedish language--Phonetics</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="phonetics"/>
+               <dc:subject xsi:type="olac:language" olac:code="swe" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:167</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:creator from="100abcdeq">McCord, Michael Steven</dc:creator>
+               <dc:title from="245abknps">Acoustical and autosegmental analyses of the Mayogo vowel system</dc:title>
+               <dc:date from="260c">1989</dc:date>
+               <dcterms:extent from="300abcefg">xiii, 158 leaves : ill</dcterms:extent>
+               <dc:description from="502">Dissertation note: Thesis (M.A.)--University of Texas at Arlington, 1989</dc:description>
+               <dc:description from="504">Bibliography : leaves 153-159</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Autosegmental theory (Linguistics)</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" no_code="1" from="650">Mayogo language--Phonology</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="phonology"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:169</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1988</dc:date>
+               <dc:identifier from="020">ISBN: 3878082592</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">P118.2.J36 1988</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">401/.93</dc:subject>
+               <dc:creator from="100abcdeq">James, Allan (Allan R.)</dc:creator>
+               <dc:title from="245abknps">The acquisition of a second language phonology : a linguistic theory of developing sound structures</dc:title>
+               <dc:publisher from="260ab">Tübingen : G. Narr</dc:publisher>
+               <dcterms:extent from="300abcefg">xiii, 205 p. : ill. ; 23 cm</dcterms:extent>
+               <dcterms:isPartOf from="440anpvx">Tübinger Beiträge zur Linguistik. Series A, Language development ; 9</dcterms:isPartOf>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Second language acquisition</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Grammar, Comparative and general--Phonology</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:type xsi:type="olac:linguistic-type" olac:code="language_description"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:171</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:creator from="100abcdeq">Stephany, Ursula</dc:creator>
+               <dc:title from="245abknps">The acquisition of Greek</dc:title>
+               <dc:publisher from="260ab">Köln : Institut für Sprachwissenschaft, Universität zu Köln</dc:publisher>
+               <dcterms:extent from="300abcefg">[143] p., (275, xii p. reduced) ; 30 cm</dcterms:extent>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Greek language</dc:subject>
+               <dc:contributor from="710abcdeq">Universität zu Köln. Institut für Sprachwissenschaft</dc:contributor>
+               <dcterms:isPartOf from="830">Arbeitspapier (Universität zu Köln. Institut für Sprachwissenschaft) ; n.F., Nr. 22</dcterms:isPartOf>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:language" olac:code="grc" from="650"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:174</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1970</dc:date>
+               <dc:subject xsi:type="dcterms:LCC" from="050">BF455.M24</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">401.9</dc:subject>
+               <dc:creator from="100abcdeq">McNeill, David</dc:creator>
+               <dc:title from="245abknps">The acquisition of language : the study of developmental psycholinguistics</dc:title>
+               <dc:publisher from="260ab">New York : Harper &amp; Row</dc:publisher>
+               <dcterms:extent from="300abcefg">viii, 183 p. ; 25 cm</dcterms:extent>
+               <dc:description from="504">Bibliography: p. 165-178</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Psycholinguistics</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Child psychology</dc:subject>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:linguistic-field" olac:code="psycholinguistics"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:177</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:date xsi:type="dcterms:W3CDTF" from="008-07-10">1978</dc:date>
+               <dc:identifier from="020">ISBN: 0839112815</dc:identifier>
+               <dc:subject xsi:type="dcterms:LCC" from="050">LB1049.95.D44 1975</dc:subject>
+               <dc:subject xsi:type="dcterms:DDC" from="082ab">428/.4</dc:subject>
+               <dc:title from="245abknps">The acquisition of reading : cognitive, linguistic, and perceptual prerequisites</dc:title>
+               <dc:publisher from="260ab">Baltimore : University Park Press</dc:publisher>
+               <dcterms:extent from="300abcefg">xi, 178 p. : ill. ; 24 cm</dcterms:extent>
+               <dc:description from="500">Updated revisions of papers presented at the Second Delaware Symposium on Curriculum, Learning, and Instruction, Newark, Del., 1975</dc:description>
+               <dc:description from="504">Includes bibliographies and index</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Reading--Congresses</dc:subject>
+               <dc:contributor from="700abcdeq">Murray, Frank B</dc:contributor>
+               <dc:contributor from="700abcdeq">Pikulski, John J</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+            </olac:olac>
+         </oai:metadata>
+      </oai:record>
+      <oai:record>
+         <oai:header>
+            <oai:identifier>oai:institution.edu:179</oai:identifier>
+            <oai:datestamp>YYYY-MM-DD</oai:datestamp>
+         </oai:header>
+         <oai:metadata>
+            <olac:olac>
+               <dc:type xsi:type="dcterms:DCMIType" from="leader">Text</dc:type>
+               <dc:creator from="100abcdeq">Sheldon, Amy Louise</dc:creator>
+               <dc:title from="245abknps">The acquisition of relative clauses in English</dc:title>
+               <dc:publisher from="260ab">Bloomington, Ind. : Indiana University Linguistics Club</dc:publisher>
+               <dcterms:extent from="300abcefg">iv, 88 p. ; 28 cm</dcterms:extent>
+               <dc:description from="500">Cover title</dc:description>
+               <dc:description from="504">Bibliography: p. 84-88</dc:description>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">English language--Clauses</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Children--Language</dc:subject>
+               <dc:subject xsi:type="dcterms:LCSH" from="650">Child development</dc:subject>
+               <dc:contributor from="710abcdeq">Indiana University Linguistics Club</dc:contributor>
+               <dc:language xsi:type="olac:language" from="008-35" olac:code="eng"/>
+               <dc:subject xsi:type="olac:language" olac:code="eng" from="650"/>
             </olac:olac>
          </oai:metadata>
       </oai:record>

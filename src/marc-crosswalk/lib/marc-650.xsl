@@ -48,6 +48,12 @@
                                     do not have to scan over it. -->
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when
+                            test="contains($heading,'--languages--')
+                            or ends-with($heading, '--languages')
+                            or ends-with($heading, '--languages.')">
+                            <xsl:text>language_situation</xsl:text>
+                        </xsl:when>
                         <xsl:otherwise>
                             <!-- There's probably a different lookup
                                 for the case where there is no subject
@@ -161,61 +167,12 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="assign-direct-type-for-language">
-        <xsl:param name="h"/>
-        <!-- The parameter is the rest of the subject heading
-            following subfield $a of language name.
-            Returns the OLAC code for the language resource type
-            when it is known directly from matching a form
-            subdivision.
-            Returns nothing if a resource type is not directly
-            matched. (It may still be inferred later.) 
-        -->
-        <!-- Use matches like
-            <xsl:when test="contains($h, 'dictionaries')">language_lexicon</xsl:when>
-        -->
-    </xsl:template>
     
-    <xsl:template name="assign-inferred-type-for-language">
-        <xsl:param name="f"/>
-        <!-- The parameter is the linguistic field code.
-            Returns the OLAC code for the language resource type
-            that can be inferred from that field code (since we
-            already know that it is about a particular language).
-        -->
-        <xsl:choose>
-            <xsl:when test="$f='computational_linguistics'">language_automation</xsl:when>
-            <xsl:when test="$f='discourse_analysis'">language_description</xsl:when>
-            <xsl:when test="$f='historical_linguistics'">language_description</xsl:when>
-            <xsl:when test="$f='lexicography'">language_description</xsl:when>
-            <xsl:when test="$f='linguistic_theories'">language_description</xsl:when>
-            <xsl:when test="$f='linguistics_and_literature'">language_description</xsl:when>
-            <xsl:when test="$f='morphology'">language_description</xsl:when>
-            <xsl:when test="$f='philosophy_of_language'">language_description</xsl:when>
-            <xsl:when test="$f='phonetics'">language_description</xsl:when>
-            <xsl:when test="$f='phonology'">language_description</xsl:when>
-            <xsl:when test="$f='pragmatics'">language_description</xsl:when>
-            <xsl:when test="$f='psycholinguistics'">language_description</xsl:when>
-            <xsl:when test="$f='semantics'">language_description</xsl:when>
-            <xsl:when test="$f='syntax'">language_description</xsl:when>
-            <xsl:when test="$f='translating_and_interpreting'">language_description</xsl:when>
-            <xsl:when test="$f='writing_systems'">language_description</xsl:when>
-            <xsl:when test="$f='applied_linguistics'">language_instruction</xsl:when>
-            <xsl:when test="$f='anthropological_linguistics'">language_situation</xsl:when>
-            <xsl:when test="$f='sociolinguistics'">language_situation</xsl:when>
-            <xsl:otherwise>unclassified</xsl:otherwise>
-        </xsl:choose>
-        
-    </xsl:template>
-    
-    <xsl:template name="assign-linguistic-field">
-        <xsl:param name="h"/>
-    </xsl:template>
-    
-    <!-- Defined elsewhere.  (Stubs here prevent validation errors.) -->
+    <!-- Defined elsewhere.  (Stubs here prevent validation errors.)
     <xsl:template name="show-source" />
     <xsl:template name="subfieldSelect">
         <xsl:param name="codes"/>
         <xsl:param name="delimiter"/>
     </xsl:template>
+    -->
 </xsl:stylesheet>
