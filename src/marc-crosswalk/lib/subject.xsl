@@ -6,6 +6,433 @@
     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exclude-result-prefixes="marc">
 
+    <!-- This is called when there is a subject language and its is
+        not of a subject-less resource type (e.g. lexicon, text,
+        instruction) -->
+    <xsl:template name="assign-linguistic-field">
+        <xsl:param name="h"/>
+        
+        <xsl:choose>
+            <xsl:when test="contains($h, 'ability testing')"
+                >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'absolute constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'accents and accentuation')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'acquisition')"
+                >language_acquisition</xsl:when>
+            <xsl:when test="contains($h, 'adjectivals')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'adjective')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'adverb')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'adverbials')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'affixes')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'agreement')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'alphabet')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'anaphora')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'animacy')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'apheresis')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'apposition')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'archaisms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'article')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'aspect')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'aspiration')"
+                >phonetics</xsl:when>
+            <xsl:when test="contains($h, 'asyndeton')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'augmentatives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'auxiliary verbs')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'capitalization')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'case')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'case grammar')"
+                >linguistic_theories</xsl:when>
+            <xsl:when test="contains($h, 'cataphora')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'categorial grammar')"
+                >linguistic_theories</xsl:when>
+            <xsl:when test="contains($h, 'causative')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'classifiers')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'clauses')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'clitics')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'cognate words')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'collective nouns')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'comparative clauses')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'comparison')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'complement')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'compound words')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'concessive clauses')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'conditionals')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'conjunctions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'connectives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'consonants')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'context')"
+                >pragmatics</xsl:when>
+            <xsl:when test="contains($h, 'contraction')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'coordinate constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'data processing')"
+                >computational_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'declension')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'definiteness')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'deixis')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'demonstratives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'dependency grammar')"
+                >linguistic_theories</xsl:when>
+            <xsl:when test="contains($h, 'determiners')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'dialectology')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'dialects')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'diminutives')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'diphthongs')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'direct object')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'discourse analysis')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'dissimilation')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'elision')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'ellipsis')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'enclitics')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'eponyms')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'ergative constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'errors of usage')"
+                >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'etymology')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'euphemism')"
+                >pragmatics</xsl:when>
+            <xsl:when test="contains($h, 'existential constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'foreign elements')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'foreign words and phrases')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'function words')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'gemination')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'gender')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'gerund')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'globalization')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'grammar')">syntax</xsl:when>
+
+            <xsl:when test="contains($h, 'grammar, comparative')"
+                >syntax</xsl:when>
+
+            <xsl:when test="contains($h, 'grammar, generative')"
+                >linguistic_theories</xsl:when>
+
+            <xsl:when test="contains($h, 'grammar, historical')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'grammatical categories')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'grammaticalization')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'graphemics')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'heteronyms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'hiatus')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'historiography')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'history')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'homonyms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'honorific')"
+                >pragmatics</xsl:when>
+            <xsl:when test="contains($h, 'humor')"
+                >pragmatics</xsl:when>
+            <xsl:when test="contains($h, 'ideophone')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'idioms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'imperative')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'indicative')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'indirect discourse')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'indirect object')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'infinitival constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'infinitive')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'infixes')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'inflection')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'influence on')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'intensification')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'interjections')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'interrogative')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'intonation')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'jargon')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'labiality')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'lexicography')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'locative constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'machine translating')"
+                >computational_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'metonyms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'mimetic words')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'modality')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'mood')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'morphemics')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'morphology')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'morphophonemics')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'morphosyntax')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'negatives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'new words')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'nominals')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'noun')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'noun phrase')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'number')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'numerals')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'obscene words')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'obsolete words')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'onomatopoeic words')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'orthography and spelling')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'palatalization')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'paragraphs')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'parallelism')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'paraphrase')"
+                >translating_and_interpreting</xsl:when>
+            <xsl:when
+                test="contains($h, 'parenthetical constructions')"
+                >discourse_analysis</xsl:when>
+            <xsl:when test="contains($h, 'paronyms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'parsing')"
+                >computational_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'participle')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'particles')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'partitives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'parts of speech')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'passive voice')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'person')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'philosophy')"
+                >philosophy_of_language</xsl:when>
+            <xsl:when test="contains($h, 'phonemics')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'phonetic transcriptions')"
+                >phonetics</xsl:when>
+            <xsl:when test="contains($h, 'phonetics')"
+                >phonetics</xsl:when>
+            <xsl:when test="contains($h, 'phonology')"
+                >phonology</xsl:when>
+
+            <xsl:when test="contains($h, 'phonology, comparative')"
+                >phonology</xsl:when>
+
+            <xsl:when test="contains($h, 'phonology, historical')"
+                >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'political aspects')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'polysemy')"
+                >semantics</xsl:when>
+            <xsl:when test="contains($h, 'possessives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'postpositions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'prepositional phrases')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'prepositions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'pronominals')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'pronoun')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'pronunciation')"
+                >phonology</xsl:when>
+            <xsl:when
+                test="contains($h, 'pronunciation by foreign speakers')"
+                >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'prosodic analysis')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'psychological aspects')"
+                >psycholinguistics</xsl:when>
+            <xsl:when test="contains($h, 'punctuation')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'quantifiers')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'quantity')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'reduplication')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'reflexives')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'reform')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'relational grammar')"
+                >linguistic_theories</xsl:when>
+            <xsl:when test="contains($h, 'relative clauses')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'religious aspects')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'remedial teaching')"
+                >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'resultative constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'rhetoric')"
+                >pragmatics</xsl:when>
+            <xsl:when test="contains($h, 'rhythm')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'roots')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'semantics')"
+                >semantics</xsl:when>
+            <xsl:when test="contains($h, 'sentences')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'sex differences')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'social aspects')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'sonorants')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'spectral analysis')"
+                >phonetics</xsl:when>
+            <xsl:when test="contains($h, 'spelling')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'standardization')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'subjectless constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'subjunctive')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'subordinate constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'suffixes and prefixes')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'suppletion')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'switch-reference')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'syllabication')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'synonyms and antonyms')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'syntax')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'tempo')"
+                >linguistics_and_literature</xsl:when>
+            <xsl:when test="contains($h, 'temporal clauses')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'temporal constructions')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'tense')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'transcription')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'transitivity')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'translating')"
+                >translating_and_interpreting</xsl:when>
+            <xsl:when test="contains($h, 'transliteration')"
+                >writing_systems</xsl:when>
+            <xsl:when test="contains($h, 'usage')"
+                >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'variation')"
+                >sociolinguistics</xsl:when>
+            <xsl:when test="contains($h, 'verb')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'verb phrase')"
+                >syntax</xsl:when>
+
+            <xsl:when test="contains($h, 'verbals')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'versification')"
+                >linguistics_and_literature</xsl:when>
+            <xsl:when test="contains($h, 'voice')">syntax</xsl:when>
+            <xsl:when test="contains($h, 'vowel gradation')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'vowel reduction')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'vowels')"
+                >phonology</xsl:when>
+            <xsl:when test="contains($h, 'word formation')"
+                >morphology</xsl:when>
+            <xsl:when test="contains($h, 'word frequency')"
+                >lexicography</xsl:when>
+            <xsl:when test="contains($h, 'word order')"
+                >syntax</xsl:when>
+            <xsl:when test="contains($h, 'writing')"
+                >writing_systems</xsl:when>
+
+        </xsl:choose>
+    </xsl:template>
+    
+
     <xsl:template name="process-linguistic-subject">
         <!-- Process LCSH into OLAC linguistic subjects
             see: http://www.language-archives.org/REC/field.html

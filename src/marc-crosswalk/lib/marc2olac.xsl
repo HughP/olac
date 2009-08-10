@@ -12,6 +12,9 @@ local cataloging practices.
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:param name="inverse"></xsl:param>
     
+    <xsl:include href="utils.xsl"/>
+    <xsl:include href="importmap.xsl"/>
+    <xsl:include href="marc-650.xsl"/>
     <xsl:include href="role.xsl"/>
     <xsl:include href="type.xsl"/>
     <xsl:include href="subject.xsl"/>
@@ -1046,8 +1049,8 @@ local cataloging practices.
     </xsl:template>
 
 
-
-    <xsl:template match="marc:datafield[@tag='650']">
+    <!-- This is commented out by virtue of the final x -->
+    <xsl:template match="marc:datafield[@tag='650x']">
         <xsl:call-template name="process-linguistic-type"/>
         <xsl:call-template name="process-linguistic-subject"/>
 
