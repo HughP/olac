@@ -115,7 +115,7 @@
                 -->
 
                 <!-- if this template does not define any real mappings, it is normal for it to always return 'failed' -->
-                <xsl:otherwise>failed</xsl:otherwise>
+                <xsl:otherwise></xsl:otherwise>
             </xsl:choose>
         </xsl:if>
     </xsl:template>
