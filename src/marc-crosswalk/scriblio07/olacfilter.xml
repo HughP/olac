@@ -2,41 +2,32 @@
 <?oxygen RNGSchema="file:../lib/olac-filter.rnc" type="compact"?>
 <olac-filter>
     <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:title>Default OLAC filter</dc:title>
-        <dc:contributor>Chris Hirt</dc:contributor>
-        <dc:date>7 August 2009</dc:date>
-        <dc:description>Default: Retains all records. Nothing is filtered</dc:description>
+        <dc:title>Final filter for Scriblio data</dc:title>
+        <dc:contributor>Gary Simons</dc:contributor>
+        <dc:date>12 August 2009</dc:date>
+        <dc:description>Reject all language_texts in major languages,
+            then retain a record only if it has a resource type
+            assigned.</dc:description>
     </header>
-    <reject-rules> </reject-rules>
-    <retain-rules>
-        <test name="olac language AND type">
-            <dc-element tag="dc:subject">
-                <type test="equals">
-                    <text>olac:language</text>
-                    <text>dcterms:ISO639-2</text>
-                </type>
+    <reject-rules>
+        <test name="Major-language-texts">
+            <dc-element tag="dc:language">
+                <code test="equals">
+                    <text>eng</text>
+                    <text>fre</text>
+                    <text>ger</text>
+                    <text>spa</text>
+                </code>
             </dc-element>
             <dc-element tag="dc:type">
-                <type test="starts-with">
-                    <text>olac</text>
-                    <!-- e.g. linguistic type or
-            discourse type -->
-                </type>
+                <code test="equals"><text>language_text</text></code>
             </dc-element>
         </test>
-        
-        <test name="olac language AND subject">
-            <dc-element tag="dc:subject">
-                <type test="equals">
-                    <text>olac:language</text>
-                    <text>dcterms:ISO639-2</text>
-                </type>
-            </dc-element>
-            <dc-element tag="dc:subject">
-                <type test="starts-with">
-                    <text>olac</text>
-                    <!-- e.g. linguistic field -->
-                </type>
+    </reject-rules>
+    <retain-rules>
+        <test name="has-type">
+            <dc-element tag="dc:type">
+                <type test="equals"><text>olac:resource-type</text></type>
             </dc-element>
         </test>
     </retain-rules>
