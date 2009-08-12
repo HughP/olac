@@ -150,7 +150,19 @@
                </xsl:when>
                <xsl:when test="@xsi:type='olac:linguistic-type'">
                   <xsl:call-template name="olac-display-format">
-                     <xsl:with-param name="label">Linguistic type</xsl:with-param>
+                     <xsl:with-param name="label"></xsl:with-param>
+                     <xsl:with-param name="primaryCode">
+                        <xsl:call-template name="capitalize">
+                           <xsl:with-param name="label">
+                              <xsl:value-of select="$code"/>
+                           </xsl:with-param>
+                        </xsl:call-template>
+                     </xsl:with-param>
+                  </xsl:call-template>
+               </xsl:when>
+               <xsl:when test="@xsi:type='olac:resource-type'">
+                  <xsl:call-template name="olac-display-format">
+                     <xsl:with-param name="label"></xsl:with-param>
                      <xsl:with-param name="primaryCode">
                         <xsl:call-template name="capitalize">
                            <xsl:with-param name="label">

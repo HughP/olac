@@ -108,7 +108,7 @@ def applyStylesheets(inputfilename,config):
         inverse_param = 'inverse=yes'
         if config.get('system','debug') == 'yes':
             stage3a_params += 'debug=yes '
-        if config.get('system','inverse') == 'yes':
+        if config.get('system','inverse') == 'yes' and stage == 3:
             stage3a_params += inverse_param
             stage3b_params += inverse_param
 
