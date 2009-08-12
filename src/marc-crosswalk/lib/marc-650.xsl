@@ -38,7 +38,7 @@
                 
                 <xsl:variable name="typeCode">
                     <xsl:choose>
-                        <xsl:when test="$langCode">
+                        <xsl:when test="$langCode != '' ">
                             <xsl:call-template
                                 name="assign-direct-type-for-language">
                                 <xsl:with-param name="h" 
@@ -54,12 +54,11 @@
                             or ends-with($heading, '--languages.')">
                             <xsl:text>language_situation</xsl:text>
                         </xsl:when>
-                        <xsl:otherwise>
-                            <!-- There's probably a different lookup
-                                for the case where there is no subject
-                                language
-                            -->
-                        </xsl:otherwise>
+                        <!-- There's probably a different lookup
+                            for the case where there is no subject
+                            language
+                        -->
+                        <xsl:otherwise></xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
                 
@@ -83,7 +82,7 @@
                 
                 <xsl:variable name="inferredType">
                     <xsl:choose>
-                        <xsl:when test="$langCode and $fieldCode">
+                        <xsl:when test="$langCode != '' and $fieldCode != '' ">
                             <xsl:call-template
                                 name="assign-inferred-type-for-language">
                                 <xsl:with-param name="f" select="$fieldCode"/>
@@ -97,21 +96,29 @@
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="$heading"/>
                 </dc:subject>
-                <xsl:if test="$langCode">
+                <xsl:if test="$langCode != '' ">
                     <dc:subject xsi:type="olac:language"
-                       olac:code="{$langCode}"/>
+                       olac:code="{$langCode}">
+                        <xsl:call-template name="show-source"/>
+                    </dc:subject>
                 </xsl:if>
-                <xsl:if test="$typeCode">
+                <xsl:if test="$typeCode != '' ">
                      <dc:type xsi:type="olac:resource-type"
-                         olac:code="{$typeCode}"/>
+                         olac:code="{$typeCode}">
+                         <xsl:call-template name="show-source"/>
+                     </dc:type>
                 </xsl:if>
-                <xsl:if test="$inferredType">
+                <xsl:if test="$inferredType != '' ">
                     <dc:type xsi:type="olac:resource-type"
-                        olac:code="{$inferredType}"/>
+                        olac:code="{$inferredType}">
+                        <xsl:call-template name="show-source"/>
+                    </dc:type>
                 </xsl:if>
-                <xsl:if test="$fieldCode">
+                <xsl:if test="$fieldCode != '' ">
                     <dc:subject xsi:type="olac:linguistic-field"
-                        olac:code="{$fieldCode}"/>
+                        olac:code="{$fieldCode}">
+                        <xsl:call-template name="show-source"/>
+                    </dc:subject>
                 </xsl:if>
             </xsl:when>
             
@@ -146,7 +153,7 @@
                 </xsl:call-template>
             </xsl:variable>
             <xsl:choose>
-                <xsl:when test="$try1">
+                <xsl:when test="$try1 != '' ">
                     <xsl:value-of select="$try1" />
                 </xsl:when>
                 <xsl:otherwise>
