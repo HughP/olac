@@ -156,10 +156,17 @@ else: # this is a directory
 
 
 # modify output filename
+dotindex = olacxml_filename.find('.')
 if stage < final_stage:
-    olacxml_filename += '.stage' + str(stage)
+    if dotindex != -1:
+        olacxml_filename = olacxml_filename[0:dotindex] + '.stage' + str(stage) + olacxml_filename[dotindex:]
+    else:
+        olacxml_filename += '.stage' + str(stage)
 if options.inverse:
-    olacxml_filename += '.inverse'
+    if dotindex != -1:
+        olacxml_filename = olacxml_filename[0:dotindex] + '.inverse' + olacxml_filename[dotindex:]
+    else:
+        olacxml_filename += '.inverse'
 
 # loop over each XML chunk and apply stylesheet chain
 ctr = 1
@@ -194,9 +201,19 @@ else:
 
 # generate an HTML file, if appropriate
 if options.do_html_output and stage >= 3:
-    print "Generating HTML output to %s" % config.get('system','html_output')
+    html_out = config.get('system', 'html_output')
+
+    # rename output file if necessary
+    if options.inverse:
+        dotindex = html_out.find('.')
+        if dotindex != -1:
+            html_out = html_out[0:dotindex] + '.inverse' + html_out[dotindex:]
+        else:
+            html_out += '.inverse'
+
+    print "Generating HTML output to %s" % html_out
     utils.transform(config,libpath + sep + 'repository2html',olacxml_filename,
-            projpath + sep + config.get('system','html_output'))
+            projpath + sep + html_out)
 
 if stage < final_stage:
     print "Done."

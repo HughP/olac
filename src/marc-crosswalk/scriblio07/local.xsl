@@ -129,9 +129,4 @@
           templates as defined in the marc2olac stylesheet -->
 
 
-
-
-    </xsl:template>
-
-
 </xsl:stylesheet>

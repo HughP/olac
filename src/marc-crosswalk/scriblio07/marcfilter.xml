@@ -117,6 +117,16 @@
             <text>znd</text>
          </control-field>
       </test>
+      <!-- 
+               Also select all records containing "language oriented" subject terms, only in a 650
+      -->
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>language</text>
+            <text>languages</text>
+            <text>dialect</text>
+         </data-field>
+      </test>
    </select-stage>
    
    <reject-stage/>
