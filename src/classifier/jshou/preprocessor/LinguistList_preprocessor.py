@@ -13,7 +13,10 @@ The Description column of the table has some geographic information that I might
 be able to extract, but I'm not sure how to tell which words are geographic and
 which are not yet.
 
-LinguistList data retrieved on July 2, 2009, from:
+Old version: LinguistList data retrieved on July 2, 2009, from:
+http://linguistlist.org/forms/langs/GetListOfAncientLgs.html
+
+New version: LinguistList data retrieved on August 14, 2009, from:
 http://linguistlist.org/forms/langs/GetListOfAncientLgs.html
 
 Usage: python LinguistList_data_preprocessor.py LinguistList_data >output
