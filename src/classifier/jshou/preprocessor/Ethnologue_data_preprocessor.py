@@ -54,7 +54,7 @@ class EthnologueXMLParser:
         
         self.spaces = re.compile(r'\s+')
         #self.region_NE = re.compile(r'(([A-Z]\w*\s?)+)')
-        self.region_NE = re.compile(r'(((St\.? )|(Mt\.? ))*([A-Z][^\s,\.\\;:\'\"]*)(( of| de)? [A-Z][^\s,\.\\;:\'\"]*)*)')
+        self.region_NE = re.compile(r'(((St\.? )|(Mt\.? ))*([A-Z][^\s,\.\\;:\'\"\(\)]*)(( of| de)? [A-Z][^\s,\.\\;:\'\"\(\)]*)*)')
         self.dialect_split = re.compile(r'\)?, | \(|\).')
         
         self.country_idx = {} # country_name -> country_code
@@ -76,15 +76,19 @@ class EthnologueXMLParser:
                      "dialects":''
                      }
 
-        self.stoplist = ['North','South','East','West','Northeast','Northwest','Southeast',\
+        self.stoplist = set(['North','South','East','West','Northeast','Northwest','Southeast',\
             'Southwest','Central','Mt','St','The','Far','Both','Along',\
             'Border','Island','Islands','Upper','Lowlands','Several','Center',\
             'Ethnic','At','Middle','Northern','Southern','Eastern','Western',\
             'Northeastern','Northwestern','Southeastern','Southwestern','Over',\
             'Just','Refugees','Villages','L1','No','On','L2','All','Centered',\
             'Inland','Towns','River','Between','Overlaps','Small','Lakes',\
-            'Used', 'Song Mao. Possibly']
-
+            'Used', 'Song Mao. Possibly'])
+        self.abbreviations = {'St.':'Saint', 'St':'Saint', 'Mt.':'Mount', 'Mt':'Mount'}
+        self.abb_re = re.compile(r'St\.?|Mt\.?')
+        self.dirof = re.compile(r'((North)|(South)|(East)|(West)|(Northeast)|(Northwest)|(Southeast)|(Southwest)|([NSEW][NSEW]?)) of ')
+        self.dir = re.compile(r'((North)|(South)|(East)|(West)|(Northeast)|(Northwest)|(Southeast)|(Southwest)|([NSEW][NSEW]?)) ')
+        self.geog = re.compile(r'((Place)|(River)|(Hills?)|(Prefecture)|(City)|(Lake)|(Province)|(Islands?)|(Lowlands)|(Towns?)|(District)|(Middle)|(Regency)|(Valley)|(Harbor)|(Township)|(County)|(Lagoon)|(Station)|(Territory)|(Division)|(Department)|(Municipio))$')
 
     def parse(self):
             self.Parser.ParseFile(open(self.xml_file))
@@ -123,7 +127,11 @@ class EthnologueXMLParser:
             self.country_idx[self.curr_country_name] = self.temp[name]
             self.lang_info[self.curr_iso]["cc"].append(self.temp[name])
         elif name=="region":
-            self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "') for i in self.region_NE.findall(self.temp[name])])
+            region_list = []
+            for region in filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "()') for i in self.region_NE.findall(self.temp[name])]):
+                region_list += self.region_parse(region)
+            self.lang_info[self.curr_iso]['rg'] += region_list
+#           self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "()') for i in self.region_NE.findall(self.temp[name])])
         self.temp[name] = ''
         self.path.pop()
     
@@ -139,6 +147,25 @@ class EthnologueXMLParser:
                     print>>outstream, iso + "\t" + field + '\t' + self.lang_info[iso][field]
         for country_name in self.country_idx:
             print>>outstream, self.country_idx[country_name] + "\tcn" + '\t' + country_name
+
+    def region_parse(self, NE):
+        if NE.startswith('Near '):
+            NE = NE.replace('Near ','').strip()
+        if self.dirof.match(NE):
+            NE = self.dirof.sub('',NE)
+        NE_list = [NE]
+        abb_rematch = self.abb_re.match(NE)
+        if abb_rematch:
+            NE_list += self.region_parse(self.abb_re.sub(self.abbreviations[abb_rematch.string[abb_rematch.start():abb_rematch.end()]],NE))
+        if self.dir.match(NE):
+            new_NE = self.dir.sub('',NE).strip()
+            if new_NE not in self.stoplist:
+                NE_list.append(new_NE)
+        if self.geog.search(NE):
+            new_NE = self.geog.sub('',NE).strip()
+            if new_NE not in self.stoplist:
+                NE_list.append(new_NE)
+        return NE_list
 
 if __name__=="__main__":
     if len(sys.argv)!=2:
