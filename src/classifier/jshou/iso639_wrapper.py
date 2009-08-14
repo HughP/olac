@@ -32,10 +32,10 @@ if options.ten:
         os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
         print "--CLASSIFYING OLAC DISPLAY--"
         sys.stdout.flush()
-        os.system('python iso639Classifier.py -g olac_display_subset.gs -d -f -i %d classifier.pickle olac_display_subset.xml olac_display_subset.classified' % i)
+        os.system('python iso639Classifier.py -g olac_display_subset2.gs -d -f -i %d classifier.pickle olac_display_subset2.xml olac_display_subset2.classified' % i)
         print "--EVALUATING OLAC DISPLAY--"
         sys.stdout.flush()
-        os.system('python iso639_evaluator.py olac_display_subset.gs olac_display_subset.classified')
+        os.system('python iso639_evaluator.py olac_display_subset2.gs olac_display_subset2.classified')
         print "\n--------------------------------------------------------------------\n"
 else:
     print "--TRAINING--"
@@ -49,7 +49,7 @@ else:
     os.system('python iso639_evaluator.py %s.gs %s.classified' % (header, header))
     print "--CLASSIFYING OLAC DISPLAY--"
     sys.stdout.flush()
-    os.system('python iso639Classifier.py -g olac_display_subset.gs -d -f classifier.pickle olac_display_subset.xml olac_display_subset.classified')
+    os.system('python iso639Classifier.py -g olac_display_subset2.gs -d -f classifier.pickle olac_display_subset2.xml olac_display_subset2.classified')
     print "--EVALUATING OLAC DISPLAY--"
     sys.stdout.flush()
-    os.system('python iso639_evaluator.py olac_display_subset.gs olac_display_subset.classified')
+    os.system('python iso639_evaluator.py olac_display_subset2.gs olac_display_subset2.classified')
