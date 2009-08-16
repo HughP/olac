@@ -44,9 +44,8 @@
       <tr valign="top">
          <td bgcolor="silver">
             <b>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-               <xsl:value-of select="name()"/>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+               <xsl:value-of select="concat('&#160;', name(),
+               '&#160;')"/>
             </b>
          </td>
          <td bgcolor="#f0f0f0">
@@ -59,9 +58,8 @@
       <tr valign="top">
          <td bgcolor="silver">
             <b>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-               <xsl:value-of select="name()"/>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+               <xsl:value-of select="concat('&#160;', name(),
+                  '&#160;')"/>
             </b>
          </td>
          <td bgcolor="#f0f0f0">
@@ -112,9 +110,8 @@
       <tr valign="top">
          <td bgcolor="silver">
             <b>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
-               <xsl:value-of select="$label"/>
-               <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+               <xsl:value-of select="concat('&#160;', $label,
+                  '&#160;')"/>
             </b>
          </td>         <td bgcolor="silver">
             <xsl:value-of select="@from"/>
