@@ -11,7 +11,7 @@
     </header>
     <reject-rules>
         <test name="Major-language-texts">
-            <dc-element tag="dc:language">
+            <dc-element tag="dc:subject">
                 <code test="equals">
                     <text>eng</text>
                     <text>fre</text>
