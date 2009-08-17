@@ -44,7 +44,6 @@ The set of elements that are used by the OLAC database are:
 import re
 from nltk.corpus.reader.util import *
 from nltk.corpus.reader.api import *
-import pdb
 
 class XMLCorpusReader(CorpusReader):
     def records(self, fileids=None):
