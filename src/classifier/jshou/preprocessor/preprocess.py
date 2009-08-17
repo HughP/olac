@@ -12,7 +12,7 @@ if os.path.exists(sys.argv[1]):
     else:
         print "Overwriting..."
 
-header, file = os.split(sys.argv[0])
+header, file = os.path.split(sys.argv[0])
 headout = {'header':os.path.join(header,''), 'output':sys.argv[1]}
 os.system('python %(header)sEthnologue_data_preprocessor.py %(header)sEthnologue-classifier-training-data.xml > %(output)s' % headout)
 os.system('python %(header)sLinguistList_preprocessor.py %(header)sGetListOfAncientLgs.html >> %(output)s' % headout)
