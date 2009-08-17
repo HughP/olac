@@ -25,11 +25,30 @@
             <i>OLAC Static Repository</i>
             <h1 style="margin-top: 12"><xsl:value-of select="$title"/></h1>
             <hr/>
+            <xsl:apply-templates select="sr:Repository" mode="toc"/>
             <xsl:apply-templates
                select="//sr:Identify/oai:description/olaca:olac-archive"/>
-            <xsl:apply-templates select="//sr:ListRecords/oai:record"/>
+            <xsl:apply-templates select="//sr:ListRecords"/>
          </body>
       </html>
+   </xsl:template>
+   
+   <xsl:template mode="toc" match="sr:Repository">
+      <!-- Only insert a TOC if there is more than one set of records.
+           This happends only in an evaluation repository that
+           selectes a sampling of different recrod types.
+        -->
+      <xsl:if test="//sr:ListRecords[2]">
+         <ul>
+         <xsl:for-each select="sr:ListRecords">
+            <li><a href="#{@metadataPrefix}">
+               <xsl:value-of select="@metadataPrefix"/>
+            </a>
+               <xsl:value-of select="concat(' (', count(*), ')')"/>
+            </li>
+         </xsl:for-each>
+         </ul>
+      </xsl:if>
    </xsl:template>
    
    <xsl:template match="olaca:olac-archive">
@@ -66,6 +85,15 @@
             <xsl:value-of select="."/>
          </td>
       </tr>
+   </xsl:template>
+   
+   <xsl:template match="sr:ListRecords">
+      <xsl:if test="@metadataPrefix != 'olac'">
+         <a name="{@metadataPrefix}"/>
+         <hr/>
+         <h2 style="background: silver"><xsl:value-of select="@metadataPrefix"/></h2>
+      </xsl:if>
+      <xsl:apply-templates/>
    </xsl:template>
    
    <xsl:template match="oai:record">

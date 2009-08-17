@@ -20,17 +20,18 @@ declare function local:vocab-report($label, $uses, $recs, $total-records) {
      </tr> };
      
       
-(: let $repo := doc('file:scriblio_repository_part1.xml') :)
-let $repo := doc('file:gial09.olac.xml') 
+let $repo := doc('file:scriblio_repository_part1.xml')
+(: let $repo := doc('file:gial09.olac.xml')  :)
 
 let $target := 100
 
 return
   <sr:Repository>
-  <oai:repositoryName>{$target} records of each type</oai:repositoryName>
+  <oai:repositoryName>{$repo/*/sr:Identify/oai:repositoryName/text()}:
+  Sample of types</oai:repositoryName>
   {
    let $types :=
-fn:distinct-values($repo//oai:record/*/*/dc:type[@xsi:type='olac:linguistic-type']/@olac:code)
+fn:distinct-values($repo//oai:record/*/*/dc:type[@xsi:type='olac:resource-type']/@olac:code)
    for $type in $types
    return
    
