@@ -107,9 +107,10 @@ class EthnologueXMLParser:
             # inverting print_name if needed
             if ',' in self.temp[name]:
                 split_name = self.temp[name].split(',')
-                self.curr_print_name = split_name[1].strip() + " " + split_name[0].strip()
+                # uninverted, inverted, base names
+                self.curr_print_name = [split_name[1].strip() + " " + split_name[0].strip(), self.temp[name], split_name[1].strip()]
             else:
-                self.curr_print_name = self.temp[name]
+                self.curr_print_name = [self.temp[name]]
         elif name=="ISO_code":
             self.curr_iso = self.temp[name]
             # This is the first time that self.lang_info encounters this iso code so we have to initialize the dictionary here.
@@ -140,11 +141,8 @@ class EthnologueXMLParser:
         print>>outstream, "# Ethnologue data"
         for iso in self.lang_info:
             for field in self.lang_info[iso]:
-                if isinstance(self.lang_info[iso][field],list):
-                    for item in self.lang_info[iso][field]:
-                        print>>outstream, iso + "\t" + field + '\t' + item
-                else:
-                    print>>outstream, iso + "\t" + field + '\t' + self.lang_info[iso][field]
+                for item in self.lang_info[iso][field]:
+                    print>>outstream, iso + "\t" + field + '\t' + item
         for country_name in self.country_idx:
             print>>outstream, self.country_idx[country_name] + "\tcn" + '\t' + country_name
 
