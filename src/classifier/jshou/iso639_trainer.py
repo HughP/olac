@@ -101,7 +101,8 @@ class iso639Classifier:
         i = 0
         while i<len(tokens):
             first_l = tokens[i][0]
-            if first_l.isupper() or first_l in self.first_chars:
+            #if first_l.isupper() or first_l in self.first_chars:
+            if True:
                 NE, iso_types = self._identify(tokens[i:])
                 if NE:
                     i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
