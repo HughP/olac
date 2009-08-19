@@ -30,7 +30,7 @@
       control field, but you may need to change it for your
       application. -->
     <xsl:template match="marc:record" mode="record-id">
-        <xsl:value-of select="substring(marc:datafield[@tag='035'] , 8)"/>
+        <xsl:value-of select="substring(marc:datafield[@tag='035'][contains( . , '(OCoLC)')] , 8)"/>
     </xsl:template>
 
     <!-- Fill in descriptors for your repository and institution as
