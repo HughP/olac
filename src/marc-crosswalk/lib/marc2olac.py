@@ -46,6 +46,9 @@ clparser.add_option("-i", "--inverse", action="store_true",
 clparser.add_option("-k", "--skip-marc-filter", action="store_true",
         dest="skipmarcfilter", default=False,
         help="Skip the MARC filter stages (1 and 2).  Useful for when a marc filter has previously run on the dataset, and one doesn't want to run it again redundantly")
+clparser.add_option("-c", "--classifier", action="store_true",
+        dest="subjectlanguageclassifier", default=False,
+        help="Run the Subject Language Classifier in between stages 3 and 4")
 
 
 (options, args) = clparser.parse_args()
@@ -100,6 +103,12 @@ if options.debug:
     config.set('system','debug','yes')
 else:
     config.set('system','debug','no')
+
+if options.subjectlanguageclassifier and stage >= 3:
+    print "\tNotice: Subject Language Classifier will run between stages 3 and 4" % stage
+    subjClassifier = loadClassifier(config)
+else:
+    subjClassifier = None
 
 if options.inverse:
     print "\tNotice: Inverse output will be generated at stage %d" % stage
@@ -188,7 +197,7 @@ xml_footer = ''
 output_xml_f = open(olacxml_filename,'w')
 for f in splitfiles:
     print "Transforming batch %d of %d" % (ctr,len(splitfiles))
-    utils.applyStylesheets(f,config)
+    utils.applyStylesheets(f, config, subjClassifier)
 
     if stage >= 3:
         header,xml_recs,footer = utils.parseOLACRepository(f)

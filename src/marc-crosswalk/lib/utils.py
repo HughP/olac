@@ -82,7 +82,7 @@ def transform(config,stylesheet,input,output,params = ''):
     #print systemstring
     os.system(systemstring)
 
-def applyStylesheets(inputfilename,config):
+def applyStylesheets(inputfilename,config, subjClassifier):
     """applyStylesheets(xml_filename)
     purpose: apply XSL stylesheets defined in config file
             to the xml file given as input
@@ -122,6 +122,11 @@ def applyStylesheets(inputfilename,config):
                [('collection2repository',stage3a_params,'3a'),('cleanup', stage3b_params, '3b')
                    ,('remove_duplicates','','3c')]]
 
+    # subject language classifier stage
+    if subjClassifier is not None:
+        xsllist += ['subjClassifier','','subject classifier')]
+        
+
     # stage 4 (olac filter)
     if stage >= 4:
         stage4_params = ''
@@ -133,7 +138,10 @@ def applyStylesheets(inputfilename,config):
     sys.stdout.write('\tstage ')
     for (xsl_file,params,stage) in xsllist:
         sys.stdout.write(stage + ' ')
-        transform(config,xsl_file,inputfilename,xml_output,params)
+        if xsl_file == 'subjClassifier': # special exception for subject classifier
+            subjectClassifier(config, subjClassifier, inputfilename, xml_output)
+        else:
+            transform(config,xsl_file,inputfilename,xml_output,params)
         import shutil
         if os.path.exists(xml_output):
             shutil.move(xml_output,inputfilename)
@@ -215,3 +223,51 @@ def writeImportMap(config):
 </xsl:stylesheet>""" % localpath
     f.write(unicode(string))
     f.close()
+
+
+def loadClassifier(config):
+    return 'classifier'
+
+def subjectClassifier(config, classifier, input, output):
+
+    def makeOLACSubject(code):
+        e = etree.Element("dc:subject")
+        e.attrib['xsi:type'] = 'olac:language'
+        e.attrib['olac:code'] = code
+        return e
+
+    doc = etree.parse(input)
+    root = doc.getroot()
+
+
+    dcNS = 'http://purl.org/dc/elements/1.1/'
+    for rec in root.findall('.//{%s}olac' % 'http://www.language-archives.org/OLAC/1.1/'):
+        desc = ''
+        subj = ''
+        title = ''
+        for elem in rec:
+            if elem.tag == '{%s}description' % dcNS and elem.text is not None:
+                desc += elem.text + ' \n '
+            elif elem.tag == '{%s}subject' % dcNS and elem.text is not None:
+                subj += elem.text + ' \n '
+            elif elem.tag == '{%s}title' % dcNS and elem.text is not None:
+                title += elem.text + ' \n '
+
+        # get codes from classifier and add OLAC dc:subject elements
+        codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj})
+        if len(codes) > 0:
+            for code in codes:
+                rec.append(makeOLACSubject(code))
+
+    # register our namespaces
+    etree._namespace_map['http://purl.org/dc/terms/'] = 'dcterms'
+    etree._namespace_map['http://www.w3.org/2001/XMLSchema-instance'] = 'xsi'
+    etree._namespace_map['http://www.openarchives.org/OAI/2.0/'] = 'oai'
+    etree._namespace_map['http://www.openarchives.org/OAI/2.0/static-repository'] = 'sr'
+    etree._namespace_map['http://www.language-archives.org/OLAC/1.1/'] = 'olac'
+    etree._namespace_map['http://purl.org/dc/elements/1.1/'] = 'dc'
+    etree._namespace_map['http://www.language-archives.org/OLAC/1.1/olac-archive'] = 'olac-archive'
+    etree._namespace_map['http://www.openarchives.org/OAI/2.0/oai-identifier'] = 'oai-identifier'
+
+    # write out the modified XML file
+    etree.ElementTree(root).write(codecs.open(filename + '.mod', 'w', 'utf-8'))
