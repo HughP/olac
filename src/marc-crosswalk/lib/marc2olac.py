@@ -43,6 +43,9 @@ clparser.add_option("-s", "--stage", action="store", type="int",
 clparser.add_option("-i", "--inverse", action="store_true",
         dest="inverse", default=False,
         help="Output the inverse of the specified stage.  Useful for debugging, and usually used in conjunction with --stage=[num]")
+clparser.add_option("-k", "--skip-marc-filter", action="store_true",
+        dest="skipmarcfilter", default=False,
+        help="Skip the MARC filter stages (1 and 2).  Useful for when a marc filter has previously run on the dataset, and one doesn't want to run it again redundantly")
 
 
 (options, args) = clparser.parse_args()
@@ -56,6 +59,9 @@ if options.stage > 0 and options.stage <= final_stage:
     stage = options.stage
 else:
     clparser.error("specified stage must be between 1 and %d" % final_stage)
+if options.stage < 3 and options.skipmarcfilter == 'yes':
+    clparser.error("you cannot --skip-marc-filter and set a stage < 3 !")
+
 print "Processing %s" % projectname
 
 
@@ -104,14 +110,22 @@ else:
 if stage < final_stage:
     print "\tNotice: Processing will finish after stage %d of %d" % (stage,final_stage)
 
+if options.skipmarcfilter:
+    print "\tNotice: MARC filter stages 1 and 2 will be skipped"
+    config.set('system','skipmarcfilter','yes')
+else:
+    config.set('system','skipmarcfilter','no')
 
 # check to make sure required files exist
 # TODO Implement this
 # is this necessary?
 utils.checkValidSystem(config)
 
-sys.stdout.write("Compiling filters")
-config = utils.compileMARCFilters(config)
+if stage >=4 or not options.skipmarcfilter:
+    sys.stdout.write("Compiling filters")
+
+if not options.skipmarcfilter:
+    config = utils.compileMARCFilters(config)
 
 if stage >= 4:
     config = utils.compileOLACFilters(config)

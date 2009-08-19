@@ -1,3 +1,4 @@
+@echo off
 rem Syntax: filter gateway-spec input
 rem    where "gateway-spec" is without the .xml extension,
 rem    but "input" does include the extension

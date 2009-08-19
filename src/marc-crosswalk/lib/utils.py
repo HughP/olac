@@ -93,13 +93,18 @@ def applyStylesheets(inputfilename,config):
     sep = config.get('system','sep')
     xml_output = config.get('system','tmppath') + sep + 'xml_output.tmp'
     stage = int(config.get('system','stage'))
+    skipmarcfilter = config.get('system','skipmarcfilter')
 
-    # stage 1 (marc filter accept)
-    xsllist = [(config.get('stylesheet','stage1'),'','1')]
+    if skipmarcfilter == 'no':
+        # stage 1 (marc filter accept)
+        xsllist = [(config.get('stylesheet','stage1'),'','1')]
+    else:
+        xsllist = []
 
-    # stage 2 (marc filter reject)
-    if stage >= 2:
-        xsllist += [(config.get('stylesheet','stage2'),'','2')]
+    if skipmarcfilter == 'no':
+        # stage 2 (marc filter reject)
+        if stage >= 2:
+            xsllist += [(config.get('stylesheet','stage2'),'','2')]
 
     # stage 3 (marc2olac transformation)
     if stage >= 3:
