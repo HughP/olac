@@ -27,7 +27,6 @@ parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pic
 parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
 parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prints out the '+\
                   'language, country and region names that the classifier recognizes')
-parser.add_option('-i', '--index', dest='idx', type='int', default=1, help='The index of the classifier function to use.')
 parser.add_option('-n', '--num', type='int', dest='num', default=0)
 parser.add_option('-g', '--goldstandard', dest='gs', help='The gold standard filename.')
 (options, args) = parser.parse_args()
@@ -54,4 +53,4 @@ else:
     output = check_file(args[2],'w',utf=True)
 if options.gs:
     classifier.gs = open(options.gs).readlines()
-classifier.classify_records(options.debug, olac_records, output, 0.72, options.idx-1)
+classifier.classify_records(options.debug, olac_records, output, 0.72)
