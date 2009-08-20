@@ -26,14 +26,14 @@ abc    sn    strong_name2
 abc    wn    weak_name1
 abc    wn    weak_name2
 abc    wn    weak_name3
-abc    cn    country_code1
-abc    cn    country_code2
-abc    cn    country_code3
+abc    cn    country1
+abc    cn    country2
+abc    cn    country3
 abc    rg    region1
 abc    rg    region2
 abc    rg    region3
-AB     cc    country_name1
-AB     cc    country_name2
+AB     cc    country_code1
+AB     cc    country_code2
 }}}
 
 `abc` represents an ISO 639 three letter language code and `AB` is an ISO 3166 two letter country code.
