@@ -19,7 +19,6 @@ import optparse
 import codecs
 from nltk import *
 from util import *
-import classifier_functions
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
@@ -50,31 +49,23 @@ class iso639Classifier:
         self.spaces = re.compile(r'\s+')
         self.first_chars = u"‡!’/'"
         self.stoplist = set(['the','some','central','western','eastern','northern','southern','north','south','east','west']) # stoplist of tokens that are too common
-        self.functions = classifier_functions.functions
         self.gs = None # if it exists, this is a list of lines from the gold standard
         self.ending = "<<END>>"
         
-    def classify_records(self, debug, records, outstream, threshold, function_idx):
+    def classify_records(self, debug, records, outstream, threshold):
         '''Classifies a list of records and prints the results to outstream.'''
         i = -1
         for record in records:
-            i += 1
             title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
             subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
-            bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
-            iso_results, NE_results = self.classify(bag_of_words, function_idx)
-            isos = NE_results['sn'].values() + NE_results['wn'].values()
-            if isos:
-                iso_dict = reduce(set.union, isos)
-            else:
-                iso_dict = set()
-#           iso_dict, NE_results = self.classify(bag_of_words, function_idx)
-#           iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
-#           if iso_dict:
-#               top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
-#               if top_choice not in iso_results:
-#                   iso_results.append(top_choice)
+            i += 1
+            iso_dict, NE_results = self.classify(record)
+            iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
+            if iso_dict:
+                top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
+                if top_choice not in iso_results:
+                    iso_results.append(top_choice)
             print>>outstream, '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
             if debug:
                 if self.gs:
@@ -88,16 +79,27 @@ class iso639Classifier:
                             print>>outstream, "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[item_type][NE])+']' 
                 print>>outstream, "#--------------------------------------------------"
 
-    def classify(self, text, function_idx):
+    def classify_record(self, record, threshold, debug=False):
+        iso_results, NE_dict = self.classify(record)
+        if debug:
+            return iso_results
+        else:
+            return [i for i in iso_results if iso_results[i]>threshold]
+
+    def classify(self, record):
         '''For a string of text, uses _identify to identify language, country
         and region names and creates sets of ISO 639 codes for the language,
         country and region names identified.   Returns the intersection of the
         three sets, backing off the region and country name sets if the
         intersection returns a null set.
         '''
-        tokens = wordpunct_tokenize(text)
+        title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
+        subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
+        descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
+        bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
+
+        tokens = wordpunct_tokenize(bag_of_words)
         NE_dict = {'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
-        iso_dict = {'sn':set(), 'wn':set(), 'cn':set(), 'rg':set()}
         i = 0
         while i<len(tokens):
             first_l = tokens[i][0]
@@ -111,16 +113,11 @@ class iso639Classifier:
                             isos = reduce(set.union,[self.country_lang[j] for j in iso_types[type]])
                         else:
                             isos = iso_types[type]
-                        iso_dict[type].update(isos)
                         NE_dict[type][NE] = isos
             i += 1
         
-        iso_set = iso_dict['sn'].union(iso_dict['wn'])
-        country_set = iso_dict['cn']
-        region_set = iso_dict['rg']
-        return self.functions[function_idx](iso_set, country_set, region_set), NE_dict
-#       results = classifier_functions.weighted(NE_dict, 0.3, 0.2)
-#       return results, NE_dict
+        results = self.weighted(NE_dict, 0.3, 0.2)
+        return results, NE_dict
 
     def _identify(self, tokens):
         '''For a list of tokens, goes through the tree and returns the longest
@@ -154,7 +151,43 @@ class iso639Classifier:
             return final_NE, type_isos
         else:
             return '',{}
-    
+    def weighted(self, NE_dict, a, b):
+        results = {}
+
+        langdict = {}
+        self._populate_langdict(NE_dict['sn'], langdict, 1.0)
+        self._populate_langdict(NE_dict['wn'], langdict, 0.7)
+        
+        if NE_dict['cn'].values():
+            country = reduce(set.union, NE_dict['cn'].values())
+        else:
+            country = set()
+        if NE_dict['rg'].values():
+            region = reduce(set.union, NE_dict['rg'].values())
+        else:
+            region = set()
+
+        for iso in langdict:
+            l = langdict[iso]
+            c = 0.0
+            r = 0.0
+            if iso in country:
+                c = 1.0
+            if iso in region:
+                r = 1.0
+            results[iso] = l + a*(l*c) + b*(l*r)
+
+        return results
+
+    def _populate_langdict(self, input_dict, langdict, C):
+        for NE in input_dict:
+            NE_len = len(NE.split())
+            for iso in input_dict[NE]:
+                try:
+                    langdict[iso] += NE_len*C
+                except KeyError:
+                    langdict[iso] = NE_len*C   
+
     def train(self, datafile):
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
         and loads data into the classifier dictionaries.  
