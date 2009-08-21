@@ -2,6 +2,7 @@ import os
 import re
 import codecs
 import sys
+import xml.etree.ElementTree as etree
 
 # slurp a file into a string
 def file2string(fileName):
@@ -104,7 +105,7 @@ def applyStylesheets(inputfilename,config, subjClassifier):
     if skipmarcfilter == 'no':
         # stage 2 (marc filter reject)
         if stage >= 2:
-            xsllist += [(config.get('stylesheet','stage2'),'','2')]
+            xsllist.append((config.get('stylesheet','stage2'),'','2'))
 
     # stage 3 (marc2olac transformation)
     if stage >= 3:
@@ -118,13 +119,15 @@ def applyStylesheets(inputfilename,config, subjClassifier):
             stage3b_params += inverse_param
 
         # a list of tuple(stylesheet,params)
-        xsllist += [(libpath + sep + s,p,st) for s,p,st in \
-               [('collection2repository',stage3a_params,'3a'),('cleanup', stage3b_params, '3b')
-                   ,('remove_duplicates','','3c')]]
+        xsllist.append((libpath + sep + 'collection2repository',stage3a_params,'3a'))
+        xsllist.append((libpath + sep + 'cleanup', stage3b_params, '3b'))
 
-    # subject language classifier stage
-    if subjClassifier is not None:
-        xsllist += ['subjClassifier','','subject classifier')]
+        xsllist.append((libpath + sep + 'remove_duplicates','','3c'))
+
+        # subject language classifier stage
+        if subjClassifier is not None:
+            xsllist.append(('subjClassifier',' ','3sc'))
+
         
 
     # stage 4 (olac filter)
@@ -140,6 +143,7 @@ def applyStylesheets(inputfilename,config, subjClassifier):
         sys.stdout.write(stage + ' ')
         if xsl_file == 'subjClassifier': # special exception for subject classifier
             subjectClassifier(config, subjClassifier, inputfilename, xml_output)
+            #print "input = %s, output = %s" % (inputfilename, xml_output)
         else:
             transform(config,xsl_file,inputfilename,xml_output,params)
         import shutil
@@ -226,14 +230,20 @@ def writeImportMap(config):
 
 
 def loadClassifier(config):
-    return 'classifier'
+    import pickle
+    sys.path.append('../classifier')
+    from iso639_trainer import iso639Classifier
+    filename = 'lib/subjectClassifier.pickle'
+    #filename = config.get('system', '
+    return pickle.load(open(filename, 'rb'))
 
 def subjectClassifier(config, classifier, input, output):
 
     def makeOLACSubject(code):
-        e = etree.Element("dc:subject")
+        e = etree.Element("{http://purl.org/dc/elements/1.1/}subject")
         e.attrib['xsi:type'] = 'olac:language'
         e.attrib['olac:code'] = code
+        e.attrib['from'] = 'GUESS'
         return e
 
     doc = etree.parse(input)
@@ -254,9 +264,12 @@ def subjectClassifier(config, classifier, input, output):
                 title += elem.text + ' \n '
 
         # get codes from classifier and add OLAC dc:subject elements
-        codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj})
+        # classify_record(dict, threshold, strongnameweight, weaknameweight, countryweight, regionweight)
+        codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj}, 0.72, 1.0, 0.7, 0.3, 0.2)
+        #codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj})
         if len(codes) > 0:
             for code in codes:
+                #rec.insert(0, makeOLACSubject(code))
                 rec.append(makeOLACSubject(code))
 
     # register our namespaces
@@ -270,4 +283,4 @@ def subjectClassifier(config, classifier, input, output):
     etree._namespace_map['http://www.openarchives.org/OAI/2.0/oai-identifier'] = 'oai-identifier'
 
     # write out the modified XML file
-    etree.ElementTree(root).write(codecs.open(filename + '.mod', 'w', 'utf-8'))
+    etree.ElementTree(root).write(codecs.open(output, 'w', 'utf-8'))
