@@ -32,6 +32,7 @@
             <xsl:when test="contains($h, 'glossaries, vocabularies, etc')">language_lexicon</xsl:when>
             <xsl:when test="contains($h, 'nomenclature')">language_lexicon</xsl:when>
             <xsl:when test="contains($h, 'reverse indexes')">language_lexicon</xsl:when>
+            <xsl:when test="contains($h, 'synonyms and antonyms')">language_lexicon</xsl:when>
             <xsl:when test="contains($h, 'terminology')">language_lexicon</xsl:when>
             <xsl:when test="contains($h, 'terms and phrases')">language_lexicon</xsl:when>
             <xsl:when test="contains($h, 'concordances')">language_text</xsl:when>
@@ -95,26 +96,17 @@
             already know that it is about a particular language).
         -->
         <xsl:choose>
-            <xsl:when test="$f='computational_linguistics'">language_automation</xsl:when>
             <xsl:when test="$f='discourse_analysis'">language_description</xsl:when>
-            <xsl:when test="$f='historical_linguistics'">language_description</xsl:when>
-            <xsl:when test="$f='lexicography'">language_description</xsl:when>
-            <xsl:when test="$f='linguistic_theories'">language_description</xsl:when>
-            <xsl:when test="$f='linguistics_and_literature'">language_description</xsl:when>
             <xsl:when test="$f='morphology'">language_description</xsl:when>
-            <xsl:when test="$f='philosophy_of_language'">language_description</xsl:when>
             <xsl:when test="$f='phonetics'">language_description</xsl:when>
             <xsl:when test="$f='phonology'">language_description</xsl:when>
             <xsl:when test="$f='pragmatics'">language_description</xsl:when>
-            <xsl:when test="$f='psycholinguistics'">language_description</xsl:when>
             <xsl:when test="$f='semantics'">language_description</xsl:when>
             <xsl:when test="$f='syntax'">language_description</xsl:when>
-            <xsl:when test="$f='translating_and_interpreting'">language_description</xsl:when>
             <xsl:when test="$f='writing_systems'">language_description</xsl:when>
             <xsl:when test="$f='applied_linguistics'">language_instruction</xsl:when>
             <xsl:when test="$f='anthropological_linguistics'">language_situation</xsl:when>
             <xsl:when test="$f='sociolinguistics'">language_situation</xsl:when>
-            <xsl:otherwise>unclassified</xsl:otherwise>
         </xsl:choose>
         
     </xsl:template>

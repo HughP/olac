@@ -44,7 +44,6 @@
             <xsl:when test="contains($h, 'archaisms')"
                 >lexicography</xsl:when>
             <xsl:when test="contains($h, 'article')">syntax</xsl:when>
-            <xsl:when test="contains($h, 'aspect')">syntax</xsl:when>
             <xsl:when test="contains($h, 'aspiration')"
                 >phonetics</xsl:when>
             <xsl:when test="contains($h, 'asyndeton')"
@@ -55,10 +54,10 @@
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'capitalization')"
                 >writing_systems</xsl:when>
-            <xsl:when test="contains($h, 'case')"
-                >morphology</xsl:when>
             <xsl:when test="contains($h, 'case grammar')"
                 >linguistic_theories</xsl:when>
+            <xsl:when test="contains($h, 'case')"
+                >morphology</xsl:when>
             <xsl:when test="contains($h, 'cataphora')"
                 >discourse_analysis</xsl:when>
             <xsl:when test="contains($h, 'categorial grammar')"
@@ -142,21 +141,14 @@
                 >pragmatics</xsl:when>
             <xsl:when test="contains($h, 'existential constructions')"
                 >syntax</xsl:when>
-            <xsl:when test="contains($h, 'foreign elements')"
-                >historical_linguistics</xsl:when>
-            <xsl:when test="contains($h, 'foreign words and phrases')"
-                >historical_linguistics</xsl:when>
             <xsl:when test="contains($h, 'function words')"
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'gemination')"
                 >phonology</xsl:when>
-            <xsl:when test="contains($h, 'gender')"
-                >morphology</xsl:when>
             <xsl:when test="contains($h, 'gerund')">syntax</xsl:when>
             <xsl:when test="contains($h, 'globalization')"
                 >sociolinguistics</xsl:when>
-            <xsl:when test="contains($h, 'grammar')">syntax</xsl:when>
-
+      
             <xsl:when test="contains($h, 'grammar, comparative')"
                 >syntax</xsl:when>
 
@@ -165,6 +157,7 @@
 
             <xsl:when test="contains($h, 'grammar, historical')"
                 >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'grammar')">syntax</xsl:when>
             <xsl:when test="contains($h, 'grammatical categories')"
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'grammaticalization')"
@@ -175,10 +168,6 @@
                 >lexicography</xsl:when>
             <xsl:when test="contains($h, 'hiatus')"
                 >phonology</xsl:when>
-            <xsl:when test="contains($h, 'historiography')"
-                >historical_linguistics</xsl:when>
-            <xsl:when test="contains($h, 'history')"
-                >historical_linguistics</xsl:when>
             <xsl:when test="contains($h, 'homonyms')"
                 >lexicography</xsl:when>
             <xsl:when test="contains($h, 'honorific')"
@@ -215,8 +204,6 @@
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'intonation')"
                 >phonology</xsl:when>
-            <xsl:when test="contains($h, 'jargon')"
-                >lexicography</xsl:when>
             <xsl:when test="contains($h, 'labiality')"
                 >phonology</xsl:when>
             <xsl:when test="contains($h, 'lexicography')"
@@ -294,14 +281,12 @@
                 >phonetics</xsl:when>
             <xsl:when test="contains($h, 'phonetics')"
                 >phonetics</xsl:when>
-            <xsl:when test="contains($h, 'phonology')"
-                >phonology</xsl:when>
-
             <xsl:when test="contains($h, 'phonology, comparative')"
                 >phonology</xsl:when>
-
             <xsl:when test="contains($h, 'phonology, historical')"
                 >historical_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'phonology')"
+                >phonology</xsl:when>
             <xsl:when test="contains($h, 'political aspects')"
                 >sociolinguistics</xsl:when>
             <xsl:when test="contains($h, 'polysemy')"
@@ -317,11 +302,11 @@
             <xsl:when test="contains($h, 'pronominals')"
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'pronoun')">syntax</xsl:when>
-            <xsl:when test="contains($h, 'pronunciation')"
-                >phonology</xsl:when>
             <xsl:when
                 test="contains($h, 'pronunciation by foreign speakers')"
                 >applied_linguistics</xsl:when>
+            <xsl:when test="contains($h, 'pronunciation')"
+                >phonetics</xsl:when>
             <xsl:when test="contains($h, 'prosodic analysis')"
                 >phonology</xsl:when>
             <xsl:when test="contains($h, 'psychological aspects')"
@@ -348,10 +333,6 @@
                 >applied_linguistics</xsl:when>
             <xsl:when test="contains($h, 'resultative constructions')"
                 >syntax</xsl:when>
-            <xsl:when test="contains($h, 'rhetoric')"
-                >pragmatics</xsl:when>
-            <xsl:when test="contains($h, 'rhythm')"
-                >phonology</xsl:when>
             <xsl:when test="contains($h, 'roots')"
                 >lexicography</xsl:when>
             <xsl:when test="contains($h, 'semantics')"
@@ -395,15 +376,13 @@
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'tense')">syntax</xsl:when>
             <xsl:when test="contains($h, 'transcription')"
-                >writing_systems</xsl:when>
+                ></xsl:when>
             <xsl:when test="contains($h, 'transitivity')"
                 >syntax</xsl:when>
             <xsl:when test="contains($h, 'translating')"
                 >translating_and_interpreting</xsl:when>
             <xsl:when test="contains($h, 'transliteration')"
                 >writing_systems</xsl:when>
-            <xsl:when test="contains($h, 'usage')"
-                >applied_linguistics</xsl:when>
             <xsl:when test="contains($h, 'variation')"
                 >sociolinguistics</xsl:when>
             <xsl:when test="contains($h, 'verb')">syntax</xsl:when>
@@ -429,6 +408,8 @@
             <xsl:when test="contains($h, 'writing')"
                 >writing_systems</xsl:when>
 
+            <xsl:when test="contains($h, 'aspect')">syntax</xsl:when>
+            
         </xsl:choose>
     </xsl:template>
     
