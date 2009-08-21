@@ -92,7 +92,7 @@ class iso639Classifier:
     def classify_record(self, record, threshold, snw, wnw, a, b, debug=False):
         '''For a single record, returns a list of ISO 639-3 codes that have a
         weight higher than a given threshold'''
-        iso_results, NE_dict = self.classify(record)
+        iso_results, NE_dict = self.classify(record, snw, wnw, a, b)
         if debug:
             return iso_results
         else:
