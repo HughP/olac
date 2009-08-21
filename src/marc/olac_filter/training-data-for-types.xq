@@ -11,32 +11,26 @@ declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace xsl="http://www.w3.org/1999/XSL/Transform";
 
 
-let $repo := doc('file:olac_display_subset.xml')
+let $repo := doc('file:scriblio_repository.xml')
+let $tab := "&#9;"
+let $nl := "&#10;"
 
-return
-  <records
-      xmlns="http://www.openarchives.org/OAI/2.0/"
-      xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
-      xmlns:dc="http://purl.org/dc/elements/1.1/"
-      xmlns:dcterms="http://purl.org/dc/terms/"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  {
-  for $rec in $repo//olac:olac
-  where $rec[not(dc:subject[contains('aay
-  acc aex ahe aiz akn amd arf atf auv azr bcx bgh bii bke blu bnh boc
-  bqe bsd bsz bvs bwv bxt byu cbm ccx ccy chs cit ckc ckd cke ckf cki
-  ckj ckk ckw cnm cru cti cun dat dyk eml eni eur fiz flm fri gen ggh
-  gmo gsc hsf hva itu ixi ixj jai jap kds knh kob krg krq kxg lms lmt
-  lnc lnt lod mbg mdo mhv miv mly mms mob mol mpf mqd mtz muw mvc mvj
-  mzf nfg nfk nhj nhs nky nxj occ ogn ope ork paj pec pen plm poa pob
-  poj pou ppv prv pun quj qut quu qxi rae rjb rws scc scr sdd sdi sic
-  skl slb srj stc suf suh suu szk tle tlz tmx tnj tot ttx tzb tzc tze
-  tzs tzt tzu tzz ubm vky vlr vmo wre xah xkm xmi xsk xst xuf yib yio
-  ymj ypl ypw yus ywm yym ztc', .)])]
+  for $rec at $pos in $repo//oai:record
+   where $rec[oai:metadata/olac:olac/dc:type[@xsi:type='olac:resource-type']]
+  
   return
-     $rec
-  }
-  </records>
+     ($pos, $tab, "id", $tab, $rec/oai:header/oai:identifier/text(),
+     $nl,
+
+   for $type in
+   $rec//olac:olac/dc:type[@xsi:type='olac:resource-type']/@olac:code
+   return
+     ($pos, $tab, "target", $tab, $type, $nl),
+
+   for $field in $rec//olac:olac/*
+   return
+     ($pos, $tab, $field/local-name(), $tab, $field/text(), $nl)
+
   
-  
+  )
 
