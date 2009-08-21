@@ -30,7 +30,12 @@
       control field, but you may need to change it for your
       application. -->
     <xsl:template match="marc:record" mode="record-id">
-        <xsl:value-of select="substring(marc:datafield[@tag='035'][contains( . , '(OCoLC)')] , 8)"/>
+        <!-- Library of Congress Control Number with spaces removed -->
+        <xsl:value-of
+            select="translate(marc:controlfield[@tag=001], ' ', '')"/>
+       <!-- <xsl:value-of
+           select="substring(marc:datafield[@tag='035'][contains( . ,
+           '(OCoLC)')] , 8)"/> -->
     </xsl:template>
 
     <!-- Fill in descriptors for your repository and institution as
