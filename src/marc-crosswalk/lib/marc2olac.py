@@ -17,6 +17,9 @@ import xml.sax
 import shutil
 from optparse import OptionParser
 
+sys.path.append('../classifier')
+from iso639_trainer import iso639Classifier
+
 # local function library
 import utils
 import saxsplit
@@ -105,10 +108,7 @@ else:
     config.set('system','debug','no')
 
 if options.subjectlanguageclassifier and stage >= 3:
-    print "\tNotice: Subject Language Classifier will run between stages 3 and 4" % stage
-    subjClassifier = loadClassifier(config)
-else:
-    subjClassifier = None
+    print "\tNotice: subject language classifier will run as stage 3sc"
 
 if options.inverse:
     print "\tNotice: Inverse output will be generated at stage %d" % stage
@@ -130,15 +130,21 @@ else:
 # is this necessary?
 utils.checkValidSystem(config)
 
+# compile marc filters, if necessary
 if stage >=4 or not options.skipmarcfilter:
     sys.stdout.write("Compiling filters")
-
 if not options.skipmarcfilter:
     config = utils.compileMARCFilters(config)
-
 if stage >= 4:
     config = utils.compileOLACFilters(config)
 sys.stdout.write('\n')
+
+# load classifier, if necessary
+if options.subjectlanguageclassifier and stage >= 3:
+    print "Loading subject language classifier..."
+    subjClassifier = utils.loadClassifier(config)
+else:
+    subjClassifier = None
 
 marcxml_filename = projpath + sep + config.get('system','input')
 olacxml_filename = projpath + sep + config.get('system','output')
