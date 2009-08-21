@@ -129,27 +129,28 @@
                         <xsl:if test="marc:subfield[@code='z']">
                             <xsl:for-each
                                 select="marc:subfield[@code='a']">
-                                <xsl:if test="(. = 'bilingualism') or
-                                    (. = 'anthropological linguistics') or
-                                    (. = 'education, bilingual') or
-                                    (. = 'language and culture') or
-                                    (. = 'language and educaton') or
-                                    (. = 'language and history') or
-                                    (. = 'language and languages') or
-                                    (. = 'language attrition') or
-                                    (. = 'language maintenance') or
-                                    (. = 'language obsolescence') or
-                                    (. = 'language planning') or
-                                    (. = 'language policy') or
-                                    (. = 'language reform') or
-                                    (. = 'language revival') or
-                                    (. = 'language surveys') or
-                                    (. = 'linguistic demography') or
-                                    (. = 'linguistic minorities') or
-                                    (. = 'native  language and education') or
-                                    (. = 'pidgin languages')
+                                <xsl:if test="(. = 'Bilingualism') or
+                                    (. = 'Anthropological linguistics') or
+                                    (. = 'Education, bilingual') or
+                                    (. = 'Language and culture') or
+                                    (. = 'Language and education') or
+                                    (. = 'Language and history') or
+                                    (. = 'Language and languages') or
+                                    (. = 'Language attrition') or
+                                    (. = 'Language maintenance') or
+                                    (. = 'Language obsolescence') or
+                                    (. = 'Language planning') or
+                                    (. = 'Language policy') or
+                                    (. = 'Language reform') or
+                                    (. = 'Language revival') or
+                                    (. = 'Language surveys') or
+                                    (. = 'Linguistic demography') or
+                                    (. = 'Linguistic minorities') or
+                                    (. = 'Native  language and education') or
+                                    (. = 'Pidgin languages') or
+                                    (. = 'Sociolinguistics')
                                     ">
-                                    <dc:type xsi:type="olac:resourcr-type"
+                                    <dc:type xsi:type="olac:resource-type"
                                         olac:code="language_situation"/>
                                 </xsl:if>
                             </xsl:for-each>
@@ -159,12 +160,23 @@
                 
                 <xsl:if test="marc:subfield[@code='y']">
                     <dcterms:temporal>
-                        <xsl:value-of select="marc:subfield[@code='y']"/>
+                        <xsl:call-template name="show-source">
+                            <xsl:with-param name="subfield">y</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:call-template name="subfieldSelect">
+                            <xsl:with-param name="codes">y</xsl:with-param>
+                        </xsl:call-template>
                     </dcterms:temporal>
                 </xsl:if>
                 <xsl:if test="marc:subfield[@code='z']">
                     <dcterms:spatial>
-                        <xsl:value-of select="marc:subfield[@code='z']"/>
+                        <xsl:call-template name="show-source">
+                            <xsl:with-param name="subfield">z</xsl:with-param>
+                        </xsl:call-template>
+                        <xsl:call-template name="subfieldSelect">
+                            <xsl:with-param name="codes">z</xsl:with-param>
+                            <xsl:with-param name="delimiter">, </xsl:with-param>
+                        </xsl:call-template>
                     </dcterms:spatial>
                 </xsl:if>
             </xsl:when>

@@ -1162,6 +1162,10 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
+                <xsl:if test="marc:subfield[@code='x'] = 'Languages' ">
+                    <dc:type xsi:type="olac:resource-type"
+                        olac:code="language_situation"/>
+                </xsl:if>
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
