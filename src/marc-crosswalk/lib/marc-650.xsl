@@ -71,11 +71,13 @@
                                 field
                             -->
                         </xsl:when>
-                        <xsl:otherwise>
+                        <xsl:when test="$langCode != '' ">
+                            <!-- These mappings only apply when $a is
+                                a subject language -->
                             <xsl:call-template name="assign-linguistic-field">
                                 <xsl:with-param name="h" select="lower-case($heading)"/>
                             </xsl:call-template>
-                        </xsl:otherwise>
+                        </xsl:when>
                     </xsl:choose>
                 </xsl:variable>
                 
@@ -95,29 +97,75 @@
                     <xsl:call-template name="show-source"/>
                     <xsl:value-of select="$heading"/>
                 </dc:subject>
-                <xsl:if test="$langCode != '' ">
-                    <dc:subject xsi:type="olac:language"
-                       olac:code="{$langCode}">
-                        <xsl:call-template name="show-source"/>
-                    </dc:subject>
+                <xsl:choose>
+                    <xsl:when test="$langCode != '' ">
+                        <dc:subject xsi:type="olac:language"
+                            olac:code="{$langCode}">
+                            <xsl:call-template name="show-source"/>
+                        </dc:subject>
+                        <xsl:if test="$typeCode != '' ">
+                            <dc:type xsi:type="olac:resource-type"
+                                olac:code="{$typeCode}">
+                                <xsl:call-template name="show-source"/>
+                            </dc:type>
+                        </xsl:if>
+                        <xsl:if test="$inferredType != '' ">
+                            <dc:type xsi:type="olac:resource-type"
+                                olac:code="{$inferredType}">
+                                <xsl:call-template name="show-source"/>
+                            </dc:type>
+                        </xsl:if>
+                        <xsl:if test="$fieldCode != '' ">
+                            <dc:subject xsi:type="olac:linguistic-field"
+                                olac:code="{$fieldCode}">
+                                <xsl:call-template name="show-source"/>
+                            </dc:subject>
+                        </xsl:if>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <!-- If there is geographic coverage, then one
+                            of the following main topics is about the
+                            "language situation" -->
+                        <xsl:if test="marc:subfield[@code='z']">
+                            <xsl:for-each
+                                select="marc:subfield[@code='a']">
+                                <xsl:if test="(. = 'bilingualism') or
+                                    (. = 'anthropological linguistics') or
+                                    (. = 'education, bilingual') or
+                                    (. = 'language and culture') or
+                                    (. = 'language and educaton') or
+                                    (. = 'language and history') or
+                                    (. = 'language and languages') or
+                                    (. = 'language attrition') or
+                                    (. = 'language maintenance') or
+                                    (. = 'language obsolescence') or
+                                    (. = 'language planning') or
+                                    (. = 'language policy') or
+                                    (. = 'language reform') or
+                                    (. = 'language revival') or
+                                    (. = 'language surveys') or
+                                    (. = 'linguistic demography') or
+                                    (. = 'linguistic minorities') or
+                                    (. = 'native  language and education') or
+                                    (. = 'pidgin languages')
+                                    ">
+                                    <dc:type xsi:type="olac:resourcr-type"
+                                        olac:code="language_situation"/>
+                                </xsl:if>
+                            </xsl:for-each>
+                        </xsl:if>
+                    </xsl:otherwise>
+                </xsl:choose>
+                
+                <xsl:if test="marc:subfield[@code='y']">
+                    <dcterms:temporal>
+                        <xsl:value-of select="marc:subfield[@code='y']"/>
+                    </dcterms:temporal>
                 </xsl:if>
-                <xsl:if test="$typeCode != '' ">
-                     <dc:type xsi:type="olac:resource-type"
-                         olac:code="{$typeCode}">
-                         <xsl:call-template name="show-source"/>
-                     </dc:type>
-                </xsl:if>
-                <xsl:if test="$inferredType != '' ">
-                    <dc:type xsi:type="olac:resource-type"
-                        olac:code="{$inferredType}">
-                        <xsl:call-template name="show-source"/>
-                    </dc:type>
-                </xsl:if>
-                <xsl:if test="$fieldCode != '' ">
-                    <dc:subject xsi:type="olac:linguistic-field"
-                        olac:code="{$fieldCode}">
-                        <xsl:call-template name="show-source"/>
-                    </dc:subject>
+                <xsl:if test="marc:subfield[@code='z']">
+                    <dcterms:spatial>
+                        <xsl:value-of select="marc:subfield[@code='z']"/>
+                    </dcterms:spatial>
                 </xsl:if>
             </xsl:when>
             
