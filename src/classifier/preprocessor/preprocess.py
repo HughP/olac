@@ -1,4 +1,16 @@
 #!/usr/bin/python
+# Concatenates each data source for the ISO 639-3 classifier into a single file,
+# running its preprocessor if necessary.
+#
+# The data sources it compiles are:
+# Ethnologue data
+# Linguist List list of ancient and extinct languages
+# ISO 639-3 Code Set from sil.org
+# CountryCodes country data from Ethnologue
+# Manually compiled data in extra_data.tab
+# LCSH mappings (Data for language classifier.tab)
+# LCSH data (LCSH_names_trainingdata.tab)
+# Countries for ancient and extinct languages compiled from Linguist List data
 import sys
 import os
 

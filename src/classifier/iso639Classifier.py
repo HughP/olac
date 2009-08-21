@@ -29,6 +29,11 @@ parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prin
                   'language, country and region names that the classifier recognizes')
 parser.add_option('-n', '--num', type='int', dest='num', default=0)
 parser.add_option('-g', '--goldstandard', dest='gs', help='The gold standard filename.')
+parser.add_option('-t', '--threshold', dest='threshold', default=0.72, help='Threshold confidence score')
+parser.add_option('-s', '--snw', dest='snw', default=1.0, help='Strong name weight')
+parser.add_option('-w', '--wnw', dest='wnw', default=0.7, help='Weak name weight')
+parser.add_option('-a', '--country-weight', dest='a', default=0.3, help='Country weight')
+parser.add_option('-b', '--region-weight', dest='b', default=0.2, help='Region weight')
 (options, args) = parser.parse_args()
     
 if len(args)<3:
@@ -53,4 +58,4 @@ else:
     output = check_file(args[2],'w',utf=True)
 if options.gs:
     classifier.gs = open(options.gs).readlines()
-classifier.classify_records(options.debug, olac_records, output, 0.72)
+classifier.classify_records(options.debug, olac_records, output, options.threshold, options.snw, options.wnw, options.a, options.b)

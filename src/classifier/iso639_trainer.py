@@ -1,12 +1,17 @@
 # coding=utf-8
-'''Reads in training data and outputs a pickled ISO 639 classifier
+'''A classifier that processes records and returns ISO 639-3 codes.
 
 Created on Jul 6, 2009
 
 @author: Joshua S Hou
 
-Trains an ISO 639 classifier with a datafile in the format described in
-wiki:iso639_trainerDatafileFormat.  
+Contains a class definition for a classifier that process OLAC records and
+returns a dictionary of ISO 639-3 codes and associated scores.  Has methods for
+loading data, classifying a whole list of records and printing results to file,
+and classifying a single record, returning a list of records that is above the
+score threshold provided.
+
+If run from shell, main method loads data and saves classifier as a pickle.
 
 Usage: python iso639_trainer.py datafile classifier.pickle
 '''
@@ -24,10 +29,15 @@ class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
     other contextual clues.
     
-    classify -- Returns a list of ISO 639 language codes extracted from text.
+    classify_records -- classifies a list of records and prints results to a provided printstream
+    classify_record -- classifies a single record and returns a list of results
+    classify -- classifies a record and returns the country, region and language names found in the text with proposed ISO 639-3 codes
+    _identify -- identifies country, language and region names; helper method for classify
+    weighted -- returns a dictionary of ISO 639 codes and weights given the language, country and region names found
+    _populate_dict -- helper method for weighted
     train -- reads in a datafile and stores the information.
-    _add_item -- Method for adding country, region and language name data to the classifier's training.
-    save -- Pickles the classifier to a file.
+    _add_item -- method for adding country, region and language name data to the classifier's training.
+    save -- pickles the classifier to a file.
     '''
     def __init__(self):
         '''Initializes the four dictionaries that comprise the classifier's
@@ -52,7 +62,7 @@ class iso639Classifier:
         self.gs = None # if it exists, this is a list of lines from the gold standard
         self.ending = "<<END>>"
         
-    def classify_records(self, debug, records, outstream, threshold):
+    def classify_records(self, debug, records, outstream, threshold, snw, wnw, a, b):
         '''Classifies a list of records and prints the results to outstream.'''
         i = -1
         for record in records:
@@ -60,12 +70,12 @@ class iso639Classifier:
             subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
             i += 1
-            iso_dict, NE_results = self.classify(record)
+            iso_dict, NE_results = self.classify(record, snw, wnw, a, b)
             iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
-            if iso_dict:
-                top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
-                if top_choice not in iso_results:
-                    iso_results.append(top_choice)
+#           if iso_dict:
+#               top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
+#               if top_choice not in iso_results:
+#                   iso_results.append(top_choice)
             print>>outstream, '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
             if debug:
                 if self.gs:
@@ -79,19 +89,20 @@ class iso639Classifier:
                             print>>outstream, "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[item_type][NE])+']' 
                 print>>outstream, "#--------------------------------------------------"
 
-    def classify_record(self, record, threshold, debug=False):
+    def classify_record(self, record, threshold, snw, wnw, a, b, debug=False):
+        '''For a single record, returns a list of ISO 639-3 codes that have a
+        weight higher than a given threshold'''
         iso_results, NE_dict = self.classify(record)
         if debug:
             return iso_results
         else:
             return [i for i in iso_results if iso_results[i]>threshold]
 
-    def classify(self, record):
+    def classify(self, record, snw, wnw, a, b):
         '''For a string of text, uses _identify to identify language, country
         and region names and creates sets of ISO 639 codes for the language,
-        country and region names identified.   Returns the intersection of the
-        three sets, backing off the region and country name sets if the
-        intersection returns a null set.
+        country and region names identified.   Uses weighted to determine
+        weights for each iso code.
         '''
         title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
         subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
@@ -116,13 +127,13 @@ class iso639Classifier:
                         NE_dict[type][NE] = isos
             i += 1
         
-        results = self.weighted(NE_dict, 0.3, 0.2)
+        results = self.weighted(NE_dict, snw, wnw, a, b)
         return results, NE_dict
 
     def _identify(self, tokens):
         '''For a list of tokens, goes through the tree and returns the longest
         language, country or region name it can find, along the item_type, and
-        the associated list of ISO 639 codes.  Normalizes case, becaues the
+        the associated list of ISO 639 codes.  Normalizes case, because the
 		data stored in the tree is all lower case.
         '''
         token_0 = remove_diacritic(tokens[0].lower())
@@ -151,13 +162,21 @@ class iso639Classifier:
             return final_NE, type_isos
         else:
             return '',{}
-    def weighted(self, NE_dict, a, b):
+        
+    def weighted(self, NE_dict, snw, wnw, a, b):
+        '''Returns a dictionary of ISO 639-3 codes and associated weights
+        calculated from the language, region and country names found by
+        classify.'''
         results = {}
 
         langdict = {}
-        self._populate_langdict(NE_dict['sn'], langdict, 1.0)
-        self._populate_langdict(NE_dict['wn'], langdict, 0.7)
-        
+        countrydict = {}
+        regiondict = {}
+        self._populate_dict(NE_dict['sn'], langdict, snw)
+        self._populate_dict(NE_dict['wn'], langdict, wnw)
+        self._populate_dict(NE_dict['cn'], countrydict, 1.0)
+        self._populate_dict(NE_dict['rg'], regiondict, 1.0)
+
         if NE_dict['cn'].values():
             country = reduce(set.union, NE_dict['cn'].values())
         else:
@@ -179,7 +198,8 @@ class iso639Classifier:
 
         return results
 
-    def _populate_langdict(self, input_dict, langdict, C):
+    def _populate_dict(self, input_dict, langdict, C):
+        '''Helper function for weighted'''
         for NE in input_dict:
             NE_len = len(NE.split())
             for iso in input_dict[NE]:
@@ -241,7 +261,8 @@ class iso639Classifier:
             file = check_file(filename, 'wb')
         pickle.dump(self, file)
 
-if __name__=="__main__":
+def main():
+    '''Saves a pickled classifier.  Meant to be called from command line.'''
     parser = optparse.OptionParser(usage='python iso639_trainer.py [options] datafile classifier.pickle')
     parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
     (options,args) = parser.parse_args()
@@ -253,3 +274,5 @@ if __name__=="__main__":
     iso639c = iso639Classifier()
     iso639c.train(args[0])
     iso639c.save(args[1], options.force)
+if __name__=="__main__":
+    main()
