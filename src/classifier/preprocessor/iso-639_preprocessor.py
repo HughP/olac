@@ -19,7 +19,7 @@ if len(sys.argv)!=2:
 datafile = open(sys.argv[1]).readlines()
 
 print "# iso639-3 table data"
-for line in datafile[1:]: # skips first line, which is just a header.:w
+for line in datafile[1:]: # skips first line, which is just a header.
     iso, part2b, part2t, part1, scope, lang_type, ref_name, comment = line.rstrip('\n').split('\t')
     if lang_type!="S": # special, e.g. no linguistic data, multiple languages
         print iso + '\tsn\t' + ref_name
