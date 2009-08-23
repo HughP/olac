@@ -20,7 +20,7 @@ declare namespace fn="http://www.w3.org/2005/xpath-functions";
 declare namespace xsl="http://www.w3.org/1999/XSL/Transform";
 
       
-let $repo := doc('file:../scriblio07/scriblio_repository.xml')
+let $repo := doc('file:../scriblio07/scriblio_repository.inverse.xml')
 (: let $repo := doc('file:../gial_sample/repository.xml')  :)
 
 let $target := 100
