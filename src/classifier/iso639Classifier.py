@@ -20,7 +20,7 @@ from optparse import OptionParser
 from tabdbreader2 import *
 from xmlreader import *
 from iso639_trainer import *
-from util import *
+from utilities.util import *
 
 # Parses arguments and options
 parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pickle input classifier-output')
