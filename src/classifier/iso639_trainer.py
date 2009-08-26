@@ -23,7 +23,7 @@ import operator
 import optparse
 import codecs
 from nltk import *
-from util import *
+from utilities.util import *
 
 class iso639Classifier:
     '''Classifier to identify an ISO 639 language code given a language name and
