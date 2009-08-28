@@ -1,5 +1,16 @@
 #!/usr/bin/python
-'''Evaluates output of resource type classifier and outputs accuracy.'''
+'''Evaluates output of resource type classifier and outputs accuracy.
+
+Created on Aug 28, 2009
+
+@author: Joshua S Hou
+
+Evaluates the output of mallet resource type classifier, compares actual labels
+against the labels assigned by the classifier and prints out the accuracy of the
+classifier's labels.
+
+Usage: python restype_evaluate.py classifier-output"
+'''
 import sys
 
 if len(sys.argv)!=2:
