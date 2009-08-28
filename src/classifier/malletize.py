@@ -5,6 +5,7 @@ serialized file for Mallet to use in training.
 import sys
 import os
 import codecs
+import optparse
 from nltk.probability import *
 from tabdbreader import *
 
@@ -24,21 +25,29 @@ def get_tempfile_name():
     return tempfilename
 
 def main():
-    if len(sys.argv)!=3:
-        sys.exit('Usage: python malletize.py directory output')
-    tempfilename = get_tempfile_name()
-    reader = TabDBCorpusReader(sys.argv[1], '.*\.txt')
+    parser = optparse.OptionParser(usage='python malletize.py directory output')
+    parser.add_option("-p","--plaintext",action="store_true",default=False,dest="plaintext")
+    (options, args) = parser.parse_args()
+
+    if len(args)!=2:
+        parser.print_help()
+        sys.exit(1)
+    
+    if options.plaintext:
+        tempfilename = args[1]
+    else:
+        tempfilename = get_tempfile_name()
+    reader = TabDBCorpusReader(args[0], '.*\.txt')
     records = reader.records()
     tempfile = codecs.open(tempfilename, 'w', encoding='utf-8')
     for record in records:
         record_id = record.pop('record_id')
         target = record.pop('target','NONE')
         print >>tempfile, record_id+'\t'+target+'\t'+ ' '.join(record.values()).replace('\n',' \\n ')
-#       fv = doc_features(record)
-#       print>>tempfile, record_id+'\t'+target+'\t' + ' '.join([keyval[0]+' '+str(keyval[1]) for keyval in fv.items()])
     tempfile.close()
-    os.system('mallet import-file --input %s --output %s --remove-stopwords' % (tempfilename, sys.argv[2]))
-    os.remove(tempfilename)
+    if not options.plaintext:
+        os.system('mallet import-file --input %s --output %s --remove-stopwords' % (tempfilename, args[1]))
+        os.remove(tempfilename)
 # --name 1 --label 2 --data 3 
 if __name__=="__main__":
     main()
