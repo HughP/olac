@@ -5,11 +5,11 @@ import cc.mallet.pipe.iterator.*;
 import cc.mallet.types.*;
 
 public class ResourceTypeClassify {
-	// Usage: java ResourceTypeClassify classifier.mallet input-vectors output-file
-	public static void main(String[] args) throws IllegalArgumentException,
+	// Test stage of resource type classifier, uses saved mallet classifier
+    public static void main(String[] args) throws IllegalArgumentException,
 		FileNotFoundException, IOException, ClassNotFoundException{
 		if(args.length!=3){
-			throw new IllegalArgumentException("Usage: java Classify classifier.mallet input-vectors output-file");
+			throw new IllegalArgumentException("Usage: java ResourceTypeClassify classifier.mallet input-vectors output-file");
 		}else{
 			System.out.println("Loading classifier...");
 			Classifier classifier = loadClassifier(new File(args[0]));
@@ -18,13 +18,9 @@ public class ResourceTypeClassify {
 		}
 	}
 	
+    // Loads mallet classifier from serialized file
 	public static Classifier loadClassifier(File serializedFile)
 	throws FileNotFoundException, IOException, ClassNotFoundException, IllegalArgumentException {
-
-		// The standard way to save classifiers and Mallet data                                            
-		//  for repeated use is through Java serialization.                                                
-		// Here we load a serialized classifier from a file.                                               
-
 		Classifier classifier;
 		
 		try{
@@ -40,31 +36,16 @@ public class ResourceTypeClassify {
 		}
 	}
 	
+    // classifies documents from "vectorfile", which is in plaintext format, and prints classifier output to file
     public static void printLabelings(Classifier classifier, File vectorfile, String outputFilename) throws IOException {
-
-        // Create a new iterator that will read raw instance data from                                     
-        //  the lines of a file.                                                                           
-        // Lines should be formatted as:                                                                   
-        //                                                                                                 
-        //   [name] [label] [data ... ]                                                                    
-        //                                                                                                 
-        //  in this case, "label" is ignored.                                                              
-
+        //format of data in vectorfile is: [name]\t[label]\t[data]
         CsvIterator reader =
             new CsvIterator(new FileReader(vectorfile),
                             "(\\w+)\\s+(\\w+)\\s+(.*)",
-                            3, 2, 1);  // (data, label, name) field indices               
-
-        // Create an iterator that will pass each instance through                                         
-        //  the same pipe that was used to create the training data                                        
-        //  for the classifier.                                                                            
+                            3, 2, 1);  // (data, label, name) field indices
         Iterator instances =
             classifier.getInstancePipe().newIteratorFrom(reader);
 
-        // Classifier.classify() returns a Classification object                                           
-        //  that includes the instance, the classifier, and the                                            
-        //  classification results (the labeling). Here we only                                            
-        //  care about the Labeling.
         PrintStream output = new PrintStream(new FileOutputStream(outputFilename));
         while (instances.hasNext()) {
         	Instance instance = (Instance) instances.next();
@@ -81,51 +62,5 @@ public class ResourceTypeClassify {
             output.println();
 
         }
-    }
-    
-    public void evaluate(Classifier classifier, File file) throws IOException {
-
-        // Create an InstanceList that will contain the test data.                                         
-        // In order to ensure compatibility, process instances                                             
-        //  with the pipe used to process the original training                                            
-        //  instances.                                                                                     
-
-        InstanceList testInstances = new InstanceList(classifier.getInstancePipe());
-
-        // Create a new iterator that will read raw instance data from                                     
-        //  the lines of a file.                                                                           
-        // Lines should be formatted as:                                                                   
-        //                                                                                                 
-        //   [name] [label] [data ... ]                                                                    
-
-        CsvIterator reader =
-            new CsvIterator(new FileReader(file),
-                            "(\\w+)\\s+(\\w+)\\s+(.*)",
-                            3, 2, 1);  // (data, label, name) field indices               
-
-        // Add all instances loaded by the iterator to                                                     
-        //  our instance list, passing the raw input data                                                  
-        //  through the classifier's original input pipe.                                                  
-
-        testInstances.addThruPipe(reader);
-
-        Trial trial = new Trial(classifier, testInstances);
-
-        // The Trial class implements many standard evaluation                                             
-        //  metrics. See the JavaDoc API for more details.  
-        
-        
-
-        System.out.println("Accuracy: " + trial.getAccuracy());
-
-	// precision, recall, and F1 are calcuated for a specific                                          
-        //  class, which can be identified by an object (usually                                           
-	//  a String) or the integer ID of the class                                                       
-
-        System.out.println("F1 for class 'good': " + trial.getF1("good"));
-
-        System.out.println("Precision for class '" +
-                           classifier.getLabelAlphabet().lookupLabel(1) + "': " +
-                           trial.getPrecision(1));
     }
 }

@@ -1,4 +1,12 @@
 #!/bin/bash
+# restype_train.sh
+# Aug 28, 2009
+# Joshua S Hou
+#
+# Trains a mallet classifier from a directory of tab-delimited files of training
+# data.  Saves mallet classifier and mallet binary vectors to file.
+#
+# Usage: ./restype_train data-directory mallet-vectors classifier
 
 EXPECTED_ARGS=3
 E_BADARGS=65

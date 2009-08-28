@@ -1,11 +1,19 @@
 #!/bin/bash
+# restype_test.sh
+# Aug 28, 2009
+# Joshua S Hou
+#
+# Test stage of resource type classifier
+#
+# Usage: ./restype_test.sh classifier input-document output
+
 EXPECTED_ARGS=3
 E_BADARGS=65
 if [ $# -ne $EXPECTED_ARGS ]
 then
-    echo "Usage: `basename $0` classifier input-vectors output"
-    echo "input-vectors must be in plaintext format:"
-    echo "[name]\t[label]\t[data]"
+    echo "Usage: `basename $0` classifier input-document output"
+    echo "  input-document must be in plaintext format:"
+    echo "  [name]\t[label]\t[data]"
     exit $E_BADARGS
 fi
 

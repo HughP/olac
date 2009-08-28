@@ -1,5 +1,10 @@
 # encoding=utf-8
-"""Tab-delimited corpus reader for training data for Resource Type Classifier."""
+"""Tab-delimited corpus reader for training data for Resource Type Classifier.
+
+Created August 24th, 2009
+
+@author: Joshua S Hou
+"""
 
 from nltk.corpus.reader.util import *
 from nltk.corpus.reader.api import *
