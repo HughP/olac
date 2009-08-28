@@ -72,8 +72,9 @@ public class ResourceTypeClassify {
 
             // print the labels with their weights in descending order (ie best first)                     
 
+            output.print(instance.getName() + "\t");
+            output.print(instance.getLabeling()+ "\t");
             for (int rank = 0; rank < labeling.numLocations(); rank++){
-            	output.print(instance.getName() + "\t");
                 output.print(labeling.getLabelAtRank(rank) + ":" +
                                  labeling.getValueAtRank(rank) + " ");
             }
