@@ -8,6 +8,6 @@ then
     exit $E_BADARGS
 fi
 
-./set_mallet_path.sh
+source set_mallet_path.sh
 python malletize.py $1 $2
 mallet train-classifier --input $2 --output-classifier $3 --trainer MaxEnt
