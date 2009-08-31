@@ -31,9 +31,12 @@ class TabDBCorpusView(StreamBackedCorpusView):
                 if record['record_id'] != record_id:
                     stream.seek(pos)
                     return [record]
-
+            
             if element_tag in record:
-                element_value = record[element_tag] + ' ' + element_value
+                if element_tag=="target":
+                    element_value = '&&'.join(sorted(sorted(record[element_tag].split('&&'))+[element_value]))
+                else:
+                    element_value = record[element_tag] + ' ' + element_value
             record[element_tag] = element_value
 
         return [record]
