@@ -17,5 +17,7 @@ then
 fi
 
 source set_mallet_path.sh
+echo "Reading corpus and converting to feature vectors..."
 python malletize.py $1 $2
+echo "Training classifier..."
 mallet train-classifier --input $2 --output-classifier $3 --trainer MaxEnt
