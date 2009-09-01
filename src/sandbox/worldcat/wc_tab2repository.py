@@ -3,14 +3,14 @@ import codecs
 from datetime import date
 
 tmpl = string.Template(open('wc_olac_record.tmpl').read())
-file = codecs.open('olac_recs2.xml', 'w','latin-1')
-err = codecs.open('zero_hits2.tab', 'w', 'latin-1')
+file = codecs.open('olac_recs.xml', 'w','latin-1')
+err = codecs.open('zero_hits.tab', 'w', 'latin-1')
 
 vars = {'date': date.today().strftime('%Y-%m-%d')}
 
 ctr = 0
 errctr = 0
-for line in codecs.open('lcsh_hits_map_new.tab', 'r', 'latin-1'):
+for line in codecs.open('lcsh_hits_map.tab', 'r', 'latin-1'):
     line = line.strip()
     (sh, code, hits, q) = line.split('\t')
 
