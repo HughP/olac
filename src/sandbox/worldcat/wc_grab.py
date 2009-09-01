@@ -1,11 +1,8 @@
-import urllib2
-import urllib
 import httplib
 import re
-import sys
-import urlparse
 import time
 import random
+import codecs
 
 def strip_tags(value):
     "Return the given HTML with all tags stripped."
@@ -21,10 +18,11 @@ def getwccontent(q):
 'Connection': 'keep-alive',
 'Keep-Alive': '300'
     }
-    params = urllib.urlencode({'q': q})
+    q = q.replace(' ','+').replace(':', '%3A')
     #script_uri = '/scripts/envecho.py?%s' % params 
-    script_uri = '/search?%s' % params 
+    script_uri = '/search?q=%s' % q 
     
+    print script_uri
     conn = httplib.HTTPConnection('www.worldcat.org')
     #conn = httplib.HTTPConnection('www.hirtfamily.net')
     conn.request("GET", script_uri, '', headers)
@@ -32,7 +30,6 @@ def getwccontent(q):
     print response.status, response.reason
     content = response.read()
     return strip_tags(content)
-    return content
     
 def gethits(text):
     m = re.search(r'Results \d+-\d+ of about (\d+)', text)
@@ -41,32 +38,29 @@ def gethits(text):
     else:
         return 0
 
+def normalize2ascii(str):
+    # from Aaron Bentley's comment on
+    # http://code.activestate.com/recipes/251871/
+    import unicodedata
+    return unicodedata.normalize('NFKD', str).encode('ASCII', 'ignore')
 
-#content = getwccontent('su:Ankave language')
-#file = open('out')
-#content = file.read()
-#print content
-#hits = gethits(content)
-#print "hits = %s" % hits
-#sys.exit()
-outfile = open('lcsh_hits_map.tab', 'w')
+
+
+outfile = codecs.open('lcsh_hits_map.tab', 'w', 'latin-1')
 ctr = 0
-for line in open('lcsh_map.tab'):
+for line in codecs.open('lcsh_map.tab','r', 'latin-1'):
     ctr += 1
     line = line.strip()
     line = line.replace('"', '')
     (sh, code) = line.split('\t')
-
     if sh.find('language') == -1 and sh.find('dialect') == -1:
         sh = sh + ' language'
-    query = 'su:%s' % sh
-    content = getwccontent(query)
-    hits = gethits(content)
+
+    query = 'su:"%s"' % normalize2ascii(sh)
+    hits = gethits(getwccontent(query))
     print "%d: Found %s hits for '%s'" % (ctr, hits, query)
     outfile.write('%s\t%s\t%s\t%s\n' % (sh, code, hits, query))
     outfile.flush()
 
     # wait a few seconds
     time.sleep(random.randint(4,8))
-
-
