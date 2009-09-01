@@ -1,10 +1,9 @@
 xquery version "1.0";  
 
-(: training-data-neg-for-types.xq
+(: test-data-for-multiple-types.xq
        G. Simons, 31 Aug 2009
-   Negative training data for reasource types, i.e.
-   extract just records that have no resource type assigned.
-   ID, tab, LNONE, tab, space separated fields
+   Test data for records with multiple resource types.
+   ID, tab, space separated types, tab, space separated fields
 :)
 
 declare namespace dc="http://purl.org/dc/elements/1.1/";
@@ -20,17 +19,24 @@ declare namespace xsl="http://www.w3.org/1999/XSL/Transform";
 declare option saxon:output "method=text";
 
 
-let $repo := doc('file:scriblio_repository.inverse.xml')
+let $repo := doc('file:scriblio_repository.xml')
 let $tab := "&#9;"
 let $nl := "&#10;"
 
-  for $rec in $repo//oai:record
-   where
-   $rec[oai:metadata/olac:olac[not(dc:type/@xsi:type='olac:resource-type')]]
+let $recs :=
+$repo//oai:record[oai:metadata/olac:olac[count(dc:type[@xsi:type='olac:resource-type']) > 1]]
+for $rec in $recs
   
   return
      ($rec/oai:header/oai:identifier/text(),
-      $tab, "LNONE", $tab,
+      $tab,
+      
+      for $type in
+      $rec//olac:olac/dc:type[@xsi:type='olac:resource-type']/string(@olac:code)
+      order by $type
+      return
+     ($type), (: this inherently gets a space after it :)
+      $tab,
 
    for $field in $rec//olac:olac/*[. != '']
    where contains('contributor creator 
@@ -41,7 +47,7 @@ let $nl := "&#10;"
   or $field/self::dc:subject[@xsi:type != 'dcterms:DDC' and @xsi:type != 'dcterms:LCC']
     
    return
-     ($field, " "), $nl
+     ($field/text(), " "), $nl
 
   
   )
