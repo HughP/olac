@@ -18,6 +18,7 @@ fi
 
 source set_mallet_path.sh
 echo "Reading corpus and converting to feature vectors..."
-python malletize.py $1 $2
+cat $1/*.txt > $1/training-vectors
+mallet import-file --input $1/training-vectors --output $2 --remove-stopwords --line-regex "^(\\S*)[\\s]*(\\S*)[\\s]*(.*)$"
 echo "Training classifier..."
 mallet train-classifier --input $2 --output-classifier $3 --trainer MaxEnt
