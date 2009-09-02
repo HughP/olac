@@ -41,20 +41,28 @@ public class ResourceTypeClassify {
         //format of data in vectorfile is: [name]\t[label]\t[data]
         CsvIterator reader =
             new CsvIterator(new FileReader(vectorfile),
-                            "(\\w+)\\s+(\\w+)\\s+(.*)",
-                            3, 2, 1);  // (data, label, name) field indices
-        Iterator instances =
+                            "(.+)\\t(.+)\\t(.*)",
+                            3, 2, 1);
+        Iterator<Instance> instances =
             classifier.getInstancePipe().newIteratorFrom(reader);
+        
+        CsvIterator reader2 = // We need a second reader here because Iterator<Instance> ignores class labels that do not exist in the classifier.
+            new CsvIterator(new FileReader(vectorfile),
+                            "(.+)\\t(.+)\\t(.*)",
+                            3, 2, 1);
 
         PrintStream output = new PrintStream(new FileOutputStream(outputFilename));
         while (instances.hasNext()) {
+        	Instance reader2Instance = reader2.next();
         	Instance instance = (Instance) instances.next();
             Labeling labeling = classifier.classify(instance).getLabeling();
 
             // print the labels with their weights in descending order (ie best first)                     
-
+//            System.out.println(instance.getLabeling()+ " " + instance.getSource());
             output.print(instance.getName() + "\t");
-            output.print(instance.getLabeling()+ "\t");
+            Object trueLabel = reader2Instance.getTarget();
+            if(trueLabel!=null)
+            	output.print(trueLabel.toString() + "\t");
             for (int rank = 0; rank < labeling.numLocations(); rank++){
                 output.print(labeling.getLabelAtRank(rank) + ":" +
                                  labeling.getValueAtRank(rank) + " ");
