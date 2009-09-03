@@ -23,7 +23,10 @@ source set_mallet_path.sh
 # ensure compiled version of ResourceTypeClassify exists
 if [ ! -e "ResourceTypeClassify.class" ]
 then
+    echo "No binary for ResourceTypeClassify found."
+    echo "Compiling..."
     javac ResourceTypeClassify.java
 fi
 
+echo "Classifying..."
 java ResourceTypeClassify $1 $2 $3
