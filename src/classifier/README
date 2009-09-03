@@ -80,6 +80,10 @@ create_xml_goldstandard.py  -   Creates gold standard from XML OLAC records.
 --------------------------------------------------------------------------------
 Resource Type Classifier
 ------------------------
+To setup the Resource Type Classifier, please install MALLET into a public
+directory.  Then, specify the path to the MALLET directory.  Java and Python
+must both be installed.  This classifier will only work on Unix systems, as the
+train and test scripts are written in bash.
 
 restype_train.sh            -   Trains a Resource Type Classifier with Mallet.
 restype_test.sh             -   Uses a Resource Type Classifier to classify
