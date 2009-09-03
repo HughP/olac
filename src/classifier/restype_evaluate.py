@@ -21,7 +21,7 @@ input = open(sys.argv[1]).readlines()
 for line in input:
     name, true_label, data = line.strip().split('\t')
     assigned_label = data.split()[0].split(':')[0]
-    if true_label==assigned_label:
+    if true_label.strip()==assigned_label:
         correct += 1
 
 print "Accuracy:", float(correct)/len(input)
