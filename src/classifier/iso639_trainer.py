@@ -130,6 +130,77 @@ class iso639Classifier:
         results = self.weighted(NE_dict, snw, wnw, a, b)
         return results, NE_dict
 
+    def classify_round_robin(self, record):
+        '''For a string of text, uses _identify to identify language, country
+        and region names and creates sets of ISO 639 codes for the language,
+        country and region names identified.   Uses weighted to determine
+        weights for each iso code.
+        '''
+        title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
+        subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
+        descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
+        bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
+
+        tokens = wordpunct_tokenize(bag_of_words)
+        NE_dict = {'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
+        i = 0
+        while i<len(tokens):
+            first_l = tokens[i][0]
+            #if first_l.isupper() or first_l in self.first_chars:
+            if True:
+                NE, iso_types = self._identify(tokens[i:])
+                if NE:
+                    i += len(NE.split()) - 1 # increase counter by num_words(NE) - 1 so that we don't find another NE inside this one.
+                    for type in iso_types:
+                        if type=='cn':
+                            isos = reduce(set.union,[self.country_lang[j] for j in iso_types[type]])
+                        else:
+                            isos = iso_types[type]
+                        NE_dict[type][NE] = isos
+            i += 1
+        results = []
+        params = []
+        for a in range(1,11):
+            for b in range(1,11):
+                for c in range(1,11):
+                    # not varying snw
+                    params.append(1.0,a*0.1,b*0.1,c*0.1)
+        for j in params:
+            results.append(self.weighted(NE_dict, params[j][0], params[j][1], params[j][2], params[j][3]))
+        #results = self.weighted(NE_dict, snw, wnw, a, b)
+        return results, NE_dict, params
+
+    def classify_records_round_robin(self, debug, records):
+        '''Classifies a list of records and prints the results to outstream.'''
+        i = -1
+        thresholds = [0.5,0.6,0.7,0.8,0.9,1.0]
+        for record in records:
+            title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
+            subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
+            descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
+            i += 1
+            #iso_dict, NE_results = self.classify(record, snw, wnw, a, b)
+            iso_dicts, NE_results, params = self.classify(record)
+            outstreams = [open('subject_language_classifier_output_'+str(i)+'.txt','w') for i in range(len(iso_dicts)*len(thresholds))]
+            for z in thresholds:
+                for j in range(len(iso_dicts)):
+                    print>>outstreams[j], '# threshold:', thresholds[z]
+                    print>>outstreams[j], '# params:', params
+                    iso_results = filter(lambda x:iso_dicts[j][0][x]>=thresholds[z], iso_dict.keys())
+                    print>>outstreams[j], '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
+                    if debug:
+                        if self.gs:
+                            print>>outstreams[j], '# gs:', self.gs[i].rstrip().decode('utf-8')
+                        print>>outstreams[j], '# isos: ', iso_dict
+                        print>>outstreams[j], '# subject: ' + subject
+                        print>>outstreams[j], '# description: ' + descr
+                        for item_type in NE_results:
+                            if NE_results[item_type]:
+                                for NE in NE_results[item_type]:
+                                    print>>outstreams[j], "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[0][item_type][NE])+']' 
+                        print>>outstream, "#--------------------------------------------------"
+
+
     def _identify(self, tokens):
         '''For a list of tokens, goes through the tree and returns the longest
         language, country or region name it can find, along the item_type, and
