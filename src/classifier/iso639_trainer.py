@@ -159,46 +159,45 @@ class iso639Classifier:
                         NE_dict[type][NE] = isos
             i += 1
         results = []
-        params = []
-        for a in range(1,11):
-            for b in range(1,11):
-                for c in range(1,11):
-                    # not varying snw
-                    params.append(1.0,a*0.1,b*0.1,c*0.1)
-        for j in params:
-            results.append(self.weighted(NE_dict, params[j][0], params[j][1], params[j][2], params[j][3]))
+        for j in range(len(self.params)):
+            results.append(self.weighted(NE_dict, self.params[j][0], self.params[j][1], self.params[j][2], self.params[j][3]))
         #results = self.weighted(NE_dict, snw, wnw, a, b)
-        return results, NE_dict, params
+        return results, NE_dict
 
-    def classify_records_round_robin(self, debug, records):
+    def classify_records_round_robin(self, debug, records, file_header, params):
         '''Classifies a list of records and prints the results to outstream.'''
-        i = -1
-        thresholds = [0.5,0.6,0.7,0.8,0.9,1.0]
+        self.params = params
+        gs_idx = -1
+        thresholds = [0.4,0.6,0.8,1.0]
+        outstreams = [codecs.open(file_header+str(i)+'.txt','w',encoding='utf-8') for i in range(len(params)*len(thresholds))]
+        for j in range(len(params)):
+            for z in range(len(thresholds)):
+                out_index = j*len(thresholds)+z
+                print>>outstreams[out_index], '# threshold:', thresholds[z]
+                print>>outstreams[out_index], '# params:', params[j]
         for record in records:
             title = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'title')))
             subject = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'subject')))
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
-            i += 1
+            gs_idx += 1
             #iso_dict, NE_results = self.classify(record, snw, wnw, a, b)
-            iso_dicts, NE_results, params = self.classify(record)
-            outstreams = [open('subject_language_classifier_output_'+str(i)+'.txt','w') for i in range(len(iso_dicts)*len(thresholds))]
-            for z in thresholds:
-                for j in range(len(iso_dicts)):
-                    print>>outstreams[j], '# threshold:', thresholds[z]
-                    print>>outstreams[j], '# params:', params
-                    iso_results = filter(lambda x:iso_dicts[j][0][x]>=thresholds[z], iso_dict.keys())
-                    print>>outstreams[j], '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
+            iso_dicts, NE_results = self.classify_round_robin(record)
+            for j in range(len(iso_dicts)):
+                for z in range(len(thresholds)):
+                    out_index = j*len(thresholds)+z
+                    iso_results = filter(lambda x:iso_dicts[j][x]>=thresholds[z], iso_dicts[j].keys())
+                    print>>outstreams[out_index], '\t'.join([record['Oai_ID'], ' '.join(iso_results), title])
                     if debug:
                         if self.gs:
-                            print>>outstreams[j], '# gs:', self.gs[i].rstrip().decode('utf-8')
-                        print>>outstreams[j], '# isos: ', iso_dict
-                        print>>outstreams[j], '# subject: ' + subject
-                        print>>outstreams[j], '# description: ' + descr
+                            print>>outstreams[out_index], '# gs:', self.gs[gs_idx].rstrip().decode('utf-8')
+                        print>>outstreams[out_index], '# isos: ', iso_dicts[j]
+                        print>>outstreams[out_index], '# subject: ' + subject
+                        print>>outstreams[out_index], '# description: ' + descr
                         for item_type in NE_results:
                             if NE_results[item_type]:
                                 for NE in NE_results[item_type]:
-                                    print>>outstreams[j], "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[0][item_type][NE])+']' 
-                        print>>outstream, "#--------------------------------------------------"
+                                    print>>outstreams[out_index], "# " + item_type + "\t" + NE + "\t[" + ' '.join(NE_results[item_type][NE])+']' 
+                        print>>outstreams[out_index], "#--------------------------------------------------"
 
 
     def _identify(self, tokens):
@@ -266,8 +265,15 @@ class iso639Classifier:
             if iso in region:
                 r = 1.0
             results[iso] = l + a*(l*c) + b*(l*r)
-
-        return results
+        if len(results.keys())==0:
+            return results
+        else:
+            # normalize
+            high_score = sorted(results.values())[-1]
+            for iso in results:
+                results[iso]/=high_score
+            results['high_score'] = high_score # puts the high score in there for eval purposes
+            return results
 
     def _populate_dict(self, input_dict, langdict, C):
         '''Helper function for weighted'''
