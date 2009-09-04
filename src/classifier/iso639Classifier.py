@@ -27,7 +27,7 @@ parser = OptionParser(usage='python iso639Classifier.py [options] classifier.pic
 parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
 parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prints out the '+\
                   'language, country and region names that the classifier recognizes')
-parser.add_option('-n', '--num', type='int', dest='num', default=0)
+parser.add_option('-n', '--num', type='int', dest='num', default=0, help="number of records out of set to classify")
 parser.add_option('-g', '--goldstandard', dest='gs', help='The gold standard filename.')
 parser.add_option('-t', '--threshold', dest='threshold', type='float', default=0.72, help='Threshold confidence score')
 parser.add_option('-s', '--snw', dest='snw', type='float', default=1.0, help='Strong name weight')
