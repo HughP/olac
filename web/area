@@ -23,10 +23,10 @@ $sql = "select li.Name, li.CountryID, count(distinct ai.Item_ID) c
         from ARCHIVED_ITEM ai,
              METADATA_ELEM me,
              (select distinct cc.Name, cc.CountryID, li.LangID
-              from LanguageIndex li, CountryCodes cc
+              from LanguageCodes li, CountryCodes cc
               where li.CountryID=cc.CountryID
                 and cc.Area='$area_name'
-                and li.NameType='L') li
+                and li.LangStatus='L') li
         where ai.Item_ID=me.Item_ID
           and me.TagName in ('subject','language')
           and me.Code=li.LangID
@@ -61,7 +61,7 @@ BORDER="0"></A></TD>
 
 <p>The combined OLAC catalog has resources for languages that are spoken in
 <?=$area_name?>. The number in parentheses is the number of items cataloged for
-languages spoken in the given country.</p>
+languages for which the shown country is the primary country.</p>
 
 <table>
 <tr><td><ul>
