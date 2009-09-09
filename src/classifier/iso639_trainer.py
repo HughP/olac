@@ -216,13 +216,20 @@ class iso639Classifier:
             while i<len(tokens):
                 if self.ending in node:
                     if curr_NE not in self.stoplist:
-                        final_NE = curr_NE
                         type_isos = node[self.ending]
+                        final_NE = curr_NE
                 token_i = remove_diacritic(tokens[i].lower())
                 if token_i in node:
                     node = node[token_i]
                     curr_NE += ' '+token_i
-                else:
+                else: # there is no more viable path in the tree
+                    if token_i=="language" and ('sn' in type_isos or 'wn' in type_isos):
+                        # if at the end of an NE you see "language" as the next token, give sn/wn more weight
+                        curr_NE += ' language'
+                        final_NE = curr_NE
+                        type_isos.pop('rg',None)
+                        type_isos.pop('cn',None)
+                        type_isos.pop('cc',None)
                     break
                 i += 1
             if self.ending in node and i>=len(tokens): # checks the last word
@@ -301,10 +308,6 @@ class iso639Classifier:
                     self.country_lang[item] = set([iso])
             else:
                 item = remove_diacritic(item.lower())
-                if (item_type=='sn' or item_type=='wn') and '-' in item and ' ' not in item: # prevents Judeo-Iraqi Arabic from being split up
-                    for subitem in item.split('-'):
-                        if len(subitem)>4: # so we don't get Af-Tunni split into Af and Tunni or something
-                            self._add_item(wordpunct_tokenize(subitem.strip()), self.tree, item_type, iso)
                 if "'" in item: # also add version without apostrophe
                     self._add_item(wordpunct_tokenize(item.strip().replace("'","")), self.tree, item_type, iso)
                 self._add_item(wordpunct_tokenize(item.strip()), self.tree, item_type, iso)
