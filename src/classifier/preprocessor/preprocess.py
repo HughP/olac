@@ -26,12 +26,15 @@ if os.path.exists(sys.argv[1]):
 
 header, file = os.path.split(sys.argv[0])
 headout = {'header':os.path.join(header,''), 'output':sys.argv[1]}
-os.system('python %(header)sEthnologue_data_preprocessor.py %(header)sdata/Ethnologue-classifier-training-data.xml > %(output)s' % headout)
-os.system('python %(header)sLinguistList_preprocessor.py %(header)sdata/GetListOfAncientLgs.html >> %(output)s' % headout)
+#os.system('python %(header)sEthnologue_data_preprocessor.py %(header)sdata/Ethnologue-classifier-training-data.xml > %(output)s' % headout)
+os.system('python %(header)sLinguistList_preprocessor.py %(header)sdata/GetListOfAncientLgs.html > %(output)s' % headout)
 os.system('python %(header)siso-639_preprocessor.py %(header)sdata/iso-639-3_20090210.tab.dld >> %(output)s' % headout)
 os.system('python %(header)sCountryCodes_preprocessor.py %(header)sdata/CountryCodes.tab >>%(output)s' % headout)
+os.system('python %(header)sregion_preprocessor.py -o %(output)s %(header)sdata/region\ data.txt' % headout)
+os.system('python %(header)scomplexname_preprocessor.py -o %(output)s %(header)sdata/complex\ name\ data.txt' % headout)
 output = open(headout['output'],'a')
 print>>output, open(headout['header']+'extra_data.tab').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/Data for language classifier.tab').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/LCSH_names_trainingdata.tab').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/ancient_countries.tab').read().rstrip('\n\r')
+print>>output, open(headout['header']+'data/ethnologue_data.txt').read().rstrip('\n\r')
