@@ -7,7 +7,7 @@ OAI Identifier, hypothesized ISO 639 language codes, and titles of each record.
 
 Created on Jul 6, 2009
 
-@author: jshou
+@author: Joshua S Hou
 
 
 
@@ -29,11 +29,11 @@ parser.add_option('-d', '--debug', action='store_true', dest='debug', help='Prin
                   'language, country and region names that the classifier recognizes')
 parser.add_option('-n', '--num', type='int', dest='num', default=0, help="number of records out of set to classify")
 parser.add_option('-g', '--goldstandard', dest='gs', help='The gold standard filename.')
-parser.add_option('-t', '--threshold', dest='threshold', type='float', default=0.72, help='Threshold confidence score')
+parser.add_option('-t', '--threshold', dest='threshold', type='float', default=0.00, help='Threshold confidence score')
 parser.add_option('-s', '--snw', dest='snw', type='float', default=1.0, help='Strong name weight')
 parser.add_option('-w', '--wnw', dest='wnw', type='float', default=0.7, help='Weak name weight')
-parser.add_option('-a', '--country-weight', dest='a', type='float', default=0.3, help='Country weight')
-parser.add_option('-b', '--region-weight', dest='b', type='float', default=0.2, help='Region weight')
+parser.add_option('-a', '--country-weight', dest='a', type='float', default=1.0, help='Country weight')
+parser.add_option('-b', '--region-weight', dest='b', type='float', default=1.0, help='Region weight')
 (options, args) = parser.parse_args()
     
 if len(args)<3:
