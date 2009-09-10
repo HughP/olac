@@ -30,7 +30,8 @@ class RegionParser:
             'Northeastern','Northwestern','Southeastern','Southwestern','Over',\
             'Just','Refugees','Villages','L1','No','On','L2','All','Centered',\
             'Inland','Towns','River','Between','Overlaps','Small','Lakes',\
-            'Used', 'Song Mao. Possibly'])
+            'Used', 'Song Mao. Possibly','Dialect','Tone','Ritual','Another',\
+            'Noun','Hunter'])
         self.abbreviations = {'St.':'Saint', 'St':'Saint', 'Mt.':'Mount', 'Mt':'Mount'}
         self.abb_re = re.compile(r'St\.?|Mt\.?')
         self.dirof = re.compile(r'((North)|(South)|(East)|(West)|(Northeast)|(Northwest)|(Southeast)|(Southwest)|([NSEW][NSEW]?)) of ')
@@ -43,14 +44,6 @@ class RegionParser:
         for region in filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "()') for i in self.region_NE.findall(input)]):
             region_list += self.region_parse(region)
         return region_list
-
-    def nonsense(self):
-        '''Code that's leftover from the Ethnologue preprocessor that I might use.'''
-        region_list = []
-        for region in filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "()') for i in self.region_NE.findall(self.temp[name])]):
-            region_list += self.region_parse(region)
-            self.lang_info[self.curr_iso]['rg'] += region_list
-#           self.lang_info[self.curr_iso]["rg"] += filter(lambda x: x not in self.stoplist and len(x)>3,[i[0].strip(' "()') for i in self.region_NE.findall(self.temp[name])])
 
     def region_parse(self, NE):
         '''Processes a region named entity and returns a list of alternate spellings.'''
@@ -70,7 +63,7 @@ class RegionParser:
             new_NE = self.geog.sub('',NE).strip()
             if new_NE not in self.stoplist:
                 NE_list.append(new_NE)
-        return NE_list
+        return [i for i in NE_list if len(i)>=3]
 
 def main():
     parser = optparse.OptionParser(usage='python region_preprocessor.py [options] inputfile')
