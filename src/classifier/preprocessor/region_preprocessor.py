@@ -31,7 +31,7 @@ class RegionParser:
             'Just','Refugees','Villages','L1','No','On','L2','All','Centered',\
             'Inland','Towns','River','Between','Overlaps','Small','Lakes',\
             'Used', 'Song Mao. Possibly','Dialect','Tone','Ritual','Another',\
-            'Noun','Hunter'])
+            'Noun','Hunter','With'])
         self.abbreviations = {'St.':'Saint', 'St':'Saint', 'Mt.':'Mount', 'Mt':'Mount'}
         self.abb_re = re.compile(r'St\.?|Mt\.?')
         self.dirof = re.compile(r'((North)|(South)|(East)|(West)|(Northeast)|(Northwest)|(Southeast)|(Southwest)|([NSEW][NSEW]?)) of ')
