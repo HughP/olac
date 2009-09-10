@@ -1,0 +1,44 @@
+# LCSH data for languages with $y (09-09-2009)			
+fro	sn	Old French	
+frm	sn	Middle French	
+fro	sn	French language--To 1500	
+frm	sn	French language--To 1500	
+ang	sn	English language--Old English	
+ang	sn	Old English	
+cym	sn	Old Welsh	
+cym	sn	Welsh language--To 1100	
+enm	sn	English language--Middle English	
+enm	sn	Middle English	
+gmh	sn	German language--Middle High German	
+gmh	sn	Middle High German	
+goh	sn	German language--Old High German	
+goh	sn	Old High German	
+khm	sn	Central Khmer	
+khm	sn	Khmer language--To 800	
+ltc	sn	Chinese language--Ancient Chinese	
+ltc	sn	Late Middle Chinese	
+mga	sn	Irish language--Middle Irish	
+mga	sn	Middle Irish	
+och	sn	Chinese language--To 600	
+och	sn	Old Chinese	
+oge	sn	Georgian language--To 1100	
+oge	sn	Old Georgian	
+ohu	sn	Hungarian language--To 1500	
+ohu	sn	Old Hungarian	
+ojp	sn	Japanese language--To 794	
+ojp	sn	Old Japanese	
+okm	sn	Korean language--Middle Korean	
+okm	sn	Middle Korean	
+oko	sn	Korean language--To 935	
+oko	sn	Old Korean	
+orv	sn	Old Russian	
+orv	sn	Russian language--1300-1700	
+orv	sn	Russian language--To 1300	
+sga	sn	Irish language--To 1100	
+sga	sn	Old Irish	
+wlm	sn	Middle Welsh	
+wlm	sn	Welsh language--Middle Welsh	
+xng	sn	Middle Mongolian	
+xng	sn	Mongolian language--Middle Mongolian	
+zho	sn	Chinese	
+zho	sn	Chinese language--Modern Chinese	

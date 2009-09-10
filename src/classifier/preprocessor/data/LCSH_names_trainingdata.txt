@@ -1,0 +1,6948 @@
+# LCSH data (09-09-2009)		
+# Identifier	NameType	NameString
+huc	sn	!Xo?
+huc	sn	!Xo? language
+abx	sn	Abaknon
+abx	sn	Abaknon language
+aau	sn	Abau
+aau	sn	Abau language
+abq	sn	Abazin
+abq	sn	Abazin language
+any	sn	Abe
+any	sn	Abe language
+aaq	sn	Abenaki
+abe	sn	Abenaki
+aaq	sn	Abenaki language
+abe	sn	Abenaki language
+abi	sn	Abidji
+abi	sn	Abidji language
+axb	sn	Abipon
+axb	sn	Abipon language
+abk	sn	Abkhaz
+abk	sn	Abkhaz language
+ccn	sn	Abkhazo-Adyghian languages
+abb	sn	Abo
+abb	sn	Abo (Cameroon)
+abb	sn	Abo language (Cameroon)
+adi	sn	Abor
+adi	sn	Abor language
+abr	sn	Abron
+abr	sn	Abron language
+abn	sn	Abua
+abn	sn	Abua language
+abz	sn	Abui
+abz	sn	Abui language
+mrr	sn	Abujhmaria
+mrr	sn	Abujhmaria dialect
+abt	sn	Abulas
+abt	sn	Abulas language
+kgr	sn	Abun
+kgr	sn	Abun language
+abl	sn	Abung
+abl	sn	Abung dialect
+abu	sn	Abure
+abu	sn	Abure language
+ake	sn	Acawai
+ake	sn	Acawai language
+aca	sn	Achagua
+aca	sn	Achagua language
+acn	sn	Achang
+acn	sn	Achang language
+acr	sn	Achi
+acr	sn	Achi language
+ace	sn	Achinese
+ace	sn	Achinese language
+acv	sn	Achomawi
+acv	sn	Achomawi language
+acu	sn	Achuar
+acu	sn	Achuar language
+ach	sn	Acoli
+ach	sn	Acoli language
+kjq	sn	Acoma
+kjq	sn	Acoma dialect
+ada	sn	Adangme
+ada	sn	Adangme language
+gas	sn	Adiwasi Garasia
+gas	sn	Adiwasi Garasia language
+ort	sn	Adiwasi Oriya
+ort	sn	Adiwasi Oriya language
+adt	sn	Adnyamathanha
+adt	sn	Adnyamathanha language
+dma	sn	Aduma
+dma	sn	Aduma language
+ady	sn	Adygei
+ady	sn	Adygei language
+adj	sn	Adyukru
+adj	sn	Adyukru language
+kat	sn	Adzhar
+kat	sn	Adzhar dialect
+awi	sn	Aekyom
+awi	sn	Aekyom language
+grc	sn	Aeolic Greek
+grc	sn	Aeolic Greek dialect
+aal	sn	Afade
+aal	sn	Afade dialect
+aar	sn	Afar
+aar	sn	Afar language
+afh	sn	Afrihili
+afh	sn	Afrihili (Artificial language)
+afr	sn	Afrikaans
+afr	sn	Afrikaans language
+afa	sn	Afroasiatic languages
+azb	sn	Afshar
+azb	sn	Afshar dialect
+agd	sn	Agarabe
+agd	sn	Agarabe language
+awn	sn	Agau
+awn	sn	Agau language
+agq	sn	Aghem
+agq	sn	Aghem language
+esu	sn	Aglemiut
+esu	sn	Aglemiut dialect
+knn	sn	Agri
+knn	sn	Agri dialect
+agt	sn	Agta
+agt	sn	Agta language
+agr	sn	Aguaruna
+agr	sn	Aguaruna dialect
+agx	sn	Agul
+agx	sn	Agul language
+msm	sn	Agusan Manobo
+msm	sn	Agusan Manobo language
+agn	sn	Agutaynon
+agn	sn	Agutaynon language
+aha	sn	Ahanta
+aha	sn	Ahanta language
+ahr	sn	Ahirani
+ahr	sn	Ahirani language
+ahi	sn	Ahizi
+ahm	sn	Ahizi
+ahp	sn	Ahizi
+ahi	sn	Ahizi language
+ahm	sn	Ahizi language
+ahp	sn	Ahizi language
+aho	sn	Ahom
+aho	sn	Ahom language
+cnk	sn	Ahraing Khumi
+cnk	sn	Ahraing Khumi dialect
+aht	sn	Ahtena
+aht	sn	Ahtena language
+ajg	sn	Aja (Benin and Togo)
+aja	sn	Aja (Sudan)
+ajg	sn	Aja language (Benin and Togo)
+aja	sn	Aja language (Sudan)
+aji	sn	Ajie
+aji	sn	Ajie language
+axk	sn	Aka
+axk	sn	Aka (Central African Republic)
+axk	sn	Aka language (Central African Republic)
+aka	sn	Akan
+aka	sn	Akan language
+knj	sn	Akatek
+knj	sn	Akatek language
+tsr	sn	Akei
+tsr	sn	Akei language
+cop	sn	Akhmimic
+cop	sn	Akhmimic dialect
+akv	sn	Akhwakh
+akv	sn	Akhwakh language
+kvr	sn	Akit
+kvr	sn	Akit dialect
+che	sn	Akka
+che	sn	Akka dialect
+akk	sn	Akkadian
+akk	sn	Akkadian language
+akl	sn	Aklanon
+akl	sn	Aklanon language
+akz	sn	Alabama
+akz	sn	Alabama language
+alc	sn	Alacaluf
+alc	sn	Alacaluf language
+ald	sn	Aladian
+ald	sn	Aladian language
+amp	sn	Alamblak
+amp	sn	Alamblak language
+alj	sn	Alangan
+alj	sn	Alangan language
+btz	sn	Alas
+btz	sn	Alas dialect
+alh	sn	Alawa
+alh	sn	Alawa language
+sqi	sn	Albanian
+sqi	sn	Albanian language
+gsw	sn	Alemannic dialects
+ale	sn	Aleut
+ale	sn	Aleut language
+alg	sn	Algonquian languages
+alq	sn	Algonquin
+alq	sn	Algonquin language
+aes	sn	Alsea
+aes	sn	Alsea language
+alt	sn	Altai
+atv	sn	Altai
+alt	sn	Altai language
+atv	sn	Altai language
+tut	sn	Altaic languages
+xua	sn	Alu Kurumba
+xua	sn	Alu Kurumba language
+alp	sn	Alune
+alp	sn	Alune language
+alz	sn	Alur
+alz	sn	Alur language
+alr	sn	Alutor
+alr	sn	Alutor language
+aly	sn	Alyawarra
+aly	sn	Alyawarra language
+amm	sn	Ama (Papua New Guinea)
+amm	sn	Ama language (Papua New Guinea)
+amc	sn	Amahuaca
+amc	sn	Amahuaca language
+amn	sn	Amanab
+amn	sn	Amanab language
+amg	sn	Amarag
+amg	sn	Amarag language
+amk	sn	Ambai
+amk	sn	Ambai language
+leb	sn	Ambo (Zambia)
+leb	sn	Ambo dialect (Zambia)
+abs	sn	Ambonese Malay
+abs	sn	Ambonese Malay dialect
+mmg	sn	Ambrym
+tvk	sn	Ambrym
+mmg	sn	Ambrym language
+tvk	sn	Ambrym language
+adx	sn	Amdo
+adx	sn	Amdo dialect
+aey	sn	Amele
+aey	sn	Amele language
+ase	sn	American Sign
+ase	sn	American Sign Language
+ifa	sn	Amganad Ifugao
+ifa	sn	Amganad Ifugao dialect
+amh	sn	Amharic
+amh	sn	Amharic language
+amy	sn	Ami (Australia)
+amy	sn	Ami language (Australia)
+ciw	sn	Amikwa
+ciw	sn	Amikwa language
+ami	sn	Amis
+ami	sn	Amis language
+kal	sn	Ammassalimiut
+kal	sn	Ammassalimiut dialect
+apz	sn	Ampale
+apz	sn	Ampale language
+ame	sn	Amuesha
+ame	sn	Amuesha language
+amu	sn	Amuzgo
+azg	sn	Amuzgo
+azm	sn	Amuzgo
+amu	sn	Amuzgo language
+azg	sn	Amuzgo language
+azm	sn	Amuzgo language
+akg	sn	Anakalang
+akg	sn	Anakalang dialect
+anm	sn	Anal
+anm	sn	Anal language
+xmk	sn	Ancient Macedonian
+ano	sn	Andoque
+ano	sn	Andoque language
+aty	sn	Aneityum
+aty	sn	Aneityum language
+anz	sn	Anem
+anz	sn	Anem language
+aby	sn	Aneme Wake
+aby	sn	Aneme Wake language
+ane	sn	Anesu
+ane	sn	Anesu language
+akh	sn	Angal Heneng
+akh	sn	Angal Heneng language
+njm	sn	Angami
+njm	sn	Angami language
+anc	sn	Angas
+anc	sn	Angas language
+agg	sn	Anggor
+agg	sn	Anggor language
+anp	sn	Angika
+anp	sn	Angika language
+akb	sn	Angkola
+akb	sn	Angkola dialect
+xno	sn	Anglo-Norman
+xno	sn	Anglo-Norman dialect
+aid	sn	Anguthimri
+lnj	sn	Anguthimri
+aid	sn	Anguthimri language
+lnj	sn	Anguthimri language
+aoi	sn	Anindilyakwa
+aoi	sn	Anindilyakwa language
+aak	sn	Ankave
+aak	sn	Ankave language
+amx	sn	Anmatyerre
+amx	sn	Anmatyerre language
+fab	sn	Annobon
+fab	sn	Annobon dialect
+bjq	sn	Antaisaka
+bjq	sn	Antaisaka dialect
+tdx	sn	Antandroy
+tdx	sn	Antandroy dialect
+anu	sn	Anuak
+anu	sn	Anuak language
+cko	sn	Anufo
+cko	sn	Anufo dialect
+aud	sn	Anuta
+aud	sn	Anuta language
+ken	sn	Anyang
+ken	sn	Anyang language
+any	sn	Anyi
+any	sn	Anyi language
+njo	sn	Ao
+njo	sn	Ao language
+aom	sn	Aomie
+aom	sn	Aomie language
+apa	sn	Apache languages
+xap	sn	Apalachee
+xap	sn	Apalachee language
+apy	sn	Apalai
+apy	sn	Apalai language
+apt	sn	Apatani
+apt	sn	Apatani language
+app	sn	Apma
+app	sn	Apma language
+ard	sn	Arabana
+ard	sn	Arabana language
+arl	sn	Arabela
+arl	sn	Arabela language
+ara	sn	Arabic
+ara	sn	Arabic language
+arg	sn	Aragonese
+arg	sn	Aragonese language
+rki	sn	Arakanese
+rki	sn	Arakanese language
+akr	sn	Araki
+akr	sn	Araki language
+arc	sn	Aramaic
+arc	sn	Aramaic language
+aro	sn	Araona
+aro	sn	Araona language
+arp	sn	Arapaho
+arp	sn	Arapaho language
+hug	sn	Arasa
+hug	sn	Arasa language
+arw	sn	Arawak
+arw	sn	Arawak language
+awd	sn	Arawakan languages
+arv	sn	Arbore
+arv	sn	Arbore language
+aqc	sn	Archi
+aqc	sn	Archi language
+pka	sn	Ardhamagadhi
+pka	sn	Ardhamagadhi language
+mar	sn	Are
+mar	sn	Are dialect
+alu	sn	Areare
+alu	sn	Areare language
+aoc	sn	Arecuna
+aoc	sn	Arecuna dialect
+gae	sn	Arekena
+gae	sn	Arekena language
+agj	sn	Argobba
+agj	sn	Argobba language
+laz	sn	Aribwatsa
+laz	sn	Aribwatsa language
+ari	sn	Arikara
+ari	sn	Arikara language
+hye	sn	Armenian
+hye	sn	Armenian language
+xcl	sn	"Armenian language, Classical"
+hye	sn	"Armenian language, Modern"
+axm	sn	"Armenian, Middle"
+rup	sn	Aromanian
+rup	sn	Aromanian dialect
+apr	sn	Arop-Lokep
+apr	sn	Arop-Lokep language
+aia	sn	Arosi
+aia	sn	Arosi language
+aso	sn	Asaro
+aso	sn	Asaro language
+asl	sn	Asilulu
+asl	sn	Asilulu language
+asc	sn	Asmat
+asy	sn	Asmat
+cns	sn	Asmat
+nks	sn	Asmat
+asc	sn	Asmat language
+asy	sn	Asmat language
+cns	sn	Asmat language
+nks	sn	Asmat language
+asm	sn	Assamese
+asm	sn	Assamese language
+asb	sn	Assiniboine
+asb	sn	Assiniboine dialect
+ppt	sn	Asu
+ppt	sn	Asu language
+asr	sn	Asuri
+asr	sn	Asuri language
+atd	sn	Ata Manobo
+atd	sn	Ata Manobo language
+kuz	sn	Atacameno
+kuz	sn	Atacameno language
+aqp	sn	Atakapa
+aqp	sn	Atakapa language
+tay	sn	Atayal
+tay	sn	Atayal language
+upv	sn	Atchin
+upv	sn	Atchin language
+ath	sn	Athapascan languages
+aph	sn	Athpare
+aph	sn	Athpare language
+atj	sn	Atikamekw
+atj	sn	Atikamekw language
+bld	sn	Atinggola
+bld	sn	Atinggola language
+epi	sn	Atisa
+epi	sn	Atisa language
+adz	sn	Atsera
+adz	sn	Atsera language
+ats	sn	Atsina
+ats	sn	Atsina language
+atw	sn	Atsugewi
+atw	sn	Atsugewi language
+att	sn	Atta
+att	sn	Atta language
+grc	sn	Attic Greek
+grc	sn	Attic Greek dialect
+ati	sn	Attie
+ati	sn	ttie language
+avt	sn	Au
+avt	sn	Au language
+aul	sn	Aulua
+aul	sn	Aulua language
+aus	sn	Australian languages
+asf	sn	Australian Sign
+asf	sn	Australian Sign Language
+aav	sn	Austroasiatic languages
+map	sn	Austronesian languages
+kze	sn	Auyana
+kze	sn	Auyana language
+pka	sn	Avahattha
+pka	sn	Avahattha language
+ava	sn	Avaric
+ava	sn	Avaric language
+tmb	sn	Avava
+tmb	sn	Avava language
+ave	sn	Avestan
+ave	sn	Avestan language
+avi	sn	Avikam
+avi	sn	Avikam language
+awb	sn	Awa
+awb	sn	"Awa (Eastern Highlands Province, Papua New Guinea)"
+awb	sn	"Awa language (Eastern Highlands Province, Papua New Guinea)"
+awk	sn	Awabakal
+awk	sn	Awabakal language
+awa	sn	Awadhi
+awa	sn	Awadhi dialect
+agu	sn	Awakateko
+agu	sn	Awakateko language
+afu	sn	Awutu
+afu	sn	Awutu language
+ifb	sn	Ayangan Ifugao
+ifb	sn	Ayangan Ifugao dialect
+nfl	sn	Ayiwo
+nfl	sn	Ayiwo language
+ayb	sn	Ayizo-gbe
+ayb	sn	Ayizo-gbe language
+aym	sn	Aymara
+aym	sn	Aymara language
+sgb	sn	Ayta Anchi Sambal
+sgb	sn	Ayta Anchi Sambal dialect
+blx	sn	Ayta Mag Indi
+blx	sn	Ayta Mag Indi dialect
+aze	sn	Azerbaijani
+aze	sn	Azerbaijani language
+mbf	sn	Baba Malay
+mbf	sn	Baba Malay language
+bcr	sn	Babine
+bcr	sn	Babine language
+ast	sn	Bable
+ast	sn	Bable dialect
+bav	sn	Babungo
+bav	sn	Babungo language
+bcy	sn	Bacama
+bcy	sn	Bacama language
+xbc	sn	Bactrian
+xbc	sn	Bactrian language
+bhz	sn	Bada
+bhz	sn	Bada (Indonesia)
+bhz	sn	Bada language (Indonesia)
+bfq	sn	Badaga
+bfq	sn	Badaga dialect
+drw	sn	Badakhshani
+drw	sn	Badakhshani dialect
+hin	sn	Badayuni
+hin	sn	Badayuni dialect
+bde	sn	Bade
+bde	sn	Bade language
+pbp	sn	Badyara
+pbp	sn	Badyara language
+ksf	sn	Bafia
+ksf	sn	Bafia language
+bfd	sn	Bafut
+bfd	sn	Bafut language
+bfy	sn	Bagheli
+bfy	sn	Bagheli language
+bmi	sn	Bagirmi
+bmi	sn	Bagirmi language
+obo	sn	Bagobo
+obo	sn	Bagobo language
+bgq	sn	Bagri
+bgq	sn	Bagri dialect
+kva	sn	Bagulal
+kva	sn	Bagulal language
+gyi	sn	Bagyele
+gyi	sn	Bagyele language
+bdw	sn	Baham
+bdw	sn	Baham language
+bjh	sn	Bahinemo
+bjh	sn	Bahinemo language
+bhj	sn	Bahing
+bhj	sn	Bahing dialect
+bdq	sn	Bahnar
+bdq	sn	Bahnar language
+bca	sn	Bai
+bca	sn	Bai (China)
+bca	sn	Bai language (China)
+bqh	sn	Baima
+bqh	sn	Baima language
+byx	sn	Baining
+byx	sn	Baining language
+bsw	sn	Baiso
+bsw	sn	Baiso language
+nep	sn	Baitadi
+nep	sn	Baitadi dialect
+bdl	sn	Bajau
+bdl	sn	Bajau language
+bhj	sn	Bajjika
+bhj	sn	Bajjika language
+bdh	sn	Baka
+bdh	sn	Baka (Sudan)
+bkc	sn	Baka (Cameroon and Gabon)
+bdh	sn	Baka language
+bkc	sn	Baka language (Cameroon and Gabon)
+bkq	sn	Bakairi
+bkq	sn	Bakairi language
+bqi	sn	Bakhtiari
+bqi	sn	Bakhtiari language
+bki	sn	Baki
+bki	sn	Baki language
+bss	sn	Bakossi
+bss	sn	Bakossi dialect
+bkr	sn	Bakumpai
+bkr	sn	Bakumpai dialect
+bdu	sn	Bakundu
+bdu	sn	Bakundu dialect
+bdu	sn	Bakundu-Balue
+bdu	sn	Bakundu-Balue language
+bjw	sn	Bakwe?
+bjw	sn	Bakwe? language
+bls	sn	Balaesang
+bls	sn	Balaesang language
+blw	sn	Balangao
+blw	sn	Balangao language
+sse	sn	Balangingi?
+sse	sn	Balangingi? dialect
+blz	sn	Balantak
+blz	sn	Balantak language
+ble	sn	Balante
+ble	sn	Balante language
+ban	sn	Balinese
+ban	sn	Balinese language
+bwt	sn	Balong
+bwt	sn	Balong language
+bft	sn	Balti
+bft	sn	Balti language
+bat	sn	Baltic languages
+bal	sn	Baluchi
+bal	sn	Baluchi language
+bam	sn	Bambara
+bam	sn	Bambara language
+baa	sn	Bambatana
+baa	sn	Bambatana language
+bai	sn	Bamileke languages
+bcf	sn	Bamu River
+bcf	sn	Bamu River language
+bax	sn	Bamun
+bax	sn	Bamun language
+liy	sn	Banda (Central Africa)
+bnd	sn	Banda (Indonesia)
+liy	sn	Banda language (Central Africa)
+bnd	sn	Banda language (Indonesia)
+bdy	sn	Bandjalang
+bdy	sn	Bandjalang language
+bbj	sn	Bandjoun
+bbj	sn	Bandjoun language
+bgc	sn	Bangaru
+bgc	sn	Bangaru dialect
+bgz	sn	Banggai
+bgz	sn	Banggai language
+bgj	sn	Bangolan
+bgj	sn	Bangolan language
+bnx	sn	Bangubangu
+bnx	sn	Bangubangu language
+nwe	sn	Bangwa
+nwe	sn	Bangwa language
+bwi	sn	Baniwa
+bwi	sn	Baniwa language
+bjn	sn	Banjar Hulu
+bjn	sn	Banjar Hulu dialect
+bjn	sn	Banjarese
+bjn	sn	Banjarese language
+bcm	sn	Banoni
+bcm	sn	Banoni language
+bap	sn	Bantawa
+bap	sn	Bantawa language
+jav	sn	Banten
+jav	sn	Banten dialect
+bno	sn	Banton
+bno	sn	Banton language
+bnt	sn	Bantu languages
+pnw	sn	Banyjima
+pnw	sn	Banyjima language
+gbg	sn	Banziri
+gbg	sn	Banziri language
+bhr	sn	Bara (Madagascar)
+bhr	sn	Bara dialect (Madagascar)
+bbb	sn	Barai
+bbb	sn	Barai language
+brd	sn	Baram
+brd	sn	Baram language
+brm	sn	Barambu
+brm	sn	Barambu language
+bao	sn	Barasana del Norte
+bao	sn	Barasana del Norte language
+bsn	sn	Barasana del Sur
+bsn	sn	Barasana del Sur language
+bcj	sn	Bardi
+bcj	sn	Bardi language
+bae	sn	Bare?
+bae	sn	Bare? language
+pmf	sn	Baree?
+pmf	sn	Baree? dialect
+bfa	sn	Bari
+bfa	sn	Bari language
+bch	sn	Bariai
+bch	sn	Bariai language
+bba	sn	Bariba
+bba	sn	Bariba language
+kuy	sn	Barkindji
+kuy	sn	Barkindji language
+bjb	sn	Barngarla
+bjb	sn	Barngarla language
+sgh	sn	Bartang
+sgh	sn	Bartang dialect
+byr	sn	Baruya
+byr	sn	Baruya language
+bas	sn	Basa
+bas	sn	Basa language
+bdb	sn	Basap
+bdb	sn	Basap language
+bsh	sn	Bashgali
+bsh	sn	Bashgali language
+bak	sn	Bashkir
+bak	sn	Bashkir language
+bst	sn	Basketo
+bst	sn	Basketo language
+eus	sn	Basque
+eus	sn	Basque language
+bsq	sn	Bassa
+bsq	sn	Bassa (Liberia and Sierra Leone)
+bsq	sn	Bassa language (Liberia and Sierra Leone)
+bsc	sn	Bassari
+bsc	sn	Bassari language
+bta	sn	Bata
+bta	sn	Bata language
+ifb	sn	Batad Ifugao
+ifb	sn	Batad Ifugao dialect
+bya	sn	Batak
+bya	sn	Batak language
+btc	sn	Bati
+btc	sn	Bati language
+bbl	sn	Bats
+bbl	sn	Bats language
+sne	sn	Bau-Jagoi
+sne	sn	Bau-Jagoi dialect
+bci	sn	Baule
+bci	sn	Baule language
+brg	sn	Baure?
+brg	sn	Baure? language
+bxa	sn	Bauro
+bxa	sn	Bauro language
+bvz	sn	Bauzi
+bvz	sn	Bauzi language
+ibx	sn	Bawo
+lbx	sn	Bawo (Indonesia)
+lbx	sn	Bawo language (Indonesia)
+duq	sn	Bayan
+duq	sn	Bayan language
+bxj	sn	Bayungu
+bxj	sn	Bayungu language
+onb	sn	Be
+onb	sn	Be language
+oci	sn	Be?arnais
+oci	sn	Be?arnais dialect
+kan	sn	Beary
+kan	sn	Beary dialect
+beb	sn	Bebele
+beb	sn	Bebele language
+tnr	sn	Bedik
+tnr	sn	Bedik language
+dbj	sn	Begak
+dbj	sn	Begak dialect
+bej	sn	Beja
+bej	sn	Beja language
+bei	sn	Bekati'
+bei	sn	Bekati' language
+bkv	sn	Bekwarra
+bkv	sn	Bekwarra language
+bel	sn	Belarusian
+bel	sn	Belarusian language
+blc	sn	Bella Coola
+blc	sn	Bella Coola language
+bem	sn	Bemba
+bem	sn	Bemba language
+beq	sn	Bembe (Congo (Brazzaville))
+bmb	sn	Bembe (Lake Tanganyika)
+beq	sn	Bembe language (Congo (Brazzaville))
+bmb	sn	Bembe language (Lake Tanganyika)
+bef	sn	Benabena
+bef	sn	Benabena language
+pse	sn	Benakat
+pse	sn	Benakat language
+bdp	sn	Bende
+bdp	sn	Bende language
+nhb	sn	Beng
+nhb	sn	Beng language
+bng	sn	Benga
+bng	sn	Benga language
+ben	sn	Bengali
+ben	sn	Bengali language
+bww	sn	Benge
+bww	sn	Benge language
+pse	sn	Bengkulu
+pse	sn	Bengkulu language
+bue	sn	Beothuk
+bue	sn	Beothuk language
+zbc	sn	Berawan
+zbe	sn	Berawan
+zbw	sn	Berawan
+zbc	sn	Berawan language
+zbe	sn	Berawan language
+zbw	sn	Berawan language
+ber	sn	Berber languages
+bkl	sn	Berik
+bkl	sn	Berik language
+wti	sn	Berta
+wti	sn	Berta language
+pse	sn	Besemah
+pse	sn	Besemah dialect
+mhe	sn	Besisi
+mhe	sn	Besisi language
+bew	sn	Betawi
+bew	sn	Betawi dialect
+byf	sn	Bete
+byf	sn	Bete language
+plt	sn	Betsileo
+plt	sn	Betsileo dialect
+bjq	sn	Betsimisaraka
+bjq	sn	Betsimisaraka dialect
+kap	sn	Bezhta
+kap	sn	Bezhta language
+bhd	sn	Bhadrawahi
+bhd	sn	Bhadrawahi dialect
+bhd	sn	Bhalesi
+bhd	sn	Bhalesi dialect
+bgw	sn	Bhatri
+bgw	sn	Bhatri dialect
+bhb	sn	Bhili
+bhb	sn	Bhili language
+bho	sn	Bhojpuri
+bho	sn	Bhojpuri language
+unr	sn	Bhumij
+unr	sn	Bhumij language
+bhw	sn	Biak
+bhw	sn	Biak language
+beh	sn	Biali
+beh	sn	Biali language
+big	sn	Biangai
+big	sn	Biangai language
+cmo	sn	Biat
+cmo	sn	Biat language
+bth	sn	Biatah
+bth	sn	Biatah dialect
+grc	sn	Biblical Greek
+bid	sn	Bidiyo
+bid	sn	Bidiyo language
+bym	sn	Bidjara
+bym	sn	Bidjara language
+brj	sn	Bieria
+brj	sn	Bieria language
+nmb	sn	Big Nambas
+nmb	sn	Big Nambas language
+bih	sn	Bihari
+bih	sn	Bihari language
+bjg	sn	Bijago
+bjg	sn	Bijago language
+rwr	sn	Bikaneri
+rwr	sn	Bikaneri dialect
+bik	sn	Bikol
+bik	sn	Bikol language
+bpr	sn	Bilaan
+bps	sn	Bilaan
+bpr	sn	Bilaan language
+bps	sn	Bilaan language
+kfs	sn	Bila?spuri?
+kfs	sn	Bila?spuri? dialect
+bcu	sn	Biliau
+bcu	sn	Biliau language
+byn	sn	Bilin
+byn	sn	Bilin language
+bll	sn	Biloxi
+bll	sn	Biloxi language
+blb	sn	Bilua
+blb	sn	Bilua language
+bhp	sn	Bimanese
+bhp	sn	Bimanese language
+bhl	sn	Bimin
+bhl	sn	Bimin language
+bhg	sn	Binandere
+bhg	sn	Binandere language
+bhq	sn	Binongko
+bhq	sn	Binongko dialect
+bne	sn	Bintauna
+bne	sn	Bintauna language
+bkd	sn	Binukid Manobo
+bkd	sn	Binukid Manobo language
+bjr	sn	Binumarien
+bjr	sn	Binumarien language
+biy	sn	Birhor
+biy	sn	Birhor dialect
+bzr	sn	Biri
+bzr	sn	Biri (Australia)
+bzr	sn	Biri language (Australia)
+bfo	sn	Birifor
+biv	sn	Birifor
+bfo	sn	Birifor language
+biv	sn	Birifor language
+bom	sn	Birom
+bom	sn	Birom language
+bvq	sn	Birri
+bvq	sn	Birri language
+leb	sn	Bisa
+leb	sn	Bisa language
+bpy	sn	Bishnupuriya
+bpy	sn	Bishnupuriya dialect
+nmg	sn	Bisio
+nmg	sn	Bisio language
+bis	sn	Bislama
+bis	sn	Bislama language
+bir	sn	Bisorio
+bir	sn	Bisorio language
+hea	sn	Black Hmong
+hea	sn	Black Hmong dialect
+blt	sn	Black Tai
+blt	sn	Black Tai language
+beu	sn	Blagar
+beu	sn	Blagar language
+blr	sn	Blang
+blr	sn	Blang language
+bni	sn	Bobangi
+bni	sn	Bobangi language
+bbo	sn	Bobo Fing
+bbo	sn	Bobo Fing language
+csi	sn	Bodega Miwok
+csi	sn	Bodega Miwok language
+brx	sn	Bodo
+brx	sn	Bodo language
+cop	sn	Bohairic
+cop	sn	Bohairic dialect
+bzf	sn	Boiken
+bzf	sn	Boiken language
+adi	sn	Bokar
+adi	sn	Bokar language
+mog	sn	Bolaang Mongondow
+mog	sn	Bolaang Mongondow language
+bol	sn	Bole
+bol	sn	Bole language
+bli	sn	Bolia
+bli	sn	Bolia language
+smk	sn	Bolinao
+smk	sn	Bolinao dialect
+blj	sn	Bolongan
+blj	sn	Bolongan language
+boj	sn	Bom
+boj	sn	Bom language
+boh	sn	Boma (Congo)
+boh	sn	Boma language (Congo)
+zmx	sn	Bomitaba
+zmx	sn	Bomitaba language
+peh	sn	Bonan
+peh	sn	Bonan language
+bfw	sn	Bonda
+bfw	sn	Bonda language
+bou	sn	Bondei
+bou	sn	Bondei language
+bot	sn	Bongo
+bot	sn	Bongo language
+bpu	sn	Bongu
+bpu	sn	Bongu language
+djk	sn	Boni (French Guiana and Suriname)
+bob	sn	Boni (Kenya and Somalia)
+djk	sn	Boni dialect (French Guiana and Suriname)
+bob	sn	Boni language (Kenya and Somalia)
+bmq	sn	Boomu
+bmq	sn	Boomu dialect
+dks	sn	Bor (Dinka)
+bxb	sn	Bor (Lwo)
+dks	sn	Bor dialect (Dinka)
+bxb	sn	Bor language (Lwo)
+boa	sn	Bora
+boa	sn	Bora language
+gax	sn	Boran
+gax	sn	Boran dialect
+adi	sn	Bori
+adi	sn	Bori language
+bor	sn	Bororo (Brazil)
+fuv	sn	Bororo (West Africa)
+fuv	sn	Bororo dialect (West Africa)
+bor	sn	Bororo language (Brazil)
+brn	sn	Boruca
+brn	sn	Boruca language
+bos	sn	Bosnian
+bos	sn	Bosnian language
+bmj	sn	Bote-Mahi
+bmj	sn	Bote-Mahi language
+bph	sn	Botlikh
+bph	sn	Botlikh language
+sbl	sn	Botolan Sambal
+sbl	sn	Botolan Sambal dialect
+pcc	sn	Bouyei
+pcc	sn	Bouyei language
+ron	sn	Boyash
+ron	sn	Boyash dialect
+brh	sn	Brahui
+brh	sn	Brahui language
+bra	sn	Braj
+bra	sn	Braj language
+bre	sn	Breton
+bre	sn	Breton language
+bzd	sn	Bribri
+bzd	sn	Bribri dialect
+any	sn	Brissa
+any	sn	Brissa language
+bfi	sn	British Sign
+bfi	sn	British Sign Language
+bkk	sn	Brokpa
+bkk	sn	Brokpa dialect
+bru	sn	Bru
+brv	sn	Bru
+bru	sn	Bru language
+brv	sn	Bru language
+bzh	sn	Buang
+mmo	sn	Buang
+bzh	sn	Buang language
+mmo	sn	Buang language
+bvb	sn	Bube
+bvb	sn	Bube language
+buw	sn	Bubi (Gabon)
+buw	sn	Bubi language (Gabon)
+buu	sn	Budu
+buu	sn	Budu language
+bdk	sn	Budukh
+bdk	sn	Budukh language
+bdm	sn	Buduma
+bdm	sn	Buduma language
+bug	sn	Bugis
+bug	sn	Bugis language
+bgt	sn	Bugotu
+bgt	sn	Bugotu language
+bgg	sn	Bugun
+bgg	sn	Bugun language
+buo	sn	Buin
+buo	sn	Buin language
+sdo	sn	Bukar Sadong
+sdo	sn	Bukar Sadong language
+buk	sn	Bukawa
+buk	sn	Bukawa language
+bxk	sn	Bukusu
+bxk	sn	Bukusu dialect
+bul	sn	Bulgarian
+bul	sn	Bulgarian language
+bwu	sn	Buli
+bwu	sn	Buli language
+bum	sn	Bulu
+bum	sn	Bulu language
+bck	sn	Bunaba
+bck	sn	Bunaba language
+bfn	sn	Bunak
+bfn	sn	Bunak language
+bdd	sn	Bunama
+bdd	sn	Bunama language
+bns	sn	Bundeli
+bns	sn	Bundeli dialect
+swu	sn	Bune Bonda
+swu	sn	Bune Bonda dialect
+bkz	sn	Bungku
+bkz	sn	Bungku language
+bnn	sn	Bunun
+bnn	sn	Bunun language
+blf	sn	Buol
+blf	sn	Buol language
+bvr	sn	Burarra
+bvr	sn	Burarra language
+bua	sn	Buriat
+bua	sn	Buriat language
+bji	sn	Burji
+bji	sn	Burji language
+mya	sn	Burmese
+mya	sn	Burmese language
+mhs	sn	Buru
+mhs	sn	Buru language
+bmu	sn	Burum
+bmu	sn	Burum (Papua New Guinea)
+bmu	sn	Burum language (Papua New Guinea)
+bds	sn	Burunge
+bds	sn	Burunge language
+bsk	sn	Burushaski
+bsk	sn	Burushaski language
+bqp	sn	Busa
+bus	sn	Busa
+bqp	sn	Busa language
+bus	sn	Busa language
+buf	sn	Bushoong
+buf	sn	Bushoong language
+bgk	sn	Buxing
+bgk	sn	Buxing anguage
+bwd	sn	Bwaidoga
+bwd	sn	Bwaidoga language
+bww	sn	Bwamu
+bww	sn	Bwamu language
+bwa	sn	Bwatoo
+bwa	sn	Bwatoo language
+bee	sn	Byangsi
+bee	sn	Byangsi language
+cjp	sn	Cabecar
+cjp	sn	Cabecar language
+cbv	sn	Cacua
+cbv	sn	Cacua language
+cad	sn	Caddo
+cad	sn	Caddo language
+cdd	sn	Caddoan languages
+kbc	sn	Caduveo
+kbc	sn	Caduveo language
+chl	sn	Cahuilla
+chl	sn	Cahuilla language
+kgk	sn	Caingua
+kgk	sn	Caingua language
+frc	sn	Cajun French
+frc	sn	Cajun French dialect
+hrv	sn	C?akavian
+hrv	sn	C?akavian dialect
+cak	sn	Cakchikel
+cak	sn	Cakchikel language
+caw	sn	Callahuaya
+caw	sn	Callahuaya language
+rmr	sn	Calo?
+rmr	sn	Calo? (Romani)
+rmr	sn	Calo? dialect (Romani)
+clu	sn	Caluyanun
+clu	sn	Caluyanun language
+aoc	sn	Camaracoto
+aoc	sn	Camaracoto dialect
+cni	sn	Campa
+cni	sn	Campa language
+kbh	sn	Camsa
+kbh	sn	Camsa language
+cam	sn	Camuhi
+cam	sn	Camuhi language
+knm	sn	Canamari
+knm	sn	Canamari language (Tucanoan)
+quf	sn	Can?ari
+quf	sn	Can?ari language
+cbu	sn	Candoshi
+cbu	sn	Candoshi language
+ram	sn	Canella
+ram	sn	Canella language
+caz	sn	Canichana
+caz	sn	Canichana language
+yue	sn	Cantonese
+yue	sn	Cantonese dialects
+mlc	sn	Cao Lan
+mlc	sn	Cao Lan language
+kaq	sn	Capanahua
+kaq	sn	Capanahua language
+kea	sn	Cape Verde Creole
+kea	sn	Cape Verde Creole dialect
+cot	sn	Caquinte
+cot	sn	Caquinte language
+caq	sn	Car Nicobarese
+caq	sn	Car Nicobarese language
+cbc	sn	Carapana
+cbc	sn	Carapana language (Tucanoan)
+xcr	sn	Carian
+xcr	sn	Carian language
+car	sn	Carib
+car	sn	Carib language
+cal	sn	Carolinian
+cal	sn	Carolinian language
+rue	sn	Carpatho-Rusyn
+rue	sn	Carpatho-Rusyn language
+crx	sn	Carrier
+crx	sn	Carrier language
+cbr	sn	Cashibo
+cbr	sn	Cashibo language
+cbs	sn	Cashinawa
+cbs	sn	Cashinawa language
+cat	sn	Catalan
+cat	sn	Catalan language
+chc	sn	Catawba
+chc	sn	Catawba language
+cto	sn	Catio
+cto	sn	Catio language
+cau	sn	Caucasian languages
+jqr	sn	Cauqui
+jqr	sn	Cauqui language
+cav	sn	Cavinen?o
+cav	sn	Cavinen?o language
+cbi	sn	Cayapa
+cbi	sn	Cayapa language
+txu	sn	Cayapo
+txu	sn	Cayapo language
+cay	sn	Cayuga
+cay	sn	Cayuga language
+cyb	sn	Cayuvava
+cyb	sn	Cayuvava language
+ceb	sn	Cebuano
+ceb	sn	Cebuano language
+xce	sn	Celtiberian
+xce	sn	Celtiberian language
+cel	sn	Celtic languages
+bnc	sn	Central Bontoc
+bnc	sn	Central Bontoc dialect
+cmo	sn	Central Mnong
+cmo	sn	Central Mnong language
+poo	sn	Central Pomo
+poo	sn	Central Pomo language
+sml	sn	Central Sama
+sml	sn	Central Sama language
+syb	sn	Central Subanen
+syb	sn	Central Subanen dialect
+csu	sn	Central Sudanic languages
+esu	sn	Central Yupik
+esu	sn	Central Yupik language
+cme	sn	Cerma
+cme	sn	Cerma language
+cbk	sn	Chabacano
+cbk	sn	Chabacano language
+cao	sn	Chacobo
+cao	sn	Chacobo language
+cdc	sn	Chadic languages
+chg	sn	Chagatai
+chg	sn	Chagatai language
+sgw	sn	Chaha
+sgw	sn	Chaha dialect
+mvf	sn	Chahar
+mvf	sn	Chahar dialect
+nri	sn	Chakhesang
+nri	sn	Chakhesang language
+ccp	sn	Chakma
+ccp	sn	Chakma language
+atv	sn	Chalkandu
+atv	sn	Chalkandu dialect
+cja	sn	Cham
+cjm	sn	Cham
+cja	sn	Cham language
+cjm	sn	Cham language
+ceg	sn	Chamacoco
+ceg	sn	Chamacoco language
+cji	sn	Chamalal
+cji	sn	Chamalal language
+ccg	sn	Chamba Daka
+ccg	sn	Chamba Daka language
+lae	sn	Chamba Lahul?i
+lae	sn	Chamba Lahul?i dialect
+cdh	sn	Chambiali
+cdh	sn	Chambiali language
+can	sn	Chambri
+can	sn	Chambri language
+cmi	sn	Chami?
+cmi	sn	Chami? language
+cmc	sn	Chamic languages
+ccc	sn	Chamicuro
+ccc	sn	Chamicuro language
+rab	sn	Chamling
+rab	sn	Chamling language
+cha	sn	Chamorro
+cha	sn	Chamorro language
+nbc	sn	Chang
+nbc	sn	Chang language
+chx	sn	Chantel
+chx	sn	Chantel language
+shy	sn	Chaouia
+shy	sn	Chaouia language
+hne	sn	Chattisgarhi
+hne	sn	Chattisgarhi dialect
+cbt	sn	Chayahuita
+cbt	sn	Chayahuita language
+che	sn	Chechen
+che	sn	Chechen language
+mrn	sn	Cheke Holo
+mrn	sn	Cheke Holo language
+ute	sn	Chemehuevi
+ute	sn	Chemehuevi language
+ady	sn	Chemgui
+ady	sn	Chemgui dialect
+cdm	sn	Chepang
+cdm	sn	Chepang language
+chr	sn	Cherokee
+chr	sn	Cherokee language
+arg	sn	Cheso
+arg	sn	Cheso dialect
+nya	sn	Chewa
+nya	sn	Chewa dialect
+chy	sn	Cheyenne
+chy	sn	Cheyenne language
+cip	sn	Chiapanec
+cip	sn	Chiapanec language
+chb	sn	Chibcha
+chb	sn	Chibcha language
+cba	sn	Chibchan languages
+cic	sn	Chickasaw
+cic	sn	Chickasaw language
+cgg	sn	Chiga
+cgg	sn	Chiga language
+csg	sn	Chilean Sign
+csg	sn	Chilean Sign Language
+hur	sn	Chilliwack
+hur	sn	Chilliwack dialect
+cas	sn	Chimane
+cas	sn	Chimane language
+cid	sn	Chimariko
+cid	sn	Chimariko language
+cih	sn	Chinali
+cih	sn	Chinali dialect
+cnb	sn	Chinbon
+cnb	sn	Chinbon language
+zho	sn	Chinese
+zho	sn	Chinese language
+csl	sn	Chinese Sign
+csl	sn	Chinese Sign Language
+jiu	sn	Chino
+jiy	sn	Chino
+jiu	sn	Chino language
+jiy	sn	Chino language
+chh	sn	Chinook
+chh	sn	Chinook language
+cap	sn	Chipaya
+cap	sn	Chipaya language
+chp	sn	Chipewyan
+chp	sn	Chipewyan language
+cax	sn	Chiquito
+cax	sn	Chiquito language
+apm	sn	Chiricahua
+apm	sn	Chiricahua language
+gui	sn	Chiriguano
+gui	sn	Chiriguano language
+nhd	sn	Chiripa?
+nhd	sn	Chiripa? dialect
+gom	sn	Chitapavani
+gom	sn	Chitapavani dialect
+ctm	sn	Chitimacha
+ctm	sn	Chitimacha language
+coz	sn	Chocho
+coz	sn	Chocho language
+cho	sn	Choctaw
+cho	sn	Choctaw language
+cjk	sn	Chokwe
+cjk	sn	Chokwe language
+ctu	sn	Chol
+ctu	sn	Chol language
+cht	sn	Cholon
+cht	sn	Cholon language
+chd	sn	Chontal
+clo	sn	Chontal
+chd	sn	Chontal language
+clo	sn	Chontal language
+cuj	sn	Chontaquiro
+cuj	sn	Chontaquiro language
+cce	sn	Chopi
+cce	sn	Chopi language
+crt	sn	Choroti
+crt	sn	Choroti language
+caa	sn	Chorti
+caa	sn	Chorti language
+nct	sn	Chothe Naga
+nct	sn	Chothe Naga language
+crw	sn	Chrau
+crw	sn	Chrau language
+cjv	sn	Chuave
+cjv	sn	Chuave language
+ems	sn	Chugach
+ems	sn	Chugach dialect
+cac	sn	Chuj
+cac	sn	Chuj language
+ckt	sn	Chukchi
+ckt	sn	Chukchi language
+cag	sn	Chulupi?
+cag	sn	Chulupi? language
+clw	sn	Chulym
+clw	sn	Chulym language
+chs	sn	Chumash
+chs	sn	Chumash language
+chu	sn	Church Slavic
+chu	sn	Church Slavic language
+chk	sn	Chuukese
+chk	sn	Chuukese language
+chv	sn	Chuvash
+chv	sn	Chuvash language
+chw	sn	Chuwabo
+chw	sn	Chuwabo language
+cia	sn	Cia-cia
+cia	sn	Cia-cia language
+swh	sn	Cifundi
+swh	sn	Cifundi dialect
+cim	sn	Cimbrian
+cim	sn	Cimbrian language
+sun	sn	Cirebon
+sun	sn	Cirebon dialect
+clm	sn	Clallam
+clm	sn	Clallam language
+xcl	sn	Classical Armenian
+xcw	sn	Coahuilteco
+xcw	sn	Coahuilteco language
+cod	sn	Cocama
+cod	sn	Cocama language
+coj	sn	Cochimi
+coj	sn	Cochimi language
+coc	sn	Cocopa
+coc	sn	Cocopa language
+crd	sn	Coeur d'Alene
+crd	sn	Coeur d'Alene language
+con	sn	Cofa?n
+con	sn	Cofa?n language
+cof	sn	Colorado
+cof	sn	Colorado language
+oka	sn	Colville
+oka	sn	Colville dialect
+com	sn	Comanche
+com	sn	Comanche language
+csz	sn	Coos
+csz	sn	Coos language
+cop	sn	Coptic
+cop	sn	Coptic language
+coq	sn	Coquille
+coq	sn	Coquille language
+crn	sn	Cora
+crn	sn	Cora language
+coe	sn	Coreguaje
+coe	sn	Coreguaje language
+cor	sn	Cornish
+cor	sn	Cornish language
+cos	sn	Corsican
+cos	sn	Corsican language
+csr	sn	Costa Rican Sign
+csr	sn	Costa Rican Sign Language
+mta	sn	Cotabato Manobo
+mta	sn	Cotabato Manobo language
+cow	sn	Cowlitz
+cow	sn	Cowlitz language
+cre	sn	Cree
+cre	sn	Cree language
+mus	sn	Creek
+mus	sn	Creek language
+cpe	sn	"Creole dialects, English"
+cpf	sn	"Creole dialects, French"
+cpp	sn	"Creole dialects, Portuguese"
+crh	sn	Crimean Tatar
+crh	sn	Crimean Tatar language
+pov	sn	Crioulo
+pov	sn	Crioulo language
+hrv	sn	Croatian
+hrv	sn	Croatian language
+cro	sn	Crow
+cro	sn	Crow language
+cua	sn	Cua
+cua	sn	Cua language
+kwi	sn	Cuaiquer
+kwi	sn	Cuaiquer language
+cub	sn	Cubeo
+cub	sn	Cubeo language
+acr	sn	Cubulco Achi
+acr	sn	Cubulco Achi Language
+cuk	sn	Cueva
+cuk	sn	Cueva language
+cui	sn	Cuiba
+cui	sn	Cuiba language
+cut	sn	Cuicatec
+cux	sn	Cuicatec
+cut	sn	Cuicatec language
+cux	sn	Cuicatec language
+cul	sn	Culina
+cul	sn	Culina language
+cuk	sn	Cuna
+cuk	sn	Cuna language
+cup	sn	Cupen?o
+cup	sn	Cupen?o language
+esu	sn	Cup?ig
+esu	sn	Cup?ig dialect
+xcu	sn	Curonian
+xcu	sn	Curonian language
+kpc	sn	Curripaco
+kpc	sn	Curripaco language
+cus	sn	Cushitic languages
+cyo	sn	Cuyunon
+cyo	sn	Cuyunon language
+ces	sn	Czech
+ces	sn	Czech language
+kzf	sn	Daa
+kzf	sn	Daa language
+dbq	sn	Daba
+dbq	sn	Daba (Cameroon and Nigeria)
+dbq	sn	Daba language (Cameroon and Nigeria)
+dav	sn	Dabida
+dav	sn	Dabida dialect
+xdc	sn	Dacian
+xdc	sn	Dacian language
+god	sn	Dadjriwale?
+god	sn	Dadjriwale? dialect
+dap	sn	Dafla
+dap	sn	Dafla language
+dgz	sn	Daga
+dgz	sn	Daga language
+dga	sn	Dagaare
+dgi	sn	Dagaare
+dga	sn	Dagaare language
+dgi	sn	Dagaare language
+dag	sn	Dagbani
+dag	sn	Dagbani language
+dta	sn	Dagur
+dta	sn	Dagur language
+dal	sn	Dahalo
+dal	sn	Dahalo language
+btd	sn	Dairi Pakpak
+btd	sn	Dairi Pakpak dialect
+dcc	sn	Dakhini
+dcc	sn	Dakhini language
+dak	sn	Dakota
+dak	sn	Dakota language
+dlm	sn	Dalmatian
+dlm	sn	Dalmatian language (Romance)
+mbp	sn	Damana
+mbp	sn	Damana language
+dms	sn	Dampelasa
+dms	sn	Dampelasa language
+daf	sn	Dan
+daf	sn	Dan (Co?te d'Ivoire)
+daf	sn	Dan language (Co?te d'Ivoire)
+daa	sn	Dangaleat
+daa	sn	Dangaleat language
+dna	sn	Dani
+dni	sn	Dani
+dnt	sn	Dani
+dnw	sn	Dani
+dna	sn	Dani language
+dni	sn	Dani language
+dnt	sn	Dani language
+dnw	sn	Dani language
+dan	sn	Danish
+dan	sn	Danish language
+dsl	sn	Danish Sign
+dsl	sn	Danish Sign Language
+sip	sn	Da?njong-ka?
+sip	sn	Da?njong-ka? language
+dhw	sn	Danuwar Rai
+dhw	sn	Danuwar Rai language
+dry	sn	Darai
+dry	sn	Darai language
+dar	sn	Dargwa
+dar	sn	Dargwa language
+prs	sn	Dari
+prs	sn	Dari language
+mps	sn	Daribi
+mps	sn	Daribi language
+drh	sn	Darkhat
+drh	sn	Darkhat language
+bjy	sn	Darumbal
+bjy	sn	Darumbal language
+dsh	sn	Dasenech
+dsh	sn	Dasenech language
+kwa	sn	Da?w
+kwa	sn	Da?w language
+dww	sn	Dawawa
+dww	sn	Dawawa language
+dai	sn	Day
+dai	sn	Day (Chad)
+dai	sn	Day language (Chad)
+knx	sn	Dayak
+knx	sn	Dayak language
+dzd	sn	Dazaga
+dzd	sn	Dazaga language
+ded	sn	Dedua
+ded	sn	Dedua language
+ing	sn	Deg Hit'an
+ing	sn	Deg Hit'an language
+deg	sn	Degema
+deg	sn	Degema language
+vas	sn	Dehawali
+vas	sn	Dehawali dialect
+dhv	sn	Dehu
+dhv	sn	Dehu language
+del	sn	Delaware
+del	sn	Delaware language
+zlm	sn	Deli
+zlm	sn	Deli dialect
+khr	sn	Delki Khadia
+khr	sn	Delki Khadia dialect
+ntr	sn	Delo
+ntr	sn	Delo language
+tfn	sn	Dena'ina
+tfn	sn	Dena'ina language
+ddn	sn	Dendi
+ddn	sn	Dendi dialect
+dez	sn	Dengese
+dez	sn	Dengese language
+der	sn	Deori
+der	sn	Deori language
+des	sn	Desana
+des	sn	Desana language
+bgc	sn	Deswali
+bgc	sn	Deswali dialect
+dee	sn	Dewoin
+dee	sn	Dewoin language
+dhl	sn	Dhalandji
+dhl	sn	Dhalandji language
+tbh	sn	Dharawal
+tbh	sn	Dharawal language
+ksk	sn	Dhegiha
+oma	sn	Dhegiha
+osa	sn	Dhegiha
+qua	sn	Dhegiha
+ksk	sn	Dhegiha language
+oma	sn	Dhegiha language
+osa	sn	Dhegiha language
+qua	sn	Dhegiha language
+dhi	sn	Dhimal
+dhi	sn	Dhimal dialect
+dho	sn	Dhodia
+dho	sn	Dhodia dialect
+dhu	sn	Dhurga
+dhu	sn	Dhurga language
+duj	sn	Dhuwal
+duj	sn	Dhuwal language
+mbd	sn	Dibabawon
+mbd	sn	Dibabawon language
+dic	sn	Dida
+gud	sn	Dida
+ney	sn	Dida
+dic	sn	Dida language
+gud	sn	Dida language
+ney	sn	Dida language
+did	sn	Didinga
+did	sn	Didinga language
+ddo	sn	Dido
+ddo	sn	Dido language
+mhu	sn	Digaro
+mhu	sn	Digaro language
+dig	sn	Digo
+dig	sn	Digo language
+bta	sn	Dii
+bta	sn	Dii language
+dis	sn	Dimasa
+dis	sn	Dimasa language
+diz	sn	Ding
+diz	sn	Ding language
+mwr	sn	Dingal
+mwr	sn	Dingal language
+din	sn	Dinka
+din	sn	Dinka language
+dyu	sn	Diola
+csk	sn	Diola Kasa
+csk	sn	Diola Kasa language
+dyu	sn	Diola language
+diu	sn	Diriku
+diu	sn	Diriku language
+div	sn	Divehi
+div	sn	Divehi language
+dif	sn	Diyari
+dif	sn	Diyari language
+mdx	sn	Dizi
+mdx	sn	Dizi language
+duj	sn	Djapu
+duj	sn	Djapu dialect
+ddj	sn	Djaru
+ddj	sn	Djaru language
+dyi	sn	Djimini
+dyi	sn	Djimini language
+dji	sn	Djinang
+dji	sn	Djinang language
+jig	sn	Djingili
+jig	sn	Djingili language
+dbl	sn	Djirbal
+dbl	sn	Djirbal language
+djk	sn	Djuka
+djk	sn	Djuka language
+kvo	sn	Dobel
+kvo	sn	Dobel language
+dob	sn	Dobu
+dob	sn	Dobu language
+dos	sn	Dogose?
+dos	sn	Dogose? language
+dgo	sn	Dogri
+dgo	sn	Dogri dialect
+dgr	sn	Dogrib
+dgr	sn	Dogrib language
+ngc	sn	Doko
+ngc	sn	Doko (Congo)
+ngc	sn	Doko language (Congo)
+new	sn	Dolakha
+new	sn	Dolakha dialect
+dlg	sn	Dolgan
+dlg	sn	Dolgan language
+dmk	sn	Domaaki
+dmk	sn	Domaaki language
+dop	sn	Dompago
+dop	sn	Dompago dialect
+doc	sn	Dong
+kmc	sn	Dong
+doc	sn	Dong (China)
+kmc	sn	Dong (China)
+doc	sn	Dong language (China)
+kmc	sn	Dong language (China)
+kzh	sn	Dongola-Kenuz
+kzh	sn	Dongola-Kenuz dialect
+sce	sn	Dongxiang
+sce	sn	Dongxiang language
+grc	sn	Doric Greek
+grc	sn	Doric Greek dialect
+dow	sn	Doyayo
+dow	sn	Doyayo language
+dra	sn	Dravidian languages
+dua	sn	Duala
+dua	sn	Duala language
+dud	sn	Dukawa
+dud	sn	Dukawa language
+dgc	sn	Dumagat (Casiguran)
+due	sn	Dumagat (Umirey)
+dgc	sn	Dumagat language (Casiguran)
+due	sn	Dumagat language (Umirey)
+duf	sn	Dumbea
+duf	sn	Dumbea language
+dus	sn	Dumi
+dus	sn	Dumi language
+duc	sn	Duna
+duc	sn	Duna language
+dng	sn	Dungan
+dng	sn	Dungan language
+duh	sn	Dungra Bhil
+duh	sn	Dungra Bhil language
+duo	sn	Dupaninan Agta
+duo	sn	Dupaninan Agta language
+dug	sn	Duruma
+dug	sn	Duruma language
+dtb	sn	Dusun
+kqt	sn	Dusun
+kzj	sn	Dusun
+dun	sn	Dusun Deyah
+dun	sn	Dusun Deyah dialect
+dtb	sn	Dusun language
+kqt	sn	Dusun language
+kzj	sn	Dusun language
+nld	sn	Dutch
+nld	sn	Dutch language
+dse	sn	Dutch Sign
+dse	sn	Dutch Sign Language
+wkw	sn	Duungidjawu
+wkw	sn	Duungidjawu dialect
+dya	sn	Dyan
+dya	sn	Dyan language
+dyu	sn	Dyula
+dyu	sn	Dyula language
+dzo	sn	Dzongkha
+dzo	sn	Dzongkha language
+hye	sn	East Armenian
+hye	sn	East Armenian dialect
+frs	sn	East Frisian
+frs	sn	East Frisian dialect
+mky	sn	East Makian
+mky	sn	East Makian language
+wls	sn	East Uvean
+wls	sn	East Uvean language
+aer	sn	Eastern Arrernte
+aer	sn	Eastern Arrernte language
+bkb	sn	Eastern Bontoc
+bkb	sn	Eastern Bontoc dialect
+mng	sn	Eastern Mnong
+mng	sn	Eastern Mnong language
+peb	sn	Eastern Pomo
+peb	sn	Eastern Pomo language
+yuy	sn	Eastern Yugur
+yuy	sn	Eastern Yugur language
+igb	sn	Ebira
+igb	sn	Ebira language
+xeb	sn	Eblaite
+xeb	sn	Eblaite language
+bin	sn	Edo
+bin	sn	Edo language
+etr	sn	Edolo
+etr	sn	Edolo language
+dbf	sn	Edopi
+dbf	sn	Edopi language
+erk	sn	Efate
+llp	sn	Efate
+erk	sn	Efate language
+llp	sn	Efate language
+efi	sn	Efik
+efi	sn	Efik language
+ego	sn	Eggon
+ego	sn	Eggon language
+egy	sn	Egyptian
+egy	sn	Egyptian language
+eip	sn	Eipo
+eip	sn	Eipo language
+etu	sn	Ejagham
+etu	sn	Ejagham language
+eka	sn	Ekajuk
+eka	sn	Ekajuk language
+lol	sn	Ekonda
+lol	sn	Ekonda dialect
+ekp	sn	Ekpeye
+ekp	sn	Ekpeye language
+elx	sn	Elamite
+elx	sn	Elamite language
+mmw	sn	Emae
+mmw	sn	Emae language
+ema	sn	Emai
+ema	sn	Emai dialect
+ema	sn	Emai-Iuleha-Ora
+ema	sn	Emai-Iuleha-Ora language
+emb	sn	Embaloh
+emb	sn	Embaloh language
+ebu	sn	Embu
+ebu	sn	Embu language
+eme	sn	Emerillon
+eme	sn	Emerillon language
+sux	sn	Emesal
+sux	sn	Emesal dialect
+enb	sn	Endo
+enb	sn	Endo language
+enf	sn	Enets
+enh	sn	Enets
+enf	sn	Enets language
+enh	sn	Enets language
+enq	sn	Enga
+enq	sn	Enga language
+enn	sn	Engenni
+enn	sn	Engenni language
+eno	sn	Enggano
+eno	sn	Enggano language
+eng	sn	English
+cpe	sn	English creole dialects
+eng	sn	English language
+pse	sn	Enim
+pse	sn	Enim dialect
+gey	sn	Enya
+gey	sn	Enya language
+sja	sn	Epena Saija
+sja	sn	Epena Saija language
+inm	sn	Epigraphic South Arabian
+sxa	sn	Epigraphic South Arabian
+xha	sn	Epigraphic South Arabian
+xhd	sn	Epigraphic South Arabian
+xqt	sn	Epigraphic South Arabian
+inm	sn	Epigraphic South Arabian language
+sxa	sn	Epigraphic South Arabian language
+xha	sn	Epigraphic South Arabian language
+xhd	sn	Epigraphic South Arabian language
+xqt	sn	Epigraphic South Arabian language
+erg	sn	Eromanga
+erg	sn	Eromanga language
+err	sn	Erre
+err	sn	Erre language
+myv	sn	Erzya
+myv	sn	Erzya dialect
+ish	sn	Esan
+ish	sn	Esan language
+ese	sn	Ese Ejja
+ese	sn	Ese Ejja language
+esq	sn	Esselen
+esq	sn	Esselen language
+est	sn	Estonian
+est	sn	Estonian language
+csk	sn	Esu?u?laalu
+csk	sn	Esu?u?laalu dialect
+ecr	sn	Eteocretan
+ecr	sn	Eteocretan language
+gez	sn	Ethiopic
+gez	sn	Ethiopic language
+eto	sn	Eton
+eto	sn	Eton (Cameroon)
+eto	sn	Eton language (Cameroon)
+ett	sn	Etruscan
+ett	sn	Etruscan language
+ets	sn	Etsako
+ets	sn	Etsako language
+opt	sn	Eudeve
+opt	sn	Eudeve language
+eve	sn	Even
+eve	sn	Even language
+evn	sn	Evenki
+evn	sn	Evenki language
+ewe	sn	Ewe
+ewe	sn	Ewe language
+ewo	sn	Ewondo
+ewo	sn	Ewondo language
+eya	sn	Eyak
+eya	sn	Eyak language
+izi	sn	Ezaa
+izi	sn	Ezaa language
+mal	sn	Ezhava
+mal	sn	Ezhava dialect
+faf	sn	Fagani
+faf	sn	Fagani language
+fai	sn	Faiwol
+fai	sn	Faiwol language
+cfm	sn	Falam Chin
+cfm	sn	Falam Chin language
+fli	sn	Fali
+fli	sn	Fali language
+xfa	sn	Faliscan
+xfa	sn	Faliscan language
+fap	sn	Falor
+fap	sn	Falor language
+fan	sn	Fang
+fan	sn	Fang language
+fat	sn	Fanti
+fat	sn	Fanti language
+fao	sn	Faroese
+fao	sn	Faroese language
+faa	sn	Fasu
+faa	sn	Fasu language
+ddg	sn	Fataluku
+ddg	sn	Fataluku language
+bzg	sn	Favorlang
+bzg	sn	Favorlang language
+fmp	sn	Fe'fe'
+fmp	sn	Fe'fe' language
+hif	sn	Fiji Hindi
+hif	sn	Fiji Hindi language
+fij	sn	Fijian
+fij	sn	Fijian language
+fil	sn	Filipino
+fil	sn	Filipino language
+fin	sn	Finnish
+fin	sn	Finnish language
+fiu	sn	Finno-Ugric languages
+nlg	sn	Florida
+nlg	sn	Florida language
+foi	sn	Foi
+foi	sn	Foi language
+ppo	sn	Folopa
+ppo	sn	Folopa language
+fon	sn	Fon
+fon	sn	Fon dialect
+frd	sn	Fordata
+frd	sn	Fordata language
+for	sn	Fore
+for	sn	Fore language
+yrk	sn	Forest Nenets
+yrk	sn	Forest Nenets dialect
+sac	sn	Fox
+sac	sn	Fox language
+gur	sn	Frafra
+gur	sn	Frafra language
+oci	sn	Franco-Provenc?al
+oci	sn	Franco-Provenc?al dialects
+fra	sn	French
+cpf	sn	French creole dialects
+fra	sn	French language
+frr	sn	Frisian
+fry	sn	Frisian
+frr	sn	Frisian language
+fry	sn	Frisian language
+fur	sn	Friulian
+fur	sn	Friulian dialect
+ful	sn	Fula
+ful	sn	Fula language
+flr	sn	Fuliru
+flr	sn	Fuliru language
+fun	sn	Fulnio
+fun	sn	Fulnio language
+fvr	sn	Fur
+fvr	sn	Fur language
+fuu	sn	Furu
+fuu	sn	Furu language
+fud	sn	Futuna
+fud	sn	Futuna language
+fut	sn	Futuna-Aniwa
+fut	sn	Futuna-Aniwa language
+fuy	sn	Fuyuge
+fuy	sn	Fuyuge language
+pym	sn	Fyam
+pym	sn	Fyam language
+gnk	sn	G//ana
+gnk	sn	G//ana language
+gwj	sn	G/wi
+gwj	sn	G/wi language
+gaa	sn	Ga?
+gaa	sn	Ga? language
+gab	sn	Gabri
+gab	sn	Gabri language
+xgf	sn	Gabrielino
+xgf	sn	Gabrielino language
+gau	sn	Gadaba (Dravidian)
+gbj	sn	Gadaba (Munda)
+gau	sn	Gadaba language (Dravidian)
+gbj	sn	Gadaba language (Munda)
+gad	sn	Gaddang
+gad	sn	Gaddang language
+ged	sn	Gade
+ged	sn	Gade language
+gbk	sn	Gadi
+gbk	sn	Gadi dialect
+gaj	sn	Gadsup
+gaj	sn	Gadsup language
+gft	sn	Gafat
+gft	sn	Gafat language
+gbu	sn	Gagadu
+gbu	sn	Gagadu language
+gag	sn	Gagauz
+gag	sn	Gagauz language
+ggu	sn	Gagu
+ggu	sn	Gagu language
+gah	sn	Gahuku
+gah	sn	Gahuku language
+gbi	sn	Galela
+gbi	sn	Galela language
+gar	sn	Galeya
+gar	sn	Galeya language
+glg	sn	Galician
+glg	sn	Galician language
+adl	sn	Gallong
+adl	sn	Gallong language
+gal	sn	Galoli
+gal	sn	Galoli language
+dhg	sn	Galpu
+dhg	sn	Galpu language
+sba	sn	Gambai
+sba	sn	Gambai dialect
+gbl	sn	Gamit
+gbl	sn	Gamit dialect
+gmv	sn	Gamo
+gmv	sn	Gamo (Ethiopia)
+gmv	sn	Gamo language (Ethiopia)
+gan	sn	Gan
+gan	sn	Gan (China)
+gan	sn	Gan dialects (China)
+nso	sn	Gananwa
+nso	sn	Gananwa dialect
+lug	sn	Ganda
+lug	sn	Ganda language
+gnb	sn	Gangte
+gnb	sn	Gangte language
+nba	sn	Ganguela
+nba	sn	Ganguela language
+pwg	sn	Gapapaiwa
+pwg	sn	Gapapaiwa language
+gas	sn	Garasiya
+gra	sn	Garasiya
+gas	sn	Garasiya dialect
+gra	sn	Garasiya dialect
+gbc	sn	Garawa
+gbc	sn	Garawa language
+gbm	sn	Garhwali
+gbm	sn	Garhwali dialect
+cab	sn	Garifuna
+cab	sn	Garifuna language
+grt	sn	Garo
+grt	sn	Garo language
+oci	sn	Gascon
+oci	sn	Gascon dialect
+gaq	sn	Gata'
+gaq	sn	Gata' language
+kan	sn	Gauda
+kan	sn	Gauda dialect
+xcg	sn	Gaulish
+xtg	sn	Gaulish
+xcg	sn	Gaulish language
+xtg	sn	Gaulish language
+gvp	sn	Gavia?o
+gvp	sn	"Gavia?o (Para?, Brazil)"
+gvp	sn	"Gavia?o language (Para?, Brazil)"
+ubu	sn	Gawigl
+ubu	sn	Gawigl language
+gyd	sn	Gayardilt
+gyd	sn	Gayardilt language
+gay	sn	Gayo
+gay	sn	Gayo language
+gbr	sn	Gbagyi
+gbr	sn	Gbagyi language
+bza	sn	Gbandi
+bza	sn	Gbandi language
+gby	sn	Gbari
+gby	sn	Gbari language
+gba	sn	Gbaya
+gba	sn	Gbaya language
+mdd	sn	Gbete
+mdd	sn	Gbete dialect
+gdd	sn	Gedaged
+gdd	sn	Gedaged language
+drs	sn	Gedeo
+drs	sn	Gedeo language
+mxj	sn	Geman Deng
+mxj	sn	Geman Deng language
+gej	sn	Gen-Gbe
+gej	sn	Gen-Gbe dialect
+kat	sn	Georgian
+kat	sn	Georgian language
+deu	sn	German
+deu	sn	German language
+gem	sn	Germanic languages
+bdy	sn	Gidabal
+bdy	sn	Gidabal dialect
+gid	sn	Gidar
+gid	sn	Gidar language
+glk	sn	Gilaki
+glk	sn	Gilaki language
+gil	sn	Gilbertese
+gil	sn	Gilbertese language
+niv	sn	Gilyak
+niv	sn	Gilyak language
+gim	sn	Gimi
+gim	sn	Gimi language
+gin	sn	Ginukh
+gin	sn	Ginukh language
+nyf	sn	Giryama
+nyf	sn	Giryama language
+gis	sn	Gisiga
+giz	sn	Gisiga
+gis	sn	Gisiga language
+giz	sn	Gisiga language
+myx	sn	Gisu
+myx	sn	Gisu language
+glw	sn	Glavda
+glw	sn	Glavda language
+gls	sn	Glosa
+gls	sn	Glosa (Artificial language)
+guc	sn	Goajiro
+guc	sn	Goajiro language
+god	sn	Godie?
+god	sn	Godie? language
+gdo	sn	Godoberi
+gdo	sn	Godoberi language
+ank	sn	Goemai
+ank	sn	Goemai language
+gog	sn	Gogo
+gog	sn	Gogo language
+ggw	sn	Gogodala
+ggw	sn	Gogodala language
+gkn	sn	Gokana
+gkn	sn	Gokana language
+gol	sn	Gola
+gol	sn	Gola language
+gvf	sn	Golin
+gvf	sn	Golin dialect
+bbp	sn	Go?lo
+bbp	sn	Go?lo language
+gon	sn	Gondi
+gon	sn	Gondi language
+gjn	sn	Gonja
+gjn	sn	Gonja language
+kiw	sn	Gope
+kiw	sn	Gope dialect
+hac	sn	Gorani
+hac	sn	Gorani language
+gor	sn	Gorontalo
+gor	sn	Gorontalo language
+got	sn	Gothic
+got	sn	Gothic language
+grb	sn	Grebo
+grb	sn	Grebo language
+grc	sn	"Greek language, Biblical"
+grc	sn	"Greek language, Hellenistic (300 B.C.-600 A.D.)"
+grc	sn	"Greek language, Medieval and late"
+uum	sn	Greek Tatar
+uum	sn	Greek Tatar language
+ell	sn	"Greek,  Modern"
+gwx	sn	Gua
+gwx	sn	Gua language
+guh	sn	Guahibo
+guh	sn	Guahibo language
+gvc	sn	Guanano
+gvc	sn	Guanano language
+gnc	sn	Guanche
+gnc	sn	Guanche language
+grn	sn	Guarani
+grn	sn	Guarani language
+gyr	sn	Guarayo
+gyr	sn	Guarayo language
+var	sn	Guariji?o
+var	sn	Guariji?o language
+gut	sn	Guatuso
+gut	sn	Guatuso language
+guo	sn	Guayabero
+guo	sn	Guayabero language
+guq	sn	Guayaki
+guq	sn	Guayaki language
+gym	sn	Guaymi
+gym	sn	Guaymi language
+gde	sn	Gude
+gde	sn	Gude language
+ktd	sn	Gugada
+ktd	sn	Gugada dialect
+ghs	sn	Guhu-Samane
+ghs	sn	Guhu-Samane language
+guj	sn	Gujarati
+guj	sn	Gujarati language
+gju	sn	Gujuri
+gju	sn	Gujuri language
+gvs	sn	Gumasi
+gvs	sn	Gumasi language
+gnn	sn	Gumatj
+gnn	sn	Gumatj language
+gyf	sn	Gungabula
+gyf	sn	Gungabula language
+guw	sn	Gun-Gbe
+guw	sn	Gun-Gbe language
+gni	sn	Gunian
+gni	sn	Gunian language
+yas	sn	Gunu
+yas	sn	Gunu language
+gup	sn	Gunwinggu
+gup	sn	Gunwinggu language
+gyy	sn	Gunya
+gyy	sn	Gunya language
+guf	sn	Gupapuyngu
+guf	sn	Gupapuyngu language
+gnr	sn	Gureng Gureng
+gnr	sn	Gureng Gureng language
+kat	sn	Gurian
+kat	sn	Gurian dialect
+gue	sn	Gurindji
+gue	sn	Gurindji language
+gux	sn	Gurma
+gux	sn	Gurma language
+ggn	sn	Gurung
+gvr	sn	Gurung
+ggn	sn	Gurung language
+gvr	sn	Gurung language
+guz	sn	Gusii
+guz	sn	Gusii language
+kky	sn	Guugu Yimithirr
+kky	sn	Guugu Yimithirr language
+lnu	sn	Guyuk
+lnu	sn	Guyuk dialect
+dah	sn	Gwahatike
+dah	sn	Gwahatike language
+gwn	sn	Gwandara
+gwn	sn	Gwandara language
+gdn	sn	Gwedena
+gdn	sn	Gwedena language
+gwr	sn	Gwere
+gwr	sn	Gwere language
+gwi	sn	Gwich'in
+gwi	sn	Gwich'in language
+jya	sn	Gyarung
+jya	sn	Gyarung language
+haq	sn	Ha
+haq	sn	Ha language
+hdy	sn	Hadiya
+hdy	sn	Hadiya language
+hah	sn	Hahon
+hah	sn	Hahon language
+hai	sn	Haida
+hai	sn	Haida language
+has	sn	Haisla
+has	sn	Haisla language
+cnh	sn	Haka Chin
+cnh	sn	Haka Chin language
+lad	sn	H?ake?tia
+lad	sn	H?ake?tia language
+hak	sn	Hakka
+hak	sn	Hakka dialects
+guj	sn	Halari
+guj	sn	Halari dialect
+hlb	sn	Halbi
+hlb	sn	Halbi language
+hla	sn	Halia
+hla	sn	Halia language
+gaw	sn	Halopa
+gaw	sn	Halopa language
+dad	sn	Ham
+dad	sn	Ham language
+hmt	sn	Hamtai
+hmt	sn	Hamtai language
+hag	sn	Hanga (Ghana)
+luy	sn	Hanga (Kenya)
+luy	sn	Hanga dialect (Kenya)
+hag	sn	Hanga language (Ghana)
+han	sn	Hangaza
+han	sn	Hangaza language
+hni	sn	Hani
+hni	sn	Hani language
+lml	sn	Hano
+lml	sn	Hano language
+hnn	sn	Hanuno?o
+hnn	sn	Hanuno?o language
+har	sn	Harari
+har	sn	Harari language
+hoj	sn	Harauti
+hoj	sn	Harauti language
+hro	sn	Haroi
+hro	sn	Haroi language
+hss	sn	H?arsu?si?
+hss	sn	H?arsu?si? language
+mey	sn	Hassaniyya
+mey	sn	Hassaniyya dialect
+had	sn	Hatam
+had	sn	Hatam language
+xht	sn	Hattic
+xht	sn	Hattic language
+hau	sn	Hausa
+hau	sn	Hausa language
+yuf	sn	Havasupai
+yuf	sn	Havasupai language
+kan	sn	Havyaka
+kan	sn	Havyaka dialect
+haw	sn	Hawaiian
+haw	sn	Hawaiian language
+hay	sn	Haya
+hay	sn	Haya language
+vay	sn	Hayu
+vay	sn	Hayu dialect
+haz	sn	Hazara
+haz	sn	Hazara language
+kup	sn	Hazili
+kup	sn	Hazili dialect
+heb	sn	Hebrew
+heb	sn	Hebrew language
+hbo	sn	"Hebrew language, Medieval"
+hbo	sn	"Hebrew language, Post-Biblical"
+hbo	sn	"Hebrew language, Talmudic"
+xed	sn	Hedi
+xed	sn	Hedi language
+heh	sn	Hehe
+heh	sn	Hehe language
+hei	sn	Heiltsuk
+hei	sn	Heiltsuk language
+scp	sn	Helambu Sherpa
+scp	sn	Helambu Sherpa language
+grc	sn	Hellenistic Greek
+her	sn	Herero
+her	sn	Herero language
+hid	sn	Hidatsa
+hid	sn	Hidatsa language
+mba	sn	Higaonon
+mba	sn	Higaonon dialect
+hil	sn	Hiligaynon
+hil	sn	Hiligaynon language
+him	sn	Himachali
+him	sn	Himachali language
+dhm	sn	Himba
+dhm	sn	Himba dialect
+xsa	sn	Himyaritic
+xsa	sn	Himyaritic language
+hin	sn	Hindi
+hin	sn	Hindi language
+hnd	sn	Hindko?
+hno	sn	Hindko?
+hnd	sn	Hindko? dialect
+hno	sn	Hindko? dialect
+hmo	sn	Hiri Motu
+hmo	sn	Hiri Motu language
+mik	sn	Hitchiti
+mik	sn	Hitchiti language
+hit	sn	Hittite
+hit	sn	Hittite language
+hix	sn	Hixkaryana
+hix	sn	Hixkaryana language
+hmr	sn	Hmar
+hmr	sn	Hmar language
+hmn	sn	Hmong
+hmn	sn	Hmong language
+hnj	sn	Hmong Njua
+hnj	sn	Hmong Njua dialect
+hoc	sn	Ho
+hoc	sn	Ho language
+hoa	sn	Hoava
+hoa	sn	Hoava language
+nan	sn	Hokkien
+nan	sn	Hokkien dialects
+hoo	sn	Holoholo
+hoo	sn	Holoholo language
+hol	sn	Holu
+hol	sn	Holu language
+hop	sn	Hopi
+hop	sn	Hopi language
+poo	sn	Hopland
+poo	sn	Hopland dialect
+hot	sn	Hote
+hot	sn	Hote language
+hre	sn	Hre?
+hre	sn	Hre? language
+ygr	sn	Hua (Papua New Guinea)
+ygr	sn	Hua dialect (Papua New Guinea)
+hmd	sn	Hua Hmong
+hmd	sn	Hua Hmong dialect
+lis	sn	Hua Lisu
+lis	sn	Hua Lisu dialect
+yuf	sn	Hualapai
+yuf	sn	Hualapai language
+hub	sn	Huambisa
+hub	sn	Huambisa language
+qvw	sn	Huanca
+qvw	sn	Huanca dialect
+auc	sn	Huao
+auc	sn	Huao language
+hus	sn	Huastec
+hus	sn	Huastec language
+hue	sn	Huave
+huv	sn	Huave
+hve	sn	Huave
+hvv	sn	Huave
+hue	sn	Huave language
+huv	sn	Huave language
+hve	sn	Huave language
+hvv	sn	Huave language
+hch	sn	Huichol
+hch	sn	Huichol language
+hul	sn	Hula
+hul	sn	Hula language
+hui	sn	Huli
+hui	sn	Huli language
+hke	sn	Hunde
+hke	sn	Hunde language
+hum	sn	Hungana
+hum	sn	Hungana language
+hun	sn	Hungarian
+hun	sn	Hungarian language
+huz	sn	Hunzib
+huz	sn	Hunzib language
+hup	sn	Hupa
+hup	sn	Hupa language
+xhu	sn	Hurrian
+xhu	sn	Hurrian language
+iai	sn	Iai
+iai	sn	Iai language
+yml	sn	Iamalele
+yml	sn	Iamalele language
+ian	sn	Iatmul
+ian	sn	Iatmul language
+ibl	sn	Ibaloi
+ibl	sn	Ibaloi language
+iba	sn	Iban
+iba	sn	Iban language
+ibg	sn	Ibanag
+ibg	sn	Ibanag language
+iby	sn	Ibani
+iby	sn	Ibani dialect
+xib	sn	Iberian
+xib	sn	Iberian language
+ibb	sn	Ibibio
+ibb	sn	Ibibio language
+arh	sn	Ica
+arh	sn	Ica language
+isl	sn	Icelandic
+isl	sn	Icelandic language
+icl	sn	Icelandic Sign
+icl	sn	Icelandic Sign Language
+dbj	sn	Ida'an
+dbj	sn	Ida'an language
+idd	sn	Idaca
+idd	sn	Idaca language
+ida	sn	Idakho-Isuhka-Tiriki
+ida	sn	Idakho-Isuhka-Tiriki language
+idt	sn	Idate?
+idt	sn	Idate? language
+idu	sn	Idoma
+idu	sn	Idoma language
+clk	sn	Idu
+clk	sn	Idu language
+viv	sn	Iduna
+viv	sn	Iduna language
+ifa	sn	Ifugao
+ifb	sn	Ifugao
+ifk	sn	Ifugao
+ifu	sn	Ifugao
+ifa	sn	Ifugao language
+ifb	sn	Ifugao language
+ifk	sn	Ifugao language
+ifu	sn	Ifugao language
+igl	sn	Igala
+igl	sn	Igala language
+ibo	sn	Igbo
+ibo	sn	Igbo language
+ige	sn	Igede
+ige	sn	Igede language
+ahl	sn	Igo
+ahl	sn	Igo language
+ihp	sn	Iha
+ihp	sn	Iha language
+yor	sn	Ijebu
+yor	sn	Ijebu dialect
+ijc	sn	Ijo
+ijc	sn	Ijo language
+ikx	sn	Ik
+ikx	sn	Ik language
+ikw	sn	Ikwere
+ikw	sn	Ikwere language
+izi	sn	Ikwo
+izi	sn	Ikwo language
+ilb	sn	Ila
+ilb	sn	Ila language
+mbi	sn	Ilianen Manobo
+mbi	sn	Ilianen Manobo language
+mia	sn	Illinois
+mia	sn	Illinois language
+ilo	sn	Iloko
+ilo	sn	Iloko language
+ilk	sn	Ilongot
+ilk	sn	Ilongot language
+imo	sn	Imbo Ungu
+imo	sn	Imbo Ungu language
+kat	sn	Imeretian
+kat	sn	Imeretian dialect
+szp	sn	Inanwatan
+szp	sn	Inanwatan language
+inp	sn	Inapari
+inp	sn	Inapari language
+smn	sn	Inari Sami
+smn	sn	Inari Sami dialect
+ins	sn	Indian sign
+ins	sn	Indian sign language
+ine	sn	Indo-European languages
+iir	sn	Indo-Iranian languages
+ind	sn	Indonesian
+ind	sn	Indonesian language
+inl	sn	Indonesian Sign
+inl	sn	Indonesian Sign Language
+ins	sn	Indopakistan Sign
+pka	sn	Indopakistan Sign
+ins	sn	Indopakistan Sign Language
+pka	sn	Indopakistan Sign Language
+mvy	sn	Indus Kohistani
+mvy	sn	Indus Kohistani language
+inj	sn	Ingano
+inj	sn	Ingano language
+tbi	sn	Ingassana
+tbi	sn	Ingassana language
+kat	sn	Ingilo
+kat	sn	Ingilo dialect
+izh	sn	Ingrian
+izh	sn	Ingrian language
+inh	sn	Ingush
+inh	sn	Ingush language
+ino	sn	Inoke
+ino	sn	Inoke language
+ior	sn	Inor
+ior	sn	Inor dialect
+igs	sn	Interglossa
+igs	sn	Interglossa (Artificial language)
+ile	sn	Interlingue
+ile	sn	Interlingue (Artificial language)
+iku	sn	Inuktitut
+iku	sn	Inuktitut dialect
+ipk	sn	Inupiaq
+ipk	sn	Inupiaq dialect
+ikt	sn	Inuvialuktun
+ikt	sn	Inuvialuktun dialect
+grc	sn	Ionic Greek
+grc	sn	Ionic Greek dialect
+iow	sn	Iowa
+iow	sn	Iowa language
+ipi	sn	Ipili
+ipi	sn	Ipili language
+apu	sn	Ipurina
+apu	sn	Ipurina language
+iqu	sn	Iquito
+iqu	sn	Iquito language
+irh	sn	Irahutu
+irh	sn	Irahutu language
+ira	sn	Iranian languages
+irn	sn	Iranxe
+irn	sn	Iranxe language
+irk	sn	Iraqw
+irk	sn	Iraqw language
+gle	sn	Irish
+gle	sn	Irish language
+iro	sn	Iroquoian languages
+iro	sn	Iroquois
+iro	sn	Iroquois language
+iru	sn	Irula
+iru	sn	Irula language
+iou	sn	Irumu
+iou	sn	Irumu language
+sgl	sn	Ishkashmi
+sgl	sn	Ishkashmi dialect
+inn	sn	Isinay
+inn	sn	Isinay language
+crb	sn	Island Carib
+crb	sn	Island Carib language
+tix	sn	Isleta
+tix	sn	Isleta language
+isd	sn	Isneg
+isd	sn	Isneg language
+ruo	sn	Istro-Romanian
+ruo	sn	Istro-Romanian dialect
+ita	sn	Italian
+ita	sn	Italian language
+ise	sn	Italian Sign
+ise	sn	Italian Sign Language
+itv	sn	Itawis
+itv	sn	Itawis language
+ivb	sn	Itbayat
+ivb	sn	Itbayat dialect
+ite	sn	Itene
+ite	sn	Itene language
+ito	sn	Itonama
+ito	sn	Itonama language
+its	sn	Itsekiri
+its	sn	Itsekiri language
+itz	sn	Itza?
+itz	sn	Itza? dialect
+ivv	sn	Ivatan
+ivv	sn	Ivatan language
+ibd	sn	Iwaidja
+ibd	sn	Iwaidja language
+iwm	sn	Iwam
+iwm	sn	Iwam language
+ixc	sn	Ixcateco
+ixc	sn	Ixcateco language
+ixl	sn	Ixil
+ixl	sn	Ixil language
+izr	sn	Izere
+izr	sn	Izere language
+izi	sn	Izi
+izi	sn	Izi language
+grj	sn	Jabo
+grj	sn	Jabo language
+jac	sn	Jacalteca
+jac	sn	Jacalteca language
+jah	sn	Jah Hut
+jah	sn	Jah Hut language
+dhd	sn	Jaipuri?
+dhd	sn	Jaipuri? dialect
+sjm	sn	Jama Mapun
+sjm	sn	Jama Mapun language
+min	sn	Jamee
+min	sn	Jamee language
+yaa	sn	Jaminaua
+yaa	sn	Jaminaua language
+djm	sn	Jamsay
+djm	sn	Jamsay dialect
+jpn	sn	Japanese
+jpn	sn	Japanese language
+jra	sn	Jarai
+jra	sn	Jarai language
+anq	sn	Jarawa (India)
+anq	sn	Jarawa language (India)
+jaa	sn	Jarua?ra
+jaa	sn	Jarua?ra language
+jns	sn	Jaunsari
+jns	sn	Jaunsari dialect
+jav	sn	Javanese
+jav	sn	Javanese language
+djn	sn	Jawoyn
+djn	sn	Jawoyn language
+jbn	sn	Jebel Nefusa
+jbn	sn	Jebel Nefusa language
+jeh	sn	Jeh
+jeh	sn	Jeh language
+jhi	sn	Jehai
+jhi	sn	Jehai language
+jek	sn	Jeli
+jek	sn	Jeli language
+tow	sn	Jemez
+tow	sn	Jemez language
+kan	sn	Jenukuruba
+kan	sn	Jenukuruba dialect
+jee	sn	Jero
+jee	sn	Jero language
+mar	sn	Jha?d?i?
+mar	sn	Jha?d?i? dialect
+shv	sn	Jibbali
+shv	sn	Jibbali language
+jic	sn	Jicaque
+jic	sn	Jicaque language
+apj	sn	Jicarilla
+apj	sn	Jicarilla language
+jul	sn	Jirel
+jul	sn	Jirel language
+jit	sn	Jita
+jit	sn	Jita language
+kaj	sn	Jju
+kaj	sn	Jju language
+mmy	sn	Jongor
+mmy	sn	Jongor language
+ktz	sn	Ju/'hoan
+ktz	sn	Ju/'hoan language
+jun	sn	Juang
+jun	sn	Juang language
+jrb	sn	Judeo-Arabic
+jrb	sn	Judeo-Arabic language
+itk	sn	Judeo-Italian
+itk	sn	Judeo-Italian language
+jpr	sn	Judeo-Persian
+jpr	sn	Judeo-Persian language
+bhh	sn	Judeo-Tajik
+bhh	sn	Judeo-Tajik language
+jdt	sn	Judeo-Tat
+jdt	sn	Judeo-Tat language
+jbu	sn	Jukun
+jbu	sn	Jukun language
+jup	sn	Jupda
+jup	sn	Jupda language
+bex	sn	Jur Modo
+bex	sn	Jur Modo language
+juc	sn	Jurchen
+juc	sn	Jurchen language
+ksp	sn	Kaba
+ksp	sn	Kaba (Central Sudanic)
+ksp	sn	Kaba language (Central Sudanic)
+kbd	sn	Kabardian
+kbd	sn	Kabardian language
+kbp	sn	Kabiye
+kbp	sn	Kabiye language
+nbu	sn	Kabui
+nkf	sn	Kabui
+nbu	sn	Kabui language
+nkf	sn	Kabui language
+kab	sn	Kabyle
+kab	sn	Kabyle language
+kfr	sn	Kachchhi
+kfr	sn	Kachchhi dialect
+kac	sn	Kachin
+kac	sn	Kachin language
+kdv	sn	Kadu
+kdv	sn	Kadu language
+ktp	sn	Kaduo
+ktp	sn	Kaduo language
+swh	sn	Kae
+swh	sn	Kae dialect
+kbr	sn	Kaffa
+kbr	sn	Kaffa language
+kog	sn	Kagaba
+kog	sn	Kagaba language
+syw	sn	Kagate
+syw	sn	Kagate dialect
+cgc	sn	Kagayanen
+cgc	sn	Kagayanen language
+kdm	sn	Kagoma
+kdm	sn	Kagoma language
+xkg	sn	Kagoro (Mali)
+kcg	sn	Kagoro (Nigeria)
+kcg	sn	Kagoro dialect (Nigeria)
+xkg	sn	Kagoro language (Mali)
+kki	sn	Kaguru
+kki	sn	Kaguru language
+nij	sn	Kahayan
+nij	sn	Kahayan language
+kzp	sn	Kaidipang
+kzp	sn	Kaidipang language
+kzq	sn	Kaike
+kzq	sn	Kaike language
+pbz	sn	Kaili
+pbz	sn	Kaili language
+kgp	sn	Kaingang
+kgp	sn	Kaingang language
+klq	sn	Kairi
+klq	sn	Kairi language
+kbm	sn	Kaiwa (Papua New Guinea)
+kbm	sn	Kaiwa language (Papua New Guinea)
+hrv	sn	Kajkavian
+hrv	sn	Kajkavian dialect
+tbd	sn	Kaki Ae
+tbd	sn	Kaki Ae language
+sbl	sn	Kakilingan Sambal
+sbl	sn	Kakilingan Sambal dialect
+kkj	sn	Kako
+kkj	sn	Kako language
+keo	sn	Kakwa
+keo	sn	Kakwa dialect
+mwp	sn	Kala Lagaw Ya
+mwp	sn	Kala Lagaw Ya language
+ijn	sn	Kalabari
+ijn	sn	Kalabari dialect
+kzz	sn	Kalabra
+kzz	sn	Kalabra language
+kqe	sn	Kalagan
+kqe	sn	Kalagan language
+kmh	sn	Kalam
+kmh	sn	Kalam language
+tbk	sn	Kalamian
+tbk	sn	Kalamian language
+kck	sn	Kalanga
+kck	sn	Kalanga (Botswana and Zimbabwe)
+kck	sn	Kalanga language (Botswana and Zimbabwe)
+kyl	sn	Kalapuya
+kyl	sn	Kalapuya language
+kls	sn	Kalash
+kls	sn	Kalash language
+kal	sn	Kala?tdlisut
+kal	sn	Kala?tdlisut dialect
+kln	sn	Kalenjin
+kln	sn	Kalenjin language
+fla	sn	Kalispel
+fla	sn	Kalispel language
+ktg	sn	Kalkatungu
+ktg	sn	Kalkatungu language
+tam	sn	Kallan
+tam	sn	Kallan dialect
+xal	sn	Kalmyk
+xal	sn	Kalmyk language
+bco	sn	Kaluli
+bco	sn	Kaluli language
+kay	sn	Kamaiura?
+kay	sn	Kamaiura? language
+kbq	sn	Kamano
+kbq	sn	Kamano language
+kms	sn	Kamasau
+kms	sn	Kamasau language
+xas	sn	Kamassin
+xas	sn	Kamassin language
+kam	sn	Kamba
+kam	sn	Kamba language
+ktb	sn	Kambata
+ktb	sn	Kambata language
+xbr	sn	Kambera
+xbr	sn	Kambera dialect
+itl	sn	Kamchadal
+itl	sn	Kamchadal language
+kld	sn	Kamilaroi
+kld	sn	Kamilaroi language
+tel	sn	Kamma
+tel	sn	Kamma dialect
+kgq	sn	Kamoro
+kgq	sn	Kamoro language
+asm	sn	Ka?mru?pi?
+asm	sn	Ka?mru?pi? dialect
+kmt	sn	Kamtuk
+kmt	sn	Kamtuk language
+xla	sn	Kamula
+xla	sn	Kamula language
+hig	sn	Kamwe
+hig	sn	Kamwe language
+ogo	sn	Kana
+ogo	sn	Kana language
+kna	sn	Kanakuru
+kna	sn	Kanakuru language
+bjj	sn	Kanauji
+bjj	sn	Kanauji dialect
+kfk	sn	Kanauri
+kfk	sn	Kanauri language
+kbl	sn	Kanembu
+kbl	sn	Kanembu language
+xnr	sn	Kangri
+xnr	sn	Kangri dialect
+kmu	sn	Kanite
+kmu	sn	Kanite language
+kjb	sn	Kanjobal
+kjb	sn	Kanjobal language
+kne	sn	Kankanay
+kne	sn	Kankanay language
+kan	sn	Kannada
+kan	sn	Kannada language
+kau	sn	Kanuri
+kau	sn	Kanuri language
+kqn	sn	Kaonde
+kqn	sn	Kaonde language
+ekg	sn	Kapauku
+ekg	sn	Kapauku language
+kpg	sn	Kapingamarangi
+kpg	sn	Kapingamarangi language
+kdk	sn	Kapone
+kdk	sn	Kapone language
+kah	sn	Kara (Central African Republic and Sudan)
+leu	sn	Kara (Papua New Guinea)
+kah	sn	Kara language (Central African Republic and Sudan)
+leu	sn	Kara language (Papua New Guinea)
+kza	sn	Karaboro
+xrb	sn	Karaboro
+kza	sn	Karaboro language
+xrb	sn	Karaboro language
+krc	sn	Karachay-Balkar
+krc	sn	Karachay-Balkar language
+kdr	sn	Karaim
+kdr	sn	Karaim language
+gbd	sn	Karajarri
+gbd	sn	Karajarri language
+kaa	sn	Kara-Kalpak
+kaa	sn	Kara-Kalpak language
+xqa	sn	Karakhanid
+xqa	sn	Karakhanid language
+kdj	sn	Karamojong
+kdj	sn	Karamojong language
+kzr	sn	Karang (Cameroon)
+kzr	sn	Karang language (Cameroon)
+kth	sn	Karanga
+kth	sn	Karanga language
+kyj	sn	Karao
+kyj	sn	Karao language
+kpt	sn	Karata
+kpt	sn	Karata language
+kbj	sn	Kare
+kbj	sn	Kare language
+kai	sn	Karekare
+kai	sn	Karekare language
+krl	sn	Karelian
+krl	sn	Karelian language
+kmv	sn	Karipuna Creole
+kmv	sn	Karipuna Creole dialect
+kzw	sn	Kariri
+kzw	sn	Kariri language
+ktn	sn	Karitiana
+ktn	sn	Karitiana language
+kko	sn	Karko
+kko	sn	Karko language
+est	sn	Karksi
+est	sn	Karksi dialect
+arr	sn	Karo (Brazil)
+arr	sn	Karo language (Brazil)
+btx	sn	Karo-Batak
+btx	sn	Karo-Batak dialect
+kyh	sn	Karok
+kyh	sn	Karok language
+kbn	sn	Karre?
+kbn	sn	Karre? language
+iru	sn	Kasaba
+iru	sn	Kasaba dialect
+xsm	sn	Kasem
+xsm	sn	Kasem language
+kju	sn	Kashaya
+kju	sn	Kashaya language
+kas	sn	Kashmiri
+kas	sn	Kashmiri language
+csb	sn	Kashubian
+csb	sn	Kashubian language
+kao	sn	Kassonke
+kao	sn	Kassonke language
+khs	sn	Kasua
+khs	sn	Kasua language
+kcg	sn	Katab
+kcg	sn	Katab language
+kmg	sn	Ka?te
+kmg	sn	Ka?te language
+nij	sn	Katingan
+nij	sn	Katingan language
+ktw	sn	Kato
+ktw	sn	Kato language
+kda	sn	Kattang
+kda	sn	Kattang language
+kax	sn	Katu
+kax	sn	Katu language
+pss	sn	Kaulong
+pss	sn	Kaulong language
+bpp	sn	Kaure
+bpp	sn	Kaure language
+zku	sn	Kaurna
+zku	sn	Kaurna language
+ckv	sn	Kavalan
+ckv	sn	Kavalan language
+ahk	sn	Kaw
+ahk	sn	Kaw language
+xaw	sn	Kawaiisu
+xaw	sn	Kawaiisu language
+kaw	sn	Kawi
+kaw	sn	Kawi language
+kyz	sn	Kayabi
+kyz	sn	Kayabi language
+eky	sn	Kayah
+kyu	sn	Kayah
+eky	sn	Kayah language
+kyu	sn	Kayah language
+pdu	sn	Kayan (Borneo)
+pdu	sn	Kayan language (Borneo)
+kak	sn	Kayapa Kallahan
+kak	sn	Kayapa Kallahan language
+gbb	sn	Kaytetye
+gbb	sn	Kaytetye language
+kge	sn	Kayu Agung
+kge	sn	Kayu Agung language
+kaz	sn	Kazakh
+kaz	sn	Kazakh language
+kzk	sn	Kazukuru
+kzk	sn	Kazukuru language
+ksx	sn	Kedang
+ksx	sn	Kedang language
+kek	sn	Kekchi
+kek	sn	Kekchi language
+kel	sn	Kela
+kel	sn	Kela language
+kzi	sn	Kelabit
+kzi	sn	Kelabit language
+keb	sn	Kele
+keb	sn	Kele (Gabon)
+keb	sn	Kele language (Gabon)
+ify	sn	Keley-i Kallahan
+ify	sn	Keley-i Kallahan language
+kem	sn	Kemak
+kem	sn	Kemak language
+ahg	sn	Kemant
+ahg	sn	Kemant language
+kyq	sn	Kenga
+kyq	sn	Kenga language
+khz	sn	Keopara
+khz	sn	Keopara language
+ker	sn	Kera
+ker	sn	Kera language
+ked	sn	Kerebe
+ked	sn	Kerebe language
+kee	sn	Keres
+kjq	sn	Keres
+kee	sn	Keres language
+kjq	sn	Keres language
+kxz	sn	Kerewo
+kxz	sn	Kerewo language
+kvr	sn	Kerinci
+kvr	sn	Kerinci language
+ket	sn	Ket
+ket	sn	Ket language
+kcv	sn	Kete
+kcv	sn	Kete language
+xte	sn	Ketengban
+xte	sn	Ketengban language
+kew	sn	Kewa
+kjs	sn	Kewa
+kew	sn	Kewa language
+kjs	sn	Kewa language
+xkv	sn	Kgalagadi
+xkv	sn	Kgalagadi language
+kjh	sn	Khakass
+kjh	sn	Khakass language
+kjf	sn	Khalaj
+kjf	sn	Khalaj language
+klr	sn	Khaling
+klr	sn	Khaling language
+khk	sn	Khalkha
+khk	sn	Khalkha dialect
+xam	sn	Kham
+kgj	sn	Kham (Nepal)
+kip	sn	Kham (Nepal)
+xam	sn	Kham language
+kgj	sn	Kham language (Nepal)
+kip	sn	Kham language (Nepal)
+evn	sn	Khamnigan
+evn	sn	Khamnigan (Mongolian)
+evn	sn	Khamnigan language (Mongolian)
+kht	sn	Khamti
+kht	sn	Khamti language
+khn	sn	Khandesi
+khn	sn	Khandesi language
+kca	sn	Khanty
+kca	sn	Khanty language
+hin	sn	Khari Boli
+hin	sn	Khari Boli language
+khr	sn	Kharia
+khr	sn	Kharia language
+kha	sn	Khasi
+kha	sn	Khasi language
+xhe	sn	Khetra?ni?
+xhe	sn	Khetra?ni? dialect
+nkh	sn	Khezha
+nkh	sn	Khezha language
+kix	sn	Khiamniungan
+kix	sn	Khiamniungan language
+kjj	sn	Khinalugh
+kjj	sn	Khinalugh language
+zkt	sn	Khitan
+zkt	sn	Khitan language
+khm	sn	Khmer
+kxm	sn	Khmer
+khm	sn	Khmer language
+kxm	sn	Khmer language
+kjg	sn	Khmu'
+kjg	sn	Khmu' language
+xuu	sn	Khoikhoi
+xuu	sn	Khoikhoi language
+khi	sn	Khoisan languages
+ngh	sn	Khomani
+ngh	sn	Khomani language
+zkh	sn	Khorezmian Turkic
+zkh	sn	Khorezmian Turkic language
+kho	sn	Khotanese
+kho	sn	Khotanese language
+mai	sn	Khotta
+mai	sn	Khotta dialect
+khw	sn	Khowar
+khw	sn	Khowar language
+sgh	sn	Khuf
+sgh	sn	Khuf dialect
+cnk	sn	Khumi
+cka	sn	Khumi Awa
+cka	sn	Khumi Awa dialect
+cnk	sn	Khumi language
+kkh	sn	Khu?n
+kkh	sn	Khu?n language
+khv	sn	Khvarshi
+khv	sn	Khvarshi language
+csh	sn	Khyang
+csh	sn	Khyang language
+ifk	sn	Kiangan Ifugao
+ifk	sn	Kiangan Ifugao dialect
+kic	sn	Kickapoo
+kic	sn	Kickapoo language
+flr	sn	Kifuliru
+flr	sn	Kifuliru dialect
+kik	sn	Kikuyu
+kik	sn	Kikuyu language
+sjd	sn	Kildin Sami
+sjd	sn	Kildin Sami dialect
+klb	sn	Kiliwa
+klb	sn	Kiliwa language
+kmb	sn	Kimbundu
+kmb	sn	Kimbundu language
+krj	sn	Kinaray-a
+krj	sn	Kinaray-a language
+zga	sn	Kinga
+zga	sn	Kinga language
+swc	sn	Kingwana
+swc	sn	Kingwana language
+kin	sn	Kinyarwanda
+kin	sn	Kinyarwanda language
+kio	sn	Kiowa
+kio	sn	Kiowa language
+kue	sn	Kipchak
+kue	sn	Kipchak language
+kln	sn	Kipsikis
+kln	sn	Kipsikis dialect
+kyi	sn	Kiput
+kyi	sn	Kiput language
+kij	sn	Kiriwinian
+kij	sn	Kiriwinian language
+lks	sn	Kisa
+lks	sn	Kisa dialect
+kru	sn	Kisan
+kru	sn	Kisan (Dravidian)
+kru	sn	Kisan language (Dravidian)
+kje	sn	Kisar
+kje	sn	Kisar language
+kiz	sn	Kissi
+kiz	sn	Kissi language
+kij	sn	Kitava
+kij	sn	Kitava language
+gia	sn	Kitja
+gia	sn	Kitja language
+ktu	sn	Kituba
+ktu	sn	Kituba language
+kla	sn	Klamath
+kla	sn	Klamath language
+tlh	sn	Klingon
+tlh	sn	Klingon (Artificial language)
+btz	sn	Kluet
+btz	sn	Kluet language
+xwa	sn	Koaia
+xwa	sn	Koaia language
+kib	sn	Koalib
+kib	sn	Koalib language
+cku	sn	Koasati
+cku	sn	Koasati language
+kpw	sn	Kobon
+kpw	sn	Kobon language
+kfa	sn	Kodagu
+kfa	sn	Kodagu language
+zkg	sn	Koguryo
+zkg	sn	Koguryo language
+kpm	sn	Koho
+kpm	sn	Koho language
+bcs	sn	Kohumono
+bcs	sn	Kohumono language
+kbk	sn	Koiari
+kbk	sn	Koiari language
+kjh	sn	Koibalian
+kjh	sn	Koibalian dialect
+trp	sn	Kok Borok
+trp	sn	Kok Borok language
+kkp	sn	Kokoberra
+kkp	sn	Kokoberra language
+kkk	sn	Kokota
+kkk	sn	Kokota language
+kfb	sn	Kolami
+nit	sn	Kolami
+kfb	sn	Kolami language
+nit	sn	Kolami language
+bhp	sn	Kolo
+bhp	sn	Kolo dialect
+ijc	sn	Kolokuma
+ijc	sn	Kolokuma dialect
+klx	sn	Koluawawa
+klx	sn	Koluawawa language
+bkm	sn	Kom (Cameroon)
+kmm	sn	Kom (India)
+bkm	sn	Kom language (Cameroon)
+kmm	sn	Kom language (India)
+kpf	sn	Komba
+kpf	sn	Komba language
+tyn	sn	Kombai
+tyn	sn	Kombai language
+nui	sn	Kombe
+nui	sn	Kombe language
+kge	sn	Komering
+kge	sn	Komering dialect
+kom	sn	Komi
+kom	sn	Komi language
+koi	sn	Komi-Permyak
+koi	sn	Komi-Permyak dialect
+kpv	sn	Komi-Yaz?va
+kpv	sn	Komi-Yaz?va dialect
+kmw	sn	Komo (Congo)
+kmw	sn	Komo language (Congo)
+kvh	sn	Komodo
+kvh	sn	Komodo dialect
+snp	sn	Komunku
+snp	sn	Komunku dialect
+kfc	sn	Konda
+kfc	sn	Konda language
+tel	sn	Konda-Reddi
+tel	sn	Konda-Reddi dialect
+kjc	sn	Kondjo
+kjk	sn	Kondjo
+kjc	sn	Kondjo dialect
+kjk	sn	Kondjo dialect
+nas	sn	Kongara
+nas	sn	Kongara dialect
+kon	sn	Kongo
+kon	sn	Kongo language
+ems	sn	Koniagmiut
+ems	sn	Koniagmiut dialect
+koo	sn	Konjo
+koo	sn	Konjo language
+kok	sn	Konkani
+kok	sn	Konkani language
+xon	sn	Konkomba
+xon	sn	Konkomba language
+kma	sn	Konni
+kma	sn	Konni language
+nbe	sn	Konyak
+nbe	sn	Konyak language
+kng	sn	Koongo
+kng	sn	Koongo (Western Kongo)
+kng	sn	Koongo dialect (Western Kongo)
+kut	sn	Kootenai
+kut	sn	Kootenai language
+ozm	sn	Koozime
+ozm	sn	Koozime language
+ikt	sn	Kopagmiut
+ikt	sn	Kopagmiut dialect
+kfd	sn	Koraga
+vmd	sn	Koraga
+kfd	sn	Koraga language
+vmd	sn	Koraga language
+kqz	sn	Korana
+kqz	sn	Korana language
+kpr	sn	Korape
+kpr	sn	Korape language
+kdo	sn	Kordofanian languages
+kor	sn	Korean
+kor	sn	Korean language
+sna	sn	Korekore
+sna	sn	Korekore dialect
+bpr	sn	Koronadal Blaan
+bpr	sn	Koronadal Blaan language
+khe	sn	Korowai
+khe	sn	Korowai language
+kfp	sn	Korwa
+kfp	sn	Korwa language
+kpy	sn	Koryak
+kpy	sn	Koryak language
+kkl	sn	Kosarek
+kkl	sn	Kosarek language
+kze	sn	Kosena
+kze	sn	Kosena dialect
+mar	sn	Koshti
+mar	sn	Koshti (Marathi)
+mar	sn	Koshti dialect (Marathi)
+kfe	sn	Kota
+kfe	sn	Kota (India)
+kfe	sn	Kota language (India)
+eko	sn	Koti
+eko	sn	Koti language
+zko	sn	Kott
+zko	sn	Kott language
+kqb	sn	Kovai
+kqb	sn	Kovai language
+kff	sn	Koya
+kff	sn	Koya language
+ses	sn	Koyraboro Senni
+ses	sn	Koyraboro Senni dialect
+koy	sn	Koyukon
+koy	sn	Koyukon language
+kpe	sn	Kpelle
+kpe	sn	Kpelle language
+kpo	sn	Kposo
+kpo	sn	Kposo language
+xra	sn	Kraho
+xra	sn	Kraho language
+kpl	sn	Kreish
+kpl	sn	Kreish language
+jct	sn	Krimchak
+jct	sn	Krimchak language
+kri	sn	Krio
+kri	sn	Krio language
+rop	sn	Kriol
+rop	sn	Kriol language
+ksi	sn	Krisa
+ksi	sn	Krisa language
+mcm	sn	Kristang
+mcm	sn	Kristang language
+kgo	sn	Krongo
+kgo	sn	Krongo language
+klu	sn	Kru
+klu	sn	Kru language
+kua	sn	Kuanyama
+kua	sn	Kuanyama language
+dar	sn	Kubachi
+dar	sn	Kubachi dialect
+kvb	sn	Kubu
+kvb	sn	Kubu language
+min	sn	Kubuang Tigo Baleh
+min	sn	Kubuang Tigo Baleh dialect
+gom	sn	Kudali
+gom	sn	Kudali dialect
+kxu	sn	Kui (Dravidian)
+kdt	sn	Kui (Mon-Khmer)
+kxu	sn	Kui language (Dravidian)
+kdt	sn	Kui language (Mon-Khmer)
+kux	sn	Kukatja
+kux	sn	Kukatja language
+tcz	sn	Kuki
+tcz	sn	Kuki language
+bfa	sn	Kuku
+bfa	sn	Kuku dialect
+gvn	sn	Kuku-Yalanji
+gvn	sn	Kuku-Yalanji language
+kkw	sn	Kukwa
+kkw	sn	Kukwa language
+glj	sn	Ku?la?a?l
+glj	sn	Ku?la?a?l language
+kzc	sn	Kulango
+nku	sn	Kulango
+kzc	sn	Kulango language
+nku	sn	Kulango language
+kfx	sn	Kului
+kfx	sn	Kului language
+kle	sn	Kulung
+kle	sn	Kulung language
+nee	sn	Kumak
+nee	sn	Kumak language
+kra	sn	Kumali
+kra	sn	Kumali dialect
+atv	sn	Kumandin
+atv	sn	Kumandin dialect
+kfy	sn	Kumauni
+kfy	sn	Kumauni dialect
+kgs	sn	Kumbainggar
+kgs	sn	Kumbainggar language
+coj	sn	Kumiai
+coj	sn	Kumiai language
+kum	sn	Kumyk
+kum	sn	Kumyk language
+knn	sn	Kunabi
+knn	sn	Kunabi dialect
+kun	sn	Kunama
+kun	sn	Kunama language
+wlg	sn	Kunbarlang
+wlg	sn	Kunbarlang language
+knw	sn	Kung-Ekoka
+knw	sn	Kung-Ekoka language
+kse	sn	Kuni
+kvg	sn	Kuni
+kse	sn	Kuni language
+kvg	sn	Kuni language
+kup	sn	Kunimaipa
+kup	sn	Kunimaipa language
+kjn	sn	Kunjen
+kjn	sn	Kunjen dialects
+knn	sn	Kun?kan?a?
+knn	sn	Kun?kan?a? language
+xuo	sn	Kuo
+xuo	sn	Kuo language
+key	sn	Kupia
+key	sn	Kupia language
+kud	sn	Kurada
+kud	sn	Kurada language
+knk	sn	Kuranko
+knk	sn	Kuranko language
+kur	sn	Kurdish
+kur	sn	Kurdish language
+kuj	sn	Kuria
+kuj	sn	Kuria language
+kfq	sn	Kurku
+kfq	sn	Kurku language
+kyw	sn	Kurmali
+kyw	sn	Kurmali dialect
+ktm	sn	Kurti
+ktm	sn	Kurti language
+kru	sn	Kurukh
+kru	sn	Kurukh language
+kfi	sn	Kurumba
+kfi	sn	Kurumba language
+kus	sn	Kusaal
+kus	sn	Kusaal language
+kos	sn	Kusaie
+kos	sn	Kusaie language
+ksv	sn	Kusu
+ksv	sn	Kusu language
+kgg	sn	Kusunda
+kgg	sn	Kusunda language
+vkt	sn	Kutai
+vkt	sn	Kutai language
+kuy	sn	Kuuku Ya'u
+kuy	sn	Kuuku Ya'u language
+bak	sn	Kuvakan
+bak	sn	Kuvakan dialect
+kxv	sn	Kuvi
+kxv	sn	Kuvi language
+mas	sn	Kwafi
+mas	sn	Kwafi language
+kwd	sn	Kwaio
+kwd	sn	Kwaio language
+kwk	sn	Kwakiutl
+kwk	sn	Kwakiutl language
+kwu	sn	Kwakum
+kwu	sn	Kwakum language
+tnk	sn	Kwamera
+tnk	sn	Kwamera language
+ksq	sn	Kwami
+ksq	sn	Kwami language
+kwn	sn	Kwangali
+kwn	sn	Kwangali language
+knp	sn	Kwanja
+knp	sn	Kwanja language
+kwf	sn	Kwara'ae
+kwf	sn	Kwara'ae language
+cwt	sn	Kwatay
+cwt	sn	Kwatay language
+goa	sn	Kweni
+goa	sn	Kweni language
+kwe	sn	Kwerba
+kwe	sn	Kwerba language
+kws	sn	Kwese
+kws	sn	Kwese language
+bri	sn	Kwiri
+bri	sn	Kwiri language
+xuu	sn	Kxoe
+xuu	sn	Kxoe language
+kyc	sn	Kyaka
+kyc	sn	Kyaka language
+kgy	sn	Kyirong
+kgy	sn	Kyirong dialect
+kir	sn	Kyrgyz
+kir	sn	Kyrgyz language
+kjh	sn	Kyzyl
+kjh	sn	Kyzyl dialect
+ldi	sn	Laadi
+ldi	sn	Laadi dialect
+gdm	sn	Laal
+gdm	sn	Laal language
+hia	sn	Laamang
+hia	sn	Laamang language
+mwi	sn	Labo
+mwi	sn	Labo language
+lac	sn	Lacandon
+lac	sn	Lacandon dialect
+lbj	sn	Ladakhi
+lbj	sn	Ladakhi language
+lld	sn	Ladin
+lld	sn	Ladin dialect
+lad	sn	Ladino
+lad	sn	Ladino language
+kjq	sn	Laguna
+kjq	sn	Laguna dialect
+lkh	sn	Laha
+lkh	sn	Laha (Vietnam)
+lkh	sn	Laha language (Vietnam)
+lah	sn	Lahnda?
+lah	sn	Lahnda? language
+lhu	sn	Lahu
+lhu	sn	Lahu Bakeo
+lhu	sn	Lahu Bakeo dialect
+lhu	sn	Lahu language
+lbf	sn	Lahuli
+lbf	sn	Lahuli language
+cfm	sn	Laizo
+cfm	sn	Laizo (Burma)
+cfm	sn	Laizo language (Burma)
+lbe	sn	Lak
+lbe	sn	Lak language
+mrh	sn	Lakher
+mrh	sn	Lakher language
+lki	sn	Laki
+lki	sn	Laki (Iran)
+lki	sn	Laki language (Iran)
+lkn	sn	Lakona
+lkn	sn	Lakona language
+lkt	sn	Lakota
+lkt	sn	Lakota dialect
+nrz	sn	Lala
+nrz	sn	Lala language
+slp	sn	Lamaholot
+slp	sn	Lamaholot language
+lby	sn	Lamalama
+lby	sn	Lamalama language
+xdy	sn	Lamandau
+xdy	sn	Lamandau language
+lam	sn	Lamba
+lam	sn	Lamba (Zambia and Congo)
+lam	sn	Lamba language (Zambia and Congo)
+lmn	sn	Lambadi
+lmn	sn	Lambadi language
+snp	sn	Lambau
+snp	sn	Lambau dialect
+lme	sn	Lame?
+lme	sn	Lame? (Cameroon)
+lme	sn	Lame? language (Cameroon)
+lev	sn	Lamma
+lev	sn	Lamma language
+lns	sn	Lamnso'
+lns	sn	Lamnso' language
+ljp	sn	Lampung
+ljp	sn	Lampung language
+mrw	sn	Lanao Moro
+mrw	sn	Lanao Moro dialect
+lno	sn	Lango
+lno	sn	Lango (Uganda)
+lno	sn	Lango language (Uganda)
+lao	sn	Lao
+lao	sn	Lao language
+laq	sn	Laqua
+laq	sn	Laqua language
+lbz	sn	Lardil
+lbz	sn	Lardil language
+alo	sn	Larike-Wakasihu
+alo	sn	Larike-Wakasihu language
+lrg	sn	Larrakia
+lrg	sn	Larrakia language
+lsi	sn	Lashi
+lsi	sn	Lashi language
+sva	sn	Lashkh
+sva	sn	Lashkh dialect
+lat	sn	Latin
+lat	sn	Latin language
+lat	sn	"Latin language, Colloquial"
+lat	sn	"Latin language, Medieval and modern"
+lat	sn	"Latin language, Postclassical"
+lat	sn	"Latin language, Preclassical to ca. 100 B.C."
+lat	sn	"Latin language, Vulgar"
+lav	sn	Latvian
+lav	sn	Latvian language
+llu	sn	Lau
+llu	sn	Lau language
+lbo	sn	Laven
+lbo	sn	Laven language
+lcm	sn	Lavongai
+lcm	sn	Lavongai language
+lvk	sn	Lavukaleve
+lvk	sn	Lavukaleve language
+lcp	sn	Lawa (Thailand)
+lwl	sn	Lawa (Thailand)
+lcp	sn	Lawa language (Thailand)
+lwl	sn	Lawa language (Thailand)
+lbx	sn	Lawangan
+lbx	sn	Lawangan language
+lzz	sn	Laz
+lzz	sn	Laz language
+wol	sn	Lebou
+wol	sn	Lebou dialect
+lef	sn	Lefana
+lef	sn	Lefana language
+lea	sn	Lega
+lgm	sn	Lega
+lea	sn	Lega language
+lgm	sn	Lega language
+lse	sn	Leko
+lse	sn	Leko dialect
+lln	sn	Lele (Chad)
+lln	sn	Lele language (Chad)
+mui	sn	Lematang
+mui	sn	Lematang language
+liw	sn	Lembak Bilide
+liw	sn	Lembak Bilide dialect
+tnl	sn	Lenakel
+tnl	sn	Lenakel dialect
+len	sn	Lenca
+len	sn	Lenca language
+led	sn	Lendu
+led	sn	Lendu language
+leg	sn	Lengua
+leg	sn	Lengua dialect
+leh	sn	Lenje
+leh	sn	Lenje language
+lep	sn	Lepcha
+lep	sn	Lepcha language
+les	sn	Lese
+les	sn	Lese language
+lex	sn	Letri lgona
+lex	sn	Letri lgona language
+ojv	sn	Leuangiua
+ojv	sn	Leuangiua language
+slp	sn	Lewoingu
+slp	sn	Lewoingu dialect
+lez	sn	Lezgian
+lez	sn	Lezgian language
+lhm	sn	Lhomi
+lhm	sn	Lhomi language
+njh	sn	Lhota
+njh	sn	Lhota language
+dij	sn	Li
+dij	sn	Li language
+njn	sn	Liangmai Naga
+njn	sn	Liangmai Naga language
+lig	sn	Ligbi
+lig	sn	Ligbi language
+lik	sn	Lika
+lik	sn	Lika language
+kck	sn	Lilima
+kck	sn	Lilima dialect
+lil	sn	Lillooet
+lil	sn	Lillooet language
+lia	sn	Limba
+lma	sn	Limba
+lia	sn	Limba language
+lma	sn	Limba language
+lif	sn	Limbu
+lif	sn	Limbu language
+lmp	sn	Limbum
+lmp	sn	Limbum language
+lim	sn	Limburgish
+lim	sn	Limburgish language
+lmc	sn	Limilngan
+lmc	sn	Limilngan language
+liy	sn	Linda
+liy	sn	Linda dialect
+lid	sn	Lindrou
+lid	sn	Lindrou language
+bxg	sn	Lingala
+lin	sn	Lingala
+bxg	sn	Lingala language
+lin	sn	Lingala language
+pse	sn	Lintang
+pse	sn	Lintang dialect
+lis	sn	Lisu
+lis	sn	Lisu language
+lit	sn	Lithuanian
+lit	sn	Lithuanian language
+liv	sn	Livonian
+liv	sn	Livonian language
+nso	sn	Lobedu
+nso	sn	Lobedu dialect
+lob	sn	Lobi
+lob	sn	Lobi language
+log	sn	Logo
+log	sn	Logo language
+rag	sn	Logooli
+rag	sn	Logooli language
+jbo	sn	lojban
+jbo	sn	Lojban (Artificial language)
+khy	sn	Lokele
+khy	sn	Lokele language
+lok	sn	Loko
+lok	sn	Loko language
+llq	sn	Lolak
+llq	sn	Lolak language
+mfb	sn	Lom
+mfb	sn	Lom language
+lom	sn	Loma
+lom	sn	Loma language
+lmo	sn	Lombard
+lmo	sn	Lombard language
+lon	sn	Lomwe (Malawi)
+ngl	sn	Lomwe (Mozambique)
+lon	sn	Lomwe language (Malawi)
+ngl	sn	Lomwe language (Mozambique)
+lgu	sn	Longgu
+lgu	sn	Longgu language
+lnu	sn	Longuda
+lnu	sn	Longuda language
+los	sn	Loniu
+los	sn	Loniu language
+crc	sn	Lonwolwol
+crc	sn	Lonwolwol dialect
+lop	sn	Lopa
+loy	sn	Lopa (Nepal)
+lop	sn	Lopa (Nigeria)
+lop	sn	Lopa language (Nigeria)
+loy	sn	Lopa language (Nepal)
+lor	sn	Lorhon
+lor	sn	Lorhon language
+lse	sn	Losengo
+lse	sn	Losengo language
+uvl	sn	Lote
+uvl	sn	Lote language
+lot	sn	Lotuko
+lot	sn	Lotuko language
+loj	sn	Lou
+loj	sn	Lou language
+rmy	sn	Lovari
+rmy	sn	Lovari dialect
+nds	sn	Low German
+nds	sn	Low German language
+dsb	sn	Lower Sorbian
+dsb	sn	Lower Sorbian language
+kml	sn	Lower Tanudan Kalinga
+kml	sn	Lower Tanudan Kalinga language
+loz	sn	Lozi
+loz	sn	Lozi language
+khb	sn	Lu?
+khb	sn	Lu? language
+lub	sn	Luba-Katanga
+lub	sn	Luba-Katanga language
+lua	sn	Luba-Lulua
+lua	sn	Luba-Lulua language
+lch	sn	Lucazi
+lch	sn	Lucazi language
+lud	sn	Ludic
+lud	sn	Ludic dialect
+lgg	sn	Lugbara
+lgg	sn	Lugbara language
+lui	sn	Luisen?o
+lui	sn	Luisen?o language
+vil	sn	Lule
+vil	sn	Lule language
+smj	sn	Lule Sami
+smj	sn	Lule Sami dialect
+lup	sn	Lumbu
+lup	sn	Lumbu (Gabon)
+lup	sn	Lumbu language (Gabon)
+str	sn	Lummi
+str	sn	Lummi dialect
+lun	sn	Lunda
+lun	sn	Lunda language
+nst	sn	Lungchang
+nst	sn	Lungchang dialect
+mgr	sn	Lungu
+mgr	sn	Lungu dialect
+luo	sn	Luo (Kenya and Tanzania)
+luo	sn	Luo language (Kenya and Tanzania)
+lus	sn	Lushai
+lus	sn	Lushai language
+khl	sn	Lusi
+khl	sn	Lusi language
+lue	sn	Luvale
+lue	sn	Luvale language
+hit	sn	Luwian
+hit	sn	Luwian language
+ltz	sn	Luxembourgish
+ltz	sn	Luxembourgish language
+lyn	sn	Luyana
+lyn	sn	Luyana language
+luy	sn	Luyia
+luy	sn	Luyia language
+lwo	sn	Lwo (Sudan)
+lwo	sn	Lwo language (Sudan)
+xlc	sn	Lycian
+xlc	sn	Lycian language
+xld	sn	Lydian
+xld	sn	Lydian language
+gnh	sn	Lyele
+gnh	sn	Lyele language
+grg	sn	Ma
+grg	sn	Ma language
+cma	sn	Maa
+cma	sn	Maa (Southeast Asia)
+cma	sn	Maa dialect (Vietnam)
+mhy	sn	Maanyan
+mhy	sn	Maanyan language
+ymm	sn	Maay
+ymm	sn	Maay language
+mde	sn	Maba
+mde	sn	Maba language
+mfz	sn	Maban
+mfz	sn	Maban language
+mca	sn	Maca
+mca	sn	Maca language
+mbn	sn	Macaguan
+mbn	sn	Macaguan language
+mkd	sn	Macedonian
+xmk	sn	"Macedonian, Ancient"
+xmk	sn	Macedonian (Ancient)
+mkd	sn	Macedonian language
+mcb	sn	Machiguenga
+mcb	sn	Machiguenga language
+mbr	sn	Macu?
+mbr	sn	Macu? language
+myy	sn	Macuna
+myy	sn	Macuna language
+mbc	sn	Macusi
+mbc	sn	Macusi language
+mxu	sn	Mada
+mxu	sn	Mada (Cameroon)
+mxu	sn	Mada language (Cameroon)
+prs	sn	Madaglashti
+prs	sn	Madaglashti dialect
+mhi	sn	Ma?di (Uganda and Sudan)
+mhi	sn	Ma?di language (Uganda and Sudan)
+mrr	sn	Ma?d?iya?-Gon?d?i?
+mrr	sn	Ma?d?iya?-Gon?d?i? dialect
+mad	sn	Madurese
+mad	sn	Madurese language
+maf	sn	Mafa
+maf	sn	Mafa language
+mag	sn	Magahi
+mag	sn	Magahi language
+mgp	sn	Magar
+mrd	sn	Magar
+mgp	sn	Magar language
+mrd	sn	Magar language
+aoe	sn	"Magi (Southern Highlands Province, Papua New Guinea)"
+aoe	sn	"Magi language (Southern Highlands Province, Papua New Guinea)"
+mdh	sn	Magindanao
+mdh	sn	Magindanao language
+pmh	sn	Maharashtri
+pmh	sn	Maharashtri language
+fia	sn	Mahas-Fiyadikka
+fia	sn	Mahas-Fiyadikka language
+mjy	sn	Mahican
+mjy	sn	Mahican language
+gdq	sn	Mahri
+gdq	sn	Mahri language
+ayz	sn	Mai Brat
+ayz	sn	Mai Brat language
+mjd	sn	Maidu
+nmu	sn	Maidu
+nsz	sn	Maidu
+vmv	sn	Maidu
+mjd	sn	Maidu language
+nmu	sn	Maidu language
+nsz	sn	Maidu language
+vmv	sn	Maidu language
+mgu	sn	Mailu
+mgu	sn	Mailu language
+mbq	sn	Maisin
+mbq	sn	Maisin language
+mai	sn	Maithili
+mai	sn	Maithili language
+mpe	sn	Majang
+mpe	sn	Majang language
+mwm	sn	Majingai
+mwm	sn	Majingai dialect
+mcp	sn	Maka (Cameroon)
+mcp	sn	Maka language (Cameroon)
+myh	sn	Makah
+myh	sn	Makah language
+mkz	sn	Makasai
+mkz	sn	Makasai language
+mak	sn	Makasar
+mak	sn	Makasar language
+kde	sn	Makonde
+kde	sn	Makonde language
+lva	sn	Maku?a (Indonesia)
+lva	sn	Maku?a language (Indonesia)
+mlg	sn	Malagasy
+mlg	sn	Malagasy language
+mpb	sn	Malak Malak
+mpb	sn	Malak Malak language
+msa	sn	Malay
+msa	sn	Malay language
+mal	sn	Malayalam
+mal	sn	Malayalam language
+mdy	sn	Male
+mdy	sn	Male (Ethiopia)
+mdy	sn	Male language (Ethiopia)
+mlx	sn	Malfaxal
+mlx	sn	Malfaxal language
+mfi	sn	Malgwa
+mfi	sn	Malgwa dialect
+mlt	sn	Maltese
+mlt	sn	Maltese language
+mjt	sn	Malto
+mjt	sn	Malto language
+mup	sn	Malvi
+mup	sn	Malvi dialect
+mam	sn	Mam
+mam	sn	Mam language
+mmn	sn	Mamanwa
+mmn	sn	Mamanwa language
+myk	sn	Mamara
+myk	sn	Mamara language
+mgm	sn	Mambai
+mgm	sn	Mambai language
+mcu	sn	Mambila
+mzk	sn	Mambila
+mcu	sn	Mambila language
+mzk	sn	Mambila language
+mgr	sn	Mambwe
+mgr	sn	Mambwe dialect
+mgr	sn	Mambwe-Lungu
+mgr	sn	Mambwe-Lungu language
+maw	sn	Mampruli
+maw	sn	Mampruli language
+mdi	sn	Mamvu
+mdi	sn	Mamvu language
+mcq	sn	Managalasi
+mcq	sn	Managalasi language
+mva	sn	Manam
+mva	sn	Manam language
+mle	sn	Manambu
+mle	sn	Manambu language
+mnc	sn	Manchu
+mnc	sn	Manchu language
+mid	sn	Mandaean
+mid	sn	Mandaean language
+btm	sn	Mandailing
+btm	sn	Mandailing dialect
+mmx	sn	Mandak
+mmx	sn	Mandak language
+mhq	sn	Mandan
+mhq	sn	Mandan language
+mdr	sn	Mandar
+mdr	sn	Mandar language
+cmn	sn	Mandarin
+cmn	sn	Mandarin dialects
+mjl	sn	Mandeali
+mjl	sn	Mandeali dialect
+sbb	sn	Mandegusu
+sbb	sn	Mandegusu language
+man	sn	Mandingo
+man	sn	Mandingo language
+mfv	sn	Mandjak
+mfv	sn	Mandjak language
+mpj	sn	Mandjildjara
+mpj	sn	Mandjildjara dialect
+zng	sn	Mang
+zng	sn	Mang language
+rar	sn	Mangaian
+rar	sn	Mangaian language
+mem	sn	Mangala
+mem	sn	Mangala language
+mna	sn	Mangap
+mna	sn	Mangap language
+mpc	sn	Mangarayi
+mpc	sn	Mangarayi language
+mrv	sn	Mangareva
+mrv	sn	Mangareva language
+mdj	sn	Mangbetu
+mdj	sn	Mangbetu language
+mqy	sn	Manggarai
+mqy	sn	Manggarai (Indonesia)
+mqy	sn	Manggarai language (Indonesia)
+mbh	sn	Mangseng
+mbh	sn	Mangseng language
+cjr	sn	Mangue
+cjr	sn	Mangue language
+iry	sn	Mangyan
+iry	sn	Mangyan language
+mni	sn	Manipuri
+mni	sn	Manipuri language
+knf	sn	Mankanya
+knf	sn	Mankanya language
+nge	sn	Mankon
+nge	sn	Mankon dialect
+mev	sn	Mano
+mev	sn	Mano language
+mno	sn	Manobo languages
+msk	sn	Mansaka
+msk	sn	Mansaka language
+mns	sn	Mansi
+mns	sn	Mansi language
+zlm	sn	Mantang
+zlm	sn	Mantang dialect
+wow	sn	Manui
+wow	sn	Manui language
+obo	sn	Manuvu
+obo	sn	Manuvu language
+glv	sn	Manx
+glv	sn	Manx language
+mxc	sn	Manyika
+mxc	sn	Manyika language
+nbi	sn	Mao Naga
+nbi	sn	Mao Naga language
+mmd	sn	Maonan
+mmd	sn	Maonan language
+mri	sn	Maori
+mri	sn	Maori language
+arn	sn	Mapuche
+arn	sn	Mapuche language
+mec	sn	Mara (Australia)
+mec	sn	Mara language (Australia)
+nma	sn	Maram
+nma	sn	Maram language
+mrw	sn	Maranao
+mrw	sn	Maranao language
+zmr	sn	Maranunggu
+zmr	sn	Maranunggu language
+bfy	sn	Marari
+bfy	sn	Marari dialect
+mar	sn	Marathi
+mar	sn	Marathi language
+zmc	sn	Margany
+zmc	sn	Margany language
+mfm	sn	Margi
+mrt	sn	Margi
+mfm	sn	Margi language
+mrt	sn	Margi language
+mrr	sn	Maria
+mrr	sn	Maria (India)
+mrr	sn	Maria language (India)
+mrc	sn	Maricopa
+mrc	sn	Maricopa language
+gvf	sn	Marigl
+gvf	sn	Marigl dialect
+bpv	sn	Marindinese
+mrz	sn	Marindinese
+bpv	sn	Marindinese language
+mrz	sn	Marindinese language
+mbw	sn	Maring
+mbw	sn	Maring language
+mvo	sn	Marovo
+mvo	sn	Marovo language
+mqm	sn	Marquesan
+mrq	sn	Marquesan
+mqm	sn	Marquesan language
+mrq	sn	Marquesan language
+mfr	sn	Marri Amu
+mfr	sn	Marri Amu language
+zmt	sn	Marri Ngarr
+zmt	sn	Marri Ngarr language
+mah	sn	Marshallese
+mah	sn	Marshallese language
+mpj	sn	Martu Wangka
+mpj	sn	Martu Wangka language
+vma	sn	Martuyhunira
+vma	sn	Martuyhunira language
+mhx	sn	Maru
+mhx	sn	Maru language
+mwr	sn	Marwari
+mwr	sn	Marwari language
+mcn	sn	Masa
+mcn	sn	Masa (Chadic)
+mcn	sn	Masa language (Chadic)
+mbl	sn	Masacali
+mbl	sn	Masacali language
+mas	sn	Masai
+mas	sn	Masai language
+msb	sn	Masbateno
+msb	sn	Masbateno language
+emo	sn	Mascoi
+emo	sn	Mascoi language
+mli	sn	Masenrempulu
+mvp	sn	Masenrempulu
+ptt	sn	Masenrempulu
+wmm	sn	Masenrempulu
+mli	sn	Masenrempulu language
+mvp	sn	Masenrempulu language
+ptt	sn	Masenrempulu language
+wmm	sn	Masenrempulu language
+amr	sn	Mashco
+amr	sn	Mashco language
+msh	sn	Masikoro
+msh	sn	Masikoro dialect
+wam	sn	Massachuset
+wam	sn	Massachuset language
+ccr	sn	Matagalpa
+mtn	sn	Matagalpa
+ccr	sn	Matagalpa language
+mtn	sn	Matagalpa language
+mbt	sn	MatigSalug
+mbt	sn	MatigSalug language
+mat	sn	Matlatzinca
+mat	sn	Matlatzinca language
+mtm	sn	Mator
+mtm	sn	Mator language
+mvb	sn	Mattole
+mvb	sn	Mattole language
+mgw	sn	Matumbi
+mgw	sn	Matumbi language
+mxx	sn	Mau
+mxx	sn	Mau (Co?te d'Ivoire)
+mxx	sn	Mau dialect (Co?te d'Ivoire)
+mav	sn	Maue
+mav	sn	Maue language
+mph	sn	Maung
+mph	sn	Maung language
+mnb	sn	Mawasangka
+mnb	sn	Mawasangka dialect
+mke	sn	Mawchi
+mke	sn	Mawchi language
+mxl	sn	Maxi
+mxl	sn	Maxi dialect
+yua	sn	Maya
+slz	sn	Ma'ya (Indonesia)
+yua	sn	Maya language
+slz	sn	Ma'ya language (Indonesia)
+myn	sn	Mayan languages
+mfy	sn	Mayo (Piman)
+mfy	sn	Mayo dialect (Piman)
+mdm	sn	Mayogo
+mdm	sn	Mayogo language
+mcf	sn	Mayoruna
+mcf	sn	Mayoruna language
+ifu	sn	Mayoyao Ifugao
+ifu	sn	Mayoyao Ifugao dialect
+maz	sn	Mazahua
+mmc	sn	Mazahua
+maz	sn	Mazahua language
+mmc	sn	Mazahua language
+mzn	sn	Ma?zandara?ni?
+mzn	sn	Ma?zandara?ni? language
+myb	sn	Mbai (Moissala)
+myb	sn	Mbai language (Moissala)
+mdp	sn	"Mbala (Bandundu, Congo)"
+mdp	sn	"Mbala language (Bandundu, Congo)"
+mpk	sn	Mbara (Chad)
+mpk	sn	Mbara language (Chad)
+kbc	sn	Mbaya
+kbc	sn	Mbaya language
+mql	sn	Mbelime
+mql	sn	Mbelime language
+mdt	sn	Mbete
+mdt	sn	Mbete language
+baw	sn	Mbili
+baw	sn	Mbili language
+liz	sn	Mbinsa
+liz	sn	Mbinsa language
+mbo	sn	Mbo (Cameroon)
+mbo	sn	Mbo language (Cameroon)
+mdw	sn	Mbosi
+mdw	sn	Mbosi language
+mhd	sn	Mbugu
+mhd	sn	Mbugu language
+mgz	sn	Mbugwe
+mgz	sn	Mbugwe language
+mqb	sn	Mbuko
+mqb	sn	Mbuko language
+mhw	sn	Mbukushu
+mhw	sn	Mbukushu language
+mdd	sn	Mbum
+mdd	sn	Mbum language
+mck	sn	Mbunda
+mck	sn	Mbunda (Angola and Zambia)
+mck	sn	Mbunda language (Angola and Zambia)
+gun	sn	Mbya
+gun	sn	Mbya language
+mej	sn	Meax
+mej	sn	Meax language
+xme	sn	Median
+xme	sn	Median language
+grc	sn	Medieval Greek
+hbo	sn	Medieval Hebrew
+med	sn	Medlpa
+med	sn	Medlpa language
+byv	sn	Medumba
+byv	sn	Medumba language
+dar	sn	Megeb
+dar	sn	Megeb dialect
+mek	sn	Mekeo
+mek	sn	Mekeo language
+lbw	sn	Mekongga
+lbw	sn	Mekongga language
+pwm	sn	Melebuganon
+pwm	sn	Melebuganon language
+mxe	sn	Mele-Fila
+mxe	sn	Mele-Fila language
+tsj	sn	Memba
+tsj	sn	Memba language
+xkd	sn	Mendalam Kayan
+xkd	sn	Mendalam Kayan dialect
+men	sn	Mende
+sim	sn	Mende (Papua New Guinea)
+men	sn	Mende (Sierra Leone)
+men	sn	Mende language (Sierra Leone)
+sim	sn	Mende language (Papua New Guinea)
+zme	sn	Mengerrdji
+zme	sn	Mengerrdji language
+mez	sn	Menominee
+mez	sn	Menominee language
+mwv	sn	Mentawai
+mwv	sn	Mentawai language
+bvu	sn	Meratus
+bvu	sn	Meratus dialect
+lmb	sn	Merei
+lmb	sn	Merei language
+xmr	sn	Meroitic
+xmr	sn	Meroitic language
+tel	sn	Merolu
+tel	sn	Merolu dialect
+mer	sn	Meru
+mer	sn	Meru language
+apm	sn	Mescalero
+apm	sn	Mescalero language
+mvz	sn	Mesqan
+mvz	sn	Mesqan language
+cms	sn	Messapian
+cms	sn	Messapian language
+mgo	sn	Meta
+mgo	sn	Meta (Cameroon)
+mgo	sn	Meta language (Cameroon)
+mtr	sn	Mewari
+mtr	sn	Mewari dialect
+wtm	sn	Mewati
+wtm	sn	Mewati dialect
+mfs	sn	Mexican Sign
+mfs	sn	Mexican Sign Language
+gng	sn	Mi Gangam
+gng	sn	Mi Gangam language
+mia	sn	Miami
+mia	sn	Miami (Ind. and Okla.)
+mia	sn	Miami language (Ind. and Okla.)
+mpt	sn	Mianmin
+mpt	sn	Mianmin language
+crg	sn	Michif
+crg	sn	Michif language
+mic	sn	Micmac
+mic	sn	Micmac language
+axm	sn	Middle Armenian 
+axm	sn	Middle Armenian language
+frm	sn	Middle French
+mei	sn	Midob
+mei	sn	Midob language
+mgi	sn	Migili
+mgi	sn	Migili language
+sjl	sn	Miji
+sjl	sn	Miji language
+mxj	sn	Miju
+mxj	sn	Miju dialect
+mik	sn	Mikasuki
+mik	sn	Mikasuki language
+mjw	sn	Mikir
+mjw	sn	Mikir language
+adi	sn	Milang
+adi	sn	Milang language
+hna	sn	Mina
+hna	sn	Mina (Cameroon)
+hna	sn	Mina language (Cameroon)
+inm	sn	Minaean
+inm	sn	Minaean language
+min	sn	Minangkabau
+min	sn	Minangkabau language
+mvn	sn	Minaveha
+mvn	sn	Minaveha language
+xmf	sn	Mingrelian
+xmf	sn	Mingrelian language
+mwl	sn	Mirandese
+mwl	sn	Mirandese dialect
+tat	sn	Mishar
+tat	sn	Mishar dialect
+clk	sn	Mishmi
+clk	sn	Mishmi language
+mpx	sn	Misima
+mpx	sn	Misima language
+mpx	sn	Misima-Panayati
+mpx	sn	Misima-Panayati language
+miq	sn	Miskito
+miq	sn	Miskito language
+ojg	sn	Missisauga
+ojg	sn	Missisauga language
+zmq	sn	Mituku
+zmq	sn	Mituku language
+mkf	sn	Miya
+mkf	sn	Miya language
+mux	sn	Miyemu
+mux	sn	Miyemu language
+bqz	sn	Mkaa?
+bqz	sn	Mkaa? dialect
+mra	sn	Mlabri
+mra	sn	Mlabri language
+mzw	sn	Mo
+mzw	sn	Mo (Co?te d'Ivoire and Ghana)
+mzw	sn	Mo language (Co?te d'Ivoire and Ghana)
+mfq	sn	Moba
+mfq	sn	Moba language
+akz	sn	Mobilian trade
+akz	sn	Mobilian trade language
+moy	sn	Mocha
+moy	sn	Mocha language
+mhc	sn	Mocho?
+mhc	sn	Mocho? language
+moc	sn	Mocovi?
+moc	sn	Mocovi? language
+ell	sn	Modern Greek
+aii	sn	Modern Syriac
+mhj	sn	Moghol
+mhj	sn	Moghol language
+gum	sn	Moguex
+gum	sn	Moguex language
+mov	sn	Mohave
+mov	sn	Mohave language
+moh	sn	Mohawk
+moh	sn	Mohawk language
+mof	sn	Mohegan
+mof	sn	Mohegan language
+ign	sn	Mojo
+ign	sn	Mojo language
+mwt	sn	Moken
+mwt	sn	Moken language
+mkj	sn	Mokilese
+mkj	sn	Mokilese language
+mkm	sn	Moklen
+mkm	sn	Moklen language
+nst	sn	Moklum
+nst	sn	Moklum dialect
+mdf	sn	Moksha
+mdf	sn	Moksha dialect
+moz	sn	Mokulu
+moz	sn	Mokulu language
+rum	sn	Moldovan
+rum	sn	Moldovan dialect
+mox	sn	Molima
+mox	sn	Molima language
+arn	sn	Moluche
+arn	sn	Moluche dialect
+mnw	sn	Mon
+mnw	sn	Mon language
+mon	sn	Mongolian
+mon	sn	Mongolian language
+xgn	sn	Mongolian languages
+lol	sn	Mongo-Nkundu
+lol	sn	Mongo-Nkundu language
+mjg	sn	Mongour
+mjg	sn	Mongour language
+moj	sn	Monjombo
+moj	sn	Monjombo language
+mkh	sn	Mon-Khmer languages
+mnh	sn	Mono (Congo)
+mnh	sn	Mono language (Congo)
+mte	sn	Mono-Alu
+mte	sn	Mono-Alu language
+moe	sn	Montagnais
+moe	sn	Montagnais language
+mxk	sn	Monumbo
+mxk	sn	Monumbo language
+mos	sn	Moore?
+mos	sn	Moore? language
+mop	sn	Mopan
+mop	sn	Mopan dialect
+mal	sn	Moplah
+mal	sn	Moplah dialect
+mzq	sn	Mori
+mzq	sn	Mori language
+ayo	sn	Moro (South America)
+mor	sn	Moro (Sudan)
+ayo	sn	Moro language (South America)
+mor	sn	Moro language (Sudan)
+mqn	sn	Moronene
+mqn	sn	Moronene language
+mrl	sn	Mortlockese
+mrl	sn	Mortlockese language
+mgd	sn	Moru
+mgd	sn	Moru language
+cas	sn	Moseten
+cas	sn	Moseten language
+nmh	sn	Moshang
+nmh	sn	Moshang language
+mtt	sn	Mota
+mtt	sn	Mota language
+mot	sn	Motilon
+mot	sn	Motilon language
+mlv	sn	Motlav
+mlv	sn	Motlav language
+meu	sn	Motu
+meu	sn	Motu language
+mqt	sn	Mouk
+mqt	sn	Mouk language
+ape	sn	Mountain Arapesh
+ape	sn	Mountain Arapesh language
+kpx	sn	Mountain Koiari
+kpx	sn	Mountain Koiari language
+mzp	sn	Movima
+mzp	sn	Movima language
+mcx	sn	Mpiemo
+mcx	sn	Mpiemo language
+mye	sn	Mpongwe
+mye	sn	Mpongwe language
+akc	sn	Mpur (Indonesia)
+akc	sn	Mpur language (Indonesia)
+mug	sn	Mpus
+mug	sn	Mpus dialect
+swh	sn	Mtang'ata
+swh	sn	Mtang'ata dialect
+mtd	sn	Mualang
+mtd	sn	Mualang language
+moa	sn	Muana
+moa	sn	Muana language
+mwd	sn	Mudburra
+mwd	sn	Mudburra language
+wiv	sn	Muduapa
+wiv	sn	Muduapa language
+muv	sn	Muduva
+muv	sn	Muduva dialect
+mlp	sn	Mugil
+mlp	sn	Mugil language
+bmr	sn	Muinane
+bmr	sn	Muinane language
+mwc	sn	Mukawa
+mwc	sn	Mukawa language
+min	sn	Mukomuko
+min	sn	Mukomuko language
+ckb	sn	Mukri
+ckb	sn	Mukri dialect
+mlm	sn	Mulao
+mlm	sn	Mulao language
+est	sn	Mulgi
+est	sn	Mulgi dialect
+mzm	sn	Mumuye
+mzm	sn	Mumuye language
+mwq	sn	Mu?n Chin
+mwq	sn	Mu?n Chin language
+mnb	sn	Muna
+mnb	sn	Muna language
+mun	sn	Munda languages
+mua	sn	Mundang
+mua	sn	Mundang language
+mnf	sn	Mundani
+mnf	sn	Mundani language
+unr	sn	Mundari
+unr	sn	Mundari language
+muh	sn	Mundu
+muh	sn	Mundu (Sudan and Congo)
+muh	sn	Mundu language (Sudan and Congo)
+myu	sn	Munduruku
+myu	sn	Munduruku language
+mhk	sn	Mungaka
+mhk	sn	Mungaka language
+myr	sn	Munichi
+myr	sn	Munichi language
+mnj	sn	Munji
+mnj	sn	Munji language
+irn	sn	Mu?nku?
+irn	sn	Mu?nku? dialect
+umu	sn	Munsee
+umu	sn	Munsee language
+mtq	sn	Muong
+mtq	sn	Muong language
+sur	sn	Mupun
+sur	sn	Mupun dialect
+myp	sn	Mura
+myp	sn	Mura language
+mur	sn	Murle
+mur	sn	Murle language
+mwf	sn	Murrinhpatha
+mwf	sn	Murrinhpatha language
+huu	sn	Murui
+huu	sn	Murui language
+zmu	sn	Muruwari
+zmu	sn	Muruwari language
+mse	sn	Musey
+mse	sn	Musey language
+mug	sn	Musgu
+mug	sn	Musgu language
+mui	sn	Musi
+mui	sn	Musi dialect
+msu	sn	Musom
+msu	sn	Musom language
+umb	sn	Mussele
+umb	sn	Mussele dialect
+css	sn	Mutsun
+css	sn	Mutsun dialect
+myw	sn	Muyuw
+myw	sn	Muyuw language
+sur	sn	Mwaghavul
+sur	sn	Mwaghavul language
+wbh	sn	Mwamba
+wbh	sn	Mwamba language
+sie	sn	Mwenyi
+sie	sn	Mwenyi language
+mjh	sn	Mwera
+mwe	sn	Mwera
+mjh	sn	Mwera language
+mwe	sn	Mwera language
+swh	sn	Mwini
+swh	sn	Mwini dialect
+yms	sn	Mysian
+yms	sn	Mysian language
+mzb	sn	Mzab
+mzb	sn	Mzab language
+naf	sn	Nabak
+naf	sn	Nabak language
+xnd	sn	Na-Dene languages
+nfr	sn	Nafaanra
+nfr	sn	Nafaanra language
+nca	sn	Nahu
+nca	sn	Nahu language
+nah	sn	Nahuatl
+nah	sn	Nahuatl language
+nak	sn	Nakanai
+nak	sn	Nakanai language
+nck	sn	Nakara
+nck	sn	Nakara language
+nss	sn	Nali
+nss	sn	Nali language
+nal	sn	Nalik
+nal	sn	Nalik language
+naq	sn	Nama
+naq	sn	Nama language
+nmk	sn	Namakura
+nmk	sn	Namakura language
+lzl	sn	Naman
+lzl	sn	Naman (Vanuatu)
+lzl	sn	Naman language (Vanuatu)
+nmq	sn	Nambya
+nmq	sn	Nambya language
+nnm	sn	Namia
+nnm	sn	Namia language
+gld	sn	Nanai
+gld	sn	Nanai language
+nnc	sn	Nancere
+nnc	sn	Nancere language
+ncb	sn	Nancowry
+ncb	sn	Nancowry language
+nnb	sn	Nande
+nnb	sn	Nande language
+kln	sn	Nandi
+kln	sn	Nandi language
+nnk	sn	Nankina
+nnk	sn	Nankina language
+cox	sn	Nanti
+cox	sn	Nanti language
+nnt	sn	Nanticoke
+nnt	sn	Nanticoke language
+npy	sn	Napu
+npy	sn	Napu language
+nrb	sn	Nara
+nrb	sn	Nara language
+nac	sn	Narak
+nac	sn	Narak language
+nnr	sn	Narangga
+nnr	sn	Narangga language
+mof	sn	Narragansett
+mof	sn	Narragansett language
+nay	sn	Narrinyeri
+nay	sn	Narrinyeri language
+nas	sn	Nasioi
+nas	sn	Nasioi language
+nsk	sn	Naskapi
+nsk	sn	Naskapi language
+ntz	sn	Natanzi
+ntz	sn	Natanzi language
+ncz	sn	Natchez
+ncz	sn	Natchez language
+ntm	sn	Nateni
+ntm	sn	Nateni language
+ess	sn	Naukan Yupik
+ess	sn	Naukan Yupik language
+nau	sn	Nauru
+nau	sn	Nauru language
+nav	sn	Navajo
+nav	sn	Navajo language
+nmz	sn	Nawdm
+nmz	sn	Nawdm language
+nbf	sn	Naxi
+nbf	sn	Naxi language
+ncu	sn	Nchumburu
+ncu	sn	Nchumburu language
+ndh	sn	Ndali
+ndh	sn	Ndali language
+ndc	sn	Ndau
+ndc	sn	Ndau language
+nbl	sn	Ndebele (South Africa)
+nde	sn	Ndebele (Zimbabwe)
+nbl	sn	Ndebele language (South Africa)
+nde	sn	Ndebele language (Zimbabwe)
+djj	sn	Ndjebbana
+djj	sn	Ndjebbana language
+ndo	sn	Ndonga
+ndo	sn	Ndonga language
+nmd	sn	Ndumu
+nmd	sn	Ndumu language
+ndt	sn	Ndunga
+ndt	sn	Ndunga language
+neg	sn	Negidal
+neg	sn	Negidal language
+nsn	sn	Nehan
+nsn	sn	Nehan language
+ijs	sn	Nembe
+ijs	sn	Nembe language
+nem	sn	Nemi
+nem	sn	Nemi language
+yrk	sn	Nenets
+yrk	sn	Nenets language
+nen	sn	Nengone
+nen	sn	Nengone language
+tld	sn	Nenusa-Miangas
+tld	sn	Nenusa-Miangas dialect
+nep	sn	Nepali
+nep	sn	Nepali language
+nzs	sn	New Zealand Sign
+nzs	sn	New Zealand Sign Language
+new	sn	Newari
+new	sn	Newari language
+nez	sn	Nez Perce?
+nez	sn	Nez Perce? language
+ntj	sn	Ngaanyatjarra
+ntj	sn	Ngaanyatjarra language
+nxg	sn	Ngada
+nxg	sn	Ngada language
+nju	sn	Ngadju (Australia)
+nju	sn	Ngadju language (Australia)
+nij	sn	Ngaju
+nij	sn	Ngaju language
+nig	sn	Ngalakan
+nig	sn	Ngalakan language
+kbl	sn	Ngalduku
+kbl	sn	Ngalduku dialect
+djd	sn	Ngaliwuru
+djd	sn	Ngaliwuru language
+nmc	sn	Ngama
+nmc	sn	Ngama dialect
+nbh	sn	Ngamo
+nbh	sn	Ngamo language
+nio	sn	Nganasan
+nio	sn	Nganasan language
+nid	sn	Ngandi
+nid	sn	Ngandi language
+nam	sn	Ngankikurungkurr
+nam	sn	Ngankikurungkurr language
+ung	sn	Ngarinyin
+ung	sn	Ngarinyin language
+nbj	sn	Ngarinyman
+nbj	sn	Ngarinyman language
+nlr	sn	Ngarla
+nlr	sn	Ngarla language
+nrl	sn	Ngarluma
+nrl	sn	Ngarluma language
+ngm	sn	Ngatik
+ngm	sn	Ngatik language
+cnw	sn	Ngaun
+cnw	sn	Ngaun language
+nxn	sn	Ngawun
+nxn	sn	Ngawun language
+nga	sn	Ngbaka
+nga	sn	Ngbaka language
+nbm	sn	Ngbaka ma'bo
+nbm	sn	Ngbaka ma'bo language
+nbw	sn	Ngbandi
+ngb	sn	Ngbandi
+nbw	sn	Ngbandi language
+ngb	sn	Ngbandi language
+nge	sn	Ngemba
+nge	sn	Ngemba (Cameroon)
+nge	sn	Ngemba language (Cameroon)
+niy	sn	Ngiti
+niy	sn	Ngiti language
+ngi	sn	Ngizim
+ngi	sn	Ngizim language
+xkv	sn	Ngologa
+xkv	sn	Ngologa dialect
+jgo	sn	Ngomba (Bamileke)
+jgo	sn	Ngomba language (Bamileke)
+ngc	sn	Ngombe
+ngc	sn	Ngombe language
+nyy	sn	Ngonde
+nyy	sn	Ngonde language
+ngo	sn	Ngoni
+ngo	sn	Ngoni (Tanzania and Mozambique)
+ngo	sn	Ngoni language (Tanzania and Mozambique)
+llp	sn	Nguna
+nmk	sn	Nguna
+llp	sn	Nguna language
+nmk	sn	Nguna language
+nuo	sn	Nguo?n
+nuo	sn	Nguo?n language
+ibo	sn	Ngwa
+ibo	sn	Ngwa dialect
+nnh	sn	Ngyemboon
+nnh	sn	Ngyemboon language
+nha	sn	Nhanda
+nha	sn	Nhanda language
+nhr	sn	Nharo
+nhr	sn	Nharo language
+nia	sn	Nias
+nia	sn	Nias language
+ncs	sn	Nicaraguan Sign
+ncs	sn	Nicaraguan Sign Language
+nie	sn	Nielim
+nie	sn	Nielim language
+nic	sn	Niger-Congo languages
+nll	sn	Nihali
+nll	sn	Nihali language
+nii	sn	Nii
+nii	sn	Nii language
+nim	sn	Nilamba
+nim	sn	Nilamba language
+ssa	sn	Nilo-Saharan languages
+noe	sn	Nimadi
+noe	sn	Nimadi dialect
+nir	sn	Nimboran
+nir	sn	Nimboran language
+ojc	sn	Nipissing
+ojc	sn	Nipissing language
+kib	sn	Nirere
+kib	sn	Nirere dialect
+nsz	sn	Nisenan
+nsz	sn	Nisenan language
+ncg	sn	Niska
+ncg	sn	Niska language
+lut	sn	Nisqually
+lut	sn	Nisqually language
+niu	sn	Niuean
+niu	sn	Niuean language
+koi	sn	Nizhnein?venskii?
+koi	sn	Nizhnein?venskii? dialect
+nko	sn	Nkonya
+nko	sn	Nkonya language
+nka	sn	Nkoya
+nka	sn	Nkoya language
+njb	sn	Nocte
+njb	sn	Nocte language
+nog	sn	Nogai
+nog	sn	Nogai language
+nkk	sn	Nogugu
+nkk	sn	Nogugu language
+lem	sn	Nomaante
+lem	sn	Nomaante language
+not	sn	Nomatsiguenga
+not	sn	Nomatsiguenga language
+snf	sn	Noon
+snf	sn	Noon language
+nhu	sn	Noone
+nhu	sn	Noone language
+noo	sn	Nootka
+noo	sn	Nootka language
+nrn	sn	Norn
+nrn	sn	Norn dialect
+llp	sn	North Efate
+llp	sn	North Efate language
+frr	sn	North Frisian
+frr	sn	North Frisian dialect
+str	sn	North Straits Salish
+str	sn	North Straits Salish language
+kiw	sn	Northeastern Kiwai
+kiw	sn	Northeastern Kiwai language
+atv	sn	Northern Altai
+atv	sn	Northern Altai language
+buy	sn	Northern Bullom
+buy	sn	Northern Bullom language
+xnn	sn	Northern Kankanay
+xnn	sn	Northern Kankanay dialect
+kca	sn	Northern Khanty
+kca	sn	Northern Khanty dialect
+kxm	sn	Northern Khmer
+kxm	sn	Northern Khmer language
+mnp	sn	Northern Min
+mnp	sn	Northern Min dialects
+pao	sn	Northern Paiute
+pao	sn	Northern Paiute language
+pej	sn	Northern Pomo
+pej	sn	Northern Pomo language
+rog	sn	Northern Roglai
+rog	sn	Northern Roglai dialect
+sme	sn	Northern Sami
+sme	sn	Northern Sami dialect
+nsq	sn	Northern Sierra Miwok
+nsq	sn	Northern Sierra Miwok language
+nso	sn	Northern Sotho
+nso	sn	Northern Sotho language
+nod	sn	Northern Thai
+nod	sn	Northern Thai language
+nor	sn	Norwegian
+nor	sn	Norwegian language
+nno	sn	Norwegian language (Nynorsk)
+nno	sn	Norwegian Nynorsk
+ncf	sn	Notsi
+ncf	sn	Notsi language
+nou	sn	Notu
+nou	sn	Notu language
+nov	sn	Novial
+nov	sn	Novial (Artificial language)
+nse	sn	Nsenga
+nse	sn	Nsenga language
+thp	sn	Ntlakyapamuk
+thp	sn	Ntlakyapamuk language
+nto	sn	Ntomba
+nto	sn	Ntomba language
+nni	sn	Nuaulu
+nxl	sn	Nuaulu
+nni	sn	Nuaulu language
+nxl	sn	Nuaulu language
+kcn	sn	Nubi
+kcn	sn	Nubi language
+nub	sn	Nubian languages
+nus	sn	Nuer
+nus	sn	Nuer language
+nnv	sn	Nukunu
+nnv	sn	Nukunu language
+nkr	sn	Nukuoro
+nkr	sn	Nukuoro language
+sij	sn	Numbami
+sij	sn	Numbami language
+bhw	sn	Numfor
+bhw	sn	Numfor language
+nun	sn	Nung
+nun	sn	Nung language
+nuy	sn	Nunggubuyu
+nuy	sn	Nunggubuyu language
+xsm	sn	Nunuma
+xsm	sn	Nunuma dialect
+nup	sn	Nupe
+nup	sn	Nupe language
+nwb	sn	Nyabwa
+nwb	sn	Nyabwa language
+cbn	sn	Nyah Kur
+cbn	sn	Nyah Kur language
+nev	sn	Nyaheun
+nev	sn	Nyaheun language
+yly	sn	Nyalayu
+yly	sn	Nyalayu language
+now	sn	Nyambo
+now	sn	Nyambo language
+nym	sn	Nyamwezi
+nym	sn	Nyamwezi language
+nyk	sn	Nyaneka
+nyk	sn	Nyaneka language
+nyj	sn	Nyanga
+nyj	sn	Nyanga language
+nna	sn	Nyangumarta
+nna	sn	Nyangumarta language
+nya	sn	Nyanja
+nya	sn	Nyanja language
+nyn	sn	Nyankole
+nyn	sn	Nyankole language
+nih	sn	Nyiha
+nih	sn	Nyiha language
+nyh	sn	Nyikina
+nyh	sn	Nyikina language
+nyd	sn	Nyore
+nyd	sn	Nyore language
+nyo	sn	Nyoro
+nyo	sn	Nyoro language
+nyv	sn	Nyulnyul
+nyv	sn	Nyulnyul language
+nys	sn	Nyunga
+nys	sn	Nyunga dialects
+nyu	sn	Nyungwe
+nyu	sn	Nyungwe language
+nzk	sn	Nzakara
+nzk	sn	Nzakara dialect
+nzb	sn	Nzebi
+nzb	sn	Nzebi language
+nzi	sn	Nzima
+nzi	sn	Nzima language
+obo	sn	Obo Manobo
+obo	sn	Obo Manobo language
+ann	sn	Obolo
+ann	sn	Obolo language
+oca	sn	Ocaina
+oca	sn	Ocaina language
+oci	sn	Occitan
+oci	sn	Occitan language
+ocu	sn	Ocuiltec
+ocu	sn	Ocuiltec language
+odu	sn	Odual
+odu	sn	Odual language
+ofo	sn	Ofo
+ofo	sn	Ofo language
+pse	sn	Ogan
+pse	sn	Ogan dialect
+ogc	sn	Ogba
+ogc	sn	Ogba language
+ogu	sn	Ogbronuagum
+ogu	sn	Ogbronuagum language
+ozn	sn	Oghuz
+ozn	sn	Oghuz language
+css	sn	Ohlone
+cst	sn	Ohlone
+css	sn	Ohlone language
+cst	sn	Ohlone language
+xal	sn	Oirat
+xal	sn	Oirat language
+oji	sn	Ojibwa
+oji	sn	Ojibwa language
+oka	sn	Okanagan
+oka	sn	Okanagan language
+oke	sn	Okpe
+okx	sn	Okpe
+oke	sn	Okpe language
+okx	sn	Okpe language
+okr	sn	Okrika
+okr	sn	Okrika dialect
+opm	sn	Oksapmin
+opm	sn	Oksapmin language
+ulc	sn	Olcha
+ulc	sn	Olcha language
+fro	sn	Old French
+non	sn	Old Norse
+non	sn	Old Norse language
+peo	sn	Old Persian
+peo	sn	Old Persian language
+pro	sn	Old Provenc?al
+pro	sn	Old Provenc?al language
+osx	sn	Old Saxon
+osx	sn	Old Saxon language
+otk	sn	Old Turkic
+otk	sn	Old Turkic language
+ong	sn	Olo
+ong	sn	Olo language
+olo	sn	Olonets
+olo	sn	Olonets dialect
+plo	sn	Oluta
+plo	sn	Oluta language
+oma	sn	Omaha
+oma	sn	Omaha language
+oml	sn	Ombo
+oml	sn	Ombo language
+omi	sn	Omi
+omi	sn	Omi language
+omv	sn	Omotic languages
+ona	sn	Ona
+ona	sn	Ona language
+one	sn	Oneida
+one	sn	Oneida language
+oon	sn	O?nge
+oon	sn	O?nge language
+bxe	sn	Ongota
+bxe	sn	Ongota language
+ons	sn	Ono
+ons	sn	Ono language
+ono	sn	Onondaga
+ono	sn	Onondaga language
+hei	sn	Oowekyala
+hei	sn	Oowekyala language
+opt	sn	Opata
+opt	sn	Opata language
+ema	sn	Ora
+ema	sn	Ora dialect
+mvf	sn	Ordos
+mvf	sn	Ordos dialect
+ore	sn	Orejo?n
+ore	sn	Orejo?n language
+tag	sn	Orig
+tag	sn	Orig (Sudan)
+tag	sn	Orig dialect (Sudan)
+ori	sn	Oriya
+ori	sn	Oriya language
+orc	sn	Orma
+orc	sn	Orma dialect
+orz	sn	Ormu
+orz	sn	Ormu language
+oru	sn	Ormuri
+oru	sn	Ormuri language
+oac	sn	Oroch
+oac	sn	Oroch language
+oaa	sn	Orok
+oaa	sn	Orok language
+okv	sn	Orokaiva
+okv	sn	Orokaiva language
+oro	sn	Orokolo
+oro	sn	Orokolo language
+orm	sn	Oromo
+orm	sn	Oromo language
+enw	sn	Oron
+enw	sn	Oron language
+orh	sn	Oroqen
+orh	sn	Oroqen language
+mye	sn	Orungu
+mye	sn	Orungu language
+ury	sn	Orya
+ury	sn	Orya language
+osa	sn	Osage
+osa	sn	Osage language
+osc	sn	Oscan
+osc	sn	Oscan language
+osi	sn	Osing
+osi	sn	Osing dialect
+oss	sn	Ossetic
+oss	sn	Ossetic language
+otd	sn	Ot Danum
+otd	sn	Ot Danum language
+iow	sn	Oto
+iow	sn	Oto language
+omq	sn	Otomanguean languages
+oto	sn	Otomian languages
+otw	sn	Ottawa
+otw	sn	Ottawa language
+oua	sn	Ouargla
+oua	sn	Ouargla language
+kjn	sn	Oykangand
+kjn	sn	Oykangand language
+chz	sn	Ozumaci?n
+chz	sn	Ozumaci?n dialect
+pma	sn	Paama
+pma	sn	Paama language
+ems	sn	Pacific Gulf Yupik
+ems	sn	Pacific Gulf Yupik language
+pac	sn	Pacoh
+pac	sn	Pacoh language
+adi	sn	Padam
+adi	sn	Padam language
+dip	sn	Padang
+dip	sn	Padang dialect
+pbi	sn	Paduko
+pbi	sn	Paduko language
+pbb	sn	Paez
+pbb	sn	Paez language
+pal	sn	Pahlavi
+pal	sn	Pahlavi language
+new	sn	Pahri
+new	sn	Pahri dialect
+pri	sn	Paici
+pri	sn	Paici language
+adi	sn	Pailibo
+adi	sn	Pailibo dialect
+ppi	sn	Paipai
+ppi	sn	Paipai language
+pck	sn	Paite
+pck	sn	Paite language
+pwn	sn	Paiwan
+pwn	sn	Paiwan language
+pav	sn	Pakaasnovos
+pav	sn	Pakaasnovos language
+pku	sn	Paku
+pku	sn	Paku language
+gfk	sn	Pala
+gfk	sn	Pala language
+plq	sn	Palaic
+plq	sn	Palaic language
+kpy	sn	Palan
+kpy	sn	Palan dialect
+pau	sn	Palauan
+pau	sn	Palauan language
+pce	sn	Palaung
+pll	sn	Palaung
+rbb	sn	Palaung
+pce	sn	Palaung language
+pll	sn	Palaung language
+rbb	sn	Palaung language
+plc	sn	Palawano
+plv	sn	Palawano
+plw	sn	Palawano
+plc	sn	Palawano language
+plv	sn	Palawano language
+plw	sn	Palawano language
+pli	sn	Pali
+pli	sn	Pali language
+plu	sn	Palicur
+plu	sn	Palicur language
+pbs	sn	Pame
+pmq	sn	Pame
+pmz	sn	Pame
+pbs	sn	Pame language
+pmq	sn	Pame language
+pmz	sn	Pame language
+tav	sn	Pamoa
+tav	sn	Pamoa language
+pmf	sn	Pamona
+pmf	sn	Pamona language
+pam	sn	Pampanga
+pam	sn	Pampanga language
+par	sn	Panamint
+par	sn	Panamint language
+pbh	sn	Panare
+pbh	sn	Panare language
+mpx	sn	Panayati
+mpx	sn	Panayati language
+bhb	sn	Panchamahali
+bhb	sn	Panchamahali dialect
+pag	sn	Pangasinan
+pag	sn	Pangasinan language
+slm	sn	Pangutaran Sama
+slm	sn	Pangutaran Sama language
+pbr	sn	Pangwa
+pbr	sn	Pangwa language
+pan	sn	Panjabi
+pan	sn	Panjabi language
+pno	sn	Panobo
+pno	sn	Panobo language
+pbb	sn	Panzaleo
+pbb	sn	Panzaleo language
+zpw	sn	Papabuco
+zpw	sn	Papabuco language
+paa	sn	Papuan languages
+agp	sn	Paranan
+agp	sn	Paranan language
+pbg	sn	Paraujano
+pbg	sn	Paraujano language
+pcj	sn	Parengi
+pcj	sn	Parengi language
+pab	sn	Paressi
+pab	sn	Paressi language
+lkr	sn	Pa?ri
+lkr	sn	Pa?ri (Sudan)
+lkr	sn	Pa?ri language (Sudan)
+pah	sn	Parintintin
+pah	sn	Parintintin dialect
+pci	sn	Parji
+pci	sn	Parji language
+guj	sn	Parsi-Gujarati
+guj	sn	Parsi-Gujarati dialect
+xpr	sn	Parthian
+xpr	sn	Parthian language
+gbm	sn	Parvati
+gbm	sn	Parvati dialect
+paq	sn	Parya
+paq	sn	Parya language
+sig	sn	Pasaale
+sig	sn	Pasaale dialect
+zlm	sn	Pasir
+lbx	sn	Pasir (Lawangan)
+zlm	sn	Pasir dialect
+pqm	sn	Passamaquoddy
+pqm	sn	Passamaquoddy language
+bpb	sn	Pasto
+kwi	sn	Pasto
+bpb	sn	Pasto language
+kwi	sn	Pasto language
+pbc	sn	Patamona
+pbc	sn	Patamona language
+ptp	sn	Patep
+ptp	sn	Patep language
+lae	sn	Pattani (India)
+mfa	sn	Pattani (Thailand)
+lae	sn	Pattani dialect (India)
+mfa	sn	Pattani dialect (Thailand)
+psm	sn	Pauserna
+psm	sn	Pauserna language
+pwa	sn	Pawaian
+pwa	sn	Pawaian language
+bns	sn	Pawari
+bns	sn	Pawari dialect
+paw	sn	Pawnee
+paw	sn	Pawnee language
+ped	sn	Pay
+ped	sn	Pay language
+uun	sn	Pazeh
+uun	sn	Pazeh language
+pcb	sn	Pear
+pcb	sn	Pear language
+arn	sn	Pehuenche
+arn	sn	Pehuenche dialect
+pel	sn	Pekal
+pel	sn	Pekal language
+ppp	sn	Pelende
+ppp	sn	Pelende language
+aoc	sn	Pemo?n
+aoc	sn	Pemo?n language
+pem	sn	Pende
+pem	sn	Pende language
+mui	sn	Penesak
+mui	sn	Penesak language
+peg	sn	Pengo
+peg	sn	Pengo language
+pdc	sn	Pennsylvania German
+pdc	sn	Pennsylvania German dialect
+aaq	sn	Penobscot
+aaq	sn	Penobscot language
+pea	sn	Peranakan Indonesian
+pea	sn	Peranakan Indonesian language
+pip	sn	Pero
+pip	sn	Pero language
+fas	sn	Persian
+fas	sn	Persian language
+pex	sn	Petats
+pex	sn	Petats language
+phl	sn	Phalura
+phl	sn	Phalura language
+phi	sn	Philippine languages
+phn	sn	Phoenician
+phn	sn	Phoenician language
+nph	sn	Phom
+nph	sn	Phom language
+xpg	sn	Phrygian
+xpg	sn	Phrygian language
+pht	sn	Phu Thai
+pht	sn	Phu Thai language
+pio	sn	Piapoco
+pio	sn	Piapoco language
+pid	sn	Piaroa
+pid	sn	Piaroa language
+plg	sn	Pilaga
+plg	sn	Pilaga language
+piv	sn	Pileni
+piv	sn	Pileni language
+ood	sn	Pima
+pia	sn	Pima Bajo
+pia	sn	Pima Bajo language
+ood	sn	Pima language
+pnn	sn	Pinai-Hagahai
+pnn	sn	Pinai-Hagahai language
+pif	sn	Pingelap
+pif	sn	Pingelap language
+piu	sn	Pintupi
+piu	sn	Pintupi dialect
+pny	sn	Pinyin
+pny	sn	Pinyin language
+ppl	sn	Pipil
+ppl	sn	Pipil language
+myp	sn	Piraha?
+myp	sn	Piraha? dialect
+pir	sn	Piratapuyo
+pir	sn	Piratapuyo language
+pie	sn	Piro
+pie	sn	Piro (Tanoan)
+pie	sn	Piro (Tanoan) language
+pih	sn	Pitcairnese
+pih	sn	Pitcairnese language
+pjt	sn	Pitjantjatjara
+pjt	sn	Pitjantjatjara language
+pit	sn	Pitta Pitta
+pit	sn	Pitta Pitta language
+pmw	sn	Plains Miwok
+pmw	sn	Plains Miwok language
+npo	sn	Pochury
+npo	sn	Pochury language
+poy	sn	Pogoro
+poy	sn	Pogoro language
+poc	sn	Pokomam
+poc	sn	Pokomam language
+pkb	sn	Pokomo
+pkb	sn	Pokomo language
+poh	sn	Pokonchi
+poh	sn	Pokonchi language
+pox	sn	Polabian
+pox	sn	Polabian language
+pol	sn	Polish
+pol	sn	Polish language
+pon	sn	Ponape
+pon	sn	Ponape language
+pns	sn	Ponosakan
+pns	sn	Ponosakan language
+psw	sn	Port Sandwich
+psw	sn	Port Sandwich language
+por	sn	Portuguese
+cpp	sn	Portuguese creole dialects
+por	sn	Portuguese language
+psr	sn	Portuguese Sign
+psr	sn	Portuguese Sign Language
+cuk	sn	Portun?ol
+cuk	sn	Portun?ol dialects
+hbo	sn	Post-Biblical Hebrew
+pot	sn	Potawatomi
+pot	sn	Potawatomi language
+phr	sn	Po?t?hwa?ri?
+phr	sn	Po?t?hwa?ri? dialect
+pwr	sn	Powari
+pwr	sn	Powari dialect
+pim	sn	Powhatan
+pim	sn	Powhatan language
+pra	sn	Prakrit languages
+prg	sn	Prussian
+prg	sn	Prussian language
+pue	sn	Puelche
+pue	sn	Puelche language
+pui	sn	Puinave
+pui	sn	Puinave language
+fuf	sn	Pular
+fuf	sn	Pular dialect
+puw	sn	Puluwat
+puw	sn	Puluwat language
+pmi	sn	Pumi
+pmj	sn	Pumi
+pmi	sn	Pumi language
+pmj	sn	Pumi language
+xpu	sn	Punic
+xpu	sn	Punic language
+puu	sn	Punu
+puu	sn	Punu language
+puo	sn	Puoc
+puo	sn	Puoc language
+puq	sn	Puquina
+puq	sn	Puquina language
+iar	sn	Purari
+iar	sn	Purari language
+prx	sn	Purik
+prx	sn	Purik language
+pad	sn	Purupuru
+pad	sn	Purupuru language
+pus	sn	Pushto
+pus	sn	Pushto language
+kjp	sn	Pwo Karen
+kjt	sn	Pwo Karen
+pwo	sn	Pwo Karen
+pww	sn	Pwo Karen
+kjp	sn	Pwo Karen language
+kjt	sn	Pwo Karen language
+pwo	sn	Pwo Karen language
+pww	sn	Pwo Karen language
+ktb	sn	Qebena
+ktb	sn	Qebena dialect
+hae	sn	Qottu
+hae	sn	Qottu dialect
+ahg	sn	Quara
+ahg	sn	Quara language
+fcs	sn	Quebec Sign
+fcs	sn	Quebec Sign Language
+que	sn	Quechua
+que	sn	Quechua language
+qya	sn	Quenya
+qya	sn	Quenya (Artificial language)
+quc	sn	Quiche?
+quc	sn	Quiche? language
+qui	sn	Quileute
+qui	sn	Quileute language
+qun	sn	Quinault
+qun	sn	Quinault language
+qyp	sn	Quinnipiac
+qyp	sn	Quinnipiac language
+pim	sn	Quioucohanock
+pim	sn	Quioucohanock language
+rah	sn	Rabha
+rah	sn	Rabha language
+asm	sn	Ra?bha?mija
+asm	sn	Ra?bha?mija dialect
+rad	sn	Rade
+rad	sn	Rade language
+xrr	sn	Raetian
+xrr	sn	Raetian language
+roh	sn	Raeto-Romance
+roh	sn	Raeto-Romance language
+aph	sn	Rai
+aph	sn	Rai language
+raj	sn	Rajasthani
+raj	sn	Rajasthani language
+rjs	sn	Rajbangsi
+rjs	sn	Rajbangsi language
+rma	sn	Rama
+rma	sn	Rama language
+rai	sn	Ramoaaina
+rai	sn	Ramoaaina dialect
+ljp	sn	Ranau
+ljp	sn	Ranau language
+rgk	sn	Rang Pas
+rgk	sn	Rang Pas language
+rah	sn	Rangdania
+rah	sn	Rangdania dialect
+lag	sn	Rangi
+lag	sn	Rangi language
+arn	sn	Ranquel
+arn	sn	Ranquel dialect
+rao	sn	Rao
+rao	sn	Rao language
+rap	sn	Rapanui
+rap	sn	Rapanui language
+rar	sn	Rarotongan
+rar	sn	Rarotongan language
+rth	sn	Ratahan
+rth	sn	Ratahan language
+bgd	sn	Rathvi
+bgd	sn	Rathvi dialect
+rwo	sn	Rawa
+rwo	sn	Rawa language
+raw	sn	Rawang
+raw	sn	Rawang language
+mui	sn	Rawas
+mui	sn	Rawas dialect
+rej	sn	Rejang
+rej	sn	"Rejang (Sumatra, Indonesia)"
+rej	sn	"Rejang language (Sumatra, Indonesia)"
+rmb	sn	Rembarrnga
+rmb	sn	Rembarrnga language
+reb	sn	Rembong
+reb	sn	Rembong language
+rel	sn	Rendille
+rel	sn	Rendille language
+ren	sn	Rengao
+ren	sn	Rengao language
+nre	sn	Rengma
+nre	sn	Rengma language
+mnv	sn	Rennellese
+mnv	sn	Rennellese language
+rgr	sn	Resigero
+rgr	sn	Resigero language
+ril	sn	Riang-lang
+ril	sn	Riang-lang language
+rif	sn	Rif
+rif	sn	Rif language
+rkb	sn	Rikbaktsa
+rkb	sn	Rikbaktsa language
+rit	sn	Ritharrngu
+rit	sn	Ritharrngu language
+rgs	sn	Roglai
+roc	sn	Roglai
+rog	sn	Roglai
+rgs	sn	Roglai language
+roc	sn	Roglai language
+rog	sn	Roglai language
+rmm	sn	Roma
+rmm	sn	Roma language
+roa	sn	Romance languages
+rom	sn	Romani
+rom	sn	Romani language
+ron/rum	sn	Romanian
+ron/rum	sn	Romanian language
+cla	sn	Ron
+cla	sn	Ron language
+rng	sn	Ronga
+rng	sn	Ronga language
+nbu	sn	Rongmei
+nbu	sn	Rongmei dialect
+rro	sn	Roro
+rro	sn	Roro (New Guinea)
+rro	sn	Roro language (New Guinea)
+rgu	sn	Roti
+rgu	sn	Roti language
+roo	sn	Rotokas
+roo	sn	Rotokas language
+rtm	sn	Rotuman
+rtm	sn	Rotuman language
+rug	sn	Roviana
+rug	sn	Roviana language
+scb	sn	Ruc
+scb	sn	Ruc language
+bwg	sn	Rue
+bwg	sn	Rue language
+run	sn	Rundi
+run	sn	Rundi language
+rou	sn	Runga
+rou	sn	Runga language
+kya	sn	Ruri
+kya	sn	Ruri language
+rus	sn	Russian
+rus	sn	Russian language
+rut	sn	Rutul
+rut	sn	Rutul language
+rnd	sn	Ruund
+rnd	sn	Ruund language
+apb	sn	Saa
+apb	sn	Saa language
+str	sn	Saanich
+str	sn	Saanich dialect
+xsa	sn	Sabaean
+xsa	sn	Sabaean language
+spy	sn	Sabaot
+spy	sn	Sabaot language
+auc	sn	Sabela
+auc	sn	Sabela language
+srl	sn	Saberi
+srl	sn	Saberi language
+quv	sn	Sacapulteco
+quv	sn	Sacapulteco language
+sck	sn	Sadani
+sck	sn	Sadani dialect
+skb	sn	Saek
+skb	sn	Saek language
+sbk	sn	Safwa
+sbk	sn	Safwa language
+kki	sn	Sagara
+kki	sn	Sagara language
+cop	sn	Sahidic
+cop	sn	Sahidic dialect
+ssy	sn	Saho
+ssy	sn	Saho language
+saj	sn	Sahu
+saj	sn	Sahu language
+xsy	sn	Saisiyat
+xsy	sn	Saisiyat language
+tam	sn	Saiva Vellala
+tam	sn	Saiva Vellala dialect
+skg	sn	Sakalava
+skg	sn	Sakalava dialect
+skt	sn	Sakata
+skt	sn	Sakata language
+sku	sn	Sakau
+sku	sn	Sakau language
+skf	sn	Sakirabia?
+skf	sn	Sakirabia? language
+slx	sn	Salampasu
+slx	sn	Salampasu language
+slr	sn	Salar
+slr	sn	Salar language
+sbe	sn	Saliba
+sbe	sn	Saliba (Papua New Guinea)
+sbe	sn	Saliba language (Papua New Guinea)
+sln	sn	Salinan
+sln	sn	Salinan language
+smi	sn	Salish
+smi	sn	Salish language
+sal	sn	Salishan languages
+sbe	sn	Saliva
+sbe	sn	Saliva language
+loe	sn	Saluan
+slb	sn	Saluan
+loe	sn	Saluan language
+slb	sn	Saluan language
+ssb	sn	Sama Sibutu
+ssb	sn	Sama Sibutu language
+sam	sn	Samaritan Aramaic
+sam	sn	Samaritan Aramaic language
+smp	sn	Samaritan Hebrew
+smp	sn	Samaritan Hebrew language
+ndi	sn	Samba Leko
+ndi	sn	Samba Leko language
+sbl	sn	Sambali
+xsb	sn	Sambali
+sbl	sn	Sambali language
+xsb	sn	Sambali language
+ori	sn	Sambalpuri
+ori	sn	Sambalpuri dialect
+zlm	sn	Sambas
+zlm	sn	Sambas dialect
+saq	sn	Samburu
+saq	sn	Samburu language
+raq	sn	Sami
+raq	sn	Sami language
+sbd	sn	Samo (West Africa)
+stj	sn	Samo (West Africa)
+sym	sn	Samo (West Africa)
+smq	sn	"Samo (Western Province, Papua New Guinea)"
+sbd	sn	Samo language (West Africa)
+stj	sn	Samo language (West Africa)
+sym	sn	Samo language (West Africa)
+smq	sn	"Samo language (Western Province, Papua New Guinea)"
+smo	sn	Samoan
+smo	sn	Samoan language
+syd	sn	Samoyedic languages
+rav	sn	Sampang
+rav	sn	Sampang language
+sad	sn	Sandawe
+sad	sn	Sandawe language
+sng	sn	Sanga
+sng	sn	Sanga language
+snl	sn	Sangil
+snl	sn	Sangil language
+sxn	sn	Sangir
+sxn	sn	Sangir (Indonesia and Philippines)
+sxn	sn	Sangir language (Indonesia and Philippines)
+sag	sn	Sango (Ubangi Creole)
+sag	sn	Sango language (Ubangi Creole)
+nsa	sn	Sangtam
+nsa	sn	Sangtam language
+snq	sn	Sangu (Gabon)
+sbp	sn	Sangu (Tanzania)
+snq	sn	Sangu language (Gabon)
+sbp	sn	Sangu language (Tanzania)
+san	sn	Sanskrit
+san	sn	Sanskrit language
+san	sn	"Sanskrit language, Buddhist Hybrid"
+san	sn	"Sanskrit language, Epigraphical Hybrid"
+sat	sn	Santali
+sat	sn	Santali language
+dak	sn	Santee
+dak	sn	Santee dialect
+any	sn	Sanwi
+any	sn	Sanwi dialect
+sps	sn	Saposa
+sps	sn	Saposa language
+spu	sn	Sapuan
+spu	sn	Sapuan language
+sre	sn	Sara
+sre	sn	Sara language
+srm	sn	Saramaccan
+srm	sn	Saramaccan language
+mbs	sn	Sarangani Manobo
+mbs	sn	Sarangani Manobo language
+srd	sn	Sardinian
+srd	sn	Sardinian language
+srh	sn	Sarikoli
+srh	sn	Sarikoli dialect
+srs	sn	Sarsi
+srs	sn	Sarsi language
+uzn	sn	Sart
+uzn	sn	Sart dialect
+sas	sn	Sasak
+sas	sn	Sasak language
+kru	sn	Satawalese
+kru	sn	Satawalese language
+psu	sn	S?aurase?ni?
+psu	sn	S?aurase?ni? language
+saz	sn	Saurashtri
+saz	sn	Saurashtri dialect
+szw	sn	Sawai
+szw	sn	Sawai language
+swr	sn	Saweru
+swr	sn	Saweru language
+saw	sn	Sawi
+saw	sn	Sawi language
+gbf	sn	Sawos
+gbf	sn	Sawos language
+hvn	sn	Sawu
+hvn	sn	Sawu language
+pos	sn	Sayula
+pos	sn	Sayula language
+gmq	sn	Scandinavian languages
+sco	sn	Scots
+sco	sn	Scots language
+gla	sn	Scottish Gaelic
+gla	sn	Scottish Gaelic language
+gul	sn	Sea Islands Creole
+gul	sn	Sea Islands Creole dialect
+sec	sn	Sechelt
+sec	sn	Sechelt language
+sey	sn	Secoya
+sey	sn	Secoya language
+sed	sn	Sedang
+sed	sn	Sedang language
+trv	sn	Sedik
+trv	sn	Sedik language
+ssg	sn	Seimat
+ssg	sn	Seimat language
+sek	sn	Sekani
+sek	sn	Sekani language
+spl	sn	Selepet
+spl	sn	Selepet language
+sel	sn	Selkup
+sel	sn	Selkup language
+nsm	sn	Sema
+nsm	sn	Sema language
+sea	sn	Semai
+sea	sn	Semai language
+kns	sn	Semang
+kns	sn	Semang language
+sos	sn	Sembla
+sos	sn	Sembla language
+sza	sn	Semelai
+sza	sn	Semelai language
+pse	sn	Semendo
+pse	sn	Semendo dialect
+mus	sn	Seminole
+mus	sn	Seminole language
+sem	sn	Semitic languages
+seh	sn	Sena
+seh	sn	Sena language
+sef	sn	Senari
+sef	sn	Senari language
+see	sn	Seneca
+see	sn	Seneca language
+set	sn	Sentani
+set	sn	Sentani language
+afu	sn	Senya
+afu	sn	Senya dialect
+pse	sn	Serawai
+pse	sn	Serawai language
+srp	sn	Serbian
+srp	sn	Serbian language
+hbs	sn	Serbo-Croatian
+hbs	sn	Serbo-Croatian language
+zlm	sn	Serdang Malay
+zlm	sn	Serdang Malay dialect
+srr	sn	Serer
+srr	sn	Serer language
+sei	sn	Seri
+sei	sn	Seri language
+kkx	sn	Seruyan
+kkx	sn	Seruyan language
+est	sn	Setu
+est	sn	Setu dialect
+ksw	sn	Sgaw Karen
+ksw	sn	Sgaw Karen language
+ksb	sn	Shambala
+ksb	sn	Shambala language
+shn	sn	Shan
+shn	sn	Shan language
+mcd	sn	Sharanahua
+mcd	sn	Sharanahua language
+sht	sn	Shasta
+sht	sn	Shasta language
+sjw	sn	Shawnee
+sjw	sn	Shawnee language
+swv	sn	Shekhawati
+swv	sn	Shekhawati dialect
+bun	sn	Sherbro
+bun	sn	Sherbro language
+sdp	sn	Sherdukpen
+sdp	sn	Sherdukpen language
+xsr	sn	Sherpa
+xsr	sn	Sherpa language
+shr	sn	Shi
+shr	sn	Shi language
+bod	sn	Shigatse
+bod	sn	Shigatse dialect
+jbn	sn	Shilha
+jbn	sn	Shilha language
+shk	sn	Shilluk
+shk	sn	Shilluk language
+swb	sn	Shimaore
+swb	sn	Shimaore dialect
+scl	sn	Shina
+scl	sn	Shina language
+shp	sn	Shipibo-Conibo
+shp	sn	Shipibo-Conibo language
+sii	sn	Shompen
+sii	sn	Shompen language
+sna	sn	Shona
+sna	sn	Shona language
+cjs	sn	Shor
+cjs	sn	Shor language
+shh	sn	Shoshoni
+shh	sn	Shoshoni language
+jiv	sn	Shuar
+jiv	sn	Shuar language
+sgh	sn	Shughni
+sgh	sn	Shughni dialect
+shs	sn	Shuswap
+shs	sn	Shuswap language
+snp	sn	Siane
+snp	sn	Siane language
+sjr	sn	Siar-Lak
+sjr	sn	Siar-Lak language
+nco	sn	Sibo
+nco	sn	Sibo language
+cui	sn	Sicuane
+cui	sn	Sicuane dialect
+sid	sn	Sidamo
+sid	sn	Sidamo language
+guj	sn	Sidi
+guj	sn	Sidi dialect
+poi	sn	Sierra Popoluca
+poi	sn	Sierra Popoluca language
+lew	sn	Sigi
+lew	sn	Sigi language
+ski	sn	Sikka
+ski	sn	Sikka language
+bla	sn	Siksika
+bla	sn	Siksika language
+zlm	sn	Siladang
+zlm	sn	Siladang dialect
+stv	sn	Silte
+stv	sn	Silte language
+bts	sn	Simelungun
+bts	sn	Simelungun dialect
+smr	sn	Simeulue
+smr	sn	Simeulue language
+smt	sn	Simte
+smt	sn	Simte language
+snc	sn	Sinagoro
+snc	sn	Sinagoro language
+liw	sn	Sindang Kelingi
+liw	sn	Sindang Kelingi language
+sjn	sn	Sindarin
+sjn	sn	Sindarin (Artificial language)
+snd	sn	Sindhi
+snd	sn	Sindhi language
+sgp	sn	Singpho
+sgp	sn	Singpho language
+sin	sn	Sinhalese
+sin	sn	Sinhalese language
+sit	sn	Sino-Tibetan languages
+xsi	sn	Sio
+xsi	sn	Sio language
+snn	sn	Sioni
+snn	sn	Sioni language
+sio	sn	Siouan languages
+qum	sn	Sipacapense
+qum	sn	Sipacapense language
+swj	sn	Sira
+swj	sn	Sira language
+skr	sn	Siraiki
+skr	sn	Sira?iki? Hindki?
+skr	sn	Sira?iki? Hindki? dialect
+skr	sn	Siraiki language
+skr	sn	Sira?iki? Sindhi?
+skr	sn	Sira?iki? Sindhi? dialect
+sri	sn	Siriano
+sri	sn	Siriano language
+ysr	sn	Sirinek
+ysr	sn	Sirinek language
+srx	sn	Sirmauri
+srx	sn	Sirmauri dialect
+ssd	sn	Siroi
+ssd	sn	Siroi language
+sld	sn	Sissala
+sld	sn	Sissala language
+sso	sn	Sissano
+sso	sn	Sissano language
+sis	sn	Siuslaw
+sis	sn	Siuslaw language
+siy	sn	Sivandi
+siy	sn	Sivandi language
+siz	sn	Siwa
+siz	sn	Siwa language
+siw	sn	Siwai
+siw	sn	Siwai language
+csy	sn	Siyin
+csy	sn	Siyin language
+sms	sn	Skolt Sami
+sms	sn	Skolt Sami dialect
+skv	sn	Skou
+skv	sn	Skou language
+scs	sn	Slave
+xsl	sn	Slave
+scs	sn	Slave language
+xsl	sn	Slave language
+sla	sn	Slavic languages
+slk	sn	Slovak
+slk	sn	Slovak language
+slv	sn	Slovenian
+slv	sn	Slovenian language
+csb	sn	Slovincian
+csb	sn	Slovincian dialect
+sno	sn	Snohomish
+sno	sn	Snohomish language
+teu	sn	So
+teu	sn	So (Uganda)
+teu	sn	So language (Uganda)
+sob	sn	Sobei
+sob	sn	Sobei language
+tlv	sn	Sobojo
+tlv	sn	Sobojo language
+xog	sn	Soga
+xog	sn	Soga language
+sog	sn	Sogdian
+sog	sn	Sogdian language
+sqt	sn	Sokotri
+sqt	sn	Sokotri language
+sle	sn	Soliga
+sle	sn	Soliga dialect
+evn	sn	Solon
+evn	sn	Solon dialect
+som	sn	Somali
+som	sn	Somali language
+tbz	sn	Somba
+tbz	sn	Somba language
+jma	sn	Sona (Papua New Guinea)
+soq	sn	Sona (Papua New Guinea)
+jma	sn	Sona language (Papua New Guinea)
+soq	sn	Sona language (Papua New Guinea)
+sop	sn	Songye
+sop	sn	Songye language
+snk	sn	Soninke
+snk	sn	Soninke language
+sov	sn	Sonsorol-Tobi
+tox	sn	Sonsorol-Tobi
+sov	sn	Sonsorol-Tobi language
+tox	sn	Sonsorol-Tobi language
+srb	sn	Sora
+srb	sn	Sora language
+wen	sn	Sorbian languages
+kle	sn	Sotang Kura
+kle	sn	Sotang Kura dialect
+sot	sn	Sotho
+sot	sn	Sotho language
+sfs	sn	South African Sign
+sfs	sn	South African Sign Language
+erk	sn	South Efate
+erk	sn	South Efate language
+pom	sn	Southeastern Pomo
+pom	sn	Southeastern Pomo language
+aoj	sn	Southern Arapesh
+aoj	sn	Southern Arapesh language
+bkb	sn	Southern Bontoc
+bkb	sn	Southern Bontoc dialect
+ksc	sn	Southern Kalinga
+ksc	sn	Southern Kalinga language
+kca	sn	Southern Khanty
+kca	sn	Southern Khanty dialect
+nan	sn	Southern Min
+nan	sn	Southern Min dialects
+mif	sn	Southern Mofu
+mif	sn	Southern Mofu language
+ute	sn	Southern Paiute
+ute	sn	Southern Paiute language
+sma	sn	Southern Sami
+sma	sn	Southern Sami dialect
+laa	sn	Southern Subanen
+laa	sn	Southern Subanen dialect
+sou	sn	Southern Thai
+sou	sn	Southern Thai language
+tce	sn	Southern Tutchone
+tce	sn	Southern Tutchone language
+spa	sn	Spanish
+spa	sn	Spanish language
+ssp	sn	Spanish Sign
+ssp	sn	Spanish Sign Language
+spo	sn	Spokane
+spo	sn	Spokane language
+squ	sn	Squawmish
+squ	sn	Squawmish language
+srn	sn	Sranan
+srn	sn	Sranan language
+kpm	sn	Sre?
+kpm	sn	Sre? dialect
+hur	sn	Stalo
+hur	sn	Stalo language
+sti	sn	Stieng
+stt	sn	Stieng
+sti	sn	Stieng language
+stt	sn	Stieng language
+srp	sn	S?tokavian
+srp	sn	S?tokavian dialect
+swp	sn	Suau
+swp	sn	Suau language
+sxb	sn	Suba
+sxb	sn	Suba language
+sbs	sn	Subiya
+sbs	sn	Subiya language
+sue	sn	Suena
+sue	sn	Suena language
+swi	sn	Sui
+swi	sn	Sui language
+pko	sn	Suk
+pko	sn	Suk language
+sub	sn	Suku
+sub	sn	Suku (Congo)
+sub	sn	Suku language (Congo)
+suk	sn	Sukuma
+suk	sn	Sukuma language
+sua	sn	Sulka
+sua	sn	Sulka language
+srg	sn	Sulod
+srg	sn	Sulod language
+tsg	sn	Sulu
+tsg	sn	Sulu language
+suv	sn	Sulung
+suv	sn	Sulung language
+smw	sn	Sumbawa
+smw	sn	Sumbawa language
+sux	sn	Sumerian
+sux	sn	Sumerian language
+sum	sn	Sumo
+sum	sn	Sumo language
+sun	sn	Sundanese
+sun	sn	Sundanese language
+suz	sn	Sunwar
+suz	sn	Sunwar language
+spp	sn	Suppire
+spp	sn	Suppire language
+squ	sn	Suquamish
+squ	sn	Suquamish language
+hns	sn	Suriname Hindustani
+hns	sn	Suriname Hindustani language
+sgz	sn	Sursurunga
+sgz	sn	Sursurunga language
+sqn	sn	Susquehanna
+sqn	sn	Susquehanna language
+sus	sn	Susu
+sus	sn	Susu language
+swu	sn	Suwawa
+swu	sn	Suwawa language
+sva	sn	Svan
+sva	sn	Svan language
+swh	sn	Swahili
+swh	sn	Swahili language
+ssw	sn	Swazi
+ssw	sn	Swazi language
+swe	sn	Swedish
+swe	sn	Swedish language
+swl	sn	Swedish Sign
+swl	sn	Swedish Sign Language
+shz	sn	Sye?nara
+shz	sn	Sye?nara language
+mns	sn	Sygvinskii?
+mns	sn	Sygvinskii? dialect
+syl	sn	Sylheti
+syl	sn	Sylheti dialect
+syr	sn	Syriac
+syr	sn	Syriac language
+aii	sn	"Syriac language, Modern"
+aii	sn	"Syriac, Modern"
+hun	sn	Sze?kely
+hun	sn	Sze?kely dialect
+tab	sn	Tabasaran
+tab	sn	Tabasaran language
+tnm	sn	Tabla
+tnm	sn	Tabla language
+tap	sn	Tabwa
+tap	sn	Tabwa language
+tna	sn	Tacana
+tna	sn	Tacana (Bolivia)
+tna	sn	Tacana language (Bolivia)
+ncz	sn	Taensa
+ncz	sn	Taensa language
+bgs	sn	Tagabawa Manobo
+bgs	sn	Tagabawa Manobo language
+klg	sn	Tagakaolo
+klg	sn	Tagakaolo language
+tgl	sn	Tagalog
+tgl	sn	Tagalog language
+tgw	sn	Tagbana
+tgw	sn	Tagbana language
+tbw	sn	Tagbanua
+tbw	sn	Tagbanua language
+dap	sn	Tagin
+dap	sn	Tagin language
+tgx	sn	Tagish
+tgx	sn	Tagish language
+tag	sn	Tagoi
+tag	sn	Tagoi language
+tgo	sn	Tagula
+tgo	sn	Tagula language
+tah	sn	Tahitian
+tah	sn	Tahitian language
+tai	sn	Tai languages
+tdd	sn	Tai Nu?a
+tdd	sn	Tai Nu?a language
+tai	sn	Tai-Kadai languages
+mlg	sn	Taimoro
+mlg	sn	Taimoro dialect
+tnq	sn	Taino
+tnq	sn	Taino language
+omw	sn	Tairora
+tbg	sn	Tairora
+omw	sn	Tairora language
+tbg	sn	Tairora language
+dav	sn	Taita
+dav	sn	Taita language
+bsn	sn	Taiwano
+bsn	sn	Taiwano dialect
+tgk	sn	Tajik
+tgk	sn	Tajik language
+tkm	sn	Takelma
+tkm	sn	Takelma language
+nho	sn	Takuu
+nho	sn	Takuu language
+tld	sn	Talaud
+tld	sn	Talaud language
+tlj	sn	Talinga-Bwisi
+tlj	sn	Talinga-Bwisi language
+tlr	sn	Talise
+tlr	sn	Talise language
+hbo	sn	Talmudic Hebrew
+tly	sn	Talysh
+tly	sn	Talysh language
+thz	sn	Tamajaq
+ttq	sn	Tamajaq
+thz	sn	Tamajaq language
+ttq	sn	Tamajaq language
+tmn	sn	Taman
+tmn	sn	Taman (Indonesia)
+tmn	sn	Taman language (Indonesia)
+tmh	sn	Tamashek
+tmh	sn	Tamashek language
+tia	sn	Tamazight
+tjo	sn	Tamazight
+tzm	sn	Tamazight
+tia	sn	Tamazight language
+tjo	sn	Tamazight language
+tzm	sn	Tamazight language
+tmy	sn	Tami
+tmy	sn	Tami language
+tam	sn	Tamil
+tam	sn	Tamil language
+tpm	sn	Tampulma
+tpm	sn	Tampulma language
+gvr	sn	Tamu
+gvr	sn	Tamu language
+tcb	sn	Tanacross
+tcb	sn	Tanacross language
+taa	sn	Tanana
+tau	sn	Tanana
+taa	sn	Tanana language
+tau	sn	Tanana language
+tgg	sn	Tanga
+tgg	sn	Tanga (Tanga Islands)
+tgg	sn	Tanga language (Tanga Islands)
+tan	sn	Tangale
+tan	sn	Tangale language
+nmf	sn	Tangkhul
+nmf	sn	Tangkhul language
+nst	sn	Tangsa
+nst	sn	Tangsa language
+txg	sn	Tangut
+txg	sn	Tangut language
+pla	sn	Tani
+tnh	sn	Tani
+pla	sn	Tani language
+tnh	sn	Tani language
+ynu	sn	Tanimuca-Retuama
+ynu	sn	Tanimuca-Retuama language
+nwi	sn	Tanna
+tnn	sn	Tanna
+nwi	sn	Tanna language
+tnn	sn	Tanna language
+abq	sn	Tapanta
+abq	sn	Tapanta dialect
+mrs	sn	Tape
+mrs	sn	Tape language
+taf	sn	Tapirape?
+taf	sn	Tapirape? language
+tre	sn	Tarangan
+txn	sn	Tarangan
+tre	sn	Tarangan language
+txn	sn	Tarangan language
+tsz	sn	Tarascan
+tsz	sn	Tarascan language
+tae	sn	Tariana
+tae	sn	Tariana language
+yer	sn	Tarok
+yer	sn	Tarok language
+ttt	sn	Tat
+ttt	sn	Tat language
+txx	sn	Tatana?
+txx	sn	Tatana? language
+tat	sn	Tatar
+tat	sn	Tatar language
+blk	sn	Taungthu
+blk	sn	Taungthu language
+aoc	sn	Taurepan
+aoc	sn	Taurepan dialect
+tsg	sn	Tausug
+tsg	sn	Tausug language
+tya	sn	Tauya
+tya	sn	Tauya language
+tbo	sn	Tavara
+tbo	sn	Tavara (Papua New Guinea)
+tbo	sn	Tavara language (Papua New Guinea)
+tvs	sn	Taveta
+tvs	sn	Taveta language
+sum	sn	Tawahka
+sum	sn	Tawahka (Honduras)
+sum	sn	Tawahka dialect (Honduras)
+twy	sn	Tawoyan
+twy	sn	Tawoyan language
+nut	sn	Tay-Nung
+nut	sn	Tay-Nung language
+cks	sn	Tayo
+cks	sn	Tayo language
+tbl	sn	Tboli
+tbl	sn	Tboli language
+kqo	sn	Tchien
+kqo	sn	Tchien language
+ttc	sn	Tectiteco
+ttc	sn	Tectiteco language
+tuq	sn	Tedaga
+tuq	sn	Tedaga language
+lor	sn	Te?e?n
+lor	sn	Te?e?n dialect
+jav	sn	Tegal
+jav	sn	Tegal dialect
+kps	sn	Tehit
+kps	sn	Tehit language
+teg	sn	Teke
+teg	sn	Teke language
+tlf	sn	Telefol
+tlf	sn	Telefol language
+atv	sn	Teleut
+atv	sn	Teleut dialect
+tel	sn	Telugu
+tel	sn	Telugu language
+kdh	sn	Tem
+kdh	sn	Tem language
+tbt	sn	Tembo
+tbt	sn	"Tembo (Sud-Kivu, Congo)"
+tbt	sn	"Tembo language (Sud-Kivu, Congo)"
+tea	sn	Temiar
+tea	sn	Temiar language
+tem	sn	Temne
+tem	sn	Temne language
+tqb	sn	Tenetehara
+tqb	sn	Tenetehara language
+tes	sn	Tengger
+tes	sn	Tengger dialect
+pah	sn	Tenharim
+pah	sn	Tenharim language
+njm	sn	Tenyidie
+njm	sn	Tenyidie dialect
+tio	sn	Teop
+tio	sn	Teop language
+tee	sn	Tepehua
+tpp	sn	Tepehua
+tpt	sn	Tepehua
+tee	sn	Tepehua language
+tpp	sn	Tepehua language
+tpt	sn	Tepehua language
+tnm	sn	Tepera
+tnm	sn	Tepera dialect
+ted	sn	Tepo
+ted	sn	Tepo language
+ttr	sn	Tera
+ttr	sn	Tera language
+ter	sn	Terena
+ter	sn	Terena language
+tft	sn	Ternate
+tft	sn	Ternate language
+tfr	sn	Terraba
+tfr	sn	Terraba language
+teo	sn	Teso
+teo	sn	Teso language
+tll	sn	Tetela
+tll	sn	Tetela language
+tet	sn	Tetum
+tet	sn	Tetum language
+tew	sn	Tewa
+tew	sn	Tewa language
+tcz	sn	Tha?do
+tcz	sn	Tha?do language
+tha	sn	Thai
+tha	sn	Thai language
+tsq	sn	Thai Sign
+tsq	sn	Thai Sign Language
+ths	sn	Thakali
+ths	sn	Thakali language
+thf	sn	Thami
+thf	sn	Thami language
+ssf	sn	Thao
+ssf	sn	Thao language
+thk	sn	Tharaka
+thk	sn	Tharaka language
+dhr	sn	Tharrkari
+dhr	sn	Tharrkari language
+the	sn	Tharu
+thq	sn	Tharu
+thr	sn	Tharu
+the	sn	Tharu language
+thq	sn	Tharu language
+thr	sn	Tharu language
+thd	sn	Thayore
+thd	sn	Thayore language
+tou	sn	Tho
+tou	sn	Tho language
+txh	sn	Thracian
+txh	sn	Thracian language
+tdh	sn	Thulung
+tdh	sn	Thulung language
+bod	sn	Tibetan
+bod	sn	Tibetan language
+tbq	sn	Tibeto-Burman languages
+ctd	sn	Tiddim Chin
+ctd	sn	Tiddim Chin dialect
+tid	sn	Tidong
+tid	sn	Tidong dialects
+tvo	sn	Tidore
+tvo	sn	Tidore language
+tiq	sn	Tie?fo
+tiq	sn	Tie?fo language
+tif	sn	Tifal
+tif	sn	Tifal language
+tgc	sn	Tigak
+tgc	sn	Tigak language
+tig	sn	Tigre?
+tig	sn	Tigre? language
+tir	sn	Tigrinya
+tir	sn	Tigrinya language
+tik	sn	Tikar
+tik	sn	Tikar language
+tkp	sn	Tikopia
+tkp	sn	Tikopia language
+gor	sn	Tilamuta
+gor	sn	Tilamuta dialect
+til	sn	Tillamook
+til	sn	Tillamook language
+tim	sn	Timbe
+tim	sn	Timbe language
+bkx	sn	Timor
+bkx	sn	Timor language
+tjm	sn	Timucua
+tjm	sn	Timucua language
+tih	sn	Timugon
+tih	sn	Timugon language
+xsb	sn	Tina Sambal
+xsb	sn	Tina Sambal dialect
+tin	sn	Tindi
+tin	sn	Tindi language
+ity	sn	Tinggian
+tiu	sn	Tinggian
+ity	sn	Tinggian language
+tiu	sn	Tinggian language
+tpz	sn	Tinputz
+tpz	sn	Tinputz language
+cir	sn	Tinrin
+cir	sn	Tinrin language
+ida	sn	Tiriki
+ida	sn	Tiriki dialect
+tiy	sn	Tiruray
+tiy	sn	Tiruray language
+tiv	sn	Tiv
+tiv	sn	Tiv language
+lax	sn	Tiwa
+lax	sn	Tiwa language
+tiw	sn	Tiwi
+tiw	sn	Tiwi (Australia)
+tiw	sn	Tiwi language (Australia)
+wac	sn	Tlakluit
+wac	sn	Tlakluit language
+tcf	sn	Tlapanec
+tpc	sn	Tlapanec
+tpl	sn	Tlapanec
+tpx	sn	Tlapanec
+tcf	sn	Tlapanec language
+tpc	sn	Tlapanec language
+tpl	sn	Tlapanec language
+tpx	sn	Tlapanec language
+mlu	sn	To'abaita
+mlu	sn	To'abaita language
+tqo	sn	Toaripi
+tqo	sn	Toaripi language
+tob	sn	Toba (Indian)
+tob	sn	Toba language (Indian)
+bbc	sn	Toba-Batak
+bbc	sn	Toba-Batak dialect
+tlb	sn	Tobelo
+tlb	sn	Tobelo language
+bud	sn	Tobote
+bud	sn	Tobote language
+tcx	sn	Toda
+tcx	sn	Toda (India)
+tcx	sn	Toda language (India)
+kim	sn	Tofa
+kim	sn	"Tofa (Irkutskai?a oblast?, Russia)"
+kim	sn	"Tofa language (Irkutskai?a oblast?, Russia)"
+tfi	sn	Tofingbe
+tfi	sn	Tofingbe dialect
+ood	sn	Tohono O'odham
+ood	sn	Tohono O'odham dialect
+toj	sn	Tojolabal
+toj	sn	Tojolabal language
+tpi	sn	Tok Pisin
+tpi	sn	Tok Pisin language
+tkl	sn	Tokelauan
+tkl	sn	Tokelauan language
+txb	sn	Tokharian
+xto	sn	Tokharian
+txb	sn	Tokharian language
+xto	sn	Tokharian language
+ksd	sn	Tolai
+ksd	sn	Tolai language
+lbw	sn	Tolaki
+lbw	sn	Tolaki language
+txe	sn	Tolitoli
+txe	sn	Tolitoli language
+tod	sn	Toma
+tod	sn	Toma language
+txa	sn	Tombonuwo
+txa	sn	Tombonuwo language
+tom	sn	Tombulu
+tom	sn	Tombulu language
+tdn	sn	Tondano
+tdn	sn	Tondano language
+khq	sn	Tondi Songway Kiini
+khq	sn	Tondi Songway Kiini dialect
+toh	sn	Tonga (Inhambane)
+tog	sn	Tonga (Nyasa)
+toh	sn	Tonga language (Inhambane)
+tog	sn	Tonga language (Nyasa)
+ton	sn	Tongan
+ton	sn	Tongan language
+tli	sn	Tongass
+tli	sn	Tongass dialect
+tqw	sn	Tonkawa
+tqw	sn	Tonkawa language
+txs	sn	Tonsea
+txs	sn	Tonsea language
+tnt	sn	Tontemboan
+tnt	sn	Tontemboan language
+ttj	sn	Tooro
+ttj	sn	Tooro language
+toq	sn	Toposa
+toq	sn	Toposa language
+sda	sn	Toraja
+sda	sn	Toraja language
+sda	sn	Toraja Sa'dan
+sda	sn	Toraja Sa'dan language
+xal	sn	Torgut
+xal	sn	Torgut dialect
+trw	sn	Torwali
+trw	sn	Torwali language
+tri	sn	Trio
+tri	sn	Trio language
+trc	sn	Trique
+trq	sn	Trique
+trs	sn	Trique
+trc	sn	Trique language
+trq	sn	Trique language
+trs	sn	Trique language
+tpy	sn	Trumai
+tpy	sn	Trumai language
+atb	sn	Tsaiwa
+atb	sn	Tsaiwa language
+tkr	sn	Tsakhur
+tkr	sn	Tsakhur language
+tsd	sn	Tsakonian
+tsd	sn	Tsakonian dialect
+tsb	sn	Tsamai
+tsb	sn	Tsamai language
+bea	sn	Tsattine
+bea	sn	Tsattine language
+xmw	sn	Tsimihety
+xmw	sn	Tsimihety dialect
+tsi	sn	Tsimshian
+tsi	sn	Tsimshian language
+tsv	sn	Tsogo
+tsv	sn	Tsogo language
+tso	sn	Tsonga
+tso	sn	Tsonga language
+tsu	sn	Tsou
+tsu	sn	Tsou language
+tsc	sn	Tswa
+tsc	sn	Tswa language
+tsn	sn	Tswana
+tsn	sn	Tswana language
+pmt	sn	Tuamotuan
+pmt	sn	Tuamotuan language
+tub	sn	Tubatulabal
+tub	sn	Tubatulabal language
+tte	sn	Tubetube
+tte	sn	Tubetube language
+tuo	sn	Tucano
+tuo	sn	Tucano language
+tca	sn	Tucuna
+tca	sn	Tucuna language
+tuy	sn	Tugen
+tuy	sn	Tugen dialect
+tji	sn	Tujia
+tjs	sn	Tujia
+tji	sn	Tujia language
+tjs	sn	Tujia language
+bhq	sn	Tukangbesi
+khc	sn	Tukangbesi
+bhq	sn	Tukangbesi language
+khc	sn	Tukangbesi language
+tcy	sn	Tulu
+tcy	sn	Tulu language
+duu	sn	Tulung
+duu	sn	Tulung language
+tmc	sn	Tumak
+tmc	sn	Tumak language
+tum	sn	Tumbuka
+tum	sn	Tumbuka language
+tmq	sn	Tumleo
+tmq	sn	Tumleo language
+tbn	sn	Tunebo
+tnb	sn	Tunebo
+tnd	sn	Tunebo
+tuf	sn	Tunebo
+tbn	sn	Tunebo language
+tnb	sn	Tunebo language
+tnd	sn	Tunebo language
+tuf	sn	Tunebo language
+baz	sn	Tunen
+baz	sn	Tunen language
+tuw	sn	Tungus-Manchu languages
+tun	sn	Tunica
+tun	sn	Tunica language
+tqq	sn	Tunni
+tqq	sn	Tunni language
+tpw	sn	Tupi
+tpw	sn	Tupi language
+tup	sn	Tupi languages
+tui	sn	Tupuri
+tui	sn	Tupuri language
+neb	sn	Tura
+neb	sn	Tura language
+tuz	sn	Turka
+tuz	sn	Turka language
+tuv	sn	Turkana
+tuv	sn	Turkana language
+trk	sn	Turkic languages
+tur	sn	Turkish
+tur	sn	Turkish language
+tuk	sn	Turkmen
+tuk	sn	Turkmen language
+tus	sn	Tuscarora
+tus	sn	Tuscarora language
+tsp	sn	Tusia
+wib	sn	Tusia
+tsp	sn	Tusia language
+wib	sn	Tusia language
+tta	sn	Tutelo
+tta	sn	Tutelo language
+bsb	sn	Tutong
+bsb	sn	Tutong language
+tvt	sn	Tutsa
+tvt	sn	Tutsa language
+tmi	sn	Tutuba
+tmi	sn	Tutuba language
+tvl	sn	Tuvaluan
+tvl	sn	Tuvaluan language
+tyv	sn	Tuvinian
+tyv	sn	Tuvinian language
+ifk	sn	Tuwali
+ifk	sn	Tuwali dialect
+tue	sn	Tuyuca
+tue	sn	Tuyuca language
+twi	sn	Twi
+twi	sn	Twi language
+sef	sn	Tyembara
+sef	sn	Tyembara dialect
+tzh	sn	Tzeltal
+tzh	sn	Tzeltal language
+teh	sn	Tzoneca
+teh	sn	Tzoneca language
+tzo	sn	Tzotzil
+tzo	sn	Tzotzil language
+tzj	sn	Tzutuhil
+tzj	sn	Tzutuhil language
+ksj	sn	Uare
+ksj	sn	Uare language
+ubr	sn	Ubir
+ubr	sn	Ubir language
+uby	sn	Ubykh
+uby	sn	Ubykh language
+ude	sn	Udekhe
+ude	sn	Udekhe language
+udi	sn	Udi
+udi	sn	Udi language
+udm	sn	Udmurt
+udm	sn	Udmurt language
+udu	sn	Uduk
+udu	sn	Uduk language
+ems	sn	Ugalakmiut
+ems	sn	Ugalakmiut dialect
+uga	sn	Ugaritic
+uga	sn	Ugaritic language
+uig	sn	Uighur
+uig	sn	Uighur language
+nmf	sn	Ukhrul
+nmf	sn	Ukhrul dialect
+bld	sn	Uki
+bld	sn	Uki dialect
+ukr	sn	Ukrainian
+ukr	sn	Ukrainian language
+apb	sn	Ulawa
+apb	sn	Ulawa language
+udl	sn	Uldeme
+udl	sn	Uldeme language
+li	sn	Ulithi
+li	sn	Ulithi language
+zlm	sn	Ulu Terengganu
+zlm	sn	Ulu Terengganu dialect
+sum	sn	Ulva
+sum	sn	Ulva dialect
+ppk	sn	Uma
+ppk	sn	Uma language
+xum	sn	Umbrian
+xum	sn	Umbrian language
+umb	sn	Umbundu
+umb	sn	Umbundu language
+umo	sn	Umotina
+umo	sn	Umotina language
+ump	sn	Umpila
+ump	sn	Umpila language
+mtg	sn	Una
+mtg	sn	Una language
+unz	sn	Unde Kaili
+unz	sn	Unde Kaili language
+ulu	sn	Upper Baram Kenyah
+xkl	sn	Upper Baram Kenyah
+ulu	sn	Upper Baram Kenyah language
+xkl	sn	Upper Baram Kenyah language
+cjh	sn	Upper Chehalis
+cjh	sn	Upper Chehalis language
+kuu	sn	Upper Kuskokwim
+kuu	sn	Upper Kuskokwim language
+hsb	sn	Upper Sorbian
+hsb	sn	Upper Sorbian language
+tau	sn	Upper Tanana
+tau	sn	Upper Tanana language
+kgh	sn	Upper Tanudan Kalinga
+kgh	sn	Upper Tanudan Kalinga language
+uur	sn	Ura
+uur	sn	Ura (Vanuatu)
+uur	sn	Ura language (Vanuatu)
+urk	sn	Urak Lawoi?
+urk	sn	Urak Lawoi? language
+url	sn	Urali
+url	sn	Urali language
+urj	sn	Uralic languages
+ura	sn	Urarina
+ura	sn	Urarina language
+xur	sn	Urartian
+xur	sn	Urartian language
+urd	sn	Urdu
+urd	sn	Urdu language
+urh	sn	Urhobo
+urh	sn	Urhobo language
+uvh	sn	Urii
+uvh	sn	Urii language
+uri	sn	Urim
+uri	sn	Urim language
+upv	sn	Uripiv
+upv	sn	Uripiv language
+urc	sn	Urningangg
+urc	sn	Urningangg language
+ure	sn	Uru
+ure	sn	Uru language
+urb	sn	Urubu
+urb	sn	Urubu Kaapor
+urb	sn	Urubu Kaapor language
+urb	sn	Urubu language
+wnu	sn	Usan
+wnu	sn	Usan language
+usa	sn	Usarufa
+usa	sn	Usarufa language
+usp	sn	Uspanteca
+usp	sn	Uspanteca language
+ute	sn	Ute
+ute	sn	Ute language
+azc	sn	Uto-Aztecan languages
+hau	sn	Uwana
+hau	sn	Uwana language
+uzb	sn	Uzbek
+uzb	sn	Uzbek language
+vaa	sn	Vaagri Boli
+vaa	sn	Vaagri Boli language
+vag	sn	Vagala
+vag	sn	Vagala language
+vai	sn	Vai
+vai	sn	Vai language
+vap	sn	Vaiphei
+vap	sn	Vaiphei language
+van	sn	Valman
+van	sn	Valman language
+xvn	sn	Vandal
+xvn	sn	Vandal language
+vah	sn	Varhadi-Nagpuri
+vah	sn	Varhadi-Nagpuri dialect
+dic	sn	Vata
+dic	sn	Vata language
+gri	sn	Vaturanga
+gri	sn	Vaturanga language
+frp	sn	Vaudois
+frp	sn	Vaudois dialect
+vay	sn	Vayu
+vay	sn	Vayu dialect
+ved	sn	Veddah
+ved	sn	Veddah (Sinhalese)
+ved	sn	Veddah language (Sinhalese)
+dlm	sn	Vegliote
+dlm	sn	Vegliote dialect
+wlv	sn	Vejoz
+wlv	sn	Vejoz language
+ven	sn	Venda
+ven	sn	Venda language
+xve	sn	Venetic
+xve	sn	Venetic language
+vsl	sn	Venezuelan Sign
+vsl	sn	Venezuelan Sign Language
+vep	sn	Veps
+vep	sn	Veps language
+vie	sn	Vietnamese
+vie	sn	Vietnamese language
+vig	sn	Vige
+vig	sn	Vige language
+vil	sn	Vilela
+vil	sn	Vilela language
+vif	sn	Vili
+vif	sn	Vili language
+vot	sn	Votic
+vot	sn	Votic language
+mug	sn	Vulum
+mug	sn	Vulum dialect
+vun	sn	Vunjo
+vun	sn	Vunjo language
+vut	sn	Vute
+vut	sn	Vute language
+wbm	sn	Wa
+wbm	sn	Wa language
+wwa	sn	Waama
+wwa	sn	Waama language
+waj	sn	Waffa
+waj	sn	Waffa language
+wbr	sn	Wagdi
+wbr	sn	Wagdi dialect
+waq	sn	Wageman
+waq	sn	Wageman language
+wgi	sn	Wahgi
+wgi	sn	Wahgi dialect
+wbk	sn	Waigali
+wbk	sn	Waigali language
+wmh	sn	Waima'a
+wmh	sn	Waima'a language
+waw	sn	Waiwai
+waw	sn	Waiwai language
+wja	sn	Waja
+wja	sn	Waja language
+wak	sn	Wakashan languages
+wkw	sn	Wakawaka
+wkw	sn	Wakawaka language
+wbl	sn	Wakhi
+wbl	sn	Wakhi language
+wln	sn	Walloon
+wln	sn	Walloon dialect
+wmt	sn	Walmajarri
+wmt	sn	Walmajarri language
+wae	sn	Walser
+wae	sn	Walser language
+wms	sn	Wambon
+wms	sn	Wambon language
+wme	sn	Wambule
+wme	sn	Wambule language
+wam	sn	Wampanoag
+wam	sn	Wampanoag language
+lbq	sn	Wampar
+lbq	sn	Wampar language
+nnp	sn	Wancho
+nnp	sn	Wancho language
+mfi	sn	Wandala
+mfi	sn	Wandala language
+wad	sn	Wandamen
+wad	sn	Wandamen language
+wnd	sn	Wandarang
+wnd	sn	Wandarang language
+wne	sn	Wanetsi
+wne	sn	Wanetsi dialect
+wgg	sn	Wangganguru
+wgg	sn	Wangganguru language
+nbx	sn	Wangkumara (Galali)
+nbx	sn	Wangkumara (Galali) dialect
+dhg	sn	Wan?guri
+dhg	sn	Wan?guri language
+wbt	sn	Wanman
+wbt	sn	Wanman language
+wnc	sn	Wantoat
+wnc	sn	Wantoat language
+wao	sn	Wappo
+wao	sn	Wappo dialect
+aml	sn	War
+aml	sn	War dialect
+wba	sn	Warao
+wba	sn	Warao language
+wra	sn	Warapu
+wra	sn	Warapu language
+wrz	sn	Waray
+wrz	sn	Waray language
+wrr	sn	Wardaman
+wrr	sn	Wardaman language
+wsa	sn	Warembori
+wsa	sn	Warembori language
+wrs	sn	Waris
+wrs	sn	Waris language
+wri	sn	Wariyangga
+wri	sn	Wariyangga language
+wbp	sn	Warlpiri
+wbp	sn	Warlpiri language
+wrp	sn	Waropen
+wrp	sn	Waropen language
+wwr	sn	Warrwa
+wwr	sn	Warrwa language
+wrm	sn	Warumungu
+wrm	sn	Warumungu language
+wac	sn	Wasco
+wac	sn	Wasco language
+kmo	sn	Washkuk
+kmo	sn	Washkuk language
+was	sn	Washo
+was	sn	Washo language
+ata	sn	Wasi
+ata	sn	Wasi language
+wsk	sn	Waskia
+wsk	sn	Waskia language
+wbv	sn	Watjari
+wbv	sn	Watjari language
+noa	sn	Waunana
+noa	sn	Waunana language
+aaq	sn	Wawenock
+aaq	sn	Wawenock language
+oym	sn	Wayampi
+oym	sn	Wayampi language
+way	sn	Wayana
+way	sn	Wayana language
+wed	sn	Wedau
+wed	sn	Wedau language
+cym	sn	Welsh
+cym	sn	Welsh language
+wem	sn	Weme-Gbe
+wem	sn	Weme-Gbe language
+bsk	sn	Werchikwar
+bsk	sn	Werchikwar dialect
+wei	sn	Were
+wei	sn	Were language
+hye	sn	West Armenian
+hye	sn	West Armenian dialect
+mqs	sn	West Makian
+mqs	sn	West Makian language
+apw	sn	Western Apache
+apw	sn	Western Apache language
+are	sn	Western Arrernte
+are	sn	Western Arrernte language
+mbb	sn	Western Bukidnon Manobo
+mbb	sn	Western Bukidnon Manobo language
+dnw	sn	Western Dani
+dnw	sn	Western Dani language
+raf	sn	Western Meohang
+raf	sn	Western Meohang language
+bho	sn	Western Standard Bhojpuri
+bho	sn	Western Standard Bhojpuri dialect
+suc	sn	Western Subanon
+suc	sn	Western Subanon dialect
+ybe	sn	Western Yugur
+ybe	sn	Western Yugur language
+wew	sn	Wewewa
+wew	sn	Wewewa dialect
+mww	sn	White Hmong
+mww	sn	White Hmong dialect
+apw	sn	White Mountain Apache
+apw	sn	White Mountain Apache dialect
+twh	sn	White Tai
+twh	sn	White Tai language
+wic	sn	Wichita
+wic	sn	Wichita language
+yok	sn	Wikchamni
+yok	sn	Wikchamni dialect
+wim	sn	Wik-Mungkan
+wim	sn	Wik-Mungkan language
+win	sn	Winnebago
+win	sn	Winnebago language
+wit	sn	Wintu
+wit	sn	Wintu language
+wrh	sn	Wiradjuri
+wrh	sn	Wiradjuri language
+wiw	sn	Wirangu
+wiw	sn	Wirangu language
+wiu	sn	Wiru
+wiu	sn	Wiru language
+hto	sn	Witoto
+huu	sn	Witoto
+hux	sn	Witoto
+hto	sn	Witoto language
+huu	sn	Witoto language
+hux	sn	Witoto language
+wiy	sn	Wiyot
+wiy	sn	Wiyot language
+wob	sn	Wobe
+wob	sn	Wobe language
+xwc	sn	Woccon
+xwc	sn	Woccon language
+fuq	sn	Wodaabe
+fuq	sn	Wodaabe dialect
+woc	sn	Wogeo
+woc	sn	Wogeo language
+woi	sn	Woisika
+woi	sn	Woisika language
+apz	sn	Wojokeso
+apz	sn	Wojokeso dialect
+wal	sn	Wolayta
+wal	sn	Wolayta language
+woe	sn	Woleai
+woe	sn	Woleai language
+wlo	sn	Wolio
+wlo	sn	Wolio language
+wol	sn	Wolof
+wol	sn	Wolof language
+wyb	sn	Wongaibon
+wyb	sn	Wongaibon language
+unp	sn	Worora
+unp	sn	Worora language
+wsv	sn	Wotapuri-Katarqalai
+wsv	sn	Wotapuri-Katarqalai language
+wtw	sn	Wotu
+wtw	sn	Wotu language
+wuu	sn	Wu
+wuu	sn	Wu dialects
+dgi	sn	Wule
+dgi	sn	Wule dialect
+wuh	sn	Wutun
+wuh	sn	Wutun language
+wuv	sn	Wuvulu
+wuv	sn	Wuvulu language
+wya	sn	Wyandot
+wya	sn	Wyandot language
+axx	sn	Xaragure
+axx	sn	Xaragure language
+xav	sn	Xavante
+xav	sn	Xavante language
+xho	sn	Xhosa
+xho	sn	Xhosa language
+xia	sn	Xiandao
+xia	sn	Xiandao language
+hsn	sn	Xiang
+hsn	sn	Xiang dialects
+xin	sn	Xinca
+xin	sn	Xinca language
+cuu	sn	Ya
+cuu	sn	Ya language
+gya	sn	Yaayuwee
+gya	sn	Yaayuwee dialect
+jae	sn	Yabim
+jae	sn	Yabim language
+yby	sn	Yabiyufa
+yby	sn	Yabiyufa language
+ygr	sn	Yagaria
+ygr	sn	Yagaria language
+yai	sn	Yaghnobi
+yai	sn	Yaghnobi language
+gdf	sn	Yaghwatadaxa
+gdf	sn	Yaghwatadaxa language
+yad	sn	Yagua
+yad	sn	Yagua language
+yag	sn	Yahgan
+yag	sn	Yahgan language
+ynn	sn	Yahi
+ynn	sn	Yahi language
+yaf	sn	Yaka
+yaf	sn	Yaka (Congo and Angola)
+yaf	sn	Yaka language (Congo and Angola)
+yak	sn	Yakama
+yak	sn	Yakama language
+yka	sn	Yakan
+yka	sn	Yakan language
+ybh	sn	Yakha
+ybh	sn	Yakha language
+yaz	sn	Yako?
+yaz	sn	Yako? language
+yky	sn	Yakoma
+yky	sn	Yakoma language
+sah	sn	Yakut
+sah	sn	Yakut language
+yba	sn	Yala
+yba	sn	Yala language
+ylr	sn	Yalarnnga
+ylr	sn	Yalarnnga language
+nce	sn	Yale
+nce	sn	Yale language
+yal	sn	Yalunka
+yal	sn	Yalunka language
+tyam	sn	Yamba
+yam	sn	Yamba (Cameroon and Nigeria)
+yam	sn	Yamba language (Cameroon and Nigeria)
+yat	sn	Yambeta
+yat	sn	Yambeta language
+jmd	sn	Yamdena
+jmd	sn	Yamdena language
+tao	sn	Yami
+tao	sn	Yami language
+ybi	sn	Yamphu
+ybi	sn	Yamphu language
+ynn	sn	Yana (USA)
+ynn	sn	Yana
+mos	sn	Yana (Burkina Faso and Togo)
+mos	sn	Yana dialect (Burkina Faso and Togo)
+ynn	sn	Yana language
+ynd	sn	Yandruwandha
+ynd	sn	Yandruwandha language
+bzf	sn	Yangoru
+bzf	sn	Yangoru dialect
+dak	sn	Yankton
+dak	sn	Yankton dialect
+guu	sn	Yanomamo
+guu	sn	Yanomamo language
+jao	sn	Yanyuwa
+jao	sn	Yanyuwa language
+yns	sn	Yanzi
+yns	sn	Yanzi language
+yao	sn	Yao (Africa)
+ium	sn	Yao (Southeast Asia)
+yao	sn	Yao language (Africa)
+ium	sn	Yao language (Southeast Asia)
+yre	sn	Yaoure?
+yre	sn	Yaoure? language
+yap	sn	Yapese
+yap	sn	Yapese language
+jaq	sn	Yaqay
+jaq	sn	Yaqay language
+yaq	sn	Yaqui
+yaq	sn	Yaqui language
+yrb	sn	Yareba
+yrb	sn	Yareba language
+yae	sn	Yaruro
+yae	sn	Yaruro language
+yko	sn	Yasa
+yko	sn	Yasa language
+yyu	sn	Yau
+yyu	sn	Yau language
+yuf	sn	Yavapai
+yuf	sn	Yavapai language
+yva	sn	Yawa
+yva	sn	Yawa language
+yok	sn	Yawelmani
+yok	sn	Yawelmani dialect
+yah	sn	Yazghulami
+yah	sn	Yazghulami language
+mch	sn	Yecuana
+mch	sn	Yecuana language
+yle	sn	Yele
+yle	sn	Yele language
+ybe	sn	Yellow Uighur
+ybe	sn	Yellow Uighur language
+ybb	sn	Yemba
+ybb	sn	Yemba language
+jnj	sn	Yemsa
+jnj	sn	Yemsa language
+yec	sn	Yeniche
+yec	sn	Yeniche language
+yea	sn	Yerava
+yea	sn	Yerava dialect
+yeu	sn	Yerukala
+yeu	sn	Yerukala dialect
+yss	sn	Yessan-Mayo
+yss	sn	Yessan-Mayo language
+yey	sn	Yeyi
+yey	sn	Yeyi language
+yid	sn	Yiddish
+yid	sn	Yiddish language
+yii	sn	Yidiny
+yii	sn	Yidiny language
+yee	sn	Yimas
+yee	sn	Yimas language
+yim	sn	Yimchungru
+yim	sn	Yimchungru language
+yij	sn	Yindjibarndi
+yij	sn	Yindjibarndi language
+yia	sn	Yinggarda
+yia	sn	Yinggarda language
+yiy	sn	Yir-Yoront
+yiy	sn	Yir-Yoront language
+yog	sn	Yogad
+yog	sn	Yogad language
+nst	sn	Yogli
+nst	sn	Yogli dialect
+yok	sn	Yokuts
+yok	sn	Yokuts language
+yom	sn	Yombe
+yom	sn	Yombe (Congo and Angola)
+yom	sn	Yombe language (Congo and Angola)
+yon	sn	Yongkom
+yon	sn	Yongkom language
+yut	sn	Yopno
+yut	sn	Yopno language
+yor	sn	Yoruba
+yor	sn	Yoruba language
+yuc	sn	Yuchi
+yuc	sn	Yuchi language
+ycn	sn	Yucuna
+ycn	sn	Yucuna language
+bdy	sn	Yugambeh
+bdy	sn	Yugambeh dialect
+bdy	sn	Yugambeh-Bundjalung
+bdy	sn	Yugambeh-Bundjalung dialects
+yuu	sn	Yugh
+yuu	sn	Yugh language
+sll	sn	Yui
+sll	sn	Yui language
+ess	sn	Yuit
+ess	sn	Yuit language
+ykg	sn	Yukaghir
+yux	sn	Yukaghir
+ykg	sn	Yukaghir language
+yux	sn	Yukaghir language
+yuk	sn	Yuki
+yuk	sn	Yuki language
+yul	sn	Yulu
+yul	sn	Yulu language
+omc	sn	Yunca
+omc	sn	Yunca language
+yup	sn	Yupa
+yup	sn	Yupa language
+ypk	sn	Yupik languages
+yuq	sn	Yuqui
+yuq	sn	Yuqui language
+yuz	sn	Yuracare
+yuz	sn	Yuracare language
+yuj	sn	Yuri
+yuj	sn	Yuri language
+yur	sn	Yurok
+yur	sn	Yurok language
+jur	sn	Yuruna
+jur	sn	Yuruna language
+yui	sn	Yuruti
+yui	sn	Yuruti language
+zag	sn	Zaghawa
+zag	sn	Zaghawa language
+zkr	sn	Zakhring
+zkr	sn	Zakhring language
+zak	sn	Zanaki
+zak	sn	Zanaki language
+zne	sn	Zande
+zne	sn	Zande language
+zro	sn	Zaparo
+zro	sn	Zaparo language
+zap	sn	Zapotec
+zap	sn	Zapotec language
+dje	sn	Zarma
+dje	sn	Zarma dialect
+zza	sn	Zaza
+zza	sn	Zaza language
+sgl	sn	Zebaki
+sgl	sn	Zebaki dialect
+nzm	sn	Zeme
+nzm	sn	Zeme language
+zen	sn	Zenaga
+zen	sn	Zenaga language
+sna	sn	Zezuru
+sna	sn	Zezuru dialect
+xzh	sn	Zhangzhung
+xzh	sn	Zhangzhung language
+zha	sn	Zhuang
+zha	sn	Zhuang language
+zia	sn	Zia
+zia	sn	Zia language
+ziw	sn	Zigula
+ziw	sn	Zigula language
+gvo	sn	Zoro?
+gvo	sn	Zoro? language
+czt	sn	Zotung
+czt	sn	Zotung dialect
+zom	sn	Zou
+zom	sn	Zou dialect
+kab	sn	Zouave
+kab	sn	Zouave dialect
+gnd	sn	Zulgo
+gnd	sn	Zulgo language
+zul	sn	Zulu
+zul	sn	Zulu language
+zun	sn	Zuni
+zun	sn	Zuni language
+zwa	sn	Zway
+zwa	sn	Zway language
