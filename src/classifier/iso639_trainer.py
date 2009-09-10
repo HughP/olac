@@ -19,7 +19,7 @@ Usage: python iso639_trainer.py datafile classifier.pickle
 import sys
 import os
 import pickle
-import operator
+from operator import itemgetter
 import optparse
 import codecs
 from nltk import *
@@ -71,7 +71,8 @@ class iso639Classifier:
             descr = remove_diacritic(self.spaces.sub(' ',get_or_none(record, 'description')))
             i += 1
             iso_dict, NE_results = self.classify(record, snw, wnw, a, b)
-            iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
+#           iso_results = filter(lambda x:iso_dict[x]>=threshold, iso_dict.keys())
+            iso_results = [x for (x,y) in sorted(iso_dict.items(), key=itemgetter(1)) if y>=threshold and x!='high_score'] # top 5 that reach above threshold
 #           if iso_dict:
 #               top_choice = sorted(iso_dict.items(),key=operator.itemgetter(1),reverse=True)[0][0]
 #               if top_choice not in iso_results:
@@ -110,7 +111,7 @@ class iso639Classifier:
         bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
 
         tokens = wordpunct_tokenize(bag_of_words)
-        NE_dict = {'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
+        NE_dict = {'mn':{}, 'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
         i = 0
         while i<len(tokens):
             first_l = tokens[i][0]
@@ -142,7 +143,7 @@ class iso639Classifier:
         bag_of_words = title + ' \\n ' + subject + ' \\n ' + descr # purposely adding a token here so that we won't get NEs recognized "over the borders"
 
         tokens = wordpunct_tokenize(bag_of_words)
-        NE_dict = {'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
+        NE_dict = {'mn':{}, 'sn':{}, 'wn':{}, 'cn':{}, 'rg':{}}
         i = 0
         while i<len(tokens):
             first_l = tokens[i][0]
@@ -223,7 +224,7 @@ class iso639Classifier:
                     node = node[token_i]
                     curr_NE += ' '+token_i
                 else: # there is no more viable path in the tree
-                    if token_i=="language" and ('sn' in type_isos or 'wn' in type_isos):
+                    if token_i=="language" and ('sn' in type_isos or 'wn' in type_isos or 'mn' in type_isos):
                         # if at the end of an NE you see "language" as the next token, give sn/wn more weight
                         curr_NE += ' language'
                         final_NE = curr_NE
@@ -249,6 +250,7 @@ class iso639Classifier:
         langdict = {}
         countrydict = {}
         regiondict = {}
+        self._populate_dict(NE_dict['mn'], langdict, snw*2)
         self._populate_dict(NE_dict['sn'], langdict, snw)
         self._populate_dict(NE_dict['wn'], langdict, wnw)
         self._populate_dict(NE_dict['cn'], countrydict, 1.0)
