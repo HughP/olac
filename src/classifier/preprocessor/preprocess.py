@@ -39,7 +39,7 @@ os.system('python %(header)sCountryCodes_preprocessor.py %(header)sdata/CountryC
 os.system('python %(header)sregion_preprocessor.py -o %(output)s %(header)sdata/region\ data.txt' % headout)
 os.system('python %(header)scomplexname_preprocessor.py -o %(output)s %(header)sdata/complex\ name\ data.txt' % headout)
 output = open(headout['output'],'a')
-print>>output, open(headout['header']+'extra_data.tab').read().rstrip('\n\r')
+print>>output, open(headout['header']+'data/extra_data.tab').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/Data for language classifier (with y subfield).txt').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/LCSH_names_trainingdata.txt').read().rstrip('\n\r')
 print>>output, open(headout['header']+'data/ancient_countries.tab').read().rstrip('\n\r')
