@@ -38,6 +38,8 @@ class iso639Classifier:
     train -- reads in a datafile and stores the information.
     _add_item -- method for adding country, region and language name data to the classifier's training.
     save -- pickles the classifier to a file.
+    trim -- removes an entry from the tree; used for stoplisting
+    trim_from_file -- uses trim to remove an entire stoplist of words from file
     '''
     def __init__(self):
         '''Initializes the four dictionaries that comprise the classifier's
@@ -343,10 +345,63 @@ class iso639Classifier:
             file = check_file(filename, 'wb')
         pickle.dump(self, file)
 
+    def trim(self, word, type='', iso=''):
+        '''Trims an entry from the tree.  If type and iso are specified, only
+        removes those isos for the given type.  If only type is specified,
+        removes every entry for the given type.  If neither type nor iso are
+        specified, removes all instances of "word" from the tree.  Returns the
+        deleted item.  Returns None if no item is deleted (if iso, type, or word
+        does not exist in tree.)'''
+        tokens = wordpunct_tokenize(word)
+        orig_tokens = tokens
+        delete_node = None
+        delete_key = '' 
+        node = self.tree
+        # traverse the tree until we get to the end
+        while tokens:
+            if tokens[0] in node:
+                if len(node[tokens[0]].keys())!=1:
+                    delete_node = None
+                    delete_key = ''
+                elif not delete_node:
+                    delete_node = node
+                    delete_key = tokens[0]
+                node = node[tokens[0]]
+                tokens.pop(0)
+            else:
+                return None
+        # node is at the end of the tree now
+        if '<<END>>' not in node or (type and type not in node['<<END>>']) or (type and iso and iso not in node['<<END>>'][type]):
+            return None
+        else:
+            if (type and len(node['<<END>>'].keys())>1) or (type and iso and len(node['<<END>>'][type])>1):
+                if not iso:
+                    return node['<<END>>'].pop(type)
+                else:
+                    node['<<END>>'][type].remove(iso)
+                    return iso
+            else:
+                return delete_node.pop(delete_key)
+
+    def trim_from_file(self, stoplist_file):
+        '''Uses trim to remove this stoplist of words from the tree.'''
+        for line in codecs.open(stoplist_file,encoding='utf-8').readlines():
+            splitlist = line.strip(u'\r\n').split(u'\t')
+            iso = ''
+            type = ''
+            if len(splitlist)==1:
+                data = splitlist[0]
+            elif len(splitlist)==2:
+                type, data = splitlist
+            else:
+                iso, type, data = splitlist
+            self.trim(data,type,iso)
+
 def main():
     '''Saves a pickled classifier.  Meant to be called from command line.'''
     parser = optparse.OptionParser(usage='python iso639_trainer.py [options] datafile classifier.pickle')
     parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
+    parser.add_option('-s', '--stoplist', dest='stoplist', help='Use a stoplist')
     (options,args) = parser.parse_args()
 
     if len(args)!=2:
@@ -355,6 +410,8 @@ def main():
 
     iso639c = iso639Classifier()
     iso639c.train(args[0])
+    if options.stoplist:
+        iso639c.trim_from_file(options.stoplist)
     iso639c.save(args[1], options.force)
 if __name__=="__main__":
     main()
