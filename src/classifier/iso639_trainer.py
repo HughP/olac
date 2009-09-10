@@ -304,7 +304,7 @@ class iso639Classifier:
         for line in data:
             if line.strip(u'\n\t\r﻿')[0]=='#' or not line.strip():
                 continue
-            iso, item_type, item = line.strip('\r\n').split('\t')
+            iso, item_type, item = line.strip().split('\t')
             if item_type==u"cc":
                 try:
                     self.country_lang[item].add(iso)
@@ -354,17 +354,14 @@ class iso639Classifier:
         does not exist in tree.)'''
         tokens = wordpunct_tokenize(word)
         orig_tokens = tokens
-        delete_node = None
-        delete_key = '' 
+        delete_node = self.tree
+        delete_key = tokens[0] 
         node = self.tree
         # traverse the tree until we get to the end
         while tokens:
             if tokens[0] in node:
-                if len(node[tokens[0]].keys())!=1:
-                    delete_node = None
-                    delete_key = ''
-                elif not delete_node:
-                    delete_node = node
+                if len(node.keys())!=1:
+                    delete_node = node # parent of tokens[0]
                     delete_key = tokens[0]
                 node = node[tokens[0]]
                 tokens.pop(0)
@@ -400,8 +397,8 @@ class iso639Classifier:
 def main():
     '''Saves a pickled classifier.  Meant to be called from command line.'''
     parser = optparse.OptionParser(usage='python iso639_trainer.py [options] datafile classifier.pickle')
-    parser.add_option('-f', '--force', action='store_true', dest='force', help='Forces overwrite')
-    parser.add_option('-s', '--stoplist', dest='stoplist', help='Use a stoplist')
+    parser.add_option('-f', '--force', action='store_true', dest='force', help='forces overwrite')
+    parser.add_option('-s', '--stoplist', dest='stoplist', help='use a stoplist')
     (options,args) = parser.parse_args()
 
     if len(args)!=2:
