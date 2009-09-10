@@ -13,19 +13,25 @@
 # Countries for ancient and extinct languages compiled from Linguist List data
 import sys
 import os
+from optparse import OptionParser
 
-if len(sys.argv)!=2:
-    sys.exit("Usage: python preprocess.py output-file.tab")
+parser = OptionParser(usage='python preprocess.py output-file.tab')
+parser.add_option('-f','--force',action='store_true',default=False,dest='force',help='forces overwrite')
+(options, args) = parser.parse_args()
+if len(args)!=1:
+    parser.print_help()
+    sys.exit(1)
 
-if os.path.exists(sys.argv[1]):
-    a = raw_input("File %s already exists.  Overwrite? [yn]: " % sys.argv[1])
-    if not a.lower()=='y':
-        sys.exit(2)
-    else:
-        print "Overwriting..."
+if os.path.exists(args[0]):
+    if not options.force:
+        a = raw_input("File %s already exists.  Overwrite? [yn]: " % args[0])
+        if not a.lower()=='y':
+            sys.exit(2)
+        else:
+            print "Overwriting..."
 
 header, file = os.path.split(sys.argv[0])
-headout = {'header':os.path.join(header,''), 'output':sys.argv[1]}
+headout = {'header':os.path.join(header,''), 'output':args[0]}
 #os.system('python %(header)sEthnologue_data_preprocessor.py %(header)sdata/Ethnologue-classifier-training-data.xml > %(output)s' % headout)
 os.system('python %(header)sLinguistList_preprocessor.py %(header)sdata/GetListOfAncientLgs.html > %(output)s' % headout)
 os.system('python %(header)siso-639_preprocessor.py %(header)sdata/iso-639-3_20090210.tab.dld >> %(output)s' % headout)
