@@ -167,11 +167,10 @@ class iso639Classifier:
         #results = self.weighted(NE_dict, snw, wnw, a, b)
         return results, NE_dict
 
-    def classify_records_round_robin(self, debug, records, file_header, params):
+    def classify_records_round_robin(self, debug, records, file_header, params, thresholds):
         '''Classifies a list of records and prints the results to outstream.'''
         self.params = params
         gs_idx = -1
-        thresholds = [0.4,0.6,0.8,1.0]
         outstreams = [codecs.open(file_header+str(i)+'.txt','w',encoding='utf-8') for i in range(len(params)*len(thresholds))]
         for j in range(len(params)):
             for z in range(len(thresholds)):
@@ -296,11 +295,13 @@ class iso639Classifier:
                 except KeyError:
                     langdict[iso] = NE_len*C   
 
-    def train(self, datafile):
+    def train(self, datadir):
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
         and loads data into the classifier dictionaries.  
         '''
-        data = codecs.open(datafile, encoding='utf-8').readlines()
+        data = []
+        for datafile in os.listdir(datadir):
+            data += codecs.open(datafile, encoding='utf-8').readlines()
         for line in data:
             if line.strip(u'\n\t\r﻿')[0]=='#' or not line.strip():
                 continue
