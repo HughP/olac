@@ -241,7 +241,13 @@ class iso639Classifier:
             return final_NE, type_isos
         else:
             return '',{}
-        
+
+#   def clean_dict(self,dict1,dict2):
+#       for NE in dict1:
+#           if NE in dict2:
+#               inter = dict1[NE].intersection(dict2[NE])
+#               dict2[NE].difference_update(inter)
+
     def weighted(self, NE_dict, snw, wnw, a, b):
         '''Returns a dictionary of ISO 639-3 codes and associated weights
         calculated from the language, region and country names found by
@@ -251,6 +257,10 @@ class iso639Classifier:
         langdict = {}
         countrydict = {}
         regiondict = {}
+
+#       self.clean_dict(NE_dict['mn'],NE_dict['sn'])
+#       self.clean_dict(NE_dict['mn'],NE_dict['wn'])
+#       self.clean_dict(NE_dict['sn'],NE_dict['wn'])
         self._populate_dict(NE_dict['mn'], langdict, snw*2)
         self._populate_dict(NE_dict['sn'], langdict, snw)
         self._populate_dict(NE_dict['wn'], langdict, wnw)
@@ -301,11 +311,15 @@ class iso639Classifier:
         '''
         data = []
         for datafile in os.listdir(datadir):
-            data += codecs.open(datafile, encoding='utf-8').readlines()
+            if datafile[0]!='.':
+                data += codecs.open(os.path.join(datadir,datafile), encoding='utf-8').readlines()
         for line in data:
             if line.strip(u'\n\t\r﻿')[0]=='#' or not line.strip():
                 continue
-            iso, item_type, item = line.strip().split('\t')
+            try:
+                iso, item_type, item = line.strip().split('\t')
+            except ValueError:
+                sys.exit(line.strip().split('\t'))
             if item_type==u"cc":
                 try:
                     self.country_lang[item].add(iso)
