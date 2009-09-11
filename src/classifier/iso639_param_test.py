@@ -34,6 +34,7 @@ print "Loading test data..."
 reader = TabDBCorpusReader('test_data/','.*\.tab')
 records = reader.records('iso639_test2.tab')
 # sets parameters
+thresholds = [0.4,0.6,0.8,1.0]
 print "Setting parameters..."
 params = []
 for a in [i/100.0 for i in range(60,90,5)]:
