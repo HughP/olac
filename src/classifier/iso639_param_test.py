@@ -39,9 +39,9 @@ print "Setting parameters..."
 params = []
 for a in [i/100.0 for i in range(60,90,5)]:
     # only varying wnw
-    params.append([1.0,1.0,1.0,a])
+    params.append([1.0,a,1.0,1.0])
 
 # Classifies each record
 print "Classifying..."
 classifier.gs = open('test_data/iso639_test2.gs').readlines()
-classifier.classify_records_round_robin(True, records, 'experiments/b/b_experiment', params)
+classifier.classify_records_round_robin(True, records, 'experiments/wnw/wnw_experiment', params, thresholds)
