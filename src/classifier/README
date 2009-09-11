@@ -24,6 +24,12 @@ tabdbreader2.py     -   Contains corpus reader for processing tab delimited
                         MySQL dump of OLAC records.
 xmlreader.py        -   Contains corpus reader for processing XML format OLAC
                         records.
+iso639_param_test.py-   Runs classifier several times over a number of different
+                        parameter settings and outputs all the results to a
+                        directory specified in the code.
+iso639_evaluate_round_robin.py - Processes output of iso639_param_test.py and
+                                 outputs precision and recall numbers for
+                                 evaluation.
 
 preprocessor/
 -------------
@@ -50,10 +56,13 @@ ancient_countries.py                    -   Processes LinguistList list of
                                             accesses each language's page to get
                                             the countries they were spoken in.
                                             Not part of pipeline; run only once.
+
+subjectlanguagedata/
+--------------------
 ancient_countries.tab                   -   Output of ancient_countries.py
 extra_data.tab                          -   Hand-constructed data
-Data for language classifier.tab
-LCSH_names_trainingdata.tab
+Data for language classifier (with y subfield).txt
+LCSH_names_trainingdata.txt
 
 utilities/
 ----------
