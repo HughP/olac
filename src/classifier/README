@@ -36,26 +36,40 @@ preprocessor/
 preprocess.py                           -   Runs all preprocessors and
                                             concatenates all data into a single
                                             file for Subject Language
-                                            Classifier.
-CountryCodes.tab                        -   List of countries and corresponding
-                                            ISO 3166 codes.
+                                            Classifier. Now obsolete since the 
+                                            trainer reads all files in a folder.
+preprocess.bat                          -   DOS batch script with calls for all 
+                                            preprocessing scripts.
 CountryCodes_preprocessor.py            -   Outputs CountryCodes.tab in
                                             normalized form.
-Ethnologue-classifier-training-data.xml -   Ethnologue data
 Ethnologue_data_preprocessor.py         -   Processes Ethnologue data and prints
-                                            in normalized form.
-GetListOfAncientLgs.html                -   LinguistList list of ancient and
-                                            extinct languages.
+                                            in normalized form. Now obsolete.
 LinguistList_preprocessor.py            -   Preprocessor for
                                             GetListOfAncientLgs.html
-iso-639-3_20090210.tab.dld              -   Table of language names and ISO
-                                            639-3 codes.
 iso639_preprocessor.py                  -   Preprocessor for ISO 639-3 table
 ancient_countries.py                    -   Processes LinguistList list of
                                             ancient and extinct languages,
                                             accesses each language's page to get
                                             the countries they were spoken in.
                                             Not part of pipeline; run only once.
+HistoricalCountryNames_preprocessor.py  -   Scrapes data on historical country
+                                            names from a particular web page.
+                                            Not part of pipeline; run only once,
+                                            then hand edited and expanded.
+region_preprocessor.py                  -   Converts proper nouns in region fields
+                                            in Ethnologue to rg rules
+complexname_preprocessor.py             -   Converts complex names (with space or 
+                                            hyphen) to wn rules for individual parts
+
+
+data/CountryCodes.tab                   -   List of countries and corresponding
+                                            ISO 3166 codes.
+data/GetListOfAncientLgs.html           -   LinguistList list of ancient and
+                                            extinct languages.
+data/iso-639-3_20090210.tab             -   Table of language names and ISO
+                                            639-3 codes.
+
+
 
 subjectlanguagedata/
 --------------------

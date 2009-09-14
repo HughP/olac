@@ -19,7 +19,7 @@ iso_name_regex = re.compile(r'(?<=cfm\?code=)([a-z]{3})\s*\">(([^\s]+\s)*[^\s]+)
 country_name = re.compile(r'''Once\s+Spoken\s+in\s+</strong>\s+:\s+</span>\s+</td>\s+<td width="300">\s+<span class="p-match">\s+(.*?)(\s+&nbsp;)?\s+</span>''')
 iso_names = iso_name_regex.findall(codecs.open(sys.argv[1], 'r','utf-8').read())
 country_codes = {}
-for line in codecs.open('CountryCodes.tab', 'r','latin-1').readlines()[1:]:
+for line in codecs.open('data/CountryCodes.tab', 'r','latin-1').readlines()[1:]:
     code, country, area = line.strip().split('\t')
     country_codes[unicode(country)] = code
 
