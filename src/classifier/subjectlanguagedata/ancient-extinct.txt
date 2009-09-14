@@ -1,0 +1,257 @@
+# Linguist List data
+xad	sn	Adai
+xae	sn	Aequian
+xag	sn	Aghwan
+akk	sn	Akkadian
+xln	sn	Alanic
+xmk	sn	Ancient Macedonian
+xna	sn	Ancient North Arabian
+xzp	sn	Ancient Zapotec
+xaa	sn	Andalusian Arabic
+xno	sn	Anglo-Norman
+xap	sn	Apalachee
+xaq	sn	Aquitanian
+xrt	sn	Aranama-Tamique
+pka	sn	Ardhamāgadhī Prākrit
+xrn	sn	Arin
+xrm	sn	Armazic
+aru	sn	Arua
+xss	sn	Assan
+atc	sn	Atsahuaca
+xbc	sn	Bactrian
+bue	sn	Beothuk
+xcc	sn	Camunic
+xcr	sn	Carian
+crb	sn	Carib, Island
+xcy	sn	Cayuse
+xce	sn	Celtiberian
+caj	sn	Chané
+xch	sn	Chemakum
+chb	sn	Chibcha
+cmk	sn	Chimakum
+xco	sn	Chorasmian
+cjr	sn	Chorotega
+xcv	sn	Chuvantsy
+xcg	sn	Cisalpine Gaulish
+xcl	sn	Classical Armenian
+cmg	sn	Classical Mongolian
+xct	sn	Classical Tibetan
+xcw	sn	Coahuilteco
+xcm	sn	Comecrudo
+xcn	sn	Cotoname
+xcb	sn	Cumbric
+xlu	sn	Cuneiform Luwian
+xcu	sn	Curonian
+xdc	sn	Dacian
+dlm	sn	Dalmatian
+xdr	sn	Deir Alla
+xtr	sn	Early Tripuri
+xeb	sn	Eblan
+xdm	sn	Edomite
+egy	sn	Egyptian
+elx	sn	Elamitic
+xly	sn	Elymian
+xep	sn	Epi-Olmec
+emy	sn	Epigraphic Mayan
+esm	sn	Esuma
+etc	sn	Etchemin
+ecr	sn	Eteocretan
+ecy	sn	Eteocypriot
+ett	sn	Etruscan
+xfa	sn	Faliscan
+xgf	sn	Gabrielino-Fernandeño
+xga	sn	Galatian
+xgl	sn	Galindan
+xgr	sn	Garza
+got	sn	Gothic
+gnc	sn	Guanche
+xhd	sn	Hadrami
+xha	sn	Harami
+xht	sn	Hattian
+xhr	sn	Hernican
+hlu	sn	Hieroglyphic Luwian
+hit	sn	Hittite
+xhc	sn	Hunnic
+xhu	sn	Hurrian
+xib	sn	Iberian
+xil	sn	Illyrian
+arc	sn	Imperial Aramaic
+xiv	sn	Indus Valley Language
+jpa	sn	Jewish Palestinian Aramaic
+zra	sn	Kara
+xqa	sn	Karakhanid
+zkk	sn	Karankawa
+zsk	sn	Kaskean
+zku	sn	Kaurna
+kaw	sn	Kawi
+zkz	sn	Khazar
+zkh	sn	Khorezmian
+zkt	sn	Kitan
+czk	sn	Knaanic
+zkg	sn	Koguryo
+zkb	sn	Koibal
+zko	sn	Kott
+zkv	sn	Krevinian
+qwm	sn	Kuman
+qwt	sn	Kwalhioqua-Tlatskanai
+lng	sn	Langobardic
+ltc	sn	Late Middle Chinese
+lre	sn	Laurentian
+xle	sn	Lemnian
+xlp	sn	Lepontic
+xli	sn	Liburnian
+xlg	sn	Ligurian
+lab	sn	Linear A
+xlo	sn	Loup A
+xlb	sn	Loup B
+xls	sn	Lusitanian
+xlc	sn	Lycian
+xld	sn	Lydian
+hmk	sn	Maek
+emm	sn	Mamulique
+xmn	sn	Manichaean Middle Persian
+umc	sn	Marrucinian
+ims	sn	Marsian
+mtm	sn	Mator
+ymt	sn	Mator-Taygi-Karagas
+xme	sn	Median
+xmr	sn	Meroitic
+cms	sn	Messapic
+cmm	sn	Michigamea
+axm	sn	Middle Armenian
+xbm	sn	Middle Breton
+cnx	sn	Middle Cornish
+dum	sn	Middle Dutch
+enm	sn	Middle English
+frm	sn	Middle French
+gmh	sn	Middle High German
+htx	sn	Middle Hittite
+mga	sn	Middle Irish
+okm	sn	Middle Korean
+gml	sn	Middle Low German
+xng	sn	Middle Mongolian
+nwx	sn	Middle Newar
+wlm	sn	Middle Welsh
+iml	sn	Miluk
+imy	sn	Milyan
+inm	sn	Minaean
+omn	sn	Minoan
+obm	sn	Moabite
+mod	sn	Mobilian
+omc	sn	Mochica
+mxi	sn	Mozarabic
+gmy	sn	Mycenaean Greek
+yms	sn	Mysian
+pmh	sn	Māhārāṣṭrī Prākrit
+ndf	sn	Nadruvian
+nei	sn	Neo-Hittite
+nkp	sn	Niuatoputapu
+nom	sn	Nocamán
+nrc	sn	Noric
+nrn	sn	Norn
+nrp	sn	North Picene
+nrt	sn	Northern Kalapuya
+nwy	sn	Nottoway-Meherrin
+nxm	sn	Numidian
+oar	sn	Old Aramaic
+oav	sn	Old Avar
+obt	sn	Old Breton
+obr	sn	Old Burmese
+och	sn	Old Chinese
+oco	sn	Old Cornish
+ang	sn	Old English
+fro	sn	Old French
+ofs	sn	Old Frisian
+oge	sn	Old Georgian
+goh	sn	Old High German
+oht	sn	Old Hittite
+ohu	sn	Old Hungarian
+sga	sn	Old Irish
+ojp	sn	Old Japanese
+oko	sn	Old Korean
+odt	sn	Old Low Franconian
+omp	sn	Old Manipuri
+omr	sn	Old Marathi
+omx	sn	Old Mon
+non	sn	Old Norse
+onw	sn	Old Nubian
+oos	sn	Old Ossetic
+peo	sn	Old Persian
+pro	sn	Old Provençal
+orv	sn	Old Russian
+osx	sn	Old Saxon
+osp	sn	Old Spanish
+oty	sn	Old Tamil
+otb	sn	Old Tibetan
+otk	sn	Old Turkish
+oui	sn	Old Uighur
+owl	sn	Old Welsh
+omk	sn	Omok
+osc	sn	Oscan
+pkc	sn	Paekche
+pgn	sn	Paelignian
+plq	sn	Palaic
+pmk	sn	Pamlico
+xpr	sn	Parthian
+xpc	sn	Pecheneg
+pal	sn	Pehlevi
+ptw	sn	Pentlatch
+phn	sn	Phoenician
+xpg	sn	Phrygian
+xpi	sn	Pictish
+xps	sn	Pisidian
+xpo	sn	Pochutec
+pox	sn	Polabian
+xpm	sn	Pumpokol
+xpu	sn	Punic
+puq	sn	Puquina
+xpy	sn	Puyo
+xpp	sn	Puyo-Paekche
+pyx	sn	Pyu
+xqt	sn	Qatabanian
+xrr	sn	Raetic
+sjk	sn	Saami, Kemi
+xsa	sn	Sabaean
+sbv	sn	Sabine
+xsk	sn	Sakan
+psu	sn	Sauraseni Prākrit
+xsc	sn	Scythian
+sxl	sn	Selonian
+sxc	sn	Sicanian
+scx	sn	Sicel
+xsd	sn	Sidetic
+svx	sn	Skalvian
+sog	sn	Sogdian
+xso	sn	Solano
+sxo	sn	Sorothaptic
+spx	sn	South Picene
+sxk	sn	Southern Kalapuya
+xsv	sn	Sudovian
+sux	sn	Sumerian
+sqn	sn	Susquehannock
+txg	sn	Tangut
+txr	sn	Tartessian
+xtz	sn	Tasmanian
+txh	sn	Thracian
+tjm	sn	Timucua
+xto	sn	Tokharian A
+txb	sn	Tokharian B
+xtg	sn	Transalpine Gaulish
+txc	sn	Tsetsaut
+xtq	sn	Tumshuqese
+uga	sn	Ugaritic
+xum	sn	Umbrian
+xup	sn	Upper Umpqua
+xur	sn	Urartian
+xvn	sn	Vandalic
+xve	sn	Venetic
+xvs	sn	Vestinian
+xbo	sn	Volga-Bolgarian
+xvo	sn	Volscian
+xwc	sn	Woccon
+xwo	sn	Written Oirat
+ynn	sn	Yana
+ysc	sn	Yassic
+yug	sn	Yug
+xzm	sn	Zemgalian
+xzh	sn	Zhang-zhung
