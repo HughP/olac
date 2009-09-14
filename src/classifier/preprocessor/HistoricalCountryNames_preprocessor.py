@@ -75,9 +75,10 @@ class HistoricalCountryNamesData:
             
     def print_hist_names(self, outstream):
         '''Prints historical name data to outstream using standardized format.'''
+        print>>outstream, '# Historical country names' 
         for hist_name in self.hist_names:
             for iso3166 in self.hist_names[hist_name]:
-                print>>outstream, iso3166 + '\tcn' + hist_name
+                print>>outstream, iso3166.upper() + '\tcn' + '\t' + hist_name
 
 if __name__=="__main__":
     if len(sys.argv)!=2:
