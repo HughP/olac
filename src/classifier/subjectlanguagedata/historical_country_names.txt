@@ -1,0 +1,190 @@
+# Historical country names
+# Original source: http://www.nationsonline.org/oneworld/hist_country_names.htm 
+# Significant hand editing -- SO DON't REGENERATE
+ZA	cn	Zuid-Afrikaansche Republiek
+ZA	cn	ZAR
+NA	cn	South-West Africa
+ZA	cn	Kaffraria
+ET	cn	Abyssinia
+BA	cn	Yugoslavia
+HR	cn	Yugoslavia
+MK	cn	Yugoslavia
+ME	cn	Yugoslavia
+SI	cn	Yugoslavia
+PG	cn	Papua Territory
+DE	cn	East Germany
+DJ	cn	French Somaliland
+BF	cn	Upper Volta
+ZA	cn	Ciskei
+zA	cn	Republic of Ciskei 
+TO	cn	Friendly Islands
+GT	cn	United Provinces of Central America - UPCA
+SV	cn	United Provinces of Central America - UPCA
+HN	cn	United Provinces of Central America - UPCA
+NI	cn	United Provinces of Central America - UPCA
+CR	cn	United Provinces of Central America - UPCA
+GT	cn	UPCA
+SV	cn	UPCA
+HN	cn	UPCA
+NI	cn	UPCA
+CR	cn	UPCA
+ZW	cn	Rhodesia
+ZW	cn	Southern Rhodesia
+ZA	cn	Bophuthatswana
+MX	cn	New Spain
+GT	cn	New Spain
+BZ	cn	New Spain
+SV	cn	New Spain
+HN	cn	New Spain
+NI	cn	New Spain
+CR	cn	New Spain
+US	cn	New Spain
+LS	cn	Basutoland
+ZA	cn	Transkei
+RO	cn	Transylvania
+ZA	cn	Cape Colony
+CD	cn	Belgian Congo
+MA	cn	Spanish West Africa
+TZ	cn	Tanganyika Territory
+CZ	cn	Bohemia
+MD	cn	Bessarabia
+UA	cn	Bessarabia
+UA	cn	Ruthenia
+NE	cn	Hausaland
+NG	cn	Hausaland
+CA	cn	Newfoundland
+CZ	cn	Moravia
+CF	cn	Ubangi-Shari
+TV	cn	Ellice Islands
+PG	cn	Northern Solomon Islands
+GB	cn	Scotland
+ZA	cn	Transvaal
+BZ	cn	British Honduras
+DE	cn	West Germany
+BW	cn	Bechuanaland
+CO	cn	Gran Colombia
+EC	cn	Gran Colombia
+VE	cn	Gran Colombia
+DJ	cn	Afars and Issas Territory
+CF	cn	Central African Empire
+SN	cn	Mali Federation
+ML	cn	Mali Federation
+MR	cn	French West Africa
+GM	cn	French West Africa
+SN	cn	French West Africa
+NE	cn	French West Africa
+ML	cn	French West Africa
+GN	cn	French West Africa
+CI	cn	French West Africa
+BF	cn	French West Africa
+BJ	cn	French West Africa
+NL	cn	Batavian Republic
+UA	cn	Transcarpathia
+DO	cn	Haiti
+HT	cn	Haiti
+PL	cn	Silesia
+CZ	cn	Silesia
+DE	cn	Silesia
+AG	cn	British West Indies
+BS	cn	British West Indies
+BB	cn	British West Indies
+DM	cn	British West Indies
+GD	cn	British West Indies
+JM	cn	British West Indies
+KN	cn	British West Indies
+LC	cn	British West Indies
+VC	cn	British West Indies
+TT	cn	British West Indies
+AI	cn	British West Indies
+BM	cn	British West Indies
+VG	cn	British West Indies
+MS	cn	British West Indies
+GM	cn	Senegambia
+SN	cn	Senegambia
+ML	cn	Songhay
+MR	cn	Songhay
+ID	cn	New Guinea
+PG	cn	New Guinea
+CD	cn	Katanga
+RO	cn	Moldavia
+MD	cn	Moldavia
+BF	cn	Sahel
+TD	cn	Sahel
+GM	cn	Sahel
+GW	cn	Sahel
+ML	cn	Sahel
+MR	cn	Sahel
+NE	cn	Sahel
+SN	cn	Sahel
+ZM	cn	Rhodesia
+ZM	cn	Northern Rhodesia
+GN	cn	French Guinea
+NA	cn	German Southwest Africa
+BJ	cn	Dahomey
+SO	cn	Benadir
+CD	cn	Zaire
+SR	cn	Dutch Guiana
+ZA	cn	Union of South Africa
+BR	cn	New Holland
+GQ	cn	Spanish Guinea
+CH	cn	Confederatio Helvetica
+RW	cn	Ruanda
+SD	cn	Nubia
+EG	cn	Nubia
+NG	cn	Biafra
+DE	cn	Prussia
+DE	cn	Preussen
+PL	cn	Prussia
+PL	cn	Preussen
+CZ	cn	Czechoslovakia
+SK	cn	Czechoslovakia
+GY	cn	British Guiana
+ZA	cn	British Bechuanaland
+ML	cn	French Sudan
+GP	cn	French West Indies
+MQ	cn	French West Indies
+GH	cn	Gold Coast
+GH	cn	Togoland
+LY	cn	Grain Coast
+ES	cn	Fortunate Islands
+MZ	cn	Portuguese East Africa
+MG	cn	Malagasy Republic
+CH	cn	Helvetia
+GF	cn	Inini
+BI	cn	Urundi
+ZA	cn	Stellaland
+KI	cn	Gilbert Islands
+EG	cn	United Arab Republic
+SY	cn	United Arab Republic
+VI	cn	Danish West Indies
+AM	cn	Soviet Union
+AZ	cn	Soviet Union
+BY	cn	Soviet Union
+EE	cn	Soviet Union
+GE	cn	Soviet Union
+KZ	cn	Soviet Union
+KG	cn	Soviet Union
+LV	cn	Soviet Union
+LT	cn	Soviet Union
+MD	cn	Soviet Union
+RU	cn	Soviet Union
+TJ	cn	Soviet Union
+TM	cn	Soviet Union
+UA	cn	Soviet Union
+UZ	cn	Soviet Union
+ER	cn	Italian East Africa
+ET	cn	Italian East Africa
+SO	cn	Italian East Africa
+ML	cn	Sudanese Republic
+RE	cn	Bourbon Island
+BA	cn	Kingdom of Serbs, Croats and Slovenes
+HR	cn	Kingdom of Serbs, Croats and Slovenes
+MK	cn	Kingdom of Serbs, Croats and Slovenes
+ME	cn	Kingdom of Serbs, Croats and Slovenes
+SI	cn	Kingdom of Serbs, Croats and Slovenes
+KE	cn	British East Africa
+TZ	cn	British East Africa
+UG	cn	British East Africa
+VU	cn	New Hebrides
+MW	cn	Nyasaland
+TZ	cn	Zanzibar

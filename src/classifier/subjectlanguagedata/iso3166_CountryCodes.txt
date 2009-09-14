@@ -1,0 +1,243 @@
+# CountryCodes.tab data
+AD	cn	Andorra
+AE	cn	United Arab Emirates
+AF	cn	Afghanistan
+AG	cn	Antigua and Barbuda
+AI	cn	Anguilla
+AL	cn	Albania
+AM	cn	Armenia
+AN	cn	Netherlands Antilles
+AO	cn	Angola
+AR	cn	Argentina
+AS	cn	American Samoa
+AT	cn	Austria
+AU	cn	Australia
+AW	cn	Aruba
+AZ	cn	Azerbaijan
+BA	cn	Bosnia and Herzegovina
+BB	cn	Barbados
+BD	cn	Bangladesh
+BE	cn	Belgium
+BF	cn	Burkina Faso
+BG	cn	Bulgaria
+BH	cn	Bahrain
+BI	cn	Burundi
+BJ	cn	Benin
+BM	cn	Bermuda
+BN	cn	Brunei
+BO	cn	Bolivia
+BR	cn	Brazil
+BS	cn	Bahamas
+BT	cn	Bhutan
+BW	cn	Botswana
+BY	cn	Belarus
+BZ	cn	Belize
+CA	cn	Canada
+CD	cn	Democratic Republic of the Congo
+CF	cn	Central African Republic
+CG	cn	Congo
+CH	cn	Switzerland
+CI	cn	Côte d'Ivoire
+CK	cn	Cook Islands
+CL	cn	Chile
+CM	cn	Cameroon
+CN	cn	China
+CO	cn	Colombia
+CR	cn	Costa Rica
+CU	cn	Cuba
+CV	cn	Cape Verde Islands
+CY	cn	Cyprus
+CZ	cn	Czech Republic
+DE	cn	Germany
+DJ	cn	Djibouti
+DK	cn	Denmark
+DM	cn	Dominica
+DO	cn	Dominican Republic
+DZ	cn	Algeria
+EC	cn	Ecuador
+EE	cn	Estonia
+EG	cn	Egypt
+EH	cn	Western Sahara
+ER	cn	Eritrea
+ES	cn	Spain
+ET	cn	Ethiopia
+FI	cn	Finland
+FJ	cn	Fiji
+FK	cn	Falkland Islands
+FM	cn	Micronesia
+FR	cn	France
+GA	cn	Gabon
+GB	cn	United Kingdom
+GD	cn	Grenada
+GE	cn	Georgia
+GF	cn	French Guiana
+GH	cn	Ghana
+GI	cn	Gibraltar
+GL	cn	Greenland
+GM	cn	Gambia
+GN	cn	Guinea
+GP	cn	Guadeloupe
+GQ	cn	Equatorial Guinea
+GR	cn	Greece
+GT	cn	Guatemala
+GU	cn	Guam
+GW	cn	Guinea-Bissau
+GY	cn	Guyana
+HN	cn	Honduras
+HR	cn	Croatia
+HT	cn	Haiti
+HU	cn	Hungary
+ID	cn	Indonesia
+ID	cn	Indonesia (Java and Bali)
+ID	cn	Indonesia (Kalimantan)
+ID	cn	Indonesia (Nusa Tenggara)
+ID	cn	Indonesia (Sumatra)
+ID	cn	Indonesia (Sulawesi)
+ID	cn	Indonesia (Maluku)
+ID	cn	Indonesia (Papua)
+IE	cn	Ireland
+IL	cn	Israel
+IN	cn	India
+IO	cn	British Indian Ocean Territory
+IQ	cn	Iraq
+IR	cn	Iran
+IS	cn	Iceland
+IT	cn	Italy
+JM	cn	Jamaica
+JO	cn	Jordan
+JP	cn	Japan
+KE	cn	Kenya
+KG	cn	Kyrgyzstan
+KH	cn	Cambodia
+KI	cn	Kiribati
+KM	cn	Comoros
+KN	cn	Saint Kitts and Nevis
+KP	cn	Korea, North
+KR	cn	Korea, South
+KW	cn	Kuwait
+KY	cn	Cayman Islands
+KZ	cn	Kazakhstan
+LA	cn	Laos
+LB	cn	Lebanon
+LC	cn	Saint Lucia
+LI	cn	Liechtenstein
+LK	cn	Sri Lanka
+LR	cn	Liberia
+LS	cn	Lesotho
+LT	cn	Lithuania
+LU	cn	Luxembourg
+LV	cn	Latvia
+LY	cn	Libya
+MA	cn	Morocco
+MC	cn	Monaco
+MD	cn	Moldova
+ME	cn	Montenegro
+MG	cn	Madagascar
+MH	cn	Marshall Islands
+MK	cn	Macedonia
+ML	cn	Mali
+MM	cn	Myanmar
+MN	cn	Mongolia
+MP	cn	Northern Mariana Islands
+MQ	cn	Martinique
+MR	cn	Mauritania
+MS	cn	Montserrat
+MT	cn	Malta
+MU	cn	Mauritius
+MV	cn	Maldives
+MW	cn	Malawi
+MX	cn	Mexico
+MY	cn	Malaysia
+MY	cn	Malaysia (Sabah)
+MY	cn	Malaysia (Sarawak)
+MY	cn	Malaysia (Peninsular)
+MZ	cn	Mozambique
+NA	cn	Namibia
+NC	cn	New Caledonia
+NE	cn	Niger
+NF	cn	Norfolk Island
+NG	cn	Nigeria
+NI	cn	Nicaragua
+NL	cn	Netherlands
+NO	cn	Norway
+NP	cn	Nepal
+NR	cn	Nauru
+NU	cn	Niue
+NZ	cn	New Zealand
+OM	cn	Oman
+PA	cn	Panama
+PE	cn	Peru
+PF	cn	French Polynesia
+PG	cn	Papua New Guinea
+PH	cn	Philippines
+PK	cn	Pakistan
+PL	cn	Poland
+PM	cn	Saint Pierre and Miquelon
+PN	cn	Pitcairn
+PR	cn	Puerto Rico
+PS	cn	Palestinian West Bank and Gaza
+PT	cn	Portugal
+PW	cn	Palau
+PY	cn	Paraguay
+QA	cn	Qatar
+RE	cn	Réunion
+RO	cn	Romania
+RS	cn	Serbia
+RU	cn	Russian Federation
+RU	cn	Russian Federation (Europe)
+RU	cn	Russian Federation (Asia)
+RW	cn	Rwanda
+SA	cn	Saudi Arabia
+SB	cn	Solomon Islands
+SC	cn	Seychelles
+SD	cn	Sudan
+SE	cn	Sweden
+SG	cn	Singapore
+SH	cn	Saint Helena
+SI	cn	Slovenia
+SK	cn	Slovakia
+SL	cn	Sierra Leone
+SM	cn	San Marino
+SN	cn	Senegal
+SO	cn	Somalia
+SR	cn	Suriname
+ST	cn	São Tomé e Príncipe
+SV	cn	El Salvador
+SY	cn	Syria
+SZ	cn	Swaziland
+TC	cn	Turks and Caicos Islands
+TD	cn	Chad
+TG	cn	Togo
+TH	cn	Thailand
+TJ	cn	Tajikistan
+TK	cn	Tokelau
+TL	cn	East Timor
+TM	cn	Turkmenistan
+TN	cn	Tunisia
+TO	cn	Tonga
+TR	cn	Turkey
+TR	cn	Turkey (Europe)
+TR	cn	Turkey (Asia)
+TT	cn	Trinidad and Tobago
+TV	cn	Tuvalu
+TW	cn	Taiwan
+TZ	cn	Tanzania
+UA	cn	Ukraine
+UG	cn	Uganda
+US	cn	United States
+UY	cn	Uruguay
+UZ	cn	Uzbekistan
+VA	cn	Vatican State
+VC	cn	Saint Vincent and the Grenadines
+VE	cn	Venezuela
+VG	cn	British Virgin Islands
+VI	cn	U.S. Virgin Islands
+VN	cn	Viet Nam
+VU	cn	Vanuatu
+WF	cn	Wallis and Futuna
+WS	cn	Samoa
+YE	cn	Yemen
+YT	cn	Mayotte
+ZA	cn	South Africa
+ZM	cn	Zambia
+ZW	cn	Zimbabwe
