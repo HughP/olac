@@ -309,27 +309,27 @@ class iso639Classifier:
         '''Reads in a data file in format specified in wiki:iso639_trainerDatafileFormat
         and loads data into the classifier dictionaries.  
         '''
-        data = []
         for datafile in os.listdir(datadir):
             if datafile[0]!='.':
-                data += codecs.open(os.path.join(datadir,datafile), encoding='utf-8').readlines()
-        for line in data:
-            if line.strip(u'\n\t\r﻿')[0]=='#' or not line.strip():
-                continue
-            try:
-                iso, item_type, item = line.strip().split('\t')
-            except ValueError:
-                sys.exit(line.strip().split('\t'))
-            if item_type==u"cc":
-                try:
-                    self.country_lang[item].add(iso)
-                except KeyError:
-                    self.country_lang[item] = set([iso])
-            else:
-                item = remove_diacritic(item.lower())
-                if "'" in item: # also add version without apostrophe
-                    self._add_item(wordpunct_tokenize(item.strip().replace("'","")), self.tree, item_type, iso)
-                self._add_item(wordpunct_tokenize(item.strip()), self.tree, item_type, iso)
+                data = codecs.open(os.path.join(datadir,datafile), encoding='utf-8').readlines()
+                for line in data:
+                    if line.strip(u'\n\t\r﻿')[0]=='#' or not line.strip():
+                        continue
+                    try:
+                        iso, item_type, item = line.strip().split('\t')
+                    except ValueError:
+                        print "Error in file %s--data must be in format: [iso]\t[item_type]\t[item]"%datafile
+                        sys.exit(line.strip())
+                    if item_type==u"cc":
+                        try:
+                            self.country_lang[item].add(iso)
+                        except KeyError:
+                            self.country_lang[item] = set([iso])
+                    else:
+                        item = remove_diacritic(item.lower())
+                        if "'" in item: # also add version without apostrophe
+                            self._add_item(wordpunct_tokenize(item.strip().replace("'","")), self.tree, item_type, iso)
+                        self._add_item(wordpunct_tokenize(item.strip()), self.tree, item_type, iso)
     
     def _add_item(self, tokens, node, item_type, iso):
         '''Recursive method for adding item_type:iso to one of the nested data
