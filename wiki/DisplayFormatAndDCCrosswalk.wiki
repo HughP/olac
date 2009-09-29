@@ -22,11 +22,11 @@ The standard Qualified DC to Simple DC "dumb down" algorithm is:
 
 The OLAC metadata format adds another attribute, olac:code, to hold the value for one of our community-specific vocabularies. This is essential information that cannot be simply thrown away in a dumb down process. Thus, our crosswalk needs to augment the above rules to specify what to do with each instance of olac:code. There are five uses:
 
- * Code for Discourse Types [olac:discourse-type]
- * Code for Identifying Languages [olac:language]
- * Code for Linguistic Field [olac:linguistic-field]
- * Code for Linguistic Data Types [olac:linguistic-type]
- * Code for Participant Roles [olac:role]
+ * Code for Discourse Types `[olac:discourse-type]`
+ * Code for Identifying Languages `[olac:language]`
+ * Code for Linguistic Field `[olac:linguistic-field]`
+ * Code for Linguistic Data Types `[olac:linguistic-type]`
+ * Code for Participant Roles `[olac:role]`
 
 _olac:discourse-type._ From the standpoint of the cataloging community in general, this information is more like a description than a type. Thus our mapping for simple DC will be:
  * Generate a `<dc:description>` element which contains "Discourse type:" followed by the code value (with underscores converted to spaces). If the original OLAC `<dc:type>` element has content, simply ignore it. (In all cases to date, it only duplicates the code value; we will advise against using the content.)
@@ -51,7 +51,7 @@ _olac:language with `<dc:subject>`._ Do all of the following which apply:
  * Generate a `<dc:subject>` with the language name as content. Append "language" unless the name of the language already contains that word.
  * If the element has contents, generate another `<dc:subject>` element with that content.
 
-The date-related elements comprise a special case that should be handled by the crosswalk since a generated record should have only one `<dc:date>` element (see, for instance, [[http:_www.driver-support.eu/documents/DRIVER_Guidelines_v2_Final_2008-11-13.pdf|DRIVER Guidelines]]). In the simple DC world, highest preference is given to the date of publication if applicable. Thus generate only one `<dc:date>` element following this guideline:
+The date-related elements comprise a special case that should be handled by the crosswalk since a generated record should have only one `<dc:date>` element (see, for instance, [http://www.driver-support.eu/documents/DRIVER_Guidelines_v2_Final_2008-11-13.pdf|DRIVER Guidelines]). In the simple DC world, highest preference is given to the date of publication if applicable. Thus generate only one `<dc:date>` element following this guideline:
  * Use the content of the first available element in this order of preference: dc:date, dcterms:issued, dcterms:dateCopyrighted, dcterms:created, dcterms:available, dcterms:dateAccepted, dcterms:dateSubmitted, dcterms:modified, dcterms:valid.
 
 ==2. Format for HTML display of OLAC metadata==
@@ -61,7 +61,7 @@ We offer an HTML display of OLAC metadata on the _/item/item-id_ page for each r
  * The _/sample/archive-id_ pages put the actual element name (whether dc or dcterms) in the left column (with spaces inserted for multi-word names).
 
 For encoding schemes the two approaches are:
- * The _/item/item-id_ pages show "[scheme name = code value]" prepended to the element content.
+ * The _/item/item-id_ pages show "`[scheme name = code value]`" prepended to the element content.
  * The _/sample/archive-id_ pages identify the scheme in a parenthesized label appended to the element name in the left column.
 
 Adding refinement information as additional information in the contents does not appear to be the best approach since such information does not appear in the element content in dumbed-down qualified DC. We should therefore put the refinement information in the label (left) column. One thing that is clear from looking at a number of HTML display formats of metadata on web sites is that there is no standard form of display. The two column format is the norm, but sites seem to design the labels with their human readers in mind. There is not a strict adherence to the element labels in the DC standard; rather, labels may be altered to make more sense to the target audience. Thus, we should feel free to update display labels for elements if we want to. Our [[http:_www.language-archives.org/tools/olacdb/olac_schema.sql|database schema]] already includes a display label string for each dc and dcterms element in the ELEMENT_DEFN table. Most of the labels already in the table are fine. The following updates and proposed; then use the labels in our ELEMENT_DEFN table.
