@@ -20,99 +20,67 @@ When the 1.1 schema is finalized, we expect to have a repeating element for `<pa
 ===Email content===
 Here is a draft of the content of the email (where `<dataField>` represents the substitution of the value of a field from the database):
 
-{{{Dear OLAC participant,}}}
+{{{Dear OLAC participant,}}}<br>
 
+{{{You are receiving this email by virtue of your association with the following archive that participates in OLAC:}}}<br>
 
-{{{You are receiving this email by virtue of your association with the following archive that participates in OLAC:}}}
+{{{`<Name of archive>`}}}<br>
 
+(If you do not wish to receive these emails, please notify {{{your OLAC system administrator, `<oai:adminEmail>`.)}}}<br>
 
-{{{<Name of archive>}}}
+{{{USAGE}}}<br>
+{{{These are the latest statistics on the usage of your metadata records on the OLAC site:}}}<br>
 
+_To be determined. Usage metrics not yet implemented._<br>
 
-(If you do not wish to receive these emails, please notify {{{your OLAC system administrator, <oai:adminEmail>.)}}}
+{{{QUALITY METRICS}}}<br>
+{{{OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community). See http:_www.language-archives.org/metrics/ for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:}}}<br>
 
+{{{Last Updated: `<lastUpdated>`}}}<br>
+{{{Average Metadata Quality: `<round(score/2)>`-stars (`<score>` on a 10 point scale)}}}<br>
 
-{{{USAGE}}}
+_Generate a paragraph of feedback by assembling the following sentences as applicable:_<br>
 
-{{{These are the latest statistics on the usage of your metadata records on the OLAC site:}}}
+_If "Last updated" is within last 12 months and quality score is 9.0 or higher:_<br>
+{{{These metrics indicate that your archive is an exemplary member of the community. Congratulations!}}}<br>
 
-
-_To be determined. Usage metrics not yet implemented._
-
-{{{QUALITY METRICS}}}
-
-{{{OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community). See http:_www.language-archives.org/metrics/ for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:}}}
-
-{{{Last Updated: <lastUpdated>}}}
-
-{{{Average Metadata Quality: <round(score/2)>-stars (<score> on a 10 point scale)}}}
-
-
-_Generate a paragraph of feedback by assembling the following sentences as applicable:_
-
-_If "Last updated" is within last 12 months and quality score is 9.0 or higher:_
-
-{{{These metrics indicate that your archive is an exemplary member of the community. Congratulations!}}}
-
-
-_If "Last updated" is more than 12 months ago and quality score is 9.0 or higher:_
-
-{{{The quality of your metadata is exemplary. Congratulations!}}}
-
+_If "Last updated" is more than 12 months ago and quality score is 9.0 or higher:_<br>
+{{{The quality of your metadata is exemplary. Congratulations!}}}<br>
 
 If "Quality score" is less than 7:
-{{{Your average metadata quality could be improved.}}}
-
+{{{Your average metadata quality could be improved.}}}<br>
 
 If "Quality score" is between 7 and 9:
-{{{Your average metadata quality is good, but could still be improved.}}}
-
+{{{Your average metadata quality is good, but could still be improved.}}}<br>
 
 When "Quality score" is less than 9, add this as well:
-{{{See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.}}}
+{{{See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.}}}<br>
 
+{{{http:/www.language-archives.org/sample/`<archiveId>`}}}<br>
 
-{{{http:/www.language-archives.org/sample/<archiveId>}}}
+_If "Last updated" is greater than 12 months ago:_<br>
+{{{Note that it is more than one year since your metadata repository was last updated; please update your repository at your earliest convenience.}}}<br>
 
-
-_If "Last updated" is greater than 12 months ago:_
-
-{{{Note that it is more than one year since your metadata repository was last updated; please update your repository at your earliest convenience.}}}
-
-
-_If "Last updated" is less than 12 months ago, but greater than 9 months:_
-
-{{{Note that it will soon be one year since your metadata repository was last updated; please update it by <lastUpdated + one year>.}}}
-
+_If "Last updated" is less than 12 months ago, but greater than 9 months:_<br>
+{{{Note that it will soon be one year since your metadata repository was last updated; please update it by `<lastUpdated + one year>`.}}}<br>
 
 [[#Checks]]
-{{{INTEGRITY PROBLEMS}}}
+{{{INTEGRITY PROBLEMS}}}<br>
+_If "Problem count" ``=`` 0 AND "Warning count" ``=`` 0:_<br>
+{{{Congratulations, there are no known integrity problems in your metadata.}}}<br>
 
-_If "Problem count" ``=`` 0 AND "Warning count" ``=`` 0:_
+_If "Problem count" >` 0:_<br>
+{{{Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. The presence of these problems is causing one star to be subtracted from your overall quality rating. Visit the following link to see a listing of the problems that need to be fixed:}}}<br>
 
-{{{Congratulations, there are no known integrity problems in your metadata.}}}
+{{{http:/www.language-archives.org/checks/`<archiveId>`}}}<br>
 
+_If "Problem count" = 0 AND "Warning count" >` 0:_<br>
+{{{Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to Visit the following link to see a listing of the potential problems:}}}<br>
 
-_If "Problem count" >` 0:_
+{{{http:/www.language-archives.org/checks/`<archiveId>`}}}<br>
 
-{{{Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. The presence of these problems is causing one star to be subtracted from your overall quality rating. Visit the following link to see a listing of the problems that need to be fixed:}}}
-
-
-{{{http:/www.language-archives.org/checks/<archiveId>}}}
-
-
-_If "Problem count" = 0 AND "Warning count" >` 0:_
-
-{{{Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to Visit the following link to see a listing of the potential problems:}}}
-
-
-{{{http:/www.language-archives.org/checks/<archiveId>}}}
-
-
-{{{COLLECTION METRICS}}}
-
-{{{The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and <numberOfArchives> is lowest):}}}
-
+{{{COLLECTION METRICS}}}<br>
+{{{The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and `<numberOfArchives>` is lowest):}}}<br>
 
 || Metric || Value || Rank ||
 || Number of Resources || 3280 || 4 ||
@@ -124,26 +92,21 @@ _If "Problem count" = 0 AND "Warning count" >` 0:_
 || Average Elements Per Record || 5 || 36 ||
 || Average Encoding Schemes Per Record || 1.5 || 27 ||
 
-_Implementation notes: Format table for a monospace font using spaces to make the columns of numbers right align. For the ranks, report the highest applicable rank in the case of a tie._
+_Implementation notes: Format table for a monospace font using spaces to make the columns of numbers right align. For the ranks, report the highest applicable rank in the case of a tie._<br>
 
-{{{ARCHIVE DESCRIPTION}}}
+_Implementation notes: Format table for a monospace font using spaces to make the columns of numbers right align. For the ranks, report the highest applicable rank in the case of a tie._<br>
 
-{{{Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (<oai:adminEmail>) if you spot anything that should be changed:}}}
+{{{ARCHIVE DESCRIPTION}}}<br>
+{{{Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (`<oai:adminEmail>`) if you spot anything that should be changed:}}}<br>
 
+{{{http:/www.language-archives.org/archive/`<archiveId>`}}}<br>
 
-{{{http:/www.language-archives.org/archive/<archiveId>}}}
+{{{Thank you for your participation.}}}<br>
 
+{{{Best wishes,}}}<br>
+{{{Steven & Gary}}}<br>
 
-{{{Thank you for your participation.}}}
-
-
-{{{Best wishes,}}}
-
-{{{Steven & Gary}}}
-
-
-{{{___}}}
-
-{{{Steven Bird, University of Melbourne and University of Pennsylvania}}}
-
-{{{Gary Simons, SIL International and GIAL}}}
+{{{___}}}<br>
+{{{Steven Bird, University of Melbourne and University of Pennsylvania}}}<br>
+{{{Gary Simons, SIL International and GIAL}}}<br>
+{{{OLAC Coordinators (www.language-archives.org)}}}<br>
