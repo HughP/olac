@@ -24,9 +24,9 @@ Here is a draft of the content of the email (where `<dataField>` represents the 
 
 {{{You are receiving this email by virtue of your association with the following archive that participates in OLAC:}}}<br>
 
-{{{`<Name of archive>`}}}<br>
+{{{<Name of archive>`}}}<br>
 
-(If you do not wish to receive these emails, please notify {{{your OLAC system administrator, `<oai:adminEmail>`.)}}}<br>
+(If you do not wish to receive these emails, please notify {{{your OLAC system administrator, <oai:adminEmail>`.)}}}<br>
 
 {{{USAGE}}}<br>
 {{{These are the latest statistics on the usage of your metadata records on the OLAC site:}}}<br>
@@ -36,8 +36,8 @@ _To be determined. Usage metrics not yet implemented._<br>
 {{{QUALITY METRICS}}}<br>
 {{{OLAC tracks two metrics as primary indicators of overall metadata quality in its aggregated catalog: number of archives with fresh catalogs (that is, updated within the last 12 months) and number of archives with five-star metadata (that is, fully conforming to best practice as agreed on by the community). See http:_www.language-archives.org/metrics/ for the current values of the metrics and a link to the document that explains them. The currency and quality scores for your archive are:}}}<br>
 
-{{{Last Updated: `<lastUpdated>`}}}<br>
-{{{Average Metadata Quality: `<round(score/2)>`-stars (`<score>` on a 10 point scale)}}}<br>
+{{{Last Updated: <lastUpdated>`}}}<br>
+{{{Average Metadata Quality: <round(score/2)>`-stars (<score>` on a 10 point scale)}}}<br>
 
 _Generate a paragraph of feedback by assembling the following sentences as applicable:_<br>
 
@@ -56,13 +56,13 @@ If "Quality score" is between 7 and 9:
 When "Quality score" is less than 9, add this as well:
 {{{See the metadata quality analysis of your sample record at the following URL for ideas on what could be done to improve the quality of your metadata.}}}<br>
 
-{{{http:/www.language-archives.org/sample/`<archiveId>`}}}<br>
+{{{http:/www.language-archives.org/sample/<archiveId>`}}}<br>
 
 _If "Last updated" is greater than 12 months ago:_<br>
 {{{Note that it is more than one year since your metadata repository was last updated; please update your repository at your earliest convenience.}}}<br>
 
 _If "Last updated" is less than 12 months ago, but greater than 9 months:_<br>
-{{{Note that it will soon be one year since your metadata repository was last updated; please update it by `<lastUpdated + one year>`.}}}<br>
+{{{Note that it will soon be one year since your metadata repository was last updated; please update it by <lastUpdated + one year>`.}}}<br>
 
 [[#Checks]]
 {{{INTEGRITY PROBLEMS}}}<br>
@@ -72,15 +72,15 @@ _If "Problem count" ``=`` 0 AND "Warning count" ``=`` 0:_<br>
 _If "Problem count" >` 0:_<br>
 {{{Automated checking has detected problems in your metadata such as broken links or invalid vocabulary terms. The presence of these problems is causing one star to be subtracted from your overall quality rating. Visit the following link to see a listing of the problems that need to be fixed:}}}<br>
 
-{{{http:/www.language-archives.org/checks/`<archiveId>`}}}<br>
+{{{http:/www.language-archives.org/checks/<archiveId>`}}}<br>
 
 _If "Problem count" = 0 AND "Warning count" >` 0:_<br>
 {{{Automated checking has detected some potential problems in your metadata. They are not severe enough to count against your overall quality rating. Nevertheless, you are advised to Visit the following link to see a listing of the potential problems:}}}<br>
 
-{{{http:/www.language-archives.org/checks/`<archiveId>`}}}<br>
+{{{http:/www.language-archives.org/checks/<archiveId>`}}}<br>
 
 {{{COLLECTION METRICS}}}<br>
-{{{The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and `<numberOfArchives>` is lowest):}}}<br>
+{{{The following table reports the current metrics for the size, coverage, and cataloging of your collection. The final column reports the rank of your repository in comparison to all participants (where 1 is highest and <numberOfArchives>` is lowest):}}}<br>
 
 || Metric || Value || Rank ||
 || Number of Resources || 3280 || 4 ||
@@ -97,9 +97,9 @@ _Implementation notes: Format table for a monospace font using spaces to make th
 _Implementation notes: Format table for a monospace font using spaces to make the columns of numbers right align. For the ranks, report the highest applicable rank in the case of a tie._<br>
 
 {{{ARCHIVE DESCRIPTION}}}<br>
-{{{Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (`<oai:adminEmail>`) if you spot anything that should be changed:}}}<br>
+{{{Please review your archive description at the following URL to ensure that all of the information you are supplying is up to date. Contact your OLAC system administrator (<oai:adminEmail>`) if you spot anything that should be changed:}}}<br>
 
-{{{http:/www.language-archives.org/archive/`<archiveId>`}}}<br>
+{{{http:/www.language-archives.org/archive/<archiveId>`}}}<br>
 
 {{{Thank you for your participation.}}}<br>
 
