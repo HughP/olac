@@ -4,10 +4,10 @@
 =Infrastructure=
 
 We could use a social bookmarking tool to implement a number of services within our infrastructure:
- * [Bookmarking#Listing Maintaining a list of potential participants]
- * [Bookmarking#Identifying Identifying language resources and creating minimal metadata for precise search]
- * [Bookmarking#Tracking Tracking peer review of metadata submitted by participants]
-[#Choosing]
+ * [Bookmarking#Listing_potential_participants Maintaining a list of potential participants]
+ * [Bookmarking#Identifying_language_resources Identifying language resources and creating minimal metadata for precise search]
+ * [Bookmarking#Tracking_peer_review Tracking peer review of metadata submitted by participants]
+
 ==Choosing a tool==
 
 For our purposes we need a tool that supports at least these features:
@@ -15,7 +15,7 @@ For our purposes we need a tool that supports at least these features:
  * A URL-based API that can return XML responses (so that we can build services at our site)
  * (Are there other must-have features?)
 The Wikipedia page on [http://en.wikipedia.org/wiki/Social_bookmarking Social Bookmarking] links to a number of tools in the genre. The two best-known members of the family appear not to meet the minimal requirements: *del.icio.us* has an [http://del.icio.us/help/api/ API] that returns XML but it appears to query only one's own posts and *Digg* does not support tagging. [http://www.connotea.org/ Connotea] is a social bookmarking tool designed specifically for the scientific community and it has the two needed features. Thus we have started experimenting with it. (Should we look into other tools as well?)
-[#Listing]
+
 ==Listing potential participants==
 
 Social bookmaking might be a good way to create our list of potential participants for objective 1.2 of the project. We could agree on a set of tags, then anyone involved in the project could add to the list anytime they run into something interesting while browsing the web. If it works well, we could even open it up to the entire OLAC community, specifying a means for anybody to add something to the list.
@@ -31,7 +31,7 @@ and this URL returns an XML response:
  http://www.connotea.org/data/tag/olac_prospect<br>
 
 The URL queries use + as an AND operator, so we could also define tags for tracking the process of contacting the potential participants and encouraging them to join, and then query just for sites in a particular stage of the process.
-[#Identifying]
+
 ==Identifying language resources==
 
 Social bookmarking might be a way to implement a very "low bar" approach for entering the OLAC catalog. It would not only be a way for the owner of a set of resources to catalog them, but also a way for the project's Research Assistant to catalog the resources at a site of interest and indeed for anybody to do the same.
@@ -46,7 +46,7 @@ It is also possible to download tagged pages in a MODS format:
  http://www.connotea.org/mods/tag/iso639_sky<br>
 
 These examples did not use a tag to identify the page as an olac_resource, but we probably need that in order to harvest all posts for olac resources. Note that the Connotea API also retrieves by date, so that it would be possible to implement incremental harvesting.
-[#Tracking]
+
 ==Tracking peer review==
 
 One of the OLAC core values is peer review. We have always contemplated a system for supporting peer review of the metadata supplied by participating archives. Social bookmarking might offer a way to do that. The page being tagged would be the /item/id page on the OLAC site.
