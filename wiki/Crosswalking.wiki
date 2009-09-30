@@ -4,7 +4,7 @@
 
 2.1a _Language identification:_ Develop an automated procedure for finding language identification in a catalog record and translating it to an appropriate ISO 639-3 code.
 
-  * *Deliverable:* A trained classifier that can classify a metadata record as to ISO 639-3 codes that appear to be relevant to it. See [Language_identification implementation notes].<br>
+  * *Deliverable:* A trained classifier that can classify a metadata record as to ISO 639-3 codes that appear to be relevant to it. See [LanguageIdentification implementation notes].<br>
   * *Status:* Not started.<br>
   * *Deliverable:* A data set for training the language classifier, containing alternate names, dialect names, geographic information, and language classification.<br>
   * *Status:* Not started.<br>
