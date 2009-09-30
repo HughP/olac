@@ -1,0 +1,44 @@
+[1.1-Metadata] | [1.2-Participation] | [1.3-Curation] | [2.1-Crosswalking] | [2.2-Mining] | [2.3-Search]
+
+===Outcome 1.2 All major language archives have been encouraged to participate in OLAC.===
+
+1.2a _Non-participating archives:_ Compile a list of all known non-participating language archives.
+
+ *Deliverable:* A means of listing potential participants and tracking progress.<br>
+ *Status:* A [Bookmarking#Listing|social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
+ *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew|Type-Provider with status=New]).<br>
+ *Status:* 14<br>
+
+1.2b _Collaboration:_ Contact all identified archives and consult with them to develop best strategy for generating their metadata.
+
+ *Indicator:* Number of archives that have been contacted and agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3AAccepted&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary&cells=tiles|Type-Provider with status=Accepted]).<br>
+ *Status:* 5<br>
+ *Indicator:* Number of archives that have declined or repeatedly failed to respond ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3ADropped&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary&cells=tiles|Type-Provider with status=Dropped]).<br>
+ *Status:* 0<br>
+
+1.2c _Scraping:_ Do automatic scraping of the HTML metadata already published on archive sites to achieve a quick low-accuracy conversion to OLAC metadata.
+ *Deliverable:* Respond as needed to scrape identified sites.<br>
+
+1.2d _OLAC export:_ Work with archives that have a catalog database to expose their catalog in OLAC format.
+ *Deliverable:* Implement a MARC-to-OLAC crosswalk for use by institutions with MARC catalogs and document it with an OLAC Note.<br>
+ *Status:* In progress.<br>
+ *Deliverable:* Develop a reference implementation of a MySQL + PHP static repository generator and document with an OLAC Note.<br>
+ *Status:* In progress.<br>
+
+1.2e _Repository editor:_ Configure an open source XML editor (like XMLmind) to create a static repository editor suitable for use by small archives.
+
+ *Deliverable:* An OLAC Note on using `<oXygen/>` XML editor to create and maintain a static repository.<br>
+ *Status:* In progress; see http://olac.googlecode.com/svn/web/NOTE/oxygen.html.<br>
+
+ *Indicator for 1.2c to 1.2e:* Number of archives that have newly joined using whatever means ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3ADone&colspec=ID+Type+Status+Priority+Milestone+Owner+Summary&cells=tiles|Type-Provider with status=Done]).<br>
+ *Status:* 0<br>
+
+1.2.f _Documentation:_ Improve the documentation and tools on the OLAC web site for helping new participants to share their metadata with the community.
+
+ *Deliverable:* An FAQ for OLAC Implementers.<br>
+ *Status:* Posted at http://www.language-archives.org/tools/faq.html; 9 out of 20 questions remain to be answered.<br>
+ *Deliverable:* Redesign OLAC home page to clearly communicate to two separate audience groups--individuals looking for language resources or advise about archiving versus institutions who want to add their holdings to the aggregated catalog.<br>
+ *Status:* Not started.<br>
+ *Deliverable:* Redesign OLAC Tools page to clearly communicate to would-be implementers.<br>
+ *Status:* Not started.<br>
+
