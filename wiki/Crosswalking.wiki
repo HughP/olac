@@ -1,0 +1,34 @@
+[1.1-Metadata] | [1.2-Participation] | [1.3-Curation] | [2.1-Crosswalking] | [2.2-Mining] | [2.3-Search]
+
+===2.1 OLAC is indexing all major repository and library holdings relevant to language documentation and description by crosswalking and enriching existing catalog records.===
+
+2.1a _Language identification:_ Develop an automated procedure for finding language identification in a catalog record and translating it to an appropriate ISO 639-3 code.
+
+ *Deliverable:* A trained classifier that can classify a metadata record as to ISO 639-3 codes that appear to be relevant to it. See [2.1a-Language_identification|implementation notes].<br>
+ *Status:* Not started.<br>
+ *Deliverable:* A data set for training the language classifier, containing alternate names, dialect names, geographic information, and language classification.<br>
+ *Status:* Not started.<br>
+
+2.1b _Data type identification:_ Develop an automated procedure for finding linguistic data type information in a catalog record and translating it to an appropriate OLAC linguistic data type code.
+
+ *Deliverable:* A trained classifier that can classify a metadata record as to linguistic data types that appear to be relevant to it.<br>
+ *Status:* Not started.<br>
+ *Deliverable:* A data set for training the data type classifier, containing terms and synonyms in many major languages.<br>
+ *Status:* Not started.<br>
+
+2.1c _OAI Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in the leading OAI aggregator.
+
+ *Deliverable:* A gateway service that harvests all registered OAI data providers and uses the classifiers developed in 2.1a and 2.1b to identify language resources and crosswalk them to OLAC with metadata enriched to add language codes and linguistic data types.<br>
+ *Status:* Not started.<br>
+ *Deliverable:* A data set for training the service, containing the oai_dc version of the existing OLAC records as sample instances of language resources plus a large number of oai_dc records that are known not to be language resources coming from a wide variety of disciplines.<br>
+ *Status:* Not started.<br>
+
+2.1d _Z39.50 Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in leading Z39.50 library gateways.
+
+ *Deliverable:* A gateway service that uses [http://www.loc.gov/standards/sru/|SRU] to retrieve Dublin Core records from the Library of Congress online catalog taht are indexed with ISO 639-2 language codes and crosswalk them to OLAC with metadata enriched to add language codes and linguistic data types.<br>
+ *Status:* Proof of concept implementation completed; now awaiting development of a production service.<br>
+ *Deliverable:* A list of other library catalogs that are rich in language resources and similarly accessible.<br>
+ *Status:* Not started.<br>
+
+NB. there is a duplication issue; pick a small number of libraries with SRU support. Separate task: can we harvest a listing of books in print? http://code.google.com/p/olac/issues/detail?id=74
+
