@@ -4,51 +4,51 @@
 
 1.1a _Best practice document:_ Prepare and adopt an OLAC recommendation on metadata best practice, adapting the DC Usage Guidelines and fleshing out published recommendations.
 
- *Deliverables:* Two OLAC documents<br>
-* _Recommendation:_ Best Practice Recommendations for Language Resource Description (see http://www.language-archives.org/REC/bpr.html)
-* _Informational Note:_ OLAC Metadata Usage Guidelines (see http://www.language-archives.org/NOTE/usage.html)
- *Status:* __Completed.__<br>
+  * *Deliverables:* Two OLAC documents<br>
+    * _Recommendation:_ Best Practice Recommendations for Language Resource Description (see http://www.language-archives.org/REC/bpr.html)
+    * _Informational Note:_ OLAC Metadata Usage Guidelines (see http://www.language-archives.org/NOTE/usage.html)
+  * *Status:* __Completed.__<br>
 
 1.1b _Score cards:_ Update the automated score card system to conform to best practice recommendations.
 
- *Deliverable:* An informational note that describes the automated quality score; see http://www.language-archives.org/NOTE/metrics.html<br>
- *Status:* __Completed__. The quality score has been integrated into the metrics page (deliverable 1.1f below), so that the metrics page for an archive functions as its score card.<br>
+  * *Deliverable:* An informational note that describes the automated quality score; see http://www.language-archives.org/NOTE/metrics.html<br>
+  * *Status:* __Completed__. The quality score has been integrated into the metrics page (deliverable 1.1f below), so that the metrics page for an archive functions as its score card.<br>
 
 1.1c _Metadata quality:_ Identify low-scoring archives and work with them to improve the quality of their metadata.
 
- *Deliverable:* A page that ranks all participating archives by average metadata quality score.<br>
- *Status:* __Completed__; the new Comparative Metrics page allows archives to be ranked by average metadata quality: http://www.language-archives.org/metrics/compare.<br>
- *Deliverable:* An automated metadata quality advisor that tells an archive what they need to do to achieve a five-star rating.<br>
- *Status:* __Completed__; there is a new Analyze button on the Free-Standing OLAC Metadata Service (http://www.language-archives.org/tools/metadata/freestanding.html) which computes the quality score of a record and advises how to improve it. The same analysis is invoked for the Sample Record for each participating archive at http://www.language-archives.org/archives-new.php<br>
- *Target:* Every archive publishes five-star metadata. (For the present, we must lower the goal to a four-star score since this is the maximum that many archives can receive until the new language resource type vocabulary is implement; see 1.1g below.)<br>
- *Status:* At present, __7 of 36__ (or 19%) of archives have reached the target level. As the baseline, one archive had four-star metadata and none had five-star.<br>
+  * *Deliverable:* A page that ranks all participating archives by average metadata quality score.<br>
+  * *Status:* __Completed__; the new Comparative Metrics page allows archives to be ranked by average metadata quality: http://www.language-archives.org/metrics/compare.<br>
+  * *Deliverable:* An automated metadata quality advisor that tells an archive what they need to do to achieve a five-star rating.<br>
+  * *Status:* __Completed__; there is a new Analyze button on the Free-Standing OLAC Metadata Service (http://www.language-archives.org/tools/metadata/freestanding.html) which computes the quality score of a record and advises how to improve it. The same analysis is invoked for the Sample Record for each participating archive at http://www.language-archives.org/archives-new.php<br>
+  * *Target:* Every archive publishes five-star metadata. (For the present, we must lower the goal to a four-star score since this is the maximum that many archives can receive until the new language resource type vocabulary is implement; see 1.1g below.)<br>
+  * *Status:* At present, __7 of 36__ (or 19%) of archives have reached the target level. As the baseline, one archive had four-star metadata and none had five-star.<br>
 
 1.1d _Updating archives:_ Identify OLAC archives whose metadata records have gone stale, and work with them to bring their catalogs up-to-date.
 
- *Target:* Every archive updates at least once a year.<br>
- *Status:* At present, __10 of 36__ archives have updated within the last 12 months. The baseline was 5 of 36.<br>
- *Deliverable:* In version 1.1 of the repositories standard, add a {{{currentAsOf}} attribute to the {{{ }} description of the Identify response and update harvester to read it.<br>
- *Status:* __Completed__. The reporting of date of last update is implemented in 1.1e and 1.1f as the later of the latest datestamp or {{{currentAsOf.}}<br>
- *Target:* Every archive has upgraded to version 1.1. (This is actually a prerequisite to achieving the target of every archive updating once a year, since without the {{{currentAsOf}} attribute they cannot indicate that they are up-to-date when no records have been updated.)<br>
- *Status:* __23__ still need to be upgraded. (All pending upgrades are tracked in Google Code as [http://code.google.com/p/olac/issues/list?q=label:Type-Repository&updated=83&ts=1238018464|Open issues of Type-Repository].)<br>
+  * *Target:* Every archive updates at least once a year.<br>
+  * *Status:* At present, __10 of 36__ archives have updated within the last 12 months. The baseline was 5 of 36.<br>
+  * *Deliverable:* In version 1.1 of the repositories standard, add a {{{currentAsOf}}} attribute to the {{{ }}} description of the Identify response and update harvester to read it.<br>
+  * *Status:* __Completed__. The reporting of date of last update is implemented in 1.1e and 1.1f as the later of the latest datestamp or {{{currentAsOf.}}}<br>
+  * *Target:* Every archive has upgraded to version 1.1. (This is actually a prerequisite to achieving the target of every archive updating once a year, since without the {{{currentAsOf}}} attribute they cannot indicate that they are up-to-date when no records have been updated.)<br>
+  * *Status:* __23__ still need to be upgraded. (All pending upgrades are tracked in Google Code as [http://code.google.com/p/olac/issues/list?q=label:Type-Repository&updated=83&ts=1238018464|Open issues of Type-Repository].)<br>
 
 1.1e _Quarterly reporting:_ Develop an automated quarterly report to be emailed to curators to inform them of their metadata quality and currency and their usage statistics.
 
- *Deliverable:* Cron job that emails a quarterly report to each curator and archive admin<br>
- *Status:* __Completed__; see [QReport|specifications] for the email report on separate page.<br>
- *Deliverable:* Version 1.1 of repositories standard to add multiple archive participants to the {{{ }} description of the Identify response, in place of the single curator, so that any number of participants from an institution can subscribe to the quarterly report on its archive.<br>
- *Status:* __Completed__.<br>
+  * *Deliverable:* Cron job that emails a quarterly report to each curator and archive admin<br>
+  * *Status:* __Completed__; see [QuarterlyReport specifications] for the email report on separate page.<br>
+  * *Deliverable:* Version 1.1 of repositories standard to add multiple archive participants to the {{{ }}} description of the Identify response, in place of the single curator, so that any number of participants from an institution can subscribe to the quarterly report on its archive.<br>
+  * *Status:* __Completed__.<br>
 
 1.1f _Metrics:_ Develop metrics for monitoring the size, coverage, quality, and use of the OLAC metadata catalog, and report them on the web site.
 
- *Deliverable:* Dynamic page that reports metrics on entire collection by default (or on a selected archive). See [1.1f-Metrics|specifications] on separate page.<br>
- *Status:* __Completed__ for all metrics __except usage statistics__; see http://www.language-archives.org/metrics/<br>
- *Deliverable:* Dynamic page that lists participating archives ranked (from highest to lowest) on the selected metric<br>
- *Status:* __Completed__; see http://www.language-archives.org/metrics/compare<br>
- *Deliverable:* Dynamic page that lists outstanding integrity problems (especially broken links and invalid metadata values) in the metadata records of a given archive. See [Integrity|specifications] on separate page.<br>
- *Status:* __Completed__; see http://www.language-archives.org/checks<br>
+  * *Deliverable:* Dynamic page that reports metrics on entire collection by default (or on a selected archive). See [1.1f-Metrics|specifications] on separate page.<br>
+  * *Status:* __Completed__ for all metrics __except usage statistics__; see http://www.language-archives.org/metrics/<br>
+  * *Deliverable:* Dynamic page that lists participating archives ranked (from highest to lowest) on the selected metric<br>
+  * *Status:* __Completed__; see http://www.language-archives.org/metrics/compare<br>
+  * *Deliverable:* Dynamic page that lists outstanding integrity problems (especially broken links and invalid metadata values) in the metadata records of a given archive. See [MetadataIntegrity specifications] on separate page.<br>
+  * *Status:* __Completed__; see http://www.language-archives.org/checks<br>
 
 1.1g _Language Resource Type:_ Develop a language resource type vocabulary to replace the linguistic data type vocabulary so that every language resource will have a relevant type category.
 
- *Deliverable:* A new recommendation document.<br>
- *Status:* Thus far, there are only rough notes.<br>
+  * *Deliverable:* A new recommendation document.<br>
+  * *Status:* Thus far, there are only rough notes.<br>
