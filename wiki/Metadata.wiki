@@ -1,4 +1,4 @@
-[1.1-Metadata] | [1.2-Participation] | [1.3-Curation] | [2.1-Crosswalking] | [2.2-Mining] | [2.3-Search]
+[Metadata 1.1-Metadata] | [1.2-Participation] | [1.3-Curation] | [2.1-Crosswalking] | [2.2-Mining] | [2.3-Search]
 
 ===Outcome 1.1: All OLAC repositories should have up-to-date catalogs that contain metadata conforming to best practice.===
 
@@ -52,4 +52,3 @@
 
  *Deliverable:* A new recommendation document.<br>
  *Status:* Thus far, there are only rough notes.<br>
-
