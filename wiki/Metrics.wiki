@@ -1,3 +1,5 @@
+#summary OLAC metrics spec
+
 =Specifications for new OLAC metrics pages=
 
 The existing OLAC metrics page can be found [http://www.language-archives.org/tools/reports/archiveReportCard.php here].
