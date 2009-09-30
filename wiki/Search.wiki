@@ -1,46 +1,47 @@
-[1.1-Metadata] | [1.2-Participation] | [1.3-Curation] | [2.1-Crosswalking] | [2.2-Mining] | [2.3-Search]
+#summary 2.3 Search
+
+[Metadata 1.1 Metadata] | [Participation 1.2 Participation] | [Curation 1.3 Curation] | [Crosswalking 2.1 Crosswalking] | [Mining 2.2 Mining] | [Search 2.3 Search]
 
 ===2.3 Web search engines are indexing all OLAC records, so that users who discover language resources using a web search quickly find OLAC records and are drawn to the OLAC site for more precise searching.===
 
- *Indicator:* Number of referrals per year from search engines to OLAC metadata records.<br>
- *Status:* Need to establish the baseline count for the past year; the means for tracking this via Google Analytics is in place.<br>
+  * *Indicator:* Number of referrals per year from search engines to OLAC metadata records.<br>
+  * *Status:* Need to establish the baseline count for the past year; the means for tracking this via Google Analytics is in place.<br>
 
 2.3a _Crawlable HTML:_ Generate an HTML page for each OLAC metadata record and make them accessible to web crawlers.
 
- *Deliverable:* Add a new module to the OLAC aggregator to generate an HTML page for every record in the catalog.<br>
- *Status:* __Completed__; see [http://www.language-archives.org/item/oai:clal.cornell.edu:clal1|example].<br>
- *Deliverable:* Add a dynamic page for each archive which lists a hyperlink to the HTML pages for all the records in the archive's catalog.<br>
- *Status:* __Completed__; see [http://www.language-archives.org/archive_records/|/archive_records/archive-id].<br>
+  * *Deliverable:* Add a new module to the OLAC aggregator to generate an HTML page for every record in the catalog.<br>
+  * *Status:* __Completed__; see [http://www.language-archives.org/item/oai:clal.cornell.edu:clal1 example].<br>
+  * *Deliverable:* Add a dynamic page for each archive which lists a hyperlink to the HTML pages for all the records in the archive's catalog.<br>
+  * *Status:* __Completed__; see [http://www.language-archives.org/archive_records/ /archive_records/archive-id].<br>
 
 2.3b _Synonyms:_ Add synonyms for all identified linguistic terminology to static HTML pages, so that these pages are more likely to be found in conventional web searches.
 
- *Deliverable:* Add a dynamically generated page for every ISO 639 language code which contains all known alternate names and dialect names for the language so there is an OLAC page for web searches on these terms to find.<br>
- *Status:* Not started.<br>
- *Deliverable:* Add a dynamically generated page for every linguistic data type that contains all known synonyms so there is an OLAC page for web searches on these terms to find.<br>
- *Status:* Not started.<br>
- *Deliverable:* To the language pages, add all known synonyms for the linguistic data types that OLAC has indexed for for the particular language so that web searches including a language name and a data type will find these pages.<br>
- *Status:* Not started.<br>
+  * *Deliverable:* Add a dynamically generated page for every ISO 639 language code which contains all known alternate names and dialect names for the language so there is an OLAC page for web searches on these terms to find.<br>
+  * *Status:* Not started.<br>
+  * *Deliverable:* Add a dynamically generated page for every linguistic data type that contains all known synonyms so there is an OLAC page for web searches on these terms to find.<br>
+  * *Status:* Not started.<br>
+  * *Deliverable:* To the language pages, add all known synonyms for the linguistic data types that OLAC has indexed for for the particular language so that web searches including a language name and a data type will find these pages.<br>
+  * *Status:* Not started.<br>
 
 2.3c _Embedded queries:_ Enrich metadata record pages with OLAC query links, so that users who discover OLAC records via a Google search result are encouraged to remain on the OLAC site for more precise searching.
 
- *Deliverable:* The language pages list links to relevant metadata record pages (grouped by linguistic data type) and the metadata record pages treat ISO 630 codes as links to the relevant language page.<br>
- *Status:* Not started.<br>
- *Deliverable:* The linguistic data type pages list links to language pages containing that kind of resource and the metadata record pages treat linguistic data type codes as links to the relevant data type page.<br>
- *Status:* Not started.<br>
+  * *Deliverable:* The language pages list links to relevant metadata record pages (grouped by linguistic data type) and the metadata record pages treat ISO 630 codes as links to the relevant language page.<br>
+  * *Status:* Not started.<br>
+  * *Deliverable:* The linguistic data type pages list links to language pages containing that kind of resource and the metadata record pages treat linguistic data type codes as links to the relevant data type page.<br>
+  * *Status:* Not started.<br>
 
 2.3d _OAI search services:_ OLAC is being harvested by major OAI search services (like OAIster and DRIVER) and the simple DC record has a `<dc:description>` element linking back to the OLAC metadata record page so that users looking for language resources can be drawn into the richer OLAC search environment.
 
- *Deliverable:* Support the oai_dc format in the data provider side of the OLAC Aggregator; see separate [Display format and DC crosswalk|specification].<br>
- *Status:* __Implementation completed__; but information note describing the OLAC to oai_dc mapping still needs to be written.<br>
- *Deliverable:* Get harvested by OAIster (union catalog of over 20 million OAI records, http://www.oaister.org/).<br>
- *Status:* __Completed__; see http://quod.lib.umich.edu/o/oaister/browse/browseo.html<br>
- *Deliverable:* Get harvested by DRIVER.<br>
- *Status:* Not started.<br>
+  * *Deliverable:* Support the oai_dc format in the data provider side of the OLAC Aggregator; see separate [DisplayFormatAndDCCrosswalk specification].<br>
+  * *Status:* __Implementation completed__; but information note describing the OLAC to oai_dc mapping still needs to be written.<br>
+  * *Deliverable:* Get harvested by OAIster (union catalog of over 20 million OAI records, http://www.oaister.org/).<br>
+  * *Status:* __Completed__; see http://quod.lib.umich.edu/o/oaister/browse/browseo.html<br>
+  * *Deliverable:* Get harvested by DRIVER.<br>
+  * *Status:* Not started.<br>
 
 2.3e _Google page rank:_ Encourage participating archives to make links to the dynamic pages for languages and data types so as to enhance their Google page rank and thereby increase the chances that people looking for particular languages and data types will find their resources through a general Google search.
 
- *Indicator:* Number of inbound links to the dynamic language pages.<br>
- *Status:* 0<br>
- *Indicator:* Number of inbound links to the dynamic data type pages.<br>
- *Status:* 0<br>
-
+  * *Indicator:* Number of inbound links to the dynamic language pages.<br>
+  * *Status:* 0<br>
+  * *Indicator:* Number of inbound links to the dynamic data type pages.<br>
+  * *Status:* 0<br>
