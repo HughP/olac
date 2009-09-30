@@ -1,3 +1,5 @@
+#summary 2.1a Language identification
+
 =Implementation notes for task 2.1a, _"Language identification"_=
 
 Develop an automated procedure for finding language identification in a catalog record and translating it to an appropriate ISO 639-3 code.<br>
