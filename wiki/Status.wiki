@@ -10,7 +10,7 @@ New document: _Best Practice Recommendations for Language Resource Description_,
 
 New document: _OLAC Metadata Usage Guidelines,_ [http://www.language-archives.org/NOTE/usage.html Released draft] [http://olac.googlecode.com/svn/web/NOTE/usage-new.html Latest working draft]
 
-New document: _OLAC Metadata Metrics,_ [http://www.language-archives.org/NOTE/metrics.html Released draft] [http://olac.googlecode.com/wvn/web/NOTE/metrics-new.html Latest working draft]
+New document: _OLAC Metadata Metrics,_ [http://www.language-archives.org/NOTE/metrics.html Released draft] [http://olac.googlecode.com/svn/web/NOTE/metrics-new.html Latest working draft]
 
 New page: OLAC metrics, [http://www.language-archives.org/metrics/ Latest working version]
 
