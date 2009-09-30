@@ -1,4 +1,4 @@
-#summary OLAC metrics spec
+#summary 1.1f Metrics
 
 =Specifications for new OLAC metrics pages=
 
