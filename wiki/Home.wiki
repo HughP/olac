@@ -1,3 +1,5 @@
+#summary OLAC wiki home
+
 || http://olac.googlecode.com/svn/wiki/images/olac100.gif || <h2>Open Language Archives Community</h2> _OLAC: Accessing the World's Language Resources_ ||
 
 This site is the work space for a collaborative research project between the [http://www.ldc.upenn.edu/ Linguistic Data Consortium] (at the University of Pennsylvania) and the [http://www.gial.edu/ Graduate Institute of Applied Linguistics] (in Dallas, Texas) that aims to greatly improve access to language resources for linguists and the broader communities of interest, by achieving an order-of-magnitude increase in the coverage of the [http://www.language-archives.org/ Open Language Archives Community] along with significant enhancements to its services it offers. (See [http://olac.wiki.sourceforge.net/space/showimage/NSF+Proposal.pdf full proposal].)
