@@ -1,3 +1,5 @@
+#summary Converting MARC format to OLAC
+
 =Implementing an OLAC data provider based on MARC Format=
 
 ==Objective==
@@ -19,7 +21,7 @@ Requirements:
 
 The MARC 21 Format for Bibliographic Data is defined in the following document: http://www.loc.gov/marc/bibliographic/ecbdhome.html The sections on Leader and Directory describe the physical record format, while the remaining sections describe all the logical data elements that may be placed within a record. A more complete specification of the physical structure is in: http://www.loc.gov/marc/specifications/spechome.html
 
-The MARC 21 Format conforms to the [http://en.wikipedia.org/wiki/ISO_2709|ISO 2709] standard format for bibliographic information interchange. Because it is a format for information interchange, it is also sometimes called the MARC Communications Format. The following tutorial illustrates a sample record with commentary: http://www.loc.gov/marc/umb/um11to12.html
+The MARC 21 Format conforms to the [http://en.wikipedia.org/wiki/ISO_2709 ISO 2709] standard format for bibliographic information interchange. Because it is a format for information interchange, it is also sometimes called the MARC Communications Format. The following tutorial illustrates a sample record with commentary: http://www.loc.gov/marc/umb/um11to12.html
 
 A newer physical format that is easier to work with is MARCXML: http://www.loc.gov/standards/marcxml/
 MARCXML Schema: http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd
@@ -28,8 +30,8 @@ The Library of Congress offers a Java-based toolkit that converts from the commu
 MARCXML Toolkit (download page) http://www.loc.gov/standards/marcxml/marcxml-survey.php
 
 Open source developers have also developed such packages in Python and Perl.
- * Python's [http://pypi.python.org/pypi/pymarc/|pyMarc] is no frills and supports MARCXML conversion; documentation is sparse
- * Perl's [http://search.cpan.org/search?query=marc&mode=all|MARC module and accompanying sub-classes] (e.g. [http://search.cpan.org/author/BBIRTH/MARC-XML-0.4/XML.pm|MARC::XML], [http://search.cpan.org/%7Ebricas/MARC-Crosswalk-DublinCore-0.02/lib/MARC/Crosswalk/DublinCore.pm|MARC::Crosswalk::DublinCore])
+ * Python's [http://pypi.python.org/pypi/pymarc/ pyMarc] is no frills and supports MARCXML conversion; documentation is sparse
+ * Perl's [http://search.cpan.org/search?query=marc&mode=all MARC module and accompanying sub-classes] (e.g. [http://search.cpan.org/author/BBIRTH/MARC-XML-0.4/XML.pm MARC::XML], [http://search.cpan.org/%7Ebricas/MARC-Crosswalk-DublinCore-0.02/lib/MARC/Crosswalk/DublinCore.pm MARC::Crosswalk::DublinCore])
 
 ==Mapping from MARC to OLAC==
 
@@ -61,15 +63,14 @@ For collections that are generic or at least broader than the notion of "languag
 We will pursue the following overall design for the implementation:
 
 || INPUT || The host institution dumps out its catalog in MARC 21 Format. They may be able to filter it to a subset of their entire catalog when they dump it, but the assumption we make is that it is still a superset of the language resources for the OLAC repository. ||
-|| OUTPUT || The output of our process is a single XML file in OLAC's [http://www.language-archives.org/OLAC/repositories.html|Static Repository format]. ||
-|| PROCESS || Use Python to implement the overall process in three basic steps: (1) Output the standard shell for the SR up to the opening of ListRecords (pulling in the customized Identify response; see below). (2) Use the Python package [http://pypi.python.org/pypi/pymarc/|pymarc] to read the records one at a time. For each record, determine if it is in target set and if it is, map the subject headings to OLAC controlled vocabulary items, use the MARC function library to convert it to MARC XML, and then call an XSLT engine to run our crosswalk to OLAC XML. (3) Output the rest of the shell for the SR. ||
+|| OUTPUT || The output of our process is a single XML file in OLAC's [http://www.language-archives.org/OLAC/repositories.html Static Repository format]. ||
+|| PROCESS || Use Python to implement the overall process in three basic steps: (1) Output the standard shell for the SR up to the opening of ListRecords (pulling in the customized Identify response; see below). (2) Use the Python package [http://pypi.python.org/pypi/pymarc/ pymarc] to read the records one at a time. For each record, determine if it is in target set and if it is, map the subject headings to OLAC controlled vocabulary items, use the MARC function library to convert it to MARC XML, and then call an XSLT engine to run our crosswalk to OLAC XML. (3) Output the rest of the shell for the SR. ||
 
 The processor should handle mapping subject headings to the appropriate values from OLAC controlled vocabulary, particularly _olac:language,_ but also _olac:linguistic-type_ and even _olac:linguistic-field_. The mapping from subject headings to code values will probably be more easily handled in Python than XSLT, so it proposed that this be done after the record is read into Python and before it is output to MARC XML. The process would add our codes to the MARC record using local use fields that the MARC to OLAC crosswalk would be looking for.
 
 The key to developing a processor that can be reused by many host institutions will be pulling out the points of customization into separable components that can be modified and maintained by the host institution without touching the rest of the processor. The following points of customization must the supported:
-# The complete Identify response (including the `<oai-identifier>` and `<olac-archive>` descriptions) needs to be in a standalone XML file that is maintained by the host institution and copied into the output by our process.
-# The selection criteria for including a record need to be customizable. For starters, this bit of the code would be pulled out into its own customizable source module that would be carefully documented. Implementers would modify just this module to meet their needs. Later we may devise a way to make it easier.
-# The mapping from subject headings to code values will need a way to add local customizations. We could have the base mappings that are supplied in a standard form (e.g. XML or CSV). Since we will want to provide updates to the standard release of these mappings, the customization must not consist of editing our released files. We should provide an initially empty supplementary file in which implementers can add their local mappings.
-# The MARC fields used by our process when it enriches the record in memory with OLAC codes inferred from subject headings need to be configurable. MARC has local use fields that are reserved for use. We would thus choose local use fields to use by default for each of the OLAC controlled vocabularies that we support. However, the implementing institution may already have defined a use for one of these fields. Thus, the processor needs to make it easy for an implementer to choose a different local use field.
-# The transformation from MARC XML to OLAC XML will need to be customizable. This can easily be done via a local stylesheet that is imported by the main crosswalk, since an imported stylesheet can both add new templates and override existing ones.
-
+ # The complete Identify response (including the `<oai-identifier>` and `<olac-archive>` descriptions) needs to be in a standalone XML file that is maintained by the host institution and copied into the output by our process.
+ # The selection criteria for including a record need to be customizable. For starters, this bit of the code would be pulled out into its own customizable source module that would be carefully documented. Implementers would modify just this module to meet their needs. Later we may devise a way to make it easier.
+ # The mapping from subject headings to code values will need a way to add local customizations. We could have the base mappings that are supplied in a standard form (e.g. XML or CSV). Since we will want to provide updates to the standard release of these mappings, the customization must not consist of editing our released files. We should provide an initially empty supplementary file in which implementers can add their local mappings.
+ # The MARC fields used by our process when it enriches the record in memory with OLAC codes inferred from subject headings need to be configurable. MARC has local use fields that are reserved for use. We would thus choose local use fields to use by default for each of the OLAC controlled vocabularies that we support. However, the implementing institution may already have defined a use for one of these fields. Thus, the processor needs to make it easy for an implementer to choose a different local use field.
+ # The transformation from MARC XML to OLAC XML will need to be customizable. This can easily be done via a local stylesheet that is imported by the main crosswalk, since an imported stylesheet can both add new templates and override existing ones.
