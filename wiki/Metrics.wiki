@@ -1,10 +1,11 @@
 =Specifications for new OLAC metrics pages=
 
-The existing OLAC metrics page can be found [http://www.language-archives.org/tools/reports/archiveReportCard.php|here].
+The existing OLAC metrics page can be found [http://www.language-archives.org/tools/reports/archiveReportCard.php here].
 
-It is called "OLAC Archive Report Card". In the proposal, we have already renamed it "OLAC Archive Score Card". Should we even go a step further and just call it "OLAC Archive Metrics" since the majority of it is descriptive rather than evaluative? _[SB: yes, I agree]_<br>
+It is called "OLAC Archive Report Card". In the proposal, we have already renamed it "OLAC Archive Score Card". Should we even go a step further and just call it "OLAC Archive Metrics" since the majority of it is descriptive rather than evaluative? _`[SB: yes, I agree]`_<br>
 
 I'm imagining two sets of pages, one like the current one which gives all the metrics for a selected archive (or for the full set of archives), and a second one which ranks all of the archives from highest to lowest with respect to a selected metric (perhaps "Comparative Archive Metrics").
+#summary OLAC Metrics spec
 
 ==1. OLAC Archive Metrics==
 
@@ -20,7 +21,7 @@ For the time being, we should just omit metrics that we cannot compute, and add 
 
 The coverage statistics could also be expressed as a percentage of the total number of items in the vocabulary. Does it make sense to turn this into two sets of numbers, Breadth (which is the count of distinct instances) and Depth (which would be records per instance). In the latter, the numerator would be the number of records that use a code from that vocabulary and the denominator would be the distinct code values used.
 
-Will it be possible for us to keep search statistics by archive? In the case of a single archive, I'm imagining the count of search requests per month as the number of requests that retrieved something from that archive. _[SB: A possible lightweight way to implement this instead of logging search results, is to re-run all queries from that quarter, for each archive, with SELECT COUNT(*); another approach would be to set up a separate Google Analytics page for each archive.]_ _[HL: See the discussion posted [http://olac.wiki.sourceforge.net/message/view/1.1f-Metrics/367|here].]_<br>
+Will it be possible for us to keep search statistics by archive? In the case of a single archive, I'm imagining the count of search requests per month as the number of requests that retrieved something from that archive. _`[SB: A possible lightweight way to implement this instead of logging search results, is to re-run all queries from that quarter, for each archive, with SELECT COUNT(*); another approach would be to set up a separate Google Analytics page for each archive.]`_ _`[HL: See the discussion posted [http://olac.wiki.sourceforge.net/message/view/1.1f-Metrics/367|here].]`_<br>
 
 The metadata quality score needs significant rethinking from what we have on the current page. A subsection to discuss that follows the next subsection.
 
@@ -29,7 +30,7 @@ The metadata quality score needs significant rethinking from what we have on the
 This section of the report would be similar to what we have on the current page with the histograms, except we need some slightly different results.
 
 || Metadata quality || As now: quality score by number of records ||
-|| Core components || Similar to "Core element usage" except that it is counting the records that satisfy each of the 8 core quality tests (that is, all but Depth and Precision; see [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics.html|metrics]). ||
+|| Core components || Similar to "Core element usage" except that it is counting the records that satisfy each of the 8 core quality tests (that is, all but Depth and Precision; see [http://olac.googlecode.com/svn/web/NOTE/metrics.html metrics]). ||
 || Element usage || DC elements by number of times used. ||
 || Refinement usage || Refined elements by number of times used. ||
 || Encoding scheme usage || The encoding schemes recommended in the usage document by number of times used. ||
@@ -40,17 +41,17 @@ We could also add histograms for some of the encoding schemes when they are actu
 
 _29 October 2007_<br>
 
-Quality score now based on elements (5 points) + schemes (5 points) to give greater weight to the special interests of OLAC. Latest [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics.html#The%20quality%20score|revision].
+Quality score now based on elements (5 points) + schemes (5 points) to give greater weight to the special interests of OLAC. Latest [http://olac.googlecode.com/svn/web/NOTE/metrics.html#The%20quality%20score revision].
 
 _23 October 2007_<br>
 
-A metric based on elements (7.5) + schemes (2.5) was [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics.html?revision=276|proposed], but it didn't give enough weight to the special interests of OLAC.
+A metric based on elements (7.5) + schemes (2.5) was [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics.html?revision=276 proposed], but it didn't give enough weight to the special interests of OLAC.
 
 _3 October 2007_<br>
 
 The quality score for a metadata record would range from 0 to 10 and be based on two parts: a score for the presence of the must-have elements (8 points possible) and added bonus points (up to 2 points) for nice-to-have elements.For each metadata record there is a quality score from 0 to 10. The score is the sum of two parts: a score for the presence of must-have elements Thus a score of five stars would mean not only that the record satisfies all the minimum requirements for mandatory elements (which would be four stars), but that it is significantly richer in content than the minimum.
 
-The quality score for an archive would be the average quality score of its metadata records, minus a penalty point for each warning of misuse of metadata elements. The numbers below are the identifiers for specific [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/REC/bpr.html?revision=258|best practice recommendations].
+The quality score for an archive would be the average quality score of its metadata records, minus a penalty point for each warning of misuse of metadata elements. The numbers below are the identifiers for specific [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/REC/bpr.html?revision=258 best practice recommendations].
 
 Automatable must-have features ("minimal best practice"):
  Record has Date (or refinement) (10)<br>
@@ -85,7 +86,7 @@ _Discussion of metric that has been used in OLAC "Report Card"_<br>
 
 The current computation is based on:
 
- Score = 10 * ( (1/1) * (code exists score) - (1/5) * (element absent deductions) )<br>
+ Score = 10 `*` ( (1/1) `*` (code exists score) - (1/5) `*` (element absent deductions) )<br>
 
 Where,
 
@@ -114,4 +115,3 @@ This would be a second dynamic page that lists the participating archives ranked
  * Average encoding schemes per record (xsi:types)
  * Search requests per month
  * Click-throughs per month
-
