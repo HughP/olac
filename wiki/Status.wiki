@@ -1,0 +1,20 @@
+=Current status of project implementation=
+
+This page gives links to the latest working versions of documents and software that are being (or have been) developed under this project. "Released draft" or "Released version" is a link to the most recent version that is posted on the OLAC site. "Latest working draft" is a link to an even later draft that is publicly accessible in the Subversion repository. "Latest working version" is a link to a publicly accessible page on the OLAC site that is not yet in production, that is, it is not yet accessible from links on the site.
+
+*Regarding Outcome 1.1:* [1.1-Metadata|Metadata quality]
+
+New document: _Best Practice Recommendations for Language Resource Description_, [http://www.language-archives.org/REC/bpr.html|Released draft] [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/REC/bpr-new.html|Latest working draft]
+
+New document: _OLAC Metadata Usage Guidelines,_ [http://www.language-archives.org/NOTE/usage.html|Released draft] [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/usage-new.html|Latest working draft]
+
+New document: _OLAC Metadata Metrics,_ [http://www.language-archives.org/NOTE/metrics.html|Released draft] [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics-new.html|Latest working draft]
+
+New page: OLAC metrics, [http://www.language-archives.org/metrics/|Latest working version]
+
+Revised page: List of participating archives with links to new metrics and new metadata quality analysis, [http://www.language-archives.org/archives-new.php|Latest working version]
+
+Revised page: Free-standing metadata service with new button for performing metadata quality analysis, [http://www.language-archives.org/tools/metadata/freestanding.html|Released version]
+
+Revised document: _OLAC Language Extension,_ [http://www.language-archives.org/REC/language.html|Released draft] [http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/REC/language-new.html|Latest working draft]
+
