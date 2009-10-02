@@ -19,23 +19,27 @@ This specification describes the implementation in three subsections in terms of
 
 A possible model would be to do all checking dynamically, but the checks (like valid link checking) take enough time and the data is static enough, that it makes more sense to store the results of checking in the database. There are two types of checks: checks on Archived Items and checks on individual Metadata Elements. The basic data model is that these two entities in the SQL database will add a pair of columns:
 
- IntegrityChecked date,<br>
- Problem_Code char(3) null,<br>
- foreign key (Problem_Code) references INTEGRITY_PROBLEM (Problem_Code)<br>
+{{{
+IntegrityChecked date,
+Problem_Code char(3) null,
+foreign key (Problem_Code) references INTEGRITY_PROBLEM (Problem_Code)
+}}}
 
-Where IntegrityChecked is the date of the last time the integrity was checked and Problem_Code stores the outcome of the check: NULL if there was no problem, and a three-letter code for the discovered Integrity Problem if a problem was detected. A three-letter code is used as the problem identifier rather than an autoincremented integer because the code that implements the integrity checks must poke the identifiers into the records that have problems. The integrity checking code will be more transparent if the problems are represented by mnemonic codes rather than integers.
+Where `IntegrityChecked` is the date of the last time the integrity was checked and `Problem_Code` stores the outcome of the check: NULL if there was no problem, and a three-letter code for the discovered Integrity Problem if a problem was detected. A three-letter code is used as the problem identifier rather than an autoincremented integer because the code that implements the integrity checks must poke the identifiers into the records that have problems. The integrity checking code will be more transparent if the problems are represented by mnemonic codes rather than integers.
 
 This design depends on the creation of a new database entity that lists the integrity problems that our process checks for:
 
- create table INTEGRITY_PROBLEM (<br>
- Problem_Code char(3) not null,<br>
- Applies_To char(1) not null, # 'I' for Archived Item, 'E' for Metadata Element<br>
- Severity char(1) not null, # 'E' for Error, 'W' for Warning<br>
- Label varchar(40) not null,<br>
- Description varchar(255) not null,<br>
- primary key (Problem_Code) );<br>
+{{{
+create table INTEGRITY_PROBLEM (
+Problem_Code char(3) not null,
+Applies_To char(1) not null, # 'I' for Archived Item, 'E' for Metadata Element
+Severity char(1) not null, # 'E' for Error, 'W' for Warning
+Label varchar(40) not null,
+Description varchar(255) not null,
+primary key (Problem_Code) );
+}}}
 
-_Applies_To_ indicates whether the integrity check is performed against an instance of Archived_Item or of Metadata_Elem. _Severity_ indicates whether the problem is counted against the archive as an error, or is just something that deserves a warning. _Label_ is a short phrase that serves as the name of the problem in reports, whereas _Description_ is a longer definition of the problem and its remedy.
+_`Applies_To`_ indicates whether the integrity check is performed against an instance of `Archived_Item` or of `Metadata_Elem`. _Severity_ indicates whether the problem is counted against the archive as an error, or is just something that deserves a warning. _Label_ is a short phrase that serves as the name of the problem in reports, whereas _Description_ is a longer definition of the problem and its remedy.
 
 The following table lists problems for which we can implement tests (with the five columns corresponding to the table specification above):
 
