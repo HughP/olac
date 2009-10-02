@@ -22,7 +22,7 @@ if ($tab[0]['c'] == 0) error("unrecognized area name: $area_name");
 $sql = "select li.Name, li.CountryID, count(distinct ai.Item_ID) c
         from ARCHIVED_ITEM ai,
              METADATA_ELEM me,
-             (select distinct cc.Name, cc.CountryID, li.LangID
+             (select distinct substring_index(cc.Name,' (',1) Name, cc.CountryID, li.LangID
               from LanguageCodes li, CountryCodes cc
               where li.CountryID=cc.CountryID
                 and cc.Area='$area_name'
