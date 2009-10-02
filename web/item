@@ -378,6 +378,11 @@ $olac_info = <<<END
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
   <td><a href="$answer[BaseURL]?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
+</tr>
+<tr>
+  <td class=lookup><i>GetRecord:&nbsp;</i></td>
+  <td></td>
+  <td><a href="/static-records/$itemid.xml">Pre-generated XML file</td>
 END;
 
 $oai_info = <<<END
