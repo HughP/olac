@@ -9,8 +9,8 @@
 #
 ######################################################################
 
-require_once("/web/language-archives/lib/php/OLACDB.php");
-$DB = new OLACDB("olac2");
+require_once("lib/php/OLACDB.php");
+$DB = new OLACDB();
 ?>
 <HTML>
 <HEAD>
@@ -22,8 +22,8 @@ $DB = new OLACDB("olac2");
 <HR>
 <TABLE CELLPADDING="10">
 <TR>
-<TD> <A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif"
+<TD> <A HREF="/"><IMG
+SRC="/images/olac100.gif"
 BORDER="0"></A></TD>
 <TD> <H1><FONT COLOR="0x00004a">List Records from an OLAC Archive
 </FONT>
@@ -34,10 +34,10 @@ BORDER="0"></A></TD>
 <HR>
 
 <p>This page permits the records of a particular
-<a href="/archives.php4">harvested archive</a>
+<a href="/archives.php">harvested archive</a>
 to be displayed.  It may be slow for large archives.
 To find particular records in OLAC archives, please use
-the <a href="http://www.language-archives.org/tools/search/">OLAC search interface</a>.
+the <a href="/tools/search/">OLAC search interface</a>.
 
 <?
 function archives()
@@ -90,7 +90,7 @@ if ($archiveid) {
   if ($tab) foreach ($tab as $row) {
     $output .= <<<END
 <p>$count.
-<a href="http://www.language-archives.org/item/$row[OaiIdentifier]">$row[OaiIdentifier]</a>
+<a href="/item/$row[OaiIdentifier]">$row[OaiIdentifier]</a>
 END;
 
     $record_ids[$row[Item_ID]] = 1;

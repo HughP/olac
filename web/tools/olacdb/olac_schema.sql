@@ -745,6 +745,7 @@ create table ISO_639_3_Retirements (
 create table PendingConfirmation (
 	magic_string		char(40),
 	repository_id		varchar(50),
+        repository_type		varchar(10),
 	new_url			varchar(255),
         ctype			char(1),
 	ts			timestamp default current_timestamp,
@@ -771,19 +772,4 @@ primary key (SoundexValue, Word),
 key (SoundexValue)
 ) engine=innodb, charset=utf8;
 
-##################################################################
-# Table                : SERVICES
-##################################################################
-create table SERVICES (
-Service_ID	int auto_increment,
-serviceName	varchar(255),
-serviceURL	varchar(255),
-institution	varchar(255),
-institutionURL	varchar(255),
-contactPerson	varchar(255),
-contactEmail	varchar(255),
-description	text,
-dateApproved	date,
-primary key (Service_ID)
-) engine=innodb charset=utf8;
 

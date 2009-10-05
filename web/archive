@@ -4,7 +4,7 @@
 #
 
 require_once("lib/php/OLACDB.php");
-$DB = new OLACDB("olac2");
+$DB = new OLACDB();
 
 ############################################################
 # returns a hash of the following form

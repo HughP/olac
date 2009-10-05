@@ -60,29 +60,6 @@ sqls = [
 
     "insert into MetricsElementUsage select Archive_ID, Tag_ID, count(*) from METADATA_ELEM me, ARCHIVED_ITEM ai where me.Item_ID=ai.Item_ID and Tag_ID is not null group by Archive_ID, Tag_ID",
 
-    """
-    create temporary table t_me
-    select * from METADATA_ELEM where (Type!='linguistic-type' and Type!='linguistic-field' and Type!='DCMIType') or Type is null
-    union
-    select me.* from METADATA_ELEM me
-    left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-    where Type in ('linguistic-type','linguistic-field') and cd.Code is not null
-    union
-    select * from METADATA_ELEM where Type='DCMIType' and Content in (select * from DCMITypeVocabulary)
-    """,
-
-    """
-    create temporary table t
-    select
-        Item_ID, me.Tag_ID, DcElement, Type,
-        (Content is not null and Content!='') Content,
-        if(Type='language',LangID,if(Type is null or Code='',null,Code)) Code
-    from
-        t_me me
-        left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
-        left join LanguageCodes lc on me.Code=lc.LangID
-    """,
-
     "delete from MetricsQualityScore",
 
     """
@@ -116,7 +93,23 @@ sqls = [
             least(sum(if(Type='IMT' and Content,1,0)),1) IMT,
             least(sum(if(Type='URI' and Content,1,0)),1) URI,
             least(sum(if(DcElement=200 and Type is not null,1,0)),1) Coverage
-         from t
+         from
+            (select
+                Item_ID, me.Tag_ID, DcElement, Type,
+                (Content is not null and Content!='') Content,
+                if(Type='language',LangID,if(Type is null or Code='',null,Code)) Code
+             from
+                (select * from METADATA_ELEM where (Type!='linguistic-type' and Type!='linguistic-field' and Type!='DCMIType') or Type is null
+                 union
+                 select me.* from METADATA_ELEM me
+                 left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+                 where Type in ('linguistic-type','linguistic-field') and cd.Code is not null
+                 union
+                 select * from METADATA_ELEM where Type='DCMIType' and Content in (select * from DCMITypeVocabulary)
+                ) me
+                left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
+                left join LanguageCodes lc on me.Code=lc.LangID
+            ) t
          group by Item_ID
         ) t
     """,

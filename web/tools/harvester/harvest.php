@@ -1,13 +1,32 @@
 <?php
 
-define("OLAC_PATH", '/web/language-archives');
-require_once(OLAC_PATH.'/lib/php/OLAC_general.php');
+require_once('olac.php');
+define("OLAC_PATH", olacvar('docroot'));
 require_once(OLAC_PATH.'/lib/php/OLACDB.php');
 require_once(OLAC_PATH."/lib/php/utils.php");
-define("OLAC_SYS_ADMIN_EMAIL", $OLAC_SYS_ADMIN_EMAIL);
+define("OLAC_SYS_ADMIN_EMAIL", olacvar('tech_email'));
+
+$error_log = array();
+
+function error_handler($errno, $errstr, $file, $lineno)
+{
+  global $error_log;
+  $error_log[] = "$file [line $lineno]: $errstr";
+}
+
+set_error_handler(error_handler);
 
 function error($msg)
-{ 
+{
+  global $error_log;
+
+  $msg .= "\n\n";
+  foreach ($error_log as $error_line) {
+    $msg .= $error_line;
+    $msg .= "\n";
+  }
+  while (array_pop($error_log)); # clear the log for next use
+
   mail_by_olac_admin
     (OLAC_SYS_ADMIN_EMAIL,
      "registration problem (/tools/harvester/harvest.php)",
@@ -20,7 +39,7 @@ EOT;
   return;
 } 
 
-$DB = new OLACDB("olac2");
+$DB = new OLACDB();
 
 $repoid = $_GET["id"];
 $adminemail = get_admin_email($DB, $repoid);
@@ -61,6 +80,7 @@ if ($DB->saw_error()) {
 }
 
 $subject = "[OLAC] forced full harvest confirmation";
+$url = olacvar('harvester/web_interface_confirm');
 $msg = <<<EOT
 Administrator of $repoid:
 
@@ -69,7 +89,7 @@ $baseurl.
 
 To confirm this, please visit the following url.
 
-http://www.language-archives.org/tools/harvest/confirm_h.php?v=$magic
+$url?v=$magic
 
 EOT;
 

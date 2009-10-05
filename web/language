@@ -1,12 +1,55 @@
 <?php
 
 require_once('lib/php/OLACDB.php');
-$DB = new OLACDB('olac2');
+$DB = new OLACDB();
+
+class CitationGenerator {
+
+  private $proc = null;
+  private $pipes = null;
+  private $open = FALSE;
+
+  function __construct() {
+    $descriptorspec = array(0 => array("pipe", "r"),
+			    1 => array("pipe", "w"),
+			    2 => array("file", "/dev/null", "w"));
+    $this->proc = proc_open(olacvar('cite'), $descriptorspec, $this->pipes,
+			    NULL, NULL, array("binary_pipes"));
+    $this->open = TRUE;
+  }
+
+  function __destruct() {
+    if ($this->open) {
+      $this->close();
+    }
+  }
+
+  function cite($oaiid) {
+    fwrite($this->pipes[0], $oaiid . "\n");
+    return stream_get_line($this->pipes[1], 8192, "\n");
+  }
+
+  function close() {
+    fclose($this->pipes[0]);
+    fclose($this->pipes[1]);
+    proc_close($this->proc);
+    $this->open = FALSE;
+  }
+}
 
 function error($msg) {
   echo "<p>ERROR: $msg</p>";
   exit(0);
 }
+
+$CITE = new CitationGenerator();
+
+function shutdown() {
+  if (isset($GLOBALS['CITE']))
+    unset($GLOBALS['CITE']);
+}
+
+register_shutdown_function('shutdown');
 
 # get language code
 $path = preg_split('#/#', $_SERVER['PHP_SELF']);
@@ -162,8 +205,8 @@ $search_terms = implode(", ", $arr);
 <HR>
 <TABLE CELLPADDING="10">
 <TR>
-<TD> <A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif"
+<TD> <A HREF="/"><IMG
+SRC="/images/olac100.gif"
 BORDER="0"></A></TD>
 <TD><H1><FONT COLOR="0x00004a"><?=$title?></FONT></H1>
 </TD>
@@ -224,16 +267,9 @@ if (count($other_resources2) > 0) {
 </ul>
 
 <?php
-$descriptorspec = array(0 => array("pipe", "r"),
-			1 => array("pipe", "w"),
-			2 => array("file", "/dev/null", "w"));
-$citeproc = proc_open("lib/cite.py", $descriptorspec, $pipes,
-		      NULL, NULL, array("binary_pipes"));
 function print_list_item($oaiid) {
-  global $pipes;
   global $DB;
-  fwrite($pipes[0], $oaiid . "\n");
-  $citation = stream_get_line($pipes[1], 8192);
+  $citation = $GLOBALS['CITE']->cite($oaiid);
   $sql  = "select Content from ARCHIVED_ITEM ai, METADATA_ELEM me ";
   $sql .= "where ai.OaiIdentifier='$oaiid' and ai.Item_ID=me.Item_ID ";
   $sql .= "and me.TagName='title'";
@@ -301,11 +337,10 @@ if (count($other_resources2) > 0) {
   }
   echo "</ol>";
 }
-
 if ($search_terms)
   echo "<p>Other search terms: $search_terms</p>";
 
-proc_close($citeproc);
+$CITE->close();
 ?>
 
 </body>

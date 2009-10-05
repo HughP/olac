@@ -1,7 +1,7 @@
 <?php
 
 require_once('lib/php/OLACDB.php');
-$DB = new OLACDB('olac2');
+$DB = new OLACDB();
 
 function error($msg) {
   echo "<p>ERROR: $msg</p>";
@@ -52,8 +52,8 @@ $title = "Resources for languages in $country_name";
 <HR>
 <TABLE CELLPADDING="10">
 <TR>
-<TD> <A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif"
+<TD> <A HREF="/"><IMG
+SRC="/images/olac100.gif"
 BORDER="0"></A></TD>
 <TD><H1><FONT COLOR="0x00004a"><?=$title?></FONT></H1>
 </TD>
