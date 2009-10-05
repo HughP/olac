@@ -9,13 +9,13 @@
   * *Deliverable:* A means of listing potential participants and tracking progress.<br>
   * *Status:* A [Bookmarking social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
   * *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew Type-Provider with status=New]).<br>
-  * *Status:* 14<br>
+  * *Status:* 11<br>
 
 1.2b _Collaboration:_ Contact all identified archives and consult with them to develop best strategy for generating their metadata.
 
   * *Indicator:* Number of archives that have been contacted and agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3AAccepted Type-Provider with status=Accepted]).<br>
   * *Status:* 5<br>
-  * *Indicator:* Number of archives that have declined or repeatedly failed to respond ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3ADropped Type-Provider with status=Dropped]).<br>
+  * *Indicator:* Number of archives that have declined or repeatedly failed to respond ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3ADropped Type-Provider with status=Dropped]).<br>
   * *Status:* 0<br>
 
 1.2c _Scraping:_ Do automatic scraping of the HTML metadata already published on archive sites to achieve a quick low-accuracy conversion to OLAC metadata.
@@ -32,8 +32,8 @@
   * *Deliverable:* An OLAC Note on using `<oXygen/>` XML editor to create and maintain a static repository.<br>
   * *Status:* In progress; see http://olac.googlecode.com/svn/web/NOTE/oxygen.html.<br>
 
-  * *Indicator for 1.2c to 1.2e:* Number of archives that have newly joined using whatever means ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3ADone Type-Provider with status=Done]).<br>
-  * *Status:* 0<br>
+  * *Indicator for 1.2c to 1.2e:* Number of archives that have newly joined using whatever means ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3ADone Type-Provider with status=Done]).<br>
+  * *Status:* 2<br>
 
 1.2.f _Documentation:_ Improve the documentation and tools on the OLAC web site for helping new participants to share their metadata with the community.
 
