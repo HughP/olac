@@ -7,8 +7,8 @@
 1.2a _Non-participating archives:_ Compile a list of all known non-participating language archives.
 
   * *Deliverable:* A means of listing potential participants and tracking progress.<br>
-  * *Status:* A [Bookmarking#Listing|social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
-  * *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew|Type-Provider with status=New]).<br>
+  * *Status:* A [Bookmarking|social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
+  * *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew |Type-Provider with status=New]).<br>
   * *Status:* 14<br>
 
 1.2b _Collaboration:_ Contact all identified archives and consult with them to develop best strategy for generating their metadata.
