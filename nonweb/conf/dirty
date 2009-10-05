@@ -1,0 +1,2 @@
+# desc: A file that indicates whether a database clean-up is required.
+/var/tmp/dirty.olac

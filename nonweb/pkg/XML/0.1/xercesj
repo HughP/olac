@@ -1,0 +1,17 @@
+#! /bin/sh
+
+if test -z "$1"; then
+	cat <<END
+usage: $(basename $0) <xml>
+
+    <xml>   the input XML file to validate
+
+END
+	exit 1
+fi
+
+exec 2>&1
+C=/usr/share/java/xercesImpl.jar
+C=$C:/usr/share/doc/libxerces2-java-doc/examples/xercesSamples.jar
+java -cp $C sax.Counter -n -np -v -s -f $1 | grep 'Error\]'
+

@@ -1,0 +1,4 @@
+# desc: Name of the temporary database used by the monthly harvester.
+# desc: Note that the information about the database server and the user
+# desc: account comes from the mysql/* variables.
+olactmp

@@ -1,0 +1,3 @@
+# desc: SQLite version of OLAC schema.
+# desc: The XML dump program uses this.
+Harvester!olac_schema.sqlite.sql

@@ -1,0 +1,3 @@
+# desc: Directory for storing hosted repositories.
+# desc: NB: The path is relative to ${docroot}.
+/devel/sr

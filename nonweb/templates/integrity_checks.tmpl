@@ -1,0 +1,36 @@
+<html>
+<header>
+<title>Archive Integrity Checks</title>
+<link rel="stylesheet" type="text/css" href="/olac.css"/>
+</header>
+<body>
+<hr/>
+<table cellpadding=10>
+<tr><td><a href="/"><img src="/images/olac100.gif" border=0></a></td>
+<td><h1>Integrity Checks<span id="repoid"></span></h1></td></tr>
+</table>
+<hr/>
+
+<p id="archive_selection_guide"></p>
+
+<script>
+function redirect() {
+  var list = document.getElementById('list');
+  window.location = '/checks/' + list.value;
+}
+</script>
+
+<p>
+<select id="list"></select>
+<button onclick="redirect();">Submit Query</button>
+</p>
+<hr/>
+
+<p id="download_message"></p>
+
+<div id="error_section"></div>
+
+<div id="warning_section"></div>
+
+</body>
+</html>

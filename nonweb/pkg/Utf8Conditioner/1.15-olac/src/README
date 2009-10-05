@@ -1,0 +1,25 @@
+TITLE: README for the revised utf8conditioner package
+AUTHOR: Haejoong Lee <haejoong@ldc.upenn.edu>
+DATE: 2009-04-06
+
+This is a revision of the original utf8conditional program. The source code was
+taken in April 2009 from the following web page:
+
+  http://www.cs.cornell.edu/people/simeon/software/utf8conditioner/
+  http://www.cs.cornell.edu/people/simeon/software/utf8conditioner/utf8conditioner.tar.gz
+
+According to the original README file (moved to orgdoc/README), the original
+code was released on Oct 25, 2005.
+
+The modification I made to the original package is the addition of the
+utf8conditioner_unbufferred_stdou.c file and some changes to the Makefile so
+that this added program is built. The added program is different from the
+original one in that it does unbufferred output on the standard output. Since
+its output goes to the standard output, it can act as a component in a long
+unix pipe.
+
+Other than what's described above, everything is identical to the original
+package. Please read orgdoc/README for the description of the original
+package.
+
+

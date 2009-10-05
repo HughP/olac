@@ -1,0 +1,48 @@
+#! /bin/sh
+#
+# synopsis: This script performs XSL transform using Xalan.
+#
+# changelog:
+#   2003-02-27  created by HL
+#
+
+xml=$1
+xsl=$2
+out=${3+"-out $3"}
+
+if test -z "$xml" -o -z "$xsl" ; then
+  cat <<END
+usage: $0 <xml> <xsl> [<out>]
+
+  <xml>  the xml file to transform
+  <xsl>  XSLT to apply
+  <out>  output goes to this file
+
+END
+  exit 1
+fi
+
+TIMEOUT=280
+
+xalan $out -in $xml -xsl $xsl &
+kpid=$!
+
+i=0
+while [ $i -lt $TIMEOUT ] ; do
+  sleep 1
+  #ps -o pid -p $kpid | tail +2
+  if [ -z "`ps -o pid -p $kpid | sed 1d`" ] ; then
+    break
+  fi
+  i=`expr $i + 1`
+done
+
+if [ $i -eq $TIMEOUT ] ; then
+  kill -KILL $kpid
+  wait $kpid
+  echo 'ERROR: timeout' > $3
+  exit 1
+else
+  exit 0
+fi
+

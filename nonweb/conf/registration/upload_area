@@ -1,0 +1,4 @@
+# desc: Temporary directory for storing uploaded repository files that are
+# desc: pending requesters' confirmation.
+# desc: NB: The path is relative to ${docroot}.
+/register/pending

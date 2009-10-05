@@ -1,0 +1,2 @@
+# desc: A wrapper shell script that downloads and store the GA reports.
+GoogleAnalytics!ga_cron.sh

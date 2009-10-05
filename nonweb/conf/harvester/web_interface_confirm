@@ -1,0 +1,2 @@
+# desc: URL of the confirmation page of the harvester web interface.
+${baseurl}/tools/harvester/confirm_h.php

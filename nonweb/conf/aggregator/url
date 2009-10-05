@@ -1,0 +1,2 @@
+# desc: The base URL of OLACA, the OLAC Aggregator and a OAI-PMH data provider.
+${baseurl}/cgi-bin/olaca3.pl

@@ -1,0 +1,2 @@
+# desc: URL of a harvester web interface.
+${baseurl}/tools/harvester/harvest.php
