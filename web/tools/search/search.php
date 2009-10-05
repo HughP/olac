@@ -141,8 +141,7 @@ $banner =
 
 	<!-- Banner -->
 	<TR>
-	<TD> <A HREF=\"http://www.language-archives.org/\"><IMG
-	#SRC=\"http://www.language-archives.org/images/olac100.gif\"
+	<TD> <A HREF=\"/\"><IMG
 	SRC={$STYLE}olac100.gif
 	alt=\"Open Language Archives\"
 	BORDER=\"0\"></A></TD>
@@ -326,7 +325,7 @@ return " <table>
 		<td>&nbsp;&nbsp;</td>
 		<td width=100%>
 	$counter."
-        . "<img src=" . starImage($row['recordScore'])
+        . "<img src=\"" . starImage($row['recordScore'])
         . "\"></img>\n"
 	#. " \t<a href=\"$_SERVER[PHP_SELF]?item=$row[OaiIdentifier]"
 	#. "&queryTerms=$queryString&phrasemode=$phrasemode"
@@ -1437,7 +1436,7 @@ function modeItem()
   global $DB, $output;
   $stringQuery = str_replace( " " , "+", $_GET['queryTerms'] );
 
-  $url = "http://www.language-archives.org/item?"
+  $url = "/item?"
                         . "identifier=" . urlencode($_GET["item"])
                         . "&queryTerms=" . urlencode($stringQuery)
                         . "&phrasemode=" . urlencode($_GET["phrasemode"])
@@ -1606,7 +1605,7 @@ function displayArchiveResults( $repositoryID, $archiveRecords, $queryTokens,
 
     $records = "<table><tr>"
     	   . "\n<th align=left><big>Results from "
-	   . "\"<a href=\"http://www.language-archives.org/archive/"
+	   . "\"<a href=\"/archive/"
 	   . "$repositoryID\">"
 	   . "$repositoryID</a>\"</big></th>\n";
 

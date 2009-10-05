@@ -1,5 +1,7 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 
+require_once('olac.php');
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -11,7 +13,7 @@
 |	http://www.your-site.com/
 |
 */
-$config['base_url']	= "http://www.language-archives.org/metrics/";
+$config['base_url']	= olacvar('baseurl') . '/metrics';
 
 /*
 |--------------------------------------------------------------------------

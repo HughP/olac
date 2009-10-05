@@ -458,14 +458,10 @@ from (ARCHIVED_ITEM oa join METADATA_ELEM me on oa.Item_ID=me.Item_ID)
      left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
 
     $conj = "where";
-    if (scalar(@$header) > 0) {
+    if ($request->{next}) {
 	my $first = $header->[0]->[2];
-	my $last = $header->[scalar(@$header) - 1]->[2];
+	my $last = $header->[199]->[2];
 	$query .= "$conj oa.Item_ID >= $first and oa.Item_ID <= $last ";
-        $conj = "and";
-    }
-    else {
-        $query .= "$conj 1>2";
         $conj = "and";
     }
     if ($request->{from}) {

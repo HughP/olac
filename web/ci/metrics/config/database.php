@@ -37,13 +37,12 @@
 $active_group = "default";
 $active_record = TRUE;
 
-$s = file_get_contents('/home/olac/.mysqlpass');
-preg_match('#mysql://(.*):(.*)@(.*)/(.*)#', $s, $dsn);
+require_once('olac.php');
 
-$db['default']['hostname'] = $dsn[3];
-$db['default']['username'] = $dsn[1];
-$db['default']['password'] = $dsn[2];
-$db['default']['database'] = $dsn[4];
+$db['default']['hostname'] = olacvar('mysql/host');
+$db['default']['username'] = olacvar('mysql/user');
+$db['default']['password'] = olacvar('mysql/passwd');
+$db['default']['database'] = olacvar('mysql/olacdb');
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;

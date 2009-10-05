@@ -13,6 +13,9 @@
 #
 #
 
+require_once("olac.php");
+$BASEURL = olacvar('baseurl');
+
 # Parameters in the calling POST request
 #    metadata -- the submitted free-standing metadata
 
@@ -20,7 +23,7 @@
 
   if (!$HTTP_POST_VARS['metadata'])
   {
-    $mainpage = "http://www.language-archives.org/tools/metadata/freestanding.html";
+    $mainpage = "$BASEURL/tools/metadata/freestanding.html";
     header("Content-Type: text/html");
     readfile($mainpage);
     exit;
@@ -101,10 +104,10 @@ $namespaces = array(
 
 # schemas: table of (namespace, schema)
 $schemas = array(
-  "http://purl.org/dc/elements/1.1/" => "http://www.language-archives.org/OLAC/1.1/dc.xsd",
-  "http://purl.org/dc/terms/" => "http://www.language-archives.org/OLAC/1.1/dcterms.xsd",
-  "http://www.language-archives.org/OLAC/1.1/" => "http://www.language-archives.org/OLAC/1.1/olac.xsd",
-  "http://www.language-archives.org/OLAC/1.0/" => "http://www.language-archives.org/OLAC/1.0/olac.xsd"
+  "http://purl.org/dc/elements/1.1/" => "$BASEURL/OLAC/1.1/dc.xsd",
+  "http://purl.org/dc/terms/" => "$BASEURL/OLAC/1.1/dcterms.xsd",
+  "http://www.language-archives.org/OLAC/1.1/" => "$BASEURL/OLAC/1.1/olac.xsd",
+  "http://www.language-archives.org/OLAC/1.0/" => "$BASEURL/OLAC/1.0/olac.xsd"
 );
 
 ##
@@ -249,7 +252,6 @@ $metadata = preg_replace("{<(?:[^/>]+?:)olac\b.*?>}s", $olactag, $metadata);
 # Write the submitted metadata to a temporary file
 
   $tmpfile = tempnam("tmp", '');
-  $tmpfile = "$tmpfile.xml";
   $fd = fopen($tmpfile, 'w');
   fputs($fd, $metadata);
   fclose($fd);
@@ -259,14 +261,13 @@ $metadata = preg_replace("{<(?:[^/>]+?:)olac\b.*?>}s", $olactag, $metadata);
 
 # Validate the tempfile
 
-  $command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xercesj $tmpfile";
+  $command = olacvar('xml_validator') . " $tmpfile";
   exec($command, $result);
 
 #    $command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xsv_html $tmpfile";
 #    exec($command, $result, $errcode);
 #    errcode: 0 = success; 1 = fail
 #    also, xsv_xml, which is faster
-
 
   if (!$result) { # The record is valid
 
@@ -301,9 +302,9 @@ EOT;
 		fclose($fd);
 		chmod($tmpfile, 0644);
 
-		$xsl = "http://www.language-archives.org/metadata_sample.xsl";
+		$xsl = "$BASEURL/metadata_sample.xsl";
 	} else {
-		$xsl = "http://www.language-archives.org/tools/metadata/metadata.xsl";
+		$xsl = "$BASEURL/tools/metadata/metadata.xsl";
 	}
 
 # Set up the XSLT processor
@@ -317,8 +318,9 @@ EOT;
 
   #$command = "$xslt -IN $tmpfile";
   #$command = "/mnt/unagi/speechd8/ldc/wwwhome/olac/bin/xalan $tmpfile $xsl";
-  $command = "/usr/local/bin/xsltproc $xsl $tmpfile";
+  $command = "xsltproc $xsl $tmpfile";
   exec($command, $result);
+  unlink($tmpfile);
   
 # Return the HTML page
 
@@ -345,8 +347,8 @@ EOT;
 <TABLE CELLPADDING="10">
 <TBODY>
 <TR>
-<TD><A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif" BORDER="0"
+<TD><A HREF="/"><IMG
+SRC="/images/olac100.gif" BORDER="0"
 ALT="OLAC Logo"> </A> </TD>
 <TD> <H1>Free-standing OLAC Metadata:<BR>Validation Service</H1>
 </TD>

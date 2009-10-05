@@ -1,7 +1,7 @@
 <?php
 
 require_once('lib/php/OLACDB.php');
-$DB = new OLACDB('olac2');
+$DB = new OLACDB();
 
 function error($msg) {
   echo "<p>ERROR: $msg</p>";

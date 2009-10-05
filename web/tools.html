@@ -2,6 +2,7 @@
 <head>
 <title>Open Language Archives Community</title>
 <link rel="stylesheet" type="text/css" href="olac.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="Worldwide network of language archives">
  
 <meta name="keywords" content="language resource; language resources;
@@ -37,12 +38,12 @@ vocabulary; linguistics; linguistic data; language data">
 <td class=sec><a href="index.html">HOME</a></td><td>|</td>
 <td class=sec><a href="documents.html">DOCUMENTS</a></td><td>|</td>
 <td class=sec><a href="about.html">ABOUT</a></td><td>|</td>
-<td class=sec><a href="archives.php4">ARCHIVES</a></td>
+<td class=sec><a href="archives.php">ARCHIVES</a></td>
 </tr><tr>
 <td class=sec><a href="news.html">NEWS</a></td><td>|</td>
 <td class=sec><a href="organization.html">ORGANIZATION</a></td><td>|</td>
 <td class=sec><font color=#ff9090><b>TOOLS</b></font></td><td>|</td>
-<td class=sec><a href="services.php4">SERVICES</a></td>
+<td class=sec><a href="services.php">SERVICES</a></td>
 </tr></table>
 </td>
 
@@ -74,8 +75,8 @@ vocabulary; linguistics; linguistic data; language data">
 <h2>Get all OLAC Metadata</h2>
 
 <p>
-<li><a href="http://www.language-archives.org/tools/ovester2/ListRecords.xml.gz">Latest dump of OLAC records in XML, gzipped</a>
-<li><a href="http://www.language-archives.org/cgi-bin/olaca3.pl">An OAI data provider containing all OLAC records</a>
+<li><a href="/xmldump/ListRecords.xml.gz">Latest dump of OLAC records in XML, gzipped</a>
+<li><a href="/cgi-bin/olaca3.pl">An OAI data provider containing all OLAC records</a>
 
 <h2>Data Providers</h2>
 
@@ -84,7 +85,7 @@ vocabulary; linguistics; linguistic data; language data">
 <li><a href="/register/register.php">Validate/Register an OLAC Data Provider</a>
 <li><a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai">Interact with a data provider using the OAI Repository Explorer</a>
 <li><a href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/addarchive">Test the conformance of a repository using the OAI Repository Explorer</a>
-<li><a href="tools/survey.php4">OLAC Metadata usage survey</a>
+<li><a href="tools/survey.php">OLAC Metadata usage survey</a>
 <li><a href="/sr">OLAC Static Repository Gateway</a> - providing an OAI interface to repositories published as an XML file
 <li><a href="https://sourceforge.net/project/showfiles.php?group_id=6577&package_id=200507&release_id=439285">Convert BibTeX file to OLAC Static Repository</a>
 <li><a href="http://www.openarchives.org/pmh/tools/tools.php">OAI Tools</a>
@@ -110,7 +111,7 @@ format definition
 
 <p>OLAC metadata can be stored in a relational database.
 Here is the schema used by all OLAC services:
-<a href="/tools/olac_schema.sql">olac_schema.sql</a>.
+<a href="/tools/olacdb/olac_schema.sql">olac_schema.sql</a>.
 
 <h2>OLAC Service Providers</h2>
 
@@ -126,12 +127,11 @@ harvesting dozens of archives, you can harvest a single OLAC archive,
 the <i>OLAC Aggregator</i>, which contains the union of all other OLAC
 archives.
 
-<li><a href="http://sourceforge.net/project/showfiles.php?group_id=6577">Software
-for harvester and aggregator</a>
-<li><a href="http://svn.sourceforge.net/viewcvs.cgi/olac/">Browse 
+<li>Software for <a href="http://code.google.com/p/olac/wiki/RunningOLACHarvester">harvester</a> and <a href="http://code.google.com/p/olac/source/browse/#svn/src/olac_suite">aggregator</a>
+<li><a href="http://code.google.com/p/olac/source/browse/">Browse 
 the Subversion repository</a>
 <li><a href="register/service.html">Register an OLAC Service Provider</a>
-<li><a href="services.php4">View registered OLAC Service Providers</a>
+<li><a href="services.php">View registered OLAC Service Providers</a>
 
 <h2>OLAC Logo</h2>
 
@@ -146,7 +146,7 @@ site, and link it to www.language-archives.org.
 <p>
 Enter a single search term, to be matched against any OLAC field:
 
-<form action="http://www.language-archives.org/tools/search.php4" method="get">
+<form action="/tools/search/search.php" method="get">
 <input type="text" size="16" maxlength="24"  name="query" value=""></font>
 <input type="submit">
 </form>
@@ -168,7 +168,7 @@ Enter the OAI identifier for a record in any OLAC archive:
 Enter the OAI identifier for any OLAC archive (submit a blank query to
 see a list of archives).
 
-<form action="http://www.language-archives.org/tools/archive_records.php4" method="get">
+<form action="/archive_records" method="get">
 <input type="text" size="16" maxlength="80"  name="archive" value="">
 <input type="submit">
 </form>
@@ -239,9 +239,8 @@ OAI documents...</a>
 | <a href="http://www.xml.com/pub/a/2000/11/29/schemas/part1.html">XML.com Tutorial</a>
 | <a href="http://www.oasis-open.org/cover/schemas.html">Resources at OASIS</a>
 | <a href="http://www.w3.org/2001/03/webdata/xsv">XSV Schema Validator</a>
-| <a href="http://www.language-archives.org/tools/xsv/">XSV@OLAC</a>
 | <a href="http://www.ltg.ed.ac.uk/~ht/xsv-status.html">XSV Status</a>
-| <a href="http://www.language-archives.org/tools/xsv/">Xerces-J Schame Validator</a>
+| <a href="/tools/xsv/">Xerces-J Schame Validator</a>
 </ul>
 
 <!-- FOOTER -->

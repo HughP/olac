@@ -1,7 +1,8 @@
 <?php
 
 require_once("lib/php/OLACDB.php");
-$DB = new OLACDB("olac2");
+$DB = new OLACDB();
+$BASEURL = olacvar('baseurl');
 
 $arr = explode('?', $_SERVER["REQUEST_URI"]);
 $arr = explode('/sample/', $arr[0]);
@@ -16,7 +17,7 @@ if (! $tab) {
 $sample_id = $tab[0]["SampleIdentifier"];
 
 $xml = new DomDocument;
-$xml->load("http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&metadataPrefix=olac&identifier=" . $sample_id);
+$xml->load("$BASEURL/cgi-bin/olaca3.pl?verb=GetRecord&metadataPrefix=olac&identifier=" . $sample_id);
 
 $xsl = new DomDocument;
 $xsl->load("metadata_sample.xsl");

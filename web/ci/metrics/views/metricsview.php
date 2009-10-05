@@ -23,7 +23,7 @@
 <script src="/js/yui/build/button/button-min.js"></script>
 <script>
 <?php
-echo "baseurl = '" . site_url() . "';\n";
+echo "baseurl = '" . rtrim(site_url(),'/') . "';\n";
 readfile(APPPATH."/views/metrics.js");
 if (isset($error))
 {

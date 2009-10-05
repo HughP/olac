@@ -1,13 +1,6 @@
 <?php
 
-#
-# Changes:
-#
-# 2005-01-06  Haejoong Lee  <haejoong@ldc.upenn.edu>
-#	* saw_error() didn't work in case of errors occurred in sql()
-#
-
-require_once("DB.php");
+require_once("olac.php");
 
 class OLACDB
 {
@@ -15,46 +8,56 @@ class OLACDB
   var $err;
   var $err_sql;
 
-  function OLACDB($dbname)
+  function OLACDB($dbname=null)
   {
-    $dsn = trim(file_get_contents("/home/olac/.mysqlpass"));
-    $this->db = DB::connect($dsn);
-    if (DB::isError($this->db))
-      $this->err = $this->db;
-    else {
-      $this->db->fetchmode = DB_FETCHMODE_ASSOC;
-      $this->db->simpleQuery("set names 'utf8'");
+    $this->errmsg = NULL;
+    $host = olacvar('mysql/host');
+    $user = olacvar('mysql/user');
+    $password = olacvar('mysql/passwd');
+    if ($dbname)
+      $database = $dbname;
+    else
+      $database = olacvar('mysql/olacdb');
+    $con = mysql_connect($host, $user, $password);
+    if ($con === FALSE) {
+      $this->errmsg = "connection failed";
+      return;
     }
+    mysql_select_db($database);
+    mysql_query("set names 'utf8'");
   }
 
   function _OLACDB()
   {
-    $this->db->disconnect();
+    mysql_close();
   }
 
   function sql($sql)
   {
-    $this->err = "";
-    $res = $this->db->simpleQuery($sql);
-    if ($this->db->isError($res)) {
-      $this->err = $res;
+    $res = mysql_query($sql);
+    if ($res === FALSE) {
+      $this->errmsg = mysql_error();
       $this->err_sql = $sql;
-      return false;
+      return FALSE;
+    } elseif ($res === TRUE) {
+      return TRUE;
     }
-    $row = $this->db->fetchRow($res);
-    while ($row) {
-      $rows[] = $row;
-      $row = $this->db->fetchRow($res);
+    $arr = array();
+    $row = mysql_fetch_assoc($res);
+    while ($row !== FALSE) {
+      $arr[] = $row;
+      $row = mysql_fetch_assoc($res);
     }
-    $this->db->freeResult($res);
-    return $rows;
+    return $arr;
   }
 
-  function saw_error()
-  { return DB::isError($this->db) || $this->db->isError($this->err); }
+  function saw_error() {
+    return !is_null($this->errmsg);
+  }
 
-  function get_error_message()
-  { return $this->err->getMessage(); }
+  function get_error_message() {
+    return $this->errmsg;
+  }
 
   function get_error_sql()
   { return $this->err_sql; }

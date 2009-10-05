@@ -1,9 +1,11 @@
 <?php
 
+require_once('olac.php');
+
 function mail_by_olac_admin($to, $subject, $msg, $cc="")
 {
-  $header = "From: OLAC Web Server <www@ldc.upenn.edu>\r\n";
-  $header .= "Reply-To: OLAC Administrator <olac-admin@language-archives.org>\r\n";
+  $header = "From: " . olacvar('olac_admin_email') . "\r\n";
+  $header .= "Reply-To: " . olacvar('olac_admin_email') . "\r\n";
   if ($cc) $header .= "Cc: $cc\r\n";
   $header .= "X-Mailer: PHP/" . phpversion();
   mail($to, $subject, $msg, $header);

@@ -344,8 +344,8 @@ function loadArchiveList()
 		success:function(o) {
 			loadOLACMetrics();
 			var tmp = eval('(' + o.responseText + ')');
-			REPOS = new Array();
-			REPOIDS = new Array();
+			REPOS = new Object;
+			REPOIDS = new Object;
 			for (var i in tmp) {
 				REPOS[tmp[i]['Archive_ID']] = tmp[i]['RepositoryName'];
 				REPOIDS[tmp[i]['Archive_ID']] = tmp[i]['RepositoryIdentifier'];
@@ -427,7 +427,7 @@ function populateComparativeMetricsTable()
 		el.innerHTML = '<div style="text-align: right;">' + parseFloat(oData).toFixed(1) + '</div>';
 	}
 	var format_or = function(el, oRecord, oColumn, oData) {
-		el.innerHTML = '<div style="text-align: right;"><img src="/tools/scores/star' + oData + '.giv"></img>';
+		el.innerHTML = '<div style="text-align: right;"><img src="/tools/scores/star' + oData + '.gif"></img>';
 	}
 	var sort_or = function(a, b, desc) { 
 		var comp = YAHOO.util.Sort.compare; 

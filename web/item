@@ -22,10 +22,11 @@
 #   2002-??-??  Steven Bird wrote it originally
 ######################################################################
 
-define(OLAC_DB_NAME, 'olac2');
-require_once("/web/language-archives/lib/php/OLACDB.php");
-$DB = new OLACDB(OLAC_DB_NAME);
+require_once("lib/php/OLACDB.php");
+$DB = new OLACDB();
 $DB->sql("set names 'utf8'");
+$BASEURL = olacvar('baseurl');
+$OLACA = olacvar('aggregator/url');
 
 
 function draw_form() {
@@ -372,12 +373,12 @@ $olac_info = <<<END
 <tr>
   <td class=lookup><i>Description:&nbsp;</i></td>
   <td></td>
-  <td><a href="http://www.language-archives.org/archive/$answer[RepositoryIdentifier]">http://www.language-archives.org/archive/$answer[RepositoryIdentifier]</a></td>
+  <td><a href="$BASEURL/archive/$answer[RepositoryIdentifier]">$BASEURL/archive/$answer[RepositoryIdentifier]</a></td>
 </tr>
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
-  <td><a href="$answer[BaseURL]?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
+  <td><a href="$OLACA?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
 </tr>
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
@@ -401,7 +402,7 @@ $oai_info = <<<END
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
-  <td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
+  <td><a href="$OLACA?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
 </tr>
 END;
 
@@ -532,8 +533,7 @@ $meta = old_meta_tag_formatting($tab);
 <HR>
 <TABLE CELLPADDING="10">
 <TR>
-<TD> <A HREF="http://www.language-archives.org/"><IMG
-SRC="http://www.language-archives.org/images/olac100.gif"
+<TD> <A HREF="/"><IMG SRC="/images/olac100.gif"
 BORDER="0"></A></TD>
 <TD><span style="color:#00004a; font-size:24pt; font-weight:bold"
 >OLAC Record</span><br/><span style="font-size:18pt"

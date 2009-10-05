@@ -1,5 +1,5 @@
 <?php
-# Update repository confirmation script.
+# Full reharvest repository confirmation script.
 # User uses this page to confirm that he has request the change.
 
 require_once('olac.php');
@@ -32,7 +32,8 @@ function error($msg)
 
   mail_by_olac_admin
       (OLAC_SYS_ADMIN_EMAIL,
-       "registration problem (/register/confirm_u.php)",
+       "registration problem (" .
+       olacvar('harvester/web_interface_confirm') . ')',
        $msg);
   echo "<p><font color=red><b>Error</b></font></p>" .
        "<p>Due to a system problem, we cannot update your repository " .
@@ -45,48 +46,37 @@ function success($magic)
 {
   global $DB;
   $DB->sql("delete from PendingConfirmation where magic_string='$magic'");
-  echo "<p><font color=green><b>UPDATE REPOSITORY REQUEST CONFIRMED</b></font></p>" .
-       "<p>The new repository file has replaced the old one.</p>";
+  echo "<p><font color=green><b>HARVEST FINISHED</b></font></p>";
 }
 
-function update_repository($repoid, $postedurl)
+function harvest($url, $repotype)
 {
-  global $DB;
-  $sql = "select * from ARCHIVES where ID='$repoid'";
-  $rows = $DB->sql($sql);
-  if ($DB->saw_error()) {
-    error("database error while obtaining old baseurl.\n\n" .
-	  "repository identifier: $repoid\n" .
-	  "DB error msg: " . $DB->get_error_message());
-    return FALSE;
-  }
-  $file = basename($rows[0]['BASEURL']);
-  $docroot = olacvar('docroot');
-  $src = $docroot . olacvar('registration/upload_area') . "/" . basename($postedurl);
-  $dst = $docroot . olacvar('registration/hosting_area') . "/" . $file;
-  if (!rename($src, $dst)) {
-    error("file system error while updating the repository\n\n" .
-          "repoid: $repoid\n" .
-	  "posted url: $postedurl\n");
-    return FALSE;
-  }
-  @chmod($dst, 0664);
-  return TRUE;
+  if ($repotype == "Static")
+    $opt = "-s";
+  else
+    $opt = "";
+  $cmd = olacvar('harvester/web_interface_backend') . " $opt '$url'";
+  $ret = 0;
+  system("$cmd 2>&1", $ret);
+  if ($ret == 0)
+    return True;
+  else
+    return False;
 }
 
 $magic = $_GET["v"];
 $DB = new OLACDB();
 $sql = "select * from PendingConfirmation c, OLAC_ARCHIVE oa ";
 $sql .= "where c.repository_id=oa.RepositoryIdentifier ";
-$sql .= "and c.magic_string='$magic' and c.ctype='u'";
+$sql .= "and c.magic_string='$magic' and c.ctype='h'";
 $rows = $DB->sql($sql);
 if ($DB->saw_error()) {
-  error("database error while confirming update repository request.\n\n" .
+  error("database error while confirming change of base url request\n" .
 	"it happened while trying to retrieve the confirmation record\n\n" .
 	"Magic string: $magic\n" .
 	"DB error msg: " . $DB->get_error_message());
   return;
-} else if (count($rows) == 0) {
+} elseif (count($rows) == 0) {
   header("HTTP/1.1 404 not found");
   echo "<h2>Not Found</h2>";
   return;
@@ -112,14 +102,32 @@ BORDER="0"></A></TD>
 </TABLE>
 <HR>
 <?php
+ob_end_flush();
+flush();
+ob_flush();
 
+$repotype = $rows[0]["repository_type"];
+$harvesturl = $rows[0]["new_url"];
 
-$repoid = $rows[0]["repository_id"];
-$postedurl = $rows[0]["new_url"];
-
-if (update_repository($repoid, $postedurl))
+$lockfile = "/tmp/olac.harvester.lock";
+$fp = fopen($lockfile, "w");
+$res = flock($fp, LOCK_EX | LOCK_NB);
+if ($res === FALSE) {
+  echo "<p>A harvester process is already running. We cannot start a ";
+  echo "harvester process while another is running. ";
+  echo "Please try again later.</p>";
+} else {
+  ob_end_flush();
+  usleep(5000000);  # trick client's input buffering
+  echo "<p>This will take a while. Please be patient.</p>";
+  echo "<pre>\n";
+  flush();
+  $res = harvest($harvesturl, $repotype);
+  echo "</pre>\n";
   success($magic);
-
+}    
+fclose($fp);
+@unlink($lockfile);
 
 ?>
 <br><br>

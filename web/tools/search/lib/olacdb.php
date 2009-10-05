@@ -1,21 +1,24 @@
 <?php
 
+require_once("olac.php");
+
 class OLACDB
 {
     var $connect;
 
     function OLACDB()
     {
-        $dsn = trim(file_get_contents("/home/olac/.mysqlpass"));
-        preg_match("/\s*mysql:\/\/(.*):(.*)@(.*)\/(.*)\s*/", $dsn, $matches);
-        list($all, $userName, $password, $hostname, $dbname) = $matches;
+      $host = olacvar('mysql/host');
+      $user = olacvar('mysql/user');
+      $password = olacvar('mysql/passwd');
+      $database = olacvar('mysql/olacdb');
 
-        $this->connect = 
-	mysql_connect($hostname, $userName, $password ) or
-                die ("Could not connect to database");
-
-        mysql_select_db ($dbname) or die ("Could not select database: $dbname");
-        mysql_query("set names 'utf8'");
+      $this->connect = 
+	mysql_connect($host, $user, $password ) or
+	die ("Could not connect to database");
+      
+      mysql_select_db ($database) or die ("Could not select database: $dbname");
+      mysql_query("set names 'utf8'");
     }
 
     function sql($query)

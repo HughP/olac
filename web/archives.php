@@ -4,7 +4,7 @@
 #
 
 require_once("lib/php/OLACDB.php");
-$DB = new OLACDB("olac2");
+$DB = new OLACDB();
 
 ############################################################
 #
@@ -145,7 +145,7 @@ vocabulary; linguistics; linguistic data; language data">
 <td class=sec><a href="news.html">NEWS</a></td><td>|</td>
 <td class=sec><a href="organization.html">ORGANIZATION</a></td><td>|</td>
 <td class=sec><a href="tools.html">TOOLS</a></td><td>|</td>
-<td class=sec><a href="services.php4">SERVICES</a></td>
+<td class=sec><a href="services.php">SERVICES</a></td>
 </tr></table>
 </td>
 
@@ -184,7 +184,7 @@ for full details on any archive follow the link on the right.
 
 <p>
 <li> <a href="/register/register.php">Register an archive</a>
-<li> <a href="/register/archive_list.php4">Machine readable list of registered archives</a>
+<li> <a href="/register/archive_list.php">Machine readable list of registered archives</a>
 <li> <a href="/metrics/">Metrics report on all archives</a>
 <li> <a href="/metrics/compare">Comparative archive metrics</a>
 
@@ -236,7 +236,7 @@ if ($tab) {
 </td></tr></table></td></tr></table>
 
 <div class=timestamp>
-http://www.language-archives.org/archives.php4<br>
+http://www.language-archives.org/archives.php<br>
 Up-to-date as of: <? echo date("D M j G:i:s T Y"); ?>
 </div>
 
