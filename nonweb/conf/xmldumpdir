@@ -1,0 +1,2 @@
+# desc: Directory storing OLACA XML dumps.
+${docroot}/xmldump

@@ -1,0 +1,3 @@
+# desc: A cron job that checks availability of online resource for the
+# desc: OLAC integrity checking service.
+Harvester!check_online_resources.sh

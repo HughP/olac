@@ -1,0 +1,2 @@
+# desc: Lock file used to guard database while updating metrics values.
+/var/tmp/lock.metrics.olac

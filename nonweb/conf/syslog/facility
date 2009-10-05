@@ -1,0 +1,2 @@
+# desc: Name of the syslog facility used for logging OLAC messages.
+LOG_LOCAL0

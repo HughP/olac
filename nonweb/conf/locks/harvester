@@ -1,0 +1,2 @@
+# desc: Lock used by the harvester cron job.
+/var/tmp/lock.harvester.olac

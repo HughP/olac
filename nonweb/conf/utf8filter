@@ -1,0 +1,2 @@
+# desc: A filter that scrubs malformed UTF-8 encoding.
+Utf8Conditioner!bin/utf8conditioner_unbuffered_stdout

@@ -1,0 +1,2 @@
+# desc: Location of the HTML template for the integrity check page.
+^/templates/integrity_checks.tmpl

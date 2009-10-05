@@ -1,0 +1,2 @@
+# desc: Lock file used to guard OLAC database while updating integrity info.
+/var/tmp/lock.integrity.olac

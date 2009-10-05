@@ -1,0 +1,47 @@
+#! /bin/sh
+#
+# synopsis: This script performs schema validation using XSV, and produces
+#   XML output.
+#
+# changelog:
+#   2004-11-19  fixed timeout code -HL
+#   2003-02-27  created based on xsv_html by HL
+#
+
+xml=$1
+xml_out=${2+"-o $2"}
+
+if test -z "$xml" ; then
+  cat <<END
+usage: $0 <xml> [<xml_out>]
+
+  <xml>      the xml file to validate
+  <xml_out>  validation result messages in XML
+
+END
+  exit 1
+fi
+
+TIMEOUT=280
+
+python -m XSV.commandLine $xml_out $xml &
+kpid=$!
+
+i=0
+while [ $i -lt $TIMEOUT ] ; do
+  sleep 1
+  if [ -z "`ps ax | awk '{print $1}' | grep $kpid`" ] ; then
+    break
+  fi
+  i=`expr $i + 1`
+done
+
+if [ $i -ge $TIMEOUT ] ; then
+  kill -KILL $kpid
+  wait $kpid
+  echo 'ERROR: timeout' > $2
+  exit 1
+else
+  exit 0
+fi
+
