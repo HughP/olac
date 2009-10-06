@@ -25,6 +25,11 @@ class IntegrityPage:
             yield self.forbidden()
             return
 
+        if not self.repo_id:
+            for element in self.displayAsHtml([],[],False):
+                yield element
+            return
+
         sql = """
         select Archive_ID from OLAC_ARCHIVE where RepositoryIdentifier=%s
         """
@@ -108,12 +113,13 @@ order by ic.Problem_Code
                 download = True
             else:
                 return False
+        elif len(args) == 1:
+            repo_id = None
+            download = False
+            return True
         else:
             return False
         
-        if not repo_id:
-            return False
-
         self.repo_id = repo_id
         self.download = download
         return True
@@ -146,7 +152,7 @@ order by ic.Problem_Code
         for row in warnings:
             yield "\t".join(row[1:5]) + "\r\n"
 
-    def displayAsHtml(self, errors, warnings):
+    def displayAsHtml(self, errors, warnings, print_no_error=True):
         headers = [('Content-type','text/html')]
         self.respond('200 OK', headers)
 
@@ -174,7 +180,8 @@ order by ic.Problem_Code
             t.list += opt
 
         if not errors and not warnings:
-            t.download_message = "There are no errors for this archive."
+            if print_no_error:
+                t.download_message = "There are no errors for this archive."
             
         else:
             s = '(Click <a href="%s/download">here</a> to download as a file.)'
