@@ -192,9 +192,6 @@ foreach ($tab as $row) {
 <tr><td><a href="http://www.language-archives.org/tools/metadata/freestanding.html">Freestanding Metadata</a></td>
 <td>A service for validating and formatting an OLAC metadata record.</td></tr>
 
-<tr><td><a href="http://www.language-archives.org/sr">Static Repository Gateway</a></td>
-<td>A service for generating OAI Protocol responses from an XML file.</td></tr>
-
 <td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Document">OLAC Aggregator</a></td>
 <td>A service that provides a repository containing the records from all
 other registered OLAC repositories, incorporating an OLAC-DC crosswalk
