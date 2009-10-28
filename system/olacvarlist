@@ -1,0 +1,9 @@
+#! /bin/sh
+
+find conf -type f | \
+while read a; do
+	desc=$(grep '^# desc:' $a | head -1 | sed -e 's/.*desc:\s\+//')
+	var=$(echo $a | sed 's@conf/@@')
+	printf "%-30s %s\n" "$var" "$desc"
+done
+
