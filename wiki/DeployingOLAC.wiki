@@ -26,7 +26,31 @@ For software configuration, the followings were checked.
  * SQL server (this was a mistake since it installed postgresql instead of mysql)
  * Standard machine
 
-=== Configuration 1 ===
+=== Configuration 1: Sudo ===
 In order to make olac a sudoer, installed sudo by running "apt-get install sudo" as a root user.
 
 Run visudo to edit /etc/sudoers file. Add a line at the end: "olac ALL=(ALL) ALL". We are giving full privileges for now, but this can be changed later.
+
+=== Configuration 2: Uninstall postgresql ===
+This step is not needed if "SQL server" is not checked in the software configuration step during Debian installation.
+
+Uninstalled postgresql by running
+
+ * apt-get autoremove postgresql-8.3
+ * apt-get autoremove postgresql-client-8.3
+ * apt-get autoremove postgresql-doc-8.3
+
+Some residue of the initial installation remained, e.g. /var/lib/postgresql, /etc/init.d/postgresql-8.3, etc., but didn't try to remove them.
+
+=== Configuration 3: Swap file ===
+
+Create a swap file as follows.
+
+ * dd if=/dev/zero of=/swap bs=1024k count=4096
+ * mkswap /swap
+ * swapon /swap
+
+Modify /etc/fstab to add the following line:
+
+ * /swap swap swap defaults 0 0
+
