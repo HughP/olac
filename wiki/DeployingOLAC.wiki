@@ -22,13 +22,11 @@ Created a user account olac (OLAC System Admin). This account will be used for d
 
 For software configuration, the followings were checked.
 
-* Web server
-* SQL server (this was a mistake since it installed postgresql instead of mysql)
-* Standard machine
+ * Web server
+ * SQL server (this was a mistake since it installed postgresql instead of mysql)
+ * Standard machine
 
 === Configuration 1 ===
 In order to make olac a sudoer, installed sudo by running "apt-get install sudo" as a root user.
 
 Run visudo to edit /etc/sudoers file. Add a line at the end: "olac ALL=(ALL) ALL". We are giving full privileges for now, but this can be changed later.
-
-
