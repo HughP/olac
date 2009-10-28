@@ -1,0 +1,34 @@
+#summary Procedures for deploying OLAC on a new, dedicated machine.
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+== The machine ==
+
+Created a vm on a vmware server with 4 CPU/2GB RAM/250GB HDD. The architecture of the machine is i686. The virtual HDD was created on a NFS storage.
+
+== The OS ==
+
+=== Installation ===
+Debian 5.0.3 was chosen because we were told that Debian as a server is more stable than Ubuntu by a system administrator.
+
+Created one partition without a swap partition. A swap file will be added later instead.
+
+Created a user account olac (OLAC System Admin). This account will be used for doing things that are needed to be done as a root.
+
+For software configuration, the followings were checked.
+
+* Web server
+* SQL server (this was a mistake since it installed postgresql instead of mysql)
+* Standard machine
+
+=== Configuration 1 ===
+In order to make olac a sudoer, installed sudo by running "apt-get install sudo" as a root user.
+
+Run visudo to edit /etc/sudoers file. Add a line at the end: "olac ALL=(ALL) ALL". We are giving full privileges for now, but this can be changed later.
+
+
