@@ -1,4 +1,5 @@
 #summary Procedures for deploying OLAC on a new, dedicated machine.
+#labels n
 
 = Introduction =
 
@@ -57,11 +58,20 @@ Modify /etc/fstab to add the following line:
 
 === Configuration 4: Webmaster account ===
 
-Created a new account olacweb (OLAC Web Admin) within olac group. The home directory was set to /olac and password was disabled.
+Created a new account olacweb (OLAC Web Admin) within olacweb group. The home directory was set to /olac and password was disabled.
 
- * useradd -g 1000 -G www-data -d /olac -c "OLAC Web Admin" olacweb
- * mkdir /olac
- * chown olacweb.olac /olac
+ * groupadd olacweb
+ * useradd -g olacweb -G www-data -d /olac -m -s /bin/bash -c "OLAC Web Admin" olacweb
+
+As the olacweb user, create the following directories:
+
+ * mkdir cgi conf doc pkg svn templates wsgi www
+ * www is the doc root
+ * cgi is for CGI scripts
+ * wsgi is for WSGI scripts
+ * templates is mainly for PyMeld templates
+ * pkg is for software packages (mostly in-house apps)
+ * conf is the configuration directory
 
 
 === Configuration 5: SSH ===
@@ -72,3 +82,88 @@ Installed ssh daemon as follows.
 
 Added users ssh public keys to the ~olacweb/.ssh/authrorized_keys file.
 
+
+=== Configuration 6: MySQL ===
+
+ * apt-get install mysql-server
+
+Created databases and user account after logging in as a root user.
+
+ * create database olac;
+ * create database olactmp;
+ * grant all on olac.* to olac@localhost;
+ * grant all on olactmp.* to olac@localhost;
+ * set password for olac@localhost = password('...');
+
+
+=== Configure 6: Apache ===
+
+ * cp /etc/apache2/sites-available/{default,olac}
+
+Edited /etc/apache2/sites-available/olac. The followings are changed made:
+
+ * ServerName www.language-archives.org
+ * ServerAdmin olac@localhost
+ * DocumentRoot /olac/www
+ * <Directory /olac/www>
+ * ScriptAlias /cgi-bin/ /olac/cgi/
+ * <Directory "/olac/cgi">
+ * ErrorLog /var/log/apache2/error-olac.log
+ * CustomLog /var/log/apache2/access-olac.log combined
+ * (Removed everything related to /doc/.)
+
+Disabled the default site and enabled the olac site:
+
+ * rm /etc/apache2/sites-enabled/000-default
+ * (the above would not be necessary if DNS entry was properly updated with the machine's IP addr)
+ * ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
+ * /etc/init.d/apache2 restart
+
+=== Other packages ===
+
+ * apt-get install php5-mysql
+ * apt-get install python-mysqldb
+ * apt-get install subversion
+ * apt-get install rsync
+
+
+== Setting up OLAC ==
+
+In this section, the olacweb account assumed.
+
+Check out the web content from the SVN repository:
+
+ * svn checkout https://olac.googlecode.com/svn/ /olac/svn --username ...
+ 
+Copy web contents and other files.
+
+ * rsync -av --exclude=.svn /olac/svn/web/* /olac/svn/www
+ * rsync -av --exclude=.svn /olac/svn/nonweb/* /olac
+
+As a root user do
+
+ * cp /olac/svn/system/olacbase /etc
+ * cp /olac/svn/system/olacvar /bin
+ * cp /olac/svn/system/olacvarlist /bin
+ * mkdir /usr/lib/python2.5/site-packages/olac
+ * cp /olac/svn/system/python/*.py /usr/lib/python2.5/site-packages/olac
+ * cp /olac/svn/system/optionparser.py /usr/lib/python2.5/site-packages
+ * mkdir /usr/share/php  # this is the default include path of php
+ * cp /olac/svn/system/olac.php /usr/share/php
+
+As olacweb do the following.
+
+{{{
+cat > ~/.my.cnf <<EOF
+[client]
+user = olac
+password = "..."
+host = localhost
+db = olac
+default_character_set = utf8
+EOF
+chmod 600 ~/.my.cnf
+}}}
+
+Go to the svn/web/tools directory and follow instructions in the README file to populate the database.
+(OLAC extensions should be loaded for both OLAC 1.0 and 1.1.) (The OLAC schema is missing SERVICES table.)
