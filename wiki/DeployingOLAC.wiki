@@ -54,3 +54,21 @@ Modify /etc/fstab to add the following line:
 
  * /swap swap swap defaults 0 0
 
+
+=== Configuration 4: Webmaster account ===
+
+Created a new account olacweb (OLAC Web Admin) within olac group. The home directory was set to /olac and password was disabled.
+
+ * useradd -g 1000 -G www-data -d /olac -c "OLAC Web Admin" olacweb
+ * mkdir /olac
+ * chown olacweb.olac /olac
+
+
+=== Configuration 5: SSH ===
+
+Installed ssh daemon as follows.
+
+ * apt-get install openssh-server
+
+Added users ssh public keys to the ~olacweb/.ssh/authrorized_keys file.
+
