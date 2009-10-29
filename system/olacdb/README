@@ -11,6 +11,8 @@ http://www.ethnolotue.com and http://www.sil.org.
 
   $ sed 1d LanguageCodes.tab | \
 	python loadtab.py -c ~/.my.cnf -t LanguageCodes -e latin-1
+  $ sed 1d CountryCodes.tab | \
+	python loadtab.py -c ~/.my.cnf -t CountryCodes -e latin-1
   $ sed 1d iso-639-3_20080529.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3
   $ sed 1d iso-639-3_Name_Index_20080603.tab | \

@@ -628,6 +628,15 @@ create table LanguageCodes (
 
 
 ##################################################################
+create table CountryCodes (
+	CountryID		char(2),
+	Name			varchar(75),
+	Area			varchar(10),
+	primary key (CountryID)
+) engine=InnoDB, charset=utf8;
+
+
+##################################################################
 # Table                : LanguageIndex
 # Description          : Ethnologue 15th Ed. Language Index
 ##################################################################
