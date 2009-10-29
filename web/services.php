@@ -153,25 +153,30 @@ service is posted on this site:
 
 <p>
 
-<p>
-<table>
-<tr><th>Service</th>
-    <th>Institution</th>
-    <th>Contact</th>
-    <th>Description</th></tr>
-
 <?php
 $tab = get_service_table();
-foreach ($tab as $row) {
-  echo "<tr>";
-  echo "<td>$row[service]</td>";
-  echo "<td>$row[institution]</td>";
-  echo "<td>$row[contact]</td>";
-  echo "<td>$row[description]</td>";
-  ECHO "</tr>";
-}
 ?>
-</table>
+
+<?php if ($tab): ?>
+	<p>
+	<table>
+	<tr><th>Service</th>
+	    <th>Institution</th>
+	    <th>Contact</th>
+	    <th>Description</th></tr>
+
+	<?php
+	foreach ($tab as $row) {
+	  echo "<tr>";
+	  echo "<td>$row[service]</td>";
+	  echo "<td>$row[institution]</td>";
+	  echo "<td>$row[contact]</td>";
+	  echo "<td>$row[description]</td>";
+	  ECHO "</tr>";
+	}
+	?>
+	</table>
+<?php endif; ?>
 
 <hr>
 
@@ -190,19 +195,10 @@ foreach ($tab as $row) {
 <tr><td><a href="/tools/metadata/freestanding.html">Freestanding Metadata</a></td>
 <td>A service for validating and formatting an OLAC metadata record.</td></tr>
 
-<tr><td><a href="/sr">Static Repository Gateway</a></td>
-<td>A service for generating OAI Protocol responses from an XML file.</td></tr>
-
 <td><a href="/cgi-bin/olaca3.pl?verb=Document">OLAC Aggregator</a></td>
 <td>A service that provides a repository containing the records from all
 other registered OLAC repositories, incorporating an OLAC-DC crosswalk
 and a query function.</td></tr>
-
-<!--
-<tr><td><a href="/dp9/about.jsp">DP9</a></td>
-<td>A service providing HTML versions of all harvested OLAC records,
-for harvesting by internet search engines.</td></tr>
--->
 
 <tr><td><a href="/viser">Viser</a></td>
 <td>A virtual service which allows language resource sites to post
