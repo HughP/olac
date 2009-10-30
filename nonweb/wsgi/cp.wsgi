@@ -1,7 +1,11 @@
-import cherrypy
+import os
 import olac
+os.environ['PYTHON_EGG_CACHE'] = olac.olacvar('python/egg_cache/wsgi')
+
+import cherrypy
 import MySQLdb
 import simplejson
+
 
 def json_encode(*args, **kwargs):
     response = cherrypy.response
