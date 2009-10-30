@@ -1,0 +1,2 @@
+# desc: Directory for mod_wsgi to store Python egg cache files.
+^/cache
