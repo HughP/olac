@@ -9,14 +9,14 @@ This document records a process of building an OLAC web server from scratch.
 
 == The machine ==
 
-Created a vm on a vmware server with 4 CPU/2GB RAM/250GB HDD. The architecture of the machine is i686. The virtual HDD was created on a NFS storage.
+Created a vm on a vmware server with 4 CPU/2GB RAM/250GB HDD. The architecture of the machine is i686. The virtual HDD was created on a NFS storage, which is not optimal given that OLAC heavily relies on dynamic database operations.
 
 == The OS ==
 
 === Installation ===
 Debian 5.0.3 was chosen because we were told that Debian as a server is more stable than Ubuntu by a system administrator.
 
-Created one partition without a swap partition. A swap file will be added later instead.
+Created one partition without a swap partition. A swap file will be added later instead. This will make it easier to change its size when we add more RAM to the machine. There are reports that in terms of performance, there's little difference between swap partition and swap file.
 
 Created a user account olac (OLAC System Admin). This account will be used for doing things that are needed to be done as a root.
 
@@ -27,7 +27,11 @@ For software configuration, the followings were checked.
  * Standard machine
 
 === Configuration 1: Sudo ===
-In order to make olac a sudoer, installed sudo by running "apt-get install sudo" as a root user.
+In order to make the olac account a sudoer, installed sudo as a root user.
+
+{{{
+apt-get install sudo
+}}}
 
 Run visudo to edit /etc/sudoers file. Add a line at the end: "olac ALL=(ALL) ALL". We are giving full privileges for now, but this can be changed later.
 
@@ -64,7 +68,7 @@ Modify /etc/fstab to add the following line:
 === Configuration 4: Webmaster account ===
 
 Created a new account olacweb (OLAC Web Admin) within olacweb group. The home
-directory was set to /olac and password was disabled.
+directory was set to /olac and password was disabled. This home directory is a base directory for all other files and directories.
 
 {{{
 groupadd olacweb
@@ -350,3 +354,24 @@ olacvar python/egg/cache
 }}}
 
 
+=== Cron jobs ===
+Set up cronjobs for harvester, online resources checker (part of integrity check), Google Analytics information collector (for quarterly reports), and quarterly report. Here's an example.
+
+{{{
+# m h  dom mon dow   command
+MAILTO=...
+# harvester
+#00 13,21 * * * flock $(olacvar locks/harvester) $(olacvar cron/harvester)
+00 02 * * * flock $(olacvar locks/harvester) $(olacvar cron/harvester) MONTHLY
+00 20 * * 5 $(olacvar cron/integrity_online_resources)
+# google analytics download + store
+00 06 2 * * $(olacvar cron/ga)
+# quarterly report
+37 10 3 1,4,7,10 * $(olacvar cron/quarterly_report)
+}}}
+
+Note that MAILTO should be set to the value of the tech_email variable.
+
+
+=== Seed the OLAC database ===
+If there are preexisting archive registrations, populate the ARCHIVES table with them. The archives in the ARCHIVES table will be harvested within the next harvest cycle specified in the crontab.
