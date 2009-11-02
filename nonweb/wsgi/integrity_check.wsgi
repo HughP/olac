@@ -1,5 +1,8 @@
-import MySQLdb
+import os
 from olac import olacvar
+os.environ['PYTHON_EGG_CACHE'] = olacvar('python/egg_cache/wsgi')
+
+import MySQLdb
 from PyMeld import Meld
 import re
 
@@ -12,6 +15,7 @@ class IntegrityPage:
             "db": olacvar('mysql/olacdb'),
             "user": olacvar('mysql/user'),
             "passwd": olacvar('mysql/passwd'),
+            "use_unicode": True,
             }
         self.con = MySQLdb.connect(**opts)
         self.cur = self.con.cursor()
@@ -148,9 +152,9 @@ order by ic.Problem_Code
         self.respond('200 OK', headers)
         
         for row in errors:
-            yield "\t".join(row[1:5]) + "\r\n"
+            yield "\t".join(row[1:5]).encode('utf-8') + "\r\n"
         for row in warnings:
-            yield "\t".join(row[1:5]) + "\r\n"
+            yield "\t".join(row[1:5]).encode('utf-8') + "\r\n"
 
     def displayAsHtml(self, errors, warnings, print_no_error=True):
         headers = [('Content-type','text/html')]
@@ -232,19 +236,7 @@ Rating.</p>""")
                     table += row
                 t.warning_section += table
                 
-        yield str(t)
-        return
-    
-        t = Template(file=os.path.join(base,"templates/integrity_checks.tmpl"))
-        t.repoid = repo_id
-        t.errors = errors
-        t.warnings = warnings
-        t.repoids = repoids
-        t.baseurl = '/' + os.path.basename(req.filename)
-        req.content_type = 'text/html'
-        req.send_http_header()
-        req.write(str(t))
-        return #apache.OK
+        yield unicode(t).encode('utf-8')
 
     def getArchivesList(self):
         sql = """
