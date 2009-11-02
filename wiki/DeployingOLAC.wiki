@@ -214,17 +214,12 @@ cp /olac/svn/system/olac.php /usr/share/php
 
 To explain what those files are:
 
- * www/*: The web documents.
- * olacbase: Contains the base path to OLAC, i.e. the directory
-   containing www, conf, pkg, etc. that we've created earlier. We can find
-   everything else once we know where the base directory is.
- * olacvar: Looks up a configuration variable and prints out the value.
-   For non-existent variable, prints out /dev/null.
+ * www/`*`: The web documents.
+ * olacbase: Contains the base path to OLAC, i.e. the directory containing www, conf, pkg, etc. that we've created earlier. We can find everything else once we know where the base directory is.
+ * olacvar: Looks up a configuration variable and prints out the value. For non-existent variable, prints out /dev/null.
  * olacvarlist: Prints out a list of existing configuration variables.
- * .../site-packages/olac: Python module providing functions for configuration
-   variable lookup and logging.
- * optionparser.py: Yet another version of command line option processor that
-   many of OLAC applications use.
+ * .../site-packages/olac: Python module providing functions for configuration variable lookup and logging.
+ * optionparser.py: Yet another version of command line option processor that many of OLAC applications use.
  * olac.php: PHP module providing olacvar function.
 
 
@@ -341,8 +336,7 @@ Mount WSGI scripts as follows.
         WSGIScriptAlias /checks /olac/wsgi/integrity_check.wsgi
 }}}
 
- * cp.wsgi is services written using CherryPy. The survery page uses this as
-   its backend.
+ * cp.wsgi is services written using CherryPy. The survey page uses this as its backend.
  * google-sitemap.wsgi is a dynamically generated google sitemap.
  * integrity_check.wsgi is the integrity checks page.
 
