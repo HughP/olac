@@ -157,6 +157,17 @@ ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
 /etc/init.d/apache2 restart
 }}}
 
+=== Configuration 7: Outbound email ===
+
+Configure exim4 to email outbound emails. For this particular setup, we chose "mail sent by smarthost; no local mail". This enables outbound email by a remote mail server, and disables inbound emails.
+
+{{{
+dpkg-reconfigure exim4-config
+}}}
+
+Read menus and explanations, and select options appropriate for your environment.
+
+
 === Other packages ===
 
  * gcc
