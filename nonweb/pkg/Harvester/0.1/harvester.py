@@ -1132,8 +1132,8 @@ def harvest(url, con, full=False, stream_filter=None, static=False):
             mark_success(con, dbi.archiveId())
             if static:
                 archiveid = dbi.archiveId()
-                if archive is not None:
-                    do_implicit_deletion(con, dbi.archiveId(), h.recordOaiIds)
+                if archiveid is not None:
+                    do_implicit_deletion(con, archiveid, h.recordOaiIds)
         else:
             h.log("harvest failed")
             # dbi can provide archive id only when it has successfully
