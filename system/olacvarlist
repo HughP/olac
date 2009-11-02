@@ -1,5 +1,6 @@
 #! /bin/sh
 
+cd $(cat /etc/olacbase)
 find conf -type f | \
 while read a; do
 	desc=$(grep '^# desc:' $a | head -1 | sed -e 's/.*desc:\s\+//')
