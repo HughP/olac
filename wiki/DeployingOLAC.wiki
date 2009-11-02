@@ -1,9 +1,8 @@
 #summary Procedures for deploying OLAC on a new, dedicated machine.
-#labels n
 
 = Introduction =
 
-Add your content here.
+This document records a process of building an OLAC web server from scratch.
 
 
 = Details =
@@ -37,9 +36,11 @@ This step is not needed if "SQL server" is not checked in the software configura
 
 Uninstalled postgresql by running
 
- * apt-get autoremove postgresql-8.3
- * apt-get autoremove postgresql-client-8.3
- * apt-get autoremove postgresql-doc-8.3
+{{{
+apt-get autoremove postgresql-8.3
+apt-get autoremove postgresql-client-8.3
+apt-get autoremove postgresql-doc-8.3
+}}}
 
 Some residue of the initial installation remained, e.g. /var/lib/postgresql, /etc/init.d/postgresql-8.3, etc., but didn't try to remove them.
 
@@ -47,58 +48,79 @@ Some residue of the initial installation remained, e.g. /var/lib/postgresql, /et
 
 Create a swap file as follows.
 
- * dd if=/dev/zero of=/swap bs=1024k count=4096
- * mkswap /swap
- * swapon /swap
+{{{
+dd if=/dev/zero of=/swap bs=1024k count=4096
+mkswap /swap
+swapon /swap
+}}}
 
 Modify /etc/fstab to add the following line:
 
- * /swap swap swap defaults 0 0
+{{{
+/swap swap swap defaults 0 0
+}}}
 
 
 === Configuration 4: Webmaster account ===
 
-Created a new account olacweb (OLAC Web Admin) within olacweb group. The home directory was set to /olac and password was disabled.
+Created a new account olacweb (OLAC Web Admin) within olacweb group. The home
+directory was set to /olac and password was disabled.
 
- * groupadd olacweb
- * useradd -g olacweb -G www-data -d /olac -m -s /bin/bash -c "OLAC Web Admin" olacweb
+{{{
+groupadd olacweb
+useradd -g olacweb -G www-data -d /olac -m -s /bin/bash \
+    -c "OLAC Web Admin" olacweb
+}}}
 
 As the olacweb user, create the following directories:
 
- * mkdir cgi conf doc pkg svn templates wsgi www
+{{{
+mkdir cgi conf doc pkg svn templates wsgi www cache
+chmod 1777 cache
+}}}
+
  * www is the doc root
  * cgi is for CGI scripts
  * wsgi is for WSGI scripts
  * templates is mainly for PyMeld templates
  * pkg is for software packages (mostly in-house apps)
  * conf is the configuration directory
+ * cache is used by applications to store temporary data
 
 
 === Configuration 5: SSH ===
 
 Installed ssh daemon as follows.
 
- * apt-get install openssh-server
+{{{
+apt-get install openssh-server
+}}}
 
 Added users ssh public keys to the ~olacweb/.ssh/authrorized_keys file.
 
 
 === Configuration 6: MySQL ===
 
- * apt-get install mysql-server
+{{{
+apt-get install mysql-server
+}}}
 
 Created databases and user account after logging in as a root user.
 
- * create database olac;
- * create database olactmp;
- * grant all on olac.* to olac@localhost;
- * grant all on olactmp.* to olac@localhost;
- * set password for olac@localhost = password('...');
+{{{
+create database olac;
+create database olactmp;
+grant all on olac.* to olac@localhost;
+grant all on olactmp.* to olac@localhost;
+set password for olac@localhost = password('...');
+}}}
 
 
 === Configure 6: Apache ===
 
- * cp /etc/apache2/sites-available/{default,olac}
+{{{
+cp /etc/apache2/sites-available/{default,olac}
+}}}
 
 Edited /etc/apache2/sites-available/olac. The followings are changed made:
 
@@ -112,46 +134,134 @@ Edited /etc/apache2/sites-available/olac. The followings are changed made:
  * CustomLog /var/log/apache2/access-olac.log combined
  * (Removed everything related to /doc/.)
 
+For WSGI add the following.
+
+{{{
+	<Directory /olac/wsgi>
+                Order allow,deny
+                Allow from all
+        </Directory>
+}}}
+
 Disabled the default site and enabled the olac site:
 
- * rm /etc/apache2/sites-enabled/000-default
- * (the above would not be necessary if DNS entry was properly updated with the machine's IP addr)
- * ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
- * /etc/init.d/apache2 restart
+{{{
+rm /etc/apache2/sites-enabled/000-default
+# the above would not be necessary if DNS entry was properly updated with the
+# machine's IP addr
+ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
+/etc/init.d/apache2 restart
+}}}
 
 === Other packages ===
 
- * apt-get install php5-mysql
- * apt-get install python-mysqldb
- * apt-get install subversion
- * apt-get install rsync
+ * gcc
+ * make
+ * subversion
+ * rsync
+ * php5-mysql
+ * php5-gd
+ * php5-xsl
+ * php5-cli
+ * python-mysqldb
+ * python-openssl
+ * python-pycurl
+ * python-dev
+ * libxml-dom-perl
+ * libapache2-mod-wsgi
 
+ * CherryPy: installed version 3.1.2 from source
+ * simplejson: installed version 2.0.9 from source
+ * PyMeld: installed a customized version from source found in
+   svn:/system/PyMeld.py.
 
 == Setting up OLAC ==
 
-In this section, the olacweb account assumed.
+In this section, it is assumed that you are logged in as olacweb unless the
+account to be used is explicitly mentioned.
 
-Check out the web content from the SVN repository:
+=== Obtain and deploy OLAC ===
 
- * svn checkout https://olac.googlecode.com/svn/ /olac/svn --username ...
+Check out OLAC from the SVN repository:
+
+{{{
+svn checkout https://olac.googlecode.com/svn/ /olac/svn --username ...
+}}}
  
 Copy web contents and other files.
 
- * rsync -av --exclude=.svn /olac/svn/web/* /olac/svn/www
- * rsync -av --exclude=.svn /olac/svn/nonweb/* /olac
+{{{
+rsync -av --exclude=.svn /olac/svn/web/* /olac/svn/www
+rsync -av --exclude=.svn /olac/svn/nonweb/* /olac
+}}}
 
-As a root user do
+As root, do the following.
 
- * cp /olac/svn/system/olacbase /etc
- * cp /olac/svn/system/olacvar /bin
- * cp /olac/svn/system/olacvarlist /bin
- * mkdir /usr/lib/python2.5/site-packages/olac
- * cp /olac/svn/system/python/*.py /usr/lib/python2.5/site-packages/olac
- * cp /olac/svn/system/optionparser.py /usr/lib/python2.5/site-packages
- * mkdir /usr/share/php  # this is the default include path of php
- * cp /olac/svn/system/olac.php /usr/share/php
+{{{
+cp /olac/svn/system/olacbase /etc
+cp /olac/svn/system/olacvar /bin
+cp /olac/svn/system/olacvarlist /bin
+mkdir /usr/lib/python2.5/site-packages/olac
+cp /olac/svn/system/python/*.py /usr/lib/python2.5/site-packages/olac
+cp /olac/svn/system/optionparser.py /usr/lib/python2.5/site-packages
+mkdir /usr/share/php  # this is the default include path of php
+cp /olac/svn/system/olac.php /usr/share/php
+}}}
 
-As olacweb do the following.
+To explain what those files are:
+
+ * www/*: The web documents.
+ * olacbase: Contains the base path to OLAC, i.e. the directory
+   containing www, conf, pkg, etc. that we've created earlier. We can find
+   everything else once we know where the base directory is.
+ * olacvar: Looks up a configuration variable and prints out the value.
+   For non-existent variable, prints out /dev/null.
+ * olacvarlist: Prints out a list of existing configuration variables.
+ * .../site-packages/olac: Python module providing functions for configuration
+   variable lookup and logging.
+ * optionparser.py: Yet another version of command line option processor that
+   many of OLAC applications use.
+ * olac.php: PHP module providing olacvar function.
+
+
+=== Syslog setup ===
+OLAC applications can use system's logging facility. As root, do the following.
+
+{{{
+echo "local0.debug /var/log/olac.log" > /etc/rsyslog.d/olac.conf
+/etc/init.d/rsyslogd restart
+}}}
+
+The system logger provides 8 facilities reservered for local use. They are
+local0 through local7. OLAC can use one of them. In this example, we chose
+local0.
+
+Any log messages sent to local0 will be saved in the /var/log/olac.log file.
+
+Update variable syslog/facility (the /olac/conf/syslog/facility file) to set
+it:
+
+{{{
+LOG_LOCAL0
+}}}
+
+Note that in C library, the facility local0 is identified by LOG_LOCAL0. The
+syslog/facility varible contains this C library name.
+
+
+=== CodeIgniter setup ===
+Download an appropriate version of CodeIgniter. Unzip it under pkg/CodeIgniter.
+Make a symlink called "Current" to the created directory, e.g.
+
+{{{
+rm -f Current
+ln -s CodeIgniter_1.7.2 Current
+}}}
+
+
+=== Database setup ===
+As olacweb do the following. This just makes it easier for you to use MySQL
+from console. Applications shouldn't reply on this file.
 
 {{{
 cat > ~/.my.cnf <<EOF
@@ -165,5 +275,78 @@ EOF
 chmod 600 ~/.my.cnf
 }}}
 
-Go to the svn/web/tools directory and follow instructions in the README file to populate the database.
-(OLAC extensions should be loaded for both OLAC 1.0 and 1.1.) (The OLAC schema is missing SERVICES table.)
+Go to the svn/system/olacdb directory and follow instructions in the README
+file to populate the database.  (OLAC extensions should be loaded for both OLAC
+1.0 and 1.1.)
+
+Tune MySQL performance. Here's an example. Note that MySQL configuration is
+modular and we can put OLAC-specific configs in a separate file.
+
+{{{
+# as root
+cat > /etc/mysql/conf.d/olac.cnf <<EOF
+[musqld]
+set-variable=long_query_time=30
+log-slow-queries=/var/log/mysql/olac-slow.log
+key_buffer_size=268435456 # 12.5% of RAM
+innodb_buffer_pool_size=1073741824 # 50% of RAM
+EOF
+/etc/init.d/mysql restart
+}}}
+
+
+==== Search database ====
+To setup tables for search tool, go to svn/web/tools/search/lib, and do the
+following. This create these tables: GoogleTerms, TAG_USAGE, ITEM_SCORES,
+SOUNDEX_TABLE, and LanguageSoundex.
+
+{{{
+cat googleTable.sql | mysql olac
+cat searchTables.sql | mysql olac
+php createGoogleTable.php
+python $(olacvar harvester/update_soundex_tab)
+}}}
+
+=== PHP scripts without .php extension ===
+There are PHP scripts without .php extension. They make URL prettier.
+
+ * /archive
+ * /area
+ * /country
+ * /item
+ * /language
+ * /metrics
+ * /sample
+
+For each of those, add the following to the /etc/apache2/sites-available/olac
+file. (Replace "..." with the script name.)
+
+{{{
+	<Location /...>
+		SetHandler application/x-httpd-php
+	</Location>
+}}}
+
+
+=== WSGI scripts ===
+Mount WSGI scripts as follows.
+
+{{{
+        WSGIScriptAlias /cp /olac/wsgi/cp.wsgi
+        WSGIScriptAlias /google-sitemap.xml /olac/wsgi/google-sitemap.wsgi
+        WSGIScriptAlias /checks /olac/wsgi/integrity_check.wsgi
+}}}
+
+ * cp.wsgi is services written using CherryPy. The survery page uses this as
+   its backend.
+ * google-sitemap.wsgi is a dynamically generated google sitemap.
+ * integrity_check.wsgi is the integrity checks page.
+
+If you created the cache directory earlier, make sure that the python/egg/cache
+variable points to the same directory.
+
+{{{
+olacvar python/egg/cache
+}}}
+
+
