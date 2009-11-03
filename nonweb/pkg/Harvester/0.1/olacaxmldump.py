@@ -222,7 +222,9 @@ def create_db():
         l = l.replace(r"\'","''").replace(r'\"','"').replace(r"\n","\n").replace(r"\r","\r")
         sqlite.stdin.write(l)
     sqlite.stdin.write("COMMIT TRANSACTION;\n")
-    
+    sqlite.stdin.write(".quit\n")
+    sqlite.stdin.close()
+    sqlite.wait()
 
 def init():
     global doc, conn, csr, csr2, extdb, dctagmap
