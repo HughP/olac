@@ -159,14 +159,15 @@
         =594  \\$aort$2Ethnologue:ISO/DIS 639-3
         =594  \\$anya$2ISO/DIS 639-3
    -->
-   
-      <!-- Output a link to GIAL's catalog record -->
+
+   <!-- Output a link to GIAL's catalog record -->
    <xsl:template match="marc:controlfield[@tag=001]">
       <dc:description xsi:type="dcterms:URI">
-         http://library.gial.edu/cataloging/servlet/presenttitledetailform.do?bibID=<xsl:value-of select="marc:controlfield[@tag=001]"/>
+            http://library.gial.edu/cataloging/servlet/presenttitledetailform.do?bibID=<xsl:value-of
+            select="."/>
       </dc:description>
    </xsl:template>
-   
+
    <xsl:template match="marc:datafield[@tag='590' or @tag='594']">
       <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
          <dc:subject xsi:type="olac:language">
