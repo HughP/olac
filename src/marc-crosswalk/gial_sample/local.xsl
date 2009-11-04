@@ -7,11 +7,12 @@
    Developed by: Chris Hirt
    Revision date:  2008-08-27
 -->
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+<xsl:stylesheet version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/" xmlns:marc="http://www.loc.gov/MARC21/slim"
+   xmlns:oai="http://www.openarchives.org/OAI/2.0/"
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
-   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
    <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
@@ -69,12 +70,12 @@
                <delimiter>:</delimiter>
                <sampleIdentifier>
                   <xsl:value-of select="concat( 'oai:', $repository-id, ':' )"/>
-                  <xsl:apply-templates select="//marc:record[1]" mode="record-id"/>
+                  <xsl:apply-templates mode="record-id" select="//marc:record[1]"/>
                </sampleIdentifier>
             </oai-identifier>
          </oai:description>
          <oai:description>
-            <olac-archive type="institutional" currentAsOf="{$current-as-of-date}"
+            <olac-archive currentAsOf="{$current-as-of-date}" type="institutional"
                xmlns="http://www.language-archives.org/OLAC/1.1/olac-archive"
                xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
               http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
@@ -83,9 +84,9 @@
                -->
                <archiveURL>http://www.gial.edu/library</archiveURL>
                <!-- Make as many copies of <participant> as you need -->
-               <participant name="Ferne Weimer" role="Library Director" email="library@gial.edu"/>
-               <participant name="Joan Spanne" role="Automation Consultant"
-                  email="joan_spanne@sil.org"/>
+               <participant email="library@gial.edu" name="Ferne Weimer" role="Library Director"/>
+               <participant email="joan_spanne@sil.org" name="Joan Spanne"
+                  role="Automation Consultant"/>
                <institution>Graduate Institute of Applied Linguistics (GIAL)</institution>
                <institutionURL>http://www.gial.edu</institutionURL>
                <shortLocation>Dallas, TX</shortLocation>
@@ -99,7 +100,7 @@
       </Identify>
    </xsl:template>
 
- 
+
    <!-- local map to ISO639
    This is typically just an empty stub template.  It can be customized to provide additional institution-specific mappings that 
    the delivered iso639 mapping does not provide.
@@ -118,7 +119,7 @@
             -->
 
             <!-- if this template does not define any real mappings, it is normal for it to always return 'failed' -->
-            <xsl:otherwise></xsl:otherwise>
+            <xsl:otherwise/>
          </xsl:choose>
       </xsl:if>
    </xsl:template>
@@ -143,7 +144,15 @@
         =594  \\$acmn$hEthnologue: ISO/DIS 639-3
         =594  \\$aort$2Ethnologue:ISO/DIS 639-3
         =594  \\$anya$2ISO/DIS 639-3
-    -->
+   -->
+   
+   <!-- Output a link to GIAL's catalog record -->
+   <xsl:template match="marc:controlfield[@tag=001]">
+      <dc:description xsi:type="dcterms:URI">
+         http://library.gial.edu/cataloging/servlet/presenttitledetailform.do?bibID=<xsl:value-of select="marc:controlfield[@tag=001]"/>
+      </dc:description>
+   </xsl:template>
+   
    <xsl:template match="marc:datafield[@tag='590' or @tag='594']">
       <xsl:if test="starts-with(marc:subfield[@code='2'],'Ethnologue 15')">
          <dc:subject xsi:type="olac:language">
