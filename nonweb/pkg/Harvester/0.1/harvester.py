@@ -889,10 +889,10 @@ class ExternalProgram:
         self.args = args
 
     def getPath(self):
-        return path
+        return self.path
 
     def getArgs(self):
-        return args
+        return self.args
 
 
 class Utf8Filter:
