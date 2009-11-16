@@ -879,17 +879,34 @@ class SrHandler(Logger, xml.sax.handler.ContentHandler):
         self.ns.pop()
 
      
+class ExternalProgram:
+    def __init__(self, path, args):
+        """
+        @param path: path to the program
+        @param args: a list of command line arguments, e.g. ["-f", "abc", "-d"]
+        """
+        self.path = path
+        self.args = args
+
+    def getPath(self):
+        return path
+
+    def getArgs(self):
+        return args
+
+
 class Utf8Filter:
     def __init__(self, prog, nextStep):
         """
-        @param prog: a filter program
+        @param prog: an ExternalProgram, which should be a filter (takes input
+                     from stdin and produces output on stdout)
         @param nextStep: an object providing feed(str) method
         """
         self.nextStep = nextStep
         self.lock = threading.Lock()
         self.data = []
         self.datasize = 0
-        self.pipe = subprocess.Popen([prog,"-q"],
+        self.pipe = subprocess.Popen([prog.getPath()] + prog.getArgs(),
                                      stdin=subprocess.PIPE,
                                      stdout=subprocess.PIPE)
         self.thread = threading.Thread(target=self._threadAction)
@@ -909,7 +926,9 @@ class Utf8Filter:
 
     def close(self):
         self.pipe.stdin.close()
+        self.pipe.wait()
         self.thread.join()
+        # push out remaining data in the buffer
         if self.feed() == -1: return False
         return self.nextStep.close()
     
@@ -1368,11 +1387,12 @@ Usage: %(prog)s [options]
             sys.exit(1)
     elif bool(op.get('-u')):
         if olac:
-            sf = olac.olacvar('utf8filter')
-            if sf == '/null/value' or not os.path.exists(sf):
-                sf = None
+            uf = olac.olacvar('utf8filter')
+            if uf == '/null/value' or not os.path.exists(uf):
+                uf = None
                 Logger().log("ERROR: utf-8 cleaner not found")
                 sys.exit(1)
+            sf = ExternalProgram(uf, ["-q"])
 
     static = bool(op.get('--static'))
     
