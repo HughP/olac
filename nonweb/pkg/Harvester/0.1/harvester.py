@@ -145,9 +145,13 @@ class DBI(Logger):
             dbrecord[dbfield] = record[key]
 
         repoid = dbrecord['RepositoryIdentifier']
+        baseurl = dbrecord['BaseURL']
         self.log("repository id: %s" % repoid)
-        sql = "select Archive_ID from OLAC_ARCHIVE where RepositoryIdentifier=%s"
-        self.cur.execute(sql, repoid)
+        sql = """
+        select Archive_ID from OLAC_ARCHIVE
+        where RepositoryIdentifier=%s and BaseURL=%s
+        """
+        self.cur.execute(sql, (repoid,baseurl))
         if self.cur.rowcount > 0:
             self.log("%s already exists" % repoid)
             # just update
