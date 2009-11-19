@@ -177,6 +177,25 @@ ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
 /etc/init.d/apache2 restart
 }}}
 
+Optionally, you can enable status report which is sometimes useful in troubleshooting mysterious CPU usage spikes caused by apache processes. To enable it, add the following line at the top of the config file, outside the VirtualHost container.
+
+{{{
+ExtendedStatus On
+}}}
+
+And add this somewhere inside the VirtualHost container:
+
+{{{
+<Location /server-status>
+  SetHandler server-status
+  Order Deny,Allow
+  Deny from all
+  Allow from .ldc.upenn.edu
+</Location>
+}}}
+
+The status report will be available from .../server-status and only inside the ldc.upenn.edu domain.
+
 === Configuration 7: Outbound email ===
 
 Configure exim4 to email outbound emails. For this particular setup, we chose "mail sent by smarthost; no local mail". This enables outbound email by a remote mail server, and disables inbound emails.
