@@ -122,21 +122,41 @@ set password for olac@localhost = password('...');
 
 === Configure 6: Apache ===
 
+Create an OLAC-specific configuration file by copying the default configuration file.
+
 {{{
 cp /etc/apache2/sites-available/{default,olac}
 }}}
 
-Edited /etc/apache2/sites-available/olac. The followings are changed made:
+Edit /etc/apache2/sites-available/olac. These are the changes made.
 
- * ServerName www.language-archives.org
- * ServerAdmin olac@localhost
- * DocumentRoot /olac/www
- * <Directory /olac/www>
- * ScriptAlias /cgi-bin/ /olac/cgi/
- * <Directory "/olac/cgi">
- * ErrorLog /var/log/apache2/error-olac.log
- * CustomLog /var/log/apache2/access-olac.log combined
- * (Removed everything related to /doc/.)
+{{{
+ServerName www.language-archives.org
+ServerAdmin olac@localhost
+DocumentRoot /olac/www
+<Directory />  # this and anything contained in it were not changed
+}}}
+
+{{{
+<Directory /olac/www>
+    Options -Indexes FollowSymLinks  -MultiViews
+}}}
+
+CGI part.
+
+{{{
+ScriptAlias /cgi-bin/ /olac/cgi/
+<Directory "/olac/cgi">
+}}}
+
+Logging.
+
+{{{
+ErrorLog /var/log/apache2/error-olac.log
+CustomLog /var/log/apache2/access-olac.log combined
+}}}
+
+Finally, removed everything related to /doc/.
 
 For WSGI add the following.
 
