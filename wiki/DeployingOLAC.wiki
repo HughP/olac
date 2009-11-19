@@ -176,6 +176,10 @@ Read menus and explanations, and select options appropriate for your environment
  * rsync
  * sqlite3
  * curl
+ * xalan
+ * openjdk-6-jdk
+ * libxerces2-java
+ * libxerces2-java-doc (for xercesSamples.jar)
  * php5-mysql
  * php5-gd
  * php5-xsl
