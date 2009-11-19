@@ -475,7 +475,7 @@ function download($file) {
     chmod($file, 0644);
   }
   else {
-    error("Download failed for URL: \"$requrl\"");
+    error("Download failed for URL: " . $POSTEDURL);
     #report_error(0);
     report_result(0);
     exit;
@@ -550,9 +550,13 @@ function test_dr_conformant($file, $test) {
 
 
 
-function check_olac_version($file)
+function check_olac_version($file, $msg='')
 {
-  print '<p>Checking OLAC version... ';
+  if ($msg) {
+    print "<p>$msg... ";
+  } else {
+    print '<p>Checking OLAC version... ';
+  }
   myflush();
   $command = XSLT . " $file " . VERSION_STRON;
   $command .= ' | grep -v "In pattern" 2>/dev/null | head -n 10 | sed \'s/^\s*//\'';
@@ -630,11 +634,9 @@ function dr_validate() {
 
   print "<h2>Retrieving Data</h2>";
   pmh($ID_xml, $ID_test);
-  check_olac_version($ID_xml);
   pmh($LM_xml, $LM_test);
   pmh($LI_xml, $LI_test);
   pmh($LR_xml, $LR_test);
-  check_olac_version($LR_xml);
 
   # construct the full GetRecord request
   $record_id = get_element('sampleIdentifier', $ID_xml);
@@ -650,6 +652,8 @@ function dr_validate() {
   $LR_valid = test_dr_valid($LR_xml, $LR_test);
   $GR_valid = test_dr_valid($GR_xml, $GR_test);
   $valid = ($ID_valid && $LM_valid && $LI_valid && $LR_valid && $GR_valid);
+  check_olac_version($ID_xml, "Checking OLAC version in Identify response...");
+  check_olac_version($LR_xml, "Checking OLAC version in ListRecords response...");
 
   print "<h2>OLAC-PMH Validation</h2>\n";
   $ID_conf  = test_dr_conformant($ID_xml, $ID_test);
@@ -788,15 +792,20 @@ function sr_validate($URLTOFILE) {
   myflush();
   download($URLTOFILE);
 
+  print "<h2>XML Schema Validation</h2>";
+  myflush();
+  $v1 = sr_schema_valid($URLTOFILE);
+
+  # we can't continue if the xml is invalid
+  if (!$v1) {
+    return $v1;
+  }
+
   check_olac_version($URLTOFILE);
 
   print "<h2>Requirement Check</h2>\n";
   myflush();
-  $v1 = sr_schematron_valid($URLTOFILE);
-
-  print "<h2>XML Schema Validation</h2>";
-  myflush();
-  $v2 = sr_schema_valid($URLTOFILE);
+  $v2 = sr_schematron_valid($URLTOFILE);
 
   $validation_result = $v1 && $v2;
   report_result($validation_result);
