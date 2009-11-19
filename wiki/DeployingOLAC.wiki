@@ -175,6 +175,7 @@ Read menus and explanations, and select options appropriate for your environment
  * subversion
  * rsync
  * sqlite3
+ * curl
  * php5-mysql
  * php5-gd
  * php5-xsl
