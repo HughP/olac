@@ -216,6 +216,14 @@ rsync -av --exclude=.svn /olac/svn/web/* /olac/svn/www
 rsync -av --exclude=.svn /olac/svn/nonweb/* /olac
 }}}
 
+Create the following directory for registration script.
+
+{{{
+mkdir /olac/www/register/tmp
+chgrp www-data /olac/www/register/tmp
+chmod g+ws /olac/www/register/tmp
+}}}
+
 As root, do the following.
 
 {{{
