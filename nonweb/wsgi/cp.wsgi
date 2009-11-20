@@ -7,6 +7,15 @@ import MySQLdb
 import simplejson
 
 
+def connectdb():
+    return MySQLdb.connect(
+        host = olac.olacvar('mysql/host'),
+        db = olac.olacvar('mysql/olacdb'),
+        user = olac.olacvar('mysql/user'),
+        passwd = olac.olacvar('mysql/passwd'),
+        use_unicode = True
+        )
+
 def json_encode(*args, **kwargs):
     response = cherrypy.response
     response.headers['Content-Type'] = 'application/json'
@@ -23,16 +32,12 @@ class Root:
 class Ajax:
     pass
 
-class Survey:
-    def __init__(self):
-        self.con = MySQLdb.connect(
-            host = olac.olacvar('mysql/host'),
-            db = olac.olacvar('mysql/olacdb'),
-            user = olac.olacvar('mysql/user'),
-            passwd = olac.olacvar('mysql/passwd'),
-            use_unicode = True
-        )
 
+class Survey:
+    """
+    API functions for the survey page.
+    """
+    
     @cherrypy.expose
     @cherrypy.tools.json()
     def element(self, id):
@@ -42,7 +47,8 @@ class Survey:
         group by Content, Lang, Type, Code
         order by Freq desc
         """
-        cur = self.con.cursor(MySQLdb.cursors.DictCursor)
+        con = connectdb()
+        cur = con.cursor(MySQLdb.cursors.DictCursor)
         cur.execute(sql, id)
         return cur.fetchall()
 
@@ -70,13 +76,28 @@ class Survey:
         where ai.Item_ID=me.Item_ID and %s
         order by OaiIdentifier
         """ % " and ".join(cond)
-        cur = self.con.cursor()
+        con = connectdb()
+        cur = con.cursor()
         cur.execute(sql, args)
         return cur.fetchall()
+
+
+class GeneralDatabaseAPI:
+
+    @cherrypy.expose
+    @cherrypy.tools.json()
+    def getRegisteredRepositoryIdentifiers(self, *args, **kwargs):
+        sql = "select distinct ID from ARCHIVES order by ID"
+        con = connectdb()
+        cur = con.cursor()
+        cur.execute(sql)
+        return [x[0] for x in cur.fetchall()]
+
 
 root = Root()
 root.ajax = Ajax()
 root.ajax.survey = Survey()
+root.ajax.db = GeneralDatabaseAPI()
 
 application = cherrypy.tree.mount(root,"/cp")
 
