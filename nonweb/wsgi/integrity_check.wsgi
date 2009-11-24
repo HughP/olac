@@ -56,9 +56,10 @@ where
     ai.Archive_ID=%s and
     ic.Problem_Code=ip.Problem_Code and
     ip.Applies_To='I' and ic.Object_ID=ai.Item_ID
+order by Problem_Code
+"""
 
-union
-
+        sql2 = """
 select
     Label, ic.Problem_Code, Severity, Value, ai.OaiIdentifier
 from
@@ -68,11 +69,10 @@ where
     ai.Archive_ID=%s and me.Item_ID=ai.Item_ID and
     ic.Problem_Code=ip.Problem_Code and
     ip.Applies_To='E' and ic.Object_ID=me.Element_ID
-
 order by Problem_Code
 """
 
-        sql2 = """\
+        sql3 = """
 select
     Label, ic.Problem_Code, Severity, Value, Value
 from
@@ -83,20 +83,16 @@ where
 order by ic.Problem_Code
 """
 
-        self.cur.execute(sql1, (archive_id, archive_id))
-        tab1 = self.cur.fetchall()
-        self.cur.execute(sql2, archive_id)
-        tab2 = self.cur.fetchall()
-        tab = tab1 + tab2
-
         errors = []
         warnings = []
-        for row in tab:
-            severity = row[2]
-            if severity == 'E':
-                errors.append(row)
-            elif severity == 'W':
-                warnings.append(row)
+        for sql in (sql1,sql2,sql3):
+            self.cur.execute(sql, archive_id)
+            for row in self.cur:
+                severity = row[2]
+                if severity == 'E':
+                    errors.append(row)
+                elif severity == 'W':
+                    warnings.append(row)
 
         if self.download:
             for element in self.displayAsTsv(errors, warnings):
