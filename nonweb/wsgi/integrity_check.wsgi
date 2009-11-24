@@ -50,10 +50,10 @@ class IntegrityPage:
 select
     Label, ic.Problem_Code, Severity, Value, ai.OaiIdentifier
 from
-    ARCHIVED_ITEM ai, METADATA_ELEM me,
+    ARCHIVED_ITEM ai,
     INTEGRITY_CHECK ic, INTEGRITY_PROBLEM ip
 where
-    ai.Archive_ID=%s and me.Item_ID=ai.Item_ID and
+    ai.Archive_ID=%s and
     ic.Problem_Code=ip.Problem_Code and
     ip.Applies_To='I' and ic.Object_ID=ai.Item_ID
 
@@ -152,9 +152,9 @@ order by ic.Problem_Code
         self.respond('200 OK', headers)
         
         for row in errors:
-            yield "\t".join(row[1:5]).encode('utf-8') + "\r\n"
+            yield "\t".join((str(x) for x in row[1:5])).encode('utf-8') + "\r\n"
         for row in warnings:
-            yield "\t".join(row[1:5]).encode('utf-8') + "\r\n"
+            yield "\t".join((str(x) for x in row[1:5])).encode('utf-8') + "\r\n"
 
     def displayAsHtml(self, errors, warnings, print_no_error=True):
         headers = [('Content-type','text/html')]
@@ -199,6 +199,7 @@ Their presence counts against the Overall Rating for the archive.</p>""")
                 table = Meld('<table border="1"><tr><th>Error</th>' \
                              '<th>Offending Value</th>' \
                              '<th>Record ID</th></tr></table>')
+                count = 0
                 for error in errors:
                     row = Meld('<tr></tr>')
                     row += Meld('<td>%s</td>' % error[0])
@@ -211,6 +212,14 @@ Their presence counts against the Overall Rating for the archive.</p>""")
                     row += Meld('<td><a href="/item/%s">%s</a></td>' % \
                                 (error[4], error[4]))
                     table += row
+
+                    count += 1
+                    if count >= 100:
+                        msg = "(There are %d more errors.)" % \
+                              (len(errors) - count)
+                        row = Meld('<tr><td colspan="4">%s</td></tr>' % msg)
+                        table += row
+                        break
                 t.error_section += table
 
             if warnings:
@@ -222,6 +231,7 @@ Rating.</p>""")
                 table = Meld('<table border="1"><tr><th>Error</th>' \
                              '<th>Offending Value</th>' \
                              '<th>Record ID</th></tr></table>')
+                count = 0
                 for warning in warnings:
                     row = Meld('<tr></tr>')
                     row += Meld('<td>%s</td>' % warning[0])
@@ -234,6 +244,14 @@ Rating.</p>""")
                     row += Meld('<td><a href="/item/%s">%s</a></td>' % \
                                 (warning[4], warning[4]))
                     table += row
+                    
+                    count += 1
+                    if count >= 100:
+                        msg = "(There are %d more warnings.)" % \
+                              (len(warnings) - count)
+                        row = Meld('<tr><td colspan="4">%s</td></tr>' % msg)
+                        table += row
+                        break
                 t.warning_section += table
                 
         yield unicode(t).encode('utf-8')
