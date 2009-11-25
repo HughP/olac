@@ -142,6 +142,15 @@ DocumentRoot /olac/www
     Options -Indexes FollowSymLinks  -MultiViews
 }}}
 
+Favicon:
+
+{{{
+AddType image/x-icon .ico
+<Files favicon.ico>
+    ErrorDocument 404 /favicon.ico
+</Files>
+}}}
+
 CGI part.
 
 {{{
