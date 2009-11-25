@@ -374,6 +374,7 @@ python $(olacvar harvester/update_soundex_tab)
 There are PHP scripts without .php extension. They make URL prettier.
 
  * /archive
+ * /archive_records
  * /area
  * /country
  * /item
