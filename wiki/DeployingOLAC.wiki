@@ -238,6 +238,7 @@ Read menus and explanations, and select options appropriate for your environment
  * python-dev
  * libxml-dom-perl
  * libapache2-mod-wsgi
+ * ntp
 
  * CherryPy: installed version 3.1.2 from source
  * simplejson: installed version 2.0.9 from source
