@@ -16,7 +16,7 @@ $message[Accept] =
 Your request has been accepted. Your archive will be listed on the following
 OLAC web page within 24 hours:
 
-  http://www.language-archives.org/archives.php4
+  http://www.language-archives.org/archives.php
 
 Thank you for registering your archive.
 
@@ -290,7 +290,7 @@ END;
 <a href="$EXPLORER?archive=$row[BASEURL]">Inspect with RE</a>
 </li>
 
-<form action="register.php4" method="post">
+<form action="register.php" method="post">
 <li>
 <input type="submit" value="OLAC DP Validation"/>
 </li>
