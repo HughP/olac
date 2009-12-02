@@ -251,10 +251,13 @@ def subjectClassifier(config, classifier, input, output):
 
 
     dcNS = 'http://purl.org/dc/elements/1.1/'
+    xsiNS = 'http://www.w3.org/2001/XMLSchema-instance'
+    oNS = 'http://www.language-archives.org/OLAC/1.1/'
     for rec in root.findall('.//{%s}olac' % 'http://www.language-archives.org/OLAC/1.1/'):
         desc = ''
         subj = ''
         title = ''
+        has_olac_subject = 0
         for elem in rec:
             if elem.tag == '{%s}description' % dcNS and elem.text is not None:
                 desc += elem.text + ' \n '
@@ -263,10 +266,22 @@ def subjectClassifier(config, classifier, input, output):
             elif elem.tag == '{%s}title' % dcNS and elem.text is not None:
                 title += elem.text + ' \n '
 
-        # get codes from classifier and add OLAC dc:subject elements
-        # classify_record(dict, threshold, strongnameweight, weaknameweight, countryweight, regionweight)
-        codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj}, 0.72, 1.0, 0.7, 0.3, 0.2)
-        #codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj})
+            if elem.tag == '{%s}subject' % dcNS and \
+                    elem.attrib.get('{%s}type' % xsiNS) == 'olac:language' and \
+                    elem.attrib.get('{%s}code' % oNS) is not None:
+                has_olac_subject = 1
+
+                    #and elem.attrib['xsi:type'] == 'olac:language' and elem.atrib['olac:code'] is not None:
+
+
+        # only run classifier for those records that don't have already have an olac subject 
+        if not has_olac_subject:
+            # get codes from classifier and add OLAC dc:subject elements
+            # classify_record(dict, threshold, strongnameweight, weaknameweight, countryweight, regionweight)
+            codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj}, 0.72, 1.0, 0.7, 0.3, 0.2)
+        else:
+            codes = []
+
         if len(codes) > 0:
             for code in codes:
                 #rec.insert(0, makeOLACSubject(code))
