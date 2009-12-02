@@ -1,0 +1,4 @@
+https://dspace.gla.ac.uk/oai/request
+https://mspace.lib.umanitoba.ca/dspace-oai/request
+https://research-repository.st-andrews.ac.uk/dspace-oai/request
+https://www.dora.dmu.ac.uk/dspace-oai/request
