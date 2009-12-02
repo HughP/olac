@@ -1,0 +1,108 @@
+OLAC Subject Language Classifier and Resource Type Classifier
+
+Joshua S Hou
+
+August 28, 2009
+
+This document gives a short description of each file in the olac/src/classifier
+directory.  It is not a detailed description of the method used in each
+classifier, nor does it give implementation details on each module.  For
+specific details on how each module is run, as well as birds-eye view of the
+overarching subject language and resource type classifiers, see the full writeup
+for each classifier and the comments in each module.
+
+--------------------------------------------------------------------------------
+Subject Language Classifier
+---------------------------
+
+iso639_trainer.py   -   Contains class definition for subject language
+                        classifier, run as script to load data and save a
+                        pickled classifier.
+iso639Classifier.py -   Runs subject language classifier on a file and prints
+                        results to a file.
+tabdbreader2.py     -   Contains corpus reader for processing tab delimited
+                        MySQL dump of OLAC records.
+xmlreader.py        -   Contains corpus reader for processing XML format OLAC
+                        records.
+iso639_param_test.py-   Runs classifier several times over a number of different
+                        parameter settings and outputs all the results to a
+                        directory specified in the code.
+iso639_evaluate_round_robin.py - Processes output of iso639_param_test.py and
+                                 outputs precision and recall numbers for
+                                 evaluation.
+
+preprocessor/
+-------------
+preprocess.py                           -   Runs all preprocessors and
+                                            concatenates all data into a single
+                                            file for Subject Language
+                                            Classifier.
+CountryCodes.tab                        -   List of countries and corresponding
+                                            ISO 3166 codes.
+CountryCodes_preprocessor.py            -   Outputs CountryCodes.tab in
+                                            normalized form.
+Ethnologue-classifier-training-data.xml -   Ethnologue data
+Ethnologue_data_preprocessor.py         -   Processes Ethnologue data and prints
+                                            in normalized form.
+GetListOfAncientLgs.html                -   LinguistList list of ancient and
+                                            extinct languages.
+LinguistList_preprocessor.py            -   Preprocessor for
+                                            GetListOfAncientLgs.html
+iso-639-3_20090210.tab.dld              -   Table of language names and ISO
+                                            639-3 codes.
+iso639_preprocessor.py                  -   Preprocessor for ISO 639-3 table
+ancient_countries.py                    -   Processes LinguistList list of
+                                            ancient and extinct languages,
+                                            accesses each language's page to get
+                                            the countries they were spoken in.
+                                            Not part of pipeline; run only once.
+
+subjectlanguagedata/
+--------------------
+ancient_countries.tab                   -   Output of ancient_countries.py
+extra_data.tab                          -   Hand-constructed data
+Data for language classifier (with y subfield).txt
+LCSH_names_trainingdata.txt
+
+utilities/
+----------
+__init__.py             -   Empty file.  This just exists so that everything in
+                            this directory can be imported.
+create_test_set.py      -   Creates test set and gold standard from tab
+                            delimited OLAC records.
+data_split.py           -   Splits output of Subject Language Classifier into
+                            three sets for inspection.
+iso639_evaluator.py     -   Evaluates output of Subject Language Classifier,
+                            compares to gold standard and outputs precision,
+                            recall and f-score.
+iso639_wrapper.py       -   Wrapper that loads data into the Subject Language
+                            Classifier, saves it, classifies a couple data sets
+                            and prints results.  Not scaleable, but useful for
+                            development.
+load_clasifier.py       -   Loads classifier.  Used for debug purposes only.
+random_eval_set.py      -   Processes output of Subject Language Classifier and
+                            outputs a randomly selected set of records for
+                            evaluation purposes.
+util.py                 -   Contains functions used in multiple Subject Language
+                            Classifier modules.
+create_xml_goldstandard.py  -   Creates gold standard from XML OLAC records.
+--------------------------------------------------------------------------------
+Resource Type Classifier
+------------------------
+To setup the Resource Type Classifier, please install MALLET into a public
+directory.  Then, specify the path to the MALLET directory.  Java and Python
+must both be installed.  This classifier will only work on Unix systems, as the
+train and test scripts are written in bash.
+
+restype_train.sh            -   Trains a Resource Type Classifier with Mallet.
+restype_test.sh             -   Uses a Resource Type Classifier to classify
+                                records.  Calls ResourceTypeClassify.class.
+ResourceTypeClassify.java   -   Classifies using Mallet.
+malletize.py                -   Reads tab delimited corpus and saves to binary
+                                or plaintext file in Mallet format.
+set_mallet.path.sh          -   Sets path to OLAC repository and Mallet
+                                installation.
+restype_evaluate.py         -   Evaluates output of restype_test.sh and prints
+                                accuracy.
+tabdbreader.py              -   Corpus reader for input data for
+                                restype_train.sh.
