@@ -99,6 +99,6 @@ for rec in root:
     if ctr % 1000 == 0:
         sys.stdout.write(".")
 
-    outfile.write("%s\t%s\t%s\n" % (str(ctr) + '_' + lcc, answer, text))
+    outfile.write("%s\t%s\t%s\n" % (str(ctr) + '_' + lcc.replace(' ','_'), answer, text))
 print "%s recs skipped because of no lcc" % skipped
 print "%s recs total" % ctr
