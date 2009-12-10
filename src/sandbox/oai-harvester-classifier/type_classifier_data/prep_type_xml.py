@@ -11,7 +11,7 @@ def combineElements(elements):
                 text = text + e.text + ' | '
     return text
 
-def isLanguageResource(lcc):
+def languageResourceStatus(lcc):
     if lcc.startswith('P'):
         if lcc >= 'PA3000' and lcc <= 'PA9999': # Classical (Greek, Roman) literature
             return 0
@@ -53,6 +53,14 @@ def isLanguageResource(lcc):
             return 0
         elif lcc.startswith('PZ'): # Fiction
             return 0
+
+        # language items we should discard
+        elif lcc < 'P911--': # confusing/disorganized mix 
+            return -1
+        elif lcc >= 'PB---1' and lcc <= 'PB9999': # ignore 'modern' languages
+            return -1
+        elif lcc.startswith('PN'): # skip PN
+            return -1
         else:
             return 1 # it's a language resource!
     else:
@@ -92,13 +100,17 @@ for rec in root:
     desc = combineElements(rec.findall(dcNS + 'description'))
     if desc is not None:
         text += desc
-    if (isLanguageResource(lcc)):
+    status = languageResourceStatus(lcc)
+    if (status == 1):
         answer = 'YES'
-    else:
+    elif status == 0:
         answer = 'NO'
+    else:
+        skipped += 1
+        continue # ignore line
     if ctr % 1000 == 0:
         sys.stdout.write(".")
 
-    outfile.write("%s\t%s\t%s\n" % (str(ctr) + '_' + lcc.replace(' ','_'), answer, text))
-print "%s recs skipped because of no lcc" % skipped
+    outfile.write("%s\t%s\t%s\n" % (lcc.replace(' ','_') + '_' + str(ctr), answer, text))
+print "\n%s recs skipped" % skipped
 print "%s recs total" % ctr
