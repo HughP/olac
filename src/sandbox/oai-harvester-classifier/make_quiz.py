@@ -31,12 +31,15 @@ for line in open(resultsfile):
     prob = prob[0:4]
     if id in content:
         c = content[id]
+        ctokens = c.split('***')
+        title = ctokens.pop().strip()
     else:
         c = ''
+        title = ''
     if ans == 'YES':
-        yes.append([id, ans, prob, c])
+        yes.append([id, ans, prob, c, title])
     else:
-        no.append([id, ans, prob, c])
+        no.append([id, ans, prob, c, title])
 
 # percent of YES lines in the quiz
 yes_percent = 30
@@ -59,7 +62,7 @@ random.shuffle(results)
 
 # write results list to file
 outfile = codecs.open(outputfile, 'w', 'utf-8')
-outfile.write("id\tcomputer_guess\tprobability\thuman_answer\tcontent\n")
+outfile.write("id\tcomputer_guess\tprobability\thuman_answer\ttitle\tcontent\n")
 for i in results:
-    outfile.write("%s\t%s\t%s\t\t%s" % (i[0], i[1], i[2], i[3])) 
+    outfile.write("%s\t%s\t%s\t\t%s\t%s" % (i[0], i[1], i[2], i[4], i[3])) 
 outfile.close()
