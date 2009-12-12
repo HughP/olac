@@ -1,2 +1,0 @@
-set session group_concat_max_len = 10000;
-select METADATA_ELEM.Item_ID,'',group_concat(replace(Content,'\n',' ') SEPARATOR ' *** ') from ARCHIVED_ITEM inner join METADATA_ELEM on ARCHIVED_ITEM.Item_ID = METADATA_ELEM.Item_ID where (TagName = 'publisher' or TagName = 'description' or TagName = 'creator' or TagName = 'title' or TagName = 'contributor' or TagName = 'subject') group by METADATA_ELEM.Item_ID;

@@ -1,42 +1,63 @@
 # setup temp files
-TMP1=restype.out1.tmp
-TMP2=restype.out2.tmp
-TMP3=restype.out3.tmp
-TMP4=restype.out4.tmp
-TMP5=restype.out5.tmp
+P=/usr/share/olac/olac/src/sandbox/oai-harvester-classifier
+TMP1=$P/restype.out1.tmp
+TMP2=$P/restype.out2.tmp
+TMP3=$P/restype.out3.tmp
+TMP4=$P/restype.out4.tmp
+TMP5=$P/restype.out5.tmp
+SQLTMP=$P/restype.tmp.sql
 
 # export oai data
 echo Exporting oai data to be classified...
-mysql < resource_type_extract_single_archive.sql > $TMP1 
-#mysql < resource_type_extract_all.sql > $TMP1 
+./resource_type_extract.sh 1 > $TMP1 
+#./resource_type_extract.sh all > $TMP1 
+
+# delete existing enrichments that will be updated
+echo Removing existing enrichments for items that will be updated...
+for id in `cut -f1 $TMP1`; do
+    if [ $id == "Item_ID" ]; then
+        continue
+    fi
+    echo "delete from METADATA_ELEM WHERE TagName = 'type' and Item_ID = $id;" >> $SQLTMP ;
+    echo "update ARCHIVED_ITEM SET TypeClassifiedDate = NOW() WHERE Item_ID = $id;" >> $SQLTMP ;
+done
+mysql --defaults-file=~/oai.my.cnf < $SQLTMP
 
 echo Running binary classifier...
+cd classifier
 # run binary type classifier on oai data; output to $TMP2
-# TODO: how do you do this???
-classifier/restype_test.sh $TMP1 $TMP2
+./restype_test.sh restype_binary_20091209.mallet $TMP1 $TMP2
+cd ..
 
-# grep for only YES lines
-# removing the YES with sed may be optional - check this
-grep "\tYES" $TMP2 |sed -e 's/\tYES/\t/' > $TMP3
+echo Preparing for multi-type classifier...
+python prep_binary_for_multi.py $TMP1 $TMP2 $TMP3
 
 echo Running multi-type classifier...
+cd classifier
 # run muli-type classifier on YES lang resources
-# TODO: how do you do this???
-classifier/restype_test.sh $TMP3 $TMP4
+./restype_test.sh resourceTypeClassifier.mallet $TMP3 $TMP4
+cd ..
 
 echo Preparing enrichments for import...
 # create mysql data infile
 # format(tab-delim): Item_ID Code TagName Tag_ID Content Extension_ID Type
-awk '{print $1 "\t" $2 "\ttype\t1500\t\t15\tresource-type" }' $TMP4 > $TMP5
+cat $TMP4 |cut -d":" -f1 |awk '{print $1 "\t" $2 "\ttype\t1500\t\t15\tresource-type" }' > $TMP5
+
+# update HasOLACType for each item
+rm $SQLTMP
+for id in `cat $TMP4 |cut -d":" -f1|cut -f1`; do
+    echo "update ARCHIVED_ITEM SET HasOLACType = 1 WHERE Item_ID = $id;" >> $SQLTMP ;
+done
+mysql --defaults-file=~/oai.my.cnf < $SQLTMP
 
 echo Importing enrichments...
 # load into mysql
-mysql -e "
+mysql --defaults-file=~/oai.my.cnf -e "
 LOAD DATA LOCAL INFILE '$TMP5'
 INTO TABLE METADATA_ELEM
 FIELDS TERMINATED BY '\\t'
 LINES TERMINATED BY '\\n'
-(Item_ID, Code, TagName, Tag_ID, Content, Extension_ID, Type);" olac
+(Item_ID, Code, TagName, Tag_ID, Content, Extension_ID, Type);"
 # fields to import:
 # Item_ID = [the item id]
 # Code = [the type name e.g. lexicon]
@@ -47,8 +68,9 @@ LINES TERMINATED BY '\\n'
 # Type = linguistic-type (or more accurately) resource-type
 
 # clean up tmp files
-#rm $TMP1
-#rm $TMP2
-#rm $TMP3
-#rm $TMP4
-#rm $TMP5
+rm $TMP1
+rm $TMP2
+rm $TMP3
+rm $TMP4
+rm $TMP5
+rm $SQLTMP
