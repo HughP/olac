@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,8 +11,8 @@
             metadata standard of the Open Language Archives Community.">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20071115">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -133,7 +133,7 @@
 <h2>
 <A name="Introduction"></A>1. Introduction</h2>
 <p>This document provides guidelines on how to describe language resources using the OLAC metadata standard
-               [<a href="#OLAC-Metadata">OLAC-Metadata</a>]. The standard itself documents the formal syntax of valid metadata records, but
+               [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]. The standard itself documents the formal syntax of valid metadata records, but
             does not explain or exemplify the use of the individual metadata elements. That is the purpose of this
             document. </p>
 <p>Section 2 below describes the usage of the attributes that may be used on metadata elements. Section 3 then
@@ -142,9 +142,9 @@
 <h2>
 <A name="All elements"></A>2. All elements</h2>
 <p>OLAC metadata is an application of the Dublin Core metadata element set as
-            defined in [<a href="#DCMT">DCMT</a>]. The most fundamental requirement on best practice
+            defined in [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]. The most fundamental requirement on best practice
             in OLAC is that each element should be used in a way that conforms to its
-            definition in [<a href="#DCMT">DCMT</a>]. This document therefore repeats those
+            definition in [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]. This document therefore repeats those
             definitions and offers usage notes and examples to help the reader understand
             best use of the elements.</p>
 <p>Eight of the elements in the Dublin Core metadata set define refinements that narrow the
@@ -157,8 +157,8 @@
 <p>In theory, every element in the metadata set may use the <i>xsi:type</i>
             attribute to specify an encoding scheme that defines a controlled vocabulary
             or a controlled syntax for its values. This document lists possible encoding
-            schemes for eleven of the elements, whether defined by [<a href="#DCMT">DCMT</a>] or 
-            [<a href="#OLAC-Extensions">OLAC-Extensions</a>]. In the case of the OLAC extensions, the controlled
+            schemes for eleven of the elements, whether defined by [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>] or 
+            [<a href="http://www.language-archives.org/REC/olac-extensions.html">OLAC-Extensions</a>]. In the case of the OLAC extensions, the controlled
             value goes in the <i>olac:code</i> attribute (with the element content being
             available for an optional freeform elaboration of the coded value), while in the case of DCMI
             encoding schemes the controlled value goes in the element content. When one of these encoding schemes is applicable,
@@ -166,21 +166,21 @@
             value of the element that can be exploited
             to improve accuracy in searching and to provide domain-specific services.
             Subcommunities may follow the extension mechanism defined in section 5 of
-            [<a href="#OLAC-Metadata">OLAC-Metadata</a>] to define new encoding schemes.</p>
+            [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>] to define new encoding schemes.</p>
 <p>Every element in the metadata set may use the <i>xml:lang</i> attribute. It specifies the language in which
             the text in the content of the element is written. The value for the attribute
             should be a three-letter code from the ISO 639-3 controlled
-            vocabulary as defined in [<a href="#OLAC-Language">OLAC-Language</a>]. In the absence of an
+            vocabulary as defined in [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>]. In the absence of an
             <i>xml:lang</i> attribute, the element content is assumed to be in
             English (unless it is from a DCMI encoding scheme).  Whenever the language of the element content is other than English, recommended best practice
             is to use the <i>xml:lang</i> attribute to identify the language. By using
             multiple instances of a metadata
             elements tagged for different languages, data providers may offer their metadata records in multiple
             languages. </p>
-<p>In the formal definition of the metadata standard [<a href="#OLAC-Metadata">OLAC-Metadata</a>],
+<p>In the formal definition of the metadata standard [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>],
             every element and refinement is optional and repeatable. However, recommended
             best practice (as described below for particular elements and in
-            [<a href="#OLAC-BP">OLAC-BP</a>]) requires that certain elements be present in order to give
+            [<a href="http://www.language-archives.org/REC/bpr.html">OLAC-BP</a>]) requires that certain elements be present in order to give
          a basic breadth of description for a language resource. Recommended best practice
          also requires that one particular element (namely, <a href="#Title">Title</a>) not be
             repeated. Since all other elements and refinements are repeatable, multiple
@@ -193,14 +193,14 @@
 <tr valign="top">
 <td width="100"><i>Best&nbsp;practice&nbsp;</i></td><td>
 <p>Recommended best practice is for the value of each metadata element to conform to the definition of
-                  that element as given in [<a href="#DCMT">DCMT</a>].</p>
+                  that element as given in [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>].</p>
 <p>When the meaning of a particular element in a metadata record fits the definition of a refinement,
                recommended best practice is to use the refinement rather than the generic element.</p>
 <p>When possible, recommended best practice is to use the <i>xsi:type</i>
                   attribute to specify an encoding scheme for adding precision to the
                   value of the element.</p>
 <p>Whenever the language of the element content is other than English, recommended best practice is to
-                  use the <i>xml:lang</i> attribute with a value from [<a href="#ISO639-3">ISO639-3</a>] to identify the language.</p>
+                  use the <i>xml:lang</i> attribute with a value from [<a href="http://www.sil.org/iso639-3/">ISO639-3</a>] to identify the language.</p>
 <p>When a resource has more than one value for a particular metadata
                   element or refinement, recommended best practice
                   is to use a separate instance of the element or refinement for each
@@ -216,15 +216,15 @@
             namespace for which the prefix <tt>dc:</tt> is used in the examples.</p>
 <p>Each subsection heading gives the name of an element; the element is then described under six subheadings.
                <i>Definition</i> is the definition for the element as given by the Dublin Core Metadata Initiative
-               [<a href="#DCMT">DCMT</a>]. <i>Refinements</i> lists the refined element names 
+               [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]. <i>Refinements</i> lists the refined element names 
             that may be used in place of the generic element name to specify a more precise meaning for the metadata
-            item. The refinement definitions are copied from [<a href="#DCMT">DCMT</a>]. All of the
+            item. The refinement definitions are copied from [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]. All of the
             refinements are defined within the
             <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a> namespace for which the prefix <tt>dcterms:</tt> is
             used in the examples. <i>Schemes</i> lists the encoding schemes
             that may be used with this element (or its refinements) as the value of the <i>xsi:type</i> attribute.
                <i>Best practice</i> lists the best practices for the use of this element that are recommended by the
-            OLAC community [<a href="#OLAC-BP">OLAC-BP</a>]. <i>Usage notes</i> offers additional notes for the OLAC community on how
+            OLAC community [<a href="http://www.language-archives.org/REC/bpr.html">OLAC-BP</a>]. <i>Usage notes</i> offers additional notes for the OLAC community on how
             to use the element in the context of describing language resources. <i>Examples</i> shows samples of
             properly encoded elements and sample refinements.</p>
 <p>For many elements, you can have more than one instance. This would be the case for a work with more than one
@@ -249,7 +249,7 @@
 <td>olac:role&nbsp;&nbsp;</td><td>
 <p>The olac:role code is optionally used to specify the role (such as transcriber, sponsor, and so
                         on) played by the named entity in the creation of the resource. The role is expressed by means
-                        of a controlled vocabulary; see [<a href="#OLAC-Role">OLAC-Role</a>] for the definition of the vocabulary. </p>
+                        of a controlled vocabulary; see [<a href="http://www.language-archives.org/REC/role.html">OLAC-Role</a>] for the definition of the vocabulary. </p>
 </td>
 </tr>
 </table>
@@ -306,14 +306,14 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A generic contributor:</p>
-<pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:contributor&gt;Smith, John L.&lt;/dc:contributor&gt;</pre>
 <p>A funding agency:</p>
-<pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
+<pre style="margin-left: 18pt">&lt;dc:contributor xsi:type="olac:role" olac:code="sponsor"&gt;Smithsonian Institution. 
    Office of Fellowships and Grants.&lt;/dc:contributor&gt;</pre>
 <p>The person who performed a role for which there is not a suitable code:</p>
-<pre style="margin-left: 12pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:contributor&gt;Smith, John L. (format conversion)&lt;/dc:contributor&gt;</pre>
 <p>A corporate name given in a language differing from the majority of the metadata record:</p>
-<pre style="margin-left: 12pt">&lt;dc:contributor xml:lang="ces"&gt;C&#780;eska&#769; akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:contributor xml:lang="ces"&gt;C&#780;eska&#769; akademie ve&#780;d a ume&#780;ni&#769;&lt;/dc:contributor&gt;</pre>
 </td>
 </tr>
 </table>
@@ -345,28 +345,28 @@
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:Box&nbsp;&nbsp;</td><td>
-<p>The DCMI Box identifies a region of space using its geographic limits [<a href="#DCMI-Box">DCMI-Box</a>].</p>
+<p>The DCMI Box identifies a region of space using its geographic limits [<a href="http://dublincore.org/documents/dcmi-box/">DCMI-Box</a>].</p>
 </td>
 </tr>
 <tr valign="top">
 <td>dcterms:ISO3166&nbsp;&nbsp;</td><td>
-<p>ISO 3166 Codes for the representation of names of countries [<a href="#ISO3166">ISO3166</a>].</p>
+<p>ISO 3166 Codes for the representation of names of countries [<a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists.htm">ISO3166</a>].</p>
 </td>
 </tr>
 <tr valign="top">
 <td>dcterms:Period&nbsp;&nbsp;</td><td>
-<p>A specification of the limits of a time interval [<a href="#DCMI-Period">DCMI-Period</a>]</p>
+<p>A specification of the limits of a time interval [<a href="http://dublincore.org/documents/dcmi-period/">DCMI-Period</a>]</p>
 </td>
 </tr>
 <tr valign="top">
 <td>dcterms:Point&nbsp;&nbsp;</td><td>
 <p>The DCMI Point identifies a point in space using its geographic coordinates
-                        [<a href="#DCMI-Point">DCMI-Point</a>].</p>
+                        [<a href="http://dublincore.org/documents/dcmi-point/">DCMI-Point</a>].</p>
 </td>
 </tr>
 <tr valign="top">
 <td>dcterms:TGN&nbsp;&nbsp;</td><td>
-<p>The Getty Thesaurus of Geographic Names [<a href="#TGN">TGN</a>].</p>
+<p>The Getty Thesaurus of Geographic Names [<a href="http://www.getty.edu/research/tools/vocabulary/tgn/index.html">TGN</a>].</p>
 </td>
 </tr>
 </table>
@@ -387,7 +387,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p> Coverage will typically include spatial location (a place name or geographic coordinates), temporal
                   period (a period label, date, or date range) or jurisdiction (such as a named administrative entity).
-                     [<a href="#DCMT">DCMT</a>]</p>
+                     [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p>Coverage is related to <a href="#Subject">Subject</a> in having a topical orientation. Coverage in its temporal
                   aspect should not be confused with <a href="#Date">Date</a> or one of its refinements (<i>e.g.</i>, created,
                   or available). Thus, a data set that was compiled over an extended period of time should be described
@@ -396,7 +396,7 @@
                   historical information would correctly use Coverage or <tt>dcterms:temporal</tt> to specify the date,
                   date range or period in focus.</p>
 <p>In the OLAC context, service providers already have a database that maps languages to the countries in
-                  which they are spoken [<a href="#OLAC-Language">OLAC-Language</a>]. Coverage should not be used to duplicate this
+                  which they are spoken [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>]. Coverage should not be used to duplicate this
                   information; rather service providers will support searches concerning languages spoken in a given
                   country by referring to the language database. Coverage should be used geographically only when the
                   language involved has a wide distribution and the resource focuses on its use in a particular region
@@ -409,11 +409,11 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A resource about English in India:</p>
-<pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:subject xsi:type="olac:ISO639" olac:code="en"/&gt;&lt;dcterms:spatial&gt;India&lt;/dcterms:spatial&gt;</pre>
 <p>A resource about languages spoken on Guadalcanal:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:spatial xsi:type="dcterms:TGN"&gt;Guadalcanal (island)&lt;/dcterms:spatial&gt;</pre>
 <p>A resource about language use in the 19th century:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:temporal&gt;19th century&lt;/dcterms:temporal&gt;</pre>
 </td>
 </tr>
 </table>
@@ -435,7 +435,7 @@
 <td>olac:role&nbsp;&nbsp;</td><td>
 <p>The <i>refine</i> attribute is optionally used to specify the role (such as author, editor,
                         translator, and so on) played by the named entity in the creation of the resource. The role is
-                        expressed by means of a controlled vocabulary; see [<a href="#OLAC-Role">OLAC-Role</a>] for the definition of
+                        expressed by means of a controlled vocabulary; see [<a href="http://www.language-archives.org/REC/role.html">OLAC-Role</a>] for the definition of
                         the vocabulary. </p>
 </td>
 </tr>
@@ -466,11 +466,11 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A personal author:</p>
-<pre style="margin-left: 12pt">&lt;dc:creator&gt;Bloomfield, Leonard&lt;/dc:creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:creator&gt;Bloomfield, Leonard&lt;/dc:creator&gt;</pre>
 <p>An institutional author:</p>
-<pre style="margin-left: 12pt">&lt;dc:creator&gt;Linguistic Society of America&lt;/dc:creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:creator&gt;Linguistic Society of America&lt;/dc:creator&gt;</pre>
 <p>An editor:</p>
-<pre style="margin-left: 12pt">&lt;dc:creator xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:creator xsi:type="olac:role" olac:code="editor"&gt;Sapir, Edward&lt;/dc:creator&gt;</pre>
 </td>
 </tr>
 </table>
@@ -532,7 +532,7 @@
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:W3CDTF&nbsp;&nbsp;</td><td>
-<p>W3C Encoding rules for dates and times - a profile based on ISO 8601 [<a href="#W3CDTF">W3CDTF</a>].</p>
+<p>W3C Encoding rules for dates and times - a profile based on ISO 8601 [<a href="http://www.w3.org/TR/NOTE-datetime">W3CDTF</a>].</p>
 </td>
 </tr>
 </table>
@@ -569,13 +569,13 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical year of publication:</p>
-<pre style="margin-left: 12pt">&lt;dc:date xsi:type="dcterms:W3CDTF"&gt;1992&lt;/dc:date&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:date xsi:type="dcterms:W3CDTF"&gt;1992&lt;/dc:date&gt;</pre>
 <p>A resource modified on October 16, 1996:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:modified xsi:type="dcterms:W3CDTF"&gt;1996-10-16&lt;/dcterms:modified&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:modified xsi:type="dcterms:W3CDTF"&gt;1996-10-16&lt;/dcterms:modified&gt;</pre>
 <p>A resource from approximately 1950:</p>
-<pre style="margin-left: 12pt">&lt;dc:date&gt;[circa 1950]&lt;/dc:date&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:date&gt;[circa 1950]&lt;/dc:date&gt;</pre>
 <p>A resource for which the date has been supplied by the cataloger from external informaiton:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:issued&gt;[1932]&lt;/dcterms:issued&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:issued&gt;[1932]&lt;/dcterms:issued&gt;</pre>
 </td>
 </tr>
 </table>
@@ -618,7 +618,7 @@
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Description may include but is not limited to: an abstract, table of contents, reference to a
-                  graphical representation of content, or a free-text summary account of the content. [<a href="#DCMT">DCMT</a>]</p>
+                  graphical representation of content, or a free-text summary account of the content. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p>Description may also offer an annotation, or a qualitative or evaluative comment about the resource,
                   such as a statement about suitability for a particular application or context.</p>
 <p> Description element is not a "catch-all" category. The Description element should not be confused
@@ -639,7 +639,7 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A prose description of a resource:</p>
-<pre style="margin-left: 12pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
+<pre style="margin-left: 18pt">&lt;dc:description&gt;The CALLHOME Japanese corpus of telephone speech consists of 120
    unscripted telephone conversations between native speakers of Japanese. All calls, which lasted
    up to 30 minutes, originated in North America and were placed to locations overseas (typically
    Japan). Most participants called family members or close friends. This corpus contains speech
@@ -647,11 +647,11 @@
    and format of the speech files and the software packages needed to uncompress the speech data.
    &lt;/dc:description&gt;</pre>
 <p>A contents note for a resource:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
+<pre style="margin-left: 18pt">&lt;dcterms:tableOfContents&gt;v. 1: Thesaurus of Khmu dialects in Southeast Asia; v. 2:
    Dictionary of Khmu in China; v. 3: Dictionary of Khmu in Laos; v. 4: Dictionary of Khmu in
    Vietnam; v. 5: Dictionary of Khmu in Thailand&lt;/dcterms:tableOfContents&gt;</pre>
 <p>A reference to an existing on-line description:</p>
-<pre style="margin-left: 12pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html&lt;/dc:description&gt;</pre>
 </td>
 </tr>
 </table>
@@ -682,7 +682,7 @@
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:IMT&nbsp;&nbsp;</td><td>
-<p>The Internet media type of the resource [<a href="#IMT">IMT</a>].</p>
+<p>The Internet media type of the resource [<a href="http://www.iana.org/assignments/media-types/">IMT</a>].</p>
 </td>
 </tr>
 </table>
@@ -698,7 +698,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, Format may include the media-type, physical material, and/or dimensions of the resource.
                   Format may be used to determine the software, hardware or other equipment needed to display or operate
-                  the resource. Examples of dimensions include size and duration. [<a href="#DCMT">DCMT</a>]</p>
+                  the resource. Examples of dimensions include size and duration. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p>In the case of a physical object, the refinements medium and extent are most applicable. These may
                   respectively contain the physical material of the object (<i>e.g.</i>, parchment; reel-to-reel tape;
                   35 mm slide; NTSC encoded VHS cassette), and the size/duration (<i>e.g.</i> number of pages and
@@ -713,14 +713,14 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>For a digitally encoded dictionary:</p>
-<pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
+<pre style="margin-left: 18pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;text/xml&lt;/dc:format&gt;
    &lt;dcterms:extent&gt;5,237 entries in a 1.2M XML file.&lt;/dcterms:extent&gt;</pre>
 <p>For a digitally recorded text:</p>
-<pre style="margin-left: 12pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
+<pre style="margin-left: 18pt">&lt;dc:format xsi:type="dcterms:IMT"&gt;audio/wav&lt;/dc:format&gt;
    &lt;dc:format&gt;Sampling: 1 channel, 22 KHz, 8 bits.&lt;/dc:format&gt;
    &lt;dcterms:extent&gt;Duration: 153 seconds. Size: 3.3M. &lt;/dcterms:extent&gt;</pre>
 <p>For 16mm film with sound track</p>
-<pre style="margin-left: 12pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
+<pre style="margin-left: 18pt">&lt;dcterms:medium&gt;sound, color;  16mm film&lt;/dcterms:medium&gt;
    &lt;dcterms:extent&gt;30 min.&lt;/dcterms:extent&gt;</pre>
 </td>
 </tr>
@@ -747,7 +747,7 @@
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:URI&nbsp;&nbsp;</td><td>
-<p>A Uniform Resource Identifier [<a href="#URI">URI</a>].</p>
+<p>A Uniform Resource Identifier [<a href="http://www.ietf.org/rfc/rfc2396.txt">URI</a>].</p>
 </td>
 </tr>
 </table>
@@ -791,11 +791,11 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A Uniform Resource Locator for retrieval of an electronically encoded resource:</p>
-<pre style="margin-left: 12pt">&lt;dc:identifier xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:identifier xsi:type="dcterms:URI"&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/dc:identifier&gt;</pre>
 <p>A local identifier for retrieval within a physical collection:</p>
-<pre style="margin-left: 12pt">&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:identifier&gt;Series: A, Box 7&lt;/dc:identifier&gt;</pre>
 <p>The citation for a chapter that was published in a book:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), Native South
+<pre style="margin-left: 18pt">&lt;dcterms:bibliographicCitation&gt;In Joel Sherzer and Greg Urban (eds.), Native South
 American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&gt;</pre>
 </td>
 </tr>
@@ -817,7 +817,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td>olac:ISO639-3&nbsp;&nbsp;</td><td>
 <p>The ISO 639-3 set of three-letter identifiers for the identification of human languages. See
-                           [<a href="#OLAC-Language">OLAC-Language</a>] for the definition of the vocabulary. </p>
+                           [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>] for the definition of the vocabulary. </p>
 </td>
 </tr>
 </table>
@@ -862,17 +862,17 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A resource in English about the Sikaiana language:</p>
-<pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
+<pre style="margin-left: 18pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt; 
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="sky"/&gt;</pre>
 <p>A Yemba-French dictionary, where the alternate name Dschang is preferred.</p>
-<pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt;
+<pre style="margin-left: 18pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="fra"/&gt;
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="ybb"&gt;Dschang&lt;/dc:subject&gt;</pre>
 <p>The <i>American Heritage Dictionary</i>, which is both in and about American English:</p>
-<pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
+<pre style="margin-left: 18pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
    &lt;dcterms:spatial&gt;United States&lt;/dcterms:spatial&gt;</pre>
 <p>A resource in the Saracatsan dialect of modern Greek</p>
-<pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="ell"&gt;Saracatsan dialect&lt;/dc:language&gt;</pre>
 </td>
 </tr>
 </table>
@@ -903,7 +903,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Publisher include a person, an organization, or a service. Typically, the name of a
-                  Publisher should be used to indicate the entity. [<a href="#DCMT">DCMT</a>] The Publisher is generally the
+                  Publisher should be used to indicate the entity. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>] The Publisher is generally the
                   business, organization, or sometimes individual who takes responsibility (and provides financial and
                   production resources) for putting the resource into a form suitable for making it publicly available,
                   whether in multiple hard copies (printing, pressing of a disc, etc), by broadcasting (radio,
@@ -916,7 +916,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   a publisher.</p>
 <p>For an entity that has funded the creation or development of the resource in some way, but has not
                   otherwise participated in its development through editing, composition, production, printing,
-                  marketing, posting, etc., use the <a href="#Contributor">Contributor</a> element specifying the [<a href="#OLAC-Role">OLAC-Role</a>]
+                  marketing, posting, etc., use the <a href="#Contributor">Contributor</a> element specifying the [<a href="http://www.language-archives.org/REC/role.html">OLAC-Role</a>]
                   code="sponsor".</p>
 <p>Be consistent with corporate name forms. Names that include a primary unit and subsidiary unit should
                   be ordered with the primary unit given first. Location should generally be omitted from the name
@@ -926,9 +926,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical publisher:</p>
-<pre style="margin-left: 12pt">&lt;dc:publisher&gt;Oxford University Press&lt;/dc:publisher&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:publisher&gt;Oxford University Press&lt;/dc:publisher&gt;</pre>
 <p>The URL for a publisher:</p>
-<pre style="margin-left: 12pt">&lt;dc:publisher xsi:type="dcterms:URI"&gt;http://www.oup.com&lt;/dc:publisher&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:publisher xsi:type="dcterms:URI"&gt;http://www.oup.com&lt;/dc:publisher&gt;</pre>
 </td>
 </tr>
 </table>
@@ -1019,7 +1019,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:URI&nbsp;&nbsp;</td><td>
-<p>A Uniform Resource Identifier [<a href="#URI">URI</a>].</p>
+<p>A Uniform Resource Identifier [<a href="http://www.ietf.org/rfc/rfc2396.txt">URI</a>].</p>
 </td>
 </tr>
 </table>
@@ -1057,15 +1057,15 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A link to a required font:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/dcterms:requires&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:requires&gt;oai:sil:software/ipafont&lt;/dcterms:requires&gt;</pre>
 <p>Links to the component pieces of a collected work:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/dcterms:hasPart&gt;
+<pre style="margin-left: 18pt">&lt;dcterms:hasPart&gt;oai:somearchive:holding126&lt;/dcterms:hasPart&gt;
    &lt;dcterms:hasPart&gt;oai:somearchive:holding127&lt;/dcterms:hasPart&gt;
    &lt;dcterms:hasPart&gt;oai:somearchive:holding128&lt;/dcterms:hasPart&gt;
    &lt;dcterms:hasPart&gt;oai:somearchive:holding129&lt;/dcterms:hasPart&gt;
    &lt;dcterms:hasPart&gt;oai:somearchive:holding130&lt;/dcterms:hasPart&gt;</pre>
 <p>Link to a specification of a schema to which the resource conforms:</p>
-<pre style="margin-left: 12pt">&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dcterms:conformsTo xsi:type="dcterms:URI"&gt;http://someschemadef&lt;/dcterms:conformsTo&gt;</pre>
 </td>
 </tr>
 <tr valign="top">
@@ -1112,13 +1112,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   a service providing such information. Rights information often encompasses Intellectual Property
                   Rights (IPR), Copyright, and various Property Rights. If the Rights element is absent, no assumptions
                   can be made about the status of these and other rights with respect to the resource.
-                  [<a href="#Copyright">Copyright</a>]</p>
+                  [<a href="http://www.loc.gov/copyright/title17/92chap1.html#101">Copyright</a>]</p>
 <p>A rights management statement that contains a license or directs a potential user to a license
                   statement that specifies conditions and granted permissions should use the <i>dcterms:license</i>
                   refinement. The <i>dcterms:accessRights</i> refinement should be used to document conditions under
                   which access to the resource is granted. In either case, a statement may be included directly within
                   the metadata, or a URI reference to the statement or a service may be given. Examples of license
-                  statements can be found at Creative Commons [<a href="#CC">CC</a>].</p>
+                  statements can be found at Creative Commons [<a href="http://creativecommons.org/licenses/">CC</a>].</p>
 <p>Use <a href="#Rights Holder">Rights Holder</a> to specify a person or corporate body (organization, legally
                   constituted entity representing a group or community), rather than Rights.</p>
 <p>Copyright is inherent in primary linguistic and cultural research materials, such as stories,
@@ -1172,7 +1172,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <table cellpadding="4">
 <tr valign="top">
 <td>dcterms:URI&nbsp;&nbsp;</td><td>
-<p>A Uniform Resource Identifier [<a href="#URI">URI</a>].</p>
+<p>A Uniform Resource Identifier [<a href="http://www.ietf.org/rfc/rfc2396.txt">URI</a>].</p>
 </td>
 </tr>
 </table>
@@ -1185,13 +1185,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 </tr>
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
-<p>The present resource may be derived from the Source resource in whole or in part. [<a href="#DCMT">DCMT</a>]</p>
+<p>The present resource may be derived from the Source resource in whole or in part. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p> In the legal parlance of intellectual property rights, a "derivative work" is one that is based on
                   one or more preexisting works. This includes cases in which a work may be recast, transformed, or
                   adapted in any way, such as by translation, abridgement, dramatization, recording, transcription, or
                   digital encoding. A work consisting of editorial revisions, annotations, elaborations, or other
                   modifications, which, as a whole, represent an original work of authorship is also a derivative work
-                     [<a href="#Copyright">Copyright</a>].</p>
+                     [<a href="http://www.loc.gov/copyright/title17/92chap1.html#101">Copyright</a>].</p>
 <p>This legal definition elucidates the sense of "derived" that is intended in the Dublin Core definition
                   of Source. Note, however, that this overlaps with <a href="#Relation">Relation</a>, since the <i>isFormatOf</i>
                   and <i>isVersionOf</i> refinements both refer to derivative works in the technical sense.</p>
@@ -1206,9 +1206,9 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>Source for a digital encoding of a manuscript in a participating archive:</p>
-<pre style="margin-left: 12pt">&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:source&gt;oai:somearchive:holding1023&lt;/dc:source&gt;</pre>
 <p>Source for data extracted from a published source:</p>
-<pre style="margin-left: 12pt">&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests of the
+<pre style="margin-left: 18pt">&lt;dc:source&gt;Kwara'ae flora vocabulary extracted from Guide to the Forests of the
    British Solomon Islands, by T. C. Whitmore. Oxford University Press, 1966.&lt;/dc:source&gt;</pre>
 </td>
 </tr>
@@ -1239,7 +1239,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td>olac:linguistic-field&nbsp;&nbsp;</td><td>
 <p>The OLAC vocabulary for describing the content of a resource as relevant to a particular
-                        subfield of linguistic science [<a href="#OLAC-Linguistic-Field">OLAC-Linguistic-Field</a>]. </p>
+                        subfield of linguistic science [<a href="http://www.language-archives.org/REC/field.html">OLAC-Linguistic-Field</a>]. </p>
 </td>
 </tr>
 </table>
@@ -1264,7 +1264,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, a Subject will be expressed as keywords, key phrases or classification codes that describe
-                  a topic of the resource. [<a href="#DCMT">DCMT</a>]</p>
+                  a topic of the resource. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p>To describe the spatial or temporal topic of the resource, use the <a href="#Coverage">Coverage</a> element.</p>
 <p> The Subject element should not be confused with Description.
                   Subject contains subject headings, while Description contains free-text descriptions.</p>
@@ -1275,11 +1275,11 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A Library of Congress subject heading:</p>
-<pre style="margin-left: 12pt">&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:subject xsi:type="dcterms:LCSH"&gt;African languages&lt;/dc:subject&gt;</pre>
 <p>A resource about a language for which the controlled vocabulary does not yet provide a code:</p>
-<pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:subject xsi:type="olac:language"&gt;Medieval Greek&lt;/dc:subject&gt;</pre>
 <p>A resource on multilingual education in Uganda involving national, regional and local languages.</p>
-<pre style="margin-left: 12pt">&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
+<pre style="margin-left: 18pt">&lt;dc:subject&gt;Multilingual education&lt;/dc:subject&gt;
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="swh"/&gt;
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="eng"/&gt;
    &lt;dc:subject xsi:type="olac:ISO639-3" olac:code="xog"/&gt;
@@ -1324,10 +1324,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 </tr>
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
-<p>Typically, a Title will be a name by which the resource is formally known. [<a href="#DCMT">DCMT</a>]</p>
+<p>Typically, a Title will be a name by which the resource is formally known. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p>A translation of the title can be supplied in a <i>dcterms:alternative</i> element. Use the
                      <i>xml:lang</i> attribute to identify the language of the metadata content using an identifier from
-                     [<a href="#ISO639-3">ISO639-3</a>].</p>
+                     [<a href="http://www.sil.org/iso639-3/">ISO639-3</a>].</p>
 <p>The Title can be a name given to a work to identify it if a formal title is not used, such as for a
                   data set or collection of texts. A formal title (for catalogers, the title as found on a primary
                   source of information), is generally expected to be in the language in which the work is written or
@@ -1341,12 +1341,12 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical title:</p>
-<pre style="margin-left: 12pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:title&gt;A Dictionary of the Nggela Language&lt;/dc:title&gt;</pre>
 <p>A vernacular title with translation:</p>
-<pre style="margin-left: 12pt">&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
+<pre style="margin-left: 18pt">&lt;dc:title xsi:type="olac:ISO639-3" olac:code="llu"&gt;Na tala 'uria na idulaa diana&lt;/dc:title&gt; 
    &lt;dcterms:alternative xml:lang="eng" &gt;The road to good reading&lt;/dcterms:alternative&gt;</pre>
 <p>A parallel title, as typically employed for a diglot work:</p>
-<pre style="margin-left: 12pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:title&gt;Xunivaun jau yohipahonni = Cuentos de nuestros antepasados&lt;/dc:title&gt;</pre>
 </td>
 </tr>
 </table>
@@ -1367,13 +1367,13 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td>dcterms:DCMIType&nbsp;&nbsp;</td><td>
 <p>A list of types used to categorize the nature or genre of the content of the resource.
-                           [<a href="#DCMI-Type">DCMI-Type</a>].</p>
+                           [<a href="http://dublincore.org/documents/dcmi-type-vocabulary/">DCMI-Type</a>].</p>
 </td>
 </tr>
 <tr valign="top">
 <td>olac:linguistic-type&nbsp;&nbsp;</td><td>
 <p>The nature or genre of the content of the resource from a linguistic standpoint
-                           [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>]. For a resource that is information in or about a language,
+                           [<a href="http://www.language-archives.org/REC/type.html">OLAC-Linguistic-Type</a>]. For a resource that is information in or about a language,
                         use this scheme to identify what kind of information it is from a linguistic standpoint.</p>
 </td>
 </tr>
@@ -1401,7 +1401,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
                   relate to the intended use or mode of perception by a user, <i>e.g.</i>, whether it is read (as text),
                   viewed (as image), heard, etc. Thus, a computer image file of a text (such as a scanned document) is
                   type 'text', not type 'image', because the common use involves reading text. To describe the physical
-                  or digital manifestation of the resource, use the <a href="#Format">Format</a> element. [<a href="#DCMT">DCMT</a>]</p>
+                  or digital manifestation of the resource, use the <a href="#Format">Format</a> element. [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]</p>
 <p></p>
 <p>Linguistic Type schema should only be used in a Type element if a resource represents one of the
                   structural types in the range set. The element may be repeated if a resource represents more than one
@@ -1412,10 +1412,10 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>The resource is a video recording, stored as a MPEG:</p>
-<pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
+<pre style="margin-left: 18pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
     &lt;dc:format xsi:type="dcterms:IMT"&gt;image/mpeg&lt;/dc:format&gt;</pre>
 <p>The resource is a video recording of a story teller relating a traditional story, recorded on Super-8 film::</p>
-<pre style="margin-left: 12pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
+<pre style="margin-left: 18pt">&lt;dc:type xsi:type="dcterms:DCMIType"&gt;MovingImage&lt;/cd:type&gt;
    &lt;dc:type xsi:type="olac:linguistic-type" olac:code="primary_text"/&gt;
    &lt;dc:medium&gt;Super 8mm film&lt;/dc:medium&gt;</pre>
 </td>
@@ -1435,7 +1435,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <h2>
 <A name="Other elements"></A>4. Other elements</h2>
 <p>The following subsections describe other elements that have been defined by
-            the Dublin Core Metadata Initiative [<a href="#DCMT">DCMT</a>]. They are defined within the
+            the Dublin Core Metadata Initiative [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]. They are defined within the
             <a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a> namespace for which the prefix <tt>dcterms:</tt> is
          used in the examples.</p>
 <h3>
@@ -1471,7 +1471,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 <td width="100"><i>Examples</i></td><td>
 <p>A group of texts and recordings constituting a small collection that has undergone some reorganization
                   by a subsequent handler since original creation:</p>
-<pre style="margin-left: 12pt">&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
+<pre style="margin-left: 18pt">&lt;dc:contributor xsi:type="olac:role" olac:code="researcher"&gt;Gardner, Richard&lt;/dc:contributor&gt;
                   &lt;dc:contributor xsi:type="olac:role" olac:code="compiler"&gt;Anderson, Judi Lynn&lt;/dc:contributor&gt;
                   &lt;dc:created&gt;1962-1976&lt;/dc:created&gt;
                   &lt;dc:available&gt;2007&lt;/dc:available&gt;
@@ -1571,7 +1571,7 @@ American discourse, 237-306. Berlin: Mouton. &lt;dcterms:bibliographicCitation&g
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Linguistic-Field">OLAC-Linguistic-Field</a>]</td><td>OLAC Linguistic Subject
-            Vocabulary.<br>&lt;<a href="http://www.language-archives.org/REC/field.htmll">http://www.language-archives.org/REC/field.htmll</a>&gt;</td>
+            Vocabulary.<br>&lt;<a href="http://www.language-archives.org/REC/field.html">http://www.language-archives.org/REC/field.html</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>]</td><td>OLAC Linguistic Data Type
