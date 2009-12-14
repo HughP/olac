@@ -1,13 +1,13 @@
 <?php
 
 require_once("../lib/php/OLACDB.php");
-require_once("../lib/php/OLAC_general.php");
+$OLAC_ADMIN_EMAIL = olacvar('olac_admin_email');
 
 ###############
 # Global data #
 ###############
 
-$DB = new OLACDB("olac_registry");
+$DB = new OLACDB();
 
 $message[Accept] =
 "Congratulations!
