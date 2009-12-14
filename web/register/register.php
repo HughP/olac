@@ -7,7 +7,6 @@
 
 require_once('olac.php');
 define(OLAC_PATH, olacvar('docroot'));
-define(OLAC_TOOLS, '/pkg/ldc/wwwhome/olac');
 require_once(OLAC_PATH.'/lib/php/OLACDB.php');
 require_once(OLAC_PATH."/lib/php/utils.php");
 
