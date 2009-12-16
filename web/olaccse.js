@@ -21,35 +21,47 @@ function OLACSearch(searchBoxId,
     this.searcher.setSearchCompleteCallback(this, this.onSearchComplete);
     this.gsForm.setOnSubmitCallback(this, this.onSubmit);
 
-    Ext.get(this.resultBox).on('click', this.onPageIndexClicked, this);
+    function nav_handler_closure(scope) {
+	// @param scope: The object to be prepended to the scope chain.
+	return function(event) {
+	    scope.onPageIndexClicked.call(scope, event);
+	}
+    }
+
+    $(this.resultBox).addEvent('click', nav_handler_closure(this));
     this.initializeArchivesSelector();
 }
 
 OLACSearch.prototype.initializeArchivesSelector = function()
 {
-    var ajaxopts = {
-	url: '/cp/ajax/db/getRegisteredRepositoryIdentifiers',
-	success: function(o, opts) {
-	    var list = eval('(' + o.responseText + ')');
-	    var sel = Ext.get(this.archiveSelector);
+    var xhr = new XMLHttpRequest;
+    xhr.scope = this;
+    xhr.onreadystatechange = function(event) {
+	if (this.readyState == XMLHttpRequest.DONE) {
+	    var list = eval('(' + this.responseText + ')');
 	    for (var i=0; i<list.length; ++i) {
-		var espec = {tag:'option', html:list[i], value:list[i]};
-		sel.createChild(espec);
+		var opt = new Option(list[i], list[i]);
+		this.scope.archiveSelector.options[i+1] = opt;
 	    }
-	},
-	failure: function(o, opts) {
-	    alert('failed to obtain archives list');
-	},
-	scope: this
+	}
     }
-    Ext.Ajax.request(ajaxopts);
+    xhr.open("GET", "/cp/ajax/db/getRegisteredRepositoryIdentifiers");
+    xhr.send();
 }
 
-OLACSearch.prototype.onPageIndexClicked = function(event, target)
+OLACSearch.prototype.onPageIndexClicked = function(event)
 {
-    if (Ext.get(target).hasClass('pageindex')) {
-	var page = target.firstChild.nodeValue - 1;
-	this.searcher.gotoPage(page);
+    var target = $(event.target);
+    var classValue = target.get('class');
+    if (classValue != null) {
+	var values = classValue.split();
+	for (var i=0; i<values.length; ++i) {
+	    if (values[i] == 'pageindex') {
+		var page = target.get('text') - 1;
+		this.searcher.gotoPage(page);
+		break;
+	    }
+	}
     }
 }
 
@@ -79,7 +91,7 @@ OLACSearch.prototype.onSearchComplete = function()
 {
     // Clean up whatever remaining inside the result box. (Note that search
     // results have alreay been cleaned up by google api at this point.)
-    Ext.DomHelper.overwrite(this.resultBox,'');
+    this.resultBox.innerHTML = '';
 
     for (var i=0; i<this.searcher.results.length; ++i) {
 	var r = this.searcher.results[i];
@@ -91,17 +103,17 @@ OLACSearch.prototype.onSearchComplete = function()
 	var pages = cursor.pages;
 	var cp = cursor.currentPageIndex; // begins from 0
 	for (var i=0; i<pages.length; ++i) {
-	    var p = pages[i];
-	    var spec = {tag:'div', cls:'pageindex', html:p.label};
-	    var node = Ext.DomHelper.append(this.resultBox, spec, true);
+	    var atts = {'class':'pageindex', 'html':pages[i].label}
+	    var node = new Element('div', atts);
+	    node.inject(this.resultBox);
 	    if (i == cp) {
 		node.addClass('pageindex-current');
 	    }
 	}
     }
     else {
-	var spec = {tag:'div', html:'No records found'};
-	Ext.DomHelper.append(this.resultBox, spec);
+	var node = new Element('div', {html:'No records found'});
+	node.inject(this.resultBox);
     }
 }
 
@@ -111,5 +123,5 @@ function initialize() {
 }
 
 google.load("search", "1");
-google.load("ext-core", "3.0.0");
+google.load("mootools", "1.2.4");
 google.setOnLoadCallback(initialize);
