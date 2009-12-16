@@ -208,6 +208,12 @@ function olac_display_process($tab, &$search_terms)
     
     if ($ext == 'language' && $answer['LangID']) {
       array_push($search_terms, "iso639_" . $answer['LangID']);
+      if ($answer['Country']) {
+	$cname = preg_replace('/\s+/', '_', $answer['Country']);
+	array_push($search_terms, "country_" . $cname);
+      }
+      if ($answer['Area'])
+	array_push($search_terms, "area_" . $answer['Area']);
     } elseif (($ext == 'linguistic-type' ||
 	       $ext == 'linguistic-field' ||
 	       $ext == 'discourse-type') && $code) {
@@ -421,13 +427,16 @@ $tab = $DB->sql("
 	select ed.TagName, ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content,
           me.Type Type,
 # me.Code Code, lc.LangID, lc.Name LangName
-cd.Code Code, cd.Label CodeName, ex.NSPrefix, lc.Id LangID
+cd.Code Code, cd.Label CodeName, ex.NSPrefix, lc.Id LangID,
+substring_index(cc.Name,' (',1) Country, cc.Area
 	from METADATA_ELEM me
 	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
 	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
 	left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
         left join EXTENSION ex on ex.Extension_ID=me.Extension_ID
         left join ISO_639_3 lc on me.Code=lc.Id
+        left join LanguageCodes eth on lc.Id=eth.LangID
+        left join CountryCodes cc on eth.CountryID=cc.CountryID
 	where Item_ID=$answer[Item_ID]
 	order by ed.Rank
 ");
