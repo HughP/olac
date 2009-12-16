@@ -208,10 +208,8 @@ function olac_display_process($tab, &$search_terms)
     
     if ($ext == 'language' && $answer['LangID']) {
       array_push($search_terms, "iso639_" . $answer['LangID']);
-      if ($answer['Country']) {
-	$cname = preg_replace('/\s+/', '_', $answer['Country']);
-	array_push($search_terms, "country_" . $cname);
-      }
+      if ($answer['CountryCode'])
+	array_push($search_terms, "country_" . $answer['CountryCode']);
       if ($answer['Area'])
 	array_push($search_terms, "area_" . $answer['Area']);
     } elseif (($ext == 'linguistic-type' ||
@@ -428,7 +426,7 @@ $tab = $DB->sql("
           me.Type Type,
 # me.Code Code, lc.LangID, lc.Name LangName
 cd.Code Code, cd.Label CodeName, ex.NSPrefix, lc.Id LangID,
-substring_index(cc.Name,' (',1) Country, cc.Area
+cc.CountryID CountryCode, cc.Area
 	from METADATA_ELEM me
 	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
 	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
