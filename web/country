@@ -63,7 +63,7 @@ $title = "Resources for languages in $country_name";
 <center>
   <div class='searchtitle'>Search Open Language Archives (<?=$country_name?>)</div>
 
-  <img id="logo-box" src="/images/world-color-<?=$area_name?>-320.png" alt="World Map" usemap="#areas"></img>
+  <img id="world-map" src="/images/world-color-<?=$area_name?>-320.png" alt="World Map" usemap="#areas"></img>
   <map name="areas">
     <area id="area-africa" shape="poly" coords="136,45,127,60,127,71,136,78,149,77,159,118,171,116,179,103,186,109,192,94,188,92,183,96,182,88,193,69,184,70,173,49,163,47,161,49,154,46,153,43,139,44" alt="Africa"  nohref="nohref" />
     <area id="area-americas" shape="poly" coords="11,25,22,22,34,10,62,12,77,5,83,6,102,1,142,3,131,13,109,21,103,33,73,50,91,66,90,72,116,88,91,125,100,134,91,139,80,129,77,100,65,85,69,75,57,66,46,65,35,40,40,31,41,23,37,21,16,28" alt="Americas"  nohref="nohref" />

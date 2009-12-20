@@ -1,8 +1,13 @@
 <?php
-$query = $_GET["query"];
+$query = $_GET["q"];
+$repo = $_GET["a"];
 if ($query) {
   $s = preg_replace("/'/", "'", $query);
-  $code = "olacsearch.search('$s');";
+  if ($repo) {
+    $code = "olacsearch.search('$s','$repo')";
+  } else {
+    $code = "olacsearch.search('$s');";
+  }
 } else {
   $code = "";
 }
@@ -13,7 +18,7 @@ if ($query) {
 <script type="text/javascript" src="/js/XMLHttpRequest.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/search/main.js"></script>
-<link type="text/css" rel="stylesheet" href="/css/search.css"></link>
+<link type="text/css" rel="stylesheet" href="/css/search/main.css"></link>
 <script type="text/javascript">
   google.setOnLoadCallback(function() {
       initialize('','');

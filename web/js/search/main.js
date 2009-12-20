@@ -126,6 +126,13 @@ OLACSearch.prototype.onSubmit = function(form)
     return false;
 }
 
+OLACSearch.prototype.search = function(query, repoid)
+{
+    if (repoid)
+	this.searcher.setQueryAddition(repoid);
+    this.searcher.execute(query);
+}
+
 OLACSearch.prototype.onSearchComplete = function()
 {
     // Clean up whatever remaining inside the result box. (Note that search
@@ -163,7 +170,7 @@ OLACSearch.prototype.onSearchComplete = function()
 
 OLACSearch.prototype.enterRegion = function(name)
 {
-    $('logo-box').set('src','/images/world-color-' + name + '-320.png');
+    $('world-map').set('src','/images/world-color-' + name + '-320.png');
 }
 
 OLACSearch.prototype.exitRegion = function(name)
@@ -172,7 +179,7 @@ OLACSearch.prototype.exitRegion = function(name)
     if (this.areaname) {
 	img = '/images/world-color-' + this.areaname + '-320.png';
     }
-    $('logo-box').set('src', img);
+    $('world-map').set('src', img);
 }
 
 OLACSearch.prototype.clickRegion = function(name)
