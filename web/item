@@ -360,7 +360,7 @@ if (!$tab) {
     header("HTTP/1.0 404 Not Found");
     error_page("Record not found");
 }
-$title = "OLAC Record: $itemid";
+$title = "Untitled";
 $body = "";
 
 $answer = $tab[0];
@@ -456,6 +456,10 @@ foreach ($html_tab as $record) {
   $tag = $record[0];
   $value = $record[1];
 
+  if ($tag == 'Title') {
+    $title = $value;
+  }
+
   if ($tag != $prev_tag) {
     if ($rowcount > 0) {
       if ($rowcount > 1)
@@ -526,7 +530,7 @@ $meta = old_meta_tag_formatting($tab);
 ?>
 <HTML>
 <HEAD>
-<TITLE><?=$title?></TITLE>
+<TITLE>OLAC Record: <?=$title?></TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?=$meta?>

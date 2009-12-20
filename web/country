@@ -47,7 +47,7 @@ $title = "Resources for languages in $country_name";
 <title><?=$title?></title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/olac.css">
-<link type="text/css" rel="stylesheet" href="/css/search.css"></link>
+<link type="text/css" rel="stylesheet" href="/css/search/main.css"></link>
 <script type="text/javascript" src="/js/XMLHttpRequest.js"></script>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/search/main.js"></script>
