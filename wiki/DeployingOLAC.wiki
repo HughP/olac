@@ -391,6 +391,7 @@ There are PHP scripts without .php extension. They make URL prettier.
  * /language
  * /metrics
  * /sample
+ * /search
 
 For each of those, add the following to the /etc/apache2/sites-available/olac
 file. (Replace "..." with the script name.)
