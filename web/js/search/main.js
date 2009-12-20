@@ -3,12 +3,19 @@
 // @param resultBoxId: The ID of a container to hold the search results.
 // @param areaSelectorId: The ID of a form containing radio buttons named area.
 // @param archiveSelectorId: The ID of a container to hold the archive dropdown.
+// @param extraterms: Search terms that are added to every search query.
+// @param areaname: If specified, corresponding region is selected from the map.
+// @param query: If specified, the query if submitted after initialization.
+// @param archiveid: If specified, corresponding archive is selected from
+//   the selector.
 function OLACSearch(searchBoxId,
 		    resultBoxId,
 		    areaSelectorId,
 		    archiveSelectorId,
 		    extraterms,
-		    areaname)
+		    areaname,
+		    query,
+		    archiveid)
 {
     this.searchBox = document.getElementById(searchBoxId);
     this.resultBox = document.getElementById(resultBoxId);
@@ -21,6 +28,7 @@ function OLACSearch(searchBoxId,
     }
 
     this.areaname = areaname;
+    this.defaultArchiveId = archiveid;
 
     function area_enter_handler_closure(name, scope) {
 	return function(event) {
@@ -63,6 +71,11 @@ function OLACSearch(searchBoxId,
 
     $(this.resultBox).addEvent('click', nav_handler_closure(this));
     this.initializeArchivesSelector();
+
+    if (query) {
+	$(this.searchBox).getElement("input[name=search]").value = query;
+	this.search(query, this.defaultarchiveId);
+    }
 }
 
 OLACSearch.prototype.initializeArchivesSelector = function()
@@ -78,7 +91,8 @@ OLACSearch.prototype.initializeArchivesSelector = function()
 		if (s.length > 36) {
 		    s = s.substr(0,36) + '...';
 		}
-		var opt = new Option(s, list[i][0]);
+		var opt = new Option(s, list[i][0], false,
+				     list[i][0]==this.scope.defaultArchiveId);
 		opt.setAttribute('title', slong);
 		this.scope.archiveSelector.options[i+1] = opt;
 	    }
@@ -187,13 +201,17 @@ OLACSearch.prototype.clickRegion = function(name)
     window.location = '/area/' + name;
 }
 
-function initialize(extraterms, areaname)
+    function initialize(extraterms, areaname, query, archiveid)
 {
     // extraterms: a space separated string containing extra search terms
-    olacsearch = new OLACSearch('search-box', 'result-box',
-				'areas', 'archive-selector',
+    olacsearch = new OLACSearch('search-box',
+				'result-box',
+				'areas',
+				'archive-selector',
 				extraterms,
-				areaname);
+				areaname,
+				query,
+				archiveid);
 }
 
 google.load("search", "1");
