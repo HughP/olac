@@ -11,6 +11,10 @@ function error($msg) {
 # get area name
 $path = preg_split('#/#', $_SERVER['PHP_SELF']);
 $area_name = $path[2];
+$Area_name = ucfirst($area_name);
+$the_area_name = $Area_name;
+if ($area_name == 'pacific')
+  $the_area_name = "the " . $Area_name;
 
 $s = mysql_real_escape_string($area_name);
 $sql = "select count(*) c from CountryCodes where Area='$s'";
@@ -36,7 +40,7 @@ $tab = $DB->sql($sql);
 if ($DB->saw_error()) error("internal server error");
 
 # compose title
-$title = "Resources for languages in $area_name";
+$title = "Resources for languages in $the_area_name";
 
 ?>
 <html>
@@ -58,7 +62,7 @@ $title = "Resources for languages in $area_name";
 
 <!-- It's difficult to implement a layout with css, so we use table. -->
 <center>
-  <div class='searchtitle'>Search Open Language Archives (<?=ucfirst($area_name)?>)</div>
+  <div class='searchtitle'>Search Open Language Archives (<?=$Area_name?>)</div>
 
   <img id="world-map" src="/images/world-color-<?=$area_name?>-320.png" alt="World Map" usemap="#areas"></img>
   <map name="areas">
@@ -90,8 +94,9 @@ $title = "Resources for languages in $area_name";
 <center>
 <hr>
 
-<p class="narrow-p">The combined OLAC catalog has resources for languages that are spoken in
-<?=$area_name?>. The number in parentheses is the number of items cataloged for
+<p class="narrow-p">The combined OLAC catalog has resources for languages that
+are spoken in <?=$the_area_name?>.
+The number in parentheses is the number of items cataloged for
 languages for which the shown country is the primary country.</p>
 
 <table>
