@@ -1,4 +1,4 @@
 #! /bin/sh
 
-python $(olacvar qr/reporter) -a -s -t $(olacvar tech_email)
+python $(olacvar qr/reporter) -a -s -b $(olacvar tech_email)
 
