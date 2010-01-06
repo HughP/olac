@@ -18,7 +18,8 @@ for id in `cut -f1 $TMP1`; do
     if [ $id == "Item_ID" ]; then
         continue
     fi
-    echo "delete from METADATA_ELEM WHERE TagName = 'type' and Item_ID = $id;" >> $SQLTMP ;
+# while we're debugging, don't do this step
+#    echo "delete from METADATA_ELEM WHERE TagName = 'type' and Item_ID = $id;" >> $SQLTMP ;
     echo "update ARCHIVED_ITEM SET TypeClassifiedDate = NOW() WHERE Item_ID = $id;" >> $SQLTMP ;
 done
 mysql --defaults-file=~/oai.my.cnf < $SQLTMP
@@ -35,13 +36,16 @@ python prep_binary_for_multi.py $TMP1 $TMP2 $TMP3
 echo Running multi-type classifier...
 cd classifier
 # run muli-type classifier on YES lang resources
-./restype_test.sh resourceTypeClassifier.mallet $TMP3 $TMP4
+#CLASSIFIERCOMMENT='original resourceTypeClassifier.mallet'
+CLASSIFIERCOMMENT='multi_1-1 classifier 20091216'
+#./restype_test.sh resourceTypeClassifier.mallet $TMP3 $TMP4
+./restype_test.sh typemulti_1-1.classifier.mallet $TMP3 $TMP4
 cd ..
 
 echo Preparing enrichments for import...
 # create mysql data infile
 # format(tab-delim): Item_ID Code TagName Tag_ID Content Extension_ID Type
-cat $TMP4 |cut -d":" -f1 |awk '{print $1 "\t" $2 "\ttype\t1500\t\t15\tresource-type" }' > $TMP5
+cat $TMP4 |cut -d":" -f1 |awk '{print $1 "\t" $2 "\ttype\t1500\tCLASSIFIERCOMMENT\t15\tresource-type" }'|sed -e "s/CLASSIFIERCOMMENT/$CLASSIFIERCOMMENT/" > $TMP5
 
 # update HasOLACType for each item
 rm $SQLTMP
@@ -71,6 +75,6 @@ LINES TERMINATED BY '\\n'
 rm $TMP1
 rm $TMP2
 rm $TMP3
-rm $TMP4
+#rm $TMP4
 rm $TMP5
 rm $SQLTMP
