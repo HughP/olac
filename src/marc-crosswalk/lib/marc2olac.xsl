@@ -948,8 +948,8 @@ local cataloging practices.
 
 
 
-    <!-- This is commented out by virtue of the final x -->
-    <xsl:template match="marc:datafield[@tag='600x']">
+
+    <xsl:template match="marc:datafield[@tag='600']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -958,7 +958,7 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type"/>
+                <!--<xsl:call-template name="process-linguistic-type"/>-->
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
@@ -972,8 +972,8 @@ local cataloging practices.
     </xsl:template>
 
 
-    <!-- This is commented out by virtue of the final x -->
-    <xsl:template match="marc:datafield[@tag='610x']">
+
+    <xsl:template match="marc:datafield[@tag='610']">
         <xsl:if test="not(contains( . , 'Thesis'))">
             <xsl:choose>
                 <xsl:when test="@ind2='0'">
@@ -983,7 +983,7 @@ local cataloging practices.
                             <xsl:with-param name="delimiter">--</xsl:with-param>
                         </xsl:call-template>
                     </dc:subject>
-                    <xsl:call-template name="process-linguistic-type"/>
+                    <!--<xsl:call-template name="process-linguistic-type"/>-->
                 </xsl:when>
                 <xsl:when test="@ind2='2'">
                     <dc:subject xsi:type="dcterms:MESH">
@@ -1001,7 +1001,7 @@ local cataloging practices.
 
 
     <!-- This is commented out by virtue of the final x -->
-    <xsl:template match="marc:datafield[@tag='611x']">
+    <xsl:template match="marc:datafield[@tag='611']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -1010,7 +1010,7 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type"/>
+                <!--<xsl:call-template name="process-linguistic-type"/>-->
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
@@ -1026,7 +1026,7 @@ local cataloging practices.
 
 
     <!-- This is commented out by virtue of the final x -->
-    <xsl:template match="marc:datafield[@tag='630x']">
+    <xsl:template match="marc:datafield[@tag='630']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -1035,7 +1035,7 @@ local cataloging practices.
                         <xsl:with-param name="delimiter">--</xsl:with-param>
                     </xsl:call-template>
                 </dc:subject>
-                <xsl:call-template name="process-linguistic-type"/>
+                <!--<xsl:call-template name="process-linguistic-type"/>-->
             </xsl:when>
             <xsl:when test="@ind2='2'">
                 <dc:subject xsi:type="dcterms:MESH">
@@ -1049,7 +1049,6 @@ local cataloging practices.
     </xsl:template>
 
 
-    <!-- This is commented out by virtue of the final x -->
     <xsl:template match="marc:datafield[@tag='650x']">
         <xsl:call-template name="process-linguistic-type"/>
         <xsl:call-template name="process-linguistic-subject"/>
