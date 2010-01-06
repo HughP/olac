@@ -948,8 +948,8 @@ local cataloging practices.
 
 
 
-
-    <xsl:template match="marc:datafield[@tag='600']">
+    <!-- This is commented out by virtue of the final x -->
+    <xsl:template match="marc:datafield[@tag='600x']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -972,8 +972,8 @@ local cataloging practices.
     </xsl:template>
 
 
-
-    <xsl:template match="marc:datafield[@tag='610']">
+    <!-- This is commented out by virtue of the final x -->
+    <xsl:template match="marc:datafield[@tag='610x']">
         <xsl:if test="not(contains( . , 'Thesis'))">
             <xsl:choose>
                 <xsl:when test="@ind2='0'">
@@ -1000,8 +1000,8 @@ local cataloging practices.
 
 
 
-
-    <xsl:template match="marc:datafield[@tag='611']">
+    <!-- This is commented out by virtue of the final x -->
+    <xsl:template match="marc:datafield[@tag='611x']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
@@ -1025,8 +1025,8 @@ local cataloging practices.
 
 
 
-
-    <xsl:template match="marc:datafield[@tag='630']">
+    <!-- This is commented out by virtue of the final x -->
+    <xsl:template match="marc:datafield[@tag='630x']">
         <xsl:choose>
             <xsl:when test="@ind2='0'">
                 <dc:subject xsi:type="dcterms:LCSH">
