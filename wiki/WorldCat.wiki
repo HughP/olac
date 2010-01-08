@@ -43,3 +43,13 @@ Give specifications for the records to be generated for the static repository
 = Implementation =
 
 Give other specifications for the program that implements the service
+
+= Resources =
+
+Documentation on the WorldCat search API: 
+
+   http://worldcat.org/devnet/wiki/SearchAPIDetails
+
+Documentation on the indexes on the WorldCat database for Z39.50 searching:
+
+   http://www.oclc.org/support/documentation/firstsearch/z3950/z3950_databases/specs/worldcat.htm
