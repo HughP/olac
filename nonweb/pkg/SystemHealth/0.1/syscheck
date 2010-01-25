@@ -1,0 +1,22 @@
+
+case $0 in
+    /*) thisdir=$(dirname $0) ;;
+    *)  thisdir=$(pwd)/$(dirname $0) ;;
+esac
+
+cols=$(stty size)
+cols=${cols##* }
+
+find $thisdir/enabled -type l | while read a; do
+    $a | {
+     	read a
+	echo -n $a
+	read b
+	n=$(($cols - ${#a} - ${#b} - 1))
+	while [ $n -gt 0 ]; do
+	    echo -n " "
+	    n=$(($n - 1))
+	done
+	echo $b
+    }
+done
