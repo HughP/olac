@@ -1,0 +1,10 @@
+Each check should produce 2 lines of output.
+
+Before beginning the check, it should print out what it does, e.g.
+
+  Checking if database server is alive...
+  Checking if web server is alive...
+
+After checking and before exiting, it should print out "OK" if the checking was
+successful, and "FAIL" if not.
+
