@@ -53,7 +53,7 @@ $title = "Resources for languages in $country_name";
 <script type="text/javascript" src="/js/search/main.js"></script>
 <script type="text/javascript">
   google.setOnLoadCallback(function() {
-      initialize('<?=$country_code?>', '<?=$area_name?>');
+      initialize('country_<?=$country_code?>', '<?=$area_name?>');
     });
 </script>
 </head>

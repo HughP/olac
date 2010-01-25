@@ -54,7 +54,7 @@ $title = "Resources for languages in $the_area_name";
 <script type="text/javascript" src="/js/search/main.js"></script>
 <script type="text/javascript">
   google.setOnLoadCallback(function() {
-      initialize('<?=$area_name?>', '<?=$area_name?>');
+      initialize('area_<?=$area_name?>', '<?=$area_name?>');
     });
 </script>
 </head>
