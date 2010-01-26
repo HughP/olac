@@ -7,7 +7,7 @@ esac
 cols=$(stty size)
 cols=${cols##* }
 
-find $thisdir/enabled -type l | while read a; do
+find $thisdir/enabled -type l | sort | while read a; do
     $a | {
      	read a
 	echo -n $a

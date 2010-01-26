@@ -1,6 +1,6 @@
 #! /bin/sh
 
-echo "Checking if mysql accepts connection..."
+echo "Check if mysql accepts connection..."
 
 user=$(olacvar mysql/user)
 pw=$(olacvar mysql/passwd)
@@ -9,8 +9,8 @@ host=$(olacvar mysql/host)
 echo "show tables" | mysql -q -h $host -u $user -p$pw $db >/dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-	echo OK
+	echo YES
 else
-	echo FAIL
+	echo NO
 fi
 
