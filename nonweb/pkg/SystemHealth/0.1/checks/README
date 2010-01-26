@@ -5,6 +5,6 @@ Before beginning the check, it should print out what it does, e.g.
   Checking if database server is alive...
   Checking if web server is alive...
 
-After checking and before exiting, it should print out "OK" if the checking was
-successful, and "FAIL" if not.
+After checking and before exiting, it should print out "YES" if it is checked
+as expected, "NO" if not, or "FAIL" if the checking was impossible.
 

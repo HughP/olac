@@ -1,12 +1,12 @@
 #! /bin/sh
 
-echo "Checking if apache is running..."
+echo "Check if apache is running..."
 
 pid=$(pgrep -o apache2)
 
 if [ $? -eq 0 ]; then
-	echo OK
+	echo YES
 else
-	echo FAIL
+	echo NO
 fi
 
