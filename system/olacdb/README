@@ -21,6 +21,8 @@ http://www.ethnolotue.com and http://www.sil.org.
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Macrolanguages
   $ sed 1d iso-639-3_Retirements_20080529.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Retirements -e latin-1
+  $ cat LivingLanguagesEthnologue16.tab | \
+        python loadtab.py -c ~/.my.cnf -t LanguagePopulation.tab
 
 
 Finally, populate the EXTENSION table with OLAC extensions.  Use "-n 1.0" to

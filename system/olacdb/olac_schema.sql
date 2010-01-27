@@ -653,6 +653,20 @@ create index LanguageIndex_LangID on LanguageIndex (LangID);
 
 
 ##################################################################
+# Table                : LanguagePopulation
+##################################################################
+
+create table LanguagePopulation (
+	Area		varchar(10),
+	Country		varchar(75),	
+	LangID		char(3),
+	Family		varchar(35),
+	Population	int,
+	primary key (LangID)
+) engine=innodb, charset=utf8;
+
+
+##################################################################
 # Table                : ISO_639_3
 # Description          : ISO 639-3 code table downloaded from sil.org
 #
