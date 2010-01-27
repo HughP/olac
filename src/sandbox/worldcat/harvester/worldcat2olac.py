@@ -5,6 +5,7 @@ from datetime import date
 import string
 import sys
 import time
+import random
 import urllib2
 import cPickle as pickle
 from worldcat.request.search import SRURequest
@@ -25,6 +26,19 @@ class Harvester(Logger):
         self.results = []
         self.queries = []
         self.types = self._load_olac_types()
+        self.waitLowerBound = 0
+        self.waitUpperBound = 0
+
+    def random_wait_between(self, lowerBound, upperBound):
+        """function to set the lower and upper bounds of the random wait"""
+        self.waitLowerBound = lowerBound
+        self.waitUpperBound = upperBound
+
+    def _wait(self):
+        if self.waitUpperBound != 0:
+            seconds = random.randint(self.waitLowerBound, self.waitUpperBound)
+            self.log("Waiting %d seconds..." % seconds)
+            time.sleep(seconds)
 
     def reset_queries(self):
         self.queries = []
@@ -96,6 +110,9 @@ class Harvester(Logger):
                 else:
                     self.log("Query limit exceeded.  Stopping at %s of %s.  Try again tomorrow" % (len(self.results)+1, len(self.queries)+1))
                     break
+
+                # wait a random amount of time
+                self._wait()
 
 
     def make_olac_repo(self, templatePrefix, filename):
@@ -215,6 +232,8 @@ if __name__ == "__main__":
             help="Filename of list of queries to harvest (required if online)")
     clparser.add_option("-f", "--output", dest="repoFilename",
             help="Static repository filename for output")
+    clparser.add_option("-m", "--max-queries-per-day", dest="maxqueries",
+            help="Specifies the approximate maximum queries to execute in a 24 hour period.  The harvester will be throttled accordingly")
 
     (options, args) = clparser.parse_args()
 
@@ -236,6 +255,11 @@ if __name__ == "__main__":
     else:
         pickleFilename = 'harvester.pickle'
 
+    # max queries per 24 period
+    if options.maxqueries:
+        secondsPerQuery = 86400 / int(options.maxqueries)
+        lowerBound = int(secondsPerQuery / 2)
+        upperBound = int(secondsPerQuery * 1.5)
 
     harvester = Harvester()
 
@@ -264,6 +288,11 @@ if __name__ == "__main__":
             print "Error: Unable to run in --offline mode since no previous harvest is available.  Try running the harvester without --offline"
     if options.online:
         # go online and harvest from WorldCat
+
+        # sleep for a random amount of time between queries
+        if options.maxqueries:
+            harvester.random_wait_between(lowerBound, upperBound)
+
         harvester.harvest()
         harvester.log("Pickling Harvester to '%s'" % pickleFilename)
         to_pickle(harvester, pickleFilename)
