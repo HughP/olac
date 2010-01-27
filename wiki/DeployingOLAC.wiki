@@ -424,6 +424,15 @@ olacvar python/egg/cache
 }}}
 
 
+=== Redirections ===
+
+Add the following to the apache configuration file for OLAC.
+
+{{{
+Redirect permanent /tools/search/search.php /search
+}}}
+
+
 === Cron jobs ===
 Set up cronjobs for harvester, online resources checker (part of integrity check), Google Analytics information collector (for quarterly reports), and quarterly report. Here's an example.
 
@@ -438,6 +447,8 @@ MAILTO=...
 00 06 2 * * $(olacvar cron/ga)
 # quarterly report
 37 10 3 1,4,7,10 * $(olacvar cron/quarterly_report)
+# system health
+00 * * * * $(olacvar cron/system_health)
 }}}
 
 Note that MAILTO should be set to the value of the tech_email variable.
