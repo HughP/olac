@@ -57,6 +57,7 @@ function OLACSearch(searchBoxId,
     this.searcher = new google.search.WebSearch();
     this.searcher.setSiteRestriction('008121384105191196936:y5ywkrnqcto');
     this.searcher.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    this.searcher.setLinkTarget(google.search.Search.LINK_TARGET_SELF);
     this.gsForm = new google.search.SearchForm(false, this.searchBox);
 
     this.searcher.setSearchCompleteCallback(this, this.onSearchComplete);
