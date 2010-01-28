@@ -27,11 +27,12 @@ function get_confirmation_magic_string($DB)
 
 function get_admin_email($DB, $repoid)
 {
-  $sql = "select contactEmail from ARCHIVES where ID='$repoid'";
+  $sql = "select AdminEmail from OLAC_ARCHIVE
+          where RepositoryIdentifier='$repoid'";
   $rows = $DB->sql($sql);
   if ($DB->saw_error())
     return FALSE;
-  $adminemail = $rows[0]['contactEmail'];
+  $adminemail = $rows[0]['AdminEmail'];
   $adminemail = preg_replace("/^mailto:/", "", $adminemail);
   return $adminemail;
 }
