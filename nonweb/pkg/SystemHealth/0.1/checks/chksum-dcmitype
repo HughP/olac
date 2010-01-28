@@ -8,7 +8,7 @@ CHKSUM="f3a01f32230e6af6e22732121502c0b0"
 NEW_CHKSUM=$(curl -s "$URL" | md5sum | cut -d' ' -f 1)
 
 if [ "$NEW_CHKSUM" = "$CHKSUM" ]; then
-    echo YES
+    echo PASS
 else
-    echo NO
+    echo FAIL
 fi

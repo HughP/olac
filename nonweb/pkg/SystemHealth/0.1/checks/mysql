@@ -9,8 +9,8 @@ host=$(olacvar mysql/host)
 echo "show tables" | mysql -q -h $host -u $user -p$pw $db >/dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-	echo YES
+	echo PASS
 else
-	echo NO
+	echo FAIL
 fi
 
