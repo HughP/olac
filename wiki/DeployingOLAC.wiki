@@ -411,6 +411,7 @@ Mount WSGI scripts as follows.
         WSGIScriptAlias /cp /olac/wsgi/cp.wsgi
         WSGIScriptAlias /google-sitemap.xml /olac/wsgi/google-sitemap.wsgi
         WSGIScriptAlias /checks /olac/wsgi/integrity_check.wsgi
+        WSGIScriptAlias /srv /olac/wsgi/srv.wsgi
 }}}
 
  * cp.wsgi is services written using CherryPy. The survey page uses this as its backend.
