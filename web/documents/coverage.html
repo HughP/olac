@@ -6,6 +6,10 @@
         <title>OLAC Coverage</title>
         <link href="../olac.css" rel="stylesheet" type="text/css"/>
         <style type="text/css">H3 {font-style:italic; }</style>
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript" src="/js/XMLHttpRequest.js"></script>
+	<script type="text/javascript" src="/js/coverage/main.js"></script>
+	<script>Coverage.init2("tab1","tab2");</script>
     </head>
     <body bgcolor="white">
         <hr/>
@@ -28,8 +32,8 @@
         <hr/>
         <h2>OLAC Coverage</h2>
         <h3>OLAC Coverage in Relation to Language Size</h3>
-        <img src="coverage.png" width="640"/>
+	<div id="tab1"></div>
         <h3>Online Resources in Relation to Language Size</h3>
-        <img src="coverage-online.png" width="640"/>
+	<div id="tab2"></div>
     </body>
 </html>
