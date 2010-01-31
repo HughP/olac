@@ -98,6 +98,7 @@
         <xsl:choose>
             <xsl:when test="$f='discourse_analysis'">language_description</xsl:when>
             <xsl:when test="$f='morphology'">language_description</xsl:when>
+            <xsl:when test="$f='grammar'">language_description</xsl:when>
             <xsl:when test="$f='phonetics'">language_description</xsl:when>
             <xsl:when test="$f='phonology'">language_description</xsl:when>
             <xsl:when test="$f='pragmatics'">language_description</xsl:when>
