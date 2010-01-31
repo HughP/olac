@@ -1,7 +1,9 @@
 from optparse import OptionParser
 import os
+import re
 import codecs
 from datetime import date
+from operator import itemgetter
 import string
 import sys
 import time
@@ -11,6 +13,7 @@ import cPickle as pickle
 from worldcat.request.search import SRURequest
 from worldcat.util.extract import pymarc_extract
 
+MAXIMUM_RECORDS = 500
 
 LOG = sys.stderr
 class Logger:
@@ -28,6 +31,7 @@ class Harvester(Logger):
         self.types = self._load_olac_types()
         self.waitLowerBound = 0
         self.waitUpperBound = 0
+        self._stopped = False
 
     def random_wait_between(self, lowerBound, upperBound):
         """function to set the lower and upper bounds of the random wait"""
@@ -66,10 +70,12 @@ class Harvester(Logger):
         # format expected to be:
         # olactype = subject1|subject2|subject3 with spaces|subj4
         typedict = {}
+        typedict['all_types'] = []
         for line in open(filename):
             type,string = line.strip().split('=')
             type = type.strip()
             typedict[type] = string.strip().split('|')
+            typedict['all_types'].extend(typedict[type])
         return typedict
         
     def _build_query(self, q):
@@ -85,34 +91,73 @@ class Harvester(Logger):
 
         return query
 
+
+    def _sru_request(self, query, startNum = 1):
+        # wait a random amount of time
+        self._wait()
+
+        req = SRURequest(wskey = self.apikey)
+        req.args['query'] = query
+        req.args['maximumRecords'] = 50
+        if startNum > 1:
+            req.args['startRecord'] = startNum
+        try:
+            return req.get_response().data
+        except urllib2.HTTPError:
+            self._stopped = True
+            return None
+
+    def _get_records(self, q):
+        records = []
+        query = self._build_query(q)
+        code = q['code']
+        subj = q['subj']
+        type = q['type']
+
+        self.log("Executing query %s of %s '%s'" % (self.queries.index(q)+1, len(self.queries), subj))
+
+        responseData = self._sru_request(query)
+        if responseData is not None:
+            records.extend(pymarc_extract(responseData))
+
+        nextPosition = self._get_next_id(responseData)
+
+        while nextPosition is not None and len(records) < MAXIMUM_RECORDS:
+            responseData = self._sru_request(query, nextPosition)
+            if responseData is not None:
+                records.extend(pymarc_extract(responseData))
+
+            nextPosition = self._get_next_id(responseData)
+
+        return records
+            
+            
+            
+    def _get_next_id(self, data):
+        nextId = re.search('<nextRecordPosition>(\d+)</nextRecordPosition>', data)
+        if nextId is not None:
+            return nextId.group(1)
+        else:
+            return None
+        
+
     def harvest(self):
         if len(self.results) > 0:
             self.log("Resuming harvest at query %d" % (len(self.results)+1))
         for q in self.queries:
             #q = self.queries.pop()
             if 'harvested' not in q: # if this query has not been harvested
+                recs = self._get_records(q)
                 query = self._build_query(q)
-                queryindex = self.queries.index(q)
-                code = q['code']
-                subj = q['subj']
-                type = q['type']
-                req = SRURequest(wskey = self.apikey)
-                req.args['query'] = query
-                try:
-                    self.log("Executing query %s of %s '%s'" % (len(self.results)+1, len(self.queries)+1, query))
-                    responsedata = req.get_response().data
-                except urllib2.HTTPError:
-                    responsedata = None
 
-                if responsedata is not None:
-                    self.results.append({'code':q['code'],'subj':q['subj'],'type':q['type'],'query':query,'records':pymarc_extract(responsedata)})
-                    self.queries[queryindex]['harvested'] = True
-                else:
-                    self.log("Query limit exceeded.  Stopping at %s of %s.  Try again tomorrow" % (len(self.results)+1, len(self.queries)+1))
+                if len(recs) != 0:
+                    query = self._build_query(q)
+                    self.results.append({'code':q['code'],'subj':q['subj'],'type':q['type'],'query':query,'records':recs})
+                    self.queries[self.queries.index(q)]['harvested'] = True
+                elif self._stopped:
+                    self._stopped = False
+                    self.log("Query limit exceeded.  Stopping at %s of %s.  Try again tomorrow" % (len(self.results)+1, len(self.queries)))
                     break
-
-                # wait a random amount of time
-                self._wait()
 
 
     def make_olac_repo(self, templatePrefix, filename):
@@ -142,6 +187,8 @@ class Harvester(Logger):
             
             if templatePrefix == 'wcsimple':
                 r['extent'] = len(r['records'])
+                if r['extent'] == MAXIMUM_RECORDS:
+                    r['extent'] = str(r['extent']) + '+'
                 htmlfilename = htmlpath + '/%s.html' % ctr
                 r['id'] = ctr
                 r['today'] = today
@@ -153,11 +200,15 @@ class Harvester(Logger):
                 htmlfile = codecs.open(htmlfilename, 'w', 'utf-8')  
                 htmlfile.write(htmlHeaderTemplate.substitute(r))
                 
+                shortrecs = dict()
                 for rec in r['records']:
-                    vars = dict()
-                    vars['oclcnum'] = rec['001'].value()
-                    vars['title'] = rec['245'].value()
-                    htmlfile.write(htmlRecordTemplate.substitute(vars))
+                    shortrecs[rec['245'].value()] = {
+                        'title':rec['245'].value(),
+                        'oclcnum':rec['001'].value()
+                        }
+
+                for t in sorted(shortrecs):
+                    htmlfile.write(htmlRecordTemplate.substitute(shortrecs[t]))
 
                 htmlfile.write(htmlFooterTemplate.substitute(dict()))
                 htmlfile.close()
@@ -169,32 +220,39 @@ class Harvester(Logger):
 
 
     def make_hit_report(self, filename):
-        def inc(var, dict):
-            if var in dict:
-                dict[var] += 1
-            else:
-                dict[var] = 1
         report = open(filename, 'w')
         typetotals = {}
         subjtotals = {}
         subjzeros = []
         for r in self.results:
-            inc(r['type'], typetotals)
-            inc(r['subj'], subjtotals)
-        
+            type = r['type']
+            if type == '':
+                type = '[no type]'
+            subj = r['subj']
+
+            if type not in typetotals:
+                typetotals[type] = len(r['records'])
+            else:
+                typetotals[type] += len(r['records'])
+                
+            if subj not in subjtotals:
+                subjtotals[subj] = len(r['records'])
+            else:
+                subjtotals[subj] += len(r['records'])
+
         report.write("Total hits by type:\n")
         for type in typetotals:
             report.write("%s %s\n" % (type, typetotals[type]))
 
         report.write("\n\nTotal hits by subject language:\n")
-        for subj in subjtotals:
-            if subjtotals[subj] == 0:
-                subjzeros.append(subj)
+        for pair in sorted(subjtotals.items(), reverse=True, key=itemgetter(1)):
+            if pair[1] == 0:
+                subjzeros.append(pair[0])
             else:
-                report.write("%s %s\n" % (subj, subjtotals[subj]))
+                report.write("%s %s\n" % (pair[0], pair[1]))
 
         if len(subjzeros) > 0:
-            report.write("\n\nThe following subject languages returned no results:\n")
+            report.write("\n\nThe following %s subject languages returned no results:\n" % len(subjzeros))
             for subj in subjzeros:
                 report.write("%s\n" % (subj))
             
@@ -247,7 +305,7 @@ if __name__ == "__main__":
     if options.repoFilename:
         outputFilename = options.repoFilename
     else:
-        outputFilename = 'worldcat_static.xml'
+        outputFilename = 'worldcat_repository.xml'
 
     # default variables
     if options.pickle:
@@ -258,8 +316,8 @@ if __name__ == "__main__":
     # max queries per 24 period
     if options.maxqueries:
         secondsPerQuery = 86400 / int(options.maxqueries)
-        lowerBound = int(secondsPerQuery / 2)
-        upperBound = int(secondsPerQuery * 1.5)
+        lowerBound = 0
+        upperBound = int(secondsPerQuery * 2)
 
     harvester = Harvester()
 
@@ -271,7 +329,7 @@ if __name__ == "__main__":
             if len(line) == 3:
                 q = {'code':line[0], 'subj':line[1], 'type':line[2]}
             else:
-                q = {'code':line[0], 'subj':line[1], 'type':''}
+                q = {'code':line[0], 'subj':line[1], 'type':'all_types'}
             harvester.add_query(q)
         queryfile.close()
 
@@ -300,7 +358,8 @@ if __name__ == "__main__":
     if harvester and harvester.has_results():
         harvester.make_olac_repo('wcsimple', outputFilename)
         print "OLAC static repository written to '%s'" % outputFilename
-        harvester.make_hit_report('hitreport.txt')
-        print "Hit report written to '%s'" % 'hitreport.txt'
+        hitreportFilename = '%s_hitreport.txt' % outputFilename
+        harvester.make_hit_report(hitreportFilename)
+        print "Hit report written to '%s'" % hitreportFilename
     else:
         print "Error: Cannot export static repository because result set is empty"
