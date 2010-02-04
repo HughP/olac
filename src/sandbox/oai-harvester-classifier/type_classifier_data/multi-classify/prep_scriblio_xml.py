@@ -51,7 +51,7 @@ doc = etree.parse(xmlfile)
 root = doc.getroot()
 ctr = 0
 multirecs = 0
-multitypes = [] # to store multitype name mapping for pickling
+#multitypes = [] # to store multitype name mapping for pickling
 for rec in root.find(srNS + 'ListRecords').findall(oaiNS + 'record'):
     rec = rec.find(oaiNS + 'metadata').find(olacNS + 'olac')
     types = gettypes(rec)
@@ -71,10 +71,11 @@ for rec in root.find(srNS + 'ListRecords').findall(oaiNS + 'record'):
 
     #  multiple type labels, one line per record.  Label are concatenated with '&'
     mt = '&'.join(sorted(types))
-    if mt not in multitypes:
-        multitypes.append(mt)
+    #if mt not in multitypes:
+    #    multitypes.append(mt)
 
-    out2.write("%s\t%s\t%s\n" % (ctr, multitypes.index(mt), text))
+    #out2.write("%s\t%s\t%s\n" % (ctr, multitypes.index(mt), text))
+    out2.write("%s\t%s\t%s\n" % (ctr, mt, text))
 
     # single type label, one line per type of each record (this means that for a record that has more than one type, a line exists for each type in the record, effectively duplicating the text on which to train, but with a different label for that same text
     ctr2 = 1
@@ -85,7 +86,7 @@ for rec in root.find(srNS + 'ListRecords').findall(oaiNS + 'record'):
         multirecs += 1
 
 # write out pickle
-pickle.dump(multitypes,open(os.path.basename(xmlfile) + '.multilabel_map.pickle', 'w'))
+#pickle.dump(multitypes,open(os.path.basename(xmlfile) + '.multilabel_map.pickle', 'w'))
 
 print "%s recs had more than one type" % multirecs
 print "%s recs total" % ctr
