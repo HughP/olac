@@ -329,7 +329,7 @@ if __name__ == "__main__":
             if len(line) == 3:
                 q = {'code':line[0], 'subj':line[1], 'type':line[2]}
             else:
-                q = {'code':line[0], 'subj':line[1], 'type':'all_types'}
+                q = {'code':line[0], 'subj':line[1], 'type':''}
             harvester.add_query(q)
         queryfile.close()
 
