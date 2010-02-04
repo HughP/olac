@@ -18,7 +18,7 @@ for id in `cut -f1 $TMP1`; do
     if [ $id == "Item_ID" ]; then
         continue
     fi
-# while we're debugging, don't do this step
+# while we're debugging, don't do this step, this allows us to see all previous classification attempts
 #    echo "delete from METADATA_ELEM WHERE TagName = 'type' and Item_ID = $id;" >> $SQLTMP ;
     echo "update ARCHIVED_ITEM SET TypeClassifiedDate = NOW() WHERE Item_ID = $id;" >> $SQLTMP ;
 done
@@ -27,7 +27,7 @@ mysql --defaults-file=~/oai.my.cnf < $SQLTMP
 echo Running binary classifier...
 cd classifier
 # run binary type classifier on oai data; output to $TMP2
-./restype_test.sh restype_binary_20091209.mallet $TMP1 $TMP2
+./restype_test.sh resourceTypeBinaryClassifier.mallet $TMP1 $TMP2
 cd ..
 
 echo Preparing for multi-type classifier...
@@ -37,9 +37,9 @@ echo Running multi-type classifier...
 cd classifier
 # run muli-type classifier on YES lang resources
 #CLASSIFIERCOMMENT='original resourceTypeClassifier.mallet'
-CLASSIFIERCOMMENT='multi_1-1 classifier 20091216'
+CLASSIFIERCOMMENT='multi_m-1 classifier 20100113'
 #./restype_test.sh resourceTypeClassifier.mallet $TMP3 $TMP4
-./restype_test.sh typemulti_1-1.classifier.mallet $TMP3 $TMP4
+./restype_test.sh resourceTypeMultiClassifier.mallet $TMP3 $TMP4
 cd ..
 
 echo Preparing enrichments for import...
