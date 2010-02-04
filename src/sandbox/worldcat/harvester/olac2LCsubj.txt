@@ -2,4 +2,4 @@ language_situation=atlases|maps|statistics
 language_instruction=conversation and phrase books|computer-assisted instruction|curricula|examinations, questions, etc|exercises|guidebooks|handbooks, manuals, etc|laboratory manuals|outlines, syllabi, etc|problems, exercises, etc|programmed instruction|readers|self-instruction|sound recordings for|style manuals|study and teaching|study guides|textbooks for
 language_text=concordances|comic books, strips, etc|correspondence|drama|fiction|folklore|juvenile drama|juvenile fiction|juvenile literature|juvenile poetry|legends|literary collections|newspapers|personal narratives|phonetic transcriptions|poetry|prayer-books and devotions|quotations, maxims, etc|records and correspondence|sermons|songs and music|sources|texts
 resource_index=bibliography|catalogs|indexes|microform catalogs
-language_lexicon=dictionaries|gazatteers|glossaries, vocabularies, etc|nomenclature|reverse indexes|synonyms and antonyms|terminology|terms and phrases
+language_lexicon=dictionaries|gazatteers|glossaries, vocabularies, etc|nomenclature|reverse indexes|synonyms and antonyms|terminology|terms and phrases|grammar
