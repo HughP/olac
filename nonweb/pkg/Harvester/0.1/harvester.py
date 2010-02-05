@@ -1234,7 +1234,7 @@ def harvest_single(url,
                 tstruct = time.strptime(s, "%a, %d %b %Y %H:%M:%S %Z") # GMT
                 t = time.mktime(tstruct) - time.altzone
                 t0 = time.mktime(last_harvested.timetuple())
-                if t >= t0:
+                if t >= t0 or full:
                     # the file has been modified
                     harvest(url, con, full, stream_filter, static)
                 else:
