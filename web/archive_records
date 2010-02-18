@@ -37,7 +37,7 @@ BORDER="0"></A></TD>
 <a href="/archives.php">harvested archive</a>
 to be displayed.  It may be slow for large archives.
 To find particular records in OLAC archives, please use
-the <a href="/tools/search/">OLAC search interface</a>.
+the <a href="/search/">OLAC search interface</a>.
 
 <?
 function archives()
