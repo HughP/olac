@@ -42,6 +42,12 @@ EOT;
 $DB = new OLACDB();
 
 $repoid = $_GET["id"];
+if (!$repoid) {
+  echo "<p>Please specify the repository identifier. For example,</p>";
+  echo "...harvest.php?<font color=red>id=your.repository.identifier.org<font>";
+  return;
+}
+
 $adminemail = get_admin_email($DB, $repoid);
 if ($adminemail === FALSE) {
   error("Database error while obtaining AdminEmail for $repoid\n\n".
@@ -49,6 +55,12 @@ if ($adminemail === FALSE) {
 	"SQL: " . $DB->get_error_sql());
   return;
 }
+if (!$adminemail) {
+  echo "<p>Cannot obtain AdminEmail for repository '$repoid'.</p>";
+  echo "<p>Please check if the repository ID is correct.</p>";
+  return;
+}
+
 $baseurl = get_baseurl($DB, $repoid);
 if ($baseurl === FALSE) {
   error("Database error while obtaining base URL for $repoid\n\n".
