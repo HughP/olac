@@ -71,8 +71,9 @@ else
   $title = "Resources in and about the $langname language";
 
 # get other names and dialects
+$escaped_langname = $DB->escape($langname);
 $sql = "select distinct Name from LanguageIndex
-        where LangID='$langcode' and Name!='$langname'
+        where LangID='$langcode' and Name!='$escaped_langname'
         order by Name";
 $tab = $DB->sql($sql);
 if ($DB->saw_error()) error("internal server error");
