@@ -1,0 +1,2 @@
+# desc: Script generating the OLAC coverage table.
+CoveragePageGenerator!generate_coverage_table.py
