@@ -26,9 +26,16 @@ def my_import(components):
 
     try:
         if not steps:
-            mod = __import__('default', fromlist=[callable_name])
+            if 'default' in globals():
+                mod = reload('default')
+            else:
+                mod = __import__('default', fromlist=[callable_name])
         else:
-            mod = __import__('.'.join(steps), fromlist=[callable_name])
+            modnam = '.'.join(steps)
+            if modnam in globals():
+                mod = reload(modnam)
+            else:
+                mod = __import__(modnam, fromlist=[callable_name])
         return getattr(mod, callable_name), args
     except AttributeError:
         pass
