@@ -23,16 +23,16 @@
   * *Deliverable:* An automated metadata quality advisor that tells an archive what they need to do to achieve a five-star rating.<br>
   * *Status:* __Completed__; there is a new Analyze button on the Free-Standing OLAC Metadata Service (http://www.language-archives.org/tools/metadata/freestanding.html) which computes the quality score of a record and advises how to improve it. The same analysis is invoked for the Sample Record for each participating archive at http://www.language-archives.org/archives.php<br>
   * *Target:* Every archive publishes five-star metadata. (For the present, we must lower the goal to a four-star score since this is the maximum that many archives can receive until the new language resource type vocabulary is implement; see 1.1g below.)<br>
-  * *Status:* At present, __7 of 36__ (or 19%) of archives have reached the target level. As the baseline, one archive had four-star metadata and none had five-star.<br>
+  * *Status:* At present, __19 of 41__ (or 47%) of archives have reached the target level. As the baseline, one archive had four-star metadata and none had five-star.<br>
 
 1.1d _Updating archives:_ Identify OLAC archives whose metadata records have gone stale, and work with them to bring their catalogs up-to-date.
 
   * *Target:* Every archive updates at least once a year.<br>
-  * *Status:* At present, __10 of 36__ archives have updated within the last 12 months. The baseline was 5 of 36.<br>
+  * *Status:* At present, __21 of 41__ archives have updated within the last 12 months. The baseline was 5 of 36.<br>
   * *Deliverable:* In version 1.1 of the repositories standard, add a {{{currentAsOf}}} attribute to the {{{olac-archive}}} description of the Identify response and update harvester to read it.<br>
   * *Status:* __Completed__. The reporting of date of last update is implemented in 1.1e and 1.1f as the later of the latest datestamp or {{{currentAsOf.}}}<br>
   * *Target:* Every archive has upgraded to version 1.1. (This is actually a prerequisite to achieving the target of every archive updating once a year, since without the {{{currentAsOf}}} attribute they cannot indicate that they are up-to-date when no records have been updated.)<br>
-  * *Status:* __23__ still need to be upgraded. (All pending upgrades are tracked in Google Code as [http://code.google.com/p/olac/issues/list?q=label:Type-Repository Open issues of Type-Repository].)<br>
+  * *Status:* __17__ still need to be upgraded. (All pending upgrades are tracked in Google Code as [http://code.google.com/p/olac/issues/list?q=label:Type-Repository Open issues of Type-Repository].)<br>
 
 1.1e _Quarterly reporting:_ Develop an automated quarterly report to be emailed to curators to inform them of their metadata quality and currency and their usage statistics.
 
