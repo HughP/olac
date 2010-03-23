@@ -18,14 +18,14 @@
   * *Deliverable:* A new page on the OLAC site listing all of the actual archives with their submission policies. This page is aimed at individuals who are looking for a place to archive lanauge resources they have created.<br>
   * *Status:* Not started.<br>
   * *Indicator:* Number of OLAC participants that have documented their submissional policy.<br>
-  * *Status:* 0.<br>
+  * *Status:* 1.<br>
 
 1.3c _Score cards:_ Incorporate curation practices into OLAC's score card system.
 
   * *Deliverable:* Develop a self assessment tool that will allow archives to report where they are with respect to best practice recommendations.<br>
   * *Status:* Not started.<br>
   * *Indicator:* Number of OLAC participants that have posted a self assessment.<br>
-  * *Status:* 1.<br>
+  * *Status:* 0.<br>
 
 1.3d _State-of-the-art assessment:_ Assess the state of the art with respect to the archival curation of language resources.
 
