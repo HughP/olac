@@ -52,5 +52,5 @@
 
 1.1g _Language Resource Type:_ Develop a language resource type vocabulary to replace the linguistic data type vocabulary so that every language resource will have a relevant type category.
 
-  * *Deliverable:* A new recommendation document.<br>
+  * *Deliverable:* A new draft recommendation document.<br>
   * *Status:* Thus far, there are only rough notes.<br>
