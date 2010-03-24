@@ -565,7 +565,7 @@ OLAC metadata?</a> </li>
         uploaded into the database.</p>
    
     <h3 class="Question"><a name="changes">Why aren't my changes being harvested?</a></h3>
-    <p>Incremental harvesting takes place every eight hours. Before
+    <p>Incremental harvesting takes place every day. Before
         issuing the <tt>ListRecords</tt> command of the OAI-PMH
         protocol, the
         harvester looks up the date of the last successful harvest of
@@ -580,8 +580,8 @@ OLAC metadata?</a> </li>
         recognizes that it must refresh its cache of records; thus by the next
         request the gateway is able to respond with the updated
         records.</p>
-    <p>If more than sixteen hours have elapsed since you updated your
-        repository and the changes you made are not showing when you
+    <p>If more than two days have elapsed since you updated your
+        repository, and the changes you made are not showing when you
         go to <a
             href="http://www.language-archives.org/archive_records/">http://www.language-archives.org/archive_records/</a>
         to inspect your records, then look at the 
