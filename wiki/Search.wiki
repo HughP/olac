@@ -17,11 +17,11 @@
 2.3b _Synonyms:_ Add synonyms for all identified linguistic terminology to static HTML pages, so that these pages are more likely to be found in conventional web searches.
 
   * *Deliverable:* Add a dynamically generated page for every ISO 639 language code which contains all known alternate names and dialect names for the language so there is an OLAC page for web searches on these terms to find.<br>
-  * *Status:* Not started.<br>
+  * *Status:* Completed.<br>
   * *Deliverable:* Add a dynamically generated page for every linguistic data type that contains all known synonyms so there is an OLAC page for web searches on these terms to find.<br>
-  * *Status:* Not started.<br>
+  * *Status:* Not started.  (Not clear that we need this any more.)<br>
   * *Deliverable:* To the language pages, add all known synonyms for the linguistic data types that OLAC has indexed for for the particular language so that web searches including a language name and a data type will find these pages.<br>
-  * *Status:* Not started.<br>
+  * *Status:* Completed.<br>
 
 2.3c _Embedded queries:_ Enrich metadata record pages with OLAC query links, so that users who discover OLAC records via a Google search result are encouraged to remain on the OLAC site for more precise searching.
 
