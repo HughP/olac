@@ -5,7 +5,7 @@
 ===2.3 Web search engines are indexing all OLAC records, so that users who discover language resources using a web search quickly find OLAC records and are drawn to the OLAC site for more precise searching.===
 
   * *Indicator:* Number of referrals per year from search engines to OLAC metadata records.<br>
-  * *Status:* Need to establish the baseline count for the past year; the means for tracking this via Google Analytics is in place.<br>
+  * *Status:* Need to establish the baseline count for the past year; the means for tracking this via Google Analytics is in place.  In progress, see http://code.google.com/p/olac/issues/detail?id=8<br>
 
 2.3a _Crawlable HTML:_ Generate an HTML page for each OLAC metadata record and make them accessible to web crawlers.
 
