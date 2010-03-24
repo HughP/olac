@@ -13,14 +13,14 @@ http://www.ethnolotue.com and http://www.sil.org.
 	python loadtab.py -c ~/.my.cnf -t LanguageCodes -e latin-1
   $ sed 1d CountryCodes.tab | \
 	python loadtab.py -c ~/.my.cnf -t CountryCodes -e latin-1
-  $ sed 1d iso-639-3_20080529.tab | \
+  $ sed 1d iso-639-3_20100217.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3
-  $ sed 1d iso-639-3_Name_Index_20080603.tab | \
+  $ sed 1d iso-639-3_Name_Index_20100202.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Names
-  $ sed 1d iso-639-3-macrolanguages_20080218.tab | \
+  $ sed 1d iso-639-3-macrolanguages_20100128.tab | \
 	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Macrolanguages
-  $ sed 1d iso-639-3_Retirements_20080529.tab | \
-	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Retirements -e latin-1
+  $ sed 1d iso-639-3_Retirements_20100202.tab | \
+	python loadtab.py -c ~/.my.cnf -t ISO_639_3_Retirements
   $ cat LivingLanguagesEthnologue16.tab | \
         python loadtab.py -c ~/.my.cnf -t LanguagePopulation.tab
 
