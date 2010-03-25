@@ -103,33 +103,46 @@ class Harvester(Logger):
             req.args['startRecord'] = startNum
         try:
             return req.get_response().data
-        except urllib2.HTTPError:
+        except (urllib2.HTTPError, urllib2.URLError), errstr:
             self._stopped = True
+            self.log("Error: %s" % errstr)
             return None
+
+    def _build_recs(self, marcrecs):
+        records = {}
+        for rec in marcrecs:
+            records[rec['245'].value()] = {
+                'title':rec['245'].value(),
+                'oclcnum':rec['001'].value()
+            }
+        return records
+        
 
     def _get_records(self, q):
         records = []
         query = self._build_query(q)
-        code = q['code']
         subj = q['subj']
-        type = q['type']
 
         self.log("Executing query %s of %s '%s'" % (self.queries.index(q)+1, len(self.queries), subj))
 
         responseData = self._sru_request(query)
         if responseData is not None:
-            records.extend(pymarc_extract(responseData))
+            records.extend(self._build_recs(pymarc_extract(responseData)))
+            nextPosition = self._get_next_id(responseData)
+        else:
+            nextPosition = None
 
-        nextPosition = self._get_next_id(responseData)
 
         while nextPosition is not None and len(records) < MAXIMUM_RECORDS:
             responseData = self._sru_request(query, nextPosition)
             if responseData is not None:
-                records.extend(pymarc_extract(responseData))
+                records.extend(self._build_recs(pymarc_extract(responseData)))
+                nextPosition = self._get_next_id(responseData)
+            else:
+                nextPosition = None
 
-            nextPosition = self._get_next_id(responseData)
 
-        return records
+        return sorted(records)
             
             
             
@@ -143,7 +156,7 @@ class Harvester(Logger):
 
     def harvest(self):
         if len(self.results) > 0:
-            self.log("Resuming harvest at query %d" % (len(self.results)+1))
+            self.log("Resuming...")
         for q in self.queries:
             #q = self.queries.pop()
             if 'harvested' not in q: # if this query has not been harvested
@@ -156,8 +169,10 @@ class Harvester(Logger):
                     self.queries[self.queries.index(q)]['harvested'] = True
                 elif self._stopped:
                     self._stopped = False
-                    self.log("Query limit exceeded.  Stopping at %s of %s.  Try again tomorrow" % (len(self.results)+1, len(self.queries)))
+                    self.log("Stopping at %s of %s.  Try again tomorrow" % (self.queries.index(q)+1, len(self.queries)))
                     break
+                else: # no results for this query - still count as harvested
+                    self.queries[self.queries.index(q)]['harvested'] = True
 
 
     def make_olac_repo(self, templatePrefix, filename):
@@ -200,15 +215,9 @@ class Harvester(Logger):
                 htmlfile = codecs.open(htmlfilename, 'w', 'utf-8')  
                 htmlfile.write(htmlHeaderTemplate.substitute(r))
                 
-                shortrecs = dict()
-                for rec in r['records']:
-                    shortrecs[rec['245'].value()] = {
-                        'title':rec['245'].value(),
-                        'oclcnum':rec['001'].value()
-                        }
 
-                for t in sorted(shortrecs):
-                    htmlfile.write(htmlRecordTemplate.substitute(shortrecs[t]))
+                for t in r['records']:
+                    htmlfile.write(htmlRecordTemplate.substitute(r['records'][t]))
 
                 htmlfile.write(htmlFooterTemplate.substitute(dict()))
                 htmlfile.close()
