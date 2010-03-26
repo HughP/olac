@@ -79,7 +79,7 @@ function get_service_count()
 <meta name="keywords" content="language resource; language resources;
 language archive; linguistic archive; open archives; metadata; dublin core; controlled
 vocabulary; linguistics; linguistic data; language data">
-
+<script type="text/javascript" src="/js/gatrack.js"> </script>
 </head>
 <body>
 
