@@ -92,9 +92,6 @@ function get_archive_table()
 }
 
 ?>
-
-
-
 <html>
 <head>
 <title>Open Language Archives Community</title>
@@ -111,6 +108,7 @@ vocabulary; linguistics; linguistic data; language data">
 .name {font-weight: bold;}
 .loc {padding-left: 2ex;}
 </style>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 
