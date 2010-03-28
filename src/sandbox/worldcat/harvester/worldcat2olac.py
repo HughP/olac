@@ -119,7 +119,7 @@ class Harvester(Logger):
         
 
     def _get_records(self, q):
-        records = []
+        records = {}
         query = self._build_query(q)
         subj = q['subj']
 
@@ -127,22 +127,20 @@ class Harvester(Logger):
 
         responseData = self._sru_request(query)
         if responseData is not None:
-            records.extend(self._build_recs(pymarc_extract(responseData)))
+            records.update(self._build_recs(pymarc_extract(responseData)))
             nextPosition = self._get_next_id(responseData)
         else:
             nextPosition = None
 
-
         while nextPosition is not None and len(records) < MAXIMUM_RECORDS:
             responseData = self._sru_request(query, nextPosition)
             if responseData is not None:
-                records.extend(self._build_recs(pymarc_extract(responseData)))
+                records.update(self._build_recs(pymarc_extract(responseData)))
                 nextPosition = self._get_next_id(responseData)
             else:
                 nextPosition = None
 
-
-        return sorted(records)
+        return records
             
             
             
@@ -157,7 +155,9 @@ class Harvester(Logger):
     def harvest(self):
         if len(self.results) > 0:
             self.log("Resuming...")
+        ctr = 0
         for q in self.queries:
+            #if ctr >= 3: break
             #q = self.queries.pop()
             if 'harvested' not in q: # if this query has not been harvested
                 recs = self._get_records(q)
@@ -173,9 +173,10 @@ class Harvester(Logger):
                     break
                 else: # no results for this query - still count as harvested
                     self.queries[self.queries.index(q)]['harvested'] = True
+            ctr += 1
 
 
-    def make_olac_repo(self, templatePrefix, filename):
+    def make_olac_repo(self, filename):
         repofile = codecs.open(filename, 'w', 'utf-8')
 
         # make html directory if necessary
@@ -183,9 +184,13 @@ class Harvester(Logger):
         if not os.path.isdir(htmlpath):
             os.makedirs(htmlpath)
 
-        recordTemplate = string.Template(open(templatePrefix + '_record.tmpl').read())
-        headerTemplate = string.Template(open(templatePrefix + '_header.tmpl').read())
-        footerTemplate = string.Template(open(templatePrefix + '_footer.tmpl').read())
+        subjAndTypeRecordTemplate = string.Template(open('st_record.tmpl').read())
+        subjAndTypeHeaderTemplate = string.Template(open('st_header.tmpl').read())
+        subjAndTypeFooterTemplate = string.Template(open('st_footer.tmpl').read())
+        subjRecordTemplate = string.Template(open('s_record.tmpl').read())
+        subjHeaderTemplate = string.Template(open('s_header.tmpl').read())
+        subjFooterTemplate = string.Template(open('s_footer.tmpl').read())
+
         htmlHeaderTemplate = string.Template(open('html_header.tmpl').read())
         htmlFooterTemplate = string.Template(open('html_footer.tmpl').read())
         htmlRecordTemplate = string.Template(open('html_record.tmpl').read())
@@ -193,38 +198,47 @@ class Harvester(Logger):
         today = date.today().strftime('%Y-%m-%d')
 
         # make repo header
-        repofile.write(headerTemplate.substitute(dict()))
+        if self.results[0]['type'] == 'all_types':
+            repofile.write(subjHeaderTemplate.substitute(dict()))
+        else:
+            repofile.write(subjAndTypeHeaderTemplate.substitute(dict()))
 
         # make individual record templates
         ctr = 1
         for r in self.results:
             if len(r['records']) == 0: continue # skip empty results
+
+            r['extent'] = len(r['records'])
+            if r['extent'] >= MAXIMUM_RECORDS:
+                r['extent'] = str(r['extent']) + '+'
+            htmlfilename = htmlpath + '/%s.html' % ctr
+            r['today'] = today
+            r['link'] = htmlfilename
             
-            if templatePrefix == 'wcsimple':
-                r['extent'] = len(r['records'])
-                if r['extent'] == MAXIMUM_RECORDS:
-                    r['extent'] = str(r['extent']) + '+'
-                htmlfilename = htmlpath + '/%s.html' % ctr
-                r['id'] = ctr
-                r['today'] = today
-                r['link'] = htmlfilename
-
-                repofile.write(recordTemplate.substitute(r))
+            if r['type'] == 'all_types':
+                r['searchterms'] = '"%s"' % (r['subj'])
+                repofile.write(subjRecordTemplate.substitute(r))
+            else: # subjAndType specified
+                r['searchterms'] = '"%s" and %s' % (r['subj'], r['type'])
+                repofile.write(subjAndTypeRecordTemplate.substitute(r))
                 
-                # make html header
-                htmlfile = codecs.open(htmlfilename, 'w', 'utf-8')  
-                htmlfile.write(htmlHeaderTemplate.substitute(r))
-                
+            # make html header
+            htmlfile = codecs.open(htmlfilename, 'w', 'utf-8')  
+            htmlfile.write(htmlHeaderTemplate.substitute(r))
+            
 
-                for t in r['records']:
-                    htmlfile.write(htmlRecordTemplate.substitute(r['records'][t]))
+            for t in sorted(r['records']):
+                htmlfile.write(htmlRecordTemplate.substitute(r['records'][t]))
 
-                htmlfile.write(htmlFooterTemplate.substitute(dict()))
-                htmlfile.close()
-                ctr += 1
+            htmlfile.write(htmlFooterTemplate.substitute(dict()))
+            htmlfile.close()
+            ctr += 1
 
         # make repo footer
-        repofile.write(footerTemplate.substitute(dict()))
+        if self.results[0]['type'] == 'all_types':
+            repofile.write(subjFooterTemplate.substitute(dict()))
+        else:
+            repofile.write(subjAndTypeFooterTemplate.substitute(dict()))
         repofile.close()
 
 
@@ -365,7 +379,7 @@ if __name__ == "__main__":
         to_pickle(harvester, pickleFilename)
 
     if harvester and harvester.has_results():
-        harvester.make_olac_repo('wcsimple', outputFilename)
+        harvester.make_olac_repo(outputFilename)
         print "OLAC static repository written to '%s'" % outputFilename
         hitreportFilename = '%s_hitreport.txt' % outputFilename
         harvester.make_hit_report(hitreportFilename)
