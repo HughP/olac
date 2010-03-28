@@ -1,0 +1,18 @@
+<oai:record>
+   <oai:header>
+      <oai:identifier>oai:worldcat.org:${code}_${type}</oai:identifier>
+      <oai:datestamp>$today</oai:datestamp>
+   </oai:header>
+   <oai:metadata>
+      <olac:olac>
+         <dc:title>Worldcat.org search for $searchterms</dc:title>
+         <dc:description xsi:type="dcterms:URI">Title List http://www.hirtfamily.net/olac/worldcat/$link</dc:description>
+         <dcterms:extent>$extent results</dcterms:extent>
+         <dc:subject xsi:type="olac:language" olac:code="$code"/>
+         <dc:type xsi:type="olac:resource-type" olac:code="$type"/>
+         <dc:description>The URL in this record refers to a list of links to worldcat.org</dc:description>
+         <dcterms:provenance>This record is based upon a worldcat.org search and was automatically generated on $today</dcterms:provenance>
+         <dc:type>text</dc:type>
+      </olac:olac>
+   </oai:metadata>
+</oai:record>
