@@ -17,7 +17,10 @@
   * *Status:* Training data has been created based on titles and subject headings of 5 million Library of Congress catalog records (using call numbers to divide them into language resources versus non-language resources). This data (along with the MALLET package) has been used to train a maximum entropy classifier.<br>
   * *Deliverable:* A multi-way classifier that can classify a metadata record known to be a language resource as to the linguistic data types that appear to be relevant to it.<br>
   * *Status:* Training data has been created based on titles, descriptions, and subject headings of 80,000 Library of Congress catalog records of known language resources(using subject headings to sort them into six language resource types). This data (along with the MALLET package) has been used to train a maximum entropy classifier..<br>
-  * *Deliverable:* A data set for training the data type classifier, containing terms and synonyms in many major languages.<br>
+
+2.1c _MARC Crosswalk:_ Develop a crosswalk that transforms a set of MARC catalog records for language resources into an OLAC static repository.
+
+  * *Deliverable:* A gateway service that harvests all registered OAI data providers and uses the classifiers developed in 2.1a and 2.1b to identify language resources and crosswalk them to OLAC with metadata enriched to add language codes and linguistic data types.<br>
   * *Status:* Not started.<br>
 
 2.1c _OAI Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in the leading OAI aggregator.
