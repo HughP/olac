@@ -7,14 +7,16 @@
 2.1a _Language identification:_ Develop an automated procedure for finding language identification in a catalog record and translating it to an appropriate ISO 639-3 code.
 
   * *Deliverable:* A trained classifier that can classify a metadata record as to ISO 639-3 codes that appear to be relevant to it. See [LanguageIdentification implementation notes].<br>
-  * *Status:* Not started.<br>
+  * *Status:* A rule-based classifier has been implemented. More testing needs to be done to tune the parameters for optimal performance.<br>
   * *Deliverable:* A data set for training the language classifier, containing alternate names, dialect names, geographic information, and language classification.<br>
-  * *Status:* Not started.<br>
+  * *Status:* A set of data files for training the classifier has been developed. More testing and evaluation needs to be done to refine the training data for optimal classifier performance.<br>
 
 2.1b _Data type identification:_ Develop an automated procedure for finding linguistic data type information in a catalog record and translating it to an appropriate OLAC linguistic data type code.
 
-  * *Deliverable:* A trained classifier that can classify a metadata record as to linguistic data types that appear to be relevant to it.<br>
-  * *Status:* Not started.<br>
+  * *Deliverable:* A binary classifier that can classify a metadata record as to whether or not it is a language resource.<br>
+  * *Status:* Training data has been created based on titles and subject headings of 5 million Library of Congress catalog records (using call numbers to divide them into language resources versus non-language resources). This data (along with the MALLET package) has been used to train a maximum entropy classifier.<br>
+  * *Deliverable:* A multi-way classifier that can classify a metadata record known to be a language resource as to the linguistic data types that appear to be relevant to it.<br>
+  * *Status:* Training data has been created based on titles, descriptions, and subject headings of 80,000 Library of Congress catalog records of known language resources(using subject headings to sort them into six language resource types). This data (along with the MALLET package) has been used to train a maximum entropy classifier..<br>
   * *Deliverable:* A data set for training the data type classifier, containing terms and synonyms in many major languages.<br>
   * *Status:* Not started.<br>
 
