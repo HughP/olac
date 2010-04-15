@@ -29,7 +29,7 @@
   * *Deliverable:* All code in the Subversion repository with an OLAC Note documenting the system so that participating institutions would be able to run it themselves.<br>
   * *Status:* The code is in the repository at http://code.google.com/p/olac/source/browse/#svn/src/marc-crosswalk. The document is not started.<br>
 
-2.1d _OAI Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in the leading OAI aggregator.
+2.1d _OAI Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in all known OAI repositories (over 2400 are registered at http://gita.grainger.uiuc.edu/registry/searchform.asp).
 
   * *Deliverable:* A gateway service that harvests all registered OAI data providers and uses the classifiers developed in 2.1a and 2.1b to identify language resources and crosswalk them to OLAC with metadata enriched to add language codes and linguistic data types.<br>
   * *Status:* A version of the OLAC harvester has been created to harvest oai_dc, and about 600 repositories have been harvested. Work is in progress to integrate the classifiers developed in 2.1a and 2.1b.<br>
