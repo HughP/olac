@@ -6,7 +6,7 @@ Many OLAC pages are vulnerable to database server outage because they are dynami
 
 OLAC data is not completely static, but it is close to static. The data is updated at most once a day. Thus, by going dynamic, we gain little while suffering from the issues.
 
-In order to avoid the issues, the data needed for web pages are queried offline and stored as files on disk. Then a thin layer of web data API is defined on top of the data files. Finally, the freestanding web pages access the static data using the API via XMLHttpRequest.
+In order to avoid the issues, the data needed for web pages is queried offline and stored as files on disk. Then a thin layer of web data API is defined on top of the data files. Finally, the freestanding web pages access the static data using the API via XMLHttpRequest.
 
 (How is this better than generating static HTML directly off the database?)
 
