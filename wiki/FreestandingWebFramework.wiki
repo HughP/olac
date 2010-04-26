@@ -1,0 +1,33 @@
+#summary Describe a framework for developing freestanding web pages for OLAC.
+
+= Introduction =
+
+Many OLAC pages are vulnerable to database server outage because they are dynamically generated from data that is dynamically read from the server. They also require more advanced web server configuration, e.g. PHP, CGI, WSGI, MySQL, etc.
+
+OLAC data is not completely static, but it is close. The data is updated at most once a day. Thus, by going dynamic, we gain little while suffering from the issues.
+
+This document presents an alternative to the traditional approach. The goal is to create web pages that can stand alone. Instead of creating static HTML pages directly off the database, a data API is defined, which is accessed via XmlHttpRequest, in the hope that this will increase re-usability and coherence of different web services.
+
+= Data flow =
+
+{{{
+                      OLAC DB
+                          |
+                          | DataScripts
+                          |
+                Static data files
+        (Tab-delimited tables, XML files, etc.)
+                          |
+                          |
+                          |
+                       PyWebAPI
+                        |    |
+          ,-------------'    `---------.
+          |                            |
+          |                            | JsonScripts
+          |                            |
+       srv.wsgi                   Static JSON files
+(served from l-a.org/srv/)    (served from l-a.org/ss/)
+
+
+}}}
