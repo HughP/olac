@@ -8,7 +8,7 @@ OLAC data is not completely static, but it is close to static. The data is updat
 
 In order to avoid the issues, the data needed for web pages are queried offline and stored as files on disk. Then a thin layer of web data API is defined on top of the data files. Finally, the freestanding web pages access the static data using the API via XMLHttpRequest.
 
-[How is this better than generating static HTML directly off the database?]
+(How is this better than generating static HTML directly off the database?)
 
 = Data flow =
 
