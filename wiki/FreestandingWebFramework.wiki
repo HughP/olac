@@ -4,30 +4,39 @@
 
 Many OLAC pages are vulnerable to database server outage because they are dynamically generated from data that is dynamically read from the server. They also require more advanced web server configuration, e.g. PHP, CGI, WSGI, MySQL, etc.
 
-OLAC data is not completely static, but it is close. The data is updated at most once a day. Thus, by going dynamic, we gain little while suffering from the issues.
+OLAC data is not completely static, but it is close to static. The data is updated at most once a day. Thus, by going dynamic, we gain little while suffering from the issues.
 
-This document presents an alternative to the traditional approach. The goal is to create web pages that can stand alone. Instead of creating static HTML pages directly off the database, a data API is defined, which is accessed via XmlHttpRequest, in the hope that this will increase re-usability and coherence of different web services.
+In order to avoid the issues, the data needed for web pages are queried offline and stored as files on disk. Then a thin layer of web data API is defined on top of the data files. Finally, the freestanding web pages access the static data using the API via XMLHttpRequest.
+
+[How is this better than generating static HTML directly off the database?]
 
 = Data flow =
 
+The following diagram shows how the data stored in the database server flows to the client.
+
 {{{
-                      OLAC DB
-                          |
-                          | DataScripts
-                          |
-                Static data files
-        (Tab-delimited tables, XML files, etc.)
-                          |
-                          |
-                          |
-                       PyWebAPI
-                        |    |
-          ,-------------'    `---------.
-          |                            |
-          |                            | JsonScripts
-          |                            |
-       srv.wsgi                   Static JSON files
-(served from l-a.org/srv/)    (served from l-a.org/ss/)
-
-
+              OLAC DB
+                 |
+                 | DataScripts
+                 |
+         Static data files
+                 |
+                 |
+                 |
+              PyWebAPI
+               |    |
+               |    |
+          ,----'    `-----------.
+          |                     |
+          |                     | JsonScripts
+          |                     |
+         srv            Static JSON files
 }}}
+
+ * OLAC DB
+ * Static data files
+ * Statis JSON files
+
+ * DataScripts
+ * PyWebAPI
+ * JsonScripts
