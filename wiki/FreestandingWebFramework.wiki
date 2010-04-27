@@ -99,8 +99,42 @@ def getTable(*args, **kwargs):
 
 Note that PyWebAPI functions take variable number of positional arguments and variable number of keyword arguments although they might not use the arguments. For example, getTable function shown above doesn't use any arguments.
 
-PyWebAPI functions return JSON data.
+Each PyWebAPI function can be mapped to a URL. For instance, the getTable function above can be mapped to a URL like http://www.language-archives.org/.../coverage/getTable. This topic will be discussed more in srv.wsgi and JSON scripts sections.
 
 
+= srv.wsgi =
 
+This is a WSGI script that processes any URL beginning with /srv, e.g. http://www.language-archives.org/srv/coverage/getTable. By doing so, it makes PyWebAPI functions available to AJAX applications.
 
+The path component following /srv is mapped a PyWebAPI function. For example, if /coverage/getTable follows /srv, the search will return the getTable function inside the coverage.py module.
+
+The mapping algorithm works as follows. Let the tailing part of the URL following /srv be
+
+{{{
+/c1/c2/.../cN?k1=v1&...&kN=vN
+}}}
+
+Function (callable) cK is searched using the following search order:
+
+{{{
+__init__.py: callable c1
+c1/__init__.py: callable c2
+c1.py: callable c2
+c2/__init__.py: callable c3
+c2.py: callable c3
+...
+cN-1/__init__.py: callable cN
+cN-1.py: callable cN
+}}}
+
+If found, function cK is called with (cK+1, ..., cN) as positional arguments and {k1=v1, ..., kN=vN} as keyword arguments. The result is transformed into a JSON string and returned.
+
+If no such function is found, HTTP response "404 Not Found" is returned.
+
+For example, the following URL:
+
+{{{
+http://www.language-archives.org/srv/nitems/byCountryCode/US
+}}}
+
+returns the number of archived items whose country code is US.
