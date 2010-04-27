@@ -79,7 +79,7 @@ var Coverage = new function() {
 	    var table = new google.visualization.Table(e);
 	    table.draw(data);
 	}
-	download('/srv/coverage/getLanguageTable', draw);
+	download('/ss/coverage/getLanguageTable.txt', draw);
     }
 
     this.drawOnlineResourcesTable = function(elementid) {
@@ -118,7 +118,7 @@ var Coverage = new function() {
 	    var table = new google.visualization.Table(e);
 	    table.draw(data);
 	}
-	download('/srv/coverage/getOnlineResTable', draw);
+	download('/ss/coverage/getOnlineResTable.txt', draw);
     }
 
     // initialization
