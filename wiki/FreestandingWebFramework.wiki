@@ -138,3 +138,36 @@ http://www.language-archives.org/srv/nitems/byCountryCode/US
 }}}
 
 returns the number of archived items whose country code is US.
+
+
+= JSON scripts =
+
+JSON scripts pre-compute PyWebAPI functions. If we express this as a pseudo Python code, it looks like this:
+
+{{{
+for f in all PyWebAPI functions:
+    for x in all possible input for f:
+        value = f(x)
+        save_as_file(value)
+}}}
+
+Because the files are stored inside the document root of the web server, the files can be accessed via HTTP protocol. The content of the files is a JSON string intended to be consumed by AJAX applications.
+
+The root directory to store the return values is configured by the webapi/staticdir variable.
+
+{{{
+$ olacvar webapi/staticdir
+/olac/www/ss
+}}}
+
+Each function call is stored as follows.
+
+Function call m1.m2...mK(a1,a2,..,aN) is transformed to a path m1/m2/.../mK/a1/a2/.../aN.txt. The intermediate directories are created under the $(olacvar webapi/staticdir) directory and aN.txt is created inside the aN-1 directory.
+
+Function call m1.m2...mK() is transformed to a path m1/m2/.../mK.txt. The rest is the same as above.
+
+For example, the result of coverage.getTable() call can be accessed from the following URL:
+
+{{{
+http://www.language-archives.org/ss/coverage/getTable.txt
+}}}
