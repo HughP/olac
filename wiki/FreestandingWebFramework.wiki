@@ -6,7 +6,7 @@ Many OLAC pages are vulnerable to database server outage because they are dynami
 
 OLAC data is not completely static, but it is close to static. The data is updated at most once a day. Thus, by going dynamic, we gain little while suffering from the issues.
 
-In order to avoid the issues, the data needed for web pages is queried and stored on disk as files. This can be done on a regular-basis or whenever there is an update to the database. Then a thin layer of web data API is defined over the data files. Finally, DHTML web pages access the static data using the API via XMLHttpRequest.
+In order to avoid the issues, the data needed for web pages is queried and stored on disk as files. This can be done on a regular-basis or whenever there is an update to the database. Then a thin layer of web data API is defined over the data files. Finally, AJAX applications access the static data using the API via XMLHttpRequest.
 
 (How is this better than generating static HTML directly off the database?)
 
@@ -177,3 +177,10 @@ Compare this to the srv.wsgi URL:
 {{{
 http://www.language-archives.org/srv/nitmes/byCountryCode/US
 }}}
+
+
+= How to add a new page =
+
+= Process for creating static data files and JSON files =
+
+= Discussion: why this approach =
