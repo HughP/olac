@@ -166,8 +166,14 @@ Function call m1.m2...mK(a1,a2,..,aN) is transformed to a path m1/m2/.../mK/a1/a
 
 Function call m1.m2...mK() is transformed to a path m1/m2/.../mK.txt. The rest is the same as above.
 
-For example, the result of coverage.getTable() call can be accessed from the following URL:
+For example, the result of nitems.byCountryCode('US') call can be accessed from the following URL:
 
 {{{
-http://www.language-archives.org/ss/coverage/getTable.txt
+http://www.language-archives.org/ss/nitems/byCountryCode/US.txt
+}}}
+
+Compare this to the srv.wsgi URL:
+
+{{{
+http://www.language-archives.org/srv/nitmes/byCountryCode/US
 }}}
