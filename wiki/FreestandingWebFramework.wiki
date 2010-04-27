@@ -34,13 +34,13 @@ The following diagram shows how the data stored in the database server flows to 
 }}}
 
  * OLAC DB - data stored on a database server
- * Static data files - tab delimited tables, XML files, etc. computed from OLAC DB
- * Static JSON files - pieces of information computed from the static data files and represented in JSON
-
  * Data scripts - read data from OLAC DB and produce static data files
+ * Static data files - tab delimited tables, XML files, etc. computed from OLAC DB
  * PyWebAPI - Python API over the static data files
- * srv.wsgi - exposes PyWebAPI for web clients
- * JSON scripts - for each PyWebAPI function, for every possible input to the function, call the function and save the return value as a file
+ * srv.wsgi - exposes PyWebAPI for AJAX clients
+ * JSON scripts - for each PyWebAPI function, for every possible input to the function, call the function and save the return as a file
+ * Static JSON files - files containing a JSON string, which is a result of a PyWebAPI function call
+
 
 
 = Data scripts =
@@ -74,7 +74,7 @@ As in this example, each data script is responsible for one and only one data fi
 
 = PyWebAPI =
 
-PyWebAPI is a collection of Python modules and functions for OLAC. It is intended for a web API, but it can be imported and used by normal Python programs. The configuration variable pywebapi contains the location of the modules.
+PyWebAPI is a collection of Python modules and functions for OLAC. It is intended for AJAX applications, but it can be imported and used by normal Python programs. The configuration variable pywebapi contains the root directory of the modules.
 
 {{{
 $ olacvar pywebapi
