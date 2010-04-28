@@ -233,6 +233,7 @@ Read menus and explanations, and select options appropriate for your environment
  * php5-gd
  * php5-xsl
  * php5-cli
+ * php5-cgi
  * python-mysqldb
  * python-openssl
  * python-pycurl
