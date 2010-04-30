@@ -27,10 +27,10 @@ PYTHON=python
 ADMIN_EMAIL="olac-admin@language-archives.org $(olacvar tech_email)"
 
 # xml dump directory
-XMLDUMPDIR=$(olacvar docroot)/xmldump
+XMLDUMPDIR=$(olacvar xmldumpdir)
 
 # static record pages directory
-SRECDIR=$(olacvar docroot)/static-records
+SRECDIR=$(olacvar static_records/dir)
 
 # logger
 facility=$(echo $(olacvar syslog/facility) | sed 's/LOG_//' | tr [A-Z] [a-z])
