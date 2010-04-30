@@ -4,8 +4,9 @@ case $0 in
     *)  thisdir=$(pwd)/$(dirname $0) ;;
 esac
 
-cols=$(stty size)
-cols=${cols##* }
+#cols=$(stty size)
+#cols=${cols##* }
+cols=80
 
 find $thisdir/enabled -type l | sort | while read a; do
     $a | {
