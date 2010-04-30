@@ -578,7 +578,7 @@ def check_language_code(con, archive_id=None):
             from METADATA_ELEM me, ISO_639_3_Retirements rlc
             where me.Type='language' and me.Code=rlc.Id
             """,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id",
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from METADATA_ELEM me, ISO_639_3 lc where me.TagName='language' and me.Type='language' and me.Code=lc.Id and lc.Type in ('M','C')",
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from METADATA_ELEM where Type='language' and (Code='' or Code is null)",
             ]
     else:
@@ -600,7 +600,7 @@ def check_language_code(con, archive_id=None):
             from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Retirements rlc
             where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.Type='language' and me.Code=rlc.Id
             """ % archive_id,
-            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3_Macrolanguages mlc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.TagName='language' and me.Type='language' and me.Code=mlc.M_Id" % archive_id,
+            "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, me.Code, 'SIL' from ARCHIVED_ITEM ai, METADATA_ELEM me, ISO_639_3 lc where ai.Archive_ID=%d and ai.Item_ID=me.Item_ID and me.TagName='language' and me.Type='language' and me.Code=lc.Id and lc.Type in ('M','C')" % archive_id,
             "insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code) select distinct Element_ID, '', 'MLC' from ARCHIVED_ITEM ai, METADATA_ELEM me where Archive_ID=%d and ai.Item_ID=me.Item_ID and Type='language' and (Code='' or Code is null)" % archive_id,
             ]
     for sql in sqls:
