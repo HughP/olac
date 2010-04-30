@@ -1,4 +1,5 @@
 import os
+import re
 import olac
 os.environ['PYTHON_EGG_CACHE'] = olac.olacvar('python/egg_cache/wsgi')
 
@@ -93,7 +94,29 @@ class GeneralDatabaseAPI:
         cur.execute(sql)
         return [x[0] for x in cur.fetchall()]
 
-
+    @cherrypy.expose
+    @cherrypy.tools.json()
+    def getActiveRepositories(self, *args, **kwargs):
+        sql = """
+        select a.ID, oa.RepositoryName
+        from ARCHIVES a left join OLAC_ARCHIVE oa
+        on a.ID=oa.RepositoryIdentifier
+        where oa.Archive_ID is not null
+        """
+        con = connectdb()
+        cur = con.cursor()
+        cur.execute(sql)
+        L = list(cur.fetchall())
+        def f(r1, r2):
+            pat = re.compile(r"^[Tt]he\s+|[Aa]n?\s+")
+            s = pat.sub('', r1[1])
+            t = pat.sub('', r2[1])
+            return cmp(s,t)
+        L.sort(f)
+        return L
+            
+    
+        
 root = Root()
 root.ajax = Ajax()
 root.ajax.survey = Survey()
