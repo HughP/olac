@@ -51,6 +51,10 @@ class OLACDB
     return $arr;
   }
 
+  function escape($s) {
+    return mysql_real_escape_string($s);
+  }
+
   function saw_error() {
     return !is_null($this->errmsg);
   }
