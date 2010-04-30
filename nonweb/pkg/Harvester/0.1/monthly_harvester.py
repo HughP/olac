@@ -444,16 +444,16 @@ if __name__ == "__main__":
             cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
         con.commit()  # make sure that the newly harvested archive is seen
+        log("STDOUT:")
+        log2(stdout.split('\n'))
+        log("STDERR:")
+        log2(stderr.split('\n'))
         newaid = get_archive_id(cur, tmpdb, url)
         if not re.search("harvest successful", stderr) or not newaid:
             log("harvest failed")
             log("it will be tried again one week later at the latest")
             defer(cur, db, archiveid)
             con.commit()
-            log("STDOUT:")
-            log2(stdout.split('\n'))
-            log("STDERR:")
-            log2(stderr.split('\n'))
             continue
         log("ok")
         
