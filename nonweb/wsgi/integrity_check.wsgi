@@ -261,3 +261,8 @@ Rating.</p>""")
         return [row[0] for row in self.cur.fetchall()]
 
 application = IntegrityPage
+
+if __name__ == "__main__":
+    import wsgiref.handlers
+    wsgiref.handlers.CGIHandler().run(application)
+
