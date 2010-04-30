@@ -78,8 +78,8 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f "$(olacvar dirty)" ]; the
     echo
     echo "Resubmitting google sitemap ..."
     echo
-    echo "(This is postphoned until this server officially launches.)"
-    #curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml"
+    #echo "(This is postphoned until this server officially launches.)"
+    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml"
 
     echo
     echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
@@ -101,6 +101,11 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f "$(olacvar dirty)" ]; the
     find $SRECDIR -name "*.xml" | sort | \
     sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
         > $SRECDIR/index.html
+
+    echo
+    echo "Creating static HTML pages..."
+    echo
+    $PYTHON $(olacvar static/generator) >/dev/null
 
     rm -f "$(olacvar dirty)"
 fi
