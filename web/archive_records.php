@@ -40,39 +40,63 @@ To find particular records in OLAC archives, please use
 the <a href="/search/">OLAC search interface</a>.
 
 <?
-function archives()
+function table_sort($row1, $row2)
+{
+  $name1 = $row1['RepositoryName'];
+  $name2 = $row2['RepositoryName'];
+  $pat = '/^[Tt]he\s+|[Aa]n?\s+/';
+  $name1 = preg_replace($pat,'', $name1);
+  $name2 = preg_replace($pat,'', $name2);
+  return strcasecmp($name1, $name2);
+}
+
+function archives($archiveid)
 {
     global $DB;
 
-    $tab = $DB->sql("select RepositoryIdentifier from OLAC_ARCHIVE order by RepositoryIdentifier");
+    $tab = $DB->sql("select RepositoryName, RepositoryIdentifier from OLAC_ARCHIVE");
     if (! $tab) {
       print "No repositories!";
       exit;
     }
-    
+    usort($tab, "table_sort");
+
     $output = "<select name='archive'>";
     foreach ($tab as $archive) {
       $id = $archive[RepositoryIdentifier];
-      $output .= "<option value=\"$id\">$id</option>";
+      $name = $archive[RepositoryName];
+      if ($id == $archiveid) {
+        $output .= "<option value=\"$id\" selected=\"selected\">$name</option>";
+      } else {
+        $output .= "<option value=\"$id\">$name</option>";
+      }
     }
     $output .= "</select>";
     return $output;
 }
 
-?>
-
-<form method="get">
-<b>Archive:</b>
-<? print archives(); ?>
-<input type="submit">
-</form>
-
-<?
 $archiveid = $_GET[archive];
 if (!$archiveid) {
 	$arr = explode('?', $_SERVER["REQUEST_URI"]);
 	$archiveid = basename($arr[0]);
 }
+?>
+
+<script>
+function select_new_archive() {
+    var i = document.form1.archive.selectedIndex;
+    var repoid = document.form1.archive.options[i].value;
+    window.location = "/archive_records/" + repoid;
+}
+</script>
+
+<form name="form1">
+<b>Archive:</b>
+<? print archives($archiveid); ?>
+<input type="button" value="Submit" onClick="select_new_archive();">
+</form>
+
+<?php
 if ($archiveid) {
   $tab = $DB->sql("
     select Item_ID, OaiIdentifier

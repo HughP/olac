@@ -52,8 +52,8 @@ function shutdown() {
 register_shutdown_function('shutdown');
 
 # get language code
-$path = preg_split('#/#', $_SERVER['PHP_SELF']);
-$langcode = $path[2];
+$path = preg_split('#/#', $_SERVER['PATH_INFO']);
+$langcode = $path[1];
 
 # get language name
 $s = mysql_real_escape_string($langcode);

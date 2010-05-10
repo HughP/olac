@@ -8,38 +8,39 @@ function error($msg) {
   exit(0);
 }
 
-# get country code
-$path = preg_split('#/#', $_SERVER['PHP_SELF']);
-$country_code = $path[2];
+# get area name
+$path = preg_split('#/#', $_SERVER['PATH_INFO']);
+$area_name = $path[1];
+$Area_name = ucfirst($area_name);
+$the_area_name = $Area_name;
+if ($area_name == 'pacific' || $area_name == 'americas')
+  $the_area_name = "the " . $Area_name;
 
-# get country name
-$s = mysql_real_escape_string($country_code);
-$tab = $DB->sql("select Name, Area from CountryCodes where CountryID='$s'");
-if ($DB->saw_error())
-  error("internal server error");
-elseif (count($tab) == 0)
-  error("no country found for country code '$country_code'");
-$s = preg_replace('#\s*\(.*?\)\s*#', '', $tab[0]['Name']);
-$a = preg_split('#\s*,\s*#', $s);
-$country_name = trim("$a[1] $a[0]");
-$area_name = strtolower($tab[0]['Area']);
+$s = mysql_real_escape_string($area_name);
+$sql = "select count(*) c from CountryCodes where Area='$s'";
+$tab = $DB->sql($sql);
+if ($DB->saw_error()) error("internal server error");
+if ($tab[0]['c'] == 0) error("unrecognized area name: $area_name");
 
 # get language table
-$sql = "select li.Name LangName, li.LangID, count(distinct ai.Item_ID) c
+$sql = "select li.Name, li.CountryID, count(distinct ai.Item_ID) c
         from ARCHIVED_ITEM ai,
              METADATA_ELEM me,
-             (select Name, LangID from LanguageIndex
-              where CountryID='$country_code' and NameType='L') li
+             (select distinct substring_index(cc.Name,' (',1) Name, cc.CountryID, li.LangID
+              from LanguageCodes li, CountryCodes cc
+              where li.CountryID=cc.CountryID
+                and cc.Area='$area_name'
+                and li.LangStatus='L') li
         where ai.Item_ID=me.Item_ID
           and me.TagName in ('subject','language')
           and me.Code=li.LangID
-        group by li.LangID
+        group by li.Name
         order by li.Name";
 $tab = $DB->sql($sql);
 if ($DB->saw_error()) error("internal server error");
 
 # compose title
-$title = "Resources for languages in $country_name";
+$title = "Resources for languages in $the_area_name";
 
 ?>
 <html>
@@ -53,7 +54,7 @@ $title = "Resources for languages in $country_name";
 <script type="text/javascript" src="/js/search/main.js"></script>
 <script type="text/javascript">
   google.setOnLoadCallback(function() {
-      initialize('country_<?=$country_code?>', '<?=$area_name?>');
+      initialize('area_<?=$area_name?>', '<?=$area_name?>');
     });
 </script>
 </head>
@@ -61,7 +62,7 @@ $title = "Resources for languages in $country_name";
 
 <!-- It's difficult to implement a layout with css, so we use table. -->
 <center>
-  <div class='searchtitle'>Search Open Language Archives (<?=$country_name?>)</div>
+  <div class='searchtitle'>Search Open Language Archives (<?=$Area_name?>)</div>
 
   <img id="world-map" src="/images/world-color-<?=$area_name?>-320.png" alt="World Map" usemap="#areas"></img>
   <map name="areas">
@@ -87,16 +88,16 @@ $title = "Resources for languages in $country_name";
     <a href="/area/asia">Asia</a>
     <a href="/area/europe">Europe</a>
     <a href="/area/pacific">Pacific</a>
-
 </center>
 
 <div id="result-box">
 <center>
 <hr>
 
-<p class="narrow-p">The combined OLAC catalog has resources for the following languages that are
-spoken in <?=$country_name?>.  The number in parentheses is the number of items
-cataloged for that language.</p>
+<p class="narrow-p">The combined OLAC catalog has resources for languages that
+are spoken in <?=$the_area_name?>.
+The number in parentheses is the number of items cataloged for
+languages for which the shown country is the primary country.</p>
 
 <table>
 <tr><td><ul>
@@ -108,9 +109,9 @@ foreach ($tab as $row) {
     echo "</ul></td><td><ul>";
   #$a = preg_split('#\s*,\s*#', $row['LangName']);
   #$langname = rtrim("$a[1] $a[0]");
-  $langname = $row['LangName'];
+  $langname = $row['Name'];
   echo "<li>";
-  echo "<a href=\"/language2.php/$row[LangID]\">$langname</a> ($row[c])";
+  echo "<a href=\"/country/$row[CountryID]\">$langname</a> ($row[c])";
   echo "</li>";
   $c += 1;
 }
@@ -118,11 +119,12 @@ foreach ($tab as $row) {
 </ul></td></tr>
 </table>
 <hr>
+
 </center>
-</div> <!-- end of result-box -->
+</div>
 
 <center>
-<a class="bottomsign">OLAC: Open Language Archives Community</a>
+<a class="bottomsign" href="/">OLAC: Open Language Archives Community</a>
 <br><br>
 <a href="/"><img src="/images/olac100.gif"></img></a>
 </center>
