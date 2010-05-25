@@ -1,0 +1,16 @@
+#summary OLAC-DLA Integration
+
+= Introduction =
+
+This page contains steps for improving quality of faceted search available via the
+[http://syslsl01.library.upenn.edu/dla/olac/index.html UPenn DLA].
+
+== Delivery ==
+
+The metadata should be delivered to the library via the OAI protocol to support incremental harvesting.  Any enhancements for human readability should be implemented on the OLAC side, and kept distinct from OLAC's existing format, which suggests we should use a different format, e.g. `olac_dla`, and this probably needs its own XML schema.
+
+== Enriching the content ==
+
+* `<repository home="http://www.ldc.upenn.edu/Catalog/" desc="http://www.language-archives.org/archive/www.ldc.upenn.edu">The LDC Corpus Catalog</repository>`
+
+== Public vs staff view ==
