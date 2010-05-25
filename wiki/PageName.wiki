@@ -11,19 +11,34 @@ The metadata should be delivered to the library via the OAI protocol to support 
 
 == Enriching the content ==
 
-New elements:
+=== New Elements ===
 
-  # `<olac_dla:repository home="http://www.ldc.upenn.edu/Catalog/" desc="http://www.language-archives.org/archive/www.ldc.upenn.edu">The LDC Corpus Catalog</olac_dla:repository>`
-  # `<dc:coverage xsi:type="olac:region" olac:code="asia" olac_dla:view="Asia"/>`
-  # `<dc:coverage xsi:type="olac:family">Indo-European</dc:coverage>
-  # `<dc:coverage xsi:type="olac:family">Romance</dc:coverage>
-  # `<dc:coverage xsi:type="olac:family">Italo-Western</dc:coverage>
-  # `<dc:coverage xsi:type="olac:family">Gallo-Romance</dc:coverage>` (NB filtering required here, since some labels, like `Western`, are not unique)
+The repository is not named in the OLAC record.  The DLA treats repository just like any other facet, and so we need to create an ad hoc element to hold the information.
 
-New attribute `view` for every coded value, which gets source from OLAC voculabary document, e.g.:
+  * `<olac_dla:repository home="http://www.ldc.upenn.edu/Catalog/" desc="http://www.language-archives.org/archive/www.ldc.upenn.edu">The LDC Corpus Catalog</olac_dla:repository>`
 
-  # `<dc:language xsi:type="olac:language" olac:code="fra" olac_dla:view="French"/>`
-  # `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" olac_dla:view="Lexicon"/>
+We need to support navigation by global regions:
 
+  * `<dc:coverage xsi:type="olac:region" olac:code="asia" olac_dla:view="Asia"/>`
+
+
+Facets are flat, but the system's navigation of facets enables hierarchical browsing in any case.  So we can just dump out each level of the hierarchy in a separate element. (NB filtering required here, since some labels, like `Western`, are not unique; we could maintain a list of published family names.)
+
+  # `<dc:coverage xsi:type="olac:family">Indo-European</dc:coverage>`
+  # `<dc:coverage xsi:type="olac:family">Romance</dc:coverage>`
+  # `<dc:coverage xsi:type="olac:family">Italo-Western</dc:coverage>`
+  # `<dc:coverage xsi:type="olac:family">Gallo-Romance</dc:coverage>`
+
+New attribute `view` for every coded value, which gets source from OLAC vocabulary document where possible, e.g.:
+
+  * `<dc:language xsi:type="olac:language" olac:code="fra" olac_dla:view="French"/>`
+  * `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" olac_dla:view="Lexicon"/>`
+  * `<dc:coverage xsi:type="dcterms:ISO3166" olac_dla:view="Australia">AU</dc:coverage>
 
 == Public vs staff view ==
+
+The DLA supports a separate "staff view" (visible to anyone by following a link from any DLA page), which can include facets which are not yet clean enough for the default public display.  This would be useful to archivists as they curate their metadata.  We need to agree on a subset of facets which make up the public display.
+
+= Meta curation =
+
+There is the option of automatically curating metadata on the OLAC side, to improve the search experience of users.  However, this is error prone, and it is more important to allow the community to experience the benefits of good quality metadata directly.  The DLA service will hopefully motivate participating archives to improve the quality of their metadata.
