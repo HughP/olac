@@ -49,6 +49,7 @@ sub new {
     $self->{extdb} = $self->{db}->getExtDB;
     #$self->{tagpx} = $self->{db}->getTagPxDB;
     $self->{dctag} = $self->{db}->getDcTagDB;
+    $self->{country} = $self->{db}->getCountryDB;
 
     $self->{GetRecord} = \&serve_GetRecord;
     $self->{Identify} = \&serve_Identify;
@@ -61,6 +62,7 @@ sub new {
     $self->{mdata_processors} = {
 	olac         => [\&get_mdata_container_olac, \&get_mdata_olac],
 	olac_display => [\&get_mdata_container_olac, \&get_mdata_olac_display],
+	olac_dla     => [\&get_mdata_container_olacdla, \&get_mdata_olacdla],
 	oai_dc       => [\&get_mdata_container_oaidc,\&get_mdata_oaidc]
     };
     bless $self, $class;
@@ -351,6 +353,7 @@ sub serve_GetRecord {
     if ($request->{metadataPrefix}) {
 	unless ($request->{metadataPrefix} eq "olac" ||
 		$request->{metadataPrefix} eq "olac_display" ||
+		$request->{metadataPrefix} eq "olac_dla" ||
 		$request->{metadataPrefix} eq "oai_dc") {
 	    return create_error("cannotDisseminateFormat", $request);
 	}
@@ -483,6 +486,7 @@ sub serve_ListIdentifiers {
     if ((not exists $request->{metadataPrefix}) ||
 	($request->{metadataPrefix} ne "olac" &&
 	 $request->{metadataPrefix} ne "olac_display" &&
+	 $request->{metadataPrefix} ne "olac_dla" &&
 	 $request->{metadataPrefix} ne "oai_dc")) {
 	push @error_code_list, "cannotDisseminateFormat";
     }
@@ -552,6 +556,14 @@ sub serve_ListMetadataFormats {
 
     $mf = $lmf->appendChild($doc->createElement("metadataFormat"));
     $mp = $mf->appendChild($doc->createElement("metadataPrefix"));
+    $mp->addText("olac_dla");
+    $s = $mf->appendChild($doc->createElement("schema"));
+    $s->addText("http://www.language-archives.org/OLAC/1.1/olac.xsd");
+    $mn = $mf->appendChild($doc->createElement("metadataNamespace"));
+    $mn->addText("http://www.language-archives.org/OLAC/1.1/");
+
+    $mf = $lmf->appendChild($doc->createElement("metadataFormat"));
+    $mp = $mf->appendChild($doc->createElement("metadataPrefix"));
     $mp->addText("oai_dc");
     $s = $mf->appendChild($doc->createElement("schema"));
     $s->addText("http://www.openarchives.org/OAI/2.0/oai_dc.xsd");
@@ -581,6 +593,7 @@ sub serve_ListRecords {
     if ((not exists $request->{metadataPrefix}) ||
 	($request->{metadataPrefix} ne "olac" &&
 	 $request->{metadataPrefix} ne "olac_display" &&
+	 $request->{metadataPrefix} ne "olac_dla" &&
 	 $request->{metadataPrefix} ne "oai_dc")) {
 	push @error_code_list, "cannotDisseminateFormat";
     }
@@ -740,6 +753,13 @@ sub serve_Query {
 }
 
 sub get_mdata_container_olac {
+    my $doc = shift;
+    my $c = $doc->createElement("olac:olac");
+    set_olac_atts($c);
+    return $c;
+}
+
+sub get_mdata_container_olacdla {
     my $doc = shift;
     my $c = $doc->createElement("olac:olac");
     set_olac_atts($c);
@@ -974,6 +994,68 @@ sub get_mdata_olac_display {
 	    add_olac_element($elements, $me);
 	}
     }
+
+    return $elements;
+}
+
+
+sub get_mdata_olacdla {
+    my ($self, $doc, $tab) = @_;
+    # $row : 0=tag, 1=lang, 2=content, 3=ext_id, 4=code
+    #        5=ext_label, 6=code_label, 7=item_id
+    #        8=tag, 9=dc_tag, 10=me_type, 11=ns_prefix
+    #        12=iso_lang, 13=country_code, 14=country_name, 15=area
+    my $elements = [];
+    for my $row (@$tab) {
+        my $tag = $row->[0];
+        my $dctag = $self->{dctag}{$tag};
+        my $me;
+        if ($tag eq $dctag) {
+            $me = $doc->createElement("dc:$tag");
+        } else {
+            $me = $doc->createElement("dcterms:$tag");
+        }
+        $row->[1] && $me->setAttribute('xml:lang', $row->[1]);
+        $row->[2] && $me->addText($row->[2]);
+        my ($ns,$tt) = @{$self->{extdb}{$row->[3]}};
+        if ($ns eq 'http://www.language-archives.org/OLAC/1.0/' ||
+            $ns eq 'http://www.language-archives.org/OLAC/1.1/') {
+            $me->setAttribute('xsi:type', "olac:$tt");
+            $row->[4] && $me->setAttribute('olac:code', $row->[4]);
+            if ($tt eq 'language') {
+                $me->setAttribute('view', $row->[6]);
+                if ($row->[11] && $row->[15]) {
+                    my $me2 = $doc->createElement("dc:coverage");
+                    my $code = $row->[15];
+                    $code =~ s/^(\w)/\L$1/;
+                    $me2->setAttribute('xsi:type', 'olac:region');
+                    $me2->setAttribute('olac:code', $code);
+                    $me2->setAttribute('view', $row->[15]);
+                    push @$elements, $me2;
+                }
+            } else {
+                my $view = $row->[4];
+                $view =~ s/^(\w)/\U$1/;
+                $view =~ s/_/ /g;
+                $me->setAttribute('view', $view);
+            }
+        } elsif ($ns eq 'http://purl.org/dc/terms/') {
+            $me->setAttribute('xsi:type', "dcterms:$tt");
+            if ($tt eq 'ISO3166') {
+                $me->setAttribute('view', $self->{country}{$row->[2]});
+            }
+        }
+        push @$elements, $me;
+    }
+
+    my $item_id = $tab->[0]->[7];
+    my $row = $self->{db}->getArchiveInfoForItemId($item_id);
+    my $desc = "http://www.language-archives.org/archive/" . $row->[3];
+    $me = $doc->createElement("repository");
+    $me->setAttribute("home", $row->[1]);
+    $me->setAttribute("desc", $desc);
+    $me->addText($row->[2]);
+    push @$elements, $me;
 
     return $elements;
 }
