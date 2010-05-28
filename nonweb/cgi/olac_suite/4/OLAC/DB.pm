@@ -364,15 +364,44 @@ sub getTable_GetRecord {
 
     my $metadata;
 
-    $metadata = $self->{dbh}->selectall_arrayref
-	("
-select TagName,Lang,Content,me.Extension_ID, cd.Code,
-       ex.Label,cd.Label
-from METADATA_ELEM me
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-where Item_ID='$archived_item->{Item_ID}'
-	");
+    my $sql = "
+        select ed.TagName,
+               Lang,
+               Content,
+               me.Extension_ID,
+               cd.Code,
+               ex.Label,
+               cd.Label,
+               me.Item_ID,
+
+               ed.Label as TagLabel,
+               ed2.Label as DcTag,
+               me.Type Type,
+               ex.NSPrefix,
+               lc.Id LangID,
+               cc.CountryID CountryCode,
+               cc.Name CountryName,
+               cc.Area
+        from METADATA_ELEM me
+        left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
+        left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
+        left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+        left join EXTENSION ex on ex.Extension_ID=me.Extension_ID
+        left join ISO_639_3 lc on me.Code=lc.Id
+        left join LanguageCodes eth on lc.Id=eth.LangID
+        left join CountryCodes cc on eth.CountryID=cc.CountryID
+        where Item_ID=$archived_item->{Item_ID}
+        order by ed.Rank
+    ";
+
+# select TagName,Lang,Content,me.Extension_ID, cd.Code,
+#        ex.Label,cd.Label
+# from METADATA_ELEM me
+#      left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+#      left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+# where Item_ID='$archived_item->{Item_ID}'
+
+    $metadata = $self->{dbh}->selectall_arrayref($sql);
 
     return ($header, $metadata);
 }
@@ -459,12 +488,39 @@ sub getTable_ListRecords {
 
     #####
     # prepare query for $meta
-    $query = "
-select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label, oa.Item_ID
-from (ARCHIVED_ITEM oa join METADATA_ELEM me on oa.Item_ID=me.Item_ID)
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
+#     $query = "
+# select TagName,Lang,Content,me.Extension_ID,cd.Code,
+#        ex.Label,cd.Label, oa.Item_ID
+# from (ARCHIVED_ITEM oa join METADATA_ELEM me on oa.Item_ID=me.Item_ID)
+#      left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+#      left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code ";
+      $query = "
+        select ed.TagName,
+               Lang,
+               Content,
+               me.Extension_ID,
+               cd.Code,
+               ex.Label,
+               cd.Label,
+               me.Item_ID,
+
+               ed.Label as TagLabel,
+               ed2.Label as DcTag,
+               me.Type Type,
+               ex.NSPrefix,
+               lc.Id LangID,
+               cc.CountryID CountryCode,
+               cc.Name CountryName,
+               cc.Area
+        from METADATA_ELEM me
+        left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
+        left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
+        left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
+        left join EXTENSION ex on ex.Extension_ID=me.Extension_ID
+        left join ISO_639_3 lc on me.Code=lc.Id
+        left join LanguageCodes eth on lc.Id=eth.LangID
+        left join CountryCodes cc on eth.CountryID=cc.CountryID
+    ";
 
     $conj = "where";
     if ($request->{next}) {
@@ -569,5 +625,27 @@ where  e1.DcElement = e2.Tag_ID");
     return $h;
 }
 
-	
+sub getCountryDB {
+    my $self = shift;
+    my $h = {};
+    my $res = $self->{dbh}->selectall_arrayref("
+select CountryID, Name from CountryCodes");
+    map { $h->{$_->[0]} = $_->[1] } @$res;
+    return $h;
+}
+
+sub getArchiveInfoForItemId {
+    my $self = shift;
+    my $item_id = shift;
+    my $sql = "
+        select oa.Archive_ID,
+               ArchiveURL,
+               RepositoryName,
+               RepositoryIdentifier
+        from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai
+        where ai.Item_ID=$item_id and ai.Archive_ID=oa.Archive_ID
+    ";
+    return $self->{dbh}->selectrow_arrayref($sql);
+}
+               
 1;
