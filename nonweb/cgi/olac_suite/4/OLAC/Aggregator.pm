@@ -999,6 +999,14 @@ sub get_mdata_olac_display {
 }
 
 
+sub make_facet {
+    my ($self, $doc, $name, $value) = @_;
+    my $facet = $doc->createElement('facet');
+    $facet->setAttribute('name', $name);
+    $facet->addText($value);
+    return $facet;
+}
+
 sub get_mdata_olacdla {
     my ($self, $doc, $tab) = @_;
     # $row : 0=tag, 1=lang, 2=content, 3=ext_id, 4=code
@@ -1006,6 +1014,7 @@ sub get_mdata_olacdla {
     #        8=tag, 9=dc_tag, 10=me_type, 11=ns_prefix
     #        12=iso_lang, 13=country_code, 14=country_name, 15=area
     my $elements = [];
+    my $facet;
     for my $row (@$tab) {
         my $tag = $row->[0];
         my $dctag = $self->{dctag}{$tag};
@@ -1025,19 +1034,14 @@ sub get_mdata_olacdla {
             if ($tt eq 'language') {
                 $me->setAttribute('view', $row->[6]);
                 if ($row->[11] && $row->[15]) {
-                    my $me2 = $doc->createElement("dc:coverage");
-                    my $code = $row->[15];
-                    $code =~ s/^(\w)/\L$1/;
-                    $me2->setAttribute('xsi:type', 'olac:region');
-                    $me2->setAttribute('olac:code', $code);
-                    $me2->setAttribute('view', $row->[15]);
-                    push @$elements, $me2;
+                    $facet = $self->make_facet($doc, "Region", $row->[15]);
+                    push @$elements, $facet;
                 }
             } else {
-                my $view = $row->[4];
-                $view =~ s/^(\w)/\U$1/;
-                $view =~ s/_/ /g;
-                $me->setAttribute('view', $view);
+                my $value = $row->[4];
+                $value =~ s/^(\w)/\U$1/;
+                $value =~ s/_/ /g;
+                $me->setAttribute('view', $value);
             }
         } elsif ($ns eq 'http://purl.org/dc/terms/') {
             $me->setAttribute('xsi:type', "dcterms:$tt");
@@ -1051,11 +1055,9 @@ sub get_mdata_olacdla {
     my $item_id = $tab->[0]->[7];
     my $row = $self->{db}->getArchiveInfoForItemId($item_id);
     my $desc = "http://www.language-archives.org/archive/" . $row->[3];
-    $me = $doc->createElement("repository");
-    $me->setAttribute("home", $row->[1]);
-    $me->setAttribute("desc", $desc);
-    $me->addText($row->[2]);
-    push @$elements, $me;
+    push @$elements, $self->make_facet($doc, 'Archive', $row->[2]);
+    push @$elements, $self->make_facet($doc, 'Archive home', $row->[1]);
+    push @$elements, $self->make_facet($doc, 'Archive description', $desc);
 
     return $elements;
 }
