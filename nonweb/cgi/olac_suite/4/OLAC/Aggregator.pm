@@ -1015,6 +1015,7 @@ sub get_mdata_olacdla {
     #        12=iso_lang, 13=country_code, 14=country_name, 15=area
     my $elements = [];
     my $facet;
+    my $online = 'No';
     for my $row (@$tab) {
         my $tag = $row->[0];
         my $dctag = $self->{dctag}{$tag};
@@ -1049,6 +1050,10 @@ sub get_mdata_olacdla {
                 $me->setAttribute('view', $self->{country}{$row->[2]});
             }
         }
+        if ($tag eq 'identifier' &&
+            $row->[2] =~ /^(http|https|ftp):.*/) {
+            $online = 'Yes';
+        }
         push @$elements, $me;
     }
 
@@ -1058,6 +1063,8 @@ sub get_mdata_olacdla {
     push @$elements, $self->make_facet($doc, 'Archive', $row->[2]);
     push @$elements, $self->make_facet($doc, 'Archive home', $row->[1]);
     push @$elements, $self->make_facet($doc, 'Archive description', $desc);
+
+    push @$elements, $self->make_facet($doc, 'Online', $online);
 
     return $elements;
 }
