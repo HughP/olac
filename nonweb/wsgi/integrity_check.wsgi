@@ -148,9 +148,9 @@ order by ic.Problem_Code
         self.respond('200 OK', headers)
         
         for row in errors:
-            yield "\t".join((str(x) for x in row[1:5])).encode('utf-8') + "\r\n"
+            yield "\t".join((unicode(x) for x in row[1:5])).encode('utf-8') + "\r\n"
         for row in warnings:
-            yield "\t".join((str(x) for x in row[1:5])).encode('utf-8') + "\r\n"
+            yield "\t".join((unicode(x) for x in row[1:5])).encode('utf-8') + "\r\n"
 
     def displayAsHtml(self, errors, warnings, print_no_error=True):
         headers = [('Content-type','text/html')]
