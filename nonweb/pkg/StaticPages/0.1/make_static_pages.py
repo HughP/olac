@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 """
-Run PHP scripts in CGI mode and save the output as HTML files.
+Run PHP/WSGI scripts in CGI mode and save the output as HTML files.
 """
 
 import os
@@ -11,6 +11,7 @@ from subprocess import Popen, PIPE
 import datetime
 
 DOCROOT = olac.olacvar('docroot')
+WSGIROOT = olac.olacvar('wsgiroot')
 STATICROOT = olac.olacvar('static/root')
 STATICSTATUS = olac.olacvar('static/status')
 CONN = MySQLdb.connect(read_default_file="~/.my.cnf",
@@ -23,6 +24,27 @@ def run_php(script, url, outputfile=None):
     env['REQUEST_URI'] = url
     pipe = Popen(["php-cgi", "-q", script], stdout=PIPE, env=env)
     output = pipe.stdout.read()
+    pipe.communicate()
+    if outputfile:
+        outputfile.write(output)
+    else:
+        return output
+
+def run_wsgi(script, url, outputfile=None):
+    # url is of the form "/a/b/c" where /a is the mount point
+    env = os.environ.copy()
+    env['PATH_INFO'] = '/' + '/'.join(url.split('/')[2:])
+    pipe = Popen(["python", script], stdout=PIPE, env=env)
+
+    # remove header
+    for line in pipe.stdout:
+        if line == '\r\n':
+            break
+
+    output = []
+    for line in pipe.stdout:
+        output.append(line)
+    output = ''.join(output)
     pipe.communicate()
     if outputfile:
         outputfile.write(output)
@@ -68,12 +90,24 @@ def proc1(script, param_list):
         run_php(script_path, url, open(output,'w'))
         print output, datetime.datetime.now() - c
 
+def proc1py(script, mount_dir, param_list):
+    script_path = os.path.join(WSGIROOT, script)
+    outdir_path = os.path.join(STATICROOT, mount_dir)
+    prefix = '/' + mount_dir + '/'
+
+    for param in param_list:
+        c = datetime.datetime.now()
+        url = prefix + param
+        output = os.path.join(outdir_path, param) + '.html'
+        make_dirs(output)
+        run_wsgi(script_path, url, open(output,'w'))
+        print output, datetime.datetime.now() - c
 
 def main():
     tbeg = datetime.datetime.now()
 
     status_data = {}
-    for line in open(STATUSFILE):
+    for line in open(STATICSTATUS):
         try:
             a = line.strip().split(': ')
             status_data[a[0]] = a[1]
@@ -102,15 +136,22 @@ def main():
             "select distinct Id from ISO_639_3"))
 
         sql = """
-        select OiaIdentifier from ARCHIVED_ITEM
+        select OaiIdentifier from ARCHIVED_ITEM
         where ts >= '%(STARTED)s'
         """ % status_data
 
         proc1('item.php', sql_to_list(sql))
 
+        proc1py('integrity_check.wsgi', 'checks', repoids)
+        proc1py('integrity_check.wsgi', 'checks',
+                [x + '/download' for x in repoids])
 
-    out = open(STATUSFILE, 'w')
+    out = open(STATICSTATUS, 'w')
     print >>out, "UPDATED_ITEMS:", N
     print >>out, "STARTED:", tbeg.strftime('%Y-%m-%d %H:%M:%S')
     print >>out, "FINISHED:",
     print >>out, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+if __name__ == "__main__":
+    main()
+
