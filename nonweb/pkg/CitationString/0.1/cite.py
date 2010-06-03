@@ -96,6 +96,8 @@ def get_citation(cur, oaiid):
     else:
         s += publisher + '.'
 
+    s = re.sub(r"\s+", " ", s)
+
     return s.encode('utf-8')
 
 if __name__ == "__main__":
