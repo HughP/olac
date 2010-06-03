@@ -11,17 +11,19 @@
 //   <script type="text/javascript" src="/js/gatrack.js"> </script>
 //
 
-var gaurl = 'google-analytics.com/ga.js';
-if (document.location.protocol == "https:") {
-    gaurl = "https://ssl." + gaurl;
-} else {
-    gaurl = "http://www." + gaurl;
-}
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-427085-3']);
+_gaq.push(['_trackPageview']);
 
-document.write('<script src="' + gaurl + '" type="text/javascript"></script>');
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    if (document.location.protocol == 'https:')
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+    else
+        ga.src = 'http://www.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s); 
+})();
 
-try {
-    _gat._getTracker("UA-427085-3")._trackPageview();
-} catch(err) {
-    // ignore the error
-}
