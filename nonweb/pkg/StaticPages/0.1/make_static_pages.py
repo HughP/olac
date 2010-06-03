@@ -103,6 +103,21 @@ def proc1py(script, mount_dir, param_list):
         run_wsgi(script_path, url, open(output,'w'))
         print output, datetime.datetime.now() - c
 
+def proc1cite(param_list):
+    outdir_path = os.path.join(STATICROOT, 'cite')
+    prog = olac.olacvar('cite')
+    pipe = Popen([prog], stdin=PIPE, stdout=PIPE)
+    for param in param_list:
+        t = datetime.datetime.now()
+        output = os.path.join(outdir_path, param) + '.txt'
+        make_dirs(output)
+        out = open(output,'w')
+        pipe.stdin.write(param + "\n")
+        out.write(pipe.stdout.readline())
+        print output, datetime.datetime.now() - t
+
+    pipe.stdin.close()
+    
 def main():
     tbeg = datetime.datetime.now()
 
@@ -141,6 +156,8 @@ def main():
         """ % status_data
 
         proc1('item.php', sql_to_list(sql))
+
+        proc1cite(sql_to_list(sql))
 
         proc1py('integrity_check.wsgi', 'checks', repoids)
         proc1py('integrity_check.wsgi', 'checks',
