@@ -300,6 +300,7 @@ function cmp_html_tab_entries($a, $b)
 
 function generate_html_format($elements)
 {
+  global $analytics_link;
   $tab = array();
   foreach ($elements as $record) {
 
@@ -435,15 +436,14 @@ $oai_info = <<<END
 END;
 
 $analytics = <<<END
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 <script type="text/javascript">
-_uacct = "UA-427085-3";
-urchinTracker('item/');
-urchinTracker('archive_item_hits/$answer[RepositoryIdentifier]');
+_gaq.push(['_trackPageview', '/item']);
+_gaq.push(['_trackPageview',
+           '/archive_item_hits/$answer[RepositoryIdentifier]']);
 </script>
 END;
 
-$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[RepositoryIdentifier]')\"";
+$analytics_link = "onClick=\"_gaq.push['_trackPageview', 'archive_item_clicks/$answer[RepositoryIdentifier]']\"";
 
 $tab = $DB->sql("
 	select ed.TagName, ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content,
@@ -549,6 +549,7 @@ $meta = old_meta_tag_formatting($tab);
 <HTML>
 <HEAD>
 <TITLE>OLAC Record: <?=$title?></TITLE>
+<script type="text/javascript" src="/js/gatrack.js"/></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?=$meta?>
