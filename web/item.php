@@ -27,6 +27,8 @@ $DB = new OLACDB();
 $DB->sql("set names 'utf8'");
 $BASEURL = olacvar('baseurl');
 $OLACA = olacvar('aggregator/url');
+$CITE_PROG = olacvar('cite');
+$STATIC_ROOT = olacvar('static/root');
 
 
 function draw_form() {
@@ -336,6 +338,28 @@ function generate_html_format($elements)
   return $tab;
 }
 
+function get_static_citation($oaiid) {
+    global $STATIC_ROOT;
+    $citation = file_get_contents($STATIC_ROOT . "/cite/$oaiid.txt");
+    return $citation;
+}
+
+function get_citation($oaiid) {
+    global $CITE_PROG;
+    $descriptorspec = array(0 => array("pipe", "r"),
+                            1 => array("pipe", "w"),
+                            2 => array("file", "/dev/null", "w"));
+    $citeproc = proc_open($CITE_PROG, $descriptorspec, $pipes,
+                          NULL, NULL, array("binary_pipes"));
+    fwrite($pipes[0], $oaiid . "\n");
+    fclose($pipes[0]);
+    $citation = stream_get_line($pipes[1], 8192);
+    fclose($pipes[1]);
+    proc_close($citeproc);
+    return $citation;
+}
+
+
 
 $itemid=$_GET['identifier'];
 if (!$itemid) {
@@ -495,16 +519,10 @@ if ($rowcount > 0) {
   $body .= "<tr><td class=lookup $rowspan>" . $body1;
 }
 
-$descriptorspec = array(0 => array("pipe", "r"),
-			1 => array("pipe", "w"),
-			2 => array("file", "/dev/null", "w"));
-$citeproc = proc_open("lib/cite.py", $descriptorspec, $pipes,
-		      NULL, NULL, array("binary_pipes"));
-fwrite($pipes[0], $itemid . "\n");
-fclose($pipes[0]);
-$citation = stream_get_line($pipes[1], 8192);
-fclose($pipes[1]);
-proc_close($citeproc);
+$citation = get_static_citation($itemid);
+if (!$citation)  # try dynamic version
+  $citation = get_citation($itemid);
+
 if ($citation or $search_terms)
   $search_info = "<tr><td colspan=3><br><p><b>Search Info</b></td></tr>";
 if ($citation) {
@@ -557,6 +575,12 @@ BORDER="0"></A></TD>
 echo $body;
 echo $analytics;
 ?>
+
+<hr>
+<div class="timestamp">
+<?=olacvar('baseurl') . '/item' . $_SERVER['PATH_INFO'];?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y"); ?>
+</div>
 
 </BODY>
 </HTML>
