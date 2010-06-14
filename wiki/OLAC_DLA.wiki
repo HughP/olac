@@ -13,14 +13,19 @@ The metadata should be delivered to the library via the OAI protocol to support 
 
 === New Elements ===
 
-The repository is not named in the OLAC record.  The DLA treats repository just like any other facet, and so we need to create an ad hoc element to hold the information.
+The repository is not named in the OLAC record.  The DLA treats repository just like any other facet, and so we need to create ad hoc elements to hold the information.
 
-  * `<olac_dla:repository home="http://www.ldc.upenn.edu/Catalog/" desc="http://www.language-archives.org/archive/www.ldc.upenn.edu">The LDC Corpus Catalog</olac_dla:repository>`
+  * `<facet name="Archive">The LDC Corpus Catalog</facet>`
+  * `<facet name="Archive home">http://www.ldc.upenn.edu/Catalog/</facet>`
+  * `<facet name="Archive description">http://www.language-archives.org/archive/www.ldc.upenn.edu</facet>`
 
 We need to support navigation by global regions:
 
-  * `<dc:coverage xsi:type="olac:region" olac:code="asia" olac_dla:view="Asia"/>`
+  * `<facet name="Region">Asia</facet>`
 
+We need to indicate whether the item has some online information or not:
+
+  * `<facet name="Online">Yes</facet>`
 
 Facets are flat, but the system's navigation of facets enables hierarchical browsing in any case.  So we can just dump out each level of the hierarchy in a separate element. (NB filtering required here, since some labels, like `Western`, are not unique; we could maintain a list of published family names.)
 
@@ -31,9 +36,9 @@ Facets are flat, but the system's navigation of facets enables hierarchical brow
 
 New attribute `view` for every coded value, which gets source from OLAC vocabulary document where possible, e.g.:
 
-  * `<dc:language xsi:type="olac:language" olac:code="fra" olac_dla:view="French"/>`
-  * `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" olac_dla:view="Lexicon"/>`
-  * `<dc:coverage xsi:type="dcterms:ISO3166" olac_dla:view="Australia">AU</dc:coverage>
+  * `<dc:language xsi:type="olac:language" olac:code="fra" view="French"/>`
+  * `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" view="Lexicon"/>`
+  * `<dc:coverage xsi:type="dcterms:ISO3166" view="Australia">AU</dc:coverage>
 
 == Public vs staff view ==
 
