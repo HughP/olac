@@ -29,10 +29,10 @@ We need to indicate whether the item has some online information or not:
 
 Facets are flat, but the system's navigation of facets enables hierarchical browsing in any case.  So we can just dump out each level of the hierarchy in a separate element. (NB filtering required here, since some labels, like `Western`, are not unique; we could maintain a list of published family names.)
 
-  # `<dc:coverage xsi:type="olac:family">Indo-European</dc:coverage>`
-  # `<dc:coverage xsi:type="olac:family">Romance</dc:coverage>`
-  # `<dc:coverage xsi:type="olac:family">Italo-Western</dc:coverage>`
-  # `<dc:coverage xsi:type="olac:family">Gallo-Romance</dc:coverage>`
+  # `<facet name="Language family">Indo-European</facet>`
+  # `<facet name="Language family">Romance</facet>`
+  # `<facet name="Language family">Italo-Western</facet>`
+  # `<facet name="Language family">Gallo-Romance</facet>`
 
 New attribute `view` for every coded value, which gets source from OLAC vocabulary document where possible, e.g.:
 
