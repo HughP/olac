@@ -443,7 +443,7 @@ _gaq.push(['_trackPageview',
 </script>
 END;
 
-$analytics_link = "onClick=\"_gaq.push['_trackPageview', 'archive_item_clicks/$answer[RepositoryIdentifier]']\"";
+$analytics_link = "onClick=\"_gaq.push(['_trackPageview', 'archive_item_clicks/$answer[RepositoryIdentifier]']);\"";
 
 $tab = $DB->sql("
 	select ed.TagName, ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content,
