@@ -200,7 +200,8 @@ $search_terms = implode(", ", $arr);
 <title><?=$title?></title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="/olac.css">
-<head>
+<script type="text/javascript" src="/js/gatrack.js"></script>
+</head>
 <body>
 
 <HR>

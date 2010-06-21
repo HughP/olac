@@ -16,6 +16,7 @@ $DB = new OLACDB();
 <HEAD>
 <TITLE>List Records from an OLAC Archive</TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </HEAD>
 
 <BODY>

@@ -57,6 +57,7 @@ $title = "Resources for languages in $the_area_name";
       initialize('area_<?=$area_name?>', '<?=$area_name?>');
     });
 </script>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 

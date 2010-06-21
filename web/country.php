@@ -56,6 +56,7 @@ $title = "Resources for languages in $country_name";
       initialize('country_<?=$country_code?>', '<?=$area_name?>');
     });
 </script>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 
