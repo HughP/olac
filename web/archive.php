@@ -103,6 +103,7 @@ function get_archive_info($id)
 <title>OLAC - Archive details</title>
 <link rel="stylesheet" type="text/css" href="/olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body bgcolor=white>
 

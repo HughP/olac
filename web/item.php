@@ -549,7 +549,7 @@ $meta = old_meta_tag_formatting($tab);
 <HTML>
 <HEAD>
 <TITLE>OLAC Record: <?=$title?></TITLE>
-<script type="text/javascript" src="/js/gatrack.js"/></script>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?=$meta?>
