@@ -329,7 +329,7 @@ function generate_html_format($elements)
       $newtag = $tagname;
 
     $value = $content;
-    $value = ereg_replace("(http:[^ ]+)", "<a href=\"\\1\" $analytics_link>\\1</a>", $value);
+    $value = ereg_replace("(https?:[^ ]+)", "<a href=\"\\1\" $analytics_link>\\1</a>", $value);
     $value = ereg_replace("(oai:[^: ]+:[^: ]+)", "<a href=\"/item/\\1\">\\1</a>", $value);
 
     $tab[] = array($newtag, $value, count($tab));
