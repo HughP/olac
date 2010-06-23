@@ -70,7 +70,7 @@ create table OLAC_ARCHIVE (
 create table ARCHIVE_PARTICIPANT (
 	Archive_ID		int,
 	Name			varchar(64),
-	Role			varchar(32),
+	Role			varchar(128),
 	Email			varchar(128),
 	primary key (Archive_ID, Role, Email),
 	foreign key (Archive_ID) references OLAC_ARCHIVE (Archive_ID) on delete cascade
