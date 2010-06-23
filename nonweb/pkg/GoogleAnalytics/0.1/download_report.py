@@ -98,8 +98,18 @@ def quarter_limits(year, order):
 
 def this_quarter():
     t = datetime.datetime.now()
-    order = math.ceil(t.month / 3.0)
+    order = int(math.ceil(t.month / 3.0))
     year = "%04d" % t.year
+    return quarter_limits(year, order)
+
+def previous_quarter():
+    t = datetime.datetime.now()
+    order = int(math.ceil(t.month / 3.0)) - 1
+    year = t.year
+    if order == 0:
+        order = 4
+        year -= 1
+    year = "%04d" % year
     return quarter_limits(year, order)
 
 authtok = get_auth_token(olac.olacvar('ga/gmail_user'),
@@ -111,5 +121,5 @@ if not authtok:
 
 tableid = get_table_id(authtok)
 
-beg, end = this_quarter()
-get_report(authtok, tableid, beg, end)
+beg, end = previous_quarter()
+print get_report(authtok, tableid, beg, end)
