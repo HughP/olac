@@ -764,6 +764,34 @@ create table ISO_639_3_Retirements (
 ) engine=innodb, charset=utf8;
 
 
+
+##################################################################
+# Table       : ISO_639_3_Code_Lineages
+# Description : 
+#
+# Language    : Key for the lineage
+# Level       : Level in the lineage; 1=family
+# Type        : I = individual language,
+#               M = macrolanguage,
+#               G = higher-level group
+# Code        : ISO 639 language code for the node
+# Name        : Name corresponding to Code
+##################################################################
+
+create table ISO_639_3_Code_Lineages (
+	Language		char(3) not null,
+	Level			tinyint not null,
+	Type			char(1) not null,
+	Code			char(3) not null,
+	Name			varchar(150) not null,
+	key(Language),
+	key(Type),
+	key(Code),
+	key(Name)
+) engine=innodb, charset=utf8;
+
+
+
 ##################################################################
 # Table                : PendingConfirmation
 # Description          : Used by the registration script.
