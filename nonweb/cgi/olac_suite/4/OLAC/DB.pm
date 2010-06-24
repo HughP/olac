@@ -512,7 +512,8 @@ sub getTable_ListRecords {
                cc.CountryID CountryCode,
                cc.Name CountryName,
                cc.Area
-        from METADATA_ELEM me
+        from ARCHIVED_ITEM ai
+        left join METADATA_ELEM me on ai.Item_ID=me.Item_ID
         left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
         left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
         left join CODE_DEFN cd on cd.Extension_ID=me.Extension_ID and cd.Code=me.Code
@@ -526,19 +527,19 @@ sub getTable_ListRecords {
     if ($request->{next}) {
 	my $first = $header->[0]->[2];
 	my $last = $header->[199]->[2];
-	$query .= "$conj oa.Item_ID >= $first and oa.Item_ID <= $last ";
+	$query .= "$conj ai.Item_ID >= $first and ai.Item_ID <= $last ";
         $conj = "and";
     }
     if ($request->{from}) {
-	$f = "DateStamp >= '$request->{from}'";
+	$f = "ai.DateStamp >= '$request->{from}'";
 	$query .= "$conj $f ";
         $conj = "and";
     }
     if ($request->{until}) {
-	$u = "DateStamp <= '$request->{until}'";
+	$u = "ai.DateStamp <= '$request->{until}'";
 	$query .= "$conj $u ";
     }
-    $query .= "order by oa.Item_ID";
+    $query .= "order by ai.Item_ID";
 
     $meta = $self->{dbh}->selectall_arrayref($query);
 
@@ -646,6 +647,37 @@ sub getArchiveInfoForItemId {
         where ai.Item_ID=$item_id and ai.Archive_ID=oa.Archive_ID
     ";
     return $self->{dbh}->selectrow_arrayref($sql);
+}
+
+sub getLanguageCodeLineages {
+    my $self = shift;
+    my $sql = "
+        select Language, Level, Code, Name
+        from ISO_639_3_Code_Lineages order by Language, Level
+    ";
+    my $res = $self->{dbh}->selectall_arrayref($sql);
+    my $T = {};
+    my $rec;
+    my $prev = undef();
+    foreach my $row (@$res) {
+	my ($lang, $level, $code, $name) = @$row;
+	if (exists $T->{$code}) {
+	    $prev = $T->{$code};
+	    next;
+	}
+	$rec = {
+	    name => $name,
+	    code => $code,
+	};
+	if ($level == 1) {
+	    $rec->{parent} = undef();
+	} else {
+	    $rec->{parent} = $prev;
+	}
+	$T->{$code} = $rec;
+	$prev = $rec;
+    }
+    return $T;
 }
                
 1;
