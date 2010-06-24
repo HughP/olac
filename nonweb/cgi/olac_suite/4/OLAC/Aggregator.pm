@@ -50,6 +50,7 @@ sub new {
     #$self->{tagpx} = $self->{db}->getTagPxDB;
     $self->{dctag} = $self->{db}->getDcTagDB;
     $self->{country} = $self->{db}->getCountryDB;
+    $self->{lineage} = $self->{db}->getLanguageCodeLineages;
 
     $self->{GetRecord} = \&serve_GetRecord;
     $self->{Identify} = \&serve_Identify;
@@ -1016,6 +1017,7 @@ sub get_mdata_olacdla {
     my $elements = [];
     my $facet;
     my $online = 'No';
+    my $families = {};
     for my $row (@$tab) {
         my $tag = $row->[0];
         my $dctag = $self->{dctag}{$tag};
@@ -1038,6 +1040,13 @@ sub get_mdata_olacdla {
                     $facet = $self->make_facet($doc, "Region", $row->[15]);
                     push @$elements, $facet;
                 }
+		if (exists $self->{lineage}->{$row->[4]}) {
+		    my $p = $self->{lineage}->{$row->[4]}->{parent};
+		    while (defined $p) {
+			$families->{$p->{name}} = 1;
+			$p = $p->{parent};
+		    }
+		}
             } else {
                 my $value = $row->[4];
                 $value =~ s/^(\w)/\U$1/;
@@ -1065,6 +1074,11 @@ sub get_mdata_olacdla {
     push @$elements, $self->make_facet($doc, 'Archive description', $desc);
 
     push @$elements, $self->make_facet($doc, 'Online', $online);
+
+    foreach my $f (keys %$families) {
+	$facet = $self->make_facet($doc, "Family", $f);
+	push @$elements, $facet;
+    }
 
     return $elements;
 }
