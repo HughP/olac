@@ -6,7 +6,9 @@ PYTHON=python
 
 TMP_LOG=/tmp/harvest.log-$$
 
-# parse command linE
+echo $$ > $(olacvar pids/web_harvester)
+
+# parse command line
 opt=
 if [ -z "$1" ]; then
     echo "specify a url to harvest"
@@ -54,7 +56,7 @@ cat $FIFO2 | tee $TMP_LOG &
 
 exec 5>&1 6>&2 1>$FIFO 2>&1
 
-$PYTHON $(olacvar harvester/main) -u -s "$url" $opt
+$PYTHON -u $(olacvar harvester/main) -f -u -s "$url" $opt --stdout
 
 # close down all output channels
 exec 1>&- 2>&-
@@ -70,4 +72,5 @@ new_records=`grep -e "updated records:" -e "new records:" $TMP_LOG | awk '{sum+=
 rm -f $TMP_LOG
 rm -f $FIFO
 rm -f $FIFO2
+rm -f $(olacvar pids/web_harvester)
 
