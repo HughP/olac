@@ -186,7 +186,9 @@ sqls = [
 
     "update Metrics m, (select ic.Object_ID, count(*) c from INTEGRITY_CHECK ic left join INTEGRITY_PROBLEM ip on ic.Problem_Code=ip.Problem_Code where ip.Applies_To='A' and ip.Severity='E' group by ic.Object_ID) x set m.integrity_problems=m.integrity_problems+x.c where m.archive_id=x.Object_ID",
 
-    "update Metrics set integrity_problems=(select count(*) from INTEGRITY_CHECK) where archive_id=-1",
+    "create temporary table all_integrity_problem select sum(floor(integrity_problems)) n from Metrics where archive_id!=-1",
+
+    "update Metrics set integrity_problems=(select n from all_integrity_problem limit 1) where archive_id=-1",
 
     "update Metrics m, (select ai.Archive_ID, count(*) c from INTEGRITY_CHECK ic left join INTEGRITY_PROBLEM ip on ic.Problem_Code=ip.Problem_Code left join METADATA_ELEM me on ic.Object_ID=me.Element_ID left join ARCHIVED_ITEM ai on ai.Item_ID=me.Item_ID where ip.Applies_To='E' and ip.Severity='W' group by ai.Archive_ID) x set m.integrity_problems=m.integrity_problems+0.1 where m.archive_id=x.Archive_ID",
 
