@@ -1255,7 +1255,8 @@ def harvest_all(mycnf,
                 url=None,
                 stream_filter=None,
                 static=False,
-                usesyslog=False):
+                usesyslog=False,
+                stdout=False):
     opts = {"use_unicode":True, "charset":"utf8"}
     if mycnf is None:
         if olac:
@@ -1311,19 +1312,24 @@ def harvest_all(mycnf,
                     USESYSLOG = False
                     sys.stderr.write("WARNING: Failed to import olac\n")
                     sys.stderr.write("WARNING: Logging to syslogd disabled\n")
-            LOG = file(logs[url], "w")
+            if stdout:
+                LOG = sys.stdout
+            else:
+                LOG = file(logs[url], "w")
             harvest_single(url, mycnf, host, db, full, stream_filter, static)
             sys.exit(0)
         else:
             P[pid] = url
             if len(P) >= N:
                 pid, status = os.wait()
-                printlog(pid)
+                if not stdout:
+                    printlog(pid)
                 del P[pid]
 
     while P:
         pid, status = os.wait()
-        printlog(pid)
+        if not stdout:
+            printlog(pid)
         del P[pid]
 
         
@@ -1345,6 +1351,7 @@ Usage: %(prog)s [options]
       -u        turn on utf-8 cleaner, which is search in the system config
       -U path   use the program specified by path as a utf-8 cleaner; implies -u
       -l        use syslogd to log messages
+      --stdout  output to stdout
 
 """ % {"prog":os.path.basename(sys.argv[0])}
     
@@ -1367,6 +1374,7 @@ Usage: %(prog)s [options]
         "*-U:",
         "*-l",
         "*--static",
+        "*--stdout",
         )
     
     try:
@@ -1399,6 +1407,8 @@ Usage: %(prog)s [options]
             sf = ExternalProgram(uf, ["-q"])
 
     static = bool(op.get('--static'))
-    
+    stdout = bool(op.get('--stdout'))
+
     harvest_all(mycnf, host, db, full=full, url=url, stream_filter=sf,
-                static=static, usesyslog=bool(op.get('-l')))
+                static=static, usesyslog=bool(op.get('-l')),
+                stdout=stdout)
