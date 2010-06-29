@@ -1018,6 +1018,11 @@ sub get_mdata_olacdla {
     my $facet;
     my $online = 'No';
     my $families = {};
+
+    if (scalar(@$tab) == 0) {
+        return $elements;
+    }
+
     for my $row (@$tab) {
         my $tag = $row->[0];
         my $dctag = $self->{dctag}{$tag};

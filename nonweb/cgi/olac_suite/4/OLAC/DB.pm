@@ -523,21 +523,17 @@ sub getTable_ListRecords {
         left join CountryCodes cc on eth.CountryID=cc.CountryID
     ";
 
-    $conj = "where";
-    if ($request->{next}) {
-	my $first = $header->[0]->[2];
-	my $last = $header->[199]->[2];
-	$query .= "$conj ai.Item_ID >= $first and ai.Item_ID <= $last ";
-        $conj = "and";
-    }
+    my $first = $header->[0]->[2];
+    my $last = $header->[scalar(@$header)-1]->[2];
+    $query .= "where ai.Item_ID >= $first and ai.Item_ID <= $last ";
+
     if ($request->{from}) {
 	$f = "ai.DateStamp >= '$request->{from}'";
-	$query .= "$conj $f ";
-        $conj = "and";
+	$query .= "and $f ";
     }
     if ($request->{until}) {
 	$u = "ai.DateStamp <= '$request->{until}'";
-	$query .= "$conj $u ";
+	$query .= "and $u ";
     }
     $query .= "order by ai.Item_ID";
 
