@@ -145,7 +145,7 @@ function report_result($result) {
 
 
 function get_output($cmd, $num) {
-  $fp = popen($cmd . " | tee /tmp/x.x.x", 'r');
+  $fp = popen($cmd, 'r');
   # fread can stop before reading $num bytes
   $result = stream_get_contents($fp, $num);
   pclose($fp);
