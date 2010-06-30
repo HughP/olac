@@ -120,7 +120,7 @@ set password for olac@localhost = password('...');
 }}}
 
 
-=== Configure 6: Apache ===
+=== Configure 7: Apache ===
 
 Create an OLAC-specific configuration file by copying the default configuration file.
 
@@ -205,7 +205,13 @@ And add this somewhere inside the VirtualHost container:
 
 The status report will be available from .../server-status and only inside the ldc.upenn.edu domain.
 
-=== Configuration 7: Outbound email ===
+=== Configuration 8: PHP ===
+
+Edit /etc/php5/apache2/php.ini. Update the upload_max_filesize variable. Default value is 2MB. Change it to 20MB (or more).
+
+One of the reasons that we want a large value for this is variable is the registration page. People sometimes upload very large static repository file.
+
+=== Configuration 9: Outbound email ===
 
 Configure exim4 to email outbound emails. For this particular setup, we chose "mail sent by smarthost; no local mail". This enables outbound email by a remote mail server, and disables inbound emails.
 
