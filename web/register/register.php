@@ -133,6 +133,29 @@ function fatal_error($str) {
 
 
 
+function file_upload_error_message($error_code) {
+    switch ($error_code) {
+        case UPLOAD_ERR_INI_SIZE:
+            return 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+        case UPLOAD_ERR_FORM_SIZE:
+            return 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form';
+        case UPLOAD_ERR_PARTIAL:
+            return 'The uploaded file was only partially uploaded';
+        case UPLOAD_ERR_NO_FILE:
+            return 'No file was uploaded';
+        case UPLOAD_ERR_NO_TMP_DIR:
+            return 'Missing a temporary folder';
+        case UPLOAD_ERR_CANT_WRITE:
+            return 'Failed to write file to disk';
+        case UPLOAD_ERR_EXTENSION:
+            return 'File upload stopped by extension';
+        default:
+            return 'Unknown upload error';
+    }
+}
+
+
+
 function report_result($result) {
   print "<h3>Validation Result:</h3>\n";
   if ($result) {
@@ -1182,14 +1205,29 @@ if ($_POST["action"] == "VALIDATE" && $POSTEDURL) {
 }
 
 else if ($_POST["action"] == "UPLOAD & VALIDATE" && $_FILES["userfile"]["name"]) {
-  $filename = basename($_FILES['userfile']['name']);
-  $target = PENDING_DIR . "/" . $filename;
-  move_uploaded_file($_FILES['userfile']['tmp_name'], $target);
-  $POSTEDURL = PENDING_URL . "/" . $filename;
-  $URLTOFILE = "tmp/" . myurlencode($POSTEDURL);
-  exec("rm -f \"$URLTOFILE\"*");
+  ob_end_flush();
+  flush();
+  if ($_FILES['userfile']['error'] === UPLOAD_ERR_OK) {
+    $filename = basename($_FILES['userfile']['name']);
+    $target = PENDING_DIR . "/" . $filename;
+    move_uploaded_file($_FILES['userfile']['tmp_name'], $target);
+    $POSTEDURL = PENDING_URL . "/" . $filename;
+    $URLTOFILE = "tmp/" . myurlencode($POSTEDURL);
+    exec("rm -f \"$URLTOFILE\"*");
 
-  validate_and_respond();
+    validate_and_respond();
+  } else {
+    $error_message = file_upload_error_message($_FILES['userfile']['error']);
+    echo "<p>Sorry, we were not able to download your file.</p>";
+    echo "<p>Reason: $error_message</p>";
+    echo "<p>System admin has been notified. Please try later. ";
+    echo "We will try to fix the problem as soon as we can.</p>";
+    
+    $subject = "olac registration error (file upload problem)";
+    $msg = "File upload failed due to the following readon.\n\n";
+    $msg .= "DB error msg: " . $error_message;
+    mail_by_olac_admin($OLAC_SYS_ADMIN_EMAIL, $subject, $msg);
+  }
 }
 
 else if ($_POST["action"] == "REGISTER NOW") {
