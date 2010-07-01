@@ -155,9 +155,9 @@ def main():
         where ts >= '%(STARTED)s'
         """ % status_data
 
-        proc1('item.php', sql_to_list(sql))
-
         proc1cite(sql_to_list(sql))
+
+        proc1('item.php', sql_to_list(sql))
 
         proc1py('integrity_check.wsgi', 'checks', repoids)
         proc1py('integrity_check.wsgi', 'checks',
