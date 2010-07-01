@@ -519,7 +519,7 @@ if ($rowcount > 0) {
   $body .= "<tr><td class=lookup $rowspan>" . $body1;
 }
 
-$citation = get_static_citation($itemid);
+$citation = @get_static_citation($itemid);
 if (!$citation)  # try dynamic version
   $citation = get_citation($itemid);
 
