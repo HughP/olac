@@ -41,6 +41,7 @@
 </tr>
 </table>
 <hr/>
+   <div id="contents">
 <h2>Answers to Frequently Asked Questions about Implementing an OLAC
     Metadata Repository</h2>
     <ol>
@@ -106,7 +107,9 @@ represented in OLAC?</a> </li>
 <li> <a href="../documents/faq.html#12">How do I contribute new proposals for
 OLAC metadata?</a> </li>
 </ol>
+   </div>
 <hr/>
+   <div id="prelim">
     <h3 class="Question"><a name="archive">Is it required that an OLAC
         metadata repository describe an archive?</a></h3>
     <p>In the prototypical case, a participating institution is an
@@ -325,15 +328,10 @@ OLAC metadata?</a> </li>
         <i>static repository.</i> In a static repository, the entire
         catalog for the repository is expressed in a single XML
         file that contains all of the metadata records.
-        That file is registered with the 
-        <a href="http://www.language-archives.org/sr">OLAC Static Repository Gateway</a>
-        which is a live web service that implements the OAI Protocol
-        for Metadata Harvesting in order to provide access to the contents of
-        all registered repositories.
         This is the simpler of the two approaches and can be used
-        when the repository is relatively small&#x2014;the OLAC Static
-        Repository Gateway is designed to handle repositories ranging from 1
-        to 5,000 records. When there is no existing catalog database, 
+        when the repository is relatively small&#x2014;up to
+        approximately
+        5,000 records. When there is no existing catalog database, 
         the implementer can use an XML editor to 
         <a href="#manual">create and maintain a repository by hand</a>.
         When there is an existing catalog database, the implementer can
@@ -354,8 +352,10 @@ OLAC metadata?</a> </li>
     exceedingly large. The OAI community considers half a megabyte 
     to be a reasonable response size (which
     corresponds to about 500 records in a typical repository).</p>
-    
+   </div>
+   
     <!-- Static repository -->
+   <div id="static">
     <h2>Implementing a static repository</h2>
     <h3 class="Question"><a name="eg-static">Where can I find complete examples of
         static repositories?</a></h3>
@@ -369,18 +369,19 @@ OLAC metadata?</a> </li>
     <p>It is also possible to see the XML document behind each of the
         static repositories that have been implemented by
         participating archives. Approximately nine-tenths of the
-        repositories are implemented in this way. A static repository
-        can be identified by clicking the 
+        repositories are implemented in this way. The XML document for
+        a static repository can be retrieved in whole by inspecting
+        its base URL. That URL is found by clicking the 
         <a href="http://www.language-archives.org/archives.php">Archives</a>
         link on the OLAC home page, then clicking the "More Details" link for the
-        desired archive. Find the line that says "Base URL" and
-        inspect the URL.  If it begins with
-        <tt>http://www.language-archives.org/sr/</tt>, then it is a
-        static repository. The remainder of the Base URL is the URL
-        (minus the <tt>http://</tt>) of the underlying XML document.
-        In order to retrieve that document, copy the repository URL
-        (by selecting everything in the Base URL following
-        <tt>/sr/</tt>) and then paste it into a web browser. </p>
+        desired archive. Find the line that says "Base URL", copy the
+        URL, and paste it into a web browser.
+        If the repository is dynamic, the result will be a
+        documentation page or an error
+        response concerning an illegal verb. 
+    However, in nine-tenths of the cases, the repository is static and
+    the result will be the XML document that holds all the contents of
+    the repository.</p>
     
     <h3 class="Question"><a name="manual">How would I create and maintain a static repository by hand?</a></h3>
     <p>For a repository that has only a few records, it is very
@@ -398,6 +399,18 @@ OLAC metadata?</a> </li>
     <h3 class="Question"><a name="sample1">Where can I find sample code for generating a static repository from a
         database?</a></h3>
     <p>Forthcoming.</p>
+      <p>Note that it will not work to supply the URL of your script
+         as the base URL for a static repository. While accessing such
+         a URL might return a valid static repository document that is
+         up-to-the-minute with respect to the underlying database, this
+         will not work correctly when the database is updated because 
+         the harvesting protocol assumes that a
+         static repository is static. The static repository harvester uses the HTTP
+         protocol to issue a HEAD
+         request and reharvests the repository only if the
+         "Last-Modified" time in the response is more recent than the
+         time of the last successful
+         harvest. </p>
     
     <h3 class="Question"><a name="test1">How do I test whether my
         static repository is valid?</a></h3>
@@ -454,8 +467,10 @@ OLAC metadata?</a> </li>
         for a static repository to be hosted on the OLAC site. Once
         your repository is posted for public access, you are in a
         position to <a href="#register">register with OLAC</a>.</p>
-    
+   </div>
+   
     <!-- Dynamic repository -->
+   <div id="dynamic">
     <h2>Implementing a dynamic repository</h2>
     <h3 class="Question"><a name="eg-dynamic">Where can I find complete examples of
         dynamic repositories?</a></h3>
@@ -487,8 +502,10 @@ OLAC metadata?</a> </li>
     
     <h3 class="Question"><a name="test2">How do I test my dynamic repository to make sure it works?</a></h3>
     <p>Forthcoming.</p>
-    
+   </div>
+   
     <!-- Registering and updating -->
+   <div id="registering">
  <h2>Registering and improving a repository</h2>
     <h3 class="Question"><a name="register">How do I register my
         repository with OLAC?</a></h3>
@@ -661,7 +678,8 @@ OLAC metadata?</a> </li>
     administrators who will manually remove your existing repository
     and registration, and then
     instruct you to register the new repository.</p>
-    
+   </div>
+   
 <hr/>
     <p><i>Comments? Further questions? Please click the </i>mailto:<i> link
         below to give us feedback so that
