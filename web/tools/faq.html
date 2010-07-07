@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+    <!-- Dynamic repository -->
  
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type"/> 
@@ -457,19 +458,23 @@ OLAC metadata?</a> </li>
         repository.</p>
     
     <h3 class="Question"><a name="publish">Where do I put my repository when it is ready to publish?</a></h3>
-    <p>The XML file for your static repository must be posted on a
-        public web site, preferably the site run by your host
-        institution. 
+    <p>There are two options. The first option is to post the XML file
+       for your static repository on a
+        public web site, such as
+        the site run by your repository's host institution. 
         Ideally you will want it where you have write access, since
         you will want to be able to update the repository from time to
-        time.  If you do not have access to a public web
-        site, contact the OLAC administrators; it is possible
-        for a static repository to be hosted on the OLAC site. Once
-        your repository is posted for public access, you are in a
-        position to <a href="#register">register with OLAC</a>.</p>
+        time. Once
+        your repository is posted for public access, you are ready
+        to <a href="#register">register with OLAC</a>. </p>
+      <p>If you do not have access to a public web
+        site, the second option is to let OLAC host your static
+        repository. If you choose this option, the uploading is done as
+        part of the registration process so you are
+        ready to proceed to <a href="#register">registering with OLAC</a>.</p>
    </div>
    
-    <!-- Dynamic repository -->
+   <!-- Dynamic repository -->
    <div id="dynamic">
     <h2>Implementing a dynamic repository</h2>
     <h3 class="Question"><a name="eg-dynamic">Where can I find complete examples of
@@ -509,19 +514,29 @@ OLAC metadata?</a> </li>
  <h2>Registering and improving a repository</h2>
     <h3 class="Question"><a name="register">How do I register my
         repository with OLAC?</a></h3>
-    <p>Once your repository is on a publicly-accessible web site, you
-        are in a position to register with OLAC. The first step in the
-        registration process is to run the automated validation 
-        suite over the repository.
-        This is found on the 
-        <a href="http://www.language-archives.org/register/register.php">OLAC Archive Registration</a>  
-        page.  Paste the URL for
-            your repository into the text
-            box and click the "Validate" button.  This performs
-            tests for the conditions described in the 
-        <a href="http://www.language-archives.org/OLAC/repositories.html">OLAC
-        Repositories</a> standard and for XML schema validation.
-            If the final line of the report says "FAILURE,"
+      <p>A new repository is registered by means of the
+         <a href="http://www.language-archives.org/register/register.php">OLAC Archive Registration</a>
+         page. There are two cases: 
+      </p>
+      <ul>
+         <li><p><i>The repository file is posted on a public web
+            site.</i> If you have a dynamic repository or a 
+            static repository that has been placed on a publicly
+            accessible web site, then go to the <a href="http://www.language-archives.org/register/register.php">OLAC Archive Registration</a>
+            page and paste the URL for your repository
+            into the first text box on the page. Click the
+            "VALIDATE"
+            button to test the file. </p></li>
+         <li><p><i>The repository file is only on your work station.</i> 
+            If your static repository file is on your local work
+            station, then go to the <a href="http://www.language-archives.org/register/register.php">OLAC Archive Registration</a>
+            page and click the "Browse" button to the right of the second text box
+            on the page. After you have located the repository file, click
+            the "UPLOAD &amp; VALIDATE" button to test the file.</p>
+         </li>
+      </ul>
+
+      <p>If the final line of the resulting validation report says "FAILURE,"
             then you still have work to do. Make note of all the
             individual tests that failed and fix the offending
             content in the repository; then repeat the
@@ -598,10 +613,14 @@ OLAC metadata?</a> </li>
       also test the file for conformance to the
       <a href="http://www.language-archives.org/OLAC/repositories.html">OLAC Repositories</a> 
       standard. If there are problems, you will be notified and
-      instructed to correct the problems and repeat the process. If
-      the repository is valid, then the new version will be saved on
-      the OLAC site and will be harvested at the next scheduled
-      harvest (see next question).  </p>
+      instructed to correct the problems and repeat the process. 
+      If the validation is successful, you will be offered an option to
+      replace the existing repository with the new one. When you
+      select that option, a confirmation request will be sent to
+      the adminEmail declared in the original repository. Once
+      the request is confirmed,
+      the repository will be replaced with the new file.
+   </p>
    
     <h3 class="Question"><a name="changes">Why aren't my changes being harvested?</a></h3>
     <p>Incremental harvesting takes place every day. Before
