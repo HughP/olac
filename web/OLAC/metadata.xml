@@ -96,8 +96,7 @@ DC) developed by the DC Architecture Working Group for implementing qualified DC
             <url>http://www.language-archives.org/OLAC/1.1/olac.xsd</url> </p> 
         </li> 
         <li> 
-          <p>Example: <url>http://www.language-archives.org/OLAC/1.1/olac.xml
-            </url></p> 
+          <p>Example: <url>http://www.language-archives.org/OLAC/1.1/olac.xml</url></p> 
         </li> 
       </ul><p>The container for an OLAC metadata record is the element <tt>&lt;olac&gt;</tt>, which is defined in a namespace called "<tt>http://www.language-archives.org/OLAC/1.1/</tt>". In the sample record that follows, the namespace prefix <tt>olac</tt> is used, and the DC namespace is declared to  be the default so that the metadata element tags need not be prefixed.  For instance, the following is a valid OLAC metadata record:</p>
 <eg><![CDATA[<olac:olac xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
