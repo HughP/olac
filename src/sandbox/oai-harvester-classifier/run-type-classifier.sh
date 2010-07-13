@@ -1,11 +1,11 @@
 # setup temp files
 P=/usr/share/olac/olac/src/sandbox/oai-harvester-classifier
-TMP1=$P/restype.out1.tmp
-TMP2=$P/restype.out2.tmp
-TMP3=$P/restype.out3.tmp
-TMP4=$P/restype.out4.tmp
-TMP5=$P/restype.out5.tmp
-SQLTMP=$P/restype.tmp.sql
+TMP1=$P/restype.out1.tmp # binary classifier input
+TMP2=$P/restype.out2.tmp # binary classifier output
+TMP3=$P/restype.out3.tmp # type classifier input
+TMP4=$P/restype.out4.tmp # type classifier output
+TMP5=$P/restype.out5.tmp # SQL import
+SQLTMP=$P/restype.tmp.sql # SQL temporary file
 
 # export oai data
 echo Exporting oai data to be classified...
