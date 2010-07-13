@@ -10,11 +10,15 @@ public class ResourceTypeClassify {
 		FileNotFoundException, IOException, ClassNotFoundException{
 		if(args.length!=3){
 			throw new IllegalArgumentException("Usage: java ResourceTypeClassify classifier.mallet input-vectors output-file");
-		}else{
+		}
+		else {
+			String classifierFile = args[0];
+			String inputVectorsFile = args[1];
+			String outputFile = args[2];
 			System.out.println("Loading classifier...");
-			Classifier classifier = loadClassifier(new File(args[0]));
+			Classifier classifier = loadClassifier(new File(classifierFile));
 			System.out.println("Printing class labels...");
-			printLabelings(classifier, new File(args[1]), args[2]);
+			printLabelings(classifier, new File(inputVectorsFile), outputFile);
 		}
 	}
 	
@@ -57,7 +61,7 @@ public class ResourceTypeClassify {
         	Instance instance = (Instance) instances.next();
             Labeling labeling = classifier.classify(instance).getLabeling();
 
-            // print the labels with their weights in descending order (ie best first)                     
+            // print the labels with their weights in descending order (i.e., best first)                     
 //            System.out.println(instance.getLabeling()+ " " + instance.getSource());
             output.print(instance.getName() + "\t");
             Object trueLabel = reader2Instance.getTarget();
