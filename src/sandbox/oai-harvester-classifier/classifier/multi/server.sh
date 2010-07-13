@@ -26,6 +26,7 @@ if [ ! -e "ResourceTypeClassifierServer.class" ]
 then
     echo "No binary for ResourceTypeClassifierServer found."
     echo "Compiling..."
+    cp ../ResourceTypeClassifierServer.java .
     javac ResourceTypeClassifierServer.java
 fi
 
