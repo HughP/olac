@@ -1,0 +1,40 @@
+Rough docs for OAI Harvester
+
+The OAI Harvester is derived from the OLAC Harvester, with the addition of metadata enrichment to add the features required for OLAC.
+ Takes about 48 hours for the current data set.
+
+The HasOLACType flag improves performance over a join.
+
+Process:
+* read external repositories into an OLAC MySQL database, 
+* SQL scripts then extract the data into Mallet-compatible tab-delimited records in plain-text files.
+* plain-text files are then checked against the classifiers:
+  * [1] Binary: is it a Language-related record/article?
+That data is re-combined with the original data, since some is lost in processing...
+
+  * [2] Multi-Way: What OLAC type is it?
+run-type-classifier
+resource_type_extract # called indirectly, SQL-based
+
+  * [3] Subject-language: What language is it about?
+
+
+then fills out the schema.
+
+
+harvest-all.sh # rebuilds all of the data by manually fetching the URLs, defaults to updating existing records
+
+harvest-update.sh # not currently working, fetches changed records to make the data current
+
+rebuild_full #  deletes the database tables and starts from scratch
+
+remove_archive.sh # requires an ID, removes the data for that (item)
+
+remove_subject_enrichments # (not used yet), removes the subject language enrichment that was added
+
+remove_type_enrichments # deletes the added type enrichment data
+
+reset_type_enrichments # resets HasOLACtype flag without actually deleting the data
+
+
+
