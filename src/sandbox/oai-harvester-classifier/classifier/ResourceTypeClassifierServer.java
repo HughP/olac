@@ -90,7 +90,7 @@ public class ResourceTypeClassifierServer {
 				
 				// write the classifications to a temporary processing file
 				try {
-					printLabelings(classifier, inputVectorsFile, processingFile);
+					printLabelings(classifier, inputVectorsFile, processingFileName);
 				} catch (IOException e) {
 					System.out.println("Exception running classifier \""+classifierFile+"\"");
 					e.printStackTrace();
@@ -155,11 +155,11 @@ public class ResourceTypeClassifierServer {
      * @param outputFilename
      * @throws IOException
      */
-    public static void printLabelings(Classifier classifier, File vectorfile, File outputfile) throws IOException {
+    public static void printLabelings(Classifier classifier, File vectorfile, String outputFilename) throws IOException {
         // format of data in vectorfile is: [name]\t[label]\t[data]
         CsvIterator reader =
             new CsvIterator(new FileReader(vectorfile),
-                            "(.+)\\t(.*)\\t(.*)",
+                            "(\\w+)\\t(\\w*)\\t(\\w*)",
                             3, 2, 1);
         Iterator<Instance> instances =
             classifier.getInstancePipe().newIteratorFrom(reader);
@@ -167,10 +167,10 @@ public class ResourceTypeClassifierServer {
         // We need a second reader here because Iterator<Instance> ignores class labels that do not exist in the classifier.
         CsvIterator reader2 =
             new CsvIterator(new FileReader(vectorfile),
-                            "(.+)\\t(.*)\\t(.*)",
+                            "(\\w+)\\t(\\w*)\\t(\\w*)",
                             3, 2, 1);
 
-        PrintStream output = new PrintStream(new FileOutputStream(outputfile));
+        PrintStream output = new PrintStream(new FileOutputStream(outputFilename));
         while (instances.hasNext()) {
         	Instance reader2Instance = reader2.next();
         	Instance instance = (Instance) instances.next();
