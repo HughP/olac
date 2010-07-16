@@ -159,7 +159,7 @@ public class ResourceTypeClassifierServer {
         // format of data in vectorfile is: [name]\t[label]\t[data]
         CsvIterator reader =
             new CsvIterator(new FileReader(vectorfile),
-                            "(\\w+)\\t(\\w*)\\t(\\w*)",
+                            "(.+)\\t(.*)\\t(.*)",
                             3, 2, 1);
         Iterator<Instance> instances =
             classifier.getInstancePipe().newIteratorFrom(reader);
@@ -167,7 +167,7 @@ public class ResourceTypeClassifierServer {
         // We need a second reader here because Iterator<Instance> ignores class labels that do not exist in the classifier.
         CsvIterator reader2 =
             new CsvIterator(new FileReader(vectorfile),
-                            "(\\w+)\\t(\\w*)\\t(\\w*)",
+                            "(.+)\\t(.*)\\t(.*)",
                             3, 2, 1);
 
         PrintStream output = new PrintStream(new FileOutputStream(outputFilename));
