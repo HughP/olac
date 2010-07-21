@@ -1045,7 +1045,7 @@ sub get_mdata_olacdla {
                     $facet = $self->make_facet($doc, "Region", $row->[15]);
                     push @$elements, $facet;
                 }
-		if (exists $self->{lineage}->{$row->[4]}) {
+		if ($tag eq 'subject' && exists $self->{lineage}->{$row->[4]}) {
 		    my $p = $self->{lineage}->{$row->[4]}->{parent};
 		    while (defined $p) {
 			$families->{$p->{name}} = 1;
