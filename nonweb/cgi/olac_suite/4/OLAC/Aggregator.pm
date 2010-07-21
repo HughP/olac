@@ -51,6 +51,9 @@ sub new {
     $self->{dctag} = $self->{db}->getDcTagDB;
     $self->{country} = $self->{db}->getCountryDB;
     $self->{lineage} = $self->{db}->getLanguageCodeLineages;
+    my $citedir = `olacvar static/root`;
+    chomp $citedir;
+    $self->{citedir} = $citedir . '/cite';
 
     $self->{GetRecord} = \&serve_GetRecord;
     $self->{Identify} = \&serve_Identify;
@@ -1074,12 +1077,16 @@ sub get_mdata_olacdla {
     my $item_id = $tab->[0]->[7];
     my $row = $self->{db}->getArchiveInfoForItemId($item_id);
     my $desc = "http://www.language-archives.org/archive/" . $row->[3];
+    my $citefile = $self->{citedir} . '/' . $row->[4] . '.txt';
+    if (open(CITE, $citefile)) {
+        my $cite = <CITE>;
+        chomp $cite;
+        push @$elements, $self->make_facet($doc, 'Citation', $cite);
+    }
     push @$elements, $self->make_facet($doc, 'Archive', $row->[2]);
     push @$elements, $self->make_facet($doc, 'Archive home', $row->[1]);
     push @$elements, $self->make_facet($doc, 'Archive description', $desc);
-
     push @$elements, $self->make_facet($doc, 'Online', $online);
-
     foreach my $f (keys %$regions) {
         $facet = $self->make_facet($doc, "Region", $f);
         push @$elements, $facet;

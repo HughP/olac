@@ -638,7 +638,8 @@ sub getArchiveInfoForItemId {
         select oa.Archive_ID,
                ArchiveURL,
                RepositoryName,
-               RepositoryIdentifier
+               RepositoryIdentifier,
+               ai.OaiIdentifier
         from OLAC_ARCHIVE oa, ARCHIVED_ITEM ai
         where ai.Item_ID=$item_id and ai.Archive_ID=oa.Archive_ID
     ";
