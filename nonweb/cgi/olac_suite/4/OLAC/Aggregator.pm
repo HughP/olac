@@ -1018,6 +1018,7 @@ sub get_mdata_olacdla {
     my $facet;
     my $online = 'No';
     my $families = {};
+    my $regions = {};
 
     if (scalar(@$tab) == 0) {
         return $elements;
@@ -1041,9 +1042,8 @@ sub get_mdata_olacdla {
             $row->[4] && $me->setAttribute('olac:code', $row->[4]);
             if ($tt eq 'language') {
                 $me->setAttribute('view', $row->[6]);
-                if ($row->[11] && $row->[15]) {
-                    $facet = $self->make_facet($doc, "Region", $row->[15]);
-                    push @$elements, $facet;
+                if ($tag eq 'subject' && $row->[11] && $row->[15]) {
+                    $regions->{$row->[15]} = 1;
                 }
 		if ($tag eq 'subject' && exists $self->{lineage}->{$row->[4]}) {
 		    my $p = $self->{lineage}->{$row->[4]}->{parent};
@@ -1080,6 +1080,10 @@ sub get_mdata_olacdla {
 
     push @$elements, $self->make_facet($doc, 'Online', $online);
 
+    foreach my $f (keys %$regions) {
+        $facet = $self->make_facet($doc, "Region", $f);
+        push @$elements, $facet;
+    }
     foreach my $f (keys %$families) {
 	$facet = $self->make_facet($doc, "Family", $f);
 	push @$elements, $facet;
