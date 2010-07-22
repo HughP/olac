@@ -838,10 +838,20 @@ sub get_text {
     }
 }
 
+sub my_push {
+    my ($arr, $me, $h) = @_;
+    my $s = $me->toString;
+    if (! exists $h->{$s}) {
+	push @$arr, $me;
+	$h->{$s} = 1;
+    }
+}
+
 sub get_mdata_olac {
     my ($self, $doc, $tab) = @_;
     # $row : 0=tag, 1=lang, 2=content, 3=ext_id, 4=code
     my $elements = [];
+    my $h = {};
     for my $row (@$tab) {
 	my $tag = $row->[0];
 	my $dctag = $self->{dctag}{$tag};
@@ -862,7 +872,7 @@ sub get_mdata_olac {
 	elsif ($ns eq 'http://purl.org/dc/terms/') {
 	    $me->setAttribute('xsi:type', "dcterms:$tt");
 	}
-	push @$elements, $me;
+	my_push $elements, $me, $h;
     }
     return $elements;
 }
@@ -895,6 +905,7 @@ sub get_mdata_olac_display {
     # $row : 0=tag,     1=lang,     2=content, 3=ext_id, 4=code,
     #        5=ext_lbl, 6=code_lbl
     my $elements = [];
+
     for my $row (@$tab) {
 	
 	my $tag = $row->[0];
@@ -1022,6 +1033,7 @@ sub get_mdata_olacdla {
     my $online = 'No';
     my $families = {};
     my $regions = {};
+    my $h = {};
 
     if (scalar(@$tab) == 0) {
         return $elements;
@@ -1071,7 +1083,7 @@ sub get_mdata_olacdla {
             $row->[2] =~ /^(http|https|ftp):.*/) {
             $online = 'Yes';
         }
-        push @$elements, $me;
+	my_push $elements, $me, $h;
     }
 
     my $item_id = $tab->[0]->[7];
@@ -1081,19 +1093,17 @@ sub get_mdata_olacdla {
     if (open(CITE, $citefile)) {
         my $cite = <CITE>;
         chomp $cite;
-        push @$elements, $self->make_facet($doc, 'Citation', $cite);
+	my_push $elements, $self->make_facet($doc, 'Citation', $cite), $h;
     }
-    push @$elements, $self->make_facet($doc, 'Archive', $row->[2]);
-    push @$elements, $self->make_facet($doc, 'Archive home', $row->[1]);
-    push @$elements, $self->make_facet($doc, 'Archive description', $desc);
-    push @$elements, $self->make_facet($doc, 'Online', $online);
+    my_push $elements, $self->make_facet($doc, 'Archive', $row->[2]), $h;
+    my_push $elements, $self->make_facet($doc, 'Archive home', $row->[1]), $h;
+    my_push $elements, $self->make_facet($doc, 'Archive description', $desc), $h;
+    my_push $elements, $self->make_facet($doc, 'Online', $online), $h;
     foreach my $f (keys %$regions) {
-        $facet = $self->make_facet($doc, "Region", $f);
-        push @$elements, $facet;
+        my_push $elements, $self->make_facet($doc, "Region", $f), $h;
     }
     foreach my $f (keys %$families) {
-	$facet = $self->make_facet($doc, "Family", $f);
-	push @$elements, $facet;
+	my_push $elements, $self->make_facet($doc, "Family", $f), $h;
     }
 
     return $elements;
