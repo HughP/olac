@@ -88,13 +88,6 @@ HR	Croatia	Europe
 HT	Haiti	Americas
 HU	Hungary	Europe
 ID	Indonesia	Asia
-ID	Indonesia (Java and Bali)	Asia
-ID	Indonesia (Kalimantan)	Asia
-ID	Indonesia (Nusa Tenggara)	Asia
-ID	Indonesia (Sumatra)	Asia
-ID	Indonesia (Sulawesi)	Asia
-ID	Indonesia (Maluku)	Asia
-ID	Indonesia (Papua)	Asia
 IE	Ireland	Europe
 IL	Israel	Asia
 IN	India	Asia
@@ -112,8 +105,8 @@ KH	Cambodia	Asia
 KI	Kiribati	Pacific
 KM	Comoros	Africa
 KN	Saint Kitts and Nevis	Americas
-KP	Korea, North	Asia
-KR	Korea, South	Asia
+KP	"Korea, North"	Asia
+KR	"Korea, South"	Asia
 KW	Kuwait	Asia
 KY	Cayman Islands	Americas
 KZ	Kazakhstan	Asia
@@ -148,9 +141,6 @@ MV	Maldives	Asia
 MW	Malawi	Africa
 MX	Mexico	Americas
 MY	Malaysia	Asia
-MY	Malaysia (Sabah)	Asia
-MY	Malaysia (Sarawak)	Asia
-MY	Malaysia (Peninsular)	Asia
 MZ	Mozambique	Africa
 NA	Namibia	Africa
 NC	New Caledonia	Pacific
@@ -184,8 +174,6 @@ RE	Réunion	Africa
 RO	Romania	Europe
 RS	Serbia	Europe
 RU	Russian Federation	Europe
-RU	Russian Federation (Europe)	Europe
-RU	Russian Federation (Asia)	Asia
 RW	Rwanda	Africa
 SA	Saudi Arabia	Asia
 SB	Solomon Islands	Pacific
@@ -216,8 +204,6 @@ TM	Turkmenistan	Asia
 TN	Tunisia	Africa
 TO	Tonga	Pacific
 TR	Turkey	Asia
-TR	Turkey (Europe)	Europe
-TR	Turkey (Asia)	Asia
 TT	Trinidad and Tobago	Americas
 TV	Tuvalu	Pacific
 TW	Taiwan	Asia
