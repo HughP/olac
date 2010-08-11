@@ -18,5 +18,5 @@
 Notes:
 
  * classifiers developed in 2.1 may be applicable
- * will need different features since we have access to full content here (refer to langgator proposal for ideas)
+ * will need different features since we have access to full content here (refer to Langgator proposal for ideas)
  * result would be a provider with one record per language
