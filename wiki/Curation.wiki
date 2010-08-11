@@ -15,10 +15,10 @@
 
   * *Deliverable:* Add an optional `<archivalSubmisionPolicy>` element to the `<olac-archive>` description so that participants who are truly archives (as opposed to aggregators or indexers) can identify themselves and describe what they can offer to would-be submitters.<br>
   * *Status:* __Completed__ in version 1.1.<br>
-  * *Deliverable:* A new page on the OLAC site listing all of the actual archives with their submission policies. This page is aimed at individuals who are looking for a place to archive lanauge resources they have created.<br>
+  * *Deliverable:* A new page on the OLAC site listing all of the actual archives with their submission policies. This page is aimed at individuals who are looking for a place to archive language resources they have created.<br>
   * *Status:* Not started.<br>
-  * *Indicator:* Number of OLAC participants that have documented their submissional policy.<br>
-  * *Status:* 1.<br>
+  * *Indicator:* Number of OLAC participants that have documented their submission policy.<br>
+  * *Status:* 3.<br>
 
 1.3c _Score cards:_ Incorporate curation practices into OLAC's score card system.
 
