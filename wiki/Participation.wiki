@@ -9,12 +9,12 @@
   * *Deliverable:* A means of listing potential participants and tracking progress.<br>
   * *Status:* A [Bookmarking social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
   * *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew Type-Provider with status=New]).<br>
-  * *Status:* 11<br>
+  * *Status:* 19<br>
 
 1.2b _Collaboration:_ Contact all identified archives and consult with them to develop best strategy for generating their metadata.
 
   * *Indicator:* Number of archives that have been contacted and agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3AAccepted Type-Provider with status=Accepted]).<br>
-  * *Status:* 5<br>
+  * *Status:* 6<br>
   * *Indicator:* Number of archives that have declined or repeatedly failed to respond ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3ADropped Type-Provider with status=Dropped]).<br>
   * *Status:* 0<br>
 
