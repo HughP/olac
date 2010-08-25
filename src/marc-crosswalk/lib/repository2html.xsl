@@ -275,12 +275,10 @@
       <xsl:choose>
          <xsl:when test="$primaryCode">
             <xsl:value-of select="$primaryCode"/>
-            <!--
             <xsl:if test=". != '' ">
                <xsl:text>, </xsl:text>
                <xsl:call-template name="element-content"/>
             </xsl:if>
-            -->
          </xsl:when>
          <xsl:when test="$secondaryCode">
             <xsl:call-template name="element-content"/>
