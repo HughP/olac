@@ -18,11 +18,20 @@
 #    resumptionToken -- Exclusive of first three params
 #    start    -- Number of first item in a resumption page
 
+  require_once('olac.php');
+
 # If there is no query, display the documentation
+
+  $sql = $_GET['sql'];
+  $resumptionToken = $_GET['resumptionToken'];
+  $elements = $_GET['elements'];
+  $count = $_GET['count'];
+  $title = $_GET['title'];
+  $xsl = $_GET['xsl'];
 
   if (!$sql and !$resumptionToken)
      {
-     $documentation = "http://www.language-archives.org/NOTE/viser.html";
+     $documentation = olacvar('baseurl') . "/NOTE/viser.html";
      header("Content-Type: text/html");
      readfile($documentation);
      exit;
@@ -31,7 +40,7 @@
 
 # Construct the URL to fetch the query results from OLACA
 
-  $OLACA = "http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Query";
+  $OLACA = olacvar('aggregator/url') . "?verb=Query";
   $sql = ereg_replace("\\\'", "'", $sql);
   $sql = ereg_replace("%", "%25", $sql);
   $sql = ereg_replace("=", "%3D", $sql);
@@ -60,7 +69,7 @@
 # Use the default stylesheet if no argument was given
 
   if (!$xsl) {
-     $xsl = "http://www.language-archives.org/tools/viser/basic_service.xsl"; }
+     $xsl = olacvar('baseurl') . "/tools/viser/basic_service.xsl"; }
 
 # Return the XML page
 
