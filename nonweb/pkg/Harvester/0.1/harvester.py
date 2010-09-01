@@ -1018,9 +1018,13 @@ class HarvesterBase(Logger):
         else:
             parser = StreamParser(handler)
         try:
-            parser.feed(dat.dump())
-            parser.close()
-            return True
+            ret = parser.feed(dat.dump())
+            ret2 = parser.close()
+            if ret == -1 or ret2 == False:
+                self.log("xml parse error has occurred")
+                return False
+            else: 
+                return True
         except HandlerError, e:
             self.log("error: %s" %e)
             parser.close()
