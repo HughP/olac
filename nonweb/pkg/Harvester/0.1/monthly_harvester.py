@@ -308,7 +308,7 @@ def get_fields(cur, tab):
 
 def process_options():
     usageString = """\
-Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
+Usage: %(prog)s [-h] [-c <mycnf>] [-H <host>] [-d <db>] [-t <db>] [-x <path>] [-l]
 
     options:
 
@@ -317,7 +317,7 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-f]
       -H <host>   hostname of the mysql server
       -d <db>     name of the main OLAC database
       -t <db>     name of a temporary database
-      -x          path to the OLAC harvester. By default, system configuration
+      -x <path>   path to the OLAC harvester. By default, system configuration
                   is checked and then 'harvester.py' is searched in the same
                   directory as the monthly harvester.
       -l          send log message to the log daemon (unix)
@@ -415,7 +415,7 @@ if __name__ == "__main__":
             progname = olac.olacvar('harvester/monthly_logname')
             if progname == '/null/value':
                 progname = 'monthly_harvester'
-            log.openlog(progname)
+            olac.openlog(progname)
         else:
             USESYSLOG = False
             log2("Failed to load olac module.\n" \
