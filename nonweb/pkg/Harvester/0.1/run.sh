@@ -33,7 +33,7 @@ XMLDUMPDIR=$(olacvar xmldumpdir)
 SRECDIR=$(olacvar static_records/dir)
 
 # logger
-facility=$(echo $(olacvar syslog/facility) | sed 's/LOG_//' | tr [A-Z] [a-z])
+facility=$(echo $(olacvar syslog/facility) | sed 's/LOG_//' | tr '[A-Z]' '[a-z]')
 LOGGER="logger -t 'run.sh[$$]' -p $facility.info"
 #########################
 # DO NOT EDIT FROM HERE #
@@ -42,7 +42,7 @@ LOGGER="logger -t 'run.sh[$$]' -p $facility.info"
 TMP_LOG=/tmp/${HARVEST_LOG}-$$
 FIFO=/var/tmp/fifo.harvester.cron.olac
 
-if [ ! -f $FIFO ]; then
+if [ ! -p $FIFO ]; then
 	mkfifo $FIFO
 elif [ "$(file -b $FIFO)" != "fifo (named pipe)" ]; then
 	rm -rf $FIFO >/dev/null 2>&1 || FIFO=$FIFO-$$
