@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record xmlns="http://www.openarchives.org/OAI/2.0/"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/
+   http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"> 
+         <header>
+            <identifier>oai:sil.org:14434</identifier>
+            <datestamp>2010-07-23</datestamp>
+         </header>
+         <metadata>
+            <olac:olac xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:dcterms="http://purl.org/dc/terms/"
+               xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+               xsi:schemaLocation=" 
+   http://purl.org/dc/elements/1.1/
+   http://www.language-archives.org/OLAC/1.1/dc.xsd
+   http://purl.org/dc/terms/
+   http://www.language-archives.org/OLAC/1.1/dcterms.xsd
+   http://www.language-archives.org/OLAC/1.1/
+   http://www.language-archives.org/OLAC/1.1/olac.xsd">
+               <dc:title>Agi tafaŋ gaŋʔ naŋ gan fisa gin</dc:title>
+               <dcterms:alternative>Our ancestors’
+                  stories</dcterms:alternative>
+               <dc:contributor xsi:type="olac:role"
+                  olac:code="compiler" view="Compiler">Holzknecht, H.
+                  K.</dc:contributor>
+               <dcterms:spatial xsi:type="dcterms:ISO3166"
+                  view="Papua New Guinea">PG</dcterms:spatial>
+               <dc:date xsi:type="dcterms:W3CDTF">1973</dc:date>
+               <dc:description xsi:type="dcterms:URI"
+                  >http://www.ethnologue.com/show_work.asp?id=14434</dc:description>
+               <dcterms:extent>30</dcterms:extent>
+               <dc:language xsi:type="olac:language" olac:code="adz"
+                  view="Adzera"/>
+               <dc:publisher>Summer Institute of
+                  Linguistics</dc:publisher>
+               <dc:subject xsi:type="olac:language" olac:code="adz"
+                  view="Adzera"/>
+               <dc:subject>Readers</dc:subject>
+               <dc:type xsi:type="dcterms:DCMIType">Text</dc:type>
+               <facet name="Citation">Holzknecht, H. K. (compiler).
+                  1973. Summer Institute of Linguistics.</facet>
+               <facet name="Archive">SIL Language and Culture
+                  Archives</facet>
+               <facet name="Archive home"
+                  >http://www.ethnologue.com/bibliography.asp</facet>
+               <facet name="Archive description"
+                  >http://www.language-archives.org/archive/sil.org</facet>
+               <facet name="Online">No</facet>
+               <facet name="Region">Pacific</facet>
+               <facet name="Family">Eastern Malayo-Polynesian</facet>
+               <facet name="Family">Austronesian</facet>
+               <facet name="Family">Malayo-Polynesian</facet>
+            </olac:olac>
+         </metadata>
+      </record>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<add xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:olac="http://www.language-archives.org/OLAC/1.1/">
+   <doc>
+      <field name="title">Agi tafaŋ gaŋʔ naŋ gan fisa gin -- Our ancestors’
+                  stories</field>
+      <field name="id">sil_org_14434</field>
+      <field name="url">&lt;a href="http://www.language-archives.org/item/oai:sil.org:14434"&gt;oai:sil.org:14434&lt;/a&gt;</field>
+      <field name="oai_url">&lt;a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&amp;amp;identifier=oai:sil.org:14434&amp;amp;metadataPrefix=olac_dla"&gt;[For debugging purposes]&lt;/a&gt;</field>
+      <field name="last_update">2010-07-23</field>
+      <field name="contributor">Holzknecht, H.
+                  K.</field>
+      <field name="contributor_role">Holzknecht, H.
+                  K. (compiler)</field>
+      <field name="country">Papua New Guinea</field>
+      <field name="date">1973</field>
+      <field name="description">http://www.ethnologue.com/show_work.asp?id=14434</field>
+      <field name="language">Adzera</field>
+      <field name="publisher">Summer Institute of
+                  Linguistics</field>
+      <field name="subject_language">Adzera</field>
+      <field name="other_subject">Readers</field>
+      <field name="dcmi_type">Text</field>
+      <field name="rest_of_citation">Holzknecht, H. K. (compiler).
+                  1973. Summer Institute of Linguistics.</field>
+      <field name="archive">SIL Language and Culture
+                  Archives</field>
+      <field name="archive_home">&lt;a href="http://www.ethnologue.com/bibliography.asp" target="_blank"&gt;SIL Language and Culture
+                  Archives&lt;/a&gt;</field>
+      <field name="archive_description">&lt;a href="http://www.language-archives.org/archive/sil.org " target="_blank"&gt;(see archive description)&lt;/a&gt;</field>
+      <field name="online">No</field>
+      <field name="region">Pacific</field>
+      <field name="family">Eastern Malayo-Polynesian</field>
+      <field name="family">Austronesian</field>
+      <field name="family">Malayo-Polynesian</field>
+      <field name="format">record</field>
+   </doc>
+</add>

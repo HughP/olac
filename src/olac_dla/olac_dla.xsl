@@ -42,7 +42,7 @@
 		<field name="title">
 			<xsl:value-of
 				select="if ($olac_path/dc:title) 
-			then string-join($olac_path/dc:title, ' -' )
+			then string-join($olac_path/(dc:title|dcterms:alternative), ' -- ' )
 			else '[No title]'"
 			/>
 		</field>
@@ -121,23 +121,50 @@
 		</field>
 		<field name="contributor_role">
 			<xsl:value-of select="."/>
-			<xsl:if test="@view"> (<xsl:value-of select="@view"/>)</xsl:if>
+			<xsl:if test="@olac:code"> (<xsl:value-of
+			   select="translate(@olac:code,'_','')"/>)</xsl:if>
 		</field>
 	</xsl:template>
 	
-	<xsl:template match="dc:creator">
-		<field name="creator">
-			<xsl:value-of select="."/>
-		</field>
-	</xsl:template>
-
-	<xsl:template match="dc:description">
+   <xsl:template match="dc:creator">
+      <field name="contributor">
+         <xsl:value-of select="."/>
+      </field>
+      <field name="contributor_role">
+         <xsl:value-of select="concat(., ' (author)')"/>
+      </field>
+   </xsl:template>
+   
+   <xsl:template match="dc:coverage | dcterms:spatial |
+      dcterms:temporal">
+      <xsl:choose>
+         <xsl:when test="@view">
+            <field name="country">
+               <xsl:value-of select="@view"/>
+            </field>
+         </xsl:when>
+         <xsl:when test="@xsi:type"></xsl:when>
+         <xsl:otherwise>
+            <field name="other_coverage">
+               <xsl:value-of select="."/>
+            </field>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+   
+   <xsl:template match="dc:date"><!-- Refinements ignored -->
+      <field name="date">
+         <xsl:value-of select="."/>
+      </field>
+   </xsl:template>
+   
+   <xsl:template match="dc:description | dcterms:abstract"><!-- TOC ignored -->
 		<field name="description">
 			<xsl:value-of select="."/>
 		</field>
 	</xsl:template>
 	
-	<xsl:template match="dc:format">
+   <xsl:template match="dc:format | dcterms:medium"><!-- extent ignored -->
 		<xsl:choose>
 			<xsl:when test="@xsi:type='dcterms:IMT' ">
 				<field name="imt_format">
@@ -145,25 +172,61 @@
 				</field>
 			</xsl:when>
 			<xsl:otherwise>
-				<field name="dc_format">
+				<field name="other_format">
 					<xsl:value-of select="."/>
 				</field>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
+   
+   <xsl:template match="dc:identifier">
+      <xsl:choose>
+         <xsl:when test="matches(.,'^http://')">
+            <xsl:variable name="object_url"
+               select="concat('&lt;a href=&quot;', 
+               .,'&quot;&gt;', ., '&lt;/a&gt;', '') "/>
+            <field name="object_url">
+               <xsl:value-of select="$object_url"/>
+            </field>
+         </xsl:when>
+         <xsl:otherwise>
+            <field name="local_id">
+               <xsl:value-of select="."/>
+            </field>
+         </xsl:otherwise>
+      </xsl:choose>
+   </xsl:template>
+   
 	<xsl:template match="dc:language">
-		<field name="language">
-			<xsl:value-of select="@view"/>
-		</field>
+	      <xsl:if test="@view">
+	         <field name="language">
+	            <xsl:value-of select="@view"/>
+	         </field>
+	      </xsl:if>
+	      <xsl:if test=" . != '' ">
+	         <field name="other_language">
+	            <xsl:value-of select="."/>
+	         </field>
+	      </xsl:if>
 	</xsl:template>
-	
-	<xsl:template match="dc:rights">
+   
+   <xsl:template match="dc:publisher">
+      <field name="publisher">
+         <xsl:value-of select="."/>
+      </field>
+   </xsl:template>
+   
+   <xsl:template match="dc:relation"></xsl:template>
+   
+	<xsl:template match="dc:rights | dcterms:accessRights |
+	   dcterms:license">
 		<field name="rights">
 			<xsl:value-of select="."/>
 		</field>
 	</xsl:template>
-
+   
+   <xsl:template match="dc:source"></xsl:template>
+   
 	<xsl:template match="dc:subject">
 		<xsl:choose>
 			<xsl:when test="@xsi:type='olac:language' ">
@@ -177,14 +240,14 @@
 				</field>
 			</xsl:when>
 			<xsl:when test="@xsi:type='dcterms:DDC' ">
-				<field name="ddc_subject">
+				<!-- <field name="ddc_subject">
 					<xsl:value-of select="."/>
-				</field>
+				</field> -->
 			</xsl:when>
 			<xsl:when test="@xsi:type='dcterms:LCC' ">
-				<field name="lcc_subject">
+				<!-- <field name="lcc_subject">
 					<xsl:value-of select="."/>
-				</field>
+				</field> -->
 			</xsl:when>
 			<xsl:when test="@xsi:type='olac:linguistic-field' ">
 				<field name="linguistic_field">
@@ -211,6 +274,11 @@
 					<xsl:value-of select="@view"/>
 				</field>
 			</xsl:when>
+		   <xsl:when test="@xsi:type='olac:discourse-type'">
+		      <field name="discourse_type">
+		         <xsl:value-of select="@view"/>
+		      </field>
+		   </xsl:when>
 			<xsl:otherwise>
 				<field name="other_type">
 					<xsl:value-of select="."/>
@@ -218,40 +286,10 @@
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-
-	<xsl:template match="dcterms:spatial">
-		<field name="country">
-			<xsl:value-of select="@view"/>
-		</field>
-	</xsl:template>
-	<xsl:template match="dc:publisher">
-		<field name="publisher">
-			<xsl:value-of select="."/>
-		</field>
-	</xsl:template>
-	<xsl:template match="dc:date">
-		<field name="date">
-			<xsl:value-of select="."/>
-		</field>
-	</xsl:template>
-	<xsl:template match="dc:identifier">
-		<xsl:choose>
-			<xsl:when test="matches(.,'^http://')">
-				<xsl:variable name="object_url"
-					select="concat('&lt;a href=&quot;', 
-					.,'&quot;&gt;', ., '&lt;/a&gt;', '') "/>
-				<field name="object_url">
-					<xsl:value-of select="$object_url"/>
-				</field>
-			</xsl:when>
-			<xsl:otherwise>
-				<field name="local_id">
-					<xsl:value-of select="."/>
-				</field>
-			</xsl:otherwise>
-		</xsl:choose>
-	</xsl:template>
-
+   
+   <xsl:template match="dcterms:provenance"></xsl:template>
+   <xsl:template match="dcterms:rightsHolder"></xsl:template>
+   
 	<xsl:template match="*"/>
 
 </xsl:stylesheet>
