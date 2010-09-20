@@ -188,7 +188,7 @@
 			<ul>
 				<li><p>The record conforms to the <tt>olac</tt> metadata
 					schema (that is, it uses the <tt>&lt;olac:olac&gt;</tt> wrapper
-					with same set of possible elements and
+					with the same set of possible elements and
 					attributes).</p></li>
 				<li><p>No elements or attributes or content are discarded.</p></li>
 				<li><p>No elements are empty; all <tt>olac:code</tt> values that end up in
