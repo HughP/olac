@@ -1,0 +1,47 @@
+About files in this directory
+=============================
+
+simple_harvester.py
+    Provide a general purpose simple OAI-PMH harvester class which can be
+    used to build more customized harvester.
+
+ia_harvester.py
+    A simple harvester built on top of simple_harvester.py and customozed for
+    archives on the Internet Archive (http://www.archive.org/).
+
+rosetta_harvester.py
+    Built on top of ia_harvester.py. Harvests Rosetta Project records hosted
+    on the Internet Archive.
+
+language_commons_harvester.py
+    Build on top of ia_harvester.py. Harvests Language Commons records hosted
+    on the Internet Archive.
+
+rosetta_harvester.zip
+    Combines rosetta_harvester.py and its dependencies.
+
+language_commons_harvester.zip
+    Combines language_commons_harvester.py and its depencencies.
+
+mkzip.sh
+    Used to create the zip bundles.
+
+rosetta_repository.xsl
+    Used to convert the harvested Rosetta Project records into an OLAC static
+    repository file.
+
+
+Executing zip bundles
+=====================
+
+The zip bundles in this directory can be executed by Python without being
+unpacked. For example,
+
+    python rosetta_harvester.zip                         # Python 2.6 or higher
+
+    PYTHONPATH=rosetta_harvester.zip python -m __main__  # Python 2.5
+
+It is still possible to unpack to run the program. In this case, the main is
+__main__.py.
+
+
