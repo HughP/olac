@@ -973,14 +973,14 @@ EOT;
 function validation_response_for_existing_archive()
 {
   if (postedurl_is_hostless()) {
+    echo "<p>Your repository is valid and already registered. ";
+    echo "It will continue to be harvested.</p>";
+  }
+  else {
     echo "<p>Your file is a valid OLAC repository. ";
     echo "However, we have a registered repository with the same repository ";
     echo "ID hosted on an external site. ";
     echo "We will concontinue to harvested the registered repository.</p>";
-  }
-  else {
-    echo "<p>Your repository is valid and already registered. ";
-    echo "It will continue to be harvested.</p>";
   }
 }
 
