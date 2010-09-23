@@ -898,7 +898,11 @@ function check_repository_status()
     # user ran validation after uploading a local file
     if (is_hostless($rows[0]["BASEURL"])) {
       # the repository is hosted on our site
-      return "new_hostless_file";
+      if ($rows[0]["BASEURL"] == $baseurl) {
+        return "new_hostless_file";
+      } else {
+        return "new_hostless_file_with_wrong_baseurl";
+      }
     } else {
       # user shouldn't override a registered repository hosted on other site
       # with the uploaded hostless file
@@ -1029,6 +1033,29 @@ EOT;
 }
 
 
+function validation_response_for_new_hostless_file2()
+{
+  global $IDENTIFY_XML;
+  $id = get_element('repositoryIdentifier', $IDENTIFY_XML);
+  $baseurl = get_element('baseURL', $IDENTIFY_XML);
+  $correct_baseurl = OLAC_URL . HOSTLESS_DIR;
+
+  echo <<<EOT
+<p>Your file is a valid OLAC repository and is already registered. However,
+the new file that you uploaded contains the wrong base URL.</p>
+
+<p style="padding-left: 2em">$baseurl</p>
+
+<p>The correct base URL should be determined as follows.</p>
+
+<p style="padding-left: 2em">$correct_baseurl/&lt;repository_identifier&gt;.xml</p>
+
+<p>If you would like to update your existing repository
+please fix the base URL and try again.</p>
+EOT;
+}
+
+
 function clear_page()
 {
   echo "<script>document.getElementById('main').innerHTML='';</script>";
@@ -1087,6 +1114,12 @@ function validate_and_respond()
 
     case "new_hostless_file":
       validation_response_for_new_hostless_file();
+      break;
+
+    case "new_hostless_file_with_wrong_baseurl":
+      # hostless repository's base url is uniquely determined
+      # the baseurl value in the file was different the unique value
+      validation_response_for_new_hostless_file2();
       break;
 
     case "new_base_url":
