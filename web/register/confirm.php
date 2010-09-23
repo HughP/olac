@@ -1,6 +1,6 @@
 <?php
 # Change of base URL confirmation script.
-# User uses this page to confirm that he has request the change.
+# User uses this page to confirm the change request.
 
 require_once('olac.php');
 define("OLAC_PATH", olacvar('docroot'));
