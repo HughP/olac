@@ -83,7 +83,7 @@
       <sr:Identify>
          <oai:repositoryName>The Rosetta Project: A Long Now Foundation
             Library of Human Language</oai:repositoryName>
-         <oai:baseURL>http://www.language-archives.org/devel/sr/rosettaproject.xml</oai:baseURL>
+         <oai:baseURL>http://www.language-archives.org/devel/sr/rosettaproject.org.xml</oai:baseURL>
          <oai:protocolVersion>2.0</oai:protocolVersion>
          <oai:adminEmail>laura@longnow.org</oai:adminEmail>
          <oai:earliestDatestamp>
