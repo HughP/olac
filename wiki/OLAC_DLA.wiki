@@ -56,15 +56,15 @@ Footer: OLAC: Open Language Archives Community ?
 
 == Sidebar ==
 
-* Navigating the Database
-** Database Home
-** Search Strategies
-** New: Records recently added or modified
+ * Navigating the Database
+   * Database Home
+   * Search Strategies
+   * New: Records recently added or modified
 
-* Contacts
-** [mailto:olac-admin@googlegroups.com Database content]
-** [mailto:?? DLA service]
+ * Contacts
+   * [mailto:olac-admin@googlegroups.com Database content]
+   * [mailto:?? DLA service]
 
-* More Information
-** [http://www.language-archives.org/ OLAC Homepage]
-** [http://www.language-archives.org/documents/faq.html OLAC FAQ]
+ * More Information
+   * [http://www.language-archives.org/ OLAC Homepage]
+   * [http://www.language-archives.org/documents/faq.html OLAC FAQ]
