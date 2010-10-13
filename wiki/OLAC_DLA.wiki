@@ -40,6 +40,11 @@ New attribute `view` for every coded value, which gets source from OLAC vocabula
   * `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" view="Lexicon"/>`
   * `<dc:coverage xsi:type="dcterms:ISO3166" view="Australia">AU</dc:coverage>
 
+
+== Spreadsheet ==
+
+[https://spreadsheets8.google.com/ccc?key=tdyjBM1we0jlei6VmBFnKBA&hl=en&pli=1#gid=10 Spreadsheet for documenting proto-solr fields]
+
 == Public vs staff view ==
 
 The DLA supports a separate "staff view" (visible to anyone by following a link from any DLA page), which can include facets which are not yet clean enough for the default public display.  This would be useful to archivists as they curate their metadata.  We need to agree on a subset of facets which make up the public display.
