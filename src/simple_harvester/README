@@ -1,5 +1,5 @@
-About files in this directory
-=============================
+Files in this directory
+=======================
 
 simple_harvester.py
     Provide a general purpose simple OAI-PMH harvester class which can be
@@ -28,7 +28,11 @@ mkzip.sh
 
 rosetta_repository.xsl
     Used to convert the harvested Rosetta Project records into an OLAC static
-    repository file.
+    repository file. Requires XSLT 2.0.
+
+language_commons_repository.xsl
+    Used to convert the harvested Language Commons records into an OLAC static
+    repository file. Requires XSLT 2.0.
 
 
 Executing zip bundles
@@ -44,4 +48,16 @@ unpacked. For example,
 It is still possible to unpack to run the program. In this case, the main is
 __main__.py.
 
+
+Stylesheets requiring XSLT 2.0
+==============================
+
+XSL stylesheets in this directory might require XSLT 2.0. If you can't find
+an XSLT processor that supports XSLT 2.0, you can use SAXON [1] home edition.
+For example,
+
+  java  -jar saxon9he.jar -xsl:rosetta_repository.xsl rosetta.xml
+
+
+[1] http://saxon.sourceforge.net/#F9.2HE
 
