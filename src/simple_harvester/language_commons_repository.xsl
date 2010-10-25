@@ -116,16 +116,16 @@
                xsi:schemaLocation="http://www.language-archives.org/OLAC/1.1/olac-archive
                http://www.language-archives.org/OLAC/1.1/olac-archive.xsd">
                <archiveURL>http://www.archive.org/details/LanguageCommons</archiveURL>
-               <participant email="???"
-                  name="Ed Bice" role="Participant???"/>
+               <participant email="ebice@meedan.net"
+                  name="Ed Bice" role="Coordinator x3"/>
                <participant email="sb@csse.unimelb.edu.au"
-                  name="Steven Bird" role="Participant???"/>
+                  name="Steven Bird" role="Coordinator x3"/>
                <participant email="laura@longnow.org"
-                  name="Laura Welcher" role="Participant???"/>
+                  name="Laura Welcher" role="Coordinator x3"/>
                <institution>Language Commons</institution>
                <institutionURL>http://languagecommons.org/</institutionURL>
-               <shortLocation>???</shortLocation>
-               <location>???</location>
+               <shortLocation>San Francisco, USA</shortLocation>
+               <location>Internet Archive, 300 Funston Avenue, San Francisco, CA 94118</location>
 	       <synopsis>The Language Commons is an international consortium
                          that is creating a large collection of written and
                          spoken language material, made available under open
@@ -137,10 +137,13 @@
                          government organizations in many countries.
                </synopsis>
                <access>All holdings of the collection are freely accessible
-                       online as a special collection within the Internet
-                       Archive.???
+                       online under open licenses as a special collection
+                       within the Internet Archive.
                </access>
-               <archivalSubmissionPolicy>???</archivalSubmissionPolicy>
+               <archivalSubmissionPolicy>The Language Commons accepts
+                       linguistic corpora which may be distributed under any
+                       of the licenses supported by the Internet Archive.
+               </archivalSubmissionPolicy>
             </olac-archive>
          </oai:description>
       </sr:Identify>
