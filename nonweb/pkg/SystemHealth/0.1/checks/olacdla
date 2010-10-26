@@ -1,0 +1,40 @@
+#! /bin/bash
+
+echo "Check if the DLA OLAC catalog's size..."
+
+get_num_dla_records() {
+    curl -s "http://syslsl01.library.upenn.edu/dla/olac/search.html?q=" 2>/dev/null |
+        grep 'out of' |
+        sed -r 's/[^0-9]*([0-9]+).*/\1/'
+}
+
+get_num_olac_records() {
+    user=$(olacvar mysql/user)
+    pw=$(olacvar mysql/passwd)
+    db=$(olacvar mysql/olacdb)
+    host=$(olacvar mysql/host)
+    echo "select count(*) from ARCHIVED_ITEM" |
+        mysql -h $host -u $user -p"$pw" $db 2>/dev/null |
+        sed 1d
+}
+
+n=$(get_num_olac_records)
+m=$(get_num_dla_records)
+
+if [[ -z $n || -z $m ]]; then
+    echo ERROR
+    exit 1
+fi
+
+if [[ $n -gt $m ]]; then
+    d=$(($n - $m))
+else
+    d=$(($m - $n))
+fi
+
+if [[ $d -lt 100 ]]; then
+    echo PASS
+else
+    echo FAIL
+fi
+
