@@ -51,8 +51,9 @@ class GoogleSitemap:
         sql = """
         select OaiIdentifier, DateStamp
         from ARCHIVED_ITEM
-        where DateStamp >= subdate(now(), interval 35 day)
         """
+        #where DateStamp >= subdate(now(), interval 35 day)
+        #"""
         self.cur.execute(sql)
         row = self.cur.fetchone()
         template = "<url><loc>%s/item/%%s</loc><lastmod>%%s</lastmod></url>" % self.baseurl
