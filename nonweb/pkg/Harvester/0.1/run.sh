@@ -78,38 +78,38 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f "$(olacvar dirty)" ]; the
     echo
     echo "Resubmitting google sitemap ..."
     echo
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/general"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/0"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/1"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/2"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/3"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/4"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/5"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/6"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/7"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/8"
-    curl -I "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/9"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/general"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/0"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/1"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/2"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/3"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/4"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/5"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/6"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/7"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/8"
+    curl -s "http://www.google.com/webmasters/tools/ping?sitemap=$(olacvar baseurl)/google-sitemap.xml/items/9"
 
-    echo
-    echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
-    echo
-    echo "delete from METADATA_ELEM_MYISAM" | $MYSQL
-    echo "insert into METADATA_ELEM_MYISAM select * from METADATA_ELEM" | $MYSQL
+    #echo
+    #echo "Copying METADATA_ELEM to METADATA_ELEM_MYISAM ..."
+    #echo
+    #echo "delete from METADATA_ELEM_MYISAM" | $MYSQL
+    #echo "insert into METADATA_ELEM_MYISAM select * from METADATA_ELEM" | $MYSQL
 
-    echo
-    echo "Updating search database..."
-    echo
-    $PYTHON `olacvar harvester/update_soundex_tab`
+    #echo
+    #echo "Updating search database..."
+    #echo
+    #$PYTHON `olacvar harvester/update_soundex_tab`
 
-    echo
-    echo "Creating an XML dump and static record pages..."
-    echo
-    dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
-    $PYTHON $(olacvar xmldump) $dumpnam $SRECDIR 2>/dev/null
-    ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
-    find $SRECDIR -name "*.xml" | sort | \
-    sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
-        > $SRECDIR/index.html
+    #echo
+    #echo "Creating an XML dump and static record pages..."
+    #echo
+    #dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
+    #$PYTHON $(olacvar xmldump) $dumpnam $SRECDIR 2>/dev/null
+    #ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
+    #find $SRECDIR -name "*.xml" | sort | \
+    #sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
+    #    > $SRECDIR/index.html
 
     echo
     echo "Creating static HTML pages..."
