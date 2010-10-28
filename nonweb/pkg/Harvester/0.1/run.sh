@@ -101,15 +101,15 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f "$(olacvar dirty)" ]; the
     #echo
     #$PYTHON `olacvar harvester/update_soundex_tab`
 
-    #echo
-    #echo "Creating an XML dump and static record pages..."
-    #echo
-    #dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
-    #$PYTHON $(olacvar xmldump) $dumpnam $SRECDIR 2>/dev/null
-    #ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
-    #find $SRECDIR -name "*.xml" | sort | \
-    #sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
-    #    > $SRECDIR/index.html
+    echo
+    echo "Creating an XML dump and static record pages..."
+    echo
+    dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
+    $PYTHON $(olacvar xmldump) $dumpnam $SRECDIR 2>/dev/null
+    ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
+    find $SRECDIR -name "*.xml" | sort | \
+    sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
+        > $SRECDIR/index.html
 
     echo
     echo "Creating static HTML pages..."
