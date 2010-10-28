@@ -765,8 +765,7 @@ sub get_mdata_container_olac {
 
 sub get_mdata_container_olacdla {
     my $doc = shift;
-    my $c = $doc->createElement("olac:olac");
-    set_olac_atts($c);
+    my $c = $doc->createElement("doc");
     return $c;
 }
 
@@ -1014,9 +1013,9 @@ sub get_mdata_olac_display {
 }
 
 
-sub make_facet {
+sub make_field {
     my ($self, $doc, $name, $value) = @_;
-    my $facet = $doc->createElement('facet');
+    my $facet = $doc->createElement('field');
     $facet->setAttribute('name', $name);
     $facet->addText($value);
     return $facet;
@@ -1039,51 +1038,284 @@ sub get_mdata_olacdla {
         return $elements;
     }
 
+    my $process_dcterms_date_refinement
+ = 1;
+    my $title = '';
+    my $alternative = '';
+
     for my $row (@$tab) {
         my $tag = $row->[0];
+	my $content = trim($row->[2]);
         my $dctag = $self->{dctag}{$tag};
+	my $ext_id = $row->[3];
+	my $ext_code = $row->[4];
+	my $ext_code_label = $row->[6];
+	my ($ext_schema,$ext_type) = @{$self->{extdb}{$ext_id}};
         my $me;
-        if ($tag eq $dctag) {
-            $me = $doc->createElement("dc:$tag");
-        } else {
-            $me = $doc->createElement("dcterms:$tag");
-        }
-        $row->[1] && $me->setAttribute('xml:lang', $row->[1]);
-        $row->[2] && $me->addText($row->[2]);
-        my ($ns,$tt) = @{$self->{extdb}{$row->[3]}};
-        if ($ns eq 'http://www.language-archives.org/OLAC/1.0/' ||
-            $ns eq 'http://www.language-archives.org/OLAC/1.1/') {
-            $me->setAttribute('xsi:type', "olac:$tt");
-            $row->[4] && $me->setAttribute('olac:code', $row->[4]);
-            if ($tt eq 'language') {
-                $me->setAttribute('view', $row->[6]);
-                if ($tag eq 'subject' && $row->[11] && $row->[15]) {
-                    $regions->{$row->[15]} = 1;
-                }
-		if ($tag eq 'subject' && exists $self->{lineage}->{$row->[4]}) {
-		    my $p = $self->{lineage}->{$row->[4]}->{parent};
-		    while (defined $p) {
-			$families->{$p->{name}} = 1;
-			$p = $p->{parent};
+
+	if ($tag eq 'contributor') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, $tag, $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'role') {
+		if ($content) {
+		    $me = $self->make_field($doc, $tag, $content);
+		    my_push $elements, $me, $h;
+		    if ($ext_code) {
+			my $field = "contributor_role";
+                        my $role = replace($ext_code, '_', ' ');
+			$content = "$content ($role)";
+			$me = $self->make_field($doc, $field, $content);
+			my_push $elements, $me, $h;
 		    }
 		}
-            } else {
-                my $value = $row->[4];
-                $value =~ s/^(\w)/\U$1/;
-                $value =~ s/_/ /g;
-                $me->setAttribute('view', $value);
+	    }
+
+	} elsif ($tag eq 'coverage' || $tag eq 'spatial') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_coverage', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'ISO3166') {
+		my $country = $self->{country}->{$content};
+		if ($country) {
+		    $me = $self->make_field($doc, 'country', $country);
+		    my_push $elements, $me, $h;
+		}
+	    }
+
+	} elsif ($tag eq 'creator') {
+	    if ($content) {
+                $me = $self->make_field($doc, 'contributor', $content);
+                my_push $elements, $me, $h;
+		$content = "$content (author)";
+		$me = $self->make_field($doc, 'contributor_role', $content);
+		my_push $elements, $me, $h;
+	    }
+
+	} elsif (($tag eq 'date') ||
+                 ($dctag eq 'date' && $process_dcterms_date_refinement)) {
+	    if ($content) {
+		if (!$ext_schema) {
+		    $me = $self->make_field($doc, 'other_date', $content);
+		    my_push $elements, $me, $h;
+		    if ($dctag ne $tag) {
+			$process_dcterms_date_refinement = 0;
+		    }
+		} elsif ($ext_type == 'W3CDTF') {
+		    if (check_w3cdtf($content)) {
+			$content =~ /^(\d{4})/;
+			if ($1 >= 0 && $1 <= 1000) {
+			    $me = $self->make_field($doc, 'other_date', $content);
+			    my_push $elements, $me, $h;
+			    if ($dctag ne $tag) {
+				$process_dcterms_date_refinement = 0;
+			    }
+			} elsif ($1 > 1000) {
+			    $me = $self->make_field($doc, 'date', $content);
+			    my_push $elements, $me, $h;
+
+			    my $field = 'date_range';
+			    $content = half_centry_range($1);
+			    $me = $self->make_field($doc, $field, $content);
+			    my_push $elements, $me, $h;
+			    
+			    if ($1 >= 1800) {
+				$content = decade_range($1);
+				$me = $self->make_field($doc, $field, $content);
+				my_push $elements, $me, $h;
+			    }
+
+			    if ($dctag ne $tag) {
+				$process_dcterms_date_refinement = 0;
+			    }
+			}
+		    } else {
+			$me = $self->make_field($doc, 'other_date', $content);
+			my_push $elements, $me, $h;
+			if ($dctag ne $tag) {
+			    $process_dcterms_date_refinement = 0;
+			}
+		    }
+		}
+	    }
+
+	} elsif ($tag eq 'format' || $tag eq 'medium') {
+	    if ($content) {
+		if (!$ext_schema) {
+		    $me = $self->make_field($doc, 'other_format', $content);
+		    my_push $elements, $me, $h;
+		} elsif ($ext_type eq 'IMT') {
+		    $me = $self->make_field($doc, $tag, $content);
+		    my_push $elements, $me, $h;
+		}
+	    }
+
+	} elsif ($tag eq 'identifier') {
+	    if ($content && $content !~ /^oai:/) {
+		$me = $self->make_field($doc, $tag, $content);
+		my_push $elements, $me, $h;
+	    }
+	    if ($content =~ /^(http|https|ftp):.*/) {
+		$online = 'Yes';
+	    }
+
+	} elsif ($tag eq 'language') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_language', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'language') {
+		if ($ext_code_label) {
+		    $me = $self->make_field($doc, $tag, capitalize($ext_code_label));
+		    my_push $elements, $me, $h;
+		}
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_langugae', $content);
+		    my_push $elements, $me, $h;
+		}
+	    }
+
+	} elsif ($dctag eq 'relation') {
+	    if ($content && $self->{db}->recordExists($content)) {
+		$me = $self->make_field($doc, "relation", $content);
+		my_push $elements, $me, $h;
+	    }
+
+	} elsif ($tag eq 'rightsHolder' && $content) {
+	    $content = "Rights holder: $content";
+	    my_push $elements, $self->make_field($doc, 'rights', $content), $h;
+
+	} elsif ($tag eq 'license') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, 'rights', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'URI') {
+		if ($content) {
+		    $me = $self->make_field($doc, 'license_url', $content);
+		    my_push $elements, $me, $h;
+		}
+		if ($content =~ m{^http://creativecommons.org/licenses/(by-nc-(sa|nd))/2\.5/?$}) {
+		    $content = "CC $1";
+		} else {
+		    $content = 'Other';
+		}
+		my_push $elements, $self->make_field($doc, $tag, $content), $h;
+	    }
+
+	} elsif ($tag eq 'subject') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_subject', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'LCSH') {
+		if ($content) {
+		    $me = $self->make_field($doc, 'lcsh_subject', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'linguistic-field') {
+		if ($ext_code_label) {
+		    $me = $self->make_field($doc, 'linguistic_field', capitalize($ext_code_label));
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'language') {
+		if ($ext_code_label) {
+		    $me = $self->make_field($doc, 'subject_language', capitalize($ext_code_label));
+		    my_push $elements, $me, $h;
+		}
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_subject', $content);
+		    my_push $elements, $me, $h;
+		}
+
+		if ($ext_schema eq 'http://www.language-archives.org/OLAC/1.0/' ||
+		    $ext_schema eq 'http://www.language-archives.org/OLAC/1.1/') {
+		    my $area = $row->[15];
+		    if ($area) {
+			$regions->{$area} = 1;
+		    }
+		    my $lineage = $self->{lineage}->{$ext_code};
+		    if ($lineage) {
+			my $p = $lineage->{parent};
+			while (defined $p) {
+			    $families->{$p->{name}} = 1;
+			    $p = $p->{parent};
+			}
+		    }
+		}
+	    }
+
+	} elsif ($tag eq 'title') {
+            if ($content) {
+                if ($title) {
+                    $title = "$title -- $content";
+                } else {
+                    $title = $content;
+                }
             }
-        } elsif ($ns eq 'http://purl.org/dc/terms/') {
-            $me->setAttribute('xsi:type', "dcterms:$tt");
-            if ($tt eq 'ISO3166') {
-                $me->setAttribute('view', $self->{country}{$row->[2]});
-            }
-        }
-        if ($tag eq 'identifier' &&
-            $row->[2] =~ /^(http|https|ftp):.*/) {
-            $online = 'Yes';
-        }
-	my_push $elements, $me, $h;
+
+	} elsif ($tag eq 'alternative') {
+	    if (!$alternative && $content) {
+		$alternative = $content;
+	    }
+
+	} elsif ($tag eq 'type') {
+	    if (!$ext_schema) {
+		if ($content) {
+		    $me = $self->make_field($doc, 'other_type', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'DCMIType') {
+		if ($content) {
+		    $me = $self->make_field($doc, 'dcmi_type', $content);
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'linguistic-type') {
+		if ($ext_code_label) {
+		    $me = $self->make_field($doc, 'linguistic_type', capitalize($ext_code_label));
+		    my_push $elements, $me, $h;
+		}
+	    } elsif ($ext_type eq 'discourse-type') {
+		if ($ext_code_label) {
+		    $me = $self->make_field($doc, 'discourse_type', capitalize($ext_code_label));
+		    my_push $elements, $me, $h;
+		}
+	    }
+	    
+	} elsif (($tag eq 'temporal' ||
+		  $tag eq 'publisher') &&
+                  $content) {
+	    my_push $elements, $self->make_field($doc, $tag, $content), $h;
+
+	} elsif (($dctag eq 'rights') &&
+		 $content) {
+	    my_push $elements, $self->make_field($doc, $dctag, $content), $h;
+
+	} elsif (($tag eq 'description' ||
+	         $tag eq 'abstract') &&
+                 $content) {
+	    $me = $self->make_field($doc, 'description', $content);
+	    my_push $elements, $me, $h;
+	}
+
+    }
+
+    if ($alternative) {
+	if ($title) {
+	    $title = "$title -- $alternative";
+	} else {
+	    $title = $alternative;
+	}
+    }
+    if ($title) {
+	my_push $elements, $self->make_field($doc, 'title', $title), $h;
     }
 
     my $item_id = $tab->[0]->[7];
@@ -1092,18 +1324,20 @@ sub get_mdata_olacdla {
     my $citefile = $self->{citedir} . '/' . $row->[4] . '.txt';
     if (open(CITE, $citefile)) {
         my $cite = <CITE>;
+	my $me = $self->make_field($doc, 'rest_of_citation', $cite);
         chomp $cite;
-	my_push $elements, $self->make_facet($doc, 'Citation', $cite), $h;
+	my_push $elements, $me, $h;
     }
-    my_push $elements, $self->make_facet($doc, 'Archive', $row->[2]), $h;
-    my_push $elements, $self->make_facet($doc, 'Archive home', $row->[1]), $h;
-    my_push $elements, $self->make_facet($doc, 'Archive description', $desc), $h;
-    my_push $elements, $self->make_facet($doc, 'Online', $online), $h;
+    my_push $elements, $self->make_field($doc, 'archive', $row->[2]), $h;
+    my_push $elements, $self->make_field($doc, 'archive_home', $row->[1]), $h;
+    my_push $elements, $self->make_field($doc, 'archive_description', $desc), $h;
+    my_push $elements, $self->make_field($doc, 'online', $online), $h;
+
     foreach my $f (keys %$regions) {
-        my_push $elements, $self->make_facet($doc, "Region", $f), $h;
+        my_push $elements, $self->make_field($doc, "region", $f), $h;
     }
     foreach my $f (keys %$families) {
-	my_push $elements, $self->make_facet($doc, "Family", $f), $h;
+        my_push $elements, $self->make_field($doc, "family", $f), $h;
     }
 
     return $elements;
@@ -1186,6 +1420,62 @@ sub get_mdata_oaidc {
     }
 
     return $elements;
+}
+
+sub trim {
+    my $s = shift;
+    $s =~ s/^\s*//;
+    $s =~ s/\s*$//;
+    return $s;
+}
+
+sub half_centry_range {
+    my $s = shift;
+    if ($s < 1800) {
+	return "Before 1800";
+    } elsif ($s >= 2000) {
+	return "2000 and later";
+    } else {
+	my $x = int($s / 100) * 100;
+	my $y = $s - $x;
+	my $a = $x + ($y < 50 ? 0 : 50);
+	my $b = $a + 49;
+	return "$a - $b";
+    }
+}
+
+sub decade_range {
+    my $s = shift;
+    if ($s < 1800) {
+	return "Before 1800";
+    } else {
+	my $x = int($s / 10) * 10;
+	my $y = $x + 9;
+	return "$x - $y";
+    }
+}
+
+sub check_w3cdtf {
+    my $s = shift;
+    if ($s =~ /^\d{4}(-\d{2}(-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d)?)?[+-]\d{2}:\d{2})?)?)?$/) {
+	return 1;
+    } else {
+	return 0;
+    }
+}
+
+sub replace {
+    my $s = shift;
+    my $from = shift;
+    my $to = shift;
+    $s =~ s/$from/$to/;
+    return $s;
+}
+
+sub capitalize {
+    my $s = shift;
+    $s =~ s/_/ /g;
+    return ucfirst($s);
 }
 
 1;

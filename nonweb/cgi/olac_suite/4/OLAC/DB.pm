@@ -676,5 +676,21 @@ sub getLanguageCodeLineages {
     }
     return $T;
 }
-               
+
+sub recordExists {
+    my $self = shift;
+    my $oaiid = shift;
+    $oaiid =~ s/'/''/;
+    my $sql = "
+        select count(*) from ARCHIVED_ITEM
+        where OaiIdentifier='$oaiid'
+    ";
+    my $row = $self->{dbh}->selectrow_arrayref($sql);
+    if ($row->[0] > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 1;
