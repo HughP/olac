@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "Check if the DLA OLAC catalog's size..."
+echo "Check if the DLA OLAC catalog's size is normal..."
 
 get_num_dla_records() {
     curl -s "http://syslsl01.library.upenn.edu/dla/olac/search.html?q=" 2>/dev/null |
