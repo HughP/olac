@@ -1038,10 +1038,9 @@ sub get_mdata_olacdla {
         return $elements;
     }
 
-    my $process_dcterms_date_refinement
- = 1;
     my $title = '';
     my $alternative = '';
+    my $date = '';
 
     for my $row (@$tab) {
         my $tag = $row->[0];
@@ -1096,8 +1095,7 @@ sub get_mdata_olacdla {
 		my_push $elements, $me, $h;
 	    }
 
-	} elsif (($tag eq 'date') ||
-                 ($dctag eq 'date' && $process_dcterms_date_refinement)) {
+	} elsif (($tag eq 'date') || ($dctag eq 'date')) {
 	    if ($content) {
 		if (!$ext_schema) {
 		    $me = $self->make_field($doc, 'other_date', $content);
@@ -1115,8 +1113,11 @@ sub get_mdata_olacdla {
 				$process_dcterms_date_refinement = 0;
 			    }
 			} elsif ($1 > 1000) {
-			    $me = $self->make_field($doc, 'date', $content);
-			    my_push $elements, $me, $h;
+			    if ($tag eq 'date') {
+				$date = $content;
+			    } elsif (!$date) {
+				$date = $content;
+			    }
 
 			    my $field = 'date_range';
 			    $content = half_centry_range($1);
@@ -1149,7 +1150,7 @@ sub get_mdata_olacdla {
 		    $me = $self->make_field($doc, 'other_format', $content);
 		    my_push $elements, $me, $h;
 		} elsif ($ext_type eq 'IMT') {
-		    $me = $self->make_field($doc, $tag, $content);
+		    $me = $self->make_field($doc, 'imt_format', $content);
 		    my_push $elements, $me, $h;
 		}
 	    }
@@ -1175,7 +1176,7 @@ sub get_mdata_olacdla {
 		    my_push $elements, $me, $h;
 		}
 		if ($content) {
-		    $me = $self->make_field($doc, 'other_langugae', $content);
+		    $me = $self->make_field($doc, 'other_language', $content);
 		    my_push $elements, $me, $h;
 		}
 	    }
@@ -1316,6 +1317,9 @@ sub get_mdata_olacdla {
     }
     if ($title) {
 	my_push $elements, $self->make_field($doc, 'title', $title), $h;
+    }
+    if ($date) {
+	my_push $elements, $self->make_field($doc, 'date', $date), $h;
     }
 
     my $item_id = $tab->[0]->[7];
