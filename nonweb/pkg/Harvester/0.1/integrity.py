@@ -674,6 +674,51 @@ def check_static_repository(con, archive_id=None):
     cur.close()
 
 
+#
+# RID (Redundant Identifier)
+#
+def check_redundant_identifier(con, archive_id=None):
+    if archive_id is None:
+        slqs = [
+            "delete from INTEGRITY_CHECK where PROBLEM_CODE='RID'",
+            
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct ai.Item_ID, '', 'RID'
+            from ARCHIVED_ITEM ai, METADATA_ELEM me
+            where ai.Item_ID = me.Item_ID
+            and me.TagName = 'identifier'
+            and locate(ai.OaiIdentifier, me.Content) > 0
+            """
+            ]
+
+    else:
+        sqls = [
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, ARCHIVED_ITEM ai
+            where ai.Archive_ID=%d
+            and ic.PROBLEM_CODE='RID'
+            and ic.Object_ID = ai.Item_ID
+            """ % archive_id,
+            
+            """
+            insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+            select distinct ai.Item_ID, '', 'RID'
+            from ARCHIVED_ITEM ai, METADATA_ELEM me
+            where ai.Archive_ID=%d
+            and ai.Item_ID = me.Item_ID
+            and me.TagName = 'identifier'
+            and locate(ai.OaiIdentifier, me.Content) > 0
+            """ % archive_id
+            ]
+            
+    for sql in sqls:
+        cur.execute(sql)
+    con.commit()
+    cur.close()
+
+    
 if __name__ == '__main__':
     usageString = """\
 Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
