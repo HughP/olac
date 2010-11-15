@@ -407,7 +407,7 @@ sub serve_GetRecord {
     $h = $r->appendChild($doc->createElement("header"));
     $i = $h->appendChild($doc->createElement("identifier"));
     $d = $h->appendChild($doc->createElement("datestamp"));
-    $i->addText($head->[0]);
+    $i->addText(trim($head->[0]));
     $d->addText($head->[1]);
 
     my ($get_container, $get_metadata) =
@@ -516,7 +516,7 @@ sub serve_ListIdentifiers {
 	$h = $li->appendChild($doc->createElement("header"));
         $i = $h->appendChild($doc->createElement("identifier"));
         $d = $h->appendChild($doc->createElement("datestamp"));
-	$i->addText($row->[0]);
+	$i->addText(trim($row->[0]));
         $d->addText($row->[1]);
     }
 
@@ -651,7 +651,7 @@ sub serve_ListRecords {
 	$r = $lr->appendChild($doc->createElement("record"));
 	$h = $r->appendChild($doc->createElement("header"));
 	$i = $h->appendChild($doc->createElement("identifier"));
-	$i->addText($item->[0]);
+	$i->addText(trim($item->[0]));
 	$d = $h->appendChild($doc->createElement("datestamp"));
 	$d->addText($item->[1]);
 
@@ -739,7 +739,7 @@ sub serve_Query {
 	$r = $lr->appendChild($doc->createElement("record"));
 	$h = $r->appendChild($doc->createElement("header"));
 	$i = $h->appendChild($doc->createElement("identifier"));
-	$i->addText($item->[0]);
+	$i->addText(trim($item->[0]));
 	$d = $h->appendChild($doc->createElement("datestamp"));
 	$d->addText($item->[1]);
 
@@ -1157,7 +1157,7 @@ sub get_mdata_olacdla {
 
 	} elsif ($tag eq 'identifier') {
 	    if ($content && $content !~ /^oai:/) {
-		$me = $self->make_field($doc, $tag, $content);
+		$me = $self->make_field($doc, $tag, trim($content));
 		my_push $elements, $me, $h;
 	    }
 	    if ($content =~ /^(http|https|ftp):.*/) {
@@ -1315,9 +1315,11 @@ sub get_mdata_olacdla {
 	    $title = $alternative;
 	}
     }
-    if ($title) {
-	my_push $elements, $self->make_field($doc, 'title', $title), $h;
+    if (!$title) {
+        $title = '[No Title]';
     }
+    my_push $elements, $self->make_field($doc, 'title', $title), $h;
+    
     if ($date) {
 	my_push $elements, $self->make_field($doc, 'date', $date), $h;
     }
@@ -1332,7 +1334,7 @@ sub get_mdata_olacdla {
         chomp $cite;
 	my_push $elements, $me, $h;
     }
-    my_push $elements, $self->make_field($doc, 'archive', $row->[2]), $h;
+    my_push $elements, $self->make_field($doc, 'archive', norm($row->[2])), $h;
     my_push $elements, $self->make_field($doc, 'archive_home', $row->[1]), $h;
     my_push $elements, $self->make_field($doc, 'archive_description', $desc), $h;
     my_push $elements, $self->make_field($doc, 'online', $online), $h;
@@ -1430,6 +1432,14 @@ sub trim {
     my $s = shift;
     $s =~ s/^\s*//;
     $s =~ s/\s*$//;
+    return $s;
+}
+
+sub norm {
+    my $s = shift;
+    $s =~ s/^\s*//;
+    $s =~ s/\s*$//;
+    $s =~ s/\s+/ /g;
     return $s;
 }
 
