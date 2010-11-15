@@ -1041,6 +1041,9 @@ sub get_mdata_olacdla {
     my $title = '';
     my $alternative = '';
     my $date = '';
+    my $description_count = 0;
+    my $description_me = $doc->createElement('field');
+    $description_me->setAttribute('name', 'description');
 
     for my $row (@$tab) {
         my $tag = $row->[0];
@@ -1302,8 +1305,10 @@ sub get_mdata_olacdla {
 	} elsif (($tag eq 'description' ||
 	         $tag eq 'abstract') &&
                  $content) {
-	    $me = $self->make_field($doc, 'description', $content);
-	    my_push $elements, $me, $h;
+	    $description_count++;
+	    my $p = $doc->createElement('p');
+	    $p->addText($content);
+	    $description_me->appendChild($p);
 	}
 
     }
@@ -1322,6 +1327,10 @@ sub get_mdata_olacdla {
     
     if ($date) {
 	my_push $elements, $self->make_field($doc, 'date', $date), $h;
+    }
+
+    if ($description_me > 0) {
+	my_push $elements, $description_me, $h;
     }
 
     my $item_id = $tab->[0]->[7];
