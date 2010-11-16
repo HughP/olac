@@ -199,8 +199,19 @@ $search_terms = implode(", ", $arr);
 <head>
 <title><?=$title?></title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/olac.css">
 <script type="text/javascript" src="/js/gatrack.js"></script>
+<link rel="stylesheet" type="text/css" href="/olac.css">
+<style>
+.online_indicator {
+  font-size: 7pt;
+  font-weight: bold;
+  color: #005500;
+  background-color: #DDFFDD;
+  border: solid 1pt #AAEEAA;
+  margin: 3pt;
+  padding: 0pt;
+ }
+</style>
 </head>
 <body>
 
@@ -275,9 +286,19 @@ function print_list_item($oaiid) {
   $sql  = "select Content from ARCHIVED_ITEM ai, METADATA_ELEM me ";
   $sql .= "where ai.OaiIdentifier='$oaiid' and ai.Item_ID=me.Item_ID ";
   $sql .= "and me.TagName='title'";
-  echo "<li>";
   $tab = $DB->sql($sql);
-  if ($tab) echo "<i>" . $tab[0]['Content'] . ".</i> ";
+  $title = $tab[0]['Content'];
+  $sql  = "select count(*) c from ARCHIVED_ITEM ai, METADATA_ELEM me ";
+  $sql .= "where ai.OaiIdentifier='$oaiid' ";
+  $sql .= "and ai.Item_ID=me.Item_ID ";
+  $sql .= "and me.TagName='identifier' ";
+  $sql .= "and me.Content regexp '^(http|https|ftp):.*'";
+  $tab = $DB->sql($sql);
+  $count = $tab[0]['c'];
+
+  echo "<li>";
+  if ($count > 0) echo "<span class=\"online_indicator\">ONLINE</span>";
+  if ($title) echo "<i>" . $title . ".</i> ";
   echo "$citation <a href=\"/item/$oaiid\">$oaiid</a>";
   echo "</li>";
 }
@@ -286,7 +307,7 @@ if ($langnames)
   echo "<p>Other known names and dialect names: $langnames</p>";
 
 if (count($primary_texts) > 0) {
-  echo '<a name="primary_text"/>';
+  echo '<a name="primary_text"></a>';
   echo "<h2>Primary texts</h2><ol>";
   foreach ($primary_texts as $oaiid) {
     print_list_item($oaiid);
@@ -295,7 +316,7 @@ if (count($primary_texts) > 0) {
 }
 
 if (count($lexical_resources) > 0) {
-  echo '<a name="lexical_resources"/>';
+  echo '<a name="lexical_resources"></a>';
   echo "<h2>Lexical resources</h2><ol>";
   foreach ($lexical_resources as $oaiid) {
     print_list_item($oaiid);
@@ -304,7 +325,7 @@ if (count($lexical_resources) > 0) {
 }
 
 if (count($language_descriptions) > 0) {
-  echo '<a name="language_descriptions"/>';
+  echo '<a name="language_descriptions"></a>';
   echo "<h2>Language descriptions</h2><ol>";
   foreach ($language_descriptions as $oaiid) {
     print_list_item($oaiid);
@@ -315,7 +336,7 @@ if (count($language_descriptions) > 0) {
 $n = count($primary_texts) + count($lexical_resources) + count($language_descriptions);
 
 if (count($other_resources1) > 0) {
-  echo '<a name="other_resources1"/>';
+  echo '<a name="other_resources1"></a>';
   if ($n > 0)
     echo "<h2>Other resources about the language</h2>";
   else
@@ -328,7 +349,7 @@ if (count($other_resources1) > 0) {
 }
 
 if (count($other_resources2) > 0) {
-  echo '<a name="other_resources2"/>';
+  echo '<a name="other_resources2"></a>';
   if ($n > 0)
     echo "<h2>Other resources in the language</h2>";
   else
