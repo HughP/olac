@@ -34,7 +34,8 @@
    xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
    xmlns:dc="http://purl.org/dc/elements/1.1/" 
    xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema">
    
    <xsl:output method="xml" encoding="UTF-8"/>
    
@@ -316,9 +317,41 @@
       </dc:identifier>
    </xsl:template>
    
+   <xsl:function name="olac:isLanguageCode" as="xs:boolean">
+     <xsl:param name="str" as="xs:string"/>
+     <xsl:choose>
+       <xsl:when test="(string-length($str) = 2 or
+		        string-length($str) = 3) and
+		       (string-length(replace($str, '[A-Z]', '')) = 0 or
+		        string-length(replace($str, '[a-z]', '')) = 0)">
+	 <xsl:value-of select="true()"/>
+       </xsl:when>
+       <xsl:otherwise>
+	 <xsl:value-of select="false()"/>
+       </xsl:otherwise>
+     </xsl:choose>
+   </xsl:function>
+
+   <xsl:function name="olac:isLanguageCodeList" as="xs:boolean">
+     <xsl:param name="csv" as="xs:string"/>
+     <xsl:variable name="result">
+       <xsl:for-each select="tokenize($csv,'\s*,\s*')">
+	 <xsl:if test="not(olac:isLanguageCode(.))">
+	   1
+	 </xsl:if>
+       </xsl:for-each>
+     </xsl:variable>
+     <xsl:value-of select="string-length($result) = 0"/>
+   </xsl:function>
+
    <xsl:template match="dc:language">
       <xsl:choose>
-         <xsl:when test="string-length(.) = 3">
+	<xsl:when test="olac:isLanguageCodeList(.)">
+	  <xsl:for-each select="distinct-values(tokenize(lower-case(.), '\s*,\s*'))">
+	    <dc:language xsi:type="olac:language" olac:code="{.}"/>
+	  </xsl:for-each>
+	</xsl:when>
+         <xsl:when test="string-length(.) = 3 or string-length(.) = 2">
             <dc:language xsi:type="olac:language" olac:code="{.}"/>
          </xsl:when>
          <xsl:when test=". = 'English'">
@@ -337,13 +370,11 @@
    <xsl:template match="dc:subject">
       <xsl:choose>
          <!-- If it's 3 letters in the same case, it's a language code -->
-         <xsl:when test="string-length(.) = 3 and
-            string-length(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            '')) = 3
-            or string-length(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            '')) = 0">
-            <dc:subject xsi:type="olac:language" olac:code="{.}"/>
-         </xsl:when>
+	 <xsl:when test="olac:isLanguageCodeList(.)">
+	   <xsl:for-each select="distinct-values(tokenize(lower-case(.), '\s*,\s*'))">
+	     <dc:subject xsi:type="olac:language" olac:code="{.}"/>
+	   </xsl:for-each>
+	 </xsl:when>
          <xsl:otherwise>
             <dc:subject><xsl:value-of select="."/></dc:subject>
             <xsl:choose>
