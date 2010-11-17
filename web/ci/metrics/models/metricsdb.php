@@ -30,8 +30,49 @@ class MetricsDB extends Model {
 
 	function OLACMetrics()
 	{
-		$query = $this->db->get("Metrics");
+		$sql = "
+		select start_date from GoogleAnalyticsReports
+		order by id desc limit 1
+		";
+		$query = $this->db->query($sql);
+		$tab = $query->result_array();
+		$date = $tab[0]['start_date'];
+
+		$sql = "
+		select m.*, s.hits, s.clicks
+		from Metrics m
+		left join (
+			(select oa.Archive_ID,
+                                ga1.pageviews hits,
+                                ga2.pageviews clicks
+
+			 from OLAC_ARCHIVE oa
+			 left join GoogleAnalyticsReports ga1
+                         on oa.RepositoryIdentifier=ga1.repoid
+                           and ga1.type='hits'
+                           and ga1.start_date='$date'
+			 left join GoogleAnalyticsReports ga2
+                         on oa.RepositoryIdentifier=ga2.repoid
+                           and ga2.type='clicks'
+                           and ga2.start_date='$date')
+
+                        union
+
+                        (select -1,
+                                (select sum(pageviews)
+                                 from GoogleAnalyticsReports
+                                 where start_date='$date'
+                                 and type='hits') hits,
+                                (select sum(pageviews)
+                                 from GoogleAnalyticsReports
+                                 where start_date='$date'
+                                 and type='clicks') clicks
+                        )
+		) s on m.archive_id=s.Archive_ID;
+		";
+		$query = $this->db->query($sql);
 		$res = array();
+                $res[-2] = $date;
 		foreach ($query->result_array() as $row) {
 		  $res[$row['archive_id']] = $row;
 		}
