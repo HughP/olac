@@ -196,6 +196,52 @@ function uniq($a) {
   return $r;
 }
 
+
+function make_inferred_metadata($tab)
+{
+  $areas = array();
+  $countries = array();
+  foreach ($tab as $record) {
+    if ($record['TagName'] == 'subject' &&
+	$record['Type'] == 'language') {
+      if ($record['LangID']) {
+	$areas[] = $record['Area'];
+	$countries[$record['CountryName']] = $record['CountryCode'];
+      }
+    }
+  }
+
+  $html = "";
+
+  if ($countries) {
+    asort($countries);
+    $html .= "<tr><td class=\"lookup\"><i>Country:&nbsp;</i></td><td></td><td>";
+    foreach ($countries as $country => $cc) {
+      $html .=
+	"<a href=\"/search?q=country_$cc&a=---+all+archives+\">$country</a>";
+    }
+    $html .= "</tr>";
+  }
+
+  if ($areas) {
+    sort($areas);
+    $areas = array_unique($areas);
+    $html .= "<tr><td class=\"lookup\"><i>Area:&nbsp;</i></td><td></td><td>";
+    foreach ($areas as $area) {
+      $html .= 
+	"<a href=\"/search?q=area_$area&a=---+all+archives+\">$area</a>";
+    }
+    $html .= "</tr>";
+  }
+
+  if ($html) {
+    $html = "<tr><td colspan=3><br><p><b>Inferred Metadata</b></td></tr>$html";
+  }
+
+  return $html;
+}
+
+
 function olac_display_process($tab, &$search_terms)
 {
   $elements = array();
@@ -298,6 +344,15 @@ function cmp_html_tab_entries($a, $b)
     return 0;
 }
 
+function make_search_link($code, $prefix) {
+  if (strpos($code, "<a") === 0)
+    return $code;
+  else
+    return
+      "<a href=\"/search?q=$prefix" .
+      "_$code&a=---+all+archives+\">$code</a>";
+}
+
 function generate_html_format($elements)
 {
   global $analytics_link;
@@ -313,16 +368,24 @@ function generate_html_format($elements)
 
     if (!$content) continue;
 
-    if ($prefix=="olac" && $ext == "language")
+    if ($prefix=="olac" && $ext == "language") {
       $newtag = "$tagname (ISO639)";
-    else if ($prefix=="olac" && ($ext == "linguistic-field" || $ext == "linguistic-type"))
+      $content = make_search_link($content, $prefix);
+    }
+    else if ($prefix=="olac" && ($ext == "linguistic-field" || $ext == "linguistic-type")) {
       $newtag = "$tagname (OLAC)";
+      $content = make_search_link($content, $prefix);
+    }
     else if ($prefix=="olac" && $ext == "role" && $code)
       $newtag = "$tagname ($code)";
-    else if ($prefix=="olac" && $ext == "discourse-type")
+    else if ($prefix=="olac" && $ext == "discourse-type") {
       $newtag = "$tagname (Discourse)";
-    else if ($prefix=="dcterms" && $tag == "type" && $ext == "DCMIType")
+      $content = make_search_link($content, $prefix);
+    }
+    else if ($prefix=="dcterms" && $tag == "type" && $ext == "DCMIType") {
       $newtag = "$tagname (DCMI)";
+      $content = make_search_link($content, "dcmi");
+    }
     else if ($prefix=="dcterms" && $ext)
       $newtag = "$tagname ($ext)";
     else
@@ -450,7 +513,7 @@ $tab = $DB->sql("
           me.Type Type,
 # me.Code Code, lc.LangID, lc.Name LangName
 cd.Code Code, cd.Label CodeName, ex.NSPrefix, lc.Id LangID,
-cc.CountryID CountryCode, cc.Area
+cc.CountryID CountryCode, cc.Name CountryName, cc.Area
 	from METADATA_ELEM me
 	left join ELEMENT_DEFN ed on me.Tag_ID=ed.Tag_ID
 	left join ELEMENT_DEFN ed2 on ed2.Tag_ID=ed.DcElement
@@ -474,6 +537,7 @@ $queryTokens = tokenizeQuery( $_GET['queryTerms'] );
 
 $elements = olac_display_process($tab, $search_terms);
 $html_tab = generate_html_format($elements);
+$inferred_metadata_section = make_inferred_metadata($tab);
 
 foreach ($html_tab as $record) {
 
@@ -541,6 +605,7 @@ if ($search_terms) {
 $body .= $olac_info;
 $body .= $oai_info;
 $body .= $search_info;
+$body .= $inferred_metadata_section;
 $body .= "</table>\n";
 
 $meta = old_meta_tag_formatting($tab);
