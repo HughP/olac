@@ -32,7 +32,7 @@
 2.1d _OAI Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in all known OAI repositories (over 2400 are registered at http://gita.grainger.uiuc.edu/registry/searchform.asp).
 
   * *Deliverable:* A gateway service that harvests all registered OAI data providers and uses the classifiers developed in 2.1a and 2.1b to identify language resources and crosswalk them to OLAC with metadata enriched to add language codes and linguistic data types.<br>
-  * *Status:* A version of the OLAC harvester has been created to harvest oai_dc, and about 4 million  records from 600 repositories have been harvested. The binary classifier developed in 2.1a has been integrated and evaluation results indicate that there are approximately 8,000 language resources in the collection. Integration of the multi-way classifier is in progress.<br>
+  * *Status:* A version of the OLAC harvester has been created to harvest oai_dc, and about 4 million  records from 600 repositories have been harvested. The binary classifier developed in 2.1a has been integrated and evaluation results indicate that there are approximately 8,000 language resources among the harvested records. Integration of the multi-way classifier is in progress.<br>
 
 2.1e _Z39.50 Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in leading Z39.50 library gateways.
 
