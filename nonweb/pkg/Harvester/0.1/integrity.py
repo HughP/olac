@@ -802,3 +802,5 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
         check_language_code(con, archive_id)
         check_current_as_of(con, archive_id)
         check_static_repository(con, archive_id)
+        check_redundant_identifier(con, archive_id)
+
