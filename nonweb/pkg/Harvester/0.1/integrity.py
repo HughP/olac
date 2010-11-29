@@ -679,7 +679,7 @@ def check_static_repository(con, archive_id=None):
 #
 def check_redundant_identifier(con, archive_id=None):
     if archive_id is None:
-        slqs = [
+        sqls = [
             "delete from INTEGRITY_CHECK where PROBLEM_CODE='RID'",
             
             """
@@ -713,6 +713,7 @@ def check_redundant_identifier(con, archive_id=None):
             """ % archive_id
             ]
             
+    cur = con.cursor()
     for sql in sqls:
         cur.execute(sql)
     con.commit()
