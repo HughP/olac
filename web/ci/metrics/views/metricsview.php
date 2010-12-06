@@ -70,7 +70,7 @@ if (isset($comparative) && $comparative)
 			<h1>Summary Statistics</h1>
 			<div id="sumstat"></div>
 
-                        <div id="note" style="font-size:small">Note: Page views and click-throughs are for the month of <span id="pvdate"></span>.</div><br>
+                        <div id="note" style="font-size:small">Note: Record views and click-throughs are for the month of <span id="pvdate"></span>.</div><br>
 			<a href="http://www.language-archives.org/NOTE/metrics.html">Explanation of Metrics</a><br><br>
 
 			<h1>Metadata Usage</h1>
