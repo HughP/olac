@@ -72,7 +72,7 @@ class MetricsDB extends Model {
 		";
 		$query = $this->db->query($sql);
 		$res = array();
-                $res[-2] = $date;
+                $res[-2] = substr($date, 0, 7);
 		foreach ($query->result_array() as $row) {
 		  $res[$row['archive_id']] = $row;
 		}

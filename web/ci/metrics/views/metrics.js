@@ -14,8 +14,8 @@ FIELDS = {
     avg_xsi_types: "Average Encoding Schemes Per Record",
     last_updated: "Last Updated",
     integrity_problems: "Known Integrity Problems",
-    hits: "Page views",
-    clicks: "Click-throughs"
+    hits: "Record views per month",
+    clicks: "Click-throughs per month"
 };
 
 window.onload = initMetrics;
