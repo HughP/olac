@@ -1,15 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE> OLAC Protocol for Metadata Harvesting</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content=" OLAC Protocol for Metadata Harvesting">
 <meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)Steven Bird, University of Pennsylvania  (mailto:sb@ldc.upenn.edu)">
-<meta name="Description" content="This document defines the protocol OLAC service providers use to harvest metadata from OLAC data providers. It  defines the responses that OLAC data providers must make to the requests of the protocol.">
+<meta name="Description" content=" &#10;        This document defines the protocol OLAC service providers use to harvest metadata from OLAC data providers. It  defines the responses that OLAC data providers must make to the requests of the protocol. &#10;      ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20011210">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -40,6 +41,9 @@
 <th align="left">Editors:</th><td>
 <editors>Gary Simons, SIL International (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)<br>Steven Bird, University of Pennsylvania  (<a href="mailto:sb@ldc.upenn.edu">mailto:sb@ldc.upenn.edu</a>)</editors>
 </td>
+</tr>
+<tr valign="top">
+<th align="left">Changes since previous version:</th><td></td>
 </tr>
 </table>
 <blockquote>
@@ -88,8 +92,8 @@
 <body>
 <h2>
 <A name="Introduction"></A>1. Introduction</h2>
-<p>The OLAC protocol for metadata harvesting  is based on the  protocol developed by the Open Archives Initiative [<a href="#OAI">OAI</a>]. This document assumes familiarity with the OAI protocol.</p>
-<p>The implementer of an OLAC data provider must implement the protocol as described by [<a href="#OAI">OAI</a>], plus implement three additional features. The  additions are:</p>
+<p>The OLAC protocol for metadata harvesting  is based on the  protocol developed by the Open Archives Initiative [<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm%0A%0A">OAI</a>]. This document assumes familiarity with the OAI protocol.</p>
+<p>The implementer of an OLAC data provider must implement the protocol as described by [<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm%0A%0A">OAI</a>], plus implement three additional features. The  additions are:</p>
 <ul>
 <li>
 <p>support the OAI format for unique identifiers of records</p>
@@ -98,7 +102,7 @@
 <p>supply an OLAC-specific archive description</p>
 </li>
 <li>
-<p>support the OLAC-specific metadata standard [<a href="#OLAC-MS">OLAC-MS</a>]</p>
+<p>support the OLAC-specific metadata standard [<a href="http://www.language-archives.org/OLAC/olacms.html">OLAC-MS</a>]</p>
 </li>
 </ul>
 <p> The next section of this standard describes these additions to the OAI protocol, and the final section documents the schema for an OLAC-specific archive description.</p>
@@ -107,17 +111,17 @@
 <p>The OAI protocol for harvesting metadata supports six requests. The additional features of the OLAC metadata harvesting protocol are described below under the request to which they are relevant.</p>
 <h3>
 <A name="GetRecord"></A>GetRecord</h3>
-<p>When the <tt>metadataPrefix</tt> is specified as <tt>olac</tt>, the <tt>&lt;metadata&gt;</tt> element of the response must contain an <tt>&lt;olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="#OLAC-MS">OLAC-MS</a>]. The <tt>&lt;olac&gt;</tt> element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
+<p>When the <tt>metadataPrefix</tt> is specified as <tt>olac</tt>, the <tt>&lt;metadata&gt;</tt> element of the response must contain an <tt>&lt;olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="http://www.language-archives.org/OLAC/olacms.html">OLAC-MS</a>]. The <tt>&lt;olac&gt;</tt> element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
 <h3>
 <A name="Identify"></A>Identify</h3>
-<p>An OLAC data provider must conform to the OAI format for building unique identifiers of records and it must supply an OLAC-specific archive description. These requirements are met in the response to the <tt>Identify</tt> request.  The response must contain at least two <tt>&lt;description&gt;</tt> elements, one containing an <tt>&lt;oai-identifier&gt;</tt> element to describe the  unique identifier format and another containing an <tt>&lt;olac-archive&gt;</tt> element to describe the archive. The schema for <tt>&lt;oai-identifier&gt;</tt> is given in Appendix 2 of [<a href="#OAI">OAI</a>]. The schema for <tt>&lt;olac-archive&gt;</tt> is given below in <a href="#OLAC archive description">OLAC archive description</a>.</p>
+<p>An OLAC data provider must conform to the OAI format for building unique identifiers of records and it must supply an OLAC-specific archive description. These requirements are met in the response to the <tt>Identify</tt> request.  The response must contain at least two <tt>&lt;description&gt;</tt> elements, one containing an <tt>&lt;oai-identifier&gt;</tt> element to describe the  unique identifier format and another containing an <tt>&lt;olac-archive&gt;</tt> element to describe the archive. The schema for <tt>&lt;oai-identifier&gt;</tt> is given in Appendix 2 of [<a href="http://www.openarchives.org/OAI/openarchivesprotocol.htm%0A%0A">OAI</a>]. The schema for <tt>&lt;olac-archive&gt;</tt> is given below in <a href="#OLAC archive description">OLAC archive description</a>.</p>
 <h3>
 <A name="ListIdentifiers"></A>ListIdentifiers</h3>
 <p>When the <tt>metadataPrefix</tt> is specified as <tt>olac</tt>, this request must respond with at least one  record identifier.</p>
 <h3>
 <A name="ListMetadataFormats"></A>ListMetadataFormats</h3>
 <p>This request (when made with no additional parameters) must respond with at least two <tt>&lt;metadataFormat&gt;</tt> elements, one for the <tt>oai_dc</tt> prefix required by OAI and another for the <tt>olac</tt> prefix required by OLAC. The specification for the <tt>olac</tt> prefix must also contain the   URL (at <tt>www.language-archives.org</tt>) for the canonical version of the OLAC metadata schema that is being used and its corresponding namespace identifier. For instance,</p>
-<pre style="margin-left: 12pt">&lt;metadataFormat&gt;
+<pre style="margin-left: 18pt">&lt;metadataFormat&gt;
    &lt;metadataPrefix&gt;olac&lt;/metadataPrefix&gt;
    &lt;schema&gt;http://www.language-archives.org/OLAC/0.4/olac.xsd&lt;/schema&gt;
    &lt;metadataNamespace&gt;http://www.language-archives.org/OLAC/0.4/&lt;/metadataNamespace&gt;
@@ -125,7 +129,7 @@
 </pre>
 <h3>
 <A name="ListRecords"></A>ListRecords</h3>
-<p>When the <tt>metadataPrefix</tt> is specified as <tt>olac</tt>, every <tt>&lt;metadata&gt;</tt> element in the response must contain an <tt>&lt;olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="#OLAC-MS">OLAC-MS</a>]. Each <tt>&lt;olac&gt;</tt> element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
+<p>When the <tt>metadataPrefix</tt> is specified as <tt>olac</tt>, every <tt>&lt;metadata&gt;</tt> element in the response must contain an <tt>&lt;olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="http://www.language-archives.org/OLAC/olacms.html">OLAC-MS</a>]. Each <tt>&lt;olac&gt;</tt> element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
 <h3>
 <A name="ListSets"></A>ListSets</h3>
 <p>The OLAC metadata harvesting protocol places no additional requirements on this request. The data provider may supply any response that is valid with respect to the OAI specification.</p>
@@ -209,7 +213,7 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 </dl>
 </blockquote>
 <p>For example,</p>
-<pre style="margin-left: 12pt">&lt;olac-archive
+<pre style="margin-left: 18pt">&lt;olac-archive
       xmlns="http://www.language-archives.org/OLAC/0.4/olac-archive"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.language-archives.org/OLAC/0.4/olac-archive

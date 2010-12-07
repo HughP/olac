@@ -31,6 +31,7 @@
 				<title>
 					<xsl:value-of select="$title"/>
 				</title>
+				<script type="text/javascript" src="/js/gatrack.js"></script>
 			</head>
 			<body>
 				<hr style="color: black"/>

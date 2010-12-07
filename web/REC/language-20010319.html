@@ -1,19 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Language Vocabulary</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="OLAC Language Vocabulary">
-<meta name="Creator" content="Gary Simons, SIL International
-      (mailto:gary_simons@sil.org)
-        Steven Bird, University of Pennsylvania
-      (mailto:sb@ldc.upenn.edu)">
-<meta name="Description" content=" This document specifies the controlled vocabulary of language
-        identifiers used by OLAC. ">
+<meta name="Creator" content="Gary Simons, SIL International&#10;      (mailto:gary_simons@sil.org)&#10;        Steven Bird, University of Pennsylvania&#10;      (mailto:sb@ldc.upenn.edu)">
+<meta name="Description" content=" &#10;       This document specifies the controlled vocabulary of language&#10;        identifiers used by OLAC.  &#10;    ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20010319">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -113,11 +110,11 @@
         identifiers that do not change, combined with accessible documentation that
         clarifies the particular speech variety denoted by each identifier. </p>
 <p>The information technology community has a standard for language
-        identification, namely, ISO 639 [<a href="#ISO-639">ISO-639</a>]. Part 1 of this standard
+        identification, namely, ISO 639 [<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.html">ISO-639</a>]. Part 1 of this standard
         lists two-letter codes for identifying about 140 of the world's major
         languages; part 2 of the standard lists three-letter codes for identifying
         about 400 languages. ISO 639 in turn forms the core of another standard, RFC
-        3166 [<a href="#RFC-3166">RFC-3166</a>] (formerly RFC 1766 [<a href="#RFC-1766">RFC-1766</a>]), which is the
+        3166 [<a href="#RFC-3166">RFC-3166</a>] (formerly RFC 1766 [<a href="http://www.ietf.org/rfc/rfc1766.txt">RFC-1766</a>]), which is the
         standard used for language identification in the xml:lang attribute of XML and
         in the language element of the Dublin Core Metadata Initiative. RFC 3166
         provides a mechanism for users to register new language identification codes
@@ -126,13 +123,13 @@
 <p>Unfortunately, the existing standard falls far short of meeting the
         needs of the language resources community since it fails to account for more
         than 90% of the world's languages, and it fails to adequately document what
-        languages the codes refer to [<a href="#Simons-2000">Simons-2000</a>]. However, SIL's Ethnologue
-        [<a href="#Ethnologue">Ethnologue</a>] provides a complete system of language identifiers which
+        languages the codes refer to [<a href="http://www.ldc.upenn.edu/exploration/expl2000/papers/simons/simons.htm">Simons-2000</a>]. However, SIL's Ethnologue
+        [<a href="http://www.sil.org/ethnologue/">Ethnologue</a>] provides a complete system of language identifiers which
         is openly available on the Web. OLAC will employ the RFC 3166 extension
         mechanism which permits Ethnologue codes to be incorporated. </p>
 <h2>
 <A name="Ethnologue codes"></A>2. Ethnologue codes</h2>
-<p>The SIL Ethnologue [<a href="#Ethnologue">Ethnologue</a>] provides some 6,800
+<p>The SIL Ethnologue [<a href="http://www.sil.org/ethnologue/">Ethnologue</a>] provides some 6,800
         three-letter codes, along with detailed information about language names,
         genetic affiliations and geographical locus, amongst other things. </p>
 <p>There are at least three ways to determine the Ethnologue code for a
@@ -140,16 +137,16 @@
 <ol>
 <li>
 <p>Use the form interface provided on the Ethnologue site
-            [<a href="#Ethnologue">Ethnologue</a>],</p>
+            [<a href="http://www.sil.org/ethnologue/">Ethnologue</a>],</p>
 </li>
 <li>
 <p>Use the LDC's temporary Ethnologue query form, giving simpler
-            output [<a href="#LDC-Ethnologue">LDC-Ethnologue</a>],</p>
+            output [<a href="http://wave.ldc.upenn.edu/OLAC/ethnologue/form.php3">LDC-Ethnologue</a>],</p>
 </li>
 <li>
 <p>Download an ASCII table of language codes
-            [<a href="#Language-Codes">Language-Codes</a>], and load them into a relational database using the schema provided
-            in [<a href="#Simons-2000">Simons-2000</a>].</p>
+            [<a href="http://www.language-archives.org/data/languagecodes.tab">Language-Codes</a>], and load them into a relational database using the schema provided
+            in [<a href="http://www.ldc.upenn.edu/exploration/expl2000/papers/simons/simons.htm">Simons-2000</a>].</p>
 </li>
 </ol>
 <p>A three-letter Ethnologue code <tt>AAA</tt> will be represented
@@ -216,13 +213,13 @@
       Code<br>&lt;<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.html">http://lcweb.loc.gov/standards/iso639-2/langhome.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="Language-Codes">Language-Codes</a>]</td><td>Table of Ethnologue Language
-      Codes<br>&lt;<a href="http://www.language-archives.org/data/languagecodes.tab">http://www.language-archives.org/data/languagecodes.tab</a>&gt;</td>
-</tr>
-<tr valign="top">
 <td width="150">[<a name="LDC-Ethnologue">LDC-Ethnologue</a>]</td><td>LDC's Temporary Ethnologue Controlled
       Vocabulary
       Server<br>&lt;<a href="http://wave.ldc.upenn.edu/OLAC/ethnologue/form.php3">http://wave.ldc.upenn.edu/OLAC/ethnologue/form.php3</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="Language-Codes">Language-Codes</a>]</td><td>Table of Ethnologue Language
+      Codes<br>&lt;<a href="http://www.language-archives.org/data/languagecodes.tab">http://www.language-archives.org/data/languagecodes.tab</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="OLAC-MS">OLAC-MS</a>]</td><td>OLAC Metadata

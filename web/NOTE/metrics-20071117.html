@@ -1,16 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Metadata Quality Metrics</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="OLAC Metadata Quality Metrics">
 <meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)">
-<meta name="Description" content="Explains the metrics that are implemented on the OLAC web site for evaluating the
-            quality of metadata records.">
+<meta name="Description" content="&#10;         Explains the metrics that are implemented on the OLAC web site for evaluating the&#10;            quality of metadata records.&#10;      ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20071117">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -43,6 +43,9 @@
 <editors>Gary Simons, SIL International (<a href="mailto:gary_simons@sil.org">mailto:gary_simons@sil.org</a>)</editors>
 </td>
 </tr>
+<tr valign="top">
+<th align="left">Changes since previous version:</th><td></td>
+</tr>
 </table>
 <blockquote>
 <small>Copyright &copy; 2007 Gary Simons (SIL International). This material may be distributed and repurposed subject to the terms and conditions set forth in the <a href="http://creativecommons.org/licenses/by-sa/2.5/" rel="license">Creative Commons
@@ -71,14 +74,14 @@
 <A name="Introduction"></A>1. Introduction</h2>
 <p>The vision of OLAC is that "any user on the Internet should be able to go to a single
             gateway to find all the language resources available at all participating institutions"
-            (see vision statement in [<a href="#OLAC-Process">OLAC-Process</a>]). The ability of a user to discover any
+            (see vision statement in [<a href="http://www.language-archives.org/OLAC/process.html#Governing%20ideas">OLAC-Process</a>]). The ability of a user to discover any
             relevant language resource is dependent on the quality of the metadata that describe
             it. Ensuring quality through peer review is a core value that OLAC employs to achieve
             its vision. "OLAC also conducts automated review based on peer consensus regarding best
-            practice" (see core value statements in [<a href="#OLAC-Process">OLAC-Process</a>]). </p>
+            practice" (see core value statements in [<a href="http://www.language-archives.org/OLAC/process.html#Governing%20ideas">OLAC-Process</a>]). </p>
 <p>This note explains the automated system that is implemented on the OLAC web site for
             evaluating the quality of metadata records. The peer consensus regarding best practice
-            is expressed in [<a href="#OLAC-BPR">OLAC-BPR</a>] and further elucidated in [<a href="#OLAC-Usage">OLAC-Usage</a>]. </p>
+            is expressed in [<a href="http://www.language-archives.org/REC/bpr.html">OLAC-BPR</a>] and further elucidated in [<a href="http://www.language-archives.org/NOTE/usage.html">OLAC-Usage</a>]. </p>
 <h2>
 <A name="The quality score"></A>2. The quality score</h2>
 <p>Many of the best practice recommendations for resource description cannot be
@@ -163,7 +166,7 @@
 </dt>
 <dd>
 <p>One point is awarded for the presence of at least one Language element that uses
-                  the <i>olac:ISO639-3</i> encoding scheme [<a href="#OLAC-Language">OLAC-Language</a>] to precisely identify the language of
+                  the <i>olac:ISO639-3</i> encoding scheme [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>] to precisely identify the language of
                   content of the resource. Absence of any natural language content in a resource
                   (such as in a software tool) does not block achieving this point, since in that
                   case it is recommended best practice is to use the ISO 639-3 code <tt>zxx</tt>
@@ -174,7 +177,7 @@
 </dt>
 <dd>
 <p>One point is awarded for the presence of at least one Type element that uses the
-                  <i>olac:linguistic-type</i> encoding scheme [<a href="#OLAC-Linguistic-Type">OLAC-Linguistic-Type</a>] to precisely identify the type
+                  <i>olac:linguistic-type</i> encoding scheme [<a href="http://www.language-archives.org/REC/type.html">OLAC-Linguistic-Type</a>] to precisely identify the type
                   of the resource from a linguistic point of view. Such a metadata element is
                   relevant to all OLAC records since the vocabulary includes a "not_applicable"
                   value for items that are not an instance of one of the linguistic data types.</p>
@@ -184,7 +187,7 @@
 </dt>
 <dd>
 <p>One point is awarded for appropriate use of the <i>olac:ISO639-3</i> encoding
-                  scheme [<a href="#OLAC-Language">OLAC-Language</a>] with the Subject element to precisely identify the language that the
+                  scheme [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>] with the Subject element to precisely identify the language that the
                   resource is about. The notion of subject language is not relevant to every
                   language resource. When the linguistic type of a resource is "primary_text" or
                   "not_applicable" it is not required to have a subject language, and this point is
@@ -196,7 +199,7 @@
 </dt>
 <dd>
 <p>One point is awarded for the presence of at least one Type element that uses the
-                  <i>dcterms:DCMIType</i> encoding scheme [<a href="#DCMI-Type">DCMI-Type</a>]  to identify the generic type of the
+                  <i>dcterms:DCMIType</i> encoding scheme [<a href="http://dublincore.org/documents/dcmi-type-vocabulary/">DCMI-Type</a>]  to identify the generic type of the
                   resource. The vocabulary is designed to be applicable to any resource and this is
                   considered mandatory for OLAC metadata in order to support reliable searching for
                   resources by type (such as audio recordings versus video recordings versus textual
@@ -213,15 +216,15 @@
 </dd>
 </dl>
 </blockquote>
-<p>The free-standing metadata service [<a href="#OLAC-Free">OLAC-Free</a>] can be used to see what quality
+<p>The free-standing metadata service [<a href="http://www.language-archives.org/tools/metadata/freestanding.html">OLAC-Free</a>] can be used to see what quality
             score will be awarded to a given OLAC metadata record. The XML encoding of a record is
             pasted into a submission form. The service then validates the record, and if it is valid, a
             report of its quality score is generated with comments on what must be done to raise the
             score to 10. The same quality analysis is shown for a sample record from each
             participating archive by following the "Sample Record" link on the
-            [<a href="#OLAC-Archives">OLAC-Archives</a>] page. </p>
+            [<a href="http://www.language-archives.org/archives-new.php4">OLAC-Archives</a>] page. </p>
 <p>The average quality score for all the records provided by a given participating archive
-            can be seen by following the "Metrics" link on the [<a href="#OLAC-Archives">OLAC-Archives</a>] page. The
+            can be seen by following the "Metrics" link on the [<a href="http://www.language-archives.org/archives-new.php4">OLAC-Archives</a>] page. The
             metrics report also shows the breakdown across the collection of all the components that
             go into the quality score.</p>
 <h2>

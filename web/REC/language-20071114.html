@@ -1,19 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Language Extension</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="OLAC Language Extension">
-<meta name="Creator" content="Gary Simons, SIL International
-         (mailto:gary_simons@sil.org)Steven Bird, University of Melbourne
-         and University of Pennsylvania (mailto:sb@csse.unimelb.edu.au)">
-<meta name="Description" content=" This document specifies the metadata extension used by OLAC to uniquely
-            identify languages. It uses the three-letter identifiers of ISO 639-3 as its
-            controlled vocabulary. ">
+<meta name="Creator" content="Gary Simons, SIL International&#10;         (mailto:gary_simons@sil.org)Steven Bird, University of Melbourne&#10;         and University of Pennsylvania (mailto:sb@csse.unimelb.edu.au)">
+<meta name="Description" content="&#10;          This document specifies the metadata extension used by OLAC to uniquely&#10;            identify languages. It uses the three-letter identifiers of ISO 639-3 as its&#10;            controlled vocabulary. &#10;      ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20071114">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -122,22 +119,22 @@
             will not work. Rather, what is needed is a standard based on unique
             identifiers that do not change, combined with accessible documentation that
             clarifies the particular speech variety denoted by each identifier. For a
-            deeper discussion of these issues see [<a href="#CS2000">CS2000</a>] and
-            [<a href="#Simons2000">Simons2000</a>].</p>
+            deeper discussion of these issues see [<a href="http://www.sil.org/silewp/2000/001/SILEWP2000-001.html">CS2000</a>] and
+            [<a href="http://www.ldc.upenn.edu/exploration/expl2000/papers/simons/simons.htm">Simons2000</a>].</p>
 <p>The information technology community has a well-established standard for
             language identification, namely, ISO 639.
             Part 1 of the standard specifies two-letter codes for identifying about 160 of
             the world's major languages; part 2 specifies three-letter codes for
-            identifying about 380 languages [<a href="#ISO639-2">ISO639-2</a>]. These code sets in turn form the core of the
+            identifying about 380 languages [<a href="http://lcweb.loc.gov/standards/iso639-2/langhome.html">ISO639-2</a>]. These code sets in turn form the core of the
             standard followed by the Internet Engineering Task Force (IETF), namely, RFC
-            3066 [<a href="#RFC3066">RFC3066</a>]. This is the standard used for language identification
-            in the <tt>xml:lang</tt> attribute of XML [<a href="#XML-lang">XML-lang</a>].  The Dublin Core Metadata Initiative [<a href="#DCMT">DCMT</a>] 
+            3066 [<a href="http://www.ietf.org/rfc/rfc3066.txt">RFC3066</a>]. This is the standard used for language identification
+            in the <tt>xml:lang</tt> attribute of XML [<a href="http://www.w3.org/TR/REC-xml#sec-lang-tag">XML-lang</a>].  The Dublin Core Metadata Initiative [<a href="http://dublincore.org/documents/2006/12/18/dcmi-terms/">DCMT</a>] 
             defines encoding schemes <i>dcterms:ISO639-2</i> and <i>dcterms:RFC3066</i> 
             for use in its Language element.</p>
 <p>The above standards fall short of the coverage required by the language
             archiving community since they focus on the major languages of the world that
             are most frequently represented in the total body of the world's literature. A
-            new part 3 of the standard [<a href="#ISO639-3">ISO639-3</a>], adopted in 2007, has the purpose of defining
+            new part 3 of the standard [<a href="http://www.sil.org/iso639-3/">ISO639-3</a>], adopted in 2007, has the purpose of defining
             three-letter identifiers for all known human languages. With over 7,500 codes,
             it attempts to provide a comprehensive
             enumeration of languages, including living,
@@ -149,12 +146,12 @@
 <A name="The ISO639-3 extension"></A>2. The ISO639-3 extension</h2>
 <p>The complete vocabulary of language identifiers recommended for use by OLAC consists of all active
             codes from ISO 639-3 as documented at its official web site
-            [<a href="#ISO639-3">ISO639-3</a>]. This includes both individual language identifiers and
-            macrolanguage identifiers [<a href="#ISO639-Macro">ISO639-Macro</a>]. At any time the valid code
+            [<a href="http://www.sil.org/iso639-3/">ISO639-3</a>]. This includes both individual language identifiers and
+            macrolanguage identifiers [<a href="http://www.sil.org/iso639-3/scope.asp#M">ISO639-Macro</a>]. At any time the valid code
             set is the complete set of codes (both active and retired) that is
-            downloadable from [<a href="#ISO639-3">ISO639-3</a>]; the use of retired codes is deprecated,
+            downloadable from [<a href="http://www.sil.org/iso639-3/">ISO639-3</a>]; the use of retired codes is deprecated,
          but not disallowed.</p>
-<p>Following the extension mechanism defined in [<a href="#OLAC-Metadata">OLAC-Metadata</a>], a
+<p>Following the extension mechanism defined in [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>], a
             language identifier is expressed as the value of the <tt>olac:code</tt>
             attribute and the extension <tt>olac:ISO639-3</tt> is named in the
             <tt>xsi:type</tt> attribute. A language
@@ -165,13 +162,13 @@
             text in the element content may be used to identify the specific variety of
             the language. For instance, the following indicates that a resource is written
             in Japanese:</p>
-<pre style="margin-left: 12pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="jpn"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:language xsi:type="olac:ISO639-3" olac:code="jpn"/&gt;</pre>
 <p>While the following indicates that a resource is sbout the Lau language of
             Solomon Islands, and specifically, the Suafa dialect:</p>
-<pre style="margin-left: 12pt">&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="llu"&gt;Suafa dialect&lt;/dc:subject&gt;</pre>
+<pre style="margin-left: 18pt">&lt;dc:subject xsi:type="olac:ISO639-3" olac:code="llu"&gt;Suafa dialect&lt;/dc:subject&gt;</pre>
 <p>The formal definition of the vocabulary is in the following XML schema which
             conforms to the conventions for an OLAC metadata extension as defined in
-               [<a href="#OLAC-Metadata">OLAC-Metadata</a>]:</p>
+               [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]:</p>
 <blockquote>
 <p>
 <a href="http://www.language-archives.org/OLAC/1.1/olac-ISO639-3.xsd">http://www.language-archives.org/OLAC/1.1/olac-ISO639-3.xsd</a>
@@ -201,9 +198,9 @@
 </blockquote>
 <p>In addition to the basic information available on this page, 
             more detailed information is available through a link to the corresponding
-            page on the Ethnologue web site [<a href="#Ethnologue">Ethnologue</a>] for a living or recently
+            page on the Ethnologue web site [<a href="http://www.ethnologue.com/">Ethnologue</a>] for a living or recently
          extinct language, or on the Linguist List website for an ancient
-            [<a href="#LL-Ancient">LL-Ancient</a>] or constructed [<a href="#LL-Constructed">LL-Constructed</a>]
+            [<a href="http://cf.linguistlist.org/cfdocs/new-website/LL-WorkingDirs/forms/langs/GetListOfAncientLgs.cfm?RequestTimeout=200">LL-Ancient</a>] or constructed [<a href="http://cf.linguistlist.org/cfdocs/new-website/LL-WorkingDirs/forms/langs/GetListOfConstructedLgs.cfm?RequestTimeout=200">LL-Constructed</a>]
             language.</p>
 <h2>
 <A name="Looking up the code for a language"></A>4. Looking up the code for a language</h2>
@@ -225,14 +222,14 @@
 </p>
 </blockquote>
 <p>Linguist List offers a language search page based on name and country
-            information downloaded from [<a href="#Ethnologue-Codes">Ethnologue-Codes</a>] plus similar
+            information downloaded from [<a href="http://www.ethnologue.com/codes/">Ethnologue-Codes</a>] plus similar
             information they have compiled regarding ancient and constructed languages:</p>
 <blockquote>
 <p>
 <a href="http://www.linguistlist.org/forms/langs/find-a-language-or-family.html">http://www.linguistlist.org/forms/langs/find-a-language-or-family.html</a>
 </p>
 </blockquote>
-<p>See [<a href="#ISO639-3-Changes">ISO639-3-Changes</a>] for a description of the process by which
+<p>See [<a href="http://www.sil.org/iso639-3/changes.asp">ISO639-3-Changes</a>] for a description of the process by which
             changes are made to the international standard. Follow this process if you believe that
             something is missing or in error. Note
             that the standard reserves codes <tt>qaa</tt>  through <tt>qtz</tt> for local

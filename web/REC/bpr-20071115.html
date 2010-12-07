@@ -1,19 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>Best Practice Recommendations for Language Resource Description</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="Best Practice Recommendations for Language Resource Description">
-<meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)
-         Steven Bird, University of Pennsylvania (mailto:sb@ldc.upenn.edu)
-         Joan Spanne, SIL International (mailto:joan_spanne@sil.org)">
-<meta name="Description" content="This document expresses the consensus of the Open Language Archives Community on best
-            practice recommendations for language resource description using the OLAC metadata
-            standard OLAC-Metadata.">
+<meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)&#10;         Steven Bird, University of Pennsylvania (mailto:sb@ldc.upenn.edu)&#10;         Joan Spanne, SIL International (mailto:joan_spanne@sil.org)">
+<meta name="Description" content="&#10;         This document expresses the consensus of the Open Language Archives Community on best&#10;            practice recommendations for language resource description using the OLAC metadata&#10;            standard OLAC-Metadata.&#10;      ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20071115">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -39,7 +36,7 @@
 <th align="left">Abstract:</th><td>
 <p>This document expresses the consensus of the Open Language Archives Community on best
             practice recommendations for language resource description using the OLAC metadata
-            standard [<a href="#OLAC-Metadata">OLAC-Metadata</a>].</p>
+            standard [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>].</p>
 </td>
 </tr>
 <tr valign="top">
@@ -122,14 +119,14 @@
 <A name="Introduction"></A>1. Introduction</h2>
 <p>This document expresses the consensus of the Open Language Archives Community on best
             practices for describing language resources using the OLAC metadata standard
-               [<a href="#OLAC-Metadata">OLAC-Metadata</a>]. The standard itself specifies the formal constraints on the
+               [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]. The standard itself specifies the formal constraints on the
             syntax of valid descriptions, but does not set requirements on the content of the
             metadata elements (beyond general conformance to the definitions of the qualified Dublin
-            Core metadata set [<a href="#DCMT">DCMT</a>]). This document provides more detailed guidance about
+            Core metadata set [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>]). This document provides more detailed guidance about
             the content of specific metadata elements.</p>
 <p>This document does not provide a complete set of advice about what the metadata elements
             mean or about how they should be used. Such advice is supplied in an OLAC informational
-            note [<a href="#OLAC-Usage">OLAC-Usage</a>]. This document lists the specific metadata usage guidelines
+            note [<a href="http://www.language-archives.org/NOTE/usage.html">OLAC-Usage</a>]. This document lists the specific metadata usage guidelines
             that have been agreed upon by the OLAC community as representing best practice. It is
             not a requirement of participation that OLAC data providers follow these
             recommendations. However, these recommendations are used as the standard for evaluating
@@ -139,14 +136,14 @@
 <p>The following are the OLAC recommendations on best practices for describing language
             resources.  Follow the "more"
             link to see the fuller discussion of an element in
-            [<a href="#OLAC-Usage">OLAC-Usage</a>] including definition, usage notes, and examples.</p>
+            [<a href="http://www.language-archives.org/NOTE/usage.html">OLAC-Usage</a>] including definition, usage notes, and examples.</p>
 <h3>
 <A name="All elements"></A>All elements<small> (<a href="../NOTE/usage.html#All elements">more</a>)</small>
 </h3>
 <OL START="1">
 <LI>
 <p>Recommended best practice is for the value of each metadata element to conform to the definition of
-                  that element as given in [<a href="#DCMT">DCMT</a>].</p>
+                  that element as given in [<a href="http://dublincore.org/documents/dcmi-terms/">DCMT</a>].</p>
 </LI>
 </OL>
 <OL START="2">
@@ -164,7 +161,7 @@
 <OL START="4">
 <LI>
 <p>Whenever the language of the element content is other than English, recommended best practice is to
-                  use the <i>xml:lang</i> attribute with a value from [<a href="#OLAC-Language">OLAC-Language</a>] to identify the language.</p>
+                  use the <i>xml:lang</i> attribute with a value from [<a href="http://www.language-archives.org/REC/language.html">OLAC-Language</a>] to identify the language.</p>
 </LI>
 </OL>
 <OL START="5">
@@ -192,7 +189,7 @@
 <h3>
 <A name="Coverage"></A>Coverage<small> (<a href="../NOTE/usage.html#Coverage">more</a>)</small>
 </h3>
-<OL START="3">
+<OL START="8">
 <LI>
 <p>Recommended best practice is that a metadata record should contain at least one Coverage (or one of
                   its refinements) or Description (or one of its refinements) or Subject element in order to give the
@@ -200,7 +197,7 @@
                   of just a title alone. Using all of these elements is encouraged.</p>
 </LI>
 </OL>
-<OL START="4">
+<OL START="9">
 <LI>
 <p>In the case of spatial coverage, recommended best
                    practice is to use a value from an encoding scheme to give
@@ -210,7 +207,7 @@
 <h3>
 <A name="Creator"></A>Creator<small> (<a href="../NOTE/usage.html#Creator">more</a>)</small>
 </h3>
-<OL START="5">
+<OL START="10">
 <LI>
 <p>Recommended best practice is to use the Contributor element instead of Creator, except in cases where
                   there is significant creative involvement by the person or organization and there is no suitable
@@ -220,13 +217,13 @@
 <h3>
 <A name="Date"></A>Date<small> (<a href="../NOTE/usage.html#Date">more</a>)</small>
 </h3>
-<OL START="6">
+<OL START="11">
 <LI>
 <p>Recommended best practice is that a record have at least one instance of Date (or one of its
                   refinements).</p>
 </LI>
 </OL>
-<OL START="7">
+<OL START="12">
 <LI>
 <p>Recommended best practice is that every instance of
                    Date (or one of its refinements) use a value
@@ -239,7 +236,7 @@
 <h3>
 <A name="Description"></A>Description<small> (<a href="../NOTE/usage.html#Description">more</a>)</small>
 </h3>
-<OL START="8">
+<OL START="13">
 <LI>
 <p>Recommended best practice is that a metadata record should contain at least one Description (or one of
                   its refinements) or Coverage (or one of its refinements) or Subject element in order to give the
@@ -250,7 +247,7 @@
 <h3>
 <A name="Format"></A>Format<small> (<a href="../NOTE/usage.html#Format">more</a>)</small>
 </h3>
-<OL START="9">
+<OL START="14">
 <LI>
 <p>In the case of a digital resource, recommended best practice is to express the Format using a MIME
                   type value from the <i>dcterms:IMT</i> scheme. </p>
@@ -259,7 +256,7 @@
 <h3>
 <A name="Identifier"></A>Identifier<small> (<a href="../NOTE/usage.html#Identifier">more</a>)</small>
 </h3>
-<OL START="10">
+<OL START="15">
 <LI>
 <p>When the value of Identifier is a Uniform Resource Locator (URL), recommended best practice is to
                   specify the <i>dcterms:URI</i> scheme.</p>
@@ -268,14 +265,14 @@
 <h3>
 <A name="Language"></A>Language<small> (<a href="../NOTE/usage.html#Language">more</a>)</small>
 </h3>
-<OL START="11">
+<OL START="16">
 <LI>
 <p>Recommended best practice is that every record contain at least one Language element. For a resource
                   that does not include language content, include a Language element containing the code <tt>zxx</tt>
                   for &ldquo;No linguistic content.&rdquo;</p>
 </LI>
 </OL>
-<OL START="12">
+<OL START="17">
 <LI>
 <p>Recommended best practice is to use a value from the <i>olac:language</i> scheme with the Language element to
                   identify an individual language precisely. </p>
@@ -284,7 +281,7 @@
 <h3>
 <A name="Publisher"></A>Publisher<small> (<a href="../NOTE/usage.html#Publisher">more</a>)</small>
 </h3>
-<OL START="13">
+<OL START="18">
 <LI>
 <p>Recommended best practice is to identify a Publisher by means of a name in a form that is ready for
                   sorting within an index.</p>
@@ -293,7 +290,7 @@
 <h3>
 <A name="Relation"></A>Relation<small> (<a href="../NOTE/usage.html#Relation">more</a>)</small>
 </h3>
-<OL START="14">
+<OL START="19">
 <LI>
 <p>When the related resource is also held in a participating archive, recommended best practice is to
                   identify the related resource by means of its OAI identifier. A Relation that begins with &ldquo;oai:&rdquo; will
@@ -301,7 +298,7 @@
                   resource.</p>
 </LI>
 </OL>
-<OL START="15">
+<OL START="20">
 <LI>
 <p>If the related resource is not cataloged in the system of a participating archive, recommended best
                   practice is to identify the related resource through a standard unique identifier. If the related
@@ -312,7 +309,7 @@
 <h3>
 <A name="Source"></A>Source<small> (<a href="../NOTE/usage.html#Source">more</a>)</small>
 </h3>
-<OL START="16">
+<OL START="21">
 <LI>
 <p>Recommended best practice is as for the Relation element above. </p>
 </LI>
@@ -320,7 +317,7 @@
 <h3>
 <A name="Subject"></A>Subject<small> (<a href="../NOTE/usage.html#Subject">more</a>)</small>
 </h3>
-<OL START="17">
+<OL START="22">
 <LI>
 <p>Recommended best practice is that a metadata record should contain at least one Subject or Coverage
                   (or one of its refinements) or Description element (or one of its refinements) in order to give the
@@ -328,14 +325,14 @@
                   of just a title alone. Using all of these elements is encouraged.</p>
 </LI>
 </OL>
-<OL START="18">
+<OL START="23">
 <LI>
 <p>When the subject is a human language, recommended
                    best practice is to use a value from the <i>olac:language</i>
                   scheme with the Subject element to identify an individual language precisely. </p>
 </LI>
 </OL>
-<OL START="19">
+<OL START="24">
 <LI>
 <p>When the subject matter falls within the field of
                    linguistics, recommended best practice is to use a
@@ -346,14 +343,14 @@
 <h3>
 <A name="Title"></A>Title<small> (<a href="../NOTE/usage.html#Title">more</a>)</small>
 </h3>
-<OL START="20">
+<OL START="25">
 <LI>
 <p>Recommended best practice is that every record must have an instance of the Title element. When the
                   resource does not have a formal title, the cataloger should supply a descriptive title and enclose it
                   in square brackets.</p>
 </LI>
 </OL>
-<OL START="21">
+<OL START="26">
 <LI>
 <p>Recommended best practice is that there be only one instance of the unqualified Title element, namely,
                   for the original title (except in the case of parallel titles on a diglot work). All other titles
@@ -363,7 +360,7 @@
 <h3>
 <A name="Type"></A>Type<small> (<a href="../NOTE/usage.html#Type">more</a>)</small>
 </h3>
-<OL START="22">
+<OL START="27">
 <LI>
 <p>Recommended best practice is that every record
                    should contain at least one Type element that uses
@@ -372,7 +369,7 @@
                     nature or genre of the content of the resource.</p>
 </LI>
 </OL>
-<OL START="23">
+<OL START="28">
 <LI>
 <p>Recommended best practice is that every record for which it is applicable should contain at least one
                   Type element that uses a value from the <i>olac:linguistic-type</i> scheme to identify its linguistic data type.

@@ -1,17 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>Creating OLAC Records and Repositories in Toolbox</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="Creating OLAC Records and Repositories in Toolbox">
-<meta name="Creator" content="Tom Myers, N-Topus Software
-        (mailto:mailto:tom@n-topus.com)
-Alexander Nakhimovsky, Colgate University (mailto:adnakhimovsky@colgate.edu)">
-<meta name="Description" content="This Note presents a framework for creating OLAC static repositories from a collections of records created and maintained as a Toolbox database.">
+<meta name="Creator" content="Tom Myers, N-Topus Software&#10;        (mailto:mailto:tom@n-topus.com)&#10;Alexander Nakhimovsky, Colgate University (mailto:adnakhimovsky@colgate.edu)">
+<meta name="Description" content="&#10;      This Note presents a framework for creating OLAC static repositories from a collections of records created and maintained as a Toolbox database.&#10;    ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20060928">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -22,7 +21,7 @@ Alexander Nakhimovsky, Colgate University (mailto:adnakhimovsky@colgate.edu)">
 <th align="left" width="100">Date&nbsp;issued:</th><td>2006-09-28</td>
 </tr>
 <tr valign="top">
-<th align="left">Status of document:</th><td><i>Draft Implementation Note.</i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
+<th align="left">Status of document:</th><td><i>Draft Implementation Note. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
 </tr>
 <tr valign="top">
 <th align="left">This version:</th><td><a href="http://www.language-archives.org/NOTE/toolbox-20060928.html">http://www.language-archives.org/NOTE/toolbox-20060928.html</a></td>
@@ -240,12 +239,12 @@ N-topus Software, with our own email addresses. These values are
 defined within a listing of lookup:strings at the top of the <tt>repository.xsl</tt> file,
 and can easily be edited in a plain text editor. (Only the values, not
 markup, need to be changed.) Here are the lines to be edited:</p>
-<pre style="margin-left: 12pt">&lt;lookup:strings&gt;<br>  &lt;lookup:string id='repositoryName'&gt;Virtual Toolbox-Sample Archive&lt;/lookup:string&gt;<br>  &lt;lookup:string id='baseURL'&gt;http://www.n-topus.com/nsf/toolbox/sample/olac-records.xml&lt;/lookup:string&gt;<br>  &lt;lookup:string id='protocolVersion'&gt;2.0&lt;/lookup:string&gt;<br>  &lt;lookup:string id='adminEmail'&gt;mailto:tom@n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id='earliestDatestamp'&gt;2006-05-03&lt;/lookup:string&gt;<br>  &lt;lookup:string id='deletedRecord'&gt;no&lt;/lookup:string&gt;<br>  &lt;lookup:string id='granularity'&gt;YYYY-MM-DD&lt;/lookup:string&gt;<br>  &lt;lookup:string id='repositoryIdentifier'&gt;sample.toolbox.nsf.n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id='sampleIdentifier'&gt;oai:sample.toolbox.nsf.n-topus.com:01&lt;/lookup:string&gt;<br>  &lt;lookup:string id='archiveURL'&gt;http://www.n-topus.com/nsf/toolbox/sample/&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curator"&gt;Tom Myers, Alexander D. Nakhimovsky&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curatorTitle"&gt;&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curatorEmail"&gt;mailto:tom@n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id="institution"&gt;N-Topus Software&lt;/lookup:string&gt;<br>  &lt;lookup:string id="institutionURL"&gt;http://www.n-topus.com/&lt;/lookup:string&gt;<br>  &lt;lookup:string id="shortLocation"&gt;Hamilton, NY, USA&lt;/lookup:string&gt;<br>  &lt;lookup:string id="location"&gt;56 Payne Street, Hamilton NY 13346, USA &lt;/lookup:string&gt;<br>  &lt;lookup:string id="synopsis"&gt;This Virtual Toolbox-Sample Archive contains materials assembled from<br>    Toolbox projects within subdirectories of a web application.<br>  &lt;/lookup:string&gt;<br>  &lt;lookup:string id="access"&gt;Access control is determined by server configuration (e.g., web.xml files). &lt;/lookup:string&gt;<br>&lt;/lookup:strings&gt;</pre>
+<pre style="margin-left: 18pt">&lt;lookup:strings&gt;<br>  &lt;lookup:string id='repositoryName'&gt;Virtual Toolbox-Sample Archive&lt;/lookup:string&gt;<br>  &lt;lookup:string id='baseURL'&gt;http://www.n-topus.com/nsf/toolbox/sample/olac-records.xml&lt;/lookup:string&gt;<br>  &lt;lookup:string id='protocolVersion'&gt;2.0&lt;/lookup:string&gt;<br>  &lt;lookup:string id='adminEmail'&gt;mailto:tom@n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id='earliestDatestamp'&gt;2006-05-03&lt;/lookup:string&gt;<br>  &lt;lookup:string id='deletedRecord'&gt;no&lt;/lookup:string&gt;<br>  &lt;lookup:string id='granularity'&gt;YYYY-MM-DD&lt;/lookup:string&gt;<br>  &lt;lookup:string id='repositoryIdentifier'&gt;sample.toolbox.nsf.n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id='sampleIdentifier'&gt;oai:sample.toolbox.nsf.n-topus.com:01&lt;/lookup:string&gt;<br>  &lt;lookup:string id='archiveURL'&gt;http://www.n-topus.com/nsf/toolbox/sample/&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curator"&gt;Tom Myers, Alexander D. Nakhimovsky&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curatorTitle"&gt;&lt;/lookup:string&gt;<br>  &lt;lookup:string id="curatorEmail"&gt;mailto:tom@n-topus.com&lt;/lookup:string&gt;<br>  &lt;lookup:string id="institution"&gt;N-Topus Software&lt;/lookup:string&gt;<br>  &lt;lookup:string id="institutionURL"&gt;http://www.n-topus.com/&lt;/lookup:string&gt;<br>  &lt;lookup:string id="shortLocation"&gt;Hamilton, NY, USA&lt;/lookup:string&gt;<br>  &lt;lookup:string id="location"&gt;56 Payne Street, Hamilton NY 13346, USA &lt;/lookup:string&gt;<br>  &lt;lookup:string id="synopsis"&gt;This Virtual Toolbox-Sample Archive contains materials assembled from<br>    Toolbox projects within subdirectories of a web application.<br>  &lt;/lookup:string&gt;<br>  &lt;lookup:string id="access"&gt;Access control is determined by server configuration (e.g., web.xml files). &lt;/lookup:string&gt;<br>&lt;/lookup:strings&gt;</pre>
 <p>One further customization concerns the value of the baseURL string.
 This value can be replaced with the dynamic URL that invokes the
 repository.xsl program. When you click the CreateOLAC button, it
 connects to this dynamic URL:</p>
-<pre style="margin-left: 12pt">http://csproj2.colgate.edu:8080/tbox20060904/xslt.jsp?<br>xml=olac%2FOLAC_naskapi_db.xml&amp;xsl=repository.xsl&amp;<br>mimeType=text%2Fxml%3Bcharset%3DUTF-8
+<pre style="margin-left: 18pt">http://csproj2.colgate.edu:8080/tbox20060904/xslt.jsp?<br>xml=olac%2FOLAC_naskapi_db.xml&amp;xsl=repository.xsl&amp;<br>mimeType=text%2Fxml%3Bcharset%3DUTF-8
 </pre>
 <p>The hostname on that URL will naturally be your hostname, where
 you're running Tomcat.
