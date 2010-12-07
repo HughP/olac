@@ -1,6 +1,7 @@
 <HTML>
 <HEAD>
 <TITLE>Search OLAC Archives</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="../olac.css">
 </HEAD>
 

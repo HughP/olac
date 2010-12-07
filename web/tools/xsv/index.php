@@ -24,6 +24,7 @@ function draw_form()
 <html>
 <head>
 <title>OLAC tools: XML Schema Validator</title>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 

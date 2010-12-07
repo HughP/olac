@@ -128,6 +128,7 @@ $banner =
 <HTML>
 <HEAD>
 <TITLE>Search OLAC Archives - $query </TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL=\"stylesheet\" TYPE=\"text/css\" HREF=\"{$STYLE}olac.css\">
 <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">
 </HEAD>

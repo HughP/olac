@@ -1,6 +1,7 @@
 <HTML>
 <HEAD>
 <TITLE>Metadata Usage Survey</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="../olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 

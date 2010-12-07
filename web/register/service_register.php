@@ -120,6 +120,7 @@ function register_service()
 <html>
 <head>
 <title>OLAC Service Provider Registration</title>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <link rel="stylesheet" type="text/css" href="../olac.css">
 </head>
 <body>

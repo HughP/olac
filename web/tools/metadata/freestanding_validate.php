@@ -338,6 +338,7 @@ EOT;
 <HTML>
 <HEAD>
 <TITLE>Validate Free-standing Metadata</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252"> 
 <LINK HREF="olac.css" TYPE="text/css" REL="stylesheet"> 
 
