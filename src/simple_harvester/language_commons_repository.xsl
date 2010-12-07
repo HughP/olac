@@ -26,7 +26,7 @@
 
      Haejoong Lee, LDC
      23 Sept 2010
-     Last updated: 23 Sept 2010
+     Last updated: 7 Dec 2010
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
    xmlns:sr="http://www.openarchives.org/OAI/2.0/static-repository"
@@ -42,7 +42,7 @@
    <!-- Fill in the date for this version of the metadata; that is,
       update this only if the script is changed to update the metadata.
       See Implementers FAQ for full explanation -->
-   <xsl:variable name="metadata-version-date">2010-09-23</xsl:variable>
+   <xsl:variable name="metadata-version-date">2010-12-07</xsl:variable>
    <xsl:variable name="metadata-numeric-date"
       select="translate($metadata-version-date, '-', '')"/>
    
@@ -87,7 +87,7 @@
       <sr:Identify>
          <oai:repositoryName>Language Commons Language Corpora
             </oai:repositoryName>
-         <oai:baseURL>http://www.language-archives.org/devel/sr/languagecommons.org.xml</oai:baseURL>
+         <oai:baseURL>http://www.language-archives.org/hosted/languagecommons.org.xml</oai:baseURL>
          <oai:protocolVersion>2.0</oai:protocolVersion>
          <oai:adminEmail>laura@longnow.org</oai:adminEmail>
          <oai:earliestDatestamp>
