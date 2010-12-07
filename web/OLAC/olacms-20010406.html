@@ -1,19 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE>OLAC Metadata Set</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content="OLAC Metadata Set">
-<meta name="Creator" content="Gary Simons, SIL International (
-      mailto:gary_simons@sil.org)Steven Bird, Linguistic Data
-      Consortium ( mailto:sb@ldc.upenn.edu)">
-<meta name="Description" content="This document specifies the metadata set used by the Open Language
-        Archives Community OLAC for the interchange of metadata within the
-        framework of the Open Archives Initiative OAI.">
+<meta name="Creator" content="Gary Simons, SIL International (&#10;      mailto:gary_simons@sil.org)Steven Bird, Linguistic Data&#10;      Consortium ( mailto:sb@ldc.upenn.edu)">
+<meta name="Description" content=" &#10;      This document specifies the metadata set used by the Open Language&#10;        Archives Community OLAC for the interchange of metadata within the&#10;        framework of the Open Archives Initiative OAI. &#10;    ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="2001-04-06">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -38,8 +35,8 @@
 <tr valign="top">
 <th align="left">Abstract:</th><td>
 <p>This document specifies the metadata set used by the Open Language
-        Archives Community [<a href="#OLAC">OLAC</a>] for the interchange of metadata within the
-        framework of the Open Archives Initiative [<a href="#OAI">OAI</a>].</p>
+        Archives Community [<a href="http://www.language-archives.org/">OLAC</a>] for the interchange of metadata within the
+        framework of the Open Archives Initiative [<a href="http://www.openarchives.org/">OAI</a>].</p>
 </td>
 </tr>
 <tr valign="top">
@@ -87,12 +84,12 @@
 <h2>
 <A name="Introduction"></A>1. Introduction</h2>
 <p>The OLAC metadata set is based on the Dublin Core metadata set
-        [<a href="#DCMES1.1">DCMES1.1</a>]. The rationale for this is discussed in the OLAC white
-        paper [<a href="#OLAC-WP">OLAC-WP</a>]. </p>
+        [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]. The rationale for this is discussed in the OLAC white
+        paper [<a href="http://www.language-archives.org/docs/white-paper.html">OLAC-WP</a>]. </p>
 <p>All fifteen Dublin Core elements are used in the OLAC metadata set. In
         order to suit the specific needs of the language archiving community, the
         elements have been qualified following principles articulated in
-        [<a href="#DC-Q">DC-Q</a>] and exemplified in [<a href="#DCQ-HTML">DCQ-HTML</a>]. A further principle
+        [<a href="http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm">DC-Q</a>] and exemplified in [<a href="http://dublincore.org/documents/2000/08/15/dcq-html/">DCQ-HTML</a>]. A further principle
         followed in developing the OLAC implementation of qualified DC is that any
         element may use at most one encoding scheme. In this way, an XML DTD or schema
         can be used in validating encoded values; by contrast, if the definition of
@@ -102,7 +99,7 @@
         <i>refine</i> attribute. However, when a particular refinement requires that
         the element value use a different encoding scheme, then a unique element has
         been be defined. The names for these refined elements have been formed as in
-        [<a href="#DCQ-HTML">DCQ-HTML</a>] by concatenating the DC element name and the refinement
+        [<a href="http://dublincore.org/documents/2000/08/15/dcq-html/">DCQ-HTML</a>] by concatenating the DC element name and the refinement
         name with an intervening dot.</p>
 <p>The most recent version of the XML schema for the OLAC metadata set
         (though it does not yet match this specification) is as follows:</p>
@@ -128,7 +125,7 @@
         Some elements in the OLAC metadata set use the <i>refine</i> attribute to
         identify element refinements. These qualifiers make the meaning of an element
         narrower or more specific. A refined element shares the meaning of the
-        unqualified element, but with a more restricted scope [<a href="#DC-Q">DC-Q</a>]. </p>
+        unqualified element, but with a more restricted scope [<a href="http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm">DC-Q</a>]. </p>
 <p>Some elements in the OLAC metadata set use the <i>code</i> attribute
         to hold metadata values that are taken from a specific encoding scheme. When an
         element may take this attribute, the attribute value specifies a precise value
@@ -138,7 +135,7 @@
 <p>Every element in the OLAC metadata set may use the <i>lang</i>
         attribute. It specifies the language in which the text in the content of the
         element is written. The value for the attribute comes from the controlled
-        vocabulary defined by [<a href="#OLAC-Language">OLAC-Language</a>]. By default, the <i>lang</i>
+        vocabulary defined by [<a href="http://www.language-archives.org/OLAC/???">OLAC-Language</a>]. By default, the <i>lang</i>
         attribute has the value "en", for English. Whenever the language of the element
         content is other than English, the <i>lang</i> attribute should be used to
         identify the language. By using multiple instances of the metadata elements
@@ -148,7 +145,7 @@
         <i>&lt;olac&gt;</i> element that contains the metadata elements for a given
         metadata record. It lists the languages in which the metadata record is
         designed to be read. This attribute holds a space-delimited list of language
-        codes from the [<a href="#OLAC-Language">OLAC-Language</a>] controlled vocabulary. By default, this
+        codes from the [<a href="http://www.language-archives.org/OLAC/???">OLAC-Language</a>] controlled vocabulary. By default, this
         attribute has the value "en", for English, indicating that the record is aimed
         only at English readers. If an explicit value is given for the attribute, then
         the record is aimed at readers of all the languages listed.</p>
@@ -169,7 +166,7 @@
         ways. <i>Name</i> gives a descriptive label for the tag. <i>Definition</i> is a
         one-line summary of what the element is used for. <i>Comments</i> offers
         details on how to use the element; the first paragraph typically repeats the
-        comment from [<a href="#DCMES1.1">DCMES1.1</a>], while the remaining paragraphs give further
+        comment from [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>], while the remaining paragraphs give further
         specification for how OLAC uses the element. <i>Attributes</i> describes the
         XML attributes used with the element. <i>Examples</i> shows samples of properly
         encoded elements.</p>
@@ -197,7 +194,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Contributor include a person, an organization, or a
             service. Typically, the name of a Contributor should be used to indicate the
-            entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            entity. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>The name should be given in a form that is ready for sorting
             within an index. For the names of persons, this means that the name should be
             given in inverted order with the surname first. For the names of organizations,
@@ -212,9 +209,9 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A generic contributor:</p>
-<pre style="margin-left: 12pt">&lt;contributor&gt;Smith, John L.&lt;/contributor&gt;</pre>
+<pre style="margin-left: 18pt">&lt;contributor&gt;Smith, John L.&lt;/contributor&gt;</pre>
 <p>A funding agency:</p>
-<pre style="margin-left: 12pt">&lt;contributor refine="funder"&gt;National Science
+<pre style="margin-left: 18pt">&lt;contributor refine="funder"&gt;National Science
             Foundation&lt;/contributor&gt;</pre>
 </td>
 </tr>
@@ -254,7 +251,7 @@
             practice is to select a value from a controlled vocabulary (for example, the
             Thesaurus of Geographic Names [TGN]) and that, where appropriate, named places
             or time periods be used in preference to numeric identifiers such as sets of
-            coordinates or date ranges. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            coordinates or date ranges. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 </td>
 </tr>
 <tr valign="top">
@@ -298,7 +295,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Creator include a person, an organization, or a
             service. Typically, the name of a Creator should be used to indicate the
-            entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            entity. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>The name should be given in a form that is ready for sorting
             within an index. For the names of persons, this means that the name should be
             given in inverted order with the surname first. For the names of organizations,
@@ -315,11 +312,11 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A personal author:</p>
-<pre style="margin-left: 12pt">&lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;creator&gt;Bloomfield, Leonard&lt;/creator&gt;</pre>
 <p>An institutional author:</p>
-<pre style="margin-left: 12pt">&lt;creator&gt;Linguistic Society of America&lt;/creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;creator&gt;Linguistic Society of America&lt;/creator&gt;</pre>
 <p>An editor:</p>
-<pre style="margin-left: 12pt">&lt;creator refine="editor"&gt;Sapir, Edward&lt;/creator&gt;</pre>
+<pre style="margin-left: 18pt">&lt;creator refine="editor"&gt;Sapir, Edward&lt;/creator&gt;</pre>
 </td>
 </tr>
 <tr valign="top">
@@ -353,8 +350,8 @@
 </tr>
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
-<p>Following [<a href="#DCMES1.1">DCMES1.1</a>], we recommend that the date be
-            encoded in YYYY-MM-DD format as defined in [<a href="#W3CDTF">W3CDTF</a>]. Use two digits
+<p>Following [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>], we recommend that the date be
+            encoded in YYYY-MM-DD format as defined in [<a href="http://www.w3.org/TR/NOTE-datetime">W3CDTF</a>]. Use two digits
             for month and day, even when the value is less than ten. This guarantees that a
             service provider can always do a straight alphanumeric sort to put values into
             correct chronological order.</p>
@@ -363,9 +360,9 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical year of publication:</p>
-<pre style="margin-left: 12pt">&lt;date&gt;1992&lt;/date&gt;</pre>
+<pre style="margin-left: 18pt">&lt;date&gt;1992&lt;/date&gt;</pre>
 <p>A resource modified on October 16, 1996:</p>
-<pre style="margin-left: 12pt">&lt;date refine="modified"&gt;1996-10-16&lt;/date&gt;</pre>
+<pre style="margin-left: 18pt">&lt;date refine="modified"&gt;1996-10-16&lt;/date&gt;</pre>
 </td>
 </tr>
 </table>
@@ -390,7 +387,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Description may include but is not limited to: an abstract, table
             of contents, reference to a graphical representation of content, or a free-text
-            account of the content. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            account of the content. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>No formatting conventions are defined within the text of
             Description. Service providers may format the entire Description as a single
             paragraph, collapsing adjacent white space characters into a single space.</p>
@@ -405,7 +402,7 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A prose description of a resource:</p>
-<pre style="margin-left: 12pt">&lt;description&gt;The CALLHOME Japanese corpus of telephone
+<pre style="margin-left: 18pt">&lt;description&gt;The CALLHOME Japanese corpus of telephone
             speech consists of 120 unscripted telephone conversations between native
             speakers of Japanese. All calls, which lasted up to 30 minutes, originated in
             North America and were placed to locations overseas (typically Japan). Most
@@ -414,7 +411,7 @@
             to describe the contents and format of the speech files and the software
             packages needed to uncompress the speech data. &lt;/description&gt;</pre>
 <p>A reference to an existing on-line description:</p>
-<pre style="margin-left: 12pt">&lt;description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br>&lt;/description&gt;</pre>
+<pre style="margin-left: 18pt">&lt;description&gt;http://www.ldc.upenn.edu/Catalog/LDC96S37.html<br>&lt;/description&gt;</pre>
 </td>
 </tr>
 <tr valign="top">
@@ -423,7 +420,7 @@
 <i>To do</i>
 </p>
 </font></b></td><td><font color="red">
-<p>[<a href="#DC-Q">DC-Q</a>] defines two refinements for Description: table of
+<p>[<a href="http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm">DC-Q</a>] defines two refinements for Description: table of
             contents and abstract. Do we want to introduce this?</p>
 </font></td>
 </tr>
@@ -451,16 +448,16 @@
 <p>Typically, Format may include the media-type or dimensions of the
             resource. Format may be used to determine the software, hardware or other
             equipment needed to display or operate the resource. Examples of dimensions
-            include size and duration. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            include size and duration. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>For a digitally encoded dictionary:</p>
-<pre style="margin-left: 12pt">&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
+<pre style="margin-left: 18pt">&lt;format code="text/xml"&gt;5,237 entries in a 1.2M XML
             file.&lt;/format&gt;</pre>
 <p>For a digitally recorded text:</p>
-<pre style="margin-left: 12pt">&lt;format code="audio/wav"&gt;Duration: 153 seconds. Size: 3.3M.
+<pre style="margin-left: 18pt">&lt;format code="audio/wav"&gt;Duration: 153 seconds. Size: 3.3M.
             Sampling: 1 channel, 22 KHz, 8 bits.&lt;/format&gt;</pre>
 </td>
 </tr>
@@ -471,7 +468,7 @@
 </p>
 </font></b></td><td><font color="red">
 <p>We need to develop the vocabulary for Format. It should be based
-            on the list of Internet Media Types [<a href="#MIME">MIME</a>] but we will still want our
+            on the list of Internet Media Types [<a href="http://www.isi.edu/in-notes/iana/assignments/media-types/media-types">MIME</a>] but we will still want our
             own vocabulary document at least for the purpose of explaining and exemplifying
             the use of MIME types. But further than that, we may want to pull out a subset
             of MIME types. We also may want to add some new categories and subtypes for our
@@ -507,10 +504,10 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>Software that runs on a Power PC:</p>
-<pre style="margin-left: 12pt">&lt;format.cpu code="ppc"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;format.cpu code="ppc"/&gt;</pre>
 <p>Software that runs on the Intel family of processors but needs at
             least 64 megabytes of memory:</p>
-<pre style="margin-left: 12pt">&lt;format.cpu code="x86"&gt;At least 64M
+<pre style="margin-left: 18pt">&lt;format.cpu code="x86"&gt;At least 64M
             memory&lt;/format.cpu&gt;</pre>
 </td>
 </tr>
@@ -563,7 +560,7 @@
 </p>
 </font></b></td><td><font color="red">
 <p>We need to develop the controlled vocabulary for Format.encoding.
-            The IANA registry of character set names [<a href="#IANA-CS">IANA-CS</a>] could be used as a
+            The IANA registry of character set names [<a href="http://www.isi.edu/in-notes/iana/assignments/character-sets">IANA-CS</a>] could be used as a
             starting point, but we will need to innovate beyond this. For instance, we will
             need to add something about levels of Unicode conformance as defined by our
             Character Encoding working group.</p>
@@ -649,9 +646,9 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>Software that runs under OS/2:</p>
-<pre style="margin-left: 12pt">&lt;format.os code="OS/2"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;format.os code="OS/2"/&gt;</pre>
 <p>Software that runs only under Windows NT 4.0 or higher:</p>
-<pre style="margin-left: 12pt">&lt;format.os code="MSWindows"&gt;NT 4.0 or
+<pre style="margin-left: 18pt">&lt;format.os code="MSWindows"&gt;NT 4.0 or
             higher&lt;/format.os&gt;</pre>
 </td>
 </tr>
@@ -692,10 +689,10 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>Source code that is written in C++:</p>
-<pre style="margin-left: 12pt">&lt;format.sourcecode code="C++"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;format.sourcecode code="C++"/&gt;</pre>
 <p>Source code that is written in Java using the version 1.2
             library:</p>
-<pre style="margin-left: 12pt">&lt;format.sourcecode code="Java"&gt;Version 1.2
+<pre style="margin-left: 18pt">&lt;format.sourcecode code="Java"&gt;Version 1.2
             library&lt;/format.sourcecode&gt;</pre>
 </td>
 </tr>
@@ -734,7 +731,7 @@
             Example formal identification systems include the Uniform Resource Identifier
             (URI) (including the Uniform Resource Locator (URL)), the Digital Object
             Identifier (DOI), and the International Standard Book Number (ISBN).
-            [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>In the case of a resource that is not electronically encoded, but
             is housed in a conventional archive, Identifier may be used to give a local
             shelf or box number, or whatever scheme is used to locate a resource within the
@@ -753,9 +750,9 @@
 <td width="100"><i>Examples</i></td><td>
 <p>A Uniform Resource Locator for retrieval of an electronically
             encoded resource:</p>
-<pre style="margin-left: 12pt">&lt;identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/identifier&gt;</pre>
+<pre style="margin-left: 18pt">&lt;identifier&gt;http://arxiv.org/abs/cs.CL/0010033&lt;/identifier&gt;</pre>
 <p>A local identifier for retrieval within a physical collection:</p>
-<pre style="margin-left: 12pt">&lt;identifier&gt;Shelf 12, Box 7&lt;/identifier&gt;</pre>
+<pre style="margin-left: 18pt">&lt;identifier&gt;Shelf 12, Box 7&lt;/identifier&gt;</pre>
 </td>
 </tr>
 </table>
@@ -800,19 +797,19 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A resource in English about the Sikaiana language:</p>
-<pre style="margin-left: 12pt">&lt;language code="en"/&gt;<br>&lt;subject.language
+<pre style="margin-left: 18pt">&lt;language code="en"/&gt;<br>&lt;subject.language
             code="x-sil-sky"/&gt;</pre>
 <p>A Yemba-French dictionary, where the alternate name Dschang is
             preferred.</p>
-<pre style="margin-left: 12pt">&lt;language code="fr"/&gt;<br>&lt;subject.language
+<pre style="margin-left: 18pt">&lt;language code="fr"/&gt;<br>&lt;subject.language
             code="x-sil-ban"&gt;Dschang&lt;/subject.language&gt;</pre>
 <p>The <i>American Heritage Dictionary</i>, which is both in and
             about American English:</p>
-<pre style="margin-left: 12pt">&lt;language code="en-us"/&gt;<br>&lt;subject.language
+<pre style="margin-left: 18pt">&lt;language code="en-us"/&gt;<br>&lt;subject.language
             code="en-us"/&gt;</pre>
 <p>A resource about a language for which the controlled vocabulary
             does not yet provide a code:</p>
-<pre style="margin-left: 12pt">&lt;subject.language&gt;Ancient
+<pre style="margin-left: 18pt">&lt;subject.language&gt;Ancient
             Sumerian&lt;/subject.language&gt;</pre>
 </td>
 </tr>
@@ -849,7 +846,7 @@
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Examples of a Publisher include a person, an organization, or a
             service. Typically, the name of a Publisher should be used to indicate the
-            entity. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            entity. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>The name should be given in a form that is ready for sorting
             within an index. For the names of persons, this means that the name should be
             given in inverted order with the surname first. For the names of organizations,
@@ -860,7 +857,7 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical publisher:</p>
-<pre style="margin-left: 12pt">&lt;publisher&gt;Oxford University Press&lt;/publisher&gt;</pre>
+<pre style="margin-left: 18pt">&lt;publisher&gt;Oxford University Press&lt;/publisher&gt;</pre>
 </td>
 </tr>
 </table>
@@ -898,10 +895,10 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A link to a required font:</p>
-<pre style="margin-left: 12pt">&lt;relation
+<pre style="margin-left: 18pt">&lt;relation
             refine="requires"&gt;oai:sil:software/ipafont&lt;/relation&gt;</pre>
 <p>Links to the component pieces of a collected work:</p>
-<pre style="margin-left: 12pt">&lt;relation
+<pre style="margin-left: 18pt">&lt;relation
             refine="hasPart"&gt;oai:somearchive:holding126&lt;/relation&gt;<br>&lt;relation
             refine="hasPart"&gt;oai:somearchive:holding127&lt;/relation&gt;<br>&lt;relation
             refine="hasPart"&gt;oai:somearchive:holding128&lt;/relation&gt;<br>&lt;relation
@@ -935,7 +932,7 @@
             Rights information often encompasses Intellectual Property Rights (IPR),
             Copyright, and various Property Rights. If the Rights element is absent, no
             assumptions can be made about the status of these and other rights with respect
-            to the resource. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            to the resource. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 </td>
 </tr>
 <tr valign="top">
@@ -983,14 +980,14 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>An encoded edition of a book:</p>
-<pre style="margin-left: 12pt">&lt;source&gt;An encoded edition of Lau Dictionary, by Charles E.
+<pre style="margin-left: 18pt">&lt;source&gt;An encoded edition of Lau Dictionary, by Charles E.
             Fox. Pacific Linguistcs C-24, 1974.&lt;/source&gt;</pre>
 <p>A conference paper:</p>
-<pre style="margin-left: 12pt">&lt;source&gt;A paper presented at Workshop on Web-based Language
+<pre style="margin-left: 18pt">&lt;source&gt;A paper presented at Workshop on Web-based Language
             Documentation and Description, Philadelphia, PA, 12-15 December
             2000.&lt;/source&gt;</pre>
 <p>Data extracted from a published source:</p>
-<pre style="margin-left: 12pt">&lt;source&gt;Kwara'ae flora vocabulary extracted from Guide to
+<pre style="margin-left: 18pt">&lt;source&gt;Kwara'ae flora vocabulary extracted from Guide to
             the Forests of the British Solomon Islands, by T. C. Whitmore. Oxofrd
             University Press, 1966.</pre>
 </td>
@@ -1002,7 +999,7 @@
 </p>
 </font></b></td><td><font color="red">
 <p>Need some help from our librarians and archivists here.
-            [<a href="#DCMES1.1">DCMES1.1</a>] says "The present resource may be derived from the Source
+            [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>] says "The present resource may be derived from the Source
             resource in whole or in part. Recommended best practice is to reference the
             resource by means of a string or number conforming to a formal identification
             system. " I find this hard to distinguish from Relation.isVersoinOf and
@@ -1034,7 +1031,7 @@
 <p>Typically, a Subject will be expressed as keywords, key phrases or
             classification codes that describe a topic of the resource. Recommended best
             practice is to select a value from a controlled vocabulary or formal
-            classification scheme. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            classification scheme. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 </td>
 </tr>
 <tr valign="top">
@@ -1100,7 +1097,7 @@
 <tr valign="top">
 <td width="100"><i>Usage&nbsp;notes&nbsp;</i></td><td>
 <p>Typically, a Title will be a name by which the resource is
-            formally known. [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            formally known. [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 <p>A translation of the title can be supplied in a second Title
             element. Use the <i>lang</i> attribute to identify the language of these
             elements.</p>
@@ -1109,10 +1106,10 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>A typical title:</p>
-<pre style="margin-left: 12pt">&lt;title&gt;A Dictionary of the Nggela
+<pre style="margin-left: 18pt">&lt;title&gt;A Dictionary of the Nggela
             Language&lt;/title&gt;</pre>
 <p>A vernacular title with translation:</p>
-<pre style="margin-left: 12pt">&lt;title lang="x-sil-llu"&gt;Na tala 'uria na idulaa
+<pre style="margin-left: 18pt">&lt;title lang="x-sil-llu"&gt;Na tala 'uria na idulaa
             diana&lt;/language&gt;<br>&lt;title lang="en"&gt;The road to good
             reading&lt;/language&gt;</pre>
 </td>
@@ -1141,13 +1138,13 @@
 <p> Type includes terms describing general categories, functions,
             genres, or aggregation levels for content. To describe the physical or digital
             manifestation of the resource, use the <a href="#Format">Format</a> element.
-            [<a href="#DCMES1.1">DCMES1.1</a>]</p>
+            [<a href="http://dublincore.org/documents/rec-dces-19990702.htm">DCMES1.1</a>]</p>
 </td>
 </tr>
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>The resource is a video recording:</p>
-<pre style="margin-left: 12pt">&lt;type code="image"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;type code="image"/&gt;</pre>
 </td>
 </tr>
 </table>
@@ -1181,9 +1178,9 @@
 <tr valign="top">
 <td width="100"><i>Examples</i></td><td>
 <p>The resource describes the grammar of a language:</p>
-<pre style="margin-left: 12pt">&lt;Type.data code="description/grammar"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;Type.data code="description/grammar"/&gt;</pre>
 <p>The resouce includes the orthographic transcription of text:</p>
-<pre style="margin-left: 12pt">&lt;Type.data code="transcription/orthographic"/&gt;</pre>
+<pre style="margin-left: 18pt">&lt;Type.data code="transcription/orthographic"/&gt;</pre>
 </td>
 </tr>
 <tr valign="top">
@@ -1250,22 +1247,22 @@
 <h2>References</h2>
 <table cellspacing="10">
 <tr valign="top">
+<td width="150">[<a name="DC-Q">DC-Q</a>]</td><td>Dublin Core
+      Qualifiers.<br>&lt;<a href="http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm">http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm</a>&gt;</td>
+</tr>
+<tr valign="top">
+<td width="150">[<a name="DC-Type">DC-Type</a>]</td><td>DCMI Type
+      Vocabulary.<br>&lt;<a href="http://dublincore.org/documents/rec/dcmi-type-vocabulary-20000711.htm">http://dublincore.org/documents/rec/dcmi-type-vocabulary-20000711.htm</a>&gt;</td>
+</tr>
+<tr valign="top">
 <td width="150">[<a name="DCMES1.1">DCMES1.1</a>]</td><td>Dublin Core Metadata Element Set, Version 1.1:
       Reference Description.
       <br>&lt;<a href="http://dublincore.org/documents/rec-dces-19990702.htm">http://dublincore.org/documents/rec-dces-19990702.htm</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="DC-Q">DC-Q</a>]</td><td>Dublin Core
-      Qualifiers.<br>&lt;<a href="http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm">http://dublincore.org/documents/rec/dcmes-qualifiers-20000711.htm</a>&gt;</td>
-</tr>
-<tr valign="top">
 <td width="150">[<a name="DCQ-HTML">DCQ-HTML</a>]</td><td>Recording qualified Dublin Core metadata in HTML
       meta
       elements.<br>&lt;<a href="http://dublincore.org/documents/2000/08/15/dcq-html/">http://dublincore.org/documents/2000/08/15/dcq-html/</a>&gt;</td>
-</tr>
-<tr valign="top">
-<td width="150">[<a name="DC-Type">DC-Type</a>]</td><td>DCMI Type
-      Vocabulary.<br>&lt;<a href="http://dublincore.org/documents/rec/dcmi-type-vocabulary-20000711.htm">http://dublincore.org/documents/rec/dcmi-type-vocabulary-20000711.htm</a>&gt;</td>
 </tr>
 <tr valign="top">
 <td width="150">[<a name="IANA-CS">IANA-CS</a>]</td><td>Internet Character

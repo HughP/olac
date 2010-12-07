@@ -39,6 +39,7 @@
             <TITLE>
                <xsl:value-of select="header/title"/>
             </TITLE>
+            <script type="text/javascript" src="/js/gatrack.js"></script>
             <meta name="Title">
                <xsl:attribute name="content">
                   <xsl:value-of select="header/title"/>

@@ -1,15 +1,16 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN""http://www.w3.org/TR/REC-html40/loose.dtd">
-<HTML xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:olac="http://www.language-archives.org/OLAC/1.1/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 <HEAD>
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <TITLE> OLAC Repositories</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <meta name="Title" content=" OLAC Repositories">
 <meta name="Creator" content="Gary Simons, SIL International (mailto:gary_simons@sil.org)Steven Bird, University of Melbourne and University of Pennsylvania  (mailto:sb@csse.unimelb.edu.au)">
-<meta name="Description" content="This document defines the standards OLAC data providers must follow in implementing a metadata repository. ">
+<meta name="Description" content=" &#10;        This document defines the standards OLAC data providers must follow in implementing a metadata repository.  &#10;      ">
 <meta content="OLAC (Open Language Archives Community)" name="Publisher">
 <meta name="Date" content="20030528">
-<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR: navy; FONT-FAMILY: sans-serif;
-               FONT-SIZE: 12pt } H1 {FONT-SIZE: 24pt } H2 {FONT-SIZE: 18pt } H3 {FONT-SIZE: 16pt }
+<STYLE> BODY { MARGIN:10px; BACKGROUND: white; COLOR:
+               navy; FONT-FAMILY: sans-serif; }
             </STYLE>
 </HEAD>
 <BODY>
@@ -84,7 +85,7 @@
 <body>
 <h2>
 <A name="Introduction"></A>1. Introduction</h2>
-<p>The OLAC standard on metadata repositories is based on the Open Archives Initiative protocol for metadata harvesting [<a href="#OAI-PMH">OAI-PMH</a>]. This document assumes familiarity with the OAI protocol. A data provider may take the form of a dynamic repository that implements a CGI interface to query a live database in response to protocol requests, or it may take the form of a static repository that has no interface of its own but is serviced through a static repository gateway [<a href="#OAI-SR">OAI-SR</a>].</p>
+<p>The OLAC standard on metadata repositories is based on the Open Archives Initiative protocol for metadata harvesting [<a href="http://www.openarchives.org/OAI/1.1/openarchivesprotocol.htm">OAI-PMH</a>]. This document assumes familiarity with the OAI protocol. A data provider may take the form of a dynamic repository that implements a CGI interface to query a live database in response to protocol requests, or it may take the form of a static repository that has no interface of its own but is serviced through a static repository gateway [<a href="http://www.openarchives.org/OAI/2.0/guidelines-static-repository.htm">OAI-SR</a>].</p>
 <p>An OLAC data provider must answer two special description elements as part of the response to the <tt>Identify</tt> request.  It must:</p>
 <ul>
 <li>
@@ -111,7 +112,7 @@
 </ul>
 <h2>
 <A name="OAI identifier description"></A>2. OAI identifier description</h2>
-<p>  The resource identifiers supplied by an OLAC data provider must comply with the OAI specification for the format of OAI identifiers as defined in [<a href="#OAI-Ids">OAI-Ids</a>].   The data provider must document its compliance with this format by including an <tt>&lt;oai-identifier&gt;</tt> element within a <tt>&lt;description&gt;</tt> container in the <tt>Identify</tt> response.</p>
+<p>  The resource identifiers supplied by an OLAC data provider must comply with the OAI specification for the format of OAI identifiers as defined in [<a href="http://www.openarchives.org/OAI/2.0/guidelines-oai-identifier.htm">OAI-Ids</a>].   The data provider must document its compliance with this format by including an <tt>&lt;oai-identifier&gt;</tt> element within a <tt>&lt;description&gt;</tt> container in the <tt>Identify</tt> response.</p>
 <p>The schema for validating an OAI identifier description is found at:</p>
 <blockquote>
 <p>
@@ -131,7 +132,7 @@
 </li>
 </ul>
 <p>For example,</p>
-<pre style="margin-left: 12pt">&lt;description&gt;
+<pre style="margin-left: 18pt">&lt;description&gt;
    &lt;oai-identifier
          xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -238,7 +239,7 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 </dl>
 </blockquote>
 <p>For example,</p>
-<pre style="margin-left: 12pt">&lt;description&gt;
+<pre style="margin-left: 18pt">&lt;description&gt;
    &lt;olac-archive
          xmlns="http://www.language-archives.org/OLAC/1.0/"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -267,7 +268,7 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 <h2>
 <A name="Requirements on static repositories"></A>4. Requirements on static repositories</h2>
 <p>A static repository is an XML document that describes the resources made available by a particular institution or individual. It is a convenient way to create a data provider for a relatively small collection (say, up to a couple thousand records). Such a document may be created and maintained manually by means of an XML editor. Alternatively, it might be generated  periodically by a script that extracts information from an existing database. Typically a given institution or individual should publish the metadata for all its resources in a single static repository. An exception is appropriate when different scripts are used to generate repositories for distinct collections from different databases.</p>
-<p> The OAI specification for a static repository is given in [<a href="#OAI-SR">OAI-SR</a>]. The schema for validating a static repository is found at:</p>
+<p> The OAI specification for a static repository is given in [<a href="http://www.openarchives.org/OAI/2.0/guidelines-static-repository.htm">OAI-SR</a>]. The schema for validating a static repository is found at:</p>
 <blockquote>
 <p>
 <a href="http://www.openarchives.org/OAI/2.0/static-repository.xsd">http://www.openarchives.org/OAI/2.0/static-repository.xsd</a>
@@ -280,14 +281,14 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 </li>
 <li>
 <p>Contain the following element within its <tt>&lt;ListMetadataFormats&gt;</tt> element:</p>
-<pre style="margin-left: 12pt">&lt;oai:metadataFormat&gt;
+<pre style="margin-left: 18pt">&lt;oai:metadataFormat&gt;
    &lt;oai:metadataPrefix&gt;olac&lt;/oai:metadataPrefix&gt;
    &lt;oai:schema&gt;http://www.language-archives.org/OLAC/1.0/olac.xsd&lt;/oai:schema&gt;
    &lt;oai:metadataNamespace&gt;http://www.language-archives.org/OLAC/1.0/&lt;/oai:metadataNamespace&gt;
 &lt;/oai:metadataFormat&gt;</pre>
 </li>
 <li>
-<p>Contain a <tt>&lt;ListRecords&gt;</tt> element that specifies an attribute and value of <tt>metadataPrefix="olac"</tt> and in which every embedded record has a metadata description that conforms to the OLAC metadata standard [<a href="#OLAC-Metadata">OLAC-Metadata</a>].</p>
+<p>Contain a <tt>&lt;ListRecords&gt;</tt> element that specifies an attribute and value of <tt>metadataPrefix="olac"</tt> and in which every embedded record has a metadata description that conforms to the OLAC metadata standard [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>].</p>
 </li>
 </ol>
 <p>A service for validating a repository for conformance to these requirements is found at:</p>
@@ -310,8 +311,8 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 </blockquote>
 <h2>
 <A name="Requirements on dynamic repositories"></A>5. Requirements on dynamic repositories</h2>
-<p>A dynamic repository is harder to implement since it requires the implementation of a CGI interface for the complete OAI protocol for metadata harvesting [<a href="#OAI-PMH">OAI-PMH</a>]. This is necessary, however, when the collection is large and needs to implement flow control to keep protocol responses to a reasonable size. The OAI community considers half a megabyte to be a reasonable response size. If the <tt>ListRecords</tt> response for all records in a repository would substantially exceed that size, then it may be necessary to implement a dynamic repository with flow control.</p>
-<p>The implementation of a dynamic OLAC data provider  has all the features of a minimal repository implementation [<a href="#OAI-GRI">OAI-GRI</a>], except that an OLAC data provider need not support the <tt>oai_dc</tt> metadata format. This is because the OLAC Aggregator [<a href="#OLACA">OLACA</a>] provides that service for data providers that comply with this standard. In fact, unless the institution has reasons of its own to function independently as an OAI data provider, OLAC recommends that a dynamic repository not implement the <tt>oai_dc</tt> metadata format so that the translation of OLAC metadata to the  <tt>oai_dc</tt> format will be done consistently across the community.</p>
+<p>A dynamic repository is harder to implement since it requires the implementation of a CGI interface for the complete OAI protocol for metadata harvesting [<a href="http://www.openarchives.org/OAI/1.1/openarchivesprotocol.htm">OAI-PMH</a>]. This is necessary, however, when the collection is large and needs to implement flow control to keep protocol responses to a reasonable size. The OAI community considers half a megabyte to be a reasonable response size. If the <tt>ListRecords</tt> response for all records in a repository would substantially exceed that size, then it may be necessary to implement a dynamic repository with flow control.</p>
+<p>The implementation of a dynamic OLAC data provider  has all the features of a minimal repository implementation [<a href="http://www.openarchives.org/OAI/2.0/guidelines-repository.htm">OAI-GRI</a>], except that an OLAC data provider need not support the <tt>oai_dc</tt> metadata format. This is because the OLAC Aggregator [<a href="http://www.language-archives.org/cgi-bin/olaca.pl">OLACA</a>] provides that service for data providers that comply with this standard. In fact, unless the institution has reasons of its own to function independently as an OAI data provider, OLAC recommends that a dynamic repository not implement the <tt>oai_dc</tt> metadata format so that the translation of OLAC metadata to the  <tt>oai_dc</tt> format will be done consistently across the community.</p>
 <p>In addition to the requirements of a minimal repository implementation, a dynamic OLAC data provider must comply with the following additional requirements. </p>
 <ol>
 <li>
@@ -319,7 +320,7 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 </li>
 <li>
 <p>The <tt>ListMetadataFormats</tt> response (when made with no additional parameters) must contain a specification for the <tt>olac</tt> metadata prefix that declares the schema and namespace for the version of OLAC metadata that is being used. For example,</p>
-<pre style="margin-left: 12pt">&lt;oai:metadataFormat&gt;
+<pre style="margin-left: 18pt">&lt;oai:metadataFormat&gt;
    &lt;oai:metadataPrefix&gt;olac&lt;/oai:metadataPrefix&gt;
    &lt;oai:schema&gt;http://www.language-archives.org/OLAC/1.0/olac.xsd&lt;/oai:schema&gt;
    &lt;oai:metadataNamespace&gt;http://www.language-archives.org/OLAC/1.0/&lt;/oai:metadataNamespace&gt;
@@ -329,10 +330,10 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 <p>When the <tt>metadataPrefix</tt> argument to <tt>ListIdentifiers</tt> is specified as <tt>olac</tt>, the request must respond with at least one  record.</p>
 </li>
 <li>
-<p>When the <tt>metadataPrefix</tt> argument to <tt>GetRecord</tt> is specified as <tt>olac</tt>, the <tt>&lt;oai:metadata&gt;</tt> element of the response must either be empty (when  no OLAC metadata is available for the given identifier) or it must contain an <tt>&lt;olac:olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="#OLAC-Metadata">OLAC-Metadata</a>]. That element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the OLAC metadata schema that is being used.</p>
+<p>When the <tt>metadataPrefix</tt> argument to <tt>GetRecord</tt> is specified as <tt>olac</tt>, the <tt>&lt;oai:metadata&gt;</tt> element of the response must either be empty (when  no OLAC metadata is available for the given identifier) or it must contain an <tt>&lt;olac:olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]. That element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the OLAC metadata schema that is being used.</p>
 </li>
 <li>
-<p>When the <tt>metadataPrefix</tt> argument to <tt>ListRecords</tt> is specified as <tt>olac</tt>, every <tt>&lt;oai:metadata&gt;</tt> element in the response must contain an <tt>&lt;olac:olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="#OLAC-Metadata">OLAC-Metadata</a>]. Each such element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
+<p>When the <tt>metadataPrefix</tt> argument to <tt>ListRecords</tt> is specified as <tt>olac</tt>, every <tt>&lt;oai:metadata&gt;</tt> element in the response must contain an <tt>&lt;olac:olac&gt;</tt> element that conforms to some  version of the XML schema for OLAC metadata [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]. Each such element must contain an <tt>xmlns</tt> attribute specifying the URI that identifies the namespace for the version of the metadata schema that is being used.</p>
 </li>
 </ol>
 </body>
@@ -362,10 +363,10 @@ requirements, costs, and so on.  Individual metadata records should use the Righ
 <td width="150">[<a name="OAI-SR">OAI-SR</a>]</td><td>Specification for an OAI Static Repository and an OAI Static Repository Gateway.<br>&lt;<a href="http://www.openarchives.org/OAI/2.0/guidelines-static-repository.htm">http://www.openarchives.org/OAI/2.0/guidelines-static-repository.htm</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLACA">OLACA</a>]</td><td>OLAC Aggregator.<br>&lt;<a href="http://www.language-archives.org/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
+<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td><td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td><td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
+<td width="150">[<a name="OLACA">OLACA</a>]</td><td>OLAC Aggregator.<br>&lt;<a href="http://www.language-archives.org/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
 </tr>
 </table>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script><script type="text/javascript">

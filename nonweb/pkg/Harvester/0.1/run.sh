@@ -107,9 +107,21 @@ if [ ${new_records:-0} -gt 0 -o "$1" = "MONTHLY" -o -f "$(olacvar dirty)" ]; the
     dumpnam=$XMLDUMPDIR/ListRecords-`date +%Y%m%d-%H%M%S`.xml.gz
     $PYTHON $(olacvar xmldump) $dumpnam $SRECDIR 2>/dev/null
     ln -sf $dumpnam $XMLDUMPDIR/ListRecords.xml.gz
+    cat > $SRECDIR/index.html <<EOF
+<html>
+<head>
+<title>OLAC: Pre-generated GetRecord Responses</title>
+<script type="text/javascript" src="/js/gatrack.js"></script>
+</head>
+<body>
+EOF
     find $SRECDIR -name "*.xml" | sort | \
     sed -e 's@^'$SRECDIR'/@@' -e 's@\(.*\).xml@<li><a href="./&">\1</a></li>@' \
-        > $SRECDIR/index.html
+        >> $SRECDIR/index.html
+    cat >> $SRECDIR/index.html <<EOF
+</body>
+</html>
+EOF
 
     echo
     echo "Creating static HTML pages..."

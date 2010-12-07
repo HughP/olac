@@ -2,9 +2,9 @@
 <?xml-stylesheet href="../OLAC_doc.xsl" type="text/xsl"?> 
 <!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
 <OLAC_doc> 
-   <header> 
-      <status code="adopted" type="recommendation"/> 
-      <!-- Promoted to Adopted on 2008-12-19 -->
+  <header> 
+     <status code="adopted" type="recommendation"/> 
+     <!-- Promoted to Adopted on 2008-12-19 -->
     <title>OLAC Linguistic Subject Vocabulary</title> 
     <baseName>field</baseName> 
     <issued>20060406</issued> 
