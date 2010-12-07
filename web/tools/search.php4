@@ -21,6 +21,7 @@ $DB = new OLACDB("olac2");
 <HTML>
 <HEAD>
 <TITLE>Search OLAC Archives</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </HEAD>

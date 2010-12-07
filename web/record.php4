@@ -39,6 +39,7 @@
 <html>
   <head>
     <title>Generate xml file for metadata records</title>
+    <script type="text/javascript" src="/js/gatrack.js"></script>
   </head>
 
   <body bgcolor=white>

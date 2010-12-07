@@ -115,6 +115,9 @@ function draw_summary()
                    where    dateApproved is not NULL
                    order by name");
 
+  echo "<html><head><title>OLAC Service Review</title>";
+  echo '<script type="text/javascript" src="/js/gatrack.js"></script>';
+  echo "</head></body>";
   echo "<table border='1' width='100%'>\n";
   echo "<tr><th></th><th bgcolor='#ffffdd'>Pending Requests</th><th width='1%'></th></tr>\n";
   if ($tab) foreach ($tab as $row) {
@@ -136,7 +139,7 @@ END;
 </tr>
 END;
   }
-  echo "</table>\n";
+  echo "</table></body></html>\n";
   return TRUE;
 }
 

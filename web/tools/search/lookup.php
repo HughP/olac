@@ -33,6 +33,7 @@ function draw_form() {
 <html>
 <head>
 <title>OLAC Metadata Lookup</title>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <link rel="stylesheet" type="text/css" href="/olac.css">
 </head>
 <body>

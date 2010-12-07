@@ -87,6 +87,7 @@ if ($DB->saw_error()) {
 <HTML>
 <HEAD>
 <TITLE>OLAC Archive Registration</TITLE>
+<script type="text/javascript" src="/js/gatrack.js"></script>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/olac.css">
 </HEAD>
 
