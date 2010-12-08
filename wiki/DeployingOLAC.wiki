@@ -452,6 +452,7 @@ RewriteRule ^/(archive_records/.*)$     /static/$1.html         [L,PT]
 RewriteRule ^/(item/.*)                 /static/$1.html         [L,PT]
 RewriteRule ^/(checks/.*/download)      /static/$1.html         [L,PT,T=text/tab-separated-values]
 RewriteRule ^/(checks/.*)               /static/$1.html         [L,PT]
+RewriteRule ^/checks\.py(/.*)?$         /checks$1               [L,PT]
 RewriteRule ^/viser                     /tools/viser/viser.php  [L,PT]
 }}}
 
