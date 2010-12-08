@@ -30,6 +30,11 @@ $OLACA = olacvar('aggregator/url');
 $CITE_PROG = olacvar('cite');
 $STATIC_ROOT = olacvar('static/root');
 
+if (substr($OLACA, 0, strlen($BASEURL)) == $BASEURL) {
+  $OLACA_HREF = substr($OLACA, strlen($BASEURL));
+} else {
+  $OLACA_HREF = $OLACA;
+}
 
 function draw_form() {
   print <<<END
@@ -386,6 +391,10 @@ function generate_html_format($elements)
       $newtag = "$tagname (DCMI)";
       $content = make_search_link($content, "dcmi");
     }
+    else if ($prefix=="dcterms" && $ext == "ISO3166") {
+      $newtag = "$tagname (ISO3166)";
+      $content = "<a href=\"/country/$content\">$content</a>";
+    }
     else if ($prefix=="dcterms" && $ext)
       $newtag = "$tagname ($ext)";
     else
@@ -465,12 +474,12 @@ $olac_info = <<<END
 <tr>
   <td class=lookup><i>Description:&nbsp;</i></td>
   <td></td>
-  <td><a href="$BASEURL/archive/$answer[RepositoryIdentifier]">$BASEURL/archive/$answer[RepositoryIdentifier]</a></td>
+  <td><a href="/archive/$answer[RepositoryIdentifier]">$BASEURL/archive/$answer[RepositoryIdentifier]</a></td>
 </tr>
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
-  <td><a href="$OLACA?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
+  <td><a href="$OLACA_HREF?verb=GetRecord&identifier=$itemid&metadataPrefix=olac">OAI-PMH request for OLAC format</a></td>
 </tr>
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
@@ -494,7 +503,7 @@ $oai_info = <<<END
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
-  <td><a href="$OLACA?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
+  <td><a href="$OLACA_HREF?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
 </tr>
 END;
 
