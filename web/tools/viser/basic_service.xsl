@@ -104,7 +104,7 @@
                <xsl:value-of select="(.//dcterms:modified | .//dcterms:issued | .//dc:date )[1]"/>
             </xsl:if>
             <xsl:text>. [</xsl:text>
-            <a href="http://www.language-archives.org/tools/lookup.php4?identifier={.//oai:identifier}">
+            <a href="/tools/lookup.php4?identifier={.//oai:identifier}">
                <xsl:value-of select=".//oai:identifier"/>
             </a>
             <xsl:text>]</xsl:text>
@@ -119,11 +119,11 @@
          <td align="left" style="color: white" width="100%">
             <b>Powered by:</b>
             <br/>
-            <a href="http://www.language-archives.org" class="footer">
+            <a href="/" class="footer">
                <b>Open Language Archives Community</b>
             </a>
             <xsl:text> and </xsl:text>
-            <a href="http://www.language-archives.org/viser" class="footer">
+            <a href="/viser" class="footer">
                <b>Viser</b>
             </a>
          </td>

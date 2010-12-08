@@ -373,7 +373,7 @@ $olac_info = <<<END
 <tr>
   <td class=lookup><i>Description:&nbsp;</i></td>
   <td></td>
-  <td><a href="http://www.language-archives.org/archive/$answer[RepositoryIdentifier]">http://www.language-archives.org/archive/$answer[RepositoryIdentifier]</a></td>
+  <td><a href="/archive/$answer[RepositoryIdentifier]">http://www.language-archives.org/archive/$answer[RepositoryIdentifier]</a></td>
 </tr>
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
@@ -397,7 +397,7 @@ $oai_info = <<<END
 <tr>
   <td class=lookup><i>GetRecord:&nbsp;</i></td>
   <td></td>
-  <td><a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
+  <td><a href="/cgi-bin/olaca3.pl?verb=GetRecord&identifier=$itemid&metadataPrefix=oai_dc">OAI-PMH request for simple DC format</a></td>
 </tr>
 END;
 

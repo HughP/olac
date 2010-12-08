@@ -44,7 +44,7 @@ available at http://www.gnu.org/licenses/gpl.txt).
             <h3>Metadata quality analysis</h3>
             <p>OLAC metadata records are scored for metadata quality on a
                10-point scale explained in
-               <a href="http://www.language-archives.org/NOTE/metrics.html">OLAC
+               <a href="/NOTE/metrics.html">OLAC
                   Metadata Metrics</a>. The score for the above record (along with
                comments on changes that could improve the score) is as follows:
             </p>
