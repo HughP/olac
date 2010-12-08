@@ -402,15 +402,14 @@ $oai_info = <<<END
 END;
 
 $analytics = <<<END
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
 <script type="text/javascript">
-_uacct = "UA-427085-3";
-urchinTracker('item/');
-urchinTracker('archive_item_hits/$answer[RepositoryIdentifier]');
+_gaq.push(['_trackPageview', '/item/']);
+_gaq.push(['_trackPageview',
+           '/archive_item_hits/$answer[RepositoryIdentifier]']);
 </script>
 END;
 
-$analytics_link = "onClick=\"javascript:urchinTracker('archive_item_clicks/$answer[RepositoryIdentifier]')\"";
+$analytics_link = "onClick=\"_gaq.push(['_trackPageview', '/archive_item_clicks/$answer[RepositoryIdentifier]']);\"";
 
 $tab = $DB->sql("
 	select ed.TagName, ed.Label as TagLabel, ed2.Label as DcTag, Lang, Content,
