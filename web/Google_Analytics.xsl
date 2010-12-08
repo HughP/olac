@@ -7,10 +7,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:output method="html" version="4.0" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" doctype-system="http://www.w3.org/TR/REC-html40/loose.dtd" encoding="ISO-8859-1"/>
   <xsl:template name="GA-script">
-      <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
-      <script type="text/javascript">
-          _uacct = "UA-427085-3";
-          urchinTracker();
-      </script>
+    <script type="text/javascript" src="/js/gatrack.js"></script>
   </xsl:template>
 </xsl:stylesheet>

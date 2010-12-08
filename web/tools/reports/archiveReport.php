@@ -24,6 +24,7 @@ $decPlaces=0;
 <head>
     <link rel="stylesheet" type="text/css" href="<? print $STYLE; ?>olac.css">
     <title>OLAC Archive Report Card</title>
+    <script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 
@@ -1087,13 +1088,6 @@ print "<img width=700 src=$graph>";
 }
 
 ?>
-
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-427085-5";
-urchinTracker();
-</script>
 
 </body>
 </html>
