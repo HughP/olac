@@ -49,9 +49,9 @@ available at http://www.gnu.org/licenses/gpl.txt).
 				<p>
 					<small>
 						<xsl:text>This resource description follows the </xsl:text>
-						<a href="http://www.language-archives.org/OLAC/metadata.html">metadata standard</a>
+						<a href="/OLAC/metadata.html">metadata standard</a>
 						<xsl:text> of the </xsl:text>
-						<a href="http://www.language-archives.org/">Open Language Archives Community</a>
+						<a href="/">Open Language Archives Community</a>
 						<xsl:text>.</xsl:text>
 					</small>
 				</p>

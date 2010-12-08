@@ -26,13 +26,13 @@
 <th align="left">Status of document:</th><td><i>Draft Informational Note. </i>This is only a preliminary draft that is still under development; it has not yet been presented to the whole community for review.</td>
 </tr>
 <tr valign="top">
-<th align="left">This version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display-20030215.html">http://www.language-archives.org/NOTE/olac_display-20030215.html</a></td>
+<th align="left">This version:</th><td><a href="/NOTE/olac_display-20030215.html">http://www.language-archives.org/NOTE/olac_display-20030215.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Latest version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display.html">http://www.language-archives.org/NOTE/olac_display.html</a></td>
+<th align="left">Latest version:</th><td><a href="/NOTE/olac_display.html">http://www.language-archives.org/NOTE/olac_display.html</a></td>
 </tr>
 <tr valign="top">
-<th align="left">Previous&nbsp;version:</th><td><a href="http://www.language-archives.org/NOTE/olac_display-20020810.html">http://www.language-archives.org/NOTE/olac_display-20020810.html</a></td>
+<th align="left">Previous&nbsp;version:</th><td><a href="/NOTE/olac_display-20020810.html">http://www.language-archives.org/NOTE/olac_display-20020810.html</a></td>
 </tr>
 <tr valign="top">
 <th align="left">Abstract:</th><td>
@@ -80,11 +80,11 @@
 <body>
 <h2>
 <A name="Introduction"></A>1. Introduction</h2>
-<p>In order to improve recall and precision in searching, the OLAC metadata format [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>] defines an extension method (involving the <tt>xsi:type</tt> and <tt>olac:code</tt> attributes) to support resource description using community-defined controlled vocabularies. Service providers may use these attributes to perform precise searches. However, service providers  need to be able to display metadata records to users in a manner that shows all available  information in an easy-to-read form. This means that information from these attributes must be combined with the element content to produce a display of all information pertaining to a metadata element. It also requires that coded attribute values (such as three-letter language codes) be translated into friendly display forms.</p>
-<p>Transforming OLAC metadata records into such a display format is a non-trivial task that each service provider should not have to implement independently. Thus the OLAC Aggregator [<a href="http://www.language-archives.org/cgi-bin/olaca.pl">OLACA</a>] offers such a translation service. It supports a metadata format named OLAC_Display. When metadata are harvested using this metadata prefix, the content of any metadata element that uses an extension contains a reader-friendly view of  the information expressed by means of the extension. For instance,</p>
+<p>In order to improve recall and precision in searching, the OLAC metadata format [<a href="/OLAC/metadata.html">OLAC-Metadata</a>] defines an extension method (involving the <tt>xsi:type</tt> and <tt>olac:code</tt> attributes) to support resource description using community-defined controlled vocabularies. Service providers may use these attributes to perform precise searches. However, service providers  need to be able to display metadata records to users in a manner that shows all available  information in an easy-to-read form. This means that information from these attributes must be combined with the element content to produce a display of all information pertaining to a metadata element. It also requires that coded attribute values (such as three-letter language codes) be translated into friendly display forms.</p>
+<p>Transforming OLAC metadata records into such a display format is a non-trivial task that each service provider should not have to implement independently. Thus the OLAC Aggregator [<a href="/cgi-bin/olaca.pl">OLACA</a>] offers such a translation service. It supports a metadata format named OLAC_Display. When metadata are harvested using this metadata prefix, the content of any metadata element that uses an extension contains a reader-friendly view of  the information expressed by means of the extension. For instance,</p>
 <pre style="margin-left: 18pt">http://www.language-archives.org/cgi-bin/olaca2.pl?
    verb=GetRecord&amp;metadataPrefix=olac&amp;identifier=oai:ethnologue.com:AAA</pre>
-<p>will retrieve the metadata in OLAC format as specified in [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>], whereas</p>
+<p>will retrieve the metadata in OLAC format as specified in [<a href="/OLAC/metadata.html">OLAC-Metadata</a>], whereas</p>
 <pre style="margin-left: 18pt">http://www.language-archives.org/cgi-bin/olaca2.pl?
    verb=GetRecord&amp;metadataPrefix=olac_display&amp;identifier=oai:ethnologue.com:AAA</pre>
 <p>retrieves the same metadata record in the reader-friendly format specified in this document.</p>
@@ -130,7 +130,7 @@
 <pre style="margin-left: 18pt">Label-for-T: Label-for-C, Content</pre>
 <p>On the other hand, in other extensions (such as <tt>olac:role</tt>), the element content is the value of the metadata element and the code attribute is secondary since it only qualifies the content in some way. An  element with this kind of extension uses the following template for its display form:</p>
 <pre style="margin-left: 18pt">Label-for-T: Content (label-for-C)</pre>
-<p>When an extension is documented (see section 6 of [<a href="http://www.language-archives.org/OLAC/metadata.html">OLAC-Metadata</a>]), two pieces of information are defined that allow the OLAC Aggregator to correctly generate the OLAC_Display format:  </p>
+<p>When an extension is documented (see section 6 of [<a href="/OLAC/metadata.html">OLAC-Metadata</a>]), two pieces of information are defined that allow the OLAC Aggregator to correctly generate the OLAC_Display format:  </p>
 <blockquote>
 <table cellpadding="4">
 <tr valign="top">
@@ -242,10 +242,10 @@ CodeStatus: primary</pre>
       metadata.<br>&lt;<a href="http://www.openarchives.org/OAI/1.1/dc.xsd">http://www.openarchives.org/OAI/1.1/dc.xsd</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td><td>OLAC Metadata.<br>&lt;<a href="http://www.language-archives.org/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
+<td width="150">[<a name="OLAC-Metadata">OLAC-Metadata</a>]</td><td>OLAC Metadata.<br>&lt;<a href="/OLAC/metadata.html">http://www.language-archives.org/OLAC/metadata.html</a>&gt;</td>
 </tr>
 <tr valign="top">
-<td width="150">[<a name="OLACA">OLACA</a>]</td><td>OLAC Aggregator Service.<br>&lt;<a href="http://www.language-archives.org/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
+<td width="150">[<a name="OLACA">OLACA</a>]</td><td>OLAC Aggregator Service.<br>&lt;<a href="/cgi-bin/olaca.pl">http://www.language-archives.org/cgi-bin/olaca.pl</a>&gt;</td>
 </tr>
 </table>
 </BODY>

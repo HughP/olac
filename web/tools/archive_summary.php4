@@ -21,7 +21,7 @@ BORDER="0"></A></TD>
 <HR>
 
 <p>This page gives statistics for
-<a href="http://www.language-archives.org/register/archive_list.php4">
+<a href="/register/archive_list.php4">
 registered OLAC archives</a>
 that have been harvested on the OLAC site.
 This service is provided for archive developers.

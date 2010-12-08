@@ -91,7 +91,7 @@ $olac_info = <<<END
 <tr>
   <td class=lookup><i>Description:&nbsp;</i></td>
   <td></td>
-  <td><a href="http://www.language-archives.org/archive.php4?id=$answer[Archive_ID]">http://www.language-archives.org/archive.php4?id=$answer[Archive_ID]</a></td>
+  <td><a href="/archive.php4?id=$answer[Archive_ID]">http://www.language-archives.org/archive.php4?id=$answer[Archive_ID]</a></td>
 </tr>
 END;
 
