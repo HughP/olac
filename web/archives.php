@@ -234,8 +234,8 @@ if ($tab) {
 </td></tr></table></td></tr></table>
 
 <div class=timestamp>
-http://www.language-archives.org/archives.php<br>
-Up-to-date as of: <? echo date("D M j G:i:s T Y"); ?>
+<?=olacvar('baseurl') . $_SERVER['REQUEST_URI']?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y")?>
 </div>
 
 </body>

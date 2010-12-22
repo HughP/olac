@@ -5,6 +5,7 @@ os.environ['PYTHON_EGG_CACHE'] = olacvar('python/egg_cache/wsgi')
 import MySQLdb
 from PyMeld import Meld
 import re
+import time
 
 class IntegrityPage:
     def __init__(self, environ, start_response):
@@ -249,6 +250,9 @@ Rating.</p>""")
                         table += row
                         break
                 t.warning_section += table
+
+            t.page_url._content = olacvar('baseurl') + self.env['REQUEST_URI']
+            t.page_date = time.strftime("%a %b %d %H:%M:%S %Z %Y", time.localtime())
                 
         yield unicode(t).encode('utf-8')
 

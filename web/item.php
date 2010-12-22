@@ -653,8 +653,8 @@ echo $analytics;
 
 <hr>
 <div class="timestamp">
-<?=olacvar('baseurl') . '/item' . $_SERVER['PATH_INFO'];?><br>
-Up-to-date as of: <?=date("D M j G:i:s T Y"); ?>
+<?=olacvar('baseurl') . $_SERVER['REQUEST_URI']?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y")?>
 </div>
 
 </BODY>

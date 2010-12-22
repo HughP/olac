@@ -129,5 +129,11 @@ END;
 
 ?>
 
+<br><hr>
+<div class=timestamp>
+<?=olacvar('baseurl') . $_SERVER['REQUEST_URI']?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y")?>
+</div>
+
 </BODY>
 </HTML>
