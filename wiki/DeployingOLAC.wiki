@@ -443,7 +443,7 @@ Add the following to the apache configuration file for OLAC.
 {{{
 RewriteEngine On
 RewriteRule (/\.svn/)|(/\.svn$)         /not/found              [L,R=404]
-RewriteRule ^/archives(\.php)?$         /static/archives.html   [L,PT]
+RewriteRule ^/archives$                 /static/archives.html   [L,PT]
 RewriteRule ^/(area/[a-zA-Z]+)$         /static/$1.html         [L,PT]
 RewriteRule ^/(country/[a-zA-Z]+)$      /static/$1.html         [L,PT]
 RewriteRule ^/(language/[a-zA-Z]+)$     /static/$1.html         [L,PT]
