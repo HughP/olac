@@ -59,7 +59,7 @@ for num in data[0].split():
     subj = message.get("Subject")
     if not subjpat.match(message.get("Subject")): continue
     for part in message.walk():
-        if part.get_content_type() == 'application/octet-stream':
+        if part.get_content_type() in ('application/octet-stream','text/csv'):
             filename = re.sub(r"\s+", "", part.get_filename())
             filename = filename.split('_')[2]
             filename = "ga_" + filename + ".csv"
