@@ -2,6 +2,7 @@ package OLAC::Aggregator;
 
 use OLAC::DB;
 use XML::DOM;
+use Digest::SHA;
 
 my %errmsg = 
     ( "badArgument" =>
@@ -108,7 +109,7 @@ sub serve_request {
 	    return create_error("badArgument", $request);
 	}
 	my $token = $request->{resumptionToken};
-	unless (open(RESUME, "</tmp/$token")) {
+	unless (open(RESUME, "</tmp/olac-rt-$token")) {
 	    return create_error("badResumptionToken", $request);
 	}
 
@@ -121,7 +122,7 @@ sub serve_request {
 	    $request->{$key} = $val;
 	}
 	close(RESUME);
-	unlink "/tmp/$token";
+	unlink "/tmp/olac-rt-$token";
     }
 
     unless ($self->{$request->{verb}}) {
@@ -131,8 +132,18 @@ sub serve_request {
     my $dom = $self->{$request->{verb}}->($self, $request);
 
     if ($request->{next}) {
-	my $token = "olac:" . time();
-	unless (open(RESUME, ">/tmp/$token")) {
+        my $token;
+        if ($^O == "linux") {
+            open(UUID, "</proc/sys/kernel/random/uuid");
+            $token = <UUID>;
+            chomp $token;
+            close(UUID);
+        } else {
+            $sha = Digest::SHA->new(1);
+            $sha->add(rand())->add(rand())->add(rand());
+            $token = $sha->hexdigest();
+        }
+	unless (open(RESUME, ">/tmp/olac-rt-$token")) {
 	    $request->{error} = "server error";
 	    return undef;
 	}
