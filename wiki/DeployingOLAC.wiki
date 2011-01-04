@@ -477,6 +477,15 @@ MAILTO=...
 15 5,11,17,23 * * * svn update $(cat /etc/olacbase)/svn
 }}}
 
+Also, as a root user, create a crontab for the www-data user (use command like "crontab -u www-data -e"). This is for cleaning up the resumption tokens created by OLACA.
+
+{{{
+# m h  dom mon dow   command
+MAILTO=haepal@gmail.com
+# clean up resumption tokens
+*/5 * * * * find /tmp -maxdepth 1 -type f -name "olac-rt-*" -mmin +15 -exec rm -f \{} \; >/dev/null 2>&1
+}}}
+
 Note that MAILTO should be set to the value of the tech_email variable.
 
 
