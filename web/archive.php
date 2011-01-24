@@ -13,27 +13,27 @@ $DB = new OLACDB();
 ############################################################
 function get_archive_info($id)
 {
-    global $DB;
+	global $DB;
 
     $tab = $DB->sql("select *
-		     from   OLAC_ARCHIVE
-		     where  RepositoryIdentifier='$id'");
+                     from   OLAC_ARCHIVE
+                     where  RepositoryIdentifier='$id'");
     if (! $tab) {
-      print "Invalid archive id: $id";
-      echo "\n</body>\n</html>";
-      exit;
+        print "Invalid archive id: $id";
+		echo "\n</body>\n</html>";
+		exit;
     }
     $archiveid = $tab[0]['Archive_ID'];
     $repoid = $tab[0]['RepositoryIdentifier'];
     $tab1 = $DB->sql("select count(Item_ID) as size
-		      from   ARCHIVED_ITEM
-		      where  Archive_ID=$archiveid");
+                      from   ARCHIVED_ITEM
+                      where  Archive_ID=$archiveid");
     $tab2 = $DB->sql("select distinct SchemaName
-		      from   ARCHIVED_ITEM as A, SCHEMA_VERSION as S
-		      where  A.Archive_ID=$archiveid and A.Schema_ID=S.Schema_ID");
-    $tab3 = $DB->sql("select Name, Role, Email " .
-		     "from   ARCHIVE_PARTICIPANT " .
-		     "where  Archive_ID=$archiveid");
+                      from   ARCHIVED_ITEM as A, SCHEMA_VERSION as S
+                      where  A.Archive_ID=$archiveid and A.Schema_ID=S.Schema_ID");
+    $tab3 = $DB->sql("select Name, Role, Email
+                      from   ARCHIVE_PARTICIPANT
+                      where  Archive_ID=$archiveid");
     $tab4 = $DB->sql("select max(DateStamp) DateStamp
                       from ARCHIVED_ITEM
                       where Archive_ID=$archiveid");
@@ -46,20 +46,26 @@ function get_archive_info($id)
     $i = $r[Institution];
     $iu = $r[InstitutionURL];
     if ($i) {
-      if ($iu) $o[Institution] = "<a href=\"$iu\">$i</a>";
-      else     $o[Institution] = $i;
-    } else if ($iu)
-	       $o[Institution] = "<a href=\"$iu\">$iu</a>";
-    else       $o[Institution] = "";
+        if ($iu)
+            $o[Institution] = "<a href=\"$iu\">$i</a>";
+        else
+            $o[Institution] = $i;
+    } elseif ($iu)
+       $o[Institution] = "<a href=\"$iu\">$iu</a>";
+    else
+        $o[Institution] = "";
     $o[ArchiveURL] = "<a href=\"$r[ArchiveURL]\">$r[ArchiveURL]</a>";
     $c = $r[Curator];
     $ce = str_replace('mailto:', '', $r[CuratorEmail]);
     if ($c) {
-      if ($ce) $o[Curator] = "<a href=\"mailto:$ce\">$c</a>";
-      else     $o[Curator] = $c;
-    } else if ($ce)
-	       $o[Curator] = "<a href=\"mailto:$ce\">$ce</a>";
-    else       $o[Curator] = "";
+        if ($ce)
+            $o[Curator] = "<a href=\"mailto:$ce\">$c</a>";
+        else
+            $o[Curator] = $c;
+    } elseif ($ce)
+       $o[Curator] = "<a href=\"mailto:$ce\">$ce</a>";
+    else
+        $o[Curator] = "";
     $o[Location] = $r[Location];
     $o['Short Location'] = $r[ShortLocation];
     $o[Synopsis] = $r[Synopsis];
@@ -68,27 +74,30 @@ function get_archive_info($id)
     $r[AdminEmail] = str_replace('mailto:', '', $r[AdminEmail]);
     $o[Administrator] = "<a href=\"mailto:$r[AdminEmail]\">$r[AdminEmail]</a>";
     if ($tab3) {
-      $participant_arr = array();
-      foreach ($tab3 as $p) {
-	$participant_arr[] = "<a href=\"mailto:$p[Email]\">$p[Name]</a> ($p[Role])";
-      }
-      $o[Participants] = implode(", ", $participant_arr);
+        $participant_arr = array();
+        foreach ($tab3 as $p) {
+            $participant_arr[] = "<a href=\"mailto:$p[Email]\">$p[Name]</a> ($p[Role])";
+        }
+        $o[Participants] = implode(", ", $participant_arr);
     }
     $o["Base URL"] = $r[BaseURL];
     $o["Repository ID"] = $r[RepositoryIdentifier];
     $o["OAI Version"] = $r[OaiVersion];
     if ($tab2) {
-      foreach ($tab2 as $v) {
-        $o["OLAC Version"] .= "$v[SchemaName] ";
-      }
+        foreach ($tab2 as $v) {
+            $o["OLAC Version"] .= "$v[SchemaName] ";
+        }
     }
     $o["Records in Archive"] = "<a href=\"/archive_records/$id\">http://www.language-archives.org/archive_records/$id</a>";
+    $qs = urlencode('archive_facet:"' . $r["RepositoryName"] . '"');
+    $link = 'http://search.language-archives.org/search.html?q=' . $qs;
+    $o["Faceted search"] = "<a href=\"$link\">$link</a>";
     if ($archivetype == 'Dynamic')
-      $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
+        $o[Explore] = "<a href=\"http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/testoai?archive=$r[BaseURL]\">Visit archive with the Repository Explorer</a>";
     $o["Last Harvested"] = $r[LastHarvested];
     $o["Current As Of"] = $r[CurrentAsOf];
     if (count($tab4) > 0)
-      $o["Latest Datestamp"] = $tab4[0]['DateStamp'];
+        $o["Latest Datestamp"] = $tab4[0]['DateStamp'];
     $o["Reports"] = "<a href=\"/metrics/$id\">Archive Metrics</a> and <a href=\"/checks/$id\">Integrity Checks</a>";
 
     return $o;
@@ -125,7 +134,7 @@ $record = get_archive_info($archiveid);
 <?php
 echo "<h2>" . $record["Repository Name"] . "</h2>";
 if (! $record["Current As Of"]) {
-  echo "<p><b><font color=red>This repository doesn't conform to OLAC 1.1 standards.</font></b></p>";
+    echo "<p><b><font color=red>This repository doesn't conform to OLAC 1.1 standards.</font></b></p>";
 }
 
 echo "<table>";
