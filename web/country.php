@@ -52,15 +52,15 @@ $title = "Resources for languages in $country_name";
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript" src="/js/search/main.js"></script>
 <script type="text/javascript">
-  google.setOnLoadCallback(function() {
-      initialize('country_<?=$country_code?>', '<?=$area_name?>');
-    });
+//  google.setOnLoadCallback(function() {
+//      initialize('country_<?=$country_code?>', '<?=$area_name?>');
+//    });
 </script>
 <script type="text/javascript" src="/js/gatrack.js"></script>
 </head>
 <body>
 
-<!-- It's difficult to implement a layout with css, so we use table. -->
+<!-- search interface: top
 <center>
   <div class='searchtitle'>Search Open Language Archives (<?=$country_name?>)</div>
 
@@ -94,6 +94,18 @@ $title = "Resources for languages in $country_name";
 <div id="result-box">
 <center>
 <hr>
+-->
+
+<table class="doc_header">
+    <tr>
+        <td class="doc_header_logobox">
+            <a href="/">
+                <img alt="OLAC Logo" src="/images/olac100.gif"/>
+            </a>
+        </td>
+        <td>OLAC resources for languages in <?=$country_name?></td>
+    </tr>
+</table>
 
 <p class="narrow-p">The combined OLAC catalog has resources for the following languages that are
 spoken in <?=$country_name?>.  The number in parentheses is the number of items
@@ -118,14 +130,24 @@ foreach ($tab as $row) {
 ?>
 </ul></td></tr>
 </table>
+
+<!-- search interface: bottom
 <hr>
 </center>
-</div> <!-- end of result-box -->
+</div>
 
 <center>
 <a class="bottomsign">OLAC: Open Language Archives Community</a>
 <br><br>
 <a href="/"><img src="/images/olac100.gif"></img></a>
 </center>
+-->
+
+<hr>
+<div class="timestamp">
+<?=olacvar('baseurl') . $_SERVER['REQUEST_URI']?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y")?>
+</div>
+
 </body>
 </html>

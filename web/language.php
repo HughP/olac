@@ -215,17 +215,16 @@ $search_terms = implode(", ", $arr);
 </head>
 <body>
 
-<HR>
-<TABLE CELLPADDING="10">
-<TR>
-<TD> <A HREF="/"><IMG
-SRC="/images/olac100.gif"
-BORDER="0"></A></TD>
-<TD><H1><FONT COLOR="0x00004a"><?=$title?></FONT></H1>
-</TD>
-</TR>
-</TABLE>
-<HR>
+<table class="doc_header">
+    <tr>
+        <td class="doc_header_logobox">
+            <a href="/">
+                <img alt="OLAC Logo" src="/images/olac100.gif"/>
+            </a>
+        </td>
+        <td><?=$title?></td>
+    </tr>
+</table>
 
 <p>ISO 639-3:
 <a href="http://www.sil.org/iso639-3/documentation.asp?id=<?=$langcode?>">
@@ -365,6 +364,12 @@ if ($search_terms)
 
 $CITE->close();
 ?>
+
+<hr>
+<div class="timestamp">
+<?=olacvar('baseurl') . $_SERVER['REQUEST_URI']?><br>
+Up-to-date as of: <?=date("D M j G:i:s T Y")?>
+</div>
 
 </body>
 </html>
