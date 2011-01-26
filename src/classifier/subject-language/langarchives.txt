@@ -1,0 +1,11 @@
+# human languages
+4 oai:www.nau.edu
+5 oai:xtcat.oclc.org
+85 oai:collections.mun.ca
+96 oai:repository.ubn.ru.nl
+108 oai:digital.library.adelaide.edu.au
+244 oai:eprints.soas.ac.uk
+
+# formal languages
+99 oai:deepblue.lib.umich.edu
+142 oai:doc.utwente.nl
