@@ -78,7 +78,12 @@ $sql = "select distinct Name from LanguageIndex
 $tab = $DB->sql($sql);
 if ($DB->saw_error()) error("internal server error");
 $arr = array();
-if ($tab) foreach ($tab as $row) $arr[] = $row['Name'];
+if ($tab) {
+  foreach ($tab as $row) {
+    $a = preg_split('#\s*,\s*#', $row['Name']);
+    $arr[] = rtrim("$a[1] $a[0]");
+  }
+}
 $langnames = implode(', ', $arr);
 
 # get primary texts
