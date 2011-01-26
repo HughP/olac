@@ -28,7 +28,9 @@ $area_name = strtolower($tab[0]['Area']);
 $sql = "select li.Name LangName, li.LangID, count(distinct ai.Item_ID) c
         from ARCHIVED_ITEM ai,
              METADATA_ELEM me,
-             (select Name, LangID from LanguageIndex
+             (select distinct i.Ref_Name Name, i.Id LangID
+              from ISO_639_3 i
+              join LanguageIndex l on i.Id=l.LangID
               where CountryID='$country_code' and NameType='L') li
         where ai.Item_ID=me.Item_ID
           and me.TagName in ('subject','language')
