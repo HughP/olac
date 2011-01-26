@@ -34,6 +34,7 @@ def run_wsgi(script, url, outputfile=None):
     # url is of the form "/a/b/c" where /a is the mount point
     env = os.environ.copy()
     env['PATH_INFO'] = '/' + '/'.join(url.split('/')[2:])
+    env['REQUEST_URI'] = url
     pipe = Popen(["python", script], stdout=PIPE, env=env)
 
     # remove header
@@ -144,7 +145,7 @@ def main():
         proc1('archive_records.php', repoids)
 
         proc1('area.php', sql_to_list(
-            "select distinct Area from CountryCodes"))
+            "select distinct lower(Area) from CountryCodes"))
         proc1('country.php', sql_to_list(
             "select distinct CountryID from CountryCodes"))
         proc1('language.php', sql_to_list(
