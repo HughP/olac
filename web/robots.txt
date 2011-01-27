@@ -5,3 +5,6 @@ Disallow: /tools/search/search.php
 Disallow: /tools/search.php4
 Disallow: /tools/search/
 Disallow: /search
+Disallow: /area.php
+Disallow: /country.php
+Disallow: /language.php
