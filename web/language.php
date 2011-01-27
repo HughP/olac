@@ -66,9 +66,10 @@ $langname = $tab[0]['Ref_Name'];
 $langname = preg_replace('/\s*\(.*\)\s*$/', '', $langname);
 $langname = trim($langname);
 if (preg_match('/\s+language\s*$/i', $langname))
-  $title = "Resources in and about the $langname";
+  $langname2 = $langname;
 else
-  $title = "Resources in and about the $langname language";
+  $langname2 = "$langname language";
+$title = "OLAC resources in and about the $langname2";
 
 # get other names and dialects
 $escaped_langname = $DB->escape($langname);
@@ -181,6 +182,9 @@ if ($tab) {
 $arr = array("dialect", "vernacular");
 if (count($primary_texts) > 0) {
   $arr[] = "discourse";
+  $arr[] = "stories";
+  $arr[] = "conversation";
+  $arr[] = "dialogue";
   $arr[] = "documentation";
 }
 if (count($lexical_resources) > 0) {
@@ -310,6 +314,11 @@ function print_list_item($oaiid) {
 if ($langnames)
   echo "<p>Other known names and dialect names: $langnames</p>";
 
+$link = "http://search.language-archives.org/search.html?q=";
+$link .= urlencode($langname);
+echo "<p>Use faceted search to <a href=\"$link\">";
+echo "explore resources for $langname2</a>.</p>";
+
 if (count($primary_texts) > 0) {
   echo '<a name="primary_text"></a>';
   echo "<h2>Primary texts</h2><ol>";
@@ -364,6 +373,10 @@ if (count($other_resources2) > 0) {
   }
   echo "</ol>";
 }
+
+if ($langnames)
+  echo "<p>Other known names and dialect names: $langnames</p>";
+
 if ($search_terms)
   echo "<p>Other search terms: $search_terms</p>";
 
