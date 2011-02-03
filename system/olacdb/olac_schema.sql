@@ -442,7 +442,9 @@ insert into INTEGRITY_PROBLEM values ('HFC','A','W','Harvesting Fails to Complet
 insert into INTEGRITY_PROBLEM values ('SNV','A','W','Static Repository Not Valid','The retrieved static repository file is not valid.');
 insert into INTEGRITY_PROBLEM values ('BRU','A','W','Broken Repository URL','Accessing the static repository URL or the dynamic base URL generates a 404 error.');
 insert into INTEGRITY_PROBLEM values ('PLC','E','W','Private Use Language Code','The value supplied for olac:language is a private use code in the range qaa to qtz. It should be changed to a standard code as soon as one becomes available; submit a change request if necessary [ISO639-3-Changes].');
-insert into INTEGRITY_PROBLEM values ('RID', 'I', 'W', 'Redundant Identifier', 'Record has an identifier element containing the OAI identifier of the record.');
+insert into INTEGRITY_PROBLEM values ('RID','I','W','Redundant Identifier','Record has an identifier element containing the OAI identifier of the record.');
+insert into INTEGRITY_PROBLEM values ('IHC','E','W','Invalid HTML Character','Metadata element contains an invalid HTML character.');
+insert into INTEGRITY_PROBLEM values ('IUC','E','W','Invalid UTF8 Character','Metadata element contains a non-UTF8 character.');
 
 ##################################################################
 # Table                : INTEGRITY_CHECK

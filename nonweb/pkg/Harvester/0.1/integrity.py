@@ -719,6 +719,68 @@ def check_redundant_identifier(con, archive_id=None):
     con.commit()
     cur.close()
 
+#
+# IHC (Invalid HTML Character)
+# IUC (Invalid UTF-8 Character)
+#
+def check_invalid_character(con, archive_id=None):
+    invalid_html_chars = set()
+    invalid_html_chars.update(range(0,32))
+    invalid_html_chars.remove(9)
+    invalid_html_chars.remove(10)
+    invalid_html_chars.remove(13)
+    invalid_html_chars.update(range(127,160))
+    invalid_html_chars.update(range(55296,57344))
+    
+    def find_invalid_html_char(s):
+        for c in s:
+            if ord(c) in invalid_html_chars:
+                return c
+
+    if archive_id is None:
+        sqls = [
+            "delete from INTEGRITY_CHECK where Problem_Code in ('IHC','IUC')",
+            "select Element_ID, Content from METADATA_ELEM"
+            ]
+    else:
+        sqls = [
+            """
+            delete ic.*
+            from INTEGRITY_CHECK ic, METADATA_ELEM me, ARCHIVED_ITEM ai
+            where ic.Object_ID=me.Element_ID
+            and me.Item_ID=ai.Item_ID
+            and ai.Archive_ID=%d
+            and Problem_Code in ('IHC','IUC')
+            """ % archive_id,
+        
+            """
+            select Element_ID, Content
+            from METADATA_ELEM me, ARCHIVED_ITEM ai
+            where me.Item_ID=ai.Item_ID
+            and ai.Archive_ID=%d
+            """ % archive_id
+            ]
+    
+    
+    cur = con.cursor()
+    for sql in sqls:
+        cur.execute(sql)
+    
+    sql2 = """
+    insert into INTEGRITY_CHECK (Object_ID, Value, Problem_Code)
+    values (%s, %s, %s)
+    """
+    
+    for row in cur.fetchall():
+        try:
+            c = find_invalid_html_char(row[1])
+            if c is not None:
+                cur.execute(sql2, (row[0], "", "IHC"))
+        except UnicodeEncodeError:
+            cur.execute(sql2, (row[0], "", "IUC"))
+    con.commit()
+    cur.close()
+    
     
 if __name__ == '__main__':
     usageString = """\
@@ -804,4 +866,4 @@ Usage: %(prog)s [-h] -c <mycnf> [-H <host>] [-d <db>] [-a <repoid>] [-u]
         check_current_as_of(con, archive_id)
         check_static_repository(con, archive_id)
         check_redundant_identifier(con, archive_id)
-
+        check_invalid_character(con, archive_id)
