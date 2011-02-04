@@ -359,21 +359,21 @@ sub serve_GetRecord {
         push @err_code_list, "badArgument";
     }
     if (exists $request->{identifier}) {
-	unless ($request->{identifier} =~ 'oai:[a-zA-Z][a-zA-Z0-9\-]*(\.[a-zA-Z][a-zA-Z0-9\-]+)+:[a-zA-Z0-9\-_\.!~\*&apos;\(\);/\?:@&amp;=\+$,%]+') {
+        unless ($request->{identifier} =~ 'oai:[a-zA-Z][a-zA-Z0-9\-]*(\.[a-zA-Z][a-zA-Z0-9\-]+)+:[a-zA-Z0-9\-_\.!~\*&apos;\(\);/\?:@&amp;=\+$,%]+') {
             push @err_code_list, "badArgument";
         }
     } else {
-	push @err_code_list, "badArgument";
+        push @err_code_list, "badArgument";
     }
     if ($request->{metadataPrefix}) {
-	unless ($request->{metadataPrefix} eq "olac" ||
-		$request->{metadataPrefix} eq "olac_display" ||
-		$request->{metadataPrefix} eq "olac_dla" ||
-		$request->{metadataPrefix} eq "oai_dc") {
-	    return create_error("cannotDisseminateFormat", $request);
-	}
+        unless ($request->{metadataPrefix} eq "olac" ||
+                $request->{metadataPrefix} eq "olac_display" ||
+                $request->{metadataPrefix} eq "olac_dla" ||
+                $request->{metadataPrefix} eq "oai_dc") {
+            return create_error("cannotDisseminateFormat", $request);
+        }
     } else {
-	push @err_code_list, "badArgument";
+        push @err_code_list, "badArgument";
     }
     my %reqcopy = %$request;
     delete $reqcopy{baseURL};
@@ -381,10 +381,10 @@ sub serve_GetRecord {
     delete $reqcopy{identifier};
     delete $reqcopy{metadataPrefix};
     if (%reqcopy) {
-	push @err_code_list, "badArgument";
+        push @err_code_list, "badArgument";
     }
     if (@err_code_list) {
-	return create_error2(\@err_code_list, $request);
+        return create_error2(\@err_code_list, $request);
     }
 
     my ($head, $meta) = $self->{db}->getTable($request);
@@ -395,9 +395,18 @@ sub serve_GetRecord {
     #
 
     unless ($head) {
-	return create_error("idDoesNotExist", $request);
+        return create_error("idDoesNotExist", $request);
     }
 
+    # if metadata prefix is olac_dla, don't return the record if it contains an
+    # invalid html character
+    if ($request->{metadataPrefix} eq 'olac_dla') {
+        my $ihc_records = $self->{db}->findIhcRecords($head->[2], $head->[2]);
+        if (scalar(keys(%$ihc_records)) > 0) {
+            return create_error("idDoesNotExist", $request);
+        }
+    }
+    
     # GetRecord {
     #   record {
     #     header [status] {
@@ -486,48 +495,65 @@ sub serve_ListIdentifiers {
 
     my @error_code_list = ();
     unless (exists $request->{metadataPrefix}) {
-	push @error_code_list, "badArgument";
+        push @error_code_list, "badArgument";
     }
     if (exists $request->{from}) {
-	unless ($request->{from} =~ /^\d{4}-\d{2}-\d{2}$/) {
-	    push @error_code_list, "badArgument";
-	}
+        unless ($request->{from} =~ /^\d{4}-\d{2}-\d{2}$/) {
+            push @error_code_list, "badArgument";
+        }
     }
     if (exists $request->{until}) {
-	unless ($request->{until} =~ /^\d{4}-\d{2}-\d{2}$/) {
-	    push @error_code_list, "badArgument";
-	}
+        unless ($request->{until} =~ /^\d{4}-\d{2}-\d{2}$/) {
+            push @error_code_list, "badArgument";
+        }
     }
     if ((not exists $request->{metadataPrefix}) ||
-	($request->{metadataPrefix} ne "olac" &&
-	 $request->{metadataPrefix} ne "olac_display" &&
-	 $request->{metadataPrefix} ne "olac_dla" &&
-	 $request->{metadataPrefix} ne "oai_dc")) {
-	push @error_code_list, "cannotDisseminateFormat";
+        ($request->{metadataPrefix} ne "olac" &&
+         $request->{metadataPrefix} ne "olac_display" &&
+         $request->{metadataPrefix} ne "olac_dla" &&
+         $request->{metadataPrefix} ne "oai_dc")) {
+        push @error_code_list, "cannotDisseminateFormat";
     }
     if (exists $request->{set}) {
-	push @error_code_list, "noSetHierarchy";
+        push @error_code_list, "noSetHierarchy";
     }
     if (@error_code_list) {
-	return create_error2(\@error_code_list, $request);
+        return create_error2(\@error_code_list, $request);
     }
 
     my $list = $self->{db}->getTable($request);
-    # identifier dateStamp
-    # ---------- ---------
+    # identifier dateStamp itemId
+    # ---------- --------- ------
     #     .....
 
     unless (@$list) {
-	return create_error("noRecordsMatch", $request);
+        return create_error("noRecordsMatch", $request);
     }
 
+    # if metadata prefix is olac_dla, filter out record ids that have an
+    # invalid html character in their content
+    if ($request->{metadataPrefix} eq 'olac_dla') {
+        my $first = $list->[0]->[2];
+        my $last = $list->[scalar(@$list)-1]->[2];
+        my $ihc_records = $self->{db}->findIhcRecords($first, $last);
+        my $idx = 0;
+        while ($idx < scalar(@$list)) {
+            my $key = $list->[$idx]->[2];
+            if (exists($ihc_records->{$key})) {
+                splice @$list, $idx, 1;
+            } else {
+                $idx++;
+            }
+        }
+    }
+    
     ($doc, $li) = get_template($request);
 
     foreach $row (@$list) {
-	$h = $li->appendChild($doc->createElement("header"));
+        $h = $li->appendChild($doc->createElement("header"));
         $i = $h->appendChild($doc->createElement("identifier"));
         $d = $h->appendChild($doc->createElement("datestamp"));
-	$i->addText(trim($row->[0]));
+        $i->addText(trim($row->[0]));
         $d->addText($row->[1]);
     }
 
@@ -593,30 +619,30 @@ sub serve_ListRecords {
 
     my @error_code_list = ();
     unless (exists $request->{metadataPrefix}) {
-	push @error_code_list, "badArgument";
+        push @error_code_list, "badArgument";
     }
     if (exists $request->{from}) {
-	unless ($request->{from} =~ /^\d{4}-\d{2}-\d{2}$/) {
-	    push @error_code_list, "badArgument";
-	}
+        unless ($request->{from} =~ /^\d{4}-\d{2}-\d{2}$/) {
+            push @error_code_list, "badArgument";
+        }
     }
     if (exists $request->{until}) {
-	unless ($request->{until} =~ /^\d{4}-\d{2}-\d{2}$/) {
-	    push @error_code_list, "badArgument";
-	}
+        unless ($request->{until} =~ /^\d{4}-\d{2}-\d{2}$/) {
+            push @error_code_list, "badArgument";
+        }
     }
     if ((not exists $request->{metadataPrefix}) ||
-	($request->{metadataPrefix} ne "olac" &&
-	 $request->{metadataPrefix} ne "olac_display" &&
-	 $request->{metadataPrefix} ne "olac_dla" &&
-	 $request->{metadataPrefix} ne "oai_dc")) {
-	push @error_code_list, "cannotDisseminateFormat";
+        ($request->{metadataPrefix} ne "olac" &&
+         $request->{metadataPrefix} ne "olac_display" &&
+         $request->{metadataPrefix} ne "olac_dla" &&
+         $request->{metadataPrefix} ne "oai_dc")) {
+        push @error_code_list, "cannotDisseminateFormat";
     }
     if (exists $request->{set}) {
-	push @error_code_list, "noSetHierarchy";
+        push @error_code_list, "noSetHierarchy";
     }
     if (@error_code_list) {
-	return create_error2(\@error_code_list, $request);
+        return create_error2(\@error_code_list, $request);
     }
 
     # ListRecords {
@@ -648,35 +674,61 @@ sub serve_ListRecords {
     #
 
     unless (scalar(@$head)) {
-	return create_error("noRecordsMatch", $request);
+        return create_error("noRecordsMatch", $request);
     }
 
+    # If metadata prefix is olac_dla, filter out records with invalid html
+    # characters.
+    if ($request->{metadataPrefix} eq 'olac_dla') {
+        my $first_item_id = $head->[0]->[2];
+        my $last_item_id = $head->[scalar(@$head)-1]->[2];
+        my $ihc_items = $self->{db}->findIhcRecords($first_item_id, $last_item_id);
+        my $idx = 0;
+        while ($idx < scalar(@$head)) {
+            my $key = $head->[$idx]->[2];
+            if (exists($ihc_items->{$key})) {
+                splice @$head, $idx, 1;
+            } else {
+                $idx++;
+            }
+        }
+        $idx = 0;
+        while ($idx < scalar(@$meta)) {
+            my $key = $meta->[$idx]->[7];
+            if (exists($ihc_items->{$key})) {
+                splice @$meta, $idx, 1;
+            } else {
+                $idx++;
+            }
+        }
+    }
+    
     ($doc, $lr) = get_template($request);
 
-    my ($get_container, $get_metadata) =
-	@{$self->{mdata_processors}{$request->{metadataPrefix}}};
+    my ($get_container, $get_metadata) = 
+        @{$self->{mdata_processors}{$request->{metadataPrefix}}};
 
     my $mcount = 0;
     foreach $item (@$head) {
 
-	$r = $lr->appendChild($doc->createElement("record"));
-	$h = $r->appendChild($doc->createElement("header"));
-	$i = $h->appendChild($doc->createElement("identifier"));
-	$i->addText(trim($item->[0]));
-	$d = $h->appendChild($doc->createElement("datestamp"));
-	$d->addText($item->[1]);
+        $r = $lr->appendChild($doc->createElement("record"));
+        $h = $r->appendChild($doc->createElement("header"));
+        $i = $h->appendChild($doc->createElement("identifier"));
+        $i->addText(trim($item->[0]));
+        $d = $h->appendChild($doc->createElement("datestamp"));
+        $d->addText($item->[1]);
 
-	$m = $r->appendChild($doc->createElement("metadata"));
-	$o = $m->appendChild($get_container->($doc));
+        $m = $r->appendChild($doc->createElement("metadata"));
+        $o = $m->appendChild($get_container->($doc));
 
-	$metadata = [];
-	while ($mcount < scalar(@$meta) and
-	       $meta->[$mcount]->[7] eq $item->[2]) {
-	    push(@$metadata, $meta->[$mcount++]);
-	}
-	for my $metadata_element (@{ $get_metadata->($self, $doc, $metadata) }) {
-	    $o->appendChild($metadata_element);
-	}
+        $metadata = [];
+        while ($mcount < scalar(@$meta) and
+               $meta->[$mcount]->[7] eq $item->[2]) {
+            push(@$metadata, $meta->[$mcount++]);
+        }
+        for my $metadata_element (@{ $get_metadata->($self, $doc, $metadata) }) {
+            $o->appendChild($metadata_element);
+        }
     }
     
     return $doc;
@@ -729,15 +781,15 @@ sub serve_Query {
     #       ...      ....     ....
     #
     # $meta
-    # tag lang content ext_id code ext_lbl code_lbl
-    # --- ---- ------- ------ ---- ------- --------
-    #  0    1     2       3     4     5        6
+    # tag lang content ext_id code ext_lbl code_lbl item_id
+    # --- ---- ------- ------ ---- ------- -------- -------
+    #  0    1     2       3     4     5        6       7
     #
 
     unless (scalar(@$head)) {
-	return create_error("noRecordsMatch_Query", $request);
+        return create_error("noRecordsMatch_Query", $request);
     }
-
+    
     ($doc, $lr) = get_template($request);
     $lr->setTagName("ListRecords");
     $request->{metadataPrefix} = "olac";

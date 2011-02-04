@@ -349,20 +349,21 @@ sub getTable {
 sub getTable_GetRecord {
     my ($self, $request) = @_;
 
-    my $archived_item = $self->{dbh}->selectrow_hashref
-	("select * from ARCHIVED_ITEM " .
-	 "where OaiIdentifier='$request->{identifier}'");
+    my $sql = "
+        select * from ARCHIVED_ITEM
+        where OaiIdentifier='$request->{identifier}'
+    ";
+    
+    my $archived_item = $self->{dbh}->selectrow_hashref($sql);
 
     my $header;
     if ($archived_item) {
-	$header = [ $archived_item->{OaiIdentifier},
-		    $archived_item->{DateStamp} ];
+        $header = [ $archived_item->{OaiIdentifier},
+                    $archived_item->{DateStamp},
+                    $archived_item->{Item_ID} ];
+    } else {
+        return (undef, undef);
     }
-    else {
-	$header = undef;
-    }
-
-    my $metadata;
 
     my $sql = "
         select ed.TagName,
@@ -394,14 +395,7 @@ sub getTable_GetRecord {
         order by ed.Rank
     ";
 
-# select TagName,Lang,Content,me.Extension_ID, cd.Code,
-#        ex.Label,cd.Label
-# from METADATA_ELEM me
-#      left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-#      left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-# where Item_ID='$archived_item->{Item_ID}'
-
-    $metadata = $self->{dbh}->selectall_arrayref($sql);
+    my $metadata = $self->{dbh}->selectall_arrayref($sql);
 
     return ($header, $metadata);
 }
@@ -411,30 +405,29 @@ sub getTable_ListIdentifiers {
 
     return undef if $request->{set};
 
-    my $query = "select OaiIdentifier, DateStamp from ARCHIVED_ITEM ";
+    my $query = "select OaiIdentifier, DateStamp, Item_ID from ARCHIVED_ITEM ";
 
     my $conj = "where";
     if ($request->{resumptionToken}) {
-	$query .= "$conj OaiIdentifier >= '$request->{next}' ";
-	$conj = "and";
+        $query .= "$conj Item_ID >= '$request->{next}' ";
+        $conj = "and";
     }
     if ($request->{from}) {
-	$query .= "$conj DateStamp >= '$request->{from}' ";
-	$conj = "and";
+        $query .= "$conj DateStamp >= '$request->{from}' ";
+        $conj = "and";
     }
     if ($request->{until}) {
-	$query .= "$conj DateStamp <= '$request->{until}'";
+        $query .= "$conj DateStamp <= '$request->{until}'";
     }
 
-    $query .= "order by OaiIdentifier limit 201";
+    $query .= "order by Item_ID limit 501";
 
     my $list = $self->{dbh}->selectall_arrayref($query);
-    if (scalar(@$list) > 200) {
-	$request->{next} = $list->[200]->[0];
-	splice(@$list, 200);
-    }
-    elsif ($request->{next}) {
-	delete $request->{next};
+    if (scalar(@$list) > 500) {
+        $request->{next} = $list->[500]->[2];
+        splice(@$list, 500);
+    } elsif ($request->{next}) {
+        delete $request->{next};
     }
 
     return $list;
@@ -475,15 +468,14 @@ sub getTable_ListRecords {
 	$query .= "$conj DateStamp <= '$request->{until}'";
     }
 
-    $query .= "order by Item_ID limit 201";
+    $query .= "order by Item_ID limit 501";
 
     $header = $self->{dbh}->selectall_arrayref($query);
-    if (scalar(@$header) > 200) {
-	$request->{next} = $header->[200]->[2];
-	splice(@$header, 200);
-    }
-    elsif ($request->{next}) {
-	delete $request->{next};
+    if (scalar(@$header) > 500) {
+        $request->{next} = $header->[500]->[2];
+        splice(@$header, 500);
+    } elsif ($request->{next}) {
+        delete $request->{next};
     }
 
     #####
@@ -548,29 +540,32 @@ sub getTable_Query {
     my ($query, $header, $meta, $meta1);
 
     # prepare query for $header
-    $query =
-	"select distinct OaiIdentifier, DateStamp, a.Item_ID " .
-	"from ARCHIVED_ITEM as a ";
+    $query = "
+        select distinct OaiIdentifier, DateStamp, a.Item_ID
+        from ARCHIVED_ITEM as a
+    ";
 
     my ($i, $where, $conj);
     $conj = "";
 
     for ($i=1; $i <= $request->{elements}; ++$i) {
-	$query .= ", METADATA_ELEM as e$i ";
-	$where .= "$conj a.Item_ID=e$i.Item_ID ";
-	$conj = "and";
+        $query .= ", METADATA_ELEM as e$i ";
+        $where .= "$conj a.Item_ID=e$i.Item_ID ";
+        $conj = "and";
     }
 
     if ($request->{resumptionToken}) {
-	$where .= "$conj a.Item_ID >= $request->{next} ";
-	$conj = "and";
+        $where .= "$conj a.Item_ID >= $request->{next} ";
+        $conj = "and";
     }
 
     my $count = $request->{count} ? $request->{count} : 20;
     my $count1 = $count + 1;
 
-    $query .= "where $where $conj $request->{sql} " .
-	      "order by a.Item_ID limit $count1";
+    $query .= "
+        where $where $conj $request->{sql}
+        order by a.Item_ID limit $count1
+    ";
 
     $header = $self->{dbh}->selectall_arrayref($query);
     unless ($header) {
@@ -579,24 +574,30 @@ sub getTable_Query {
 
     if (scalar(@$header) > $count) {
         $request->{next} = $header->[$count]->[2];
-	splice(@$header, $count);
-    }
-    elsif ($request->{next}) {
-	delete $request->{next};
+        splice(@$header, $count);
+    } elsif ($request->{next}) {
+        delete $request->{next};
     }
 
     foreach my $item (@$header) {
-	# prepare query for $meta
-	$query = "
-select TagName,Lang,Content,me.Extension_ID,cd.Code,
-       ex.Label,cd.Label
-from METADATA_ELEM me
-     left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
-     left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
-where Item_ID=$item->[2]";
+        # prepare query for $meta
+        $query = "
+            select TagName,
+                   Lang,
+                   Content,
+                   me.Extension_ID,
+                   cd.Code,
+                   ex.Label,
+                   cd.Label,
+                   me.Item_ID
+            from METADATA_ELEM me
+            left join EXTENSION ex on me.Extension_ID=ex.Extension_ID
+            left join CODE_DEFN cd on me.Extension_ID=cd.Extension_ID and me.Code=cd.Code
+            where Item_ID=$item->[2]
+        ";
 
-	$meta1 = $self->{dbh}->selectall_arrayref($query);
-	push (@$meta, $meta1);
+        $meta1 = $self->{dbh}->selectall_arrayref($query);
+        push (@$meta, $meta1);
     }
 
     return ($header, $meta);
@@ -693,4 +694,26 @@ sub recordExists {
     }
 }
 
+sub findIhcRecords {
+    # Find items that has a metadata element whose content contains an invalid
+    # html character. The search is restricted by the range of Item_IDs
+    # specified by the first Item_ID and the last Item_ID in the range.
+    
+    my $self = shift;
+    my $item_id1 = shift;  # first item id in the range
+    my $item_id2 = shift;  # last item id in the range
+    my $sql = "
+        select distinct Item_ID
+        from METADATA_ELEM me
+        left join INTEGRITY_CHECK ic on ic.Problem_Code='IHC'
+            and ic.Object_ID=me.Element_ID
+        where ic.Object_ID is not null
+        and Item_ID >= $item_id1
+        and Item_ID <= $item_id2
+    ";
+    my $h = {};
+    my $res = $self->{dbh}->selectall_arrayref($sql);
+    map {$h->{$_->[0]} = 1} @$res;
+    return $h;
+}
 1;
