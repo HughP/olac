@@ -79,4 +79,26 @@ class Harvester:
     def close(self):
         self.out.close()
 
-
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        prog = os.path.basename(sys.argv[0])
+        print "Usage: %s <url> <metadata prefix> <output file>" % prog
+        print
+        sys.exit(1)
+    
+    url = sys.argv[1]
+    metadata_prefix = sys.argv[2]
+    filename = sys.argv[3]
+    try:
+        out = open(filename, "w")
+    except IOError, e:
+        print "failed to open the file:", filename
+        print "error no:", e.args[0]
+        print "error message:", e.args[1]
+        sys.exit(1)
+    
+    h = Harvester(out, url, metadata_prefix)
+    h.harvest()
+    h.close()
+    
+    
