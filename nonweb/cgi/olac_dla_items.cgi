@@ -1,6 +1,6 @@
 #! /bin/sh
 
-sql="select count(distinct ai.Item_ID) from ARCHIVED_ITEM ai, METADATA_ELEM me, INTEGRITY_CHECK ic where ai.Item_ID=me.Item_ID and me.Element_ID=ic.Object_ID and ic.Problem_Code='IHC';"
+sql="select count(*) from ARCHIVED_ITEM ai left join (select distinct Item_ID from METADATA_ELEM me, INTEGRITY_CHECK ic where ic.Object_ID=me.Element_ID and ic.Problem_Code='IHC') x on ai.Item_ID=x.Item_ID where x.Item_ID is null;"
 
 query() {
     mysql -h $(olacvar mysql/host) \
