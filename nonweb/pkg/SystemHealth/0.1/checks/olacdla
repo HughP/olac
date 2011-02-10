@@ -24,9 +24,8 @@ get_num_olac_records() {
     pw=$(olacvar mysql/passwd)
     db=$(olacvar mysql/olacdb)
     host=$(olacvar mysql/host)
-    echo "select count(*) from ARCHIVED_ITEM" |
-        mysql -h $host -u $user -p"$pw" $db 2>/dev/null |
-        sed 1d
+    sql="select count(*) from ARCHIVED_ITEM ai left join (select distinct Item_ID from METADATA_ELEM me, INTEGRITY_CHECK ic where ic.Object_ID=me.Element_ID and ic.Problem_Code='IHC') x on ai.Item_ID=x.Item_ID where x.Item_ID is null;"
+    echo $sql | mysql -h $host -u $user -p"$pw" $db 2>/dev/null | sed 1d
 }
 
 n=$(get_num_olac_records)
