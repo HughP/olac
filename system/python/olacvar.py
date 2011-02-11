@@ -56,7 +56,7 @@ def olacvar(varname = None, interpret = True):
                         q = final = []
                         j = (max(s.rfind(' '), s.rfind('\t')) + 1)
                         q.append(s[:j])
-                        q.append(os.path.join(olachome, 'pkg', s[j:], 'Current'))
+                        q.append(os.path.join(olachome, 'svn/nonweb/pkg', s[j:], 'Current'))
                         q.append('/')
                         i += 1
                         continue
