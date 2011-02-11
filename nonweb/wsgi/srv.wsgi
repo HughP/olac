@@ -6,6 +6,7 @@ sys.path.insert(0,olac.olacvar('pywebapi'))
 os.environ['PYTHON_EGG_CACHE'] = olac.olacvar('python/egg_cache/wsgi')
 
 def my_import(components):
+    if not components: return
     base = olac.olacvar('pywebapi')
     steps = components[:-1]
     args = components[-1:]
@@ -57,4 +58,9 @@ def application(environ, start_response):
         headers = [('Content-type', 'text/plain')]
         start_response('404 Not Found', headers)
         return '404 Not Found'
+
+if __name__ == "__main__":
+    import wsgiref.handlers
+    wsgiref.handlers.CGIHandler().run(application)
+
 
