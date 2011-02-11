@@ -79,13 +79,12 @@ useradd -g olacweb -G www-data -d /olac -m -s /bin/bash \
 As the olacweb user, create the following directories:
 
 {{{
-mkdir conf svn www cache
+mkdir svn conf data cache
 chmod 1777 cache
 }}}
 
- * www is the doc root
- * pkg is for software packages (mostly in-house apps)
  * conf is the configuration directory
+ * data contains data sources used by different parts of the web site
  * cache is used by applications to store temporary data
 
 
