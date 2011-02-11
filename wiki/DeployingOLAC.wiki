@@ -79,14 +79,11 @@ useradd -g olacweb -G www-data -d /olac -m -s /bin/bash \
 As the olacweb user, create the following directories:
 
 {{{
-mkdir cgi conf doc pkg svn templates wsgi www cache
+mkdir conf svn www cache
 chmod 1777 cache
 }}}
 
  * www is the doc root
- * cgi is for CGI scripts
- * wsgi is for WSGI scripts
- * templates is mainly for PyMeld templates
  * pkg is for software packages (mostly in-house apps)
  * conf is the configuration directory
  * cache is used by applications to store temporary data
