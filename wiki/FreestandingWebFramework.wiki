@@ -1,5 +1,7 @@
 #summary Describe a framework for developing freestanding web pages for OLAC.
 
+<font color=red>(This document is deprecated and no longer maintained.)</font>
+
 = Introduction =
 
 Many OLAC pages are vulnerable to database server outage because they are dynamically generated from data that is dynamically read from the server. They also require more advanced web server configuration, e.g. PHP, CGI, WSGI, MySQL, etc.
