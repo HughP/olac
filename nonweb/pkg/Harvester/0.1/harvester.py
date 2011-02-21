@@ -423,6 +423,8 @@ class Record:
 
         self.olacSchema_ = self._extract(header, 'name', 'olac', 'schema')
         self.oaiId_ = self._extract(header, 'name', 'identifier', 'body')
+        if self.oaiId_:
+            self.oaiId_ = self.oaiId_.strip()
         self.datestamp_ = self._extract(header, 'name', 'datestamp', 'body')
 
         self.deleted_ = False
