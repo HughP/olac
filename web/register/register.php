@@ -46,7 +46,7 @@ function myflush() {
 
 
 function get_data($file, $url) {
-  system("curl -s -o '$file' '$url'", $retval);
+  system("curl -s -L -o '$file' '$url'", $retval);
   if ($retval == 23) {
     error("Download failed due to a system error: write error");
     return 0;
@@ -59,7 +59,7 @@ function get_data($file, $url) {
 
 function get_some_data($url, $n, &$data) {
   $n = intval($n);
-  exec("curl -s -r 0-$n '$url'", $arr, $retval);
+  exec("curl -s -L -r 0-$n '$url'", $arr, $retval);
   if ($retval == 23) {
     error("Download failed due to a system error: no space left");
     return FALSE;
@@ -679,9 +679,10 @@ function dr_validate() {
 
   print "<h2>OLAC-PMH Validation</h2>\n";
   $ID_conf  = test_dr_conformant($ID_xml, $ID_test);
+  $ID_baseurl = baseurl_check($ID_xml);
   $LM_conf  = test_dr_conformant($LM_xml, $LM_test);
   $LR_conf  = test_dr_conformant($LR_xml, $LR_test);
-  $conformant = ($ID_conf && $LM_conf && $LR_conf);
+  $conformant = ($ID_conf && $LM_conf && $LR_conf && $ID_baseurl);
 
   $validation_result = $valid && $conformant;
   report_result($validation_result);
@@ -741,7 +742,7 @@ function sr_schematron_valid($file) {
   if (strlen($output) == CHAR_LIMIT) {
     print "&nbsp;<b>ETC...</b>";
   }
-  $v1 = is_uploaded_url($POSTEDURL) || sr_baseurl_check($file);
+  $v1 = is_uploaded_url($POSTEDURL) || baseurl_check($file);
   $v2 = sr_sampleIdentifier_check($file);
 
   if (preg_match("/ERROR/",$output1) || $v1==0 || $v2==0) {
@@ -754,7 +755,7 @@ function sr_schematron_valid($file) {
 
 
 
-function sr_baseurl_check($URLTOFILE) {
+function baseurl_check($URLTOFILE) {
   global $POSTEDURL;
   print "The Base URL in the repository file and the one supplied in the form match - ";
   myflush();
