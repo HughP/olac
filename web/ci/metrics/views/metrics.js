@@ -71,14 +71,14 @@ function generateSumStatTab(arcid, containerId)
     ];
     var tab = new Array();
     if (arcid == -1) {
-	var num_archives = -1;
+	var num_archives = 0;
 	var fresh_archives = 0;
 	var five_stars = 0;
 	var today = new Date();
 	var targetdate = new Date(today.getFullYear()-1,today.getMonth()+1,today.getDate());
 	for (var i in METRICS) {
-	    num_archives++;
-	    if (i != -1) {
+	    if (i >= 0) {
+	        num_archives++;
 		if (METRICS[i].last_updated) {
 		    var a = METRICS[i].last_updated.split('-');
 		    var theday = new Date(a[0],a[1],a[2]);
