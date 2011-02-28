@@ -135,6 +135,7 @@ EOF
     echo
     $PYTHON $(olacvar data/coverage.script) > $(olacvar data/coverage)
     $PYTHON $(olacvar webapi/coverage.json)
+    $PYTHON $(olacvar data/submission_policies.script) > $(olacvar data/submission_policies)
 fi
 
 
