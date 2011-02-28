@@ -45,12 +45,15 @@ sql = """
 select ceil(log10(Population+0.1)) rng,
        count(distinct p.LangID) langs,
        count(distinct ms.Item_ID) items
-from LanguagePopulation p, METADATA_ELEM ms, METADATA_ELEM ml
-where p.LangID=ms.Code
+from OLAC_ARCHIVE oa,
+     ARCHIVED_ITEM ai,
+     LanguagePopulation p,
+     METADATA_ELEM ms
+where oa.Archive_ID=ai.Archive_ID
+and oa.RepositoryIdentifier != 'ethnologue.com'
+and ai.Item_ID=ms.Item_ID
+and p.LangID=ms.Code
 and ms.TagName='subject'
-and ms.Item_ID=ml.Item_ID
-and ml.Type='linguistic-type'
-and ml.Code in ('primary_text','lexicon','language_description')
 group by ceil(log10(Population+0.1))
 """
 
@@ -65,13 +68,16 @@ for row in cur.fetchall():
 sql = """
 select count(distinct iso.Id) langs,
        count(distinct ms.Item_ID) items
-from ISO_639_3 iso, METADATA_ELEM ms, METADATA_ELEM ml
-where iso.Type='E'
+from OLAC_ARCHIVE oa,
+     ARCHIVED_ITEM ai,
+     ISO_639_3 iso,
+     METADATA_ELEM ms
+where oa.Archive_ID=ai.Archive_ID
+and oa.RepositoryIdentifier != 'ethnologue.com'
+and ai.Item_ID=ms.Item_ID
+and iso.Type='E'
 and iso.Id=ms.Code
 and ms.TagName='subject'
-and ms.Item_ID=ml.Item_ID
-and ml.Type='linguistic-type'
-and ml.Code in ('primary_text','lexicon','language_description')
 """
 
 cur.execute(sql)
@@ -88,12 +94,16 @@ sql = """
 select ceil(log10(Population+0.1)) rng,
        count(distinct p.LangID) langs,
        count(distinct ms.Item_ID) items
-from LanguagePopulation p, METADATA_ELEM ms, METADATA_ELEM ml, METADATA_ELEM mo
-where p.LangID=ms.Code
+from OLAC_ARCHIVE oa,
+     ARCHIVED_ITEM ai,
+     LanguagePopulation p,
+     METADATA_ELEM ms,
+     METADATA_ELEM mo
+where oa.Archive_ID=ai.Archive_ID
+and oa.RepositoryIdentifier != 'ethnologue.com'
+and ai.Item_ID=ms.Item_ID
+and p.LangID=ms.Code
 and ms.TagName='subject'
-and ms.Item_ID=ml.Item_ID
-and ml.Type='linguistic-type'
-and ml.Code in ('primary_text','lexicon','language_description')
 and mo.Item_ID=ms.Item_ID
 and mo.TagName='identifier'
 and mo.Content regexp '^(http|https|ftp):.*'
@@ -111,13 +121,17 @@ for row in cur.fetchall():
 sql = """
 select count(distinct iso.Id) langs,
        count(distinct ms.Item_ID) items
-from ISO_639_3 iso, METADATA_ELEM ms, METADATA_ELEM ml, METADATA_ELEM mo
-where iso.Type='E'
+from OLAC_ARCHIVE oa,
+     ARCHIVED_ITEM ai,
+     ISO_639_3 iso,
+     METADATA_ELEM ms,
+     METADATA_ELEM mo
+where oa.Archive_ID=ai.Archive_ID
+and oa.RepositoryIdentifier != 'ethnologue.com'
+and ai.Item_ID=ms.Item_ID
+and iso.Type='E'
 and iso.Id=ms.Code
 and ms.TagName='subject'
-and ms.Item_ID=ml.Item_ID
-and ml.Type='linguistic-type'
-and ml.Code in ('primary_text','lexicon','language_description')
 and mo.Item_ID=ms.Item_ID
 and mo.TagName='identifier'
 and mo.Content regexp '^(http|https|ftp):.*'
