@@ -48,7 +48,7 @@ var Coverage = new function() {
 	    var data = new google.visualization.DataTable();
 	    data.addColumn('string','Population range');
 	    data.addColumn('number','Languages');
-	    data.addColumn('number','In OLAC');
+	    data.addColumn('number','OLAC has data');
 	    data.addColumn('number','(%)');
 	    data.addColumn('number','Items');
 	    data.addRows(tab.length + 1);
@@ -79,7 +79,7 @@ var Coverage = new function() {
 	    var table = new google.visualization.Table(e);
 	    table.draw(data);
 	}
-	download('/ss/coverage/getLanguageTable.txt', draw);
+	download('/srv/coverage/getLanguageTable', draw);
     }
 
     this.drawOnlineResourcesTable = function(elementid) {
@@ -87,7 +87,7 @@ var Coverage = new function() {
 	    var data = new google.visualization.DataTable();
 	    data.addColumn('string','Population range');
 	    data.addColumn('number','Languages');
-	    data.addColumn('number','In OLAC');
+	    data.addColumn('number','OLAC has data');
 	    data.addColumn('number','(%)');
 	    data.addColumn('number','Items');
 	    data.addRows(tab.length + 1);
@@ -118,7 +118,7 @@ var Coverage = new function() {
 	    var table = new google.visualization.Table(e);
 	    table.draw(data);
 	}
-	download('/ss/coverage/getOnlineResTable.txt', draw);
+	download('/srv/coverage/getOnlineResTable', draw);
     }
 
     // initialization

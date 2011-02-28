@@ -25,7 +25,7 @@
 		container.appendChild(policy);
 	    }
 	}
-	download('/ss/submissionPolicies/getPolicies.txt', display);
+	download('/srv/submissionPolicies/getPolicies', display);
     }
 
     window.onload = function() {
