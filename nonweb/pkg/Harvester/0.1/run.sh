@@ -129,6 +129,12 @@ EOF
     $PYTHON $(olacvar static/generator) >/dev/null
 
     rm -f "$(olacvar dirty)"
+
+    echo
+    echo "Creating static data tables..."
+    echo
+    $PYTHON $(olacvar data/coverage.script) > $(olacvar data/coverage)
+    $PYTHON $(olacvar webapi/coverage.json)
 fi
 
 
