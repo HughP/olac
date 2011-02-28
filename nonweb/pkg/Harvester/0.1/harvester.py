@@ -1230,23 +1230,21 @@ def harvest_single(url,
             logger.log("checking Last-Modified date...")
             s = get_last_modified(url)
             if s is None:
-                # consider it an error if no Last-Modified date is provided
                 logger.log("failed checking")
-                logger.log("harvest failed")
-                set_hfc(con, archiveid)
-                con.commit()
+                logger.log("repository will be harvester")
+                t = 0.0
             else:
                 logger.log("got Last-Modified: %s" % s)
                 tstruct = time.strptime(s, "%a, %d %b %Y %H:%M:%S %Z") # GMT
                 t = time.mktime(tstruct) - time.altzone
-                t0 = time.mktime(last_harvested.timetuple())
-                if t >= t0 or full:
-                    # the file has been modified
-                    harvest(url, con, full, stream_filter, static)
-                else:
-                    logger.log("assume no changes to harvest")
-                    mark_success(con, archiveid)
-                    con.commit()
+            t0 = time.mktime(last_harvested.timetuple())
+            if t >= t0 or full:
+                # the file has been modified or unable to check timestamp
+                harvest(url, con, full, stream_filter, static)
+            else:
+                logger.log("assume no changes to harvest")
+                mark_success(con, archiveid)
+                con.commit()
         cur.close()
     else:
         harvest(url, con, full, stream_filter, static)
