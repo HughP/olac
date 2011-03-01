@@ -1232,7 +1232,7 @@ def harvest_single(url,
             if s is None:
                 logger.log("failed checking")
                 logger.log("repository will be harvester")
-                t = 0.0
+                t = time.mktime(time.localtime())
             else:
                 logger.log("got Last-Modified: %s" % s)
                 tstruct = time.strptime(s, "%a, %d %b %Y %H:%M:%S %Z") # GMT
