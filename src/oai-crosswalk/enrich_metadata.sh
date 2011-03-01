@@ -9,13 +9,15 @@ TYPEOUT=$P/output/data5-typeout.tmp   # type classifier output
 # These don't take a full path
 BIN2LANG=../../oai-crosswalk/output/data4-bin2type.tmp    # language classifier input
 LANGOUT=../../oai-crosswalk/output/data6-langout.tmp      # subject language identifier output
+LANGSAVE=$P/output/data6-langout.tmp      # subject language identifier output
 
 UTF8CONDITIONER=/usr/share/olac/olac/nonweb/pkg/Utf8Conditioner/1.15-olac/bin/utf8conditioner_unbuffered_stdout
 
 # "select distinct Archive_ID from ARCHIVED_ITEM"
 NUM_ARCHIVES=487
 #for ARCHIVE in `seq 1 $NUM_ARCHIVES`;
-ARCHIVE_LIST=( 4 5 85 96 108 244 99 142 )
+#ARCHIVE_LIST=( 4 5 85 96 108 244 99 142 )
+ARCHIVE_LIST=( 4 5 85 )
 for ARCHIVE in "${ARCHIVE_LIST[@]}";
 do
    echo "Processing archive $ARCHIVE"
@@ -56,10 +58,11 @@ do
    
    echo Running subject langauge identifier...
    cd ../classifier/subject-language
-   time ./classify.py -f -d ./SubjectLang.pickle $BIN2LANG $LANGOUT
+   THRESHOLD=0.6
+   time ./classify.py -f -d -t $THRESHOLD ./SubjectLang.pickle $BIN2LANG $LANGOUT
    cd ../../oai-crosswalk
    
-   cp $LANGOUT output/$ARCHIVE-langout.tmp
+   cp $LANGSAVE output/$ARCHIVE-langout.tmp
 done
 echo Tetelestai!
 

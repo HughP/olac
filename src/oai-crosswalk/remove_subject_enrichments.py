@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import sys
-import MySQLdb
+from utilities import database
 
-def main():
+def remove_subject_enrichments():
     archive = 0
     try:
         archive = sys.argv.pop(1)
@@ -11,7 +11,7 @@ def main():
         sys.stderr.write("Usage: [Archive ID]|all")
         sys.exit()
 
-    con = connect()
+    con = database.connect()
     cur = con.cursor()
 
     if archive == "all":
@@ -34,12 +34,6 @@ def main():
     con.commit()
 
 
-def connect():
-    opts = {"db":"oai", "use_unicode":True, "charset":"utf8",
-    "user" : 'olac',
-    'passwd' : 'OLAcProjekt' }
-    return MySQLdb.connect(**opts)
-
 if __name__ == '__main__':
-    main()
+    remove_subject_enrichments()
 
