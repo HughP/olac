@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 
 import sys
-import MySQLdb
+from utilities import database
 
 def remove_type_enrichment():
     archive = 0
     try:
         archive = sys.argv.pop(1)
     except IndexError:
-        sys.stderr.write("Usage: [Archive ID]|all")
+        sys.stderr.write("Usage: [Archive ID]|all\n")
         sys.exit()
 
-    con = connect()
+    con = database.connect()
     cur = con.cursor()
 
     if archive == "all":
@@ -36,12 +36,6 @@ def remove_type_enrichment():
     # make sure the actions stick!
     con.commit()
 
-
-def connect():
-    opts = {"db":"oai", "use_unicode":True, "charset":"utf8",
-    "user" : 'olac',
-    'passwd' : 'OLAcProjekt' }
-    return MySQLdb.connect(**opts)
 
 if __name__ == '__main__':
     remove_type_enrichment()

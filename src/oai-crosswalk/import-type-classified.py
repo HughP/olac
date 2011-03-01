@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-import MySQLdb
+from utilities import database
 
 def main():
     try:
@@ -10,7 +10,7 @@ def main():
         sys.stderr.write("You must specify an input file\n")
         sys.exit()
 
-    con = connect()
+    con = database.connect()
     cur = con.cursor()
     ctr = 0
     enriched = 0
@@ -36,12 +36,6 @@ def main():
     print "%s items enriched" % enriched
     print "%s items skipped because of NONE or LNONE" % (ctr - enriched)
 
-
-def connect():
-    opts = {"db":"oai", "use_unicode":True, "charset":"utf8",
-    "user" : 'olac',
-    'passwd' : 'OLAcProjekt' }
-    return MySQLdb.connect(**opts)
 
 def getItemID(cur, id):
     sql = "select Item_ID from ARCHIVED_ITEM where OaiIdentifier = '%s';" % id

@@ -32,6 +32,9 @@ def main():
    except IndexError:
       sys.stderr.write("usage: unicode_scrub.py input_file output_file\n")
       sys.exit()
+   unicode_scrub(inputfile, outputfile)
+
+def unicode_scrub(inputfile, outputfile):
    input = open(inputfile, 'r')
    output = codecs.open(outputfile, 'w', 'utf-8')
 
