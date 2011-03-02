@@ -4,6 +4,7 @@ import sys
 from optparse import OptionParser
 from os import sep
 from ConfigParser import ConfigParser
+from logger import Logger
 
 # for temporary testing only: remove after refactor is complete
 sys.path.append('..')
@@ -11,21 +12,13 @@ sys.path.append('../../classifier')
 # the real classifier dir: sys.path.append('../classifier')
 #from iso639_trainer import iso639Classifier
 
-class Marc2OlacCrosswalkRunner(object):
+class Marc2OlacCrosswalkRunner(Logger):
 
     def __init__(self):
+        Logger.__init__(self, sys.stdout, 'Runner')
         self.projectName = 'default_project'
         self.debug = 0
-        self._path = None
-        self._log = sys.stdout
-
-    def Log(self, msg, isDebug = 0, newline = 1):
-        if (not isDebug or 
-                (isDebug and self.debug)):
-            self._log.write('Runner: ' + msg)
-        if newline:
-            self._log.write('\n')
-
+        self._p = None # path dictionary
 
     def UpdatePaths(self):
         p = dict()
@@ -44,9 +37,10 @@ class Marc2OlacCrosswalkRunner(object):
         #state.set('system','projectname',self.projectName)
         #state.set('system','libpath',p.lib)
         #state.add_section('stylesheet')
+        self._p = p
 
-        self._path = p
-
+    def GetPaths(self):
+        return self._p
 
     def GetCmdParser(self):
         usage = "usage: %prog [options] [projectname]\n'projectname' is the directory name of all of your project files, including the config file 'setup.cfg'."
@@ -59,23 +53,22 @@ class Marc2OlacCrosswalkRunner(object):
         clparser.add_option("-g", "--html", action="store_true",
             dest="do_html_output", default=False,
             help="generate a human-readable HTML version of the OLAC repository")
-
         return clparser
 
     def ProcessConfigFile(self, filename):
         # return state object, a product of the config file and the options
-        state = ConfigParser()
+        state = OLACState()
         try:
-            fullfilename = self._path['proj'] + sep + filename
+            fullfilename = self._p['proj'] + sep + filename
             state.read(fullfilename)
             if not os.path.exists(fullfilename):
                 raise IOError
         except:
-            print "Unable to read state file %s" % (fullfilename)
+            self.Log("Unable to read state file %s" % (fullfilename))
             sys.exit(2)
 
         if self.debug:
-            state.set('system', 'debug', 'yes')
+            state['debug'] = True
 
         return state
 
@@ -90,12 +83,25 @@ class Marc2OlacCrosswalkRunner(object):
         if self.debug:
             self.Log("\tNotice: --debug option in use; OLAC repository will NOT validate")
 
+class OLACState(ConfigParser, dict):
+    def __init__(self):
+        super(OLACState, self).__init__()
+
+
+
+
+
+
+
+
 def main():
     runner = Marc2OlacCrosswalkRunner()
     parser = runner.GetCmdParser()
     runner.ProcessCmdLine(parser)
     runner.UpdatePaths()
     state = runner.ProcessConfigFile('setup.cfg')
+    state['path'] = runner.GetPaths()
+    state['projectName'] = runner.projectName
     runner.Log("Processing %s" % runner.projectName)
     pipeline = CrosswalkPipeline(state)
     pipeline.Start()
