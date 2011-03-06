@@ -17,7 +17,8 @@ class Marc2OlacCrosswalkRunner(Logger):
     def __init__(self):
         Logger.__init__(self, sys.stdout, 'Runner')
         self.projectName = 'default_project'
-        self.debug = 0
+        self.debug = False
+        self.dohtml = False
         self._p = None # path dictionary
 
     def UpdatePaths(self):
@@ -67,8 +68,8 @@ class Marc2OlacCrosswalkRunner(Logger):
             self.Log("Unable to read state file %s" % (fullfilename))
             sys.exit(2)
 
-        if self.debug:
-            state['debug'] = True
+        state['debug'] = self.debug
+        state['dohtml'] = self.dohtml
 
         return state
 
@@ -80,19 +81,13 @@ class Marc2OlacCrosswalkRunner(Logger):
             clparser.error("more than 1 argument specified")
 
         self.debug = options.debug
+        self.dohtml = options.do_html_output
         if self.debug:
             self.Log("\tNotice: --debug option in use; OLAC repository will NOT validate")
 
 class OLACState(ConfigParser, dict):
     def __init__(self):
         super(OLACState, self).__init__()
-
-
-
-
-
-
-
 
 def main():
     runner = Marc2OlacCrosswalkRunner()
@@ -105,6 +100,7 @@ def main():
     runner.Log("Processing %s" % runner.projectName)
     pipeline = CrosswalkPipeline(state)
     pipeline.Start()
+    pipeline.Log("Done.")
 
 if __name__ == "__main__":
     main()

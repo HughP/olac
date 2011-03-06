@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py --html --classifier --debug gial_sample
+python lib\runMarc2Olac.py --html --debug gial_sample
 pause
