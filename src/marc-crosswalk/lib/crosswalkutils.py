@@ -10,7 +10,7 @@ def tryToMove(fr, to, stylesheet = None):
     try:
         shutil.move(fr,to)
         return True
-    except IOError as e:
+    except IOError, e:
         if stylesheet is not None:
             print "Error transforming XML %s with stylesheet %s" \
                     % (os.path.basename(fr), \
