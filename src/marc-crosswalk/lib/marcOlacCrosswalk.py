@@ -10,9 +10,9 @@ import shutil
 import crosswalkutils as utils
 
 try:
-    sys.path.append('..%sclassifier' % sep)
-    from iso639_trainer import iso639Classifier
-except ImportError as e:
+    sys.path.append('../classifier/subject-language')
+    from iso639_classifier import iso639_classifier
+except ImportError, e:
     print 'ImportError:', e, 'LanguageSubjectClassifier will be disabled.'
 
 class CrosswalkPipeline(Logger):
@@ -58,7 +58,7 @@ class CrosswalkPipeline(Logger):
         self._CompileMARCFilters()
         self._CompileOLACFilters()
         if 'nltk' in sys.modules:
-            self._subjLangClassifier = SubjectLanguageClassifier()
+            self._subjLangClassifier = SubjectLanguageClassifier(self._s)
         self._WriteImportMap()
         if TypeClassifier.MalletIsInstalled():
             self._typeClassifier = TypeClassifier()
