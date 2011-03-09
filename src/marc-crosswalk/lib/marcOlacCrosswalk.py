@@ -11,7 +11,7 @@ import crosswalkutils as utils
 
 try:
     sys.path.append('../classifier/subject-language')
-    from iso639_classifier import iso639_classifier
+    from iso639_classifier import iso639Classifier
 except ImportError, e:
     print 'ImportError:', e, 'LanguageSubjectClassifier will be disabled.'
 
@@ -321,7 +321,9 @@ class SubjectLanguageClassifier(Logger):
         self._s = state
 
         self.Log("Loading subject language classifier...")
-        filename = self._s['path']['lib'] + sep + 'subjectClassifier.pickle'
+        filename = self._s['path']['base'] + sep + \
+                '..' + sep + 'classifier' + sep + \
+                'subject-language' + sep + 'SubjectLang.pickle'
         self._classifier = pickle.load(open(filename, 'rb'))
 
     def _makeOLACSubject(self, code):
@@ -364,7 +366,7 @@ class SubjectLanguageClassifier(Logger):
             if not has_olac_subject:
                 # get codes from classifier and add OLAC dc:subject elements
                 # classify_record(dict, threshold, strongnameweight, weaknameweight, countryweight, regionweight)
-                codes = classifier.classify_record({'title': title, 'description': desc, 'subject': subj}, 0.72, 1.0, 0.7, 0.3, 0.2)
+                codes = self._classifier.classify_record({'title': title, 'description': desc, 'subject': subj}, 0.72, 1.0, 0.7, 0.3, 0.2)
             else:
                 codes = []
 
