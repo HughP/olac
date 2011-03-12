@@ -1,0 +1,17 @@
+Actions:
+
+- add last section in /src/olac/web/NOTE/marc.html : debugging the crosswalk
+- fill in the content for the file above
+
+- make --debug option leave intermediate files in place for inspection
+- reistate --inverse ability through the --debug which will allow inverse mode to be output along side the regular output
+- add a --stop-after= (olacfilter) | marcfilter | crosswalk | enrichment
+
+- Gary will work on making the marc crosswalk
+    
+- finish implementing the classifier stage of the pipeline
+
+testing priority:
+NAA data - does it successfully enrich records that have neither resource type or subject language
+
+put together a TODO list in the repository
