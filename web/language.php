@@ -300,7 +300,7 @@ function print_list_item($oaiid) {
   $sql .= "where ai.OaiIdentifier='$oaiid' ";
   $sql .= "and ai.Item_ID=me.Item_ID ";
   $sql .= "and me.TagName='identifier' ";
-  $sql .= "and me.Content regexp '^(http|https|ftp):.*'";
+  $sql .= "and me.Content regexp '^[ \\t\\n]*(http|https|ftp):.*'";
   $tab = $DB->sql($sql);
   $count = $tab[0]['c'];
 
