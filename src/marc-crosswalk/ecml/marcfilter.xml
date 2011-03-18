@@ -7,7 +7,9 @@
       <dc:date>2009-04-17</dc:date>
       <dc:description>ECML Filter.</dc:description>
    </header>
-   <select-stage>
+   <reject-rules>
+   </reject-rules>
+   <retain-rules>
       <test>
          <data-field test="contains" tag="24x" code="">
             <text>Dictionar</text>
@@ -31,8 +33,6 @@
             <text>language</text>
          </data-field>
       </test>
-   </select-stage>
+   </retain-rules>
 
-   <reject-stage>
-   </reject-stage>
 </marc-filter>
