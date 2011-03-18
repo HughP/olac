@@ -10,7 +10,8 @@
             to a reasonable subset of likely "language resources" on which to 
             perform more rigorous processing. </dc:description>
    </header>
-   <select-stage>
+   <reject-rules/>
+   <retain-rules>
       <!--
          Get only records containing these language codes in the 008
          These are collective codes and some macrolanguage codes¶
@@ -127,7 +128,6 @@
             <text>dialect</text>
          </data-field>
       </test>
-   </select-stage>
+   </retain-rules>
    
-   <reject-stage/>
 </marc-filter>

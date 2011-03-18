@@ -7,41 +7,7 @@
       <dc:date>2009-04-26</dc:date>
       <dc:description>This filter is for testing against the sample GIAL record set.</dc:description>
    </header>
-   <select-stage>
-      <!--
-         The GIAL records use a 590 to specify the ISO 639-3 language
-         that is the focus of the work (whether its subject or its 
-         minority language of content)
-         590  ..	‡lmbd‡2ISO 639-3¶
-         
-      -->
-      <test>
-         <data-field test="exists" tag="590" code="l"/>
-      </test>
-      <test>
-         <data-field test="contains" tag="24x" code="">
-            <text>Dictionar</text>
-            <text>dictionar</text>
-            <text>Lexic</text>
-            <text>lexic</text>
-            <text>Vocabular</text>
-            <text>vocabular</text>
-            <text>Linguistic</text>
-            <text>linguistic</text>
-            <text>Gramma</text>
-            <text>gramma</text>
-            <text>Phonolog</text>
-            <text>phonolog</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="contains" tag="650" code="a">
-            <text>language</text>
-         </data-field>
-      </test>
-   </select-stage>
-   
-   <reject-stage>
+   <reject-rules>
       <test>
          <data-field test="starts-with" tag="999" code="a">
             <text>TEMPORARY RECORD</text>
@@ -306,5 +272,39 @@
             <text>Periodicals</text>
          </data-field>
       </test>
-   </reject-stage>
+   </reject-rules>
+   <retain-rules>
+      <!--
+         The GIAL records use a 590 to specify the ISO 639-3 language
+         that is the focus of the work (whether its subject or its 
+         minority language of content)
+         590  ..	‡lmbd‡2ISO 639-3¶
+         
+      -->
+      <test>
+         <data-field test="exists" tag="590" code="l"/>
+      </test>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>language</text>
+         </data-field>
+      </test>
+   </retain-rules>
+   
 </marc-filter>

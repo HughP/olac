@@ -12,43 +12,7 @@
       This version is a pretty major rewrite of the reject section to try to deal with this issue. Still
       have not done to well on the general works not associated with any specific language</dc:description>
    </header>
-   <select-stage>
-      <!--
-         The GIAL records use a 590 to specify the ISO 639-3 language
-         that is the focus of the work (whether its subject or its 
-         minority language of content)
-         590  ..	‡lmbd‡2ISO 639-3¶
-         
-      -->
-      <test>
-         <data-field test="exists" tag="590" code="l"/>
-      </test>
-      <test>
-         <data-field test="contains" tag="24x" code="">
-            <text>Dictionar</text>
-            <text>dictionar</text>
-            <text>Lexic</text>
-            <text>lexic</text>
-            <text>Vocabular</text>
-            <text>vocabular</text>
-            <text>Linguistic</text>
-            <text>linguistic</text>
-            <text>Gramma</text>
-            <text>gramma</text>
-            <text>Phonolog</text>
-            <text>phonolog</text>
-            <text>Texts</text>
-            <text>texts</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="contains" tag="650" code="a">
-            <text>language</text>
-         </data-field>
-      </test>
-   </select-stage>
-   
-   <reject-stage>
+   <reject-rules>
       <test>
          <data-field test="starts-with" tag="999" code="a">
             <text>TEMPORARY RECORD</text>
@@ -219,5 +183,41 @@
             <text>Urban dialects</text>
          </data-field>
       </test>
-   </reject-stage>
+   </reject-rules>
+   <retain-rules>
+      <!--
+         The GIAL records use a 590 to specify the ISO 639-3 language
+         that is the focus of the work (whether its subject or its 
+         minority language of content)
+         590  ..	‡lmbd‡2ISO 639-3¶
+         
+      -->
+      <test>
+         <data-field test="exists" tag="590" code="l"/>
+      </test>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+            <text>Texts</text>
+            <text>texts</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="650" code="a">
+            <text>language</text>
+         </data-field>
+      </test>
+   </retain-rules>
+   
 </marc-filter>

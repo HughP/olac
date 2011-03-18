@@ -9,58 +9,7 @@
          to remove unwanted image records, but
          does use the select stage to explicitly select desired records.</dc:description>
    </header>
-   <select-stage>
-      <!--
-         The NAA record set contains a 546 Language Note or a 695 locally defined subject term
-         noting language or ethnolinguistic group information for most desired records.
-         The set also contains numerous graphics of little or no interest. However, they
-         do not use the leader to indicate record type.
-      -->
-      <test>
-         <data-field test="exists" tag="546" code=""/>
-      </test>
-      <test>
-         <data-field test="exists" tag="695" code=""/>
-      </test>
-      <test>
-         <data-field test="contains" tag="24x" code="">
-            <text>Dictionar</text>
-            <text>dictionar</text>
-            <text>Lexic</text>
-            <text>lexic</text>
-            <text>Language</text>
-            <text>language</text>
-            <text>Vocabular</text>
-            <text>vocabular</text>
-            <text>Linguistic</text>
-            <text>linguistic</text>
-            <text>Gramma</text>
-            <text>gramma</text>
-            <text>Phonolog</text>
-            <text>phonolog</text>
-         </data-field>
-      </test>
-      <test>
-         <data-field test="contains" tag="520" code="">
-            <text>Dictionar</text>
-            <text>dictionar</text>
-            <text>Lexic</text>
-            <text>lexic</text>
-            <text>Language</text>
-            <text>language</text>
-            <text>Vocabular</text>
-            <text>vocabular</text>
-            <text>Linguistic</text>
-            <text>linguistic</text>
-            <text>Gramma</text>
-            <text>gramma</text>
-            <text>Phonolog</text>
-            <text>phonolog</text>
-         </data-field>
-      </test>
-   </select-stage>
-
-   <reject-stage>
+   <reject-rules>
       <test>
          <data-field test="contains" tag="245" code="">
             <text>Photograph</text>
@@ -145,5 +94,56 @@
             <text>281449</text>
          </control-field>
       </test>
-   </reject-stage>
+   </reject-rules>
+   <retain-rules>
+      <!--
+         The NAA record set contains a 546 Language Note or a 695 locally defined subject term
+         noting language or ethnolinguistic group information for most desired records.
+         The set also contains numerous graphics of little or no interest. However, they
+         do not use the leader to indicate record type.
+      -->
+      <test>
+         <data-field test="exists" tag="546" code=""/>
+      </test>
+      <test>
+         <data-field test="exists" tag="695" code=""/>
+      </test>
+      <test>
+         <data-field test="contains" tag="24x" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
+            <text>language</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+      <test>
+         <data-field test="contains" tag="520" code="">
+            <text>Dictionar</text>
+            <text>dictionar</text>
+            <text>Lexic</text>
+            <text>lexic</text>
+            <text>Language</text>
+            <text>language</text>
+            <text>Vocabular</text>
+            <text>vocabular</text>
+            <text>Linguistic</text>
+            <text>linguistic</text>
+            <text>Gramma</text>
+            <text>gramma</text>
+            <text>Phonolog</text>
+            <text>phonolog</text>
+         </data-field>
+      </test>
+   </retain-rules>
+
 </marc-filter>
