@@ -357,14 +357,14 @@ function loadArchiveList()
 			var tmp = eval('(' + o.responseText + ')');
 			REPOS = new Object;
 			REPOIDS = new Object;
-			for (var i in tmp) {
-				REPOS[tmp[i]['Archive_ID']] = tmp[i]['RepositoryName'];
-				REPOIDS[tmp[i]['Archive_ID']] = tmp[i]['RepositoryIdentifier'];
-			}
-			//REPOS = eval('('+o.responseText+')');
 			var select = document.getElementById("archivelist");
 			select.options[0] = new Option("ALL ARCHIVES", -1);
-			for (var arcid in REPOS) {
+			for (var i in tmp) {
+				var arcid = tmp[i]['Archive_ID'];
+				var reponam = tmp[i]['RepositoryName'];
+				var repoid = tmp[i]['RepositoryIdentifier'];
+				REPOS[arcid] = reponam;
+				REPOIDS[arcid] = repoid;
 				var bsel = (arcid==defaultArcId);
 				select.options[select.length] = new Option(REPOS[arcid], arcid, bsel, bsel);
 			}
