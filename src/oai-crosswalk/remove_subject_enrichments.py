@@ -3,8 +3,8 @@
 import sys
 from utilities import database
 
-def remove_subject_enrichments():
-    archive = 0
+def main():
+    archive_id = 0
     try:
         archive = sys.argv.pop(1)
     except IndexError:
@@ -14,7 +14,10 @@ def remove_subject_enrichments():
     con = database.connect()
     cur = con.cursor()
 
-    if archive == "all":
+    remove_subject_enrichments(archive_id)
+
+def remove_subject_enrichments(archive_id):
+    if archive_id == "all":
         query = "delete from METADATA_ELEM using ARCHIVED_ITEM \
                  inner join METADATA_ELEM on METADATA_ELEM.Item_ID = ARCHIVED_ITEM.Item_ID \
                  where Code is not NULL and Extension_ID = 13; \
@@ -25,9 +28,9 @@ def remove_subject_enrichments():
     else:
         query = "delete from METADATA_ELEM using ARCHIVED_ITEM \
                  inner join METADATA_ELEM on METADATA_ELEM.Item_ID = ARCHIVED_ITEM.Item_ID \
-                 where Code is not NULL and Extension_ID = 13 and Archive_ID = %s;" % (archive)
+                 where Code is not NULL and Extension_ID = 13 and Archive_ID = %s;" % (archive_id)
         cur.execute(query)
-        query = "update ARCHIVED_ITEM set SubjectClassifiedDate = NULL,HasOLACLanguage = 0 where Archive_ID = %s" % (archive)
+        query = "update ARCHIVED_ITEM set SubjectClassifiedDate = NULL,HasOLACLanguage = 0 where Archive_ID = %s" % (archive_id)
         cur.execute(query)
 
     # make sure the actions stick
@@ -35,5 +38,5 @@ def remove_subject_enrichments():
 
 
 if __name__ == '__main__':
-    remove_subject_enrichments()
+    main()
 
