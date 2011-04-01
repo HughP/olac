@@ -56,13 +56,17 @@ do
    echo Importing type classifier results
    time ./import-type-classified.py $TYPEOUT
    
-   echo Running subject langauge identifier...
+   echo Running subject language identifier...
    cd ../classifier/subject-language
    THRESHOLD=0.6
-   time ./classify.py -f -d -t $THRESHOLD ./SubjectLang.pickle $BIN2LANG $LANGOUT
+   #time ./classify.py -f -d -t $THRESHOLD ./SubjectLang.pickle $BIN2LANG $LANGOUT
+   time ./classify.py -f -t $THRESHOLD ./SubjectLang.pickle $BIN2LANG $LANGOUT
    cd ../../oai-crosswalk
    
    cp $LANGSAVE output/$ARCHIVE-langout.tmp
+
+   echo Importing subject language results
+   time ./import-subject-classified.py $LANGSAVE
 done
 echo Tetelestai!
 
