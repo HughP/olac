@@ -61,7 +61,7 @@ class CrosswalkPipeline(Logger):
             self._subjLangClassifier = SubjectLanguageClassifier(self._s)
         self._WriteImportMap()
         if TypeClassifier.MalletIsInstalled():
-            self._typeClassifier = TypeClassifier()
+            self._typeClassifier = TypeClassifier(self._s)
         else:
             self.Log("Mallet is not installed.  Type Classifier will be skipped.")
             self._typeClassifier = None
@@ -108,6 +108,7 @@ class CrosswalkPipeline(Logger):
         ctr = 1;
         xml_footer = ''
         tmpfile = self._s['path']['tmp'] + sep + 'xml_output.tmp'
+        tmpfile2 = self._s['path']['tmp'] + sep + 'xml_output2.tmp'
 
         output = codecs.open(self._s['path']['proj'] + sep + \
                 self._s.get('system', 'output'), 'w', 'utf-8')
@@ -122,18 +123,12 @@ class CrosswalkPipeline(Logger):
 
             xslt = XSLTransform(self._s['path']['lib'])
 
-            # MARC Filter Accept
+            # MARC Filter
             stylesheet = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter-accept.xsl'
+                self._s['projectName'] + '-marc-filter.xsl'
             xslt.DoTransform(stylesheet, f, tmpfile)
             if (not utils.tryToMove(tmpfile, f, stylesheet)): break
             
-            # MARC Filter Reject
-            stylesheet = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter-reject.xsl'
-            xslt.DoTransform(stylesheet, f, tmpfile)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
-
             # Crosswalk
             stylesheet = self._s['path']['lib'] + \
                     sep + 'collection2repository.xsl'
@@ -163,11 +158,11 @@ class CrosswalkPipeline(Logger):
                     self.Log("Error: TypeClassifier did not output a file!")
                     break
             
-                # Filter: has OLAC type (asserts all records have an OLAC type)
-                stylesheet = self._s['path']['lib'] + \
-                        sep + 'olac-filter-has-olac-type.xsl'
-                xslt.DoTransform(stylesheet, f, tmpfile)
-                if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+            # Filter: has OLAC type (asserts all records have an OLAC type)
+            stylesheet = self._s['path']['lib'] + \
+                    sep + 'olac-filter-has-olac-type.xsl'
+            xslt.DoTransform(stylesheet, f, tmpfile)
+            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
             # Subject Classifier
             if 'nltk' in sys.modules:
@@ -179,9 +174,7 @@ class CrosswalkPipeline(Logger):
             # OLAC Filter
             stylesheet = self._s['path']['tmp'] + sep + \
                 self._s['projectName'] + '-olac-filter.xsl'
-            params = ''
-            if (self._s['debug']): params = 'debug=yes'
-            xslt.DoTransform(stylesheet, f, tmpfile, params)
+            xslt.DoTransform(stylesheet, f, tmpfile)
             if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
             header, recs, footer = self.ParseOLACRepo(f)
@@ -222,25 +215,15 @@ class CrosswalkPipeline(Logger):
 
     def _CompileMARCFilters(self):
         xslt = XSLTransform(self._s['path']['lib'])
-        xslt.Log("Compiling MARC filters", False, False)
+        xslt.Log("Compiling MARC filter", False, False)
         params = 'version="2.0"'
 
-        # MARC Accept Filter
-        stylesheet = self._s['path']['lib'] + sep + 'marc-filter-compile1.xsl'
+        stylesheet = self._s['path']['lib'] + sep + 'marc-filter-compile.xsl'
         input = self._s['path']['proj'] + sep + \
                 self._s.get('system', 'marcfilter')
         output = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter-accept.xsl'
+                self._s['projectName'] + '-marc-filter.xsl'
         xslt.DoTransform(stylesheet, input, output, params)
-
-        # MARC Reject Filter
-        stylesheet = self._s['path']['lib'] + sep + 'marc-filter-compile2.xsl'
-        input = self._s['path']['proj'] + sep + \
-                self._s.get('system', 'marcfilter')
-        output = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter-reject.xsl'
-        xslt.DoTransform(stylesheet, input, output, params)
-
         xslt.Finish()
 
     def _CompileOLACFilters(self):
@@ -297,21 +280,72 @@ class TypeClassifier(Logger):
     @classmethod
     def MalletIsInstalled(cls):
         return False
+        #return True
 
     def Classify(self, input, output):
-        tabdatafileIn = self._s['path']['tmp'] + sep + 'typedatafileIn.tmp'
-        tabdatafileOut = self._s['path']['tmp'] + sep + 'typedatafileOut.tmp'
-        self._CreateTabFile(input, tabdatafileIn)
-        self._RunMallet(tabdatafileIn, tabdatafileOut)
-        self._MergeResults(input, tabdatafileOut, output)
+        tab1 = self._s['path']['tmp'] + sep + 'tab1.tmp'
+        tab2 = self._s['path']['tmp'] + sep + 'tab2.tmp'
+        self._CreateTabFile(input, tab1)
+
+        # Binary Classifier
+        classifierfile = 'resourceTypeBinaryClassifier.mallet'
+        self._RunMallet(tab1, tab2, classifierfile)
+
+        self._PrepForMulti(tab2, tab1)
+
+        # Multi Classifier
+        classifierfile = 'resourceTypeMultiClassifier.mallet'
+        self._RunMallet(tab1, tab2, classifierfile)
+
+        self._MergeResults(input, tab2, output)
 
     def _CreateTabFile(self, xmlfile, tabfile):
-        pass
+        outfile = codecs.open(tabfile, 'w', 'utf-8')
+        doc = etree.parse(xmlfile)
+        root = doc.getroot()
+        dcNS = 'http://purl.org/dc/elements/1.1/'
+        xsiNS = 'http://www.w3.org/2001/XMLSchema-instance'
+        olacNS = 'http://www.language-archives.org/OLAC/1.1/'
+        oaiNS = 'http://www.openarchives.org/OAI/2.0/'
+        for oairec in root.findall('.//{%s}record' % oaiNS):
+            textstring = ''
+            has_olac_type = 0
+            id = oairec.find('{%s}header' % \
+                    oaiNS).find('{%s}identifier' % oaiNS).text.strip()
 
-    def _RunMallet(self, infile, outfile):
+            olacrec = oairec.find('{%s}metadata' % \
+                    oaiNS).find('{%s}olac' % olacNS)
+            for elem in olacrec:
+                if elem.tag == '{%s}description' % dcNS and \
+                        elem.text is not None:
+                    textstring += elem.text.strip() + ' *** '
+                elif elem.tag == '{%s}subject' % dcNS and \
+                        elem.attrib.get('{%s}type' % xsiNS) == 'dcterms:LCSH' \
+                        and elem.text is not None:
+                    textstring += elem.text.strip() + ' *** '
+                elif elem.tag == '{%s}title' % dcNS and \
+                        elem.text is not None:
+                    textstring += elem.text.strip() + ' *** '
+                # do we need to include IsPartOf (a qdc element)?
+                elif elem.tag == '{%s}type' % dcNS and \
+                        elem.attrib.get('{%s}type' % xsiNS) \
+                        == 'olac:linguistic-type' and \
+                        elem.attrib.get('{%s}code' % oNS) is not None:
+                    has_olac_type = 1
+
+            # only write out records that don't have an olac type 
+            if not has_olac_type:
+                outfile.write("%s\t\t%s\n" % (id, textstring))
+
+        outfile.close()
+
+    def _RunMallet(self, tabinfile, taboutfile, classifier):
         pass
 
     def _MergeResults(self, xmlIn, tabOut, xmlOut):
+        pass
+
+    def _PrepForMulti(self, tabIn, tabOut):
         pass
 
 

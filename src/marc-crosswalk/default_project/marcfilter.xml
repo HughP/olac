@@ -257,11 +257,13 @@
             <text>U.S.</text>
          </data-field>
       </test>
+      <!--
       <test>
          <data-field test="starts-with" tag="650" code="a">
             <text>Language and languages</text>
          </data-field>
       </test>
+      -->
       <test>
          <data-field test="starts-with" tag="650" code="a">
             <text>Pragmatics</text>
@@ -281,9 +283,12 @@
          590  ..	‡lmbd‡2ISO 639-3¶
          
       -->
+      <!--
       <test>
          <data-field test="exists" tag="590" code="l"/>
       </test>
+      -->
+      <!--
       <test>
          <data-field test="contains" tag="24x" code="">
             <text>Dictionar</text>
@@ -300,6 +305,7 @@
             <text>phonolog</text>
          </data-field>
       </test>
+      -->
       <test>
          <data-field test="contains" tag="650" code="a">
             <text>language</text>
