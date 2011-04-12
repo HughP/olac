@@ -2,7 +2,7 @@
 <!-- olac_filter-compile.xsl
         Compile the filter over an OLAC repository
         G. Simons, 2 July 2009
-        Last updated: 11 April 2011
+        Last updated: 12 April 2011
         
      There are two parameters:
         version   Defaults to "1.0". Call with value of "2.0" to
@@ -110,12 +110,12 @@
    </xsl:template>
 
    <xsl:template match="retain-all">
-      <xsl:if test="$mode = 'retain'">
-         <xsl:comment> Just retain everything else </xsl:comment>
-         <alias:template match="*" priority="1">
+      <xsl:comment> The retain-all rule </xsl:comment>
+      <alias:template match="*" priority="1">
+         <xsl:if test="$mode = 'retain'">
             <alias:copy-of select="self::node()"/>
-         </alias:template>
-      </xsl:if>
+         </xsl:if>
+      </alias:template>
    </xsl:template>
 
    <!-- Compile the criteria -->
