@@ -2,7 +2,7 @@
 <!-- olac_filter-compile.xsl
         Compile the filter over an OLAC repository
         G. Simons, 2 July 2009
-        Last updated: 2 July 2009
+        Last updated: 11 April 2011
         
      There are two parameters:
         version   Defaults to "1.0". Call with value of "2.0" to
@@ -68,7 +68,14 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
-         priority="2">
+         priority="2.{position()}">
+         <!-- The priority of 2.* orders reject before retain, which
+            is 1.*.  The decimal part does not matter except to give
+            each rule a different priority, since multiple rules may
+            match and that causes an "ambiguous match" error, but it
+            does not matter which rule fires since they all do the
+            same thing.
+         -->
          <xsl:if test="$mode = 'reject'">
             <alias:copy>
                <alias:if test="$debug = 'yes'">
@@ -87,7 +94,7 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
-         priority="1">
+         priority="1.{position()}">
          <xsl:if test="$mode = 'retain'">
             <alias:copy>
                <alias:if test="$debug = 'yes'">
