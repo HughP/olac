@@ -2,17 +2,20 @@ class Logger(object):
 
     def __init__(self, stream, label = ''):
         self._log = stream
-        self._debug = 0
+        self._verbose = False
         self._label = label
 
-    def Log(self, msg, isDebugMsg = False, newline = True):
-        if self._debug and count(self._label) and newline:
-            self._log.write(label + ': ')
-        if (not isDebugMsg or 
-                (isDebugMsg and self._debug)):
+    def Log(self, msg, isVerboseMsg = False, newline = True):
+        if self._verbose and len(self._label) > 0 and newline and len(msg.strip()) > 0:
+            self._log.write('\n' + self._label + ': ')
+        if (not isVerboseMsg or 
+                (isVerboseMsg and self._verbose)):
             self._log.write(msg)
             if newline:
                 self._log.write('\n')
 
-    def SetDebug(self, on):
-        self._debug = on
+    def SetVerbose(self, on):
+        self._verbose = on
+
+    def SetLabel(self, label):
+        self._label = label
