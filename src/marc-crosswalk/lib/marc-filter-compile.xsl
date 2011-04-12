@@ -2,7 +2,7 @@
 <!-- marc-filter-compile.xsl
         Compile the filter over a MARC record collection
         G. Simons, 4 Feb 2009
-        Last updated: 11 Apr 2011
+        Last updated: 12 Apr 2011
         
      There are two parameters:
         version   Defaults to "1.0". Call with value of "2.0" to
@@ -39,7 +39,7 @@
 
          <xsl:comment> Handle records that match no rule </xsl:comment>
          <alias:template match="*" priority="-1">
-             <xsl:if test="$mode = 'reject' and not(/marc-filter/retain-rules/retain-all)">
+             <xsl:if test="$mode = 'reject'">
                <alias:copy>
                   <alias:if test="$debug = 'yes'">
                      <alias:attribute name="rule">
@@ -101,12 +101,12 @@
    </xsl:template>
 
    <xsl:template match="retain-all">
-      <xsl:if test="$mode = 'retain'">
-         <xsl:comment> Just retain everything else </xsl:comment>
-         <alias:template match="*" priority="1">
+      <xsl:comment> The retain-all rule </xsl:comment>
+      <alias:template match="*" priority="1">
+         <xsl:if test="$mode = 'retain'">
             <alias:copy-of select="self::node()"/>
-         </alias:template>
-      </xsl:if>
+         </xsl:if>
+      </alias:template>
    </xsl:template>
 
    <!-- Compile the criteria -->
