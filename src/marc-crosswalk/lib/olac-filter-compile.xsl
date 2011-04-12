@@ -48,7 +48,7 @@
 
          <xsl:comment> Handle records that match no rule </xsl:comment>
          <alias:template match="*" priority="-1">
-            <xsl:if test="$mode = 'reject'">
+             <xsl:if test="$mode = 'reject' and not(/olac-filter/retain-rules/retain-all)">
                <alias:copy>
                   <alias:if test="$debug = 'yes'">
                      <alias:attribute name="rule">
