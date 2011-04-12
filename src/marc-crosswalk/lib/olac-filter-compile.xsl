@@ -68,13 +68,14 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
-         priority="2.{position()}">
-         <!-- The priority of 2.* orders reject before retain, which
-            is 1.*.  The decimal part does not matter except to give
+         priority="2.{position()}5">
+         <!-- The priority of 2.*5 orders reject before retain, which
+            is 1.*5.  The decimal part does not matter except to give
             each rule a different priority, since multiple rules may
             match and that causes an "ambiguous match" error, but it
             does not matter which rule fires since they all do the
-            same thing.
+            same thing.  (Adding "5" at the end disambiguates 2.1 from
+            2.10, etc.)
          -->
          <xsl:if test="$mode = 'reject'">
             <alias:copy>
@@ -94,7 +95,7 @@
          <xsl:apply-templates select="*"/>
       </xsl:variable>
       <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
-         priority="1.{position()}">
+         priority="1.{position()}5">
          <xsl:if test="$mode = 'retain'">
             <alias:copy>
                <alias:if test="$debug = 'yes'">
