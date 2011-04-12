@@ -7,7 +7,7 @@ Actions:
 - reistate --inverse ability through the --debug which will allow inverse mode to be output along side the regular output
 - add a --stop-after= (olacfilter) | marcfilter | crosswalk | enrichment
 
-- Gary will work on making the marc crosswalk
+X - Gary will work on redoing the marc filter
     
 - finish implementing the classifier stage of the pipeline
 
@@ -15,3 +15,7 @@ testing priority:
 NAA data - does it successfully enrich records that have neither resource type or subject language
 
 put together a TODO list in the repository
+
+
+4/11 cjh
+I left off implementing the --inverse for both the marcfilter and olac filter stages, but something isn't working right.  Am I passing in the xslt param correctly?

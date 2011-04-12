@@ -6,7 +6,7 @@
                 xmlns:dc="http://purl.org/dc/elements/1.1/"
                 xmlns:dcterms="http://purl.org/dc/terms/"
                 xmlns:oai="http://www.openarchives.org/OAI/2.0/"
-                version="1.0">
+                version="2.0">
    <xsl:param name="debug">no</xsl:param>
    <xsl:output method="xml" encoding="UTF-8"/>
    <xsl:template match="/sr:Repository">

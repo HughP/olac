@@ -25,47 +25,69 @@ class CrosswalkPipeline(Logger):
         self._typeClassifier = None
         self._files = [] # list of input files
 
-    def Start(self):
-        self._PrepareResources()
+
+    def Initialize(self, mode='normal'):
+        self._PrepareResources(mode)
         self._SetupInputFiles()
-        self._ProcessLoop()
+
+    def Run(self, mode='normal'):
+        if self._s['laststage'] != 'olacfilter':
+            self.Log("File processing will finish after the %s stage" % self._s['laststage'])
+        self._ProcessLoop(mode)
+
+
+    def Finish(self, mode='normal'):
         self._Cleanup()
-        if self._s['dohtml']: self._GenerateHTML()
+        if self._s['dohtml']: self._GenerateHTML(mode)
+
 
     def _Cleanup(self):
         source = self._s['path']['proj'] + \
                 sep + self._s.get('system', 'input')
         # clean up temporary files, if necessary
         if os.path.isfile(source):
-            for f in self._files:
-                os.remove(f)
+            if not self._s['debug']: # debug mode leaves tmp files around
+                for f in self._files:
+                    os.remove(f)
         else:
             # remove processing directory, restore original files from backup
             shutil.rmtree(source)
             os.rename(source + '_backup', source)
 
-    def _GenerateHTML(self):
-        output = self._s.get('system', 'html_output')
+
+    def _GenerateHTML(self, mode='normal'):
+        stylesheet = self._s['path']['lib'] + sep + 'repository2html.xsl'
         input = self._s['path']['proj'] + sep + self._s.get('system', 'output')
-        self.Log("Generating HTML output to %s ..." % output, False, False)
+        output = self._s['path']['proj'] + sep + self._s.get('system', 'html_output')
+        if mode == 'inverse':
+            root, ext = os.path.splitext(output)
+            output = root + '-inverse' + ext
+            root, ext = os.path.splitext(input)
+            input = root + '-inverse' + ext
+        self.Log("Generating HTML output to %s ..." % os.path.basename(output), False, False)
         xslt = XSLTransform(self._s['path']['lib'])
-        xslt.DoTransform(self._s['path']['lib'] + \
-                sep + 'repository2html.xsl', input, \
-                self._s['path']['proj'] + sep + output)
+        xslt.SetVerbose(self._s['verbose'])
+        xslt.SetLabel('GenerateHTML')
+        xslt.DoTransform(stylesheet, input, output)
         xslt.Finish()
 
-    def _PrepareResources(self):
-        self._CompileMARCFilters()
-        self._CompileOLACFilters()
-        if 'nltk' in sys.modules:
-            self._subjLangClassifier = SubjectLanguageClassifier(self._s)
-        self._WriteImportMap()
-        if TypeClassifier.MalletIsInstalled():
-            self._typeClassifier = TypeClassifier(self._s)
-        else:
-            self.Log("Mallet is not installed.  Type Classifier will be skipped.")
-            self._typeClassifier = None
+
+    def _PrepareResources(self, mode='normal'):
+        self._CompileMARCFilters(mode)
+        if self._s['laststage'] == 'olacfilter':
+            self._CompileOLACFilters(mode)
+        if self._s['laststage'] != 'marcfilter':
+            self._WriteImportMap()
+        if self._s['laststage'] != 'marcfilter' and self._s['laststage'] != 'crosswalk':
+            if 'nltk' in sys.modules:
+                self._subjLangClassifier = SubjectLanguageClassifier(self._s)
+            if TypeClassifier.MalletIsInstalled():
+                self._typeClassifier = TypeClassifier(self._s)
+            else:
+                self.Log("Mallet is not installed.  Type Classifier will be skipped.")
+                self._typeClassifier = None
     
+
     def _SetupInputFiles(self):
         input = self._s['path']['proj'] + sep + self._s.get('system', 'input')
 
@@ -104,14 +126,18 @@ class CrosswalkPipeline(Logger):
                 if ext == '.xml': directory.append(f)
             self._files = [sep.join([input,p]) for p in directory]
 
-    def _ProcessLoop(self):
+
+    def _ProcessLoop(self, mode='normal'):
         ctr = 1;
         xml_footer = ''
         tmpfile = self._s['path']['tmp'] + sep + 'xml_output.tmp'
         tmpfile2 = self._s['path']['tmp'] + sep + 'xml_output2.tmp'
 
-        output = codecs.open(self._s['path']['proj'] + sep + \
-                self._s.get('system', 'output'), 'w', 'utf-8')
+        outputfilename = self._s['path']['proj'] + sep + self._s.get('system', 'output')
+        if mode == 'inverse':
+            root,ext = os.path.splitext(outputfilename)
+            outputfilename = root + '-inverse' + ext
+        output = codecs.open(outputfilename, 'w', 'utf-8')
 
         if len(self._files) > 1:
             self.Log("Processing %d files" % len(self._files))
@@ -119,65 +145,88 @@ class CrosswalkPipeline(Logger):
             self.Log("Processing 1 file", False, False)
 
         for f in self._files:
+        # TODO this loop would be more readable if implemented using a state machine (switch) instead of if/else
             if len(self._files) > 1: self.Log(str(ctr), False, False) 
 
             xslt = XSLTransform(self._s['path']['lib'])
+            xslt.SetLabel('LOOP')
+            xslt.SetVerbose(self._s['verbose'])
 
             # MARC Filter
             stylesheet = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter.xsl'
-            xslt.DoTransform(stylesheet, f, tmpfile)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
-            
-            # Crosswalk
-            stylesheet = self._s['path']['lib'] + \
-                    sep + 'collection2repository.xsl'
-            params = ''
-            if (self._s['debug']): params = 'debug=yes'
-            xslt.DoTransform(stylesheet, f, tmpfile, params)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+                self._s['projectName']
+            if mode == 'inverse' and self._s['laststage'] == 'marcfilter':
+                stylesheet += '-marc-filter-inverse.xsl'
+            else:
+                stylesheet += '-marc-filter.xsl'
 
-            # Post-Crosswalk: cleanup
-            stylesheet = self._s['path']['lib'] + \
-                    sep + 'cleanup.xsl'
-            params = ''
-            if (self._s['debug']): params = 'debug=yes'
-            xslt.DoTransform(stylesheet, f, tmpfile, params)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
-
-            # Post-Crosswalk: remove duplicates
-            stylesheet = self._s['path']['lib'] + \
-                    sep + 'remove_duplicates.xsl'
             xslt.DoTransform(stylesheet, f, tmpfile)
             if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
-            # Type Classifier
-            if self._typeClassifier is not None:
-                self._typeClassifier.Classify(f, tmpfile)
-                if (not utils.tryToMove(tmpfile, f)):
-                    self.Log("Error: TypeClassifier did not output a file!")
-                    break
-            
-            # Filter: has OLAC type (asserts all records have an OLAC type)
-            stylesheet = self._s['path']['lib'] + \
-                    sep + 'olac-filter-has-olac-type.xsl'
-            xslt.DoTransform(stylesheet, f, tmpfile)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+            if self._s['laststage'] != 'marcfilter':
 
-            # Subject Classifier
-            if 'nltk' in sys.modules:
-                self._subjLangClassifier.Classify(f, tmpfile)
-                if (not utils.tryToMove(tmpfile, f)):
-                    self.Log("Error: SubjectLanguageClassifier did not output a file!")
-                    break
+                # Crosswalk
+                stylesheet = self._s['path']['lib'] + \
+                        sep + 'collection2repository.xsl'
+                params = ''
+                if (self._s['debug']): params = 'debug=yes'
+                xslt.DoTransform(stylesheet, f, tmpfile, params)
+                if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
-            # OLAC Filter
-            stylesheet = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-olac-filter.xsl'
-            xslt.DoTransform(stylesheet, f, tmpfile)
-            if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+                # Post-Crosswalk: cleanup
+                stylesheet = self._s['path']['lib'] + \
+                        sep + 'cleanup.xsl'
+                params = ''
+                if (self._s['debug']): params = 'debug=yes'
+                xslt.DoTransform(stylesheet, f, tmpfile, params)
+                if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
-            header, recs, footer = self.ParseOLACRepo(f)
+                # Post-Crosswalk: remove duplicates
+                stylesheet = self._s['path']['lib'] + \
+                        sep + 'remove_duplicates.xsl'
+                xslt.DoTransform(stylesheet, f, tmpfile)
+                if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+
+                if self._s['laststage'] != 'crosswalk':
+
+                    # Type Classifier
+                    if self._typeClassifier is not None:
+                        self._typeClassifier.Classify(f, tmpfile)
+                        if (not utils.tryToMove(tmpfile, f)):
+                            self.Log("Error: TypeClassifier did not output a file!")
+                            break
+                    
+                        # Filter: has OLAC type (asserts all records have an OLAC type)
+                        # Are we sure that we need this step???  Maybe the subject language classifier has been improved?
+                        stylesheet = self._s['path']['lib'] + \
+                                sep + 'olac-filter-has-olac-type.xsl'
+                        xslt.DoTransform(stylesheet, f, tmpfile)
+                        if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+
+                    # Subject Classifier
+                    if 'nltk' in sys.modules:
+                        self._subjLangClassifier.Classify(f, tmpfile)
+                        if (not utils.tryToMove(tmpfile, f)):
+                            self.Log("Error: SubjectLanguageClassifier did not output a file!")
+                            break
+
+                    if self._s['laststage'] != 'enrichment':
+
+                        # OLAC Filter
+                        stylesheet = self._s['path']['tmp'] + sep + \
+                            self._s['projectName']
+                        if mode == 'inverse':
+                            stylesheet += '-olac-filter-inverse.xsl'
+                        else:
+                            stylesheet += '-olac-filter.xsl'
+
+                        xslt.DoTransform(stylesheet, f, tmpfile)
+                        if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+
+            if self._s['laststage'] == 'marcfilter':
+                header, recs, footer = self.ParseMARCCollection(f)
+            else:
+                header, recs, footer = self.ParseOLACRepo(f)
             xslt.Finish()
 
 
@@ -192,6 +241,7 @@ class CrosswalkPipeline(Logger):
 
         output.write(xml_footer)
         output.close()
+
 
     def ParseOLACRepo(self, filename):
         """parseOLACRepo(xml_filename)
@@ -213,30 +263,65 @@ class CrosswalkPipeline(Logger):
         else:
             return ('','','')
 
-    def _CompileMARCFilters(self):
+
+    def ParseMARCCollection(self, filename):
+        """parseMARCCollection(xml_filename)
+        purpose: extract three elements from a MARC XML Collection file:
+                1) marc collection header (text that precedes the start of the first record)
+                2) marc_records, not including the <marc:collection> wrapper tags
+                3) marc collection footer (text that follows the last record)
+        returns: string tuple:
+            marc_header (string)
+            marc_records (string)
+            marc_footer (string)
+            """
+        s = utils.file2string(filename)
+        p = re.compile("^(.*<marc:collection[^>]+>)(.*)(</marc:collection>.*)$",re.DOTALL)
+        m = p.search(s)
+        if m:
+            return (m.group(1),m.group(2),m.group(3))
+        else:
+            return ('','','')
+
+
+    def _CompileMARCFilters(self, mode='normal'):
         xslt = XSLTransform(self._s['path']['lib'])
+        xslt.SetLabel('MARCFilter')
         xslt.Log("Compiling MARC filter", False, False)
+        xslt.SetVerbose(self._s['verbose'])
         params = 'version="2.0"'
 
         stylesheet = self._s['path']['lib'] + sep + 'marc-filter-compile.xsl'
         input = self._s['path']['proj'] + sep + \
                 self._s.get('system', 'marcfilter')
         output = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-marc-filter.xsl'
+                self._s['projectName']
+
+        if mode == 'inverse':
+            params += ' mode="reject"'
+            output += '-marc-filter-inverse.xsl'
+        else: # normal mode
+            output += '-marc-filter.xsl'
         xslt.DoTransform(stylesheet, input, output, params)
         xslt.Finish()
 
-    def _CompileOLACFilters(self):
-        # OLAC Accept filter
-        # Note: to run an OLAC reject filter, add param mode=reject
+    def _CompileOLACFilters(self, mode='normal'):
         params = 'version="2.0"'
         xslt = XSLTransform(self._s['path']['lib'])
+        xslt.SetLabel('OLACFilter')
+        xslt.SetVerbose(self._s['verbose'])
         xslt.Log("Compiling OLAC filter", False, False)
         stylesheet = self._s['path']['lib'] + sep + 'olac-filter-compile.xsl'
         input = self._s['path']['proj'] + sep + \
                 self._s.get('system', 'olacfilter')
         output = self._s['path']['tmp'] + sep + \
-                self._s['projectName'] + '-olac-filter.xsl'
+                self._s['projectName'] 
+
+        if mode == 'inverse':
+            params += ' mode="reject"'
+            output += '-olac-filter-inverse.xsl'
+        else: # normal mode
+            output += '-olac-filter.xsl'
         xslt.DoTransform(stylesheet, input, output, params)
         xslt.Finish()
 
