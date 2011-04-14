@@ -1,5 +1,6 @@
 import sys
 import os
+import subprocess
 import re
 import codecs
 import xml.etree.ElementTree as etree
@@ -24,6 +25,7 @@ class CrosswalkPipeline(Logger):
         self._subjLangClassifier = None
         self._typeClassifier = None
         self._files = [] # list of input files
+        self._s['tmpfiles'] = []
 
 
     def Initialize(self, mode='normal'):
@@ -44,7 +46,8 @@ class CrosswalkPipeline(Logger):
     def _Cleanup(self):
         source = self._s['path']['proj'] + \
                 sep + self._s.get('system', 'input')
-        # clean up temporary files, if necessary
+
+        # clean up tmp files left around from processing input files
         if os.path.isfile(source):
             if not self._s['debug']: # debug mode leaves tmp files around
                 for f in self._files:
@@ -53,6 +56,11 @@ class CrosswalkPipeline(Logger):
             # remove processing directory, restore original files from backup
             shutil.rmtree(source)
             os.rename(source + '_backup', source)
+
+        # clean up other tmp files
+        if not self._s['debug']:
+            for f in self._s['tmpfiles']:
+                os.remove(f)
 
 
     def _GenerateHTML(self, mode='normal'):
@@ -364,25 +372,36 @@ class TypeClassifier(Logger):
 
     @classmethod
     def MalletIsInstalled(cls):
+        # if mallet on windows is installed, the mallet.bat should be in the path
+        cmdout = subprocess.Popen(["mallet.bat", "--help"], stdout=subprocess.PIPE).communicate()[0]
+        if cmdout.count("Mallet 2.0 commands") > 0:
+            return True
+        # if mallet is installed on *nix, the mallet.sh should be in the path
+        #if os.system("mallet.sh --help").count("Mallet 2.0 commands") > 0:
+        #    return True
+
         return False
-        #return True
 
     def Classify(self, input, output):
-        tab1 = self._s['path']['tmp'] + sep + 'tab1.tmp'
-        tab2 = self._s['path']['tmp'] + sep + 'tab2.tmp'
+        tab1 = self._s['path']['tmp'] + sep + 'typeclassify_initialtabfile.tmp'
+        tab2 = self._s['path']['tmp'] + sep + 'typeclassify_afterbinary.tmp'
+        tab3 = self._s['path']['tmp'] + sep + 'typeclassify_afterprep.tmp'
+        tab4 = self._s['path']['tmp'] + sep + 'typeclassify_aftermulti.tmp'
+        self._s['tmpfiles'].extend([tab1, tab2, tab3, tab4])
+
         self._CreateTabFile(input, tab1)
 
         # Binary Classifier
         classifierfile = 'resourceTypeBinaryClassifier.mallet'
         self._RunMallet(tab1, tab2, classifierfile)
 
-        self._PrepForMulti(tab2, tab1)
+        self._PrepForMulti(tab2, tab3)
 
         # Multi Classifier
         classifierfile = 'resourceTypeMultiClassifier.mallet'
-        self._RunMallet(tab1, tab2, classifierfile)
+        self._RunMallet(tab3, tab4, classifierfile)
 
-        self._MergeResults(input, tab2, output)
+        self._MergeResults(input, tab4, output)
 
     def _CreateTabFile(self, xmlfile, tabfile):
         outfile = codecs.open(tabfile, 'w', 'utf-8')
@@ -420,6 +439,7 @@ class TypeClassifier(Logger):
 
             # only write out records that don't have an olac type 
             if not has_olac_type:
+                textstring = utils.scrubtext(textstring)
                 outfile.write("%s\t\t%s\n" % (id, textstring))
 
         outfile.close()
@@ -431,6 +451,7 @@ class TypeClassifier(Logger):
         pass
 
     def _PrepForMulti(self, tabIn, tabOut):
+        # only keeps lines in the tab file that have been classified as YES
         pass
 
 
