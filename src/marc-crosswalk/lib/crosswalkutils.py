@@ -53,3 +53,6 @@ def getstringfromfile(filename,start,end):
     endindex = doc.find(end) + len(end)
     return doc[startindex:endindex]
 
+def scrubtext(str):
+    # removes non-ascii text
+    return "".join(i for i in str if ord(i)<128)
