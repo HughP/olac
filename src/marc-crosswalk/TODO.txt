@@ -3,9 +3,9 @@ Actions:
 - add last section in /src/olac/web/NOTE/marc.html : debugging the crosswalk
 - fill in the content for the file above
 
-- make --debug option leave intermediate files in place for inspection
-- reistate --inverse ability through the --debug which will allow inverse mode to be output along side the regular output
-- add a --stop-after= (olacfilter) | marcfilter | crosswalk | enrichment
+X - make --debug option leave intermediate files in place for inspection
+X - reistate --inverse ability through the --debug which will allow inverse mode to be output along side the regular output
+X - add a --stop-after= (olacfilter) | marcfilter | crosswalk | enrichment
 
 X - Gary will work on redoing the marc filter
     
@@ -15,7 +15,3 @@ testing priority:
 NAA data - does it successfully enrich records that have neither resource type or subject language
 
 put together a TODO list in the repository
-
-
-4/11 cjh
-I left off implementing the --inverse for both the marcfilter and olac filter stages, but something isn't working right.  Am I passing in the xslt param correctly?

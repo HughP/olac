@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py --debug --html scriblio07
+python lib\runMarc2Olac.py --debug --html scriblio07
 pause

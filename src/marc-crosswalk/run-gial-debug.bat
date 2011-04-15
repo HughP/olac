@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py --html --debug gial
+python lib\runMarc2Olac.py --html --debug gial
 pause
