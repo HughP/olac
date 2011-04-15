@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py --stage=2 scriblio07
+python lib\runMarc2Olac.py --stop-after=marcfilter scriblio07
 pause

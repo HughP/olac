@@ -1,3 +1,3 @@
 @echo off
-python lib\marc2olac.py --html naa
+python lib\runMarc2Olac.py --html naa
 pause
