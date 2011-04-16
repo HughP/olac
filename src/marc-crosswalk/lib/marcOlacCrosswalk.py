@@ -1,5 +1,7 @@
 import sys
+import shlex
 import os
+import os.path
 import subprocess
 import re
 import codecs
@@ -81,6 +83,7 @@ class CrosswalkPipeline(Logger):
 
 
     def _PrepareResources(self, mode='normal'):
+        self._etreeRegisterNamespaces()
         self._CompileMARCFilters(mode)
         if self._s['laststage'] == 'olacfilter':
             self._CompileOLACFilters(mode)
@@ -91,9 +94,21 @@ class CrosswalkPipeline(Logger):
                 self._subjLangClassifier = SubjectLanguageClassifier(self._s)
             if TypeClassifier.MalletIsInstalled():
                 self._typeClassifier = TypeClassifier(self._s)
+                self._typeClassifier.SetEnvironment()
             else:
                 self.Log("Mallet is not installed.  Type Classifier will be skipped.")
                 self._typeClassifier = None
+
+
+    def _etreeRegisterNamespaces(self):
+        etree._namespace_map['http://purl.org/dc/terms/'] = 'dcterms'
+        etree._namespace_map['http://www.w3.org/2001/XMLSchema-instance'] = 'xsi'
+        etree._namespace_map['http://www.openarchives.org/OAI/2.0/'] = 'oai'
+        etree._namespace_map['http://www.openarchives.org/OAI/2.0/static-repository'] = 'sr'
+        etree._namespace_map['http://www.language-archives.org/OLAC/1.1/'] = 'olac'
+        etree._namespace_map['http://purl.org/dc/elements/1.1/'] = 'dc'
+        etree._namespace_map['http://www.language-archives.org/OLAC/1.1/olac-archive'] = 'olac-archive'
+        etree._namespace_map['http://www.openarchives.org/OAI/2.0/oai-identifier'] = 'oai-identifier'
     
 
     def _SetupInputFiles(self):
@@ -311,6 +326,7 @@ class CrosswalkPipeline(Logger):
         else: # normal mode
             output += '-marc-filter.xsl'
         xslt.DoTransform(stylesheet, input, output, params)
+        self._s['tmpfiles'].append(output)
         xslt.Finish()
 
     def _CompileOLACFilters(self, mode='normal'):
@@ -331,6 +347,7 @@ class CrosswalkPipeline(Logger):
         else: # normal mode
             output += '-olac-filter.xsl'
         xslt.DoTransform(stylesheet, input, output, params)
+        self._s['tmpfiles'].append(output)
         xslt.Finish()
 
 
@@ -339,8 +356,9 @@ class CrosswalkPipeline(Logger):
                 sep + self._s.get('system','local_customizations')
         localpath = localpath.replace(sep,'/') # ensure / for XML use
 
-        f = codecs.open(self._s['path']['lib'] + \
-                sep + 'importmap.xsl', encoding='utf-8', mode='w')
+        importmapfile = self._s['path']['lib'] + sep + 'importmap.xsl'
+        f = codecs.open(importmapfile, encoding='utf-8', mode='w')
+        self._s['tmpfiles'].append(importmapfile)
         string = """<?xml version="1.0" encoding="UTF-8"?>
     <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
         <xsl:include href="file:///%s"/>
@@ -369,18 +387,57 @@ class TypeClassifier(Logger):
     def __init__(self, state):
         Logger.__init__(self, sys.stdout, 'TypeC')
         self._s = state
+        self._sourcetext = dict()
+        self._basepath = "..%sclassifier%sresource-type" % (sep, sep)
+        if not os.path.exists(
+                self._basepath + sep + 'ResourceTypeClassify.class'):
+            self._compileWithJava()
 
     @classmethod
     def MalletIsInstalled(cls):
-        # if mallet on windows is installed, the mallet.bat should be in the path
-        cmdout = subprocess.Popen(["mallet.bat", "--help"], stdout=subprocess.PIPE).communicate()[0]
-        if cmdout.count("Mallet 2.0 commands") > 0:
+        if 'MALLET_HOME' in os.environ and os.path.exists(
+                os.environ['MALLET_HOME'] + sep + 'bin' + sep + 'mallet'):
             return True
-        # if mallet is installed on *nix, the mallet.sh should be in the path
-        #if os.system("mallet.sh --help").count("Mallet 2.0 commands") > 0:
-        #    return True
+        else:
+            return False
 
-        return False
+
+#        # if mallet on windows is installed, the mallet.bat should be in the path
+#        try:
+#            cmdout = subprocess.Popen(["mallet.bat", "--help"], stdout=subprocess.PIPE).communicate()[0]
+#        except:
+#            return False
+#        if cmdout.count("Mallet 2.0 commands") > 0:
+#            return True
+#
+#        # if mallet is installed on *nix, the mallet.sh should be in the path
+#        #if os.system("mallet.sh --help").count("Mallet 2.0 commands") > 0:
+#        #    return True
+#
+#        return False
+
+
+    """SetEnvironment() sets up the os environment variables for correct
+    compilation of the mallet-based classifier using javac"""
+    def SetEnvironment(self): 
+        home = os.environ['MALLET_HOME']
+        os.environ['PATH'] += os.pathsep + home + sep + 'bin'
+        classpath = [
+                'src',
+                'class',
+                'lib' + sep + 'trove-2.0.2.jar',
+                'lib' + sep + 'bsh.jar'
+                ]
+        os.environ['CLASSPATH'] += (os.pathsep + home + sep).join(classpath)
+
+
+    def _compileWithJava(self):
+            origdir = os.getcwd()
+            os.chdir(self._basepath)
+            cmd = "javac ResourceTypeClassify.java"
+            os.system(cmd)
+            os.chdir(origdir)
+
 
     def Classify(self, input, output):
         tab1 = self._s['path']['tmp'] + sep + 'typeclassify_initialtabfile.tmp'
@@ -388,6 +445,7 @@ class TypeClassifier(Logger):
         tab3 = self._s['path']['tmp'] + sep + 'typeclassify_afterprep.tmp'
         tab4 = self._s['path']['tmp'] + sep + 'typeclassify_aftermulti.tmp'
         self._s['tmpfiles'].extend([tab1, tab2, tab3, tab4])
+
 
         self._CreateTabFile(input, tab1)
 
@@ -431,28 +489,87 @@ class TypeClassifier(Logger):
                         elem.text is not None:
                     textstring += elem.text.strip() + ' *** '
                 # do we need to include IsPartOf (a qdc element)?
-                elif elem.tag == '{%s}type' % dcNS and \
-                        elem.attrib.get('{%s}type' % xsiNS) \
-                        == 'olac:linguistic-type' and \
-                        elem.attrib.get('{%s}code' % oNS) is not None:
+                elif elem.tag == '{%s}type' % dcNS and (
+                        elem.attrib.get('{%s}type' % xsiNS) ==
+                        'olac:linguistic-type' or \
+                        elem.attrib.get('{%s}type' % xsiNS) ==
+                        'olac:resource-type') and \
+                        elem.attrib.get('{%s}code' % olacNS) is not None:
                     has_olac_type = 1
 
             # only write out records that don't have an olac type 
             if not has_olac_type:
                 textstring = utils.scrubtext(textstring)
                 outfile.write("%s\t\t%s\n" % (id, textstring))
+                self._sourcetext[id] = textstring
 
         outfile.close()
 
     def _RunMallet(self, tabinfile, taboutfile, classifier):
-        pass
+        origdir = os.getcwd()
+        os.chdir(self._basepath)
+        cmd = "java ResourceTypeClassify %s %s %s" % (
+                classifier, tabinfile, taboutfile)
+        self.Log(cmd, True)
+        subprocess.Popen(cmd.split(" "), 
+                stdout=open(os.devnull, 'w')).communicate()
+        os.chdir(origdir)
 
-    def _MergeResults(self, xmlIn, tabOut, xmlOut):
-        pass
+    def _MergeResults(self, xmlIn, tabIn, xmlOut):
+        tabfile = codecs.open(tabIn, 'r', 'utf-8')
+        doc = etree.parse(xmlIn)
+        root = doc.getroot()
+        dcNS = 'http://purl.org/dc/elements/1.1/'
+        xsiNS = 'http://www.w3.org/2001/XMLSchema-instance'
+        olacNS = 'http://www.language-archives.org/OLAC/1.1/'
+        oaiNS = 'http://www.openarchives.org/OAI/2.0/'
+
+        # load answers into a dictionary
+        enrichedrecords = dict()
+        for line in tabfile:
+            id, resulttext = line.split('\t\t')
+            result = resulttext[0:resulttext.index(':')]
+            enrichedrecords[id] = result
+        tabfile.close()
+
+        # loop over each OLAC record node
+        for oairec in root.findall('.//{%s}record' % oaiNS):
+            textstring = ''
+            has_olac_type = 0
+            id = oairec.find('{%s}header' % \
+                    oaiNS).find('{%s}identifier' % oaiNS).text.strip()
+
+            olacrec = oairec.find('{%s}metadata' % \
+                    oaiNS).find('{%s}olac' % olacNS)
+            if id in enrichedrecords:
+                olacrec.append(self._makeOLACType(enrichedrecords[id]))
+
+        # write out the modified XML file
+        outfile = codecs.open(xmlOut, 'w', 'utf-8')
+        etree.ElementTree(root).write(outfile)
+        outfile.close()
+
 
     def _PrepForMulti(self, tabIn, tabOut):
-        # only keeps lines in the tab file that have been classified as YES
-        pass
+        infile = codecs.open(tabIn, 'r', 'utf-8')
+        outfile = codecs.open(tabOut, 'w', 'utf-8')
+
+        for line in infile.readlines():
+            id, response = line.split('\t\t')
+            if response.startswith('YES'):
+                outfile.write("%s\t\t%s\n" % (id, self._sourcetext[id]))
+        infile.close()
+        outfile.close()
+
+
+    def _makeOLACType(self, type):
+        e = etree.Element("{http://purl.org/dc/elements/1.1/}type")
+        #e.attrib['xsi:type'] = 'olac:linguistic-type'
+        e.attrib['xsi:type'] = 'olac:resource-type'
+        e.attrib['olac:code'] = type
+        if self._s['debug']:
+            e.attrib['from'] = 'GUESS'
+        return e
 
 
 class SubjectLanguageClassifier(Logger):
@@ -480,7 +597,7 @@ class SubjectLanguageClassifier(Logger):
 
         dcNS = 'http://purl.org/dc/elements/1.1/'
         xsiNS = 'http://www.w3.org/2001/XMLSchema-instance'
-        oNS = 'http://www.language-archives.org/OLAC/1.1/'
+        olacNS = 'http://www.language-archives.org/OLAC/1.1/'
         for rec in root.findall('.//{%s}olac' % 'http://www.language-archives.org/OLAC/1.1/'):
             desc = ''
             subj = ''
@@ -499,7 +616,7 @@ class SubjectLanguageClassifier(Logger):
 
                 if elem.tag == '{%s}subject' % dcNS and \
                         elem.attrib.get('{%s}type' % xsiNS) == 'olac:language' \
-                        and  elem.attrib.get('{%s}code' % oNS) is not None:
+                        and  elem.attrib.get('{%s}code' % olacNS) is not None:
                     has_olac_subject = 1
 
             # only run classifier for those records that don't have already have an olac subject 
@@ -512,18 +629,7 @@ class SubjectLanguageClassifier(Logger):
 
             if len(codes) > 0:
                 for code in codes:
-                    #rec.insert(0, makeOLACSubject(code))
                     rec.append(self._makeOLACSubject(code))
-
-        # register our namespaces
-        etree._namespace_map['http://purl.org/dc/terms/'] = 'dcterms'
-        etree._namespace_map['http://www.w3.org/2001/XMLSchema-instance'] = 'xsi'
-        etree._namespace_map['http://www.openarchives.org/OAI/2.0/'] = 'oai'
-        etree._namespace_map['http://www.openarchives.org/OAI/2.0/static-repository'] = 'sr'
-        etree._namespace_map['http://www.language-archives.org/OLAC/1.1/'] = 'olac'
-        etree._namespace_map['http://purl.org/dc/elements/1.1/'] = 'dc'
-        etree._namespace_map['http://www.language-archives.org/OLAC/1.1/olac-archive'] = 'olac-archive'
-        etree._namespace_map['http://www.openarchives.org/OAI/2.0/oai-identifier'] = 'oai-identifier'
 
         # write out the modified XML file
         etree.ElementTree(root).write(codecs.open(output, 'w', 'utf-8'))
