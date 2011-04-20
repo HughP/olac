@@ -428,6 +428,8 @@ class TypeClassifier(Logger):
                 'lib' + sep + 'trove-2.0.2.jar',
                 'lib' + sep + 'bsh.jar'
                 ]
+        if 'CLASSPATH' not in os.environ:
+            os.environ['CLASSPATH'] = ''
         os.environ['CLASSPATH'] += (os.pathsep + home + sep).join(classpath)
 
 
