@@ -32,8 +32,8 @@ class Marc2OlacCrosswalkRunner(Logger):
         #if os.path.exists(basepath + sep + __file__):
         #    paths.base = os.path.dirname(basepath)
         p['lib'] = p['base'] + sep + 'lib'
-        p['tmp'] = p['base'] + sep + 'tmp'
         p['proj'] = p['base'] + sep + self.projectName
+        p['tmp'] = p['proj'] + sep + 'debug'
 
         # are these going to be used anymore???
         #state.set('system','sep',sep)

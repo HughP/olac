@@ -31,6 +31,8 @@ class CrosswalkPipeline(Logger):
 
 
     def Initialize(self, mode='normal'):
+        if not os.path.exists(self._s['path']['tmp']):
+            os.mkdir(self._s['path']['tmp'])
         self._PrepareResources(mode)
         self._SetupInputFiles()
 
@@ -63,6 +65,10 @@ class CrosswalkPipeline(Logger):
         if not self._s['debug']:
             for f in self._s['tmpfiles']:
                 os.remove(f)
+
+        # remove tmp directory
+        if not self._s['debug']:
+            os.rmdir(self._s['path']['tmp'])
 
 
     def _GenerateHTML(self, mode='normal'):
