@@ -82,8 +82,6 @@ class XMLSplit(XMLFilterBase):
 
         
 if __name__ == "__main__":
-    import sys
-
     # chunk size from command line optional
     if len(sys.argv) > 2:
         chunksize = sys.argv[2]

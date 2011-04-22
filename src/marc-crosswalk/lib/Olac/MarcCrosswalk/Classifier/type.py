@@ -5,9 +5,8 @@ import subprocess
 import codecs
 import xml.etree.ElementTree as etree
 from os import sep
-from logger import Logger
-import crosswalkutils as utils
-from classifierbase import ClassifierBase
+from Olac.MarcCrosswalk.Classifier.base import ClassifierBase
+from Olac.MarcCrosswalk import utils
 
 class TypeClassifier(ClassifierBase):
     def __init__(self, state):

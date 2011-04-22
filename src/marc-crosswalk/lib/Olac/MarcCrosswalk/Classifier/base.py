@@ -1,6 +1,6 @@
 import sys
 import xml.etree.ElementTree as etree
-from logger import Logger
+from Olac.MarcCrosswalk.logger import Logger
 
 class ClassifierBase(Logger):
     def __init__(self, state):
