@@ -21,7 +21,7 @@ except ImportError, e:
 class CrosswalkPipeline(Logger):
 
     def __init__(self, state):
-        Logger.__init__(self, sys.stdout, 'Pipeline')
+        Logger.__init__(self, sys.stdout, state['verbose'], 'Pipeline')
         self._s = state # internal state of the crosswalk
         self._log = sys.stdout
         self._subjLangClassifier = None
@@ -81,9 +81,8 @@ class CrosswalkPipeline(Logger):
             root, ext = os.path.splitext(input)
             input = root + '-inverse' + ext
         self.Log("Generating HTML output to %s ..." % os.path.basename(output), False, False)
-        xslt = XSLTransform(self._s['path']['lib'])
-        xslt.SetVerbose(self._s['verbose'])
-        xslt.SetLabel('GenerateHTML')
+        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt.label = 'GenerateHTML'
         xslt.DoTransform(stylesheet, input, output)
         xslt.Finish()
 
@@ -177,9 +176,8 @@ class CrosswalkPipeline(Logger):
         # TODO this loop would be more readable if implemented using a state machine (switch) instead of if/else
             if len(self._files) > 1: self.Log(str(ctr), False, False) 
 
-            xslt = XSLTransform(self._s['path']['lib'])
-            xslt.SetLabel('LOOP')
-            xslt.SetVerbose(self._s['verbose'])
+            xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+            xslt.label = 'LOOP'
 
             # MARC Filter
             stylesheet = self._s['path']['tmp'] + sep + \
@@ -314,10 +312,9 @@ class CrosswalkPipeline(Logger):
 
 
     def _CompileMARCFilters(self, mode='normal'):
-        xslt = XSLTransform(self._s['path']['lib'])
-        xslt.SetLabel('MARCFilter')
+        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt.label = 'MARCFilter'
         xslt.Log("Compiling MARC filter", False, False)
-        xslt.SetVerbose(self._s['verbose'])
         params = 'version="2.0"'
 
         stylesheet = self._s['path']['lib'] + sep + 'marc-filter-compile.xsl'
@@ -337,9 +334,8 @@ class CrosswalkPipeline(Logger):
 
     def _CompileOLACFilters(self, mode='normal'):
         params = 'version="2.0"'
-        xslt = XSLTransform(self._s['path']['lib'])
-        xslt.SetLabel('OLACFilter')
-        xslt.SetVerbose(self._s['verbose'])
+        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt.label = 'OLACFilter'
         xslt.Log("Compiling OLAC filter", False, False)
         stylesheet = self._s['path']['lib'] + sep + 'olac-filter-compile.xsl'
         input = self._s['path']['proj'] + sep + \
@@ -374,8 +370,8 @@ class CrosswalkPipeline(Logger):
 
 class XSLTransform(Logger):
 
-    def __init__(self, libpath):
-        Logger.__init__(self, sys.stdout, 'XSLT')
+    def __init__(self, libpath, isverbose = False):
+        Logger.__init__(self, sys.stdout, isverbose, 'XSLT')
         self._libpath = libpath
 
     def DoTransform(self, stylesheet, input, output, params = ''):
@@ -391,12 +387,12 @@ class XSLTransform(Logger):
 
 class TypeClassifier(Logger):
     def __init__(self, state):
-        Logger.__init__(self, sys.stdout, 'TypeC')
+        Logger.__init__(self, sys.stdout, state['verbose'], 'TypeC')
         self._s = state
         self._sourcetext = dict()
-        self._basepath = "..%sclassifier%sresource-type" % (sep, sep)
-        if not os.path.exists(
-                self._basepath + sep + 'ResourceTypeClassify.class'):
+        self.PathToClassifier = sep.join(['..', 'classifier', 'resource-type',
+            'ResourceTypeClassify.class'])
+        if not os.path.exists(self.PathToClassifier):
             self._compileWithJava()
 
     @classmethod
@@ -406,7 +402,6 @@ class TypeClassifier(Logger):
             return True
         else:
             return False
-
 
 #        # if mallet on windows is installed, the mallet.bat should be in the path
 #        try:
@@ -426,23 +421,24 @@ class TypeClassifier(Logger):
     """SetEnvironment() sets up the os environment variables for correct
     compilation of the mallet-based classifier using javac"""
     def SetEnvironment(self): 
-        home = os.environ['MALLET_HOME']
-        os.environ['PATH'] += os.pathsep + home + sep + 'bin'
-        classpath = [
-                'src',
-                'class',
-                'lib' + sep + 'trove-2.0.2.jar',
-                'lib' + sep + 'bsh.jar'
+        mallet = os.environ['MALLET_HOME'] + sep
+        os.environ['PATH'] += os.pathsep + mallet + 'bin'
+        classpaths = [
+                '.',
+                mallet + 'src',
+                mallet + 'class',
+                mallet + 'lib' + sep + 'trove-2.0.2.jar',
+                mallet + 'lib' + sep + 'bsh.jar'
                 ]
-        if 'CLASSPATH' not in os.environ:
-            os.environ['CLASSPATH'] = ''
-        os.environ['CLASSPATH'] += (os.pathsep + home + sep).join(classpath)
+
+        os.environ['CLASSPATH'] = os.pathsep.join(classpaths)
+        self.Log('classpath = ' + os.environ['CLASSPATH'], True)
 
 
     def _compileWithJava(self):
             origdir = os.getcwd()
-            os.chdir(self._basepath)
-            cmd = "javac ResourceTypeClassify.java"
+            os.chdir(os.path.dirname(self.PathToClassifier))
+            cmd = "javac -d . ResourceTypeClassify.java"
             os.system(cmd)
             os.chdir(origdir)
 
@@ -515,12 +511,13 @@ class TypeClassifier(Logger):
 
     def _RunMallet(self, tabinfile, taboutfile, classifier):
         origdir = os.getcwd()
-        os.chdir(self._basepath)
+        os.chdir(os.path.dirname(self.PathToClassifier))
         cmd = "java ResourceTypeClassify %s %s %s" % (
                 classifier, tabinfile, taboutfile)
         self.Log(cmd, True)
-        subprocess.Popen(cmd.split(" "), 
-                stdout=open(os.devnull, 'w')).communicate()
+        cmdout = subprocess.Popen(cmd.split(" "), 
+                stdout=subprocess.PIPE).communicate()[0]
+        self.Log(cmdout, True)
         os.chdir(origdir)
 
     def _MergeResults(self, xmlIn, tabIn, xmlOut):
@@ -582,7 +579,7 @@ class TypeClassifier(Logger):
 
 class SubjectLanguageClassifier(Logger):
     def __init__(self, state):
-        Logger.__init__(self, sys.stdout, 'SubjLangC')
+        Logger.__init__(self, sys.stdout, state['verbose'], 'SubjLangC')
         self._s = state
 
         self.Log("Loading subject language classifier...")
