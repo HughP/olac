@@ -1,8 +1,5 @@
 import os
-import re
 import codecs
-import sys
-import xml.etree.ElementTree as etree
 import shutil
 
 # a "safe" move function, with a special error message

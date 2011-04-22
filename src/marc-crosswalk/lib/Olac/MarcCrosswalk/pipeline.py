@@ -6,16 +6,16 @@ import codecs
 import xml.etree.ElementTree as etree
 from os import sep
 from logger import Logger
-from subjectlanguageclassifier import SubjectLanguageClassifier
-from typeclassifier import TypeClassifier
+from Olac.MarcCrosswalk.Classifier.language import SubjectLanguageClassifier
+from Olac.MarcCrosswalk.Classifier.type import TypeClassifier
+from Olac.MarcCrosswalk import utils
 import shutil
-import crosswalkutils as utils
 
 try:
     sys.path.append('../classifier/subject-language')
     from iso639_classifier import iso639Classifier
 except ImportError, e:
-    print 'ImportError:', e, 'LanguageSubjectClassifier will be disabled.'
+    print 'ImportError:', e, 'SubjectLanguageClassifier will be disabled.'
 
 class CrosswalkPipeline(Logger):
 

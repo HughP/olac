@@ -2,9 +2,8 @@ import sys
 import codecs
 import xml.etree.ElementTree as etree
 from os import sep
-from logger import Logger
 import pickle
-from classifierbase import ClassifierBase
+from Olac.MarcCrosswalk.Classifier.base import ClassifierBase
 
 class SubjectLanguageClassifier(ClassifierBase):
     def __init__(self, state):
