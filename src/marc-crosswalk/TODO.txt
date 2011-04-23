@@ -9,9 +9,15 @@ X - add a --stop-after= (olacfilter) | marcfilter | crosswalk | enrichment
 
 X - Gary will work on redoing the marc filter
     
-- finish implementing the classifier stage of the pipeline
+X - finish implementing the classifier stage of the pipeline
 
 testing priority:
 NAA data - does it successfully enrich records that have neither resource type or subject language
 
-put together a TODO list in the repository
+
+4/23 changes TODO:
+
+- subject language classifier should not incorporate dc:discription if it has an xsi:type of URI.  (see email for details)
+- subject language classifier returns "high score" as answer?  what does this mean?
+- binary type classifier has horrible results.  what's going on?
+- are we using an old multi-type classifier?
