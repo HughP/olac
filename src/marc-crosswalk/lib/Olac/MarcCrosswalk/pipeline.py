@@ -80,7 +80,8 @@ class CrosswalkPipeline(Logger):
             root, ext = os.path.splitext(input)
             input = root + '-inverse' + ext
         self.Log("Generating HTML output to %s ..." % os.path.basename(output), False, False)
-        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt = XSLTransform(self._s['path']['lib'], 
+                self._s.get('system', 'java_params'), self._s['verbose'])
         xslt.label = 'GenerateHTML'
         xslt.DoTransform(stylesheet, input, output)
         xslt.Finish()
@@ -164,7 +165,8 @@ class CrosswalkPipeline(Logger):
         # TODO this loop would be more readable if implemented using a state machine (switch) instead of if/else
             if len(self._files) > 1: self.Log(str(ctr), False, False) 
 
-            xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+            xslt = XSLTransform(self._s['path']['lib'],
+                    self._s.get('system', 'java_params'), self._s['verbose'])
             xslt.label = 'LOOP'
 
             # MARC Filter
@@ -300,7 +302,8 @@ class CrosswalkPipeline(Logger):
 
 
     def _CompileMARCFilters(self, mode='normal'):
-        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt = XSLTransform(self._s['path']['lib'],
+               self._s.get('system', 'java_params'), self._s['verbose'])
         xslt.label = 'MARCFilter'
         xslt.Log("Compiling MARC filter", False, False)
         params = 'version="2.0"'
@@ -322,7 +325,8 @@ class CrosswalkPipeline(Logger):
 
     def _CompileOLACFilters(self, mode='normal'):
         params = 'version="2.0"'
-        xslt = XSLTransform(self._s['path']['lib'], self._s['verbose'])
+        xslt = XSLTransform(self._s['path']['lib'],
+                self._s.get('system', 'java_params'), self._s['verbose'])
         xslt.label = 'OLACFilter'
         xslt.Log("Compiling OLAC filter", False, False)
         stylesheet = self._s['path']['lib'] + sep + 'olac-filter-compile.xsl'
@@ -358,14 +362,15 @@ class CrosswalkPipeline(Logger):
 
 class XSLTransform(Logger):
 
-    def __init__(self, libpath, isverbose = False):
+    def __init__(self, libpath, javaparams, isverbose = False):
         Logger.__init__(self, sys.stdout, isverbose, 'XSLT')
         self._libpath = libpath
+        self._params = javaparams
 
     def DoTransform(self, stylesheet, input, output, params = ''):
         saxonfilepath = self._libpath + sep + "saxon9.jar" 
-        systemstring = 'java -jar "%s" -xsl:"%s" -s:"%s" -o:"%s" %s' % \
-            (saxonfilepath, stylesheet, input, output, params)
+        systemstring = 'java %s -jar "%s" -xsl:"%s" -s:"%s" -o:"%s" %s' % \
+            (self._params, saxonfilepath, stylesheet, input, output, params)
         self.Log(systemstring, True)
         self.Log('.', False, False) # progress indicator
         os.system(systemstring)
