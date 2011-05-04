@@ -9,6 +9,7 @@ from logger import Logger
 from Olac.MarcCrosswalk.Classifier.language import SubjectLanguageClassifier
 from Olac.MarcCrosswalk.Classifier.type import TypeClassifier
 from Olac.MarcCrosswalk import utils
+from Olac.MarcCrosswalk.xsltransform import XSLTransform
 import shutil
 
 try:
