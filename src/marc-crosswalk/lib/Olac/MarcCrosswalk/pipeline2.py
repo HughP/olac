@@ -4,12 +4,52 @@ import os.path
 import codecs
 from os import sep
 from Olac.MarcCrosswalk import utils
-from Olac.MarcCrosswalk import pipeline
+from Olac.MarcCrosswalk.pipeline import CrosswalkPipeline
+from Olac.MarcCrosswalk.xsltransform import XSLTransform
 
 class CrosswalkPipelineForOAI(CrosswalkPipeline):
 
     def __init__(self, state):
         CrosswalkPipeline.__init__(self, state)
+
+
+    def _SetupInputFiles(self):
+        input = self._s['path']['proj'] + sep + self._s.get('system', 'input')
+
+        # if the input is a single file, split the XML file with SAX
+        if os.path.isfile(input):
+            import xml.sax
+            import saxsplit2
+            chunksize = self._s.get('system','records_per_transform')
+            parser = xml.sax.make_parser()
+            generator = xml.sax.handler.ContentHandler() # null sink
+            splitter = saxsplit2.XMLSplit(parser, generator, input, chunksize)
+            splitter.setTempDir(self._s['path']['tmp'])
+            splitter.setVerbose(True)
+
+            # this creates a bunch of temp files
+            self.Log("Creating %s record batches using SAX" % (chunksize), False, False)
+            splitter.parse(input)
+            self._files = splitter.getChunkNames()
+
+        else: # this is a directory
+            self.Log("Using input files from: %s" % input, True)
+
+            # check if backup directory exists; if it does, previous run failed.
+            # restore backup directory
+            if os.path.isdir(input + '_backup'):
+                self.Log("Warning: Previous run may have failed. Restoring backup files...")
+                if os.path.isdir(input): shutil.rmtree(input)
+                os.rename(input + '_backup',input)
+            # make backup of directory
+            self.Log("Backing up input files...")
+            shutil.copytree(input,input + '_backup')
+            # only use xml files
+            directory = []
+            for f in os.listdir(input):
+                base,ext = os.path.splitext(f)
+                if ext == '.xml': directory.append(f)
+            self._files = [sep.join([input,p]) for p in directory]
 
 
     def _ProcessLoop(self, mode='normal'):
