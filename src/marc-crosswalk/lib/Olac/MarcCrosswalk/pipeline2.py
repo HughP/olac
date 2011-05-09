@@ -2,15 +2,35 @@ import sys
 import os
 import os.path
 import codecs
+import shutil
 from os import sep
 from Olac.MarcCrosswalk import utils
 from Olac.MarcCrosswalk.pipeline import CrosswalkPipeline
 from Olac.MarcCrosswalk.xsltransform import XSLTransform
+from Olac.MarcCrosswalk.Classifier.language import SubjectLanguageClassifier
+from Olac.MarcCrosswalk.Classifier.type2 import TypeClassifierForOAI
 
 class CrosswalkPipelineForOAI(CrosswalkPipeline):
 
     def __init__(self, state):
         CrosswalkPipeline.__init__(self, state)
+
+
+    def _PrepareResources(self, mode='normal'):
+        self._CompileMARCFilters(mode)
+        if self._s['laststage'] == 'olacfilter':
+            self._CompileOLACFilters(mode)
+        if self._s['laststage'] != 'marcfilter':
+            self._WriteImportMap()
+        if self._s['laststage'] != 'marcfilter' and self._s['laststage'] != 'crosswalk':
+            if 'nltk' in sys.modules:
+                self._subjLangClassifier = SubjectLanguageClassifier(self._s)
+            if TypeClassifierForOAI.MalletIsInstalled():
+                self._typeClassifier = TypeClassifierForOAI(self._s)
+                self._typeClassifier.SetEnvironment()
+            else:
+                self.Log("Mallet is not installed.  Type Classifier will be skipped.")
+                self._typeClassifier = None
 
 
     def _SetupInputFiles(self):
