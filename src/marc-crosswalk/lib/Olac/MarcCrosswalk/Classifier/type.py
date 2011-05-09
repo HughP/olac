@@ -161,8 +161,10 @@ class TypeClassifier(ClassifierBase):
         enrichedrecords = dict()
         for line in tabfile:
             id, resulttext = line.split('\t\t')
-            result = resulttext[0:resulttext.index(':')]
-            enrichedrecords[id] = result
+            results = resulttext.split(' ')
+            result1, threshold1 = results[0].split(':')
+            if float(threshold1) >= .70:
+                enrichedrecords[id] = result1
         tabfile.close()
 
         # loop over each OLAC record node
