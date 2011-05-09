@@ -76,17 +76,19 @@ class TypeClassifier(ClassifierBase):
         self._s['tmpfiles'].extend([tab1, tab2, tab3, tab4])
 
 
+#        self._CreateTabFile(input, tab1)
+#
+#        # Binary Classifier
+#        classifierfile = 'resourceTypeBinaryClassifier.mallet'
+#        self._RunMallet(tab1, tab2, classifierfile)
+#
+#        self._PrepForMulti(tab2, tab3)
+
         self._CreateTabFile(input, tab1)
-
-        # Binary Classifier
-        classifierfile = 'resourceTypeBinaryClassifier.mallet'
-        self._RunMallet(tab1, tab2, classifierfile)
-
-        self._PrepForMulti(tab2, tab3)
 
         # Multi Classifier
         classifierfile = 'resourceTypeMultiClassifier.mallet'
-        self._RunMallet(tab3, tab4, classifierfile)
+        self._RunMallet(tab1, tab4, classifierfile)
 
         self._MergeResults(input, tab4, output)
 
@@ -108,7 +110,8 @@ class TypeClassifier(ClassifierBase):
                     oaiNS).find('{%s}olac' % olacNS)
             for elem in olacrec:
                 if elem.tag == '{%s}description' % dcNS and \
-                        elem.text is not None:
+                        elem.text is not None and \
+                        elem.attrib.get('{%s}type' % xsiNS) != 'dcterms:URI':
                     textstring += elem.text.strip() + ' *** '
                 elif elem.tag == '{%s}subject' % dcNS and \
                         elem.attrib.get('{%s}type' % xsiNS) == 'dcterms:LCSH' \

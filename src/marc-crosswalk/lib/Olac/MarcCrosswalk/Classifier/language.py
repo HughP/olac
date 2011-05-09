@@ -38,7 +38,8 @@ class SubjectLanguageClassifier(ClassifierBase):
             has_olac_subject = 0
             for elem in rec:
                 if elem.tag == '{%s}description' % dcNS and \
-                        elem.text is not None:
+                        elem.text is not None and \
+                        elem.attrib.get('{%s}type' % xsiNS) != 'dcterms:URI':
                     desc += elem.text + ' \n '
                 elif elem.tag == '{%s}subject' % dcNS and \
                         elem.text is not None:
