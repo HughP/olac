@@ -15,7 +15,7 @@ import optparse
 import codecs
 from nltk import *
 from utilities.util import *
-from iso639_classifier import iso639_classifier
+from iso639_classifier import iso639Classifier
 
 def main():
     '''Saves a pickled classifier.  Meant to be called from command line.'''
@@ -28,7 +28,7 @@ def main():
         parser.print_help()
         sys.exit(1)
 
-    iso639c = iso639_classifier()
+    iso639c = iso639Classifier()
     iso639c.train(args[0])
     if options.stoplist:
         iso639c.trim_from_file(options.stoplist)
