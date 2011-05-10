@@ -11,10 +11,118 @@ kew	wn	Kewa
 dgc	wn	Dumagat (Casiguran)
 kle	wn	Kulunge Rai
 fss	sn	Finnish-Swedish Sign Language
-qut	wn	West Central Quich√©
-yuz	sn	Yurakar√©
+qut	wn	West Central QuichÈ
+yuz	sn	YurakarÈ
 sci	wn	Sri Lanka Malay
 nmn	wn	Western !Xoon
 bwm	wn	Mudukumo
-ygw	wn	Kuk…®na Yaguye
+ygw	wn	Kuk?na Yaguye
 sns	wn	Nahavaq
+# Pseudo code for formal languages
+qqq	sn	formal language
+qqq	sn	query language
+qqq	sn	database language
+qqq	sn	programming language
+qqq	sn	machine language
+qqq	sn	assembly language
+qqq	sn	descriptor language
+qqq	sn	tag language
+qqq	sn	markup language
+qqq	sn	artificial language
+qqq	sn	equational language
+qqq	sn	information language
+qqq	sn	declarative language
+qqq	sn	procedural language
+qqq	sn	object-oriented language
+qqq	sn	high-level language
+qqq	sn	formal languages
+qqq	sn	query languages
+qqq	sn	database languages
+qqq	sn	programming languages
+qqq	sn	machine languages
+qqq	sn	assembly languages
+qqq	sn	descriptor languages
+qqq	sn	tag languages
+qqq	sn	markup languages
+qqq	sn	artificial languages
+qqq	sn	equational languages
+qqq	sn	information languages
+qqq	sn	declarative languages
+qqq	sn	procedural languages
+qqq	sn	object-oriented languages
+qqq	sn	high-level languages
+# Grammar types
+qqq	sn	regular language
+qqq	sn	finite-state language
+qqq	sn	context-free language
+qqq	sn	context-sensitive language
+qqq	sn	sequential language
+qqq	sn	linear language
+qqq	sn	LL-regular language
+qqq	sn	LL language
+qqq	sn	LL(1) language
+qqq	sn	LL(k) language
+qqq	sn	LR language
+qqq	sn	LR(1) language
+qqq	sn	LR(k) language
+qqq	sn	LALR language
+qqq	sn	LALR(1) language
+qqq	sn	LALR(k) language
+qqq	sn	regular grammar
+qqq	sn	finite-state grammar
+qqq	sn	context-free grammar
+qqq	sn	context-sensitive grammar
+qqq	sn	sequential grammar
+qqq	sn	linear grammar
+qqq	sn	LL-regular grammar
+qqq	sn	LL grammar
+qqq	sn	LL(1) grammar
+qqq	sn	LL(k) grammar
+qqq	sn	LR grammar
+qqq	sn	LR(1) grammar
+qqq	sn	LR(k) grammar
+qqq	sn	LALR grammar
+qqq	sn	LALR(1) grammar
+qqq	sn	LALR(k) grammar
+qqq	sn	regular languages
+qqq	sn	finite-state languages
+qqq	sn	context-free languages
+qqq	sn	context-sensitive languages
+qqq	sn	sequential languages
+qqq	sn	linear languages
+qqq	sn	LL-regular languages
+qqq	sn	LL languages
+qqq	sn	LL(1) languages
+qqq	sn	LL(k) languages
+qqq	sn	LR languages
+qqq	sn	LR(1) languages
+qqq	sn	LR(k) languages
+qqq	sn	LALR languages
+qqq	sn	LALR(1) languages
+qqq	sn	LALR(k) languages
+qqq	sn	regular grammars
+qqq	sn	finite-state grammars
+qqq	sn	context-free grammars
+qqq	sn	context-sensitive grammars
+qqq	sn	sequential grammars
+qqq	sn	linear grammars
+qqq	sn	LL-regular grammars
+qqq	sn	LL grammars
+qqq	sn	LL(1) grammars
+qqq	sn	LL(k) grammars
+qqq	sn	LR grammars
+qqq	sn	LR(1) grammars
+qqq	sn	LR(k) grammars
+qqq	sn	LALR grammars
+qqq	sn	LALR(1) grammars
+qqq	sn	LALR(k) grammars
+# Other suspeicious terms
+qqq	wn	compiler
+qqq	wn	abstract syntax
+qqq	wn	machine learning
+qqq	wn	intermediate language
+qqq	wn	intermediate languages
+qqq	wn	computational complexity
+qqq	wn	Turing
+qqq	wn	automaton
+qqq	wn	automata
