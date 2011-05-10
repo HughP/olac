@@ -53,3 +53,15 @@ def getstringfromfile(filename,start,end):
 def scrubtext(str):
     # removes non-ascii text
     return "".join(i for i in str if ord(i)<128)
+
+def scrubfile(filename):
+    tempfile = 'tempfileforasciiscrubbing'
+    try:
+        outfile = codecs.open(tempfile, 'w', 'utf-8')
+        for line in codecs.open(filename, 'r', 'utf-8'):
+            outfile.write(scrubtext(line))
+        outfile.close()
+    except:
+        exit()
+    os.remove(filename)
+    os.rename(tempfile, filename)
