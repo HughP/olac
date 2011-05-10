@@ -420,6 +420,7 @@ class iso639Classifier:
         tokens = wordpunct_tokenize(word)
         orig_tokens = tokens
         delete_node = self.tree
+        # print "key ", tokens   # for debugging when stoplist had ill-formed items
         delete_key = tokens[0] 
         node = self.tree
         # traverse the tree until we get to the end
