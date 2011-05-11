@@ -1,4 +1,4 @@
-# Extra data that isn't in any of our data sources.
+﻿# Extra data that isn't in any of our data sources.
 deu	sn	German
 cmn	sn	Chinese
 ara	sn	Arabic
@@ -11,12 +11,12 @@ kew	wn	Kewa
 dgc	wn	Dumagat (Casiguran)
 kle	wn	Kulunge Rai
 fss	sn	Finnish-Swedish Sign Language
-qut	wn	West Central Quich�
-yuz	sn	Yurakar�
+qut	wn	West Central Quiché
+yuz	sn	Yurakaré
 sci	wn	Sri Lanka Malay
 nmn	wn	Western !Xoon
 bwm	wn	Mudukumo
-ygw	wn	Kuk?na Yaguye
+ygw	wn	Kukɨna Yaguye
 sns	wn	Nahavaq
 # Pseudo code for formal languages
 qqq	sn	formal language
