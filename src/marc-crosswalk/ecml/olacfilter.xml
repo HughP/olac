@@ -2,39 +2,14 @@
 <?oxygen RNGSchema="file:../lib/olac-filter.rnc" type="compact"?>
 <olac-filter>
     <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:title>Sample OLAC filter</dc:title>
-        <dc:contributor>Gary Simons</dc:contributor>
-        <dc:date>2 July 2009</dc:date>
-        <dc:description>This is a sample filter for test purposes.</dc:description>
+        <dc:title>Default OLAC filter</dc:title>
+        <dc:contributor>Chris Hirt</dc:contributor>
+        <dc:date>7 August 2009</dc:date>
+        <dc:description>Default: Retains all records.  Nothing is filtered</dc:description>
     </header>
     <reject-rules>
     </reject-rules>
     <retain-rules>
-       <retain-all></retain-all>
-       <!-- <test name="Dictionary or grammar">
-            <dc-element tag="dc:subject">
-                <content test="contains">
-                    <text>Dictionaries</text>
-                    <text>Grammar</text>
-                </content>
-            </dc-element>
-        </test> -->
-        <!-- If a resource has at least one identifiable subject language
-            and it has at least one identifiable language resource type,
-            then it is a language resource. -->
-      <!--  <test>
-            <dc-element tag="dc:subject">
-                <type test="equals">
-                    <text>olac:language</text>
-                    <text>dcterms:ISO639-2</text>
-                </type>
-            </dc-element>
-            <dc-element tag="dc:type">
-                <type test="starts-with">
-                    <text>olac</text><!- - e.g. linguistic type or
-                    discourse type - ->
-                </type>
-            </dc-element>
-        </test> -->
+        <retain-all/>
     </retain-rules>
 </olac-filter>
