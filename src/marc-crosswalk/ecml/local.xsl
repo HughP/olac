@@ -12,6 +12,7 @@
     xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
     xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   
 
     <!-- Fill in the date for this version of the metadata;
           see Implementers FAQ for full explanation -->
@@ -167,10 +168,10 @@
         </xsl:choose>
     </xsl:variable>
     <dc:subject>
-        <xsl:if test="$no_code = 'yes' and $code2 = 'failed' ">
+        <xsl:if test="$debug = 'yes' and $code2 = 'failed' ">
             <xsl:attribute name="no_code">1</xsl:attribute>
         </xsl:if>
-        <xsl:if test="$marc_tags='yes'">
+        <xsl:if test="$debug='yes'">
             <xsl:attribute name="from">690a</xsl:attribute>
         </xsl:if>
         <xsl:if test="$lang != '' ">
@@ -182,7 +183,7 @@
     <xsl:if test="$code2 != '' and $code2 != 'failed' ">
         <dc:subject xsi:type="olac:language">
             <xsl:attribute name="olac:code" select="$code2"/>
-            <xsl:if test="$marc_tags='yes'">
+            <xsl:if test="$debug='yes'">
                 <xsl:attribute name="from">690a</xsl:attribute>
             </xsl:if>
         </dc:subject>
