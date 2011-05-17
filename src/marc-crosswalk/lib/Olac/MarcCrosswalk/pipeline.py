@@ -55,7 +55,10 @@ class CrosswalkPipeline(Logger):
         if os.path.isfile(source):
             if not self._s['debug']: # debug mode leaves tmp files around
                 for f in self._files:
-                    os.remove(f)
+                    try:
+                        os.remove(f)
+                    except:
+                        self.Log("Error: Could not remove temp file %s" % f)
         else:
             # remove processing directory, restore original files from backup
             shutil.rmtree(source)
@@ -64,7 +67,10 @@ class CrosswalkPipeline(Logger):
         # clean up other tmp files
         if not self._s['debug']:
             for f in self._s['tmpfiles']:
-                os.remove(f)
+                try:
+                    os.remove(f)
+                except:
+                    self.Log("Error: Could not remove temp file %s" % f)
 
         # remove tmp directory
         if not self._s['debug']:
@@ -216,10 +222,10 @@ class CrosswalkPipeline(Logger):
                     
                         # Filter: has OLAC type (asserts all records have an OLAC type)
                         # Are we sure that we need this step???  Maybe the subject language classifier has been improved?
-                        stylesheet = self._s['path']['lib'] + \
-                                sep + 'olac-filter-has-olac-type.xsl'
-                        xslt.DoTransform(stylesheet, f, tmpfile)
-                        if (not utils.tryToMove(tmpfile, f, stylesheet)): break
+                        #stylesheet = self._s['path']['lib'] + \
+                        #        sep + 'olac-filter-has-olac-type.xsl'
+                        #xslt.DoTransform(stylesheet, f, tmpfile)
+                        #if (not utils.tryToMove(tmpfile, f, stylesheet)): break
 
                     # Subject Classifier
                     if 'nltk' in sys.modules:
