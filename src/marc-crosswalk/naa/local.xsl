@@ -280,7 +280,7 @@
                         </xsl:if>
                     </xsl:variable>
                     <dc:subject xsi:type="dcterms:LCSH">
-                        <xsl:if test="$no_code = 'yes' and $code = 'failed' ">
+                        <xsl:if test="$debug = 'yes' and $code = 'failed' ">
                             <xsl:attribute name="no_code">1</xsl:attribute>
                         </xsl:if>
                         <xsl:call-template name="show-source"/>
@@ -362,7 +362,7 @@
             </xsl:if>
         </xsl:variable>
         <dc:subject>
-            <xsl:if test="$no_code = 'yes' and $code and $code = 'failed' and $code2 and $code2 = 'failed'">
+            <xsl:if test="$debug = 'yes' and $code and $code = 'failed' and $code2 and $code2 = 'failed'">
                     <xsl:attribute name="no_code">1</xsl:attribute>
             </xsl:if>
             <xsl:call-template name="show-source">

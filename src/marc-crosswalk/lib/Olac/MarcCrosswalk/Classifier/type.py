@@ -69,11 +69,13 @@ class TypeClassifier(ClassifierBase):
 
 
     def Classify(self, input, output):
-        tab1 = self._s['path']['tmp'] + sep + 'typeclassify_initialtabfile.tmp'
-        tab2 = self._s['path']['tmp'] + sep + 'typeclassify_afterbinary.tmp'
-        tab3 = self._s['path']['tmp'] + sep + 'typeclassify_afterprep.tmp'
-        tab4 = self._s['path']['tmp'] + sep + 'typeclassify_aftermulti.tmp'
-        self._s['tmpfiles'].extend([tab1, tab2, tab3, tab4])
+        inputbasename = os.path.basename(input)
+        tab1 = self._s['path']['tmp'] + sep + inputbasename + '-typeclassify_initialtabfile.tmp'
+        tab2 = self._s['path']['tmp'] + sep + inputbasename + '-typeclassify_afterbinary.tmp'
+        tab3 = self._s['path']['tmp'] + sep + inputbasename + '-typeclassify_afterprep.tmp'
+        tab4 = self._s['path']['tmp'] + sep + inputbasename + '-typeclassify_aftermulti.tmp'
+        #self._s['tmpfiles'].extend([tab1, tab2, tab3, tab4])
+        self._s['tmpfiles'].extend([tab1, tab4])
 
 
 #        self._CreateTabFile(input, tab1)
@@ -163,7 +165,7 @@ class TypeClassifier(ClassifierBase):
             id, resulttext = line.split('\t\t')
             results = resulttext.split(' ')
             result1, threshold1 = results[0].split(':')
-            if float(threshold1) >= .70:
+            if float(threshold1) >= .85:
                 enrichedrecords[id] = result1
         tabfile.close()
 

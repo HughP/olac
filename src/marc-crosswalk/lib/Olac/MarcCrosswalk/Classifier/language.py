@@ -63,7 +63,8 @@ class SubjectLanguageClassifier(ClassifierBase):
 
             if len(codes) > 0:
                 for code in codes:
-                    rec.append(self._makeOLACSubject(code))
+                    if code != 'high_score': # what does high_score mean, anyway?
+                        rec.append(self._makeOLACSubject(code))
 
         # write out the modified XML file
         etree.ElementTree(root).write(codecs.open(output, 'w', 'utf-8'))
