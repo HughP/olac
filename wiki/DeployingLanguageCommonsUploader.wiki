@@ -42,3 +42,8 @@ Edit PREFIX/django/languagecommons/settings.py to set the PREFIX variable.
 = Configure Apache =
 
 = Cron job =
+Add a cron job checks newly accepted items and uploads them to archive.org. For example,
+
+{{{
+*/15 * * * * (cd PREFIX/django/languagecommons; ./manage.py upload_items)
+}}}
