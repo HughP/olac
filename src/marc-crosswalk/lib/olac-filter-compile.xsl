@@ -2,7 +2,7 @@
 <!-- olac_filter-compile.xsl
         Compile the filter over an OLAC repository
         G. Simons, 2 July 2009
-        Last updated: 12 April 2011
+        Last updated: 21 May 2011
         
      There are two parameters:
         version   Defaults to "1.0". Call with value of "2.0" to
@@ -26,14 +26,14 @@
       <alias:stylesheet version="{$version}">
          <alias:param name="debug">no</alias:param>
          <alias:output method="xml" encoding="UTF-8"/>
-         <alias:template match="/sr:Repository">
+         <alias:template match="/sr:Repository" priority="2">
             <alias:copy>
                <alias:copy-of select="@*" />
                <alias:copy-of select="sr:Identify | sr:ListMetadataFormats"/>
                <alias:apply-templates select="sr:ListRecords"/>
             </alias:copy>
          </alias:template>
-         <alias:template match="sr:ListRecords">
+         <alias:template match="sr:ListRecords" priority="2">
             <alias:copy>
                <alias:copy-of select="@*" />
                <alias:apply-templates select="oai:record"/>
