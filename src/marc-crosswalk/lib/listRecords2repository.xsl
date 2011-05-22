@@ -6,7 +6,11 @@
      29 Apr 2011
 -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0"
-   xmlns:oai="http://www.openarchives.org/OAI/2.0/">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+   xmlns:olac="http://www.language-archives.org/OLAC/1.1/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/"
+   >
    
    <xsl:include href="importmap.xsl"/>
    <xsl:output method="xml"/>
@@ -26,6 +30,8 @@
          http://purl.org/dc/terms/
          http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd">
 
+         <!-- The following is in local.xsl which is imported
+              via importmap.xsl -->
          <xsl:call-template name="identify-response"/>
 
          <sr:ListMetadataFormats>
@@ -37,9 +43,20 @@
          </sr:ListMetadataFormats>
 
          <sr:ListRecords metadataPrefix="olac">
-            <xsl:copy-of select="oai:ListRecords/*"/>
+            <xsl:apply-templates select="oai:ListRecords/*"/>
          </sr:ListRecords>
       </sr:Repository>
    </xsl:template>
+   
+   <!-- Remove any subject language codes. This is cleaning up
+   leftovers from early work in the MySQL database. -->
+   <xsl:template match="dc:subject[@xsi:type='olac:language']"/>
 
+   <!--Copy anything else-->
+   <xsl:template match="*">
+      <xsl:copy>
+         <xsl:copy-of select="@*"/>
+         <xsl:apply-templates/>
+      </xsl:copy>
+   </xsl:template>
 </xsl:stylesheet>
