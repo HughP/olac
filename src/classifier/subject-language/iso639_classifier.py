@@ -448,6 +448,7 @@ class iso639Classifier:
 
     def trim_from_file(self, stoplist_file):
         '''Uses trim to remove this stoplist of words from the tree.'''
+        print "processing file ", stoplist_file
         for line in codecs.open(stoplist_file,encoding='utf-8').readlines():
             splitlist = line.strip(u'\r\n').split(u'\t')
             iso = ''
