@@ -53,7 +53,7 @@ class XMLSplit(XMLFilterBase):
 })
             self.downstream.startElement("ListRecords", {})
             self.downstream.characters(u"\n\t") # Indentation (optional)
-        if name != "OAI-PMH": # skip opening marc:collection
+        if name != "OAI-PMH": # skip opening OAI-PMH
             self.downstream.startElement(name,attrs)
         if name == "record":
             self.rec_count += 1
@@ -61,22 +61,23 @@ class XMLSplit(XMLFilterBase):
     def endElement(self, name):
         if name == "OAI-PMH":
             # All records seen
-            self.downstream.endElement("ListRecords")
             self.downstream.endElement("OAI-PMH")
             self.downstream.characters(u"\n") # Indentation (optional)
             self.downstream.endDocument()
             self.popHandler()
             if self.verbose:
                 sys.stdout.write('\n')
-        self.downstream.endElement(name)
-        if name == "record" and self.rec_count % self.chunksize == 0:
+        elif name == "record" and self.rec_count % self.chunksize == 0:
             # End of chunk
             self.downstream.characters(u"\n") # Indentation (optional)
+            self.downstream.endElement("record")
             self.downstream.endElement("ListRecords")
             self.downstream.endElement("OAI-PMH")
             self.downstream.characters(u"\n") # Indentation (optional)
             self.downstream.endDocument()
             self.popHandler() 
+        else:
+            self.downstream.endElement(name)
 
     def getChunkNames(self):
         # returns a list of names
