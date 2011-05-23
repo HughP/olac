@@ -2,14 +2,26 @@
 <?oxygen RNGSchema="file:../lib/olac-filter.rnc" type="compact"?>
 <olac-filter>
     <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:title>Default OLAC filter</dc:title>
-        <dc:contributor>Chris Hirt</dc:contributor>
-        <dc:date>7 August 2009</dc:date>
-        <dc:description>Default: Retains all records.  Nothing is filtered</dc:description>
+        <dc:title>Final OLAC filter for the IR Gateway</dc:title>
+        <dc:contributor>Gary Simons</dc:contributor>
+        <dc:date>21 May 2011</dc:date>
+        <dc:description>First rejects anything that matches the special code
+        [qqq] for formal languages. Then retains only the records that
+        have a subject language assigned.</dc:description>
     </header>
     <reject-rules>
+       <test name="QQQ code">
+          <dc-element tag="dc:subject" >
+             <type test="equals" ><text>olac:language</text></type>
+             <code test="equals"><text>qqq</text></code>
+          </dc-element>
+       </test>
     </reject-rules>
     <retain-rules>
-        <retain-all/>
+       <test name="Must have subject language">
+          <dc-element tag="dc:subject">
+             <type test="exists"><text>olac:language</text></type>
+          </dc-element>
+       </test>
     </retain-rules>
 </olac-filter>
