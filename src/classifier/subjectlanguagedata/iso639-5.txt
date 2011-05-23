@@ -1,0 +1,318 @@
+# Collective and genetic subgroup codes
+aav	sn	Austro-Asiatic
+afa	sn	Afro-Asiatic
+alg	sn	Algonquian
+alv	sn	Atlantic-Congo
+apa	sn	Apache
+aqa	sn	Alacalufan
+aql	sn	Algic 
+ath	sn	Athapascan
+auf	sn	Arauan 
+awd	sn	Arawakan
+azc	sn	Uto-Aztecan
+bad	sn	Banda
+bai	sn	Bamileke
+bat	sn	Baltic
+ber	sn	Berber
+bih	sn	Bihari
+bnt	sn	Bantu
+btk	sn	Batak 
+cba	sn	Chibchan
+ccn	sn	North Caucasian
+ccs	sn	South Caucasian
+cdc	sn	Chadic
+cdd	sn	Caddoan
+cel	sn	Celtic
+cmc	sn	Chamic 
+csu	sn	Central Sudanic
+cus	sn	Cushitic
+day	sn	Land Dayak
+dmn	sn	Mande
+dra	sn	Dravidian
+egx	sn	Egyptian
+esx	sn	Eskimo-Aleut
+fiu	sn	Finno-Ugrian
+fox	sn	Formosan
+gem	sn	Germanic
+gme	sn	East Germanic
+gmq	sn	North Germanic
+gmw	sn	West Germanic 
+him	sn	Himachali
+hmx	sn	Hmong-Mien
+hok	sn	Hokan
+iir	sn	Indo-Iranian
+ijo	sn	Ijo
+inc	sn	Indic
+ine	sn	Indo-European
+ira	sn	Iranian
+iro	sn	Iroquoian
+itc	sn	Italic
+kar	sn	Karen
+kdo	sn	Kordofanian
+khi	sn	Khoisan
+kro	sn	Kru
+map	sn	Austronesian
+mkh	sn	Mon-Khmer
+mno	sn	Manobo
+mun	sn	Munda
+myn	sn	Mayan
+nah	sn	Nahuatl 
+ngf	sn	Trans-New Guinea
+nic	sn	Niger-Kordofanian
+nub	sn	Nubian
+omq	sn	Oto-Manguean
+omv	sn	Omotic
+oto	sn	Otomian
+paa	sn	Papuan 
+plf	sn	Central Malayo-Polynesian
+poz	sn	Malayo-Polynesian
+pqe	sn	Eastern Malayo-Polynesian
+pqw	sn	Western Malayo-Polynesian
+pra	sn	Prakrit
+roa	sn	Romance 
+sal	sn	Salishan
+sdv	sn	Eastern Sudanic
+sem	sn	Semitic 
+sio	sn	Siouan
+sit	sn	Sino-Tibetan
+sla	sn	Slavic
+smi	sn	Sami
+son	sn	Songhai
+sqj	sn	Albanian
+ssa	sn	Nilo-Saharan
+syd	sn	Samoyedic
+tai	sn	Tai
+tbq	sn	Tibeto-Burman
+trk	sn	Turkic
+tup	sn	Tupi
+tut	sn	Altaic
+tuw	sn	Tungus
+urj	sn	Uralic
+wak	sn	Wakashan
+wen	sn	Sorbian
+xgn	sn	Mongolian
+xnd	sn	Na-Dene
+ypk	sn	Yupik
+zle	sn	East Slavic
+zls	sn	South Slavic
+zlw	sn	West Slavic
+znd	sn	Zande
+aav	sn	Austro-Asiatic languages
+afa	sn	Afro-Asiatic languages
+alg	sn	Algonquian languages
+alv	sn	Atlantic-Congo languages
+apa	sn	Apache languages
+aqa	sn	Alacalufan languages
+aql	sn	Algic languages 
+ath	sn	Athapascan languages
+auf	sn	Arauan languages
+aus	sn	Australian languages
+awd	sn	Arawakan languages
+azc	sn	Uto-Aztecan languages
+bad	sn	Banda languages
+bai	sn	Bamileke languages
+bat	sn	Baltic languages
+ber	sn	Berber languages
+bih	sn	Bihari languages
+bnt	sn	Bantu languages
+btk	sn	Batak languages
+cai	sn	Central American Indian languages
+cau	sn	Caucasian languages
+cba	sn	Chibchan languages
+ccn	sn	North Caucasian languages
+ccs	sn	South Caucasian languages
+cdc	sn	Chadic languages
+cdd	sn	Caddoan languages
+cel	sn	Celtic languages
+cmc	sn	Chamic languages
+cpe	sn	English based Creoles
+cpf	sn	French-Based Creoles
+cpp	sn	Portuguese-Based Creoles 
+csu	sn	Central Sudanic languages
+cus	sn	Cushitic languages
+day	sn	Land Dayak languages
+dmn	sn	Mande languages
+dra	sn	Dravidian languages
+egx	sn	Egyptian languages
+esx	sn	Eskimo-Aleut languages
+fiu	sn	Finno-Ugrian languages
+fox	sn	Formosan languages
+gem	sn	Germanic languages
+gme	sn	East Germanic languages
+gmq	sn	North Germanic languages
+gmw	sn	West Germanic languages 
+him	sn	Himachali languages
+hmx	sn	Hmong-Mien languages
+hok	sn	Hokan languages
+iir	sn	Indo-Iranian languages
+ijo	sn	Ijo languages
+inc	sn	Indic languages
+ine	sn	Indo-European languages
+ira	sn	Iranian languages
+iro	sn	Iroquoian languages
+itc	sn	Italic languages
+kar	sn	Karen languages
+kdo	sn	Kordofanian languages
+khi	sn	Khoisan languages
+kro	sn	Kru languages
+map	sn	Austronesian languages
+mkh	sn	Mon-Khmer languages
+mno	sn	Manobo languages
+mun	sn	Munda languages
+myn	sn	Mayan languages
+nah	sn	Nahuatl languages
+nai	sn	North American Indian languages
+ngf	sn	Trans-New Guinea languages
+nic	sn	Niger-Kordofanian languages
+nub	sn	Nubian languages
+omq	sn	Oto-Manguean languages
+omv	sn	Omotic languages
+oto	sn	Otomian languages
+paa	sn	Papuan languages
+phi	sn	Philippine languages
+plf	sn	Central Malayo-Polynesian languages
+poz	sn	Malayo-Polynesian languages
+pqe	sn	Eastern Malayo-Polynesian languages
+pqw	sn	Western Malayo-Polynesian languages
+pra	sn	Prakrit languages
+qwe	sn	Quechuan languages
+roa	sn	Romance languages
+sai	sn	South American Indian languages
+sal	sn	Salishan languages
+sdv	sn	Eastern Sudanic languages
+sem	sn	Semitic languages 
+sgn	sn	Sign languages
+sgn	sn	Deaf sign languages
+sio	sn	Siouan languages
+sit	sn	Sino-Tibetan languages
+sla	sn	Slavic languages
+smi	sn	Sami languages
+son	sn	Songhai languages
+sqj	sn	Albanian languages
+ssa	sn	Nilo-Saharan languages
+syd	sn	Samoyedic languages
+tai	sn	Tai languages
+tbq	sn	Tibeto-Burman languages
+trk	sn	Turkic languages
+tup	sn	Tupi languages
+tut	sn	Altaic languages
+tuw	sn	Tungus languages
+urj	sn	Uralic languages
+wak	sn	Wakashan languages
+wen	sn	Sorbian languages
+xgn	sn	Mongolian languages
+xnd	sn	Na-Dene languages
+ypk	sn	Yupik languages
+zhx	sn	Chinese languages
+zle	sn	East Slavic languages
+zls	sn	South Slavic languages
+zlw	sn	West Slavic languages
+znd	sn	Zande languages
+aav	sn	Proto Austro-Asiatic
+afa	sn	Proto Afro-Asiatic
+alg	sn	Proto Algonquian
+alv	sn	Proto Atlantic-Congo
+apa	sn	Proto Apache
+aqa	sn	Proto Alacalufan
+aql	sn	Proto Algic
+ath	sn	Proto Athapascan
+auf	sn	Proto Arauan
+aus	sn	Proto Australian
+awd	sn	Proto Arawakan
+azc	sn	Proto Uto-Aztecan
+bad	sn	Proto Banda
+bai	sn	Proto Bamileke
+bat	sn	Proto Baltic
+ber	sn	Proto Berber
+bih	sn	Proto Bihari
+bnt	sn	Proto Bantu
+btk	sn	Proto Batak
+cai	sn	Proto Central American Indian
+cau	sn	Proto Caucasian
+cba	sn	Proto Chibchan
+ccn	sn	Proto North Caucasian
+ccs	sn	Proto South Caucasian
+cdc	sn	Proto Chadic
+cdd	sn	Proto Caddoan
+cel	sn	Proto Celtic
+cmc	sn	Proto Chamic 
+csu	sn	Proto Central Sudanic
+cus	sn	Proto Cushitic
+day	sn	Proto Land Dayak
+dmn	sn	Proto Mande
+dra	sn	Proto Dravidian
+egx	sn	Proto Egyptian
+esx	sn	Proto Eskimo-Aleut
+euq	sn	Proto Basque
+fiu	sn	Proto Finno-Ugrian
+fox	sn	Proto Formosan
+gem	sn	Proto Germanic
+gme	sn	Proto East Germanic
+gmq	sn	Proto North Germanic
+gmw	sn	Proto West Germanic
+grk	sn	Proto Greek
+him	sn	Proto Himachali
+hmx	sn	Proto Hmong-Mien
+hok	sn	Proto Hokan
+hyx	sn	Proto Armenian
+iir	sn	Proto Indo-Iranian
+ijo	sn	Proto Ijo
+inc	sn	Proto Indic
+ine	sn	Proto Indo-European
+ira	sn	Proto Iranian
+iro	sn	Proto Iroquoian
+itc	sn	Proto Italic
+jpx	sn	Proto Japanese
+kar	sn	Proto Karen
+kdo	sn	Proto Kordofanian
+khi	sn	Proto Khoisan
+kro	sn	Proto Kru
+map	sn	Proto Austronesian
+mkh	sn	Proto Mon-Khmer
+mno	sn	Proto Manobo
+mun	sn	Proto Munda
+myn	sn	Proto Mayan
+nah	sn	Proto Nahuatl 
+ngf	sn	Proto Trans-New Guinea
+nic	sn	Proto Niger-Kordofanian
+nub	sn	Proto Nubian
+omq	sn	Proto Oto-Manguean
+omv	sn	Proto Omotic
+oto	sn	Proto Otomian
+paa	sn	Proto Papuan
+phi	sn	Proto Philippine
+plf	sn	Proto Central Malayo-Polynesian
+poz	sn	Proto Malayo-Polynesian
+pqe	sn	Proto Eastern Malayo-Polynesian
+pqw	sn	Proto Western Malayo-Polynesian
+pra	sn	Proto Prakrit
+qwe	sn	Proto Quechuan
+roa	sn	Proto Romance 
+sal	sn	Proto Salishan
+sdv	sn	Proto Eastern Sudanic
+sem	sn	Proto Semitic 
+sio	sn	Proto Siouan
+sit	sn	Proto Sino-Tibetan
+sla	sn	Proto Slavic
+smi	sn	Proto Sami
+son	sn	Proto Songhai
+sqj	sn	Proto Albanian
+ssa	sn	Proto Nilo-Saharan
+syd	sn	Proto Samoyedic
+tai	sn	Proto Tai
+tbq	sn	Proto Tibeto-Burman
+trk	sn	Proto Turkic
+tup	sn	Proto Tupi
+tut	sn	Proto Altaic
+tuw	sn	Proto Tungus
+urj	sn	Proto Uralic
+wak	sn	Proto Wakashan
+wen	sn	Proto Sorbian
+xgn	sn	Proto Mongolian
+xnd	sn	Proto Na-Dene
+ypk	sn	Proto Yupik
+zhx	sn	Proto Chinese
+zle	sn	Proto East Slavic
+zls	sn	Proto South Slavic
+zlw	sn	Proto West Slavic
+znd	sn	Proto Zande

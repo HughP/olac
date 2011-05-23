@@ -2,6 +2,8 @@
 deu	sn	German
 cmn	sn	Chinese
 ara	sn	Arabic
+# Misspellings
+por	sn	Portugese
 # Extra data from looking at the test set classification failures
 cjm	wn	Cham
 ace	wn	Atjehnese
@@ -18,6 +20,7 @@ nmn	wn	Western !Xoon
 bwm	wn	Mudukumo
 ygw	wn	Kukɨna Yaguye
 sns	wn	Nahavaq
+cic	wn	Chicksaw
 # Pseudo code for formal languages
 qqq	sn	formal language
 qqq	sn	query language

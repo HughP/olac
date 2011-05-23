@@ -1716,7 +1716,6 @@ medical
 meeting
 memory
 metal
-middle
 military
 milk
 mind
@@ -1768,7 +1767,6 @@ off
 offer
 office
 oil
-old
 on
 only
 open
@@ -1815,7 +1813,6 @@ plough
 pocket
 point
 poison
-polish
 political
 poor
 porter
@@ -2295,6 +2292,7 @@ wn	duke
 wn	easter
 wn	egypt
 wn	egyptian
+wn	english
 wn	equatorial
 wn	era
 wn	ethiopian
@@ -2478,6 +2476,7 @@ wn	met
 wn	mexican
 wn	mexico
 wn	michigan
+wn	middle
 wn	midwestern
 wn	mini
 wn	minnesota
@@ -2742,3 +2741,187 @@ wn	zealand
 wn	zero
 wn	zimbabwe
 wn	zoroastrian
+wn	langage
+wn	langue
+wn	taal
+wn	tok
+#MoreCommonWords
+age
+along
+are
+banana
+bar
+bare
+bi
+buy
+ca
+canoe
+check
+cross
+fa
+fi
+four
+her
+hoc
+i
+ii
+iii
+live
+mere
+more
+nasal
+none
+pa
+pay
+pi
+re
+set
+she
+sing
+sole
+southern
+tape
+ten
+tie
+usage
+vice
+we
+were
+#AllTwoLetters
+wn	aa
+wn	ae
+wn	af
+wn	ai
+wn	al
+wn	an
+wn	ao
+wn	ap
+wn	as
+wn	au
+wn	ay
+wn	ba
+wn	be
+wn	bi
+wn	bo
+wn	bu
+wn	by
+wn	ca
+wn	ci
+wn	co
+wn	cu
+wn	da
+wn	de
+wn	di
+wn	do
+wn	du
+wn	ea
+wn	ee
+wn	eh
+wn	ek
+wn	el
+wn	ep
+wn	er
+wn	es
+wn	et
+wn	eu
+wn	fa
+wn	fi
+wn	fo
+wn	fu
+wn	ge
+wn	go
+wn	gu
+wn	gy
+wn	ha
+wn	hi
+wn	hm
+wn	ho
+wn	ia
+wn	ii
+wn	il
+wn	in
+wn	io
+wn	it
+wn	iu
+wn	ja
+wn	je
+wn	ji
+wn	jo
+wn	ju
+wn	ka
+wn	ke
+wn	ki
+wn	ko
+wn	ku
+wn	la
+wn	le
+wn	li
+wn	lo
+wn	lu
+wn	ly
+wn	ma
+wn	me
+wn	mi
+wn	mo
+wn	mu
+wn	na
+wn	ne
+wn	ng
+wn	ni
+wn	no
+wn	nu
+wn	oa
+wn	ob
+wn	oe
+wn	of
+wn	oh
+wn	oi
+wn	ok
+wn	om
+wn	oo
+wn	ot
+wn	ou
+wn	oy
+wn	pa
+wn	pÃ
+wn	pe
+wn	po
+wn	pu
+wn	ra
+wn	re
+wn	ri
+wn	ro
+wn	ru
+wn	sa
+wn	si
+wn	so
+wn	st
+wn	su
+wn	ta
+wn	tÃ
+wn	te
+wn	ti
+wn	to
+wn	tu
+wn	ua
+wn	um
+wn	un
+wn	up
+wn	us
+wn	uy
+wn	va
+wn	ve
+wn	vo
+wn	wa
+wn	we
+wn	wo
+wn	wu
+wn	xa
+wn	xi
+wn	xo
+wn	ya
+wn	ye
+wn	yi
+wn	yo
+wn	yu
+wn	zu
