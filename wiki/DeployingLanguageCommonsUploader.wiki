@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This wiki page documents how the LanguageCommons Uploader, written by Alistair Roche <roche.a@gmail.com>, was deployed on the current OLAC web server as of March 2001. Additional information non-existent in the software documentation is included. That will help reduce learning curve for future deployment on a different server.
+This wiki page documents how the LanguageCommons Uploader, written by Alistair Roche, was deployed on the current OLAC web server as of May 2011. Additional information non-existent in the software documentation is included. That will help reduce learning curve for future deployment on a different server.
 
 
 = Prerequisites =
@@ -16,11 +16,31 @@ Install Django south.
 
 = Install LanguageCommons Uploader at non-root URL =
 
-Download LanguageCommons Uploader from `[URL TBD]`. This version patches the original version to allow the application to be deployed at a non-root URL. The original version by Roche can be downloaded from [https://github.com/atroche/language-commons here].
+Download LanguageCommons Uploader from the olac svn repository. The latest version can be downloaded from [https://github.com/atroche/language-commons here].
 
-Create a directory PREFIX/django/languagecommons (replace PREFIX with the path of your choice). Copy the downloaded files and directories to the created directory. At the top level of the directory, you should see files like README.markdown, settings.py and urls.py.
+{{{
+mkdir /olac/languagecommons
+cd /olac/languagecommons
+wget http://olac.googlecode.com/svn/src/language-commons-uploader.tgz
+}}}
 
-Create a directory PREFIX/django/languagecommons/apache. Inside that directory, create a file called django.wsgi.
+Unpack the package and rename the unpackaged directory.
+At the top level of the directory, you should see files like README.markdown, settings.py and urls.py.
+
+{{{
+tar xf language-commons-uploader.tgz
+mv language-commons django
+rm language-commons-uploader.tgz
+}}}
+
+Create a directory called apache.
+
+{{{
+cd django
+mkdir apache
+}}}
+
+Inside the apache directory, create a file called django.wsgi.
 
 {{{
 import os
@@ -28,22 +48,36 @@ import sys
 import olac
 
 os.environ['PYTHON_EGG_CACHE'] = olac.olacvar('python/egg_cache/wsgi')
-os.environ['DJANGO_SETTINGS_MODULE'] = 'languagecommons.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-sys.path.append('PREFIX/django')  # replace PREFIX with your path
+sys.path.append('/olac/languagecommons/django')
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
 }}}
 
-Edit PREFIX/django/languagecommons/settings.py to set the PREFIX variable.
+Edit settings.py to edit database, timezone settings, plus 
+the SECRET_KEY. Change ROOT_URLCONF's value to "urls".
+
+For each (broken) links in the media/admin directory, find the actual
+file under /usr/lib/python2.5/site-packages/django/contrib/admin/media.
+Replace the links with the actual files.
 
 = Configure MySQL =
 
 = Configure Apache =
 
+Set up a virtual host and add the following lines to the config file.
+
+{{{
+Alias /media/ /olac/languagecommons/django/media/
+Alias /admin_media/ /olac/languagecommons/django/media/admin/
+WSGIScriptAlias / /olac/languagecommons/django/apache/django.wsgi
+}}}
+
+
 = Cron job =
 Add a cron job checks newly accepted items and uploads them to archive.org. For example,
 
 {{{
-*/15 * * * * (cd PREFIX/django/languagecommons; ./manage.py upload_items)
+*/15 * * * * (cd /olac/languagecommons/django; ./manage.py upload_items)
 }}}
