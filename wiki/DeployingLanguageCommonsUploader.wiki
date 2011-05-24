@@ -62,6 +62,17 @@ For each (broken) links in the media/admin directory, find the actual
 file under /usr/lib/python2.5/site-packages/django/contrib/admin/media.
 Replace the links with the actual files.
 
+Create an uploads directory, where uploaded items are saved.
+
+{{{
+cd /olac/languagecommons/django/media
+mkdir uploads
+chgrp www-data uploads
+chmod g+w uploads
+}}}
+
+Edit templates/sr.xml file and update the baseURL.
+
 = Configure MySQL =
 
 = Configure Apache =
