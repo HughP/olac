@@ -125,6 +125,8 @@ mais
 me
 même
 mes
+mme
+melle
 moi
 mon
 ne
@@ -2872,6 +2874,7 @@ wn	no
 wn	nu
 wn	oa
 wn	ob
+wn	od
 wn	oe
 wn	of
 wn	oh
@@ -2908,6 +2911,7 @@ wn	um
 wn	un
 wn	up
 wn	us
+wn	ut
 wn	uy
 wn	va
 wn	ve

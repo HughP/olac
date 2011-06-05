@@ -21,6 +21,9 @@ bwm	wn	Mudukumo
 ygw	wn	Kukɨna Yaguye
 sns	wn	Nahavaq
 cic	wn	Chicksaw
+eng	wn	ESL
+eng	wn	EFL
+hwc	sn	Hawaiian Creole English
 # Pseudo code for formal languages
 qqq	sn	formal language
 qqq	sn	query language
@@ -129,3 +132,113 @@ qqq	wn	computational complexity
 qqq	wn	Turing
 qqq	wn	automaton
 qqq	wn	automata
+#Dutch major language names
+ara	sn	Arabische taal
+zho	sn	Chinese taal
+nld	sn	Nederlandse taal
+eng	sn	Engels taal
+fra	sn	Franse taal
+deu	sn	Duitse taal
+ell	sn	Griekse taal
+heb	sn	Hebreeuwse taal
+ita	sn	Italiaanse taal
+lat	sn	Latijnse taal
+por	sn	Portugese taal
+rus	sn	Russische taal
+Spa	sn	Spaanse taal
+#French
+ara	sn	langue arabe
+zho	sn	langue chinois
+nld	sn	langue néerlandaise
+eng	sn	langue anglaise
+fra	sn	langue française
+deu	sn	langue allemande
+ell	sn	langue grecque
+heb	sn	langue hébraïque
+ita	sn	langue italienne
+lat	sn	langue latine
+por	sn	langue portugaise
+rus	sn	langue russe
+spa	sn	langue espagnole
+#German
+ara	sn	arabischen Sprache
+zho	sn	chinesische Sprache
+nld	sn	niederländischer Sprache
+eng	sn	englischer Sprache
+fra	sn	Französisch Sprache
+deu	sn	deutschen Sprache
+ell	sn	griechischer Sprache
+heb	sn	hebräischen Sprache
+ita	sn	italienischen Sprache
+lat	sn	lateinische Sprache
+por	sn	portugiesischer Sprache
+rus	sn	russischer Sprache
+Spa	sn	spanischen Sprache
+#Italian
+ara	sn	lingua araba
+Zho	sn	lingua cinese
+nld	sn	lingua olandese
+eng	sn	lingua inglese
+fra	sn	lingua francese
+deu	sn	lingua tedesca
+ell	sn	lingua greca
+heb	sn	lingua ebraica
+ita	sn	lingua italiana
+lat	sn	lingua latina
+por	sn	lingua portoghese
+rus	sn	lingua russa
+spa	sn	lingua spagnola
+#Portuguese
+ara	sn	língua árabe
+zho	sn	língua chinesa
+nld	sn	língua holandesa
+eng	sn	língua Inglês
+fra	sn	língua francesa
+deu	sn	língua alemã
+ell	sn	língua grega
+heb	sn	língua hebraica
+ita	sn	língua italiana
+lat	sn	língua latina
+por	sn	língua Português
+rus	sn	língua russo
+spa	sn	língua espanhola
+ara	sn	idioma árabe
+zho	sn	idioma chinesa
+nld	sn	idioma holandesa
+eng	sn	idioma Inglês
+fra	sn	idioma francesa
+deu	sn	idioma alemã
+ell	sn	idioma grega
+heb	sn	idioma hebraica
+ita	sn	idioma italiana
+lat	sn	idioma latina
+por	sn	idioma Português
+rus	sn	idioma russo
+spa	sn	idioma espanhola
+#Spanish
+ara	sn	lengua árabe
+Zho	sn	lengua chino
+nld	sn	lengua holandés
+eng	sn	lengua Inglés
+fra	sn	lengua francesa
+deu	sn	lengua alemana
+ell	sn	lengua griega
+heb	sn	lengua hebreo
+ita	sn	lengua italiana
+lat	sn	lengua latina
+por	sn	lengua portuguesa
+rus	sn	idioma ruso
+spa	sn	lengua español
+ara	sn	idioma árabe
+Zho	sn	idioma chino
+nld	sn	idioma holandés
+eng	sn	idioma Inglés
+fra	sn	idioma francesa
+deu	sn	idioma alemana
+ell	sn	idioma griega
+heb	sn	idioma hebreo
+ita	sn	idioma italiana
+lat	sn	idioma latina
+por	sn	idioma portuguesa
+rus	sn	idioma ruso
+spa	sn	idioma español
