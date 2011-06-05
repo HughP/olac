@@ -1,4 +1,4 @@
-# iso639-3 table data
+﻿# iso639-3 table data
 aaa	sn	Ghotuo
 aab	sn	Alumu-Tesu
 aac	sn	Ari
@@ -273,7 +273,7 @@ anc	sn	Ngas
 and	sn	Ansus
 ane	sn	Xârâcùù
 anf	sn	Animere
-ang	sn	Old English (ca. 450-1100)
+ang	sn	Old English
 anh	sn	Nend
 ani	sn	Andi
 anj	sn	Anor
@@ -344,7 +344,7 @@ aqp	sn	Atakapa
 aqr	sn	Arhâ
 ara	sn	Arabic
 arb	sn	Standard Arabic
-arc	sn	Official Aramaic (700-300 BCE)
+arc	sn	Official Aramaic
 ard	sn	Arabana
 are	sn	Western Arrarnta
 arg	sn	Aragonese

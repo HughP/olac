@@ -2,6 +2,24 @@
 deu	sn	German
 cmn	sn	Chinese
 ara	sn	Arabic
+#Old languages that have (comment) messing up name in ISO data
+arc	sn	Official Aramaic
+oar	sn	Old Aramaic
+ang	sn	Old English
+pro	sn	Old Occitan
+fro	sn	Old French
+goh	sn	Old High German
+sga	sn	Old Irish
+oko	sn	Old Korean
+peo	sn	Old Persian
+pro	sn	Old Provençal
+dum	sn	Middle Dutch
+enm	sn	Middle English
+frm	sn	Middle French
+gmh	sn	Middle High German
+mga	sn	Middle Irish
+okm	sn	Middle Korean
+ota	sn	Ottoman Turkish
 # Misspellings
 por	sn	Portugese
 # Extra data from looking at the test set classification failures
