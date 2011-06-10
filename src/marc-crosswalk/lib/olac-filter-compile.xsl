@@ -2,7 +2,7 @@
 <!-- olac_filter-compile.xsl
         Compile the filter over an OLAC repository
         G. Simons, 2 July 2009
-        Last updated: 21 May 2011
+        Last updated: 10 June 2011
         
      There are two parameters:
         version   Defaults to "1.0". Call with value of "2.0" to
@@ -64,10 +64,17 @@
 
    <!-- Compile the tests -->
    <xsl:template match="reject-rules/test">
-      <xsl:variable name="criteria">
-         <xsl:apply-templates select="*"/>
+      <xsl:variable name="id-criteria">
+         <xsl:if test="oai-identifier">
+            [oai:header/oai:identifier<xsl:apply-templates
+               select="oai-identifier"/>]
+         </xsl:if>
       </xsl:variable>
-      <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
+      <xsl:variable name="element-criteria">
+         <xsl:apply-templates select="dc-element"/>
+      </xsl:variable>
+      <alias:template
+         match="oai:record{normalize-space($id-criteria)}[oai:metadata/olac:olac{normalize-space($element-criteria)}]"
          priority="2.{position()}5">
          <!-- The priority of 2.*5 orders reject before retain, which
             is 1.*5.  The decimal part does not matter except to give
@@ -92,9 +99,10 @@
 
    <xsl:template match="retain-rules/test">
       <xsl:variable name="criteria">
-         <xsl:apply-templates select="*"/>
+         <xsl:apply-templates select="dc-element"/>
       </xsl:variable>
-      <alias:template match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
+      <alias:template
+         match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
          priority="1.{position()}5">
          <xsl:if test="$mode = 'retain'">
             <alias:copy>
@@ -122,7 +130,9 @@
    <xsl:template match="dc-element">
       <xsl:choose>
          <xsl:when test="@negate='yes'"> [not(<xsl:value-of select="@tag"/><xsl:apply-templates
-               select="*"/>)] </xsl:when>
+            select="*"/>)] </xsl:when>
+         <xsl:when test="@occursMoreThan"> [count(<xsl:value-of select="@tag"/><xsl:apply-templates
+            select="*"/>)><xsl:value-of select="@occursMoreThan"/>] </xsl:when>
          <xsl:otherwise> [<xsl:value-of select="@tag"/><xsl:apply-templates select="*"/>]
          </xsl:otherwise>
       </xsl:choose>
