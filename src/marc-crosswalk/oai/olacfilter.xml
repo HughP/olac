@@ -4,12 +4,14 @@
     <header xmlns:dc="http://purl.org/dc/elements/1.1/">
         <dc:title>Final OLAC filter for the IR Gateway</dc:title>
         <dc:contributor>Gary Simons</dc:contributor>
-        <dc:date>8 June 2011</dc:date>
+        <dc:date>10 June 2011</dc:date>
        <dc:description>First rejects anything that : 
            (1) matches the special code [qqq] for formal languages
            (2) is a photo or artifact
-           (3) has a probability lower than 2.5%
+           (3) has a probability lower than 3.0%
            (4) is in a Roman script language without a stoplist
+           (5) has more than two subject languages assigned
+           (6) is in an irrelevant repository
         Then retains only the records that
         have a subject language assigned.</dc:description>
     </header>
@@ -64,11 +66,7 @@
              </code>
              <content test="starts-with">
                 <text>1.</text>
-                <text>2.0</text>
-                <text>2.1</text>
-                <text>2.2</text>
-                <text>2.3</text>
-                <text>2.4</text>
+                <text>2.</text>
              </content>
           </dc-element>
        </test>
@@ -111,12 +109,25 @@
              </content>
           </dc-element>
        </test>
-       
+       <test name="More than 2 languages">
+          <dc-element tag="dc:subject" occursMoreThan="2">
+             <type test="equals"><text>olac:language</text></type>
+          </dc-element>
+       </test>
+       <test name="Irrelevant repositories">
+          <oai-identifier>
+             <content test="starts-with">
+                <text>oai:sheetmusic</text>
+                <text>oai:pangaea</text>
+             </content>
+          </oai-identifier>
+       </test>
     </reject-rules>
+   
     <retain-rules>
        <test name="Must have subject language">
           <dc-element tag="dc:subject">
-             <type test="exists"><text>olac:language</text></type>
+             <type test="equals"><text>olac:language</text></type>
           </dc-element>
        </test>
     </retain-rules>
