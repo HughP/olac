@@ -4,7 +4,7 @@
    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
       <dc:title>Final OLAC filter for the IR Gateway</dc:title>
       <dc:contributor>Gary Simons</dc:contributor>
-      <dc:date>10 June 2011</dc:date>
+      <dc:date>12 June 2011</dc:date>
       <dc:description>Do the following in order:
          (1) reject if special code [qqq] for formal languages and language disorders
          (2) reject if reharvested from OLAC
@@ -12,11 +12,10 @@
          (4) reject if a photo or artifact
          (5) reject if assigned more than 3 languages
          (6) retain if there is a language and a linguistic publisher
-         (7) retain if it is assigned a high probability language
-         (8) reject if it has a probability lower than 3.0%
-         (9) reject if it is in a Roman script language without a stoplist
-         (10) retain if it has been assigned a subject language
-         (11) reject anything still left
+         (7) reject if it has a probability lower than 3.0%
+         (8) reject if it is in a Roman script language without a stoplist
+         (9) retain if it has been assigned a subject language
+         (10) reject anything still left
       </dc:description>
    </header>
    
@@ -108,24 +107,7 @@
          </type>
       </dc-element>
    </retain-rule>
-   
-   <retain-rule name="Anything with a high probability language">
-      <dc-element tag="dc:subject">
-         <type test="equals">
-            <text>olac:language</text>
-         </type>
-         <code test="equals">
-            <text>eng</text>
-            <text>zho</text>
-            <text>jpn</text>
-            <text>deu</text>
-            <text>nld</text>
-            <text>fra</text>
-            <text>cze</text>
-         </code>
-      </dc-element>
-   </retain-rule>
-   
+
    <reject-rule name="Low binary probability">
       <dc-element tag="dc:type">
          <code test="equals">
