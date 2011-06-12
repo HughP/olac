@@ -40,30 +40,16 @@
             </alias:copy>
          </alias:template>
 
-         <xsl:comment> The reject rules </xsl:comment>
-         <xsl:apply-templates select="reject-rules/*"/>
-
-         <xsl:comment> The retain rules </xsl:comment>
-         <xsl:apply-templates select="retain-rules/*"/>
-
-         <xsl:comment> Handle records that match no rule </xsl:comment>
-         <alias:template match="*" priority="-1">
-             <xsl:if test="$mode = 'reject' and not(/olac-filter/retain-rules/retain-all)">
-               <alias:copy>
-                  <alias:if test="$debug = 'yes'">
-                     <alias:attribute name="rule">
-                        <alias:text>Not retained</alias:text>
-                     </alias:attribute>
-                  </alias:if>
-                  <alias:copy-of select="@* | *"/>
-               </alias:copy>
-            </xsl:if>
-         </alias:template>
+         <xsl:comment> Apply the rules in order (using priority to
+            implement order) </xsl:comment><xsl:text>&#10;   </xsl:text>
+         <xsl:apply-templates select="*"/>
       </alias:stylesheet>
    </xsl:template>
+   
+   <xsl:template match="header"></xsl:template>
 
    <!-- Compile the tests -->
-   <xsl:template match="reject-rules/test">
+   <xsl:template match="reject-rule">
       <xsl:variable name="id-criteria">
          <xsl:if test="oai-identifier">
             [oai:header/oai:identifier<xsl:apply-templates
@@ -73,9 +59,10 @@
       <xsl:variable name="element-criteria">
          <xsl:apply-templates select="dc-element"/>
       </xsl:variable>
+      <xsl:comment> Reject:  <xsl:value-of select="@name"/> </xsl:comment><xsl:text>&#10;   </xsl:text>
       <alias:template
          match="oai:record{normalize-space($id-criteria)}[oai:metadata/olac:olac{normalize-space($element-criteria)}]"
-         priority="2.{position()}5">
+         priority="{count(../*)-position()}">
          <!-- The priority of 2.*5 orders reject before retain, which
             is 1.*5.  The decimal part does not matter except to give
             each rule a different priority, since multiple rules may
@@ -97,13 +84,14 @@
       </alias:template>
    </xsl:template>
 
-   <xsl:template match="retain-rules/test">
+   <xsl:template match="retain-rule">
       <xsl:variable name="criteria">
          <xsl:apply-templates select="dc-element"/>
       </xsl:variable>
+      <xsl:comment> Retain:  <xsl:value-of select="@name"/> </xsl:comment><xsl:text>&#10;   </xsl:text>
       <alias:template
          match="oai:record[oai:metadata/olac:olac{normalize-space($criteria)}]"
-         priority="1.{position()}5">
+         priority="{count(../*)-position()}">
          <xsl:if test="$mode = 'retain'">
             <alias:copy>
                <alias:if test="$debug = 'yes'">
@@ -117,15 +105,31 @@
       </alias:template>
    </xsl:template>
 
-   <xsl:template match="retain-all">
-      <xsl:comment> The retain-all rule </xsl:comment>
-      <alias:template match="*" priority="1">
+   <xsl:template match="else-retain">
+      <xsl:comment> Retain everything that remains </xsl:comment><xsl:text>&#10;   </xsl:text>
+      <alias:template match="*" priority="0">
          <xsl:if test="$mode = 'retain'">
-            <alias:copy-of select="self::node()"/>
+            <alias:copy-of select="@* | *"/>
          </xsl:if>
       </alias:template>
    </xsl:template>
-
+   
+   <xsl:template match="else-reject">
+      <xsl:comment> Reject everything that remains </xsl:comment><xsl:text>&#10;</xsl:text>
+      <alias:template match="*" priority="0">
+         <xsl:if test="$mode = 'reject' ">
+            <alias:copy>
+               <alias:if test="$debug = 'yes'">
+                  <alias:attribute name="rule">
+                     <alias:text>Not retained</alias:text>
+                  </alias:attribute>
+               </alias:if>
+               <alias:copy-of select="@* | *"/>
+            </alias:copy>
+         </xsl:if>
+      </alias:template>
+   </xsl:template>
+   
    <!-- Compile the criteria -->
    <xsl:template match="dc-element">
       <xsl:choose>

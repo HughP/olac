@@ -4,12 +4,16 @@ datatypes xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
 # Abstract syntax for specifying a filter on an OLAC repository
 # G. Simons, 2 July 2009
-# Last updated: 9 June 2011
+# Last updated: 10 June 2011
 
 grammar {
 
+# The rules are applied in the order that they are listed.
+# The first rule to match a record is the one that is followed.
 start = element olac-filter {
-   header, reject-rules, retain-rules }
+   header,
+   (reject-rule | retain-rule)*, 
+   (else-reject | else-retain) }
 
 # The header gives the metadata for the filter definition itself
 header = 
@@ -31,31 +35,29 @@ dc-description =
    # information needed to construct the provenance element that
    # will be added in the records that go through the crosswalk
 
-# Any record that matches a test in the set of reject-rules is summarily
-# rejected, regardless of whether it matches one of the retain-rules
-reject-rules = 
-   element reject-rules { reject-test* }
-   
-# After surviving the reject rules, any record that matches a test
-# in the retain-rules passes through the filter to the output;
-# otherwise, the record is rejected. 
-retain-rules = 
-   element retain-rules { retain-all | retain-test+ }
-
-# Retain-all: every surviving record is retained
-retain-all = 
-   element retain-all { empty }
-   
-# A test is the AND of a set of criteria
-reject-test =
-   element test {
+# Any record that matches a reject-rule is summarily rejected; 
+# the rule is the AND of the embedded tests
+reject-rule = 
+   element reject-rule { 
       attribute name { xsd:string },
       (oai-identifier | dc-element)+}
       
-retain-test =
-   element test {
+# Any record that matches a 
+# retain-rule passes through the filter to the output;
+# a rule is the AND of the embedded tests
+retain-rule = 
+   element retain-rule { 
       attribute name { xsd:string },
       dc-element+}
+
+# The last rule is one or the other of the following:
+# Else-retain: every surviving record is retained
+else-retain = 
+   element else-retain { empty }
+# Else-reject: every surviving record is rejected
+else-reject = 
+   element else-reject { empty }
+   
 
 
 # A test on the contents of the oai:identifier element
