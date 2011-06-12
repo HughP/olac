@@ -1,4 +1,4 @@
-﻿#Dutch
+﻿#DutchWords
 de
 en
 van
@@ -100,7 +100,7 @@ uw
 iemand
 geweest
 andere
-#French
+#FrenchWords
 au
 aux
 avec
@@ -248,7 +248,9 @@ eût
 eussions
 eussiez
 eussent
-#German
+monde
+sucre
+#GermanWords
 aber
 alle
 allem
@@ -480,7 +482,7 @@ zum
 zur
 zwar
 zwischen
-#Italian
+#ItalianWords
 ad
 al
 allo
@@ -760,7 +762,7 @@ stesse
 stessimo
 stessero
 stando
-#Portuguese
+#PortugueseWords
 de
 a
 o
@@ -964,7 +966,7 @@ terão
 teria
 teríamos
 teriam
-#Spanish
+#SpanishWords
 de
 la
 que
@@ -2130,6 +2132,10 @@ young
 mid
 six
 manual
+thompson
+sum
+cone
+fur
 #EnglishWeakNames
 wn	abbey
 wn	aboriginal
@@ -2140,6 +2146,7 @@ wn	africa
 wn	african
 wn	afro
 wn	air
+wn	ala
 wn	alaska
 wn	alaskan
 wn	albany
@@ -2747,6 +2754,9 @@ wn	langage
 wn	langue
 wn	taal
 wn	tok
+wn	seoul
+wn	bahasa
+wn	montana
 #MoreCommonWords
 age
 along
@@ -2929,3 +2939,7 @@ wn	yi
 wn	yo
 wn	yu
 wn	zu
+#RemoveRedundantEntryForMacrolanguage
+swh	sn	Swahili
+zlm	sn	Malay
+knn	sn	Konkani
