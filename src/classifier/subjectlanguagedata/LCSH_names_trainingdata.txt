@@ -5251,8 +5251,8 @@ rmm	sn	Roma language
 roa	sn	Romance languages
 rom	sn	Romani
 rom	sn	Romani language
-ron/rum	sn	Romanian
-ron/rum	sn	Romanian language
+ron	sn	Romanian
+ron	sn	Romanian language
 cla	sn	Ron
 cla	sn	Ron language
 rng	sn	Ronga

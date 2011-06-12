@@ -2,6 +2,8 @@
 deu	sn	German
 cmn	sn	Chinese
 ara	sn	Arabic
+eng	sn	spoken English
+ike	sn	Inuit language
 #Old languages that have (comment) messing up name in ISO data
 arc	sn	Official Aramaic
 oar	sn	Old Aramaic
@@ -20,6 +22,36 @@ gmh	sn	Middle High German
 mga	sn	Middle Irish
 okm	sn	Middle Korean
 ota	sn	Ottoman Turkish
+oar	sn	Ancient Aramaic
+oar	sn	Classical Aramaic
+grc	sn	Ancient Greek
+grc	sn	Classical Greek
+lzh	sn	Classical Chinese
+ell	sn	Modern Greek
+heb	sn	Modern Hebrew
+#Redundnat subject headings
+arc	sn	Aramaic language -- Official Aramaic
+oar	sn	Aramaic language -- Old Aramaic
+ang	sn	English language -- Old English
+pro	sn	Occitan language -- Old Occitan
+fro	sn	French language -- Old French
+goh	sn	German language -- Old High German
+sga	sn	Irish language -- Old Irish
+oko	sn	Korean language -- Old Korean
+peo	sn	Persian language -- Old Persian
+pro	sn	Provençal language -- Old Provençal
+dum	sn	Dutch language -- Middle Dutch
+enm	sn	English language -- Middle English
+frm	sn	French language -- Middle French
+gmh	sn	German language -- Middle High German
+mga	sn	Irish language -- Middle Irish
+okm	sn	Korean language -- Middle Korean
+ota	sn	Turkish language -- Ottoman Turkish
+oar	sn	Aramaic language -- Ancient Aramaic
+oar	sn	Aramaic language -- Classical Aramaic
+grc	sn	Greek language -- Ancient Greek
+grc	sn	Greek language -- Classical Greek
+lzh	sn	Classical Chinese
 # Misspellings
 por	sn	Portugese
 # Extra data from looking at the test set classification failures
@@ -42,6 +74,10 @@ cic	wn	Chicksaw
 eng	wn	ESL
 eng	wn	EFL
 hwc	sn	Hawaiian Creole English
+fra	sn	Romance languages French
+ita	sn	Romance languages Italian
+por	sn	Romance languages Portugues
+spa	sn	Romance languages Spanish
 # Pseudo code for formal languages
 qqq	sn	formal language
 qqq	sn	query language
@@ -150,6 +186,17 @@ qqq	wn	computational complexity
 qqq	wn	Turing
 qqq	wn	automaton
 qqq	wn	automata
+# And add language disorders
+qqq	sn	language disorders
+qqq	sn	speech disorders
+qqq	sn	aphasia
+qqq	sn	aphasic
+qqq	sn	cerebellum
+qqq	sn	cerebellar
+qqq	sn	cerebrum
+qqq	sn	cerebral
+qqq	sn	cortical
+qqq	sn	cortex
 #Dutch major language names
 ara	sn	Arabische taal
 zho	sn	Chinese taal
@@ -164,6 +211,7 @@ lat	sn	Latijnse taal
 por	sn	Portugese taal
 rus	sn	Russische taal
 Spa	sn	Spaanse taal
+nld	sn	Nederlandse dialecten
 #French
 ara	sn	langue arabe
 zho	sn	langue chinois
@@ -174,10 +222,25 @@ deu	sn	langue allemande
 ell	sn	langue grecque
 heb	sn	langue hébraïque
 ita	sn	langue italienne
+jpn	sn	langue japonais 
 lat	sn	langue latine
 por	sn	langue portugaise
 rus	sn	langue russe
 spa	sn	langue espagnole
+ara	sn	en arabe
+zho	sn	en chinois
+nld	sn	en néerlandaise
+eng	sn	en anglaise
+fra	sn	en française
+deu	sn	en allemande
+ell	sn	en grecque
+heb	sn	en hébraïque
+ita	sn	en italienne
+jpn	sn	en japonais 
+lat	sn	en latine
+por	sn	en portugaise
+rus	sn	en russe
+spa	sn	en espagnole
 #German
 ara	sn	arabischen Sprache
 zho	sn	chinesische Sprache
