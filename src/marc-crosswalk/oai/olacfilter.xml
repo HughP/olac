@@ -1,134 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?oxygen RNGSchema="file:../lib/olac-filter.rnc" type="compact"?>
 <olac-filter>
-    <header xmlns:dc="http://purl.org/dc/elements/1.1/">
-        <dc:title>Final OLAC filter for the IR Gateway</dc:title>
-        <dc:contributor>Gary Simons</dc:contributor>
-        <dc:date>10 June 2011</dc:date>
-       <dc:description>First rejects anything that : 
-           (1) matches the special code [qqq] for formal languages
-           (2) is a photo or artifact
-           (3) has a probability lower than 3.0%
-           (4) is in a Roman script language without a stoplist
-           (5) has more than two subject languages assigned
-           (6) is in an irrelevant repository
-        Then retains only the records that
-        have a subject language assigned.</dc:description>
-    </header>
-    <reject-rules>
-       <test name="QQQ code">
-          <dc-element tag="dc:subject" >
-             <type test="equals" ><text>olac:language</text></type>
-             <code test="equals"><text>qqq</text></code>
-          </dc-element>
-       </test>
-       <test name="Images and artifacts">
-          <!-- If the probability is greater than 95%, don't reject
+   <header xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Final OLAC filter for the IR Gateway</dc:title>
+      <dc:contributor>Gary Simons</dc:contributor>
+      <dc:date>10 June 2011</dc:date>
+      <dc:description>Do the following in order:
+         (1) reject if special code [qqq] for formal languages and language disorders
+         (2) reject if reharvested from OLAC
+         (3) reject if from an irrelevant repository
+         (4) reject if a photo or artifact
+         (5) reject if assigned more than 3 languages
+         (6) retain if there is a language and a linguistic publisher
+         (7) retain if it is assigned a high probability language
+         (8) reject if it has a probability lower than 3.0%
+         (9) reject if it is in a Roman script language without a stoplist
+         (10) retain if it has been assigned a subject language
+         (11) reject anything still left
+      </dc:description>
+   </header>
+   
+   <reject-rule name="QQQ code">
+      <dc-element tag="dc:subject">
+         <type test="equals">
+            <text>olac:language</text>
+         </type>
+         <code test="equals">
+            <text>qqq</text>
+         </code>
+      </dc-element>
+   </reject-rule>
+   
+   <reject-rule name="Reharvested from OLAC">
+      <oai-identifier>
+         <content test="contains">
+            <text>language-archives.org</text>
+         </content>
+      </oai-identifier>
+   </reject-rule>
+   
+   <reject-rule name="Irrelevant repositories">
+      <oai-identifier>
+         <content test="starts-with">
+            <text>oai:sheetmusic</text>
+            <text>oai:pangaea</text>
+         </content>
+      </oai-identifier>
+   </reject-rule>
+   
+   <reject-rule name="Images and artifacts">
+      <!-- If the probability is greater than 95%, don't reject
              it. The NAU collection, for instance, is full of images of
              dictionaries.
           -->
-          <dc-element tag="dc:type">
-             <code test="equals">
-                <text>binary</text>
-             </code>
-             <content negate="yes" test="starts-with">
-                <text>100</text>
-                <text>99</text>
-                <text>98</text>
-                <text>97</text>
-                <text>96</text>
-                <text>95</text>
-             </content>
-          </dc-element>
-          <dc-element tag="dc:format">
-             <content test="contains">
-                <text>StillImage</text>
-                <text>Still Image</text>
-                <text>slide</text>
-                <text>Slide</text>
-                <text>negative</text>
-                <text>positive</text>
-                <text>photograph</text>
-                <text>Photograph</text>
-                <text>PhysicalObject</text>
-                <text>Physical Object</text>
-                <text>artifact</text>
-                <text>Artifact</text>
-                <text>artefact</text>
-                <text>Artefact</text>
-             </content>
-          </dc-element>
-       </test>
-       <test name="Low binary probability">
-          <dc-element tag="dc:type">
-             <code test="equals">
-                <text>binary</text>
-             </code>
-             <content test="starts-with">
-                <text>1.</text>
-                <text>2.</text>
-             </content>
-          </dc-element>
-       </test>
-       <test name="Roman script languages without stop list">
-          <!-- But keep it if the probability is higher than 95 -->
-          <dc-element tag="dc:type">
-             <code test="equals">
-                <text>binary</text>
-             </code>
-             <content negate="yes" test="starts-with">
-                <text>100</text>
-                <text>99</text>
-                <text>98</text>
-                <text>97</text>
-                <text>96</text>
-                <text>95</text>
-             </content>
-          </dc-element>
-          <dc-element tag="dc:language">
-             <content test="equals">
-                <text>ANG</text>
-                <text>ang</text>
-                <text>swe</text>
-                <text>sv</text>
-                <text>nor</text>
-                <text>nob</text>
-                <text>dan</text>
-                <text>fin</text>
-                <text>hun</text>
-                <text>est</text>
-                <text>et</text>
-                <text>lat</text>
-                <text>la</text>
-                <text>pol</text>
-                <text>cze</text>
-                <text>ces</text>
-                <text>tur</text>
-                <text>ota</text>
-                <text>yid</text>
-             </content>
-          </dc-element>
-       </test>
-       <test name="More than 2 languages">
-          <dc-element tag="dc:subject" occursMoreThan="2">
-             <type test="equals"><text>olac:language</text></type>
-          </dc-element>
-       </test>
-       <test name="Irrelevant repositories">
-          <oai-identifier>
-             <content test="starts-with">
-                <text>oai:sheetmusic</text>
-                <text>oai:pangaea</text>
-             </content>
-          </oai-identifier>
-       </test>
-    </reject-rules>
+      <dc-element tag="dc:type">
+         <code test="equals">
+            <text>binary</text>
+         </code>
+         <content negate="yes" test="starts-with">
+            <text>100</text>
+            <text>99</text>
+            <text>98</text>
+            <text>97</text>
+            <text>96</text>
+            <text>95</text>
+         </content>
+      </dc-element>
+      <dc-element tag="dc:format">
+         <content test="contains">
+            <text>StillImage</text>
+            <text>Still Image</text>
+            <text>slide</text>
+            <text>Slide</text>
+            <text>negative</text>
+            <text>positive</text>
+            <text>photograph</text>
+            <text>Photograph</text>
+            <text>PhysicalObject</text>
+            <text>Physical Object</text>
+            <text>artifact</text>
+            <text>Artifact</text>
+            <text>artefact</text>
+            <text>Artefact</text>
+         </content>
+      </dc-element>
+   </reject-rule>
    
-    <retain-rules>
-       <test name="Must have subject language">
-          <dc-element tag="dc:subject">
-             <type test="equals"><text>olac:language</text></type>
-          </dc-element>
-       </test>
-    </retain-rules>
+   <reject-rule name="Assigned more than 3 languages">
+      <dc-element tag="dc:subject" occursMoreThan="3">
+         <type test="equals">
+            <text>olac:language</text>
+         </type>
+      </dc-element>
+   </reject-rule>
+   
+   <retain-rule name="Anything from Linguistic publishers with a
+      subject language">
+      <dc-element tag="dc:publisher">
+         <content test="contains">
+            <text>Linguistic</text>
+            <text>Lingusitic</text>
+         </content>
+      </dc-element>
+      <dc-element tag="dc:subject">
+         <type test="equals">
+            <text>olac:language</text>
+         </type>
+      </dc-element>
+   </retain-rule>
+   
+   <retain-rule name="Anything with a high probability language">
+      <dc-element tag="dc:subject">
+         <type test="equals">
+            <text>olac:language</text>
+         </type>
+         <code test="equals">
+            <text>eng</text>
+            <text>zho</text>
+            <text>jpn</text>
+            <text>deu</text>
+            <text>nld</text>
+            <text>fra</text>
+            <text>cze</text>
+         </code>
+      </dc-element>
+   </retain-rule>
+   
+   <reject-rule name="Low binary probability">
+      <dc-element tag="dc:type">
+         <code test="equals">
+            <text>binary</text>
+         </code>
+         <content test="starts-with">
+            <text>1.</text>
+            <text>2.</text>
+         </content>
+      </dc-element>
+   </reject-rule>
+   
+   <reject-rule name="Roman script languages without stop list">
+      <!-- But keep it if the probability is higher than 95 -->
+      <dc-element tag="dc:type">
+         <code test="equals">
+            <text>binary</text>
+         </code>
+         <content negate="yes" test="starts-with">
+            <text>100</text>
+            <text>99</text>
+            <text>98</text>
+            <text>97</text>
+            <text>96</text>
+            <text>95</text>
+         </content>
+      </dc-element>
+      <dc-element tag="dc:language">
+         <content test="equals">
+            <text>ANG</text>
+            <text>ang</text>
+            <text>swe</text>
+            <text>sv</text>
+            <text>nor</text>
+            <text>nob</text>
+            <text>dan</text>
+            <text>fin</text>
+            <text>hun</text>
+            <text>est</text>
+            <text>et</text>
+            <text>lat</text>
+            <text>la</text>
+            <text>pol</text>
+            <text>cze</text>
+            <text>ces</text>
+            <text>tur</text>
+            <text>ota</text>
+            <text>yid</text>
+         </content>
+      </dc-element>
+   </reject-rule>
+   
+   <retain-rule name="Has a subject language">
+      <dc-element tag="dc:subject">
+         <type test="equals">
+            <text>olac:language</text>
+         </type>
+      </dc-element>
+   </retain-rule>
+
+   <else-reject/>
+   
 </olac-filter>
