@@ -36,7 +36,7 @@ rm language-commons-uploader.tgz
 Create a directory called apache.
 
 {{{
-cd django
+cd django_deploy
 mkdir apache
 }}}
 
@@ -50,13 +50,40 @@ import olac
 os.environ['PYTHON_EGG_CACHE'] = olac.olacvar('python/egg_cache/wsgi')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-sys.path.append('/olac/languagecommons/django')
+sys.path.append('/olac/languagecommons/django_deploy')
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
 }}}
 
 Edit settings.py to edit database, timezone settings, plus 
 the SECRET_KEY. Change ROOT_URLCONF's value to "urls".
+
+Create uploader/secret.py file as explained in README.markdown. This file should contain two variables as follows:
+
+{{{
+accesskey = '...'
+secretkey = '...'
+}}}
+
+Edit uploader/management/commands/upload_items.py as it has bugs. Remove the following line:
+
+{{{
+from commons.settings import MEDIA_ROOT, PROJECT_DIR
+}}}
+
+and add the following line:
+
+{{{
+from django.conf import settings
+}}}
+
+Then, for each instance of MEDIA_ROOT and PROJECT_DIR, prefix them with "settings.", e.g.
+
+{{{
+MEDIA_ROOT --> settings.MEDIA_ROOT
+PROJECT_DIR --> settings.PROJECT_DIR
+}}}
+
 
 For each (broken) links in the media/admin directory, find the actual
 file under /usr/lib/python2.5/site-packages/django/contrib/admin/media.
@@ -90,5 +117,5 @@ WSGIScriptAlias / /olac/languagecommons/django/apache/django.wsgi
 Add a cron job checks newly accepted items and uploads them to archive.org. For example,
 
 {{{
-*/15 * * * * (cd /olac/languagecommons/django; ./manage.py upload_items)
+*/15 * * * * (cd /olac/languagecommons/django_deploy; ./manage.py upload_items)
 }}}
