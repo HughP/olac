@@ -29,7 +29,7 @@ At the top level of the directory, you should see files like README.markdown, se
 
 {{{
 tar xf language-commons-uploader.tgz
-mv language-commons django
+mv language-commons django_deploy
 rm language-commons-uploader.tgz
 }}}
 
