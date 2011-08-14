@@ -9,12 +9,12 @@
   * *Deliverable:* A means of listing potential participants and tracking progress.<br>
   * *Status:* A [Bookmarking social bookmarking] approach to maintaining the list was devised and more than 200 web pages were tagged as of interest, including archives and web sites. This task is now moved into the Google Code issue tracker. For each potential provider, we create an issue of Type-Provider and track progress until it is Done or Dropped.<br>
   * *Indicator:* Number of archives that have been identified but not yet contacted or agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider%20status%3ANew Type-Provider with status=New]).<br>
-  * *Status:* 19<br>
+  * *Status:* 29<br>
 
 1.2b _Collaboration:_ Contact all identified archives and consult with them to develop best strategy for generating their metadata.
 
   * *Indicator:* Number of archives that have been contacted and agreed to join ([http://code.google.com/p/olac/issues/list?can=2&q=label%3AType-Provider+status%3AAccepted Type-Provider with status=Accepted]).<br>
-  * *Status:* 6<br>
+  * *Status:* 8<br>
   * *Indicator:* Number of archives that have declined or repeatedly failed to respond ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3ADropped Type-Provider with status=Dropped]).<br>
   * *Status:* 0<br>
 
@@ -23,9 +23,9 @@
 
 1.2d _OLAC export:_ Work with archives that have a catalog database to expose their catalog in OLAC format.
   * *Deliverable:* Implement a MARC-to-OLAC crosswalk for use by institutions with MARC catalogs and document it with an OLAC Note.<br>
-  * *Status:* In progress.<br>
+  * *Status:* This has been implemented and used to prepare the catalog for one participant. Two others are in progress.<br>
   * *Deliverable:* Develop a reference implementation of a MySQL + PHP static repository generator and document with an OLAC Note.<br>
-  * *Status:* In progress.<br>
+  * *Status:* Source code is available, but a document has not been written.<br>
 
 1.2e _Repository editor:_ Configure an open source XML editor (like XMLmind) to create a static repository editor suitable for use by small archives.
 
@@ -34,14 +34,14 @@
 
   * *NB:* Another implementation possibility would use a Google Form: http://code.google.com/p/olac/issues/detail?id=169
 
-  * *Indicator for 1.2c to 1.2e:* Number of archives that have newly joined using whatever means ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3ADone Type-Provider with status=Done]).<br>
-  * *Status:* 2<br>
+  * *Indicator for 1.2c to 1.2e:* Number of archives that have newly joined using whatever means ([http://code.google.com/p/olac/issues/list?can=1&q=label%3AType-Provider+status%3AVerified Type-Provider with status=Verified]).<br>
+  * *Status:* 3<br>
 
 1.2.f _Documentation:_ Improve the documentation and tools on the OLAC web site for helping new participants to share their metadata with the community.
 
   * *Deliverable:* An FAQ for OLAC Implementers.<br>
   * *Status:* Posted at [http://www.language-archives.org/tools/faq.html]; 4 out of 21 questions remain to be answered.<br>
   * *Deliverable:* Redesign OLAC home page to clearly communicate to two separate audience groups--individuals looking for language resources or advise about archiving versus institutions who want to add their holdings to the aggregated catalog.<br>
-  * *Status:* Not started.<br>
+  * *Status:* We decided against a wholesale redesign. Instead, there is a prominent world map graphic and like to the new search service at http://search.language-archives.org/ for those who are looking for resources.<br>
   * *Deliverable:* Redesign OLAC Tools page to clearly communicate to would-be implementers.<br>
-  * *Status:* Not started.<br>
+  * *Status:* Reorganized, but not wholesale redesign.<br>
