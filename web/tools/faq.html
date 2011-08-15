@@ -33,7 +33,7 @@
  Open Archives Initiative, language resource, metadata, metadata repository, 
  static repositoy, dynamic repository, controlled vocabulary, Dublin Core"
          name="Keywords" />
-      <meta content="20010-07-05" name="Date" />
+      <meta content="20011-08-13" name="Date" />
    </head>
 
    <body bgcolor="white">
@@ -110,9 +110,9 @@
                <a href="#sample2">Where can I find sample code for implementing a dynamic
                   repository?</a>
             </li>
-            <li>
+     <!--   <li>
                <a href="#tokens">What are resumption tokens and how do they work?</a>
-            </li>
+            </li>   -->
             <li>
                <a href="#test2">How do I test my dynamic repository to make sure it works?</a>
             </li>
@@ -422,13 +422,19 @@
             <a name="sample1">Where can I find sample code for generating a static repository from a
                database?</a>
          </h3>
-         <p>Forthcoming.</p>
+         <p>Follow this <a href="http://code.google.com/p/olac/source/browse/#svn/src/data_providers/ailla_php">link</a>
+            to find sample code for generating a static repository. It
+         is written in PHP and extracts the metadata from a MySQL
+         database.  Another package (written in C) 
+            <a href="https://sourceforge.net/project/showfiles.php?group_id=6577&package_id=200507&release_id=439285">converts a BibTeX file</a> to an OLAC
+         Static Repository.</p>
          <p>Note that it will not work to supply the URL of your script as the base URL for a static
             repository. While accessing such a URL might return a valid static repository document
             that is up-to-the-minute with respect to the underlying database, this will not work
-            correctly when the database is updated because the harvesting protocol assumes that a
-            static repository is static. The static repository harvester uses the HTTP protocol to
-            issue a HEAD request and reharvests the repository only if the "Last-Modified" time in
+            correctly with the harvester because the harvesting protocol assumes that a
+            static repository is a static  data file. The static repository harvester uses the HTTP protocol to
+            issue a HEAD request to determine if the file has changed.
+            It reharvests the repository only if the "Last-Modified" time in
             the response is more recent than the time of the last successful harvest. </p>
 
          <h3 class="Question">
@@ -507,17 +513,64 @@
             <a name="sample2">Where can I find sample code for implementing a dynamic
             repository?</a>
          </h3>
-         <p>Forthcoming.</p>
+         <p>The <a href="http://www.openarchives.org/pmh/tools/tools.php">tools page</a> provided 
+            by the Open Archives Initiative gives links to
+            implementations of OAI data providers in
+            <a href="http://sourceforge.net/projects/uilib-oai/files/">Java</a>,
+            
+            <a href="http://www.dlib.vt.edu/projects/OAI/software/altperl/altperl.html">Perl</a>,
+            <a href="http://www.ibiblio.org/oaibiblio/">PHP</a>, and
+            <a href="http://sourceforge.net/projects/uilib-oai/files/">Microsoft ASP</a>.
+            These would need to be enriched to support
+            the additional <a
+               href="http://www.language-archives.org/OLAC/repositories.html#Requirements%20on%20dynamic%20repositories">requirements
+               on dynamic repositories</a> in the <i>OLAC Repositories</i> standard.
+         </p>
 
-         <h3 class="Question">
+     <!-- <h3 class="Question">
             <a name="tokens">What are resumption tokens and how do they work?</a>
          </h3>
-         <p>Forthcoming.</p>
+         <p>Forthcoming.</p>  -->
 
          <h3 class="Question">
             <a name="test2">How do I test my dynamic repository to make sure it works?</a>
          </h3>
-         <p>Forthcoming.</p>
+         <p>A best practice that has been suggested within the OAI
+            community is to implement <i>Document</i> as an additional
+            verb that provides a human-readable
+            documentation page. The base URL of your dynamic repository
+            (with no request parameters) can then be redirected to
+            <i>?verb=Document</i>. OLACA 
+            (the OLAC Aggregator) is implemented in this way. It is
+            recommended that you begin your development by
+            making a copy of the 
+            <a href="http://www.language-archives.org/cgi-bin/olaca3.pl?verb=Document">OLACA documentation page</a>
+             and changing
+            it to match your situation. 
+            (Be sure to set the &lt;BASE> tag with
+            your base URL up to the script name so that the HREFs can
+            simply begin with the script name.)
+            The page contains a sample
+            link to test
+            each significant case of each protocol verb, including all the
+            error conditions. As you are developing and debugging your
+            repository, a
+            first level of testing can be done by clicking these links to
+            manually test the calls and examine the resulting XML responses. 
+            
+         </p>
+         <p>When you are satisfied with the results you are getting,
+            the next step is to try the more formal tests at 
+            the <a
+               href="http://re.cs.uct.ac.za/cgi-bin/Explorer/2.0-1.46/addarchive">Open
+               Archives Initiative - Repository Explorer</a>. After
+            entering the base URL of your repository, this tool
+            will put it through a battery of tests as well as provide
+            a web interface that will allow you to query and explore your
+            repository. When your repository passes all the tests of
+            the OAI protocol, then you are ready to proceed to the
+            OLAC validation and registration process which is
+            described under the next question.</p>
       </div>
 
       <!-- Registering and updating -->
@@ -682,7 +735,8 @@
       <hr />
       <p><i>Comments? Further questions? Please click the </i>mailto:<i> link below to give us
             feedback so that we can make this page more helpful to future implementers.</i></p>
-      <p><tt>http://www.language-archives.org/tools/faq.html</tt><br /> Last revised: 5 July 2010</p>
+      <p><tt>http://www.language-archives.org/tools/faq.html</tt><br/>
+         Last revised: 13 August 2011</p>
       <p>
          <font size="-2">
             <a href="mailto:sb@ldc.upenn.edu,Gary_Simons@sil.org">Steven Bird and Gary Simons</a>
