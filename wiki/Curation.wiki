@@ -30,4 +30,4 @@
 1.3d _State-of-the-art assessment:_ Assess the state of the art with respect to the archival curation of language resources.
 
   * *Deliverable:* A report on the state of the art of language archiving, highlighting what is at risk and offering recommendations.<br>
-  * *Status:* Incorporated into the thesis listed above under 1.3a, and presented as a [http://www.hrelp.org/events/external/lsa2011/assets/LSA2011_Chang_poster.pdf poster] at the 2011 LSA symposium on language archiving.<br>
+  * *Status:* Incorporated into the thesis listed above under 1.3a, and presented as a [http://www.hrelp.org/events/external/lsa2011/assets/LSA2011_Chang_poster.pdf poster] at the 2011 LSA symposium on [http://www.hrelp.org/events/external/lsa2011/ Metadata in Language Documentation and Description].<br>
