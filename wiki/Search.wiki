@@ -36,9 +36,8 @@
   * *Deliverable:* Get harvested by DRIVER.<br>
   * *Status:* Not started.<br>
 
-2.3e _Google page rank:_ Encourage participating archives to make links to the dynamic pages for languages and data types so as to enhance their Google page rank and thereby increase the chances that people looking for particular languages and data types will find their resources through a general Google search.
-
-  * *Indicator:* Number of inbound links to the dynamic language pages.<br>
-  * *Status:* 0<br>
-  * *Indicator:* Number of inbound links to the dynamic data type pages.<br>
-  * *Status:* 0<br>
+2.3e _OLAC search service:_ Develop a search service that takes advantage of  OLAC’s metadata standards to provide easy-to-use precise search over the complete OLAC catalog.
+  * *Deliverable:* Collaborate with the Digital Library Architecture group in the University of Pennsylvania library to implement a faceted search service for OLAC.
+  * *Status:* Completed; see http://search.language-archives.org/ which redirects to the service hosted at the Penn library. 
+  * *Deliverable:* Report on the OLAC search service at the 2011 LSA symposium on language archiving.
+  * *Status:* Presented as a [http://www.hrelp.org/events/external/lsa2011/assets/LSA2011_BirdSimons_poster.pdf poster].
