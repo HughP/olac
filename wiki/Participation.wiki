@@ -40,7 +40,7 @@
 1.2.f _Documentation:_ Improve the documentation and tools on the OLAC web site for helping new participants to share their metadata with the community.
 
   * *Deliverable:* An FAQ for OLAC Implementers.<br>
-  * *Status:* Posted at [http://www.language-archives.org/tools/faq.html]; 4 out of 21 questions remain to be answered.<br>
+  * *Status:* Completed; see [http://www.language-archives.org/tools/faq.html].<br>
   * *Deliverable:* Redesign OLAC home page to clearly communicate to two separate audience groups--individuals looking for language resources or advise about archiving versus institutions who want to add their holdings to the aggregated catalog.<br>
   * *Status:* We decided against a wholesale redesign. Instead, there is a prominent world map graphic and like to the new search service at http://search.language-archives.org/ for those who are looking for resources.<br>
   * *Deliverable:* Redesign OLAC Tools page to clearly communicate to would-be implementers.<br>
