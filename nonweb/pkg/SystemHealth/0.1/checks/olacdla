@@ -13,7 +13,7 @@ esac
 
 echo -n "Check DLA OLAC catalog's size ($version)... "
 
-THRESHOLD=200
+THRESHOLD=2000
 
 get_num_dla_records() {
     curl -s "$1" 2>/dev/null | grep 'out of' | sed -r 's/[^0-9]*([0-9]+).*/\1/'
