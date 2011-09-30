@@ -37,6 +37,6 @@
 2.1e _Z39.50 Crosswalk:_ Develop an OLAC data provider that is a crosswalk for language resource records discovered in leading Z39.50 library gateways.
 
   * *Deliverable:* As an alternate strategy we are going to try to give access to library collections through WorldCat..<br>
-  * *Status:* A proof of concept implementation has been done, but cannot go operational until we have clearance from OCLC to go live.<br>
+  * *Status:* A proof of concept implementation has been done, because OCLC will not permit WorldCat to be used for discovery purposes.<br>
   * 
 NB. there is a duplication issue if we actually harvest from multiple libraries; pick a small number of libraries with SRU support. Separate task: can we harvest a listing of books in print? http://code.google.com/p/olac/issues/detail?id=74
