@@ -19,14 +19,15 @@
          Michigan University) </copyright>
       <changes>
          <p>The previous version of this document wss adopted, but the published XML schema was
-            never updated and none of the
-            participating archives has ever implemented that version of the vocabulary. The XML
-            schema and all existing
-            implementations are consistent with the 2002-11-21 version of this Recommendation, but
+            never updated to match it and none of the
+            participating archives has ever followed any of the
+            changes to the vocabulary. The XML
+            schema and all existing implementations by participating archives
+             are consistent with the 2002-11-21 version of this Recommendation, but
             are inconsistent with later versions. Therefore, to serve as a basis for further
             development by the implementing archives, this document has been reverted to the
-            2002-11-21 version of the vocabulary while bringing forward compatible subsequent
-            changes to the document. </p>
+            2002-11-21 version of the vocabulary terms while bringing forward compatible 
+            changes to the definitions. </p>
       </changes>
    </header>
 

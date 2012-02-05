@@ -1,27 +1,33 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="../OLAC_doc.xsl" type="text/xsl"?>
-<!DOCTYPE OLAC_doc SYSTEM "../OLAC_doc.dtd">
+<!DOCTYPE OLAC_doc SYSTEM "OLAC_doc.dtd">
 <OLAC_doc>
    <header>
       <status code="adopted" type="recommendation"/>
-      <!-- Promoted to Adopted on 2008-12-19 -->
       <title>OLAC Discourse Type Vocabulary</title>
       <baseName>discourse</baseName>
-      <issued>20060406</issued>
-      <previousIssued>20030127</previousIssued>
+      <issued>20120204</issued>
+      <previousIssued>20060406</previousIssued>
       <abstract>
          <p> This document specifies the codes, or controlled vocabulary, for the Discourse Type
-            extension of the OLAC Type element. These codes describe the content of a resource as
-            structured in such a way as to represent a particular type of discourse. </p>
+            extension of the Type metadata element. These codes describe the content of a resource
+            as structured in such a way as to represent a particular type of discourse. </p>
       </abstract>
-      <editors> Heidi Johnson (<url>mailto:ailla@ailla.org</url>)<br></br>Helen Aristar Dry
+      <editors> Heidi Johnson (<url>mailto:ailla@ailla.org</url>)<br/>Helen Aristar Dry
             (<url>mailto:hdry@linguistlist.org</url>) </editors>
-      <copyright> 2006 Heidi Johnson (University of Texas at Austin) and Helen Aristar Dry (Eastern Michigan
-         University) </copyright>
+      <copyright>2012 Heidi Johnson (University of Texas at Austin) and Helen Aristar Dry (Eastern
+         Michigan University) </copyright>
       <changes>
-         <p>Promoted to candidate status, with a call for review by
-            those who have put the document into
-            practice.</p>
+         <p>The previous version of this document wss adopted, but the published XML schema was
+            never updated to match it and none of the
+            participating archives has ever followed any of the
+            changes to the vocabulary. The XML
+            schema and all existing implementations by participating archives
+             are consistent with the 2002-11-21 version of this Recommendation, but
+            are inconsistent with later versions. Therefore, to serve as a basis for further
+            development by the implementing archives, this document has been reverted to the
+            2002-11-21 version of the vocabulary terms while bringing forward compatible 
+            changes to the definitions. </p>
       </changes>
    </header>
 
@@ -41,11 +47,22 @@
 
          <p> Each term in the controlled vocabulary is described in one of the following
             subsections. The heading gives the encoded value for the term that is to be used as the
-            value of the code attribute of the "OLAC-Discourse-Type" extension of the Type metadata
-            element <cit>OLAC-MS</cit>. Under the heading, the term is described in four ways. Name
-            gives a descriptive label for the term. Definition is a one-line summary of what the
-            term means. Comments offers more details on what the term represents. Examples may also
-            be given to illustrate how the term is meant to be applied. </p>
+            value of the <tt>olac:code</tt> attribute of the <tt>xsi:type="olac:discourse-type"</tt>
+            extension of the Type metadata element <cit>OLAC-Usage</cit>. Under the heading, the
+            term is described in four ways. <i>Name</i> gives a descriptive label for the term.
+               <i>Definition</i> is a one-line summary of what the term means. <i>Comments</i>
+            offers more details on what the term represents. <i>Examples</i> may also be given to
+            illustrate how the term is meant to be applied. </p>
+
+         <term>
+            <code>dialogue</code>
+            <name>Dialogue</name>
+            <definition>An interactive discourse with two or more participants.</definition>
+            <examples>
+               <p> Examples of dialogues include conversations, interviews, correspondence,
+                  consultations, greetings and leave-takings. </p>
+            </examples>
+         </term>
 
          <term>
             <code>drama</code>
@@ -61,7 +78,7 @@
          </term>
 
          <term>
-            <code>formulaic_discourse</code>
+            <code>formulaic</code>
             <name>Formulaic Discourse</name>
             <definition>The resource is a ritually or conventionally structured discourse.</definition>
             <examples>
@@ -71,31 +88,22 @@
          </term>
 
          <term>
-            <code>interactive_discourse</code>
-            <name>Interactive Discourse</name>
-            <definition>Linguistic communication between two or more participants.</definition>
-            <examples>
-               <p> Examples of interactive discourse include conversations, interviews,
-                  correspondence, consultations, greetings and leave-takings. </p>
-            </examples>
-         </term>
-
-         <term>
-            <code>language_play</code>
-            <name>Language Play</name>
-            <definition>Language Play is language whose primary function is to be part of play, or a
-               style of speech that involves a creative manipulation of the structures of the
+            <code>ludic</code>
+            <name>Ludic Discourse</name>
+            <definition>Ludic discourse is language whose primary function is to be part of play, or
+               a style of speech that involves a creative manipulation of the structures of the
                language. </definition>
             <examples>
-               <p>Examples of language play are verbal art, jokes, secret languages, and speech
-                  disguises. </p>
+               <p>Examples of ludic discourse are play languages, jokes, secret languages, and
+                  speech disguises. </p>
             </examples>
          </term>
 
          <term>
             <code>oratory</code>
             <name>Oratory</name>
-            <definition>Public speaking, or speaking eloquently according to rules or conventions.</definition>
+            <definition>Public speaking, or of speaking eloquently according to rules or
+               conventions.</definition>
             <examples>
                <p>Examples of oratory include sermons, lectures, political speeches, and
                   invocations. </p>
@@ -104,7 +112,7 @@
 
          <term>
             <code>narrative</code>
-            <name>Narrative</name>
+            <name>Narrative Discourse</name>
             <definition>A monologic discourse which represents temporally organized events.</definition>
             <examples>
                <p> Types of narratives include historical, traditional, and personal narratives,
@@ -113,7 +121,7 @@
          </term>
 
          <term>
-            <code>procedural_discourse</code>
+            <code>procedural</code>
             <name>Procedural Discourse</name>
             <definition>An explanation or description of a method, process, or situation having
                ordered steps. </definition>
@@ -145,12 +153,13 @@
 
          <term>
             <code>unintelligible_speech</code>
-            <name>Unintelligible speech</name>
+            <name>Unintelligible Speech</name>
             <definition>The resource consists of utterances that are not intended to be
                interpretable as ordinary language.</definition>
             <examples>
-               <p>Examples of unintelligible speech include sacred languages, glossolalia, and
-                  singing syllables (fa-la-la). </p>
+               <p>Examples of unintelligible speech include sacred languages, Examples of
+                  unintelligible speech include sacred languages, glossolalia, and singing syllables
+                  (fa-la-la). </p>
             </examples>
          </term>
 
@@ -158,7 +167,9 @@
    </body>
 
    <references>
-      <ref abbrev="OLAC-MS">OLAC Metadata.<br/>
-            &lt;<url>http://www.language-archives.org/OLAC/metadata.html</url>&gt;</ref>
+
+      <ref abbrev="OLAC-Usage">OLAC Metadata Usage
+            Guidelines.<br/>&lt;<url>http://www.language-archives.org/NOTE/usage.html</url>&gt;</ref>
+
    </references>
 </OLAC_doc>

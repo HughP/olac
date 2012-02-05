@@ -8,7 +8,7 @@ LATEST = ../document_latest.sh
 
 ACCESS     = access-20021119.html
 BPR        = bpr-20071115.html bpr-20080229.html bpr-20080711.html
-DISCOURSE  = discourse-20021121.html discourse-20021217.html discourse-20030127.html discourse-20060406.html
+DISCOURSE  = discourse-20021121.html discourse-20021217.html discourse-20030127.html discourse-20060406.html discourse-20120204.html
 EXTENSIONS = olac-extensions-20021130.html olac-extensions-20080222.html
 FIELD      = field-20021127.html field-20030121.html field-20060406.html
 LANGUAGE   = language-20010319.html language-20031213.html language-20071114.html language-20080222.html
@@ -27,7 +27,7 @@ HTML = $(ACCESS) $(BPR) $(DISCOURSE) $(EXTENSIONS) $(FIELD) $(LANGUAGE) $(ROLE) 
 all: $(HTML)
 	$(LATEST) access     20021119
 	$(LATEST) bpr        20080711
-	$(LATEST) discourse  20060406
+	$(LATEST) discourse  20120204
 	$(LATEST) field      20060406
 	$(LATEST) language   20080222
 	$(LATEST) olac-extensions       20080222
