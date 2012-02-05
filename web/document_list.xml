@@ -2,7 +2,7 @@
 <?xml-stylesheet href="document_headers.xsl" type="text/xsl"?>
 
 <!-- OLAC Document List
-       Last updated: 23 July 2009 
+       Last updated: 4 Feb 2012 
 
 This list must now maintain latest dates, just like the MAKEFILEs.
 -->
@@ -23,7 +23,7 @@ This list must now maintain latest dates, just like the MAKEFILEs.
       
       <document href="REC/access-20021119.xml"/>
       <document href="REC/bpr-20080711.xml"/>
-      <document href="REC/discourse-20060406.xml"/>
+      <document href="REC/discourse-20120204.xml"/>
       <document href="REC/field-20060406.xml"/>
       <document href="REC/language-20080222.xml"/>
       <document href="REC/olac-extensions-20080222.xml"/>
