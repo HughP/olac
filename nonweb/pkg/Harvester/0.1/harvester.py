@@ -1133,6 +1133,8 @@ def do_implicit_deletion(con, archiveid, harvested_ids):
             where ai.OaiIdentifier=%s and ai.Item_ID=me.Item_ID
             """
             cur.execute(sql, oaiid)
+            sql = "delete from ARCHIVED_ITEM where OaiIdentifier=%s"
+            cur.execute(sql, oaiid)
     cur.close()
 
 
