@@ -1354,7 +1354,7 @@ Usage: %(prog)s [options]
       -s url    harvest a single repository
       --static  used in conjunction with -s, indicates the given URL is
                 an OAI static repository
-      -u        turn on utf-8 cleaner, which is search in the system config
+      -u        turn on utf-8 cleaner, which is searched in the system config
       -U path   use the program specified by path as a utf-8 cleaner; implies -u
       -l        use syslogd to log messages
       --stdout  output to stdout
