@@ -28,6 +28,8 @@ __all__ = [
     "check_language_code"
     ]
 
+socket.setdefaulttimeout(15)
+
 def log(msg):
     return
     print "LOG:", msg
@@ -672,7 +674,6 @@ def check_static_repository(con, archive_id=None):
             cur.execute(sql, archive_id)
         con.commit()
     cur.close()
-
 
 #
 # RID (Redundant Identifier)
