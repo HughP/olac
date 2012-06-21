@@ -47,7 +47,7 @@ else:
     typ, data = M.search(None, 'SINCE', date.strftime('%d-%b-%Y'))
 
 # this pattern matches with only Matthew's emails
-subjpat = re.compile(r'^Analytics www.lang.*Clicks\)', re.S)
+subjpat = re.compile(r'^hits_and_clicks$', re.S)
 
 # Loop through each email
 for num in data[0].split():
@@ -60,9 +60,8 @@ for num in data[0].split():
     if not subjpat.match(message.get("Subject")): continue
     for part in message.walk():
         if part.get_content_type() in ('application/octet-stream','text/csv'):
-            filename = re.sub(r"\s+", "", part.get_filename())
-            filename = filename.split('_')[2]
-            filename = "ga_" + filename + ".csv"
+            year_month = part.get_filename().split()[6].split('-')[0][:6]
+            filename = "ga_" + year_month + ".csv"
             fp = open(filename, 'wb')
             fp.write(part.get_payload(decode=True))
             fp.close()
