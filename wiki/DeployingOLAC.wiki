@@ -250,6 +250,8 @@ Read menus and explanations, and select options appropriate for your environment
  * PyMeld: installed a customized version from source found in
    svn:/system/PyMeld.py.
 
+ * google-api-python-client (1.0c2)
+
 == Setting up OLAC ==
 
 In this section, it is assumed that you are logged in as olacweb unless the
