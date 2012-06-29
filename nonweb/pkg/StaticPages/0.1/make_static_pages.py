@@ -9,14 +9,18 @@ import olac
 import MySQLdb
 from subprocess import Popen, PIPE
 import datetime
+import threading
 
 DOCROOT = olac.olacvar('docroot')
 WSGIROOT = olac.olacvar('wsgiroot')
 STATICROOT = olac.olacvar('static/root')
 STATICSTATUS = olac.olacvar('static/status')
-CONN = MySQLdb.connect(read_default_file="~/.my.cnf",
-                       read_default_group="client_dbm")
-cur = CONN.cursor()
+
+def connect_db():
+    con = MySQLdb.connect(read_default_file="~/.my.cnf",
+                          read_default_group="client_dbm")
+    cur = con.cursor()
+    return con, cur
 
 def run_php(script, url, outputfile=None):
     env = os.environ.copy()
@@ -53,8 +57,12 @@ def run_wsgi(script, url, outputfile=None):
         return output
 
 def sql_to_list(sql):
+    con, cur = connect_db()
     cur.execute(sql)
-    for row in cur.fetchall():
+    L = cur.fetchall()
+    cur.close()
+    con.close()
+    for row in L:
         yield row[0]
 
 def make_dirs(file_path):
@@ -132,8 +140,11 @@ def main():
 
     sql = "select count(*) from ARCHIVED_ITEM where ts>='%(STARTED)s'" % \
           status_data
+    con, cur = connect_db()
     cur.execute(sql)
     N = cur.fetchone()[0]
+    cur.close()
+    con.close()
 
     if N > 0:
         proc0('archives.php')
