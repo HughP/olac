@@ -11,8 +11,6 @@ database within the same MySQL server. If the harvest is successful, the stored
 data is moved to the main database.
 
 AUTHOR: Haejoong Lee <haejoong@ldc.upenn.edu>
-CREATED: February 19, 2009
-UPDATED: July 28, 2009
 """
 
 import os
@@ -391,8 +389,13 @@ Usage: %(prog)s [-h] [-c <mycnf>] [-H <host>] [-d <db>] [-t <db>] [-x <path>] [-
             log("ERROR: temporary not specified nor found in configuration")
             sys.exit(1)
             
-    con = MySQLdb.connect(**kwargs)
-    cur = con.cursor()
+    def connect_db():
+        con = MySQLdb.connect(**kwargs)
+        cur = con.cursor()
+        return con, cur
+
+    con, cur = connect_db()
+
     cur.execute("select database()")
     db = cur.fetchone()[0]
     log("main database:", db)
@@ -404,11 +407,11 @@ Usage: %(prog)s [-h] [-c <mycnf>] [-H <host>] [-d <db>] [-t <db>] [-x <path>] [-
         log("ERROR: temporary db shouldn't be the same as the main db:", db)
         sys.exit(1)
 
-    return mycnf, host, db, tmpdb, con, cur, harvester
+    return mycnf, host, db, tmpdb, con, cur, connect_db, harvester
 
 
 if __name__ == "__main__":
-    mycnf, host, db, tmpdb, con, cur, harvester = process_options()
+    mycnf, host, db, tmpdb, con, cur, connect_db, harvester = process_options()
 
     if USESYSLOG:
         if olac:
@@ -420,6 +423,8 @@ if __name__ == "__main__":
             USESYSLOG = False
             log2("Failed to load olac module.\n" \
                  "Logging to log daemon will be diabled.")
+
+    con, cur = connect_db()
 
     log("obtaining archive list...")
     archives = get_all_archives(cur)
@@ -443,7 +448,13 @@ if __name__ == "__main__":
         proc = subprocess.Popen(
             cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
-        con.commit()  # make sure that the newly harvested archive is seen
+        try:
+            con.commit()  # make sure that the newly harvested archive is seen
+        except MySQLdb.OperationalError, e:
+            if e[0] == 2006:  # mysql server has gone away
+                con, cur = connect_db()
+            else:
+               raise
         log("STDOUT:")
         log2(stdout.split('\n'))
         log("STDERR:")
