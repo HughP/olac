@@ -11,6 +11,7 @@ import time
 import MySQLdb
 from optionparser import OptionParser
 import olac
+import csv
 
 def process_options():
     usageString = """\
@@ -80,6 +81,7 @@ def str2sec(s):
 
 def process_report(con, report):
     cur = con.cursor()
+    f = open(report)
     f = file(report)
     f.readline()
     f.readline()
@@ -89,13 +91,15 @@ def process_report(con, report):
     todate = datetime.datetime(*time.strptime(arr[1], "%Y%m%d")[:6])
 
     while not f.readline().startswith("Destination Page,"): pass
-    for line in f:
-        arr = line.strip().split(',')
-        if arr[0] == '': continue
+
+    csvfile = csv.reader(f)
+
+    for arr in csvfile:
+        if len(arr) == 0 or arr[0] == '' or arr[0].startswith('#'): continue
         typ, repoid = arr[0].split('/')[-2:]
         typ = typ.split('_')[-1]
         L = [typ, repoid, fromdate, todate]
-        L.extend([int(x) for x in arr[1:3]])
+        L.extend([int(x.replace(',','')) for x in arr[1:3]])
         L.append(str2sec(arr[3]))
         L.extend([float(x.rstrip('%')) for x in arr[4:]])
         sql = """
