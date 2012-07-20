@@ -681,7 +681,7 @@ sub getLanguageCodeLineages {
 sub recordExists {
     my $self = shift;
     my $oaiid = shift;
-    $oaiid =~ s/'/''/;
+    $oaiid =~ s/'/''/g;
     my $sql = "
         select count(*) from ARCHIVED_ITEM
         where OaiIdentifier='$oaiid'
