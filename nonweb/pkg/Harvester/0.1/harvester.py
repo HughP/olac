@@ -1,5 +1,6 @@
 import sys
 import os
+import re
 import traceback
 from StringIO import StringIO
 import xml.sax.xmlreader
@@ -237,7 +238,7 @@ class DBI(Logger):
                 args = (oaiid, record.datestamp(), self.archiveid, schemaid, itemid)
                 self.cur.execute(sql, args)
                 dt1 = datetime.datetime(
-                    *[int(x) for x in record.datestamp().split('-')])
+                    *[int(x) for x in re.findall(r'\d+', record.datestamp())])
                 if self.cur.rowcount > 0 or dt<=dt1.date():
                     self.updatedRecordCount0 += 1
                     flagUpdateMetadata = True
