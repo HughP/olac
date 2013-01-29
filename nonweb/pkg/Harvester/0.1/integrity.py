@@ -734,9 +734,11 @@ def check_invalid_character(con, archive_id=None):
     invalid_html_chars.update(range(55296,57344))
     
     def find_invalid_html_char(s):
-        for c in s:
+        L = []
+        for i, c in enumerate(s):
             if ord(c) in invalid_html_chars:
-                return c
+                L.append(i)
+        return L
 
     if archive_id is None:
         sqls = [
@@ -774,9 +776,26 @@ def check_invalid_character(con, archive_id=None):
     
     for row in cur.fetchall():
         try:
-            c = find_invalid_html_char(row[1])
-            if c is not None:
-                cur.execute(sql2, (row[0], "", "IHC"))
+            clst = find_invalid_html_char(row[1])
+            if clst:
+                j = 0
+                L = []
+                s = row[1]
+                for i in clst:
+                    L.append(s[j:i])
+                    n = ord(s[i])
+                    if n < 256:
+                        L.append("<%02X>" % n)
+                    else:
+                        L.append("<%04X>" % n)
+                    j = i + 1
+                L.append(s[j:])
+                s2 = "".join(L)
+                if clst[0] > 250:
+                    s2 = "..." + s2[clst[0] - 25:]
+                if len(s2) > 255:
+                    s2 = s2[:252] + "..."
+                cur.execute(sql2, (row[0], s2, "IHC"))
         except UnicodeEncodeError:
             cur.execute(sql2, (row[0], "", "IUC"))
     con.commit()
