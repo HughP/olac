@@ -1,0 +1,18 @@
+#! /bin/bash
+
+get_archives() {
+    user=$(olacvar mysql/user)
+    pw=$(olacvar mysql/passwd)
+    db=$(olacvar mysql/olacdb)
+    host=$(olacvar mysql/host)
+    sql="select RepositoryIdentifier, datediff(now(), LastHarvested) from OLAC_ARCHIVE"
+    echo $sql | mysql -N -h $host -u $user -p"$pw" $db 2>/dev/null
+}
+
+get_archives | while read a b; do
+    if [ "$b" -ge 7 ]; then
+        echo "Checking if $a was harvested within a week..."
+        echo FAIL
+    fi
+done
+
