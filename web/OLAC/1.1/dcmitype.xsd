@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema attributeFormDefault="unqualified"
-   elementFormDefault="qualified"
-   targetNamespace="http://purl.org/dc/dcmitype/"
-   xmlns="http://purl.org/dc/dcmitype/"
-   xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://purl.org/dc/dcmitype/"
+           targetNamespace="http://purl.org/dc/dcmitype/"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
 
-   <xs:annotation>
-      <xs:documentation xml:lang="en"
-         >
+  <xs:annotation>
+    <xs:documentation xml:lang="en">
       DCMI Type Vocabulary XML Schema
       XML Schema for http://purl.org/dc/dcmitype/ namespace
 
-      Created 2003-04-02
+      Created 2008-02-11
 
       Created by 
 
@@ -23,34 +22,32 @@
 
       This schema defines a simpleType which enumerates
       the allowable values for the DCMI Type Vocabulary.
-      
-      Update 2009-01-26 by Gary Simons to match latest definition at
-      http://dublincore.org/documents/dcmi-type-vocabulary/
     </xs:documentation>
 
+ 
+  </xs:annotation>
 
-   </xs:annotation>
 
-
-   <xs:simpleType name="DCMIType">
-      <xs:union>
-         <xs:simpleType>
-            <xs:restriction base="xs:Name">
-               <xs:enumeration value="Collection"/>
-               <xs:enumeration value="Dataset"/>
-               <xs:enumeration value="Event"/>
-               <xs:enumeration value="Image"/>
-               <xs:enumeration value="InteractiveResource"/>
-               <xs:enumeration value="MovingImage"/>
-               <xs:enumeration value="PhysicalObject"/>
-               <xs:enumeration value="Service"/>
-               <xs:enumeration value="Software"/>
-               <xs:enumeration value="Sound"/>
-               <xs:enumeration value="StillImage"/>
-               <xs:enumeration value="Text"/>
+  <xs:simpleType name="DCMIType">
+     <xs:union>
+        <xs:simpleType>
+           <xs:restriction base="xs:Name">
+		<xs:enumeration value="Collection"/>
+		<xs:enumeration value="Dataset"/>
+		<xs:enumeration value="Event"/>
+		<xs:enumeration value="Image"/>
+		<xs:enumeration value="MovingImage"/>
+		<xs:enumeration value="StillImage"/>
+		<xs:enumeration value="InteractiveResource"/>
+		<xs:enumeration value="Service"/>
+		<xs:enumeration value="Software"/>
+		<xs:enumeration value="Sound"/>
+		<xs:enumeration value="Text"/>
+		<xs:enumeration value="PhysicalObject"/>
             </xs:restriction>
-         </xs:simpleType>
-      </xs:union>
-   </xs:simpleType>
+        </xs:simpleType> 
+     </xs:union>
+  </xs:simpleType>
 
 </xs:schema>
+

@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copied from
-   http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns="http://purl.org/dc/elements/1.1/"
            targetNamespace="http://purl.org/dc/elements/1.1/"
@@ -12,7 +10,7 @@
       DCMES 1.1 XML Schema
       XML Schema for http://purl.org/dc/elements/1.1/ namespace
 
-      Created 2003-04-02
+      Created 2008-02-11
 
       Created by 
 
@@ -118,3 +116,4 @@
 
 
 </xs:schema>
+
