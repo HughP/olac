@@ -1,0 +1,14 @@
+#! /bin/sh
+
+echo "Check if Ethnologue LanguageCodes.tab has changed..."
+
+URL="http://www.ethnologue.com/codes/LanguageCodes.tab"
+CHKSUM="a3b4ca459267dc4c15c485d561d51199"
+
+NEW_CHKSUM=$(curl -s "$URL" | md5sum | cut -d' ' -f 1)
+
+if [ "$NEW_CHKSUM" = "$CHKSUM" ]; then
+    echo PASS
+else
+    echo FAIL
+fi

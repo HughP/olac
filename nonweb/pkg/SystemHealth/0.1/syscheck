@@ -8,16 +8,19 @@ esac
 #cols=${cols##* }
 cols=80
 
-find $thisdir/enabled -type l | sort | while read a; do
-    $a | {
-     	read a
-	echo -n $a
-	read b
-	n=$(($cols - ${#a} - ${#b} - 1))
-	while [ $n -gt 0 ]; do
-	    echo -n " "
-	    n=$(($n - 1))
-	done
-	echo $b
-    }
+while [ $# -gt 0 ]; do
+    find $thisdir/$1 -type l | sort | while read a; do
+        $a | {
+            read a
+            echo -n $a
+            read b
+            n=$(($cols - ${#a} - ${#b} - 1))
+            while [ $n -gt 0 ]; do
+                echo -n " "
+                n=$(($n - 1))
+            done
+            echo $b
+        }
+    done
+    shift
 done
