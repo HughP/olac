@@ -8,3 +8,6 @@ Before beginning the check, it should print out what it does, e.g.
 After checking and before exiting, it should print out "PASS" if it is checked
 as expected, "FAIL" if not, or "ERROR" if the checking was impossible.
 
+A script can contain multiple checks, each of which should produce the 2 lines
+described above.
+
