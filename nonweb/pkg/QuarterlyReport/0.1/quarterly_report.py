@@ -33,7 +33,7 @@ You are receiving this email by virtue of your association with the following ar
 
 (If you do not wish to receive these emails, please notify your OLAC system administrator, %(adminEmail)s.)
 
-
+%(feedbackOnHarvest)s
 USAGE
 These are statistics on the usage of your metadata records by visitors to the OLAC site, for the period %(usagePeriodBeg)s to %(usagePeriodEnd)s.
 
@@ -170,6 +170,13 @@ def determineFeedbackOnIntegrity(integrity_value, archiveId, deduction):
             msg += "\n\nThe presence of these problems is causing %s star%s to be subtracted from your overall quality rating. The rating will improve when you correct these problems." % (to_written_form(deduction), plural)
         return msg
 
+def determineFeedbackOnHarvest(lastHarvested, baseUrl):
+    msg = ""
+    d = (lastHarvested.today() - lastHarvested).days
+    if d >= 7:
+        msg = "The OLAC harvester is unable to communicate with your repository at %s. The last date of successful harvest was %s. Please check with your systems administrator to see if there is a problem with your infrastructure.\n\n" % (baseUrl, lastHarvested)
+    return msg
+
 def normalizeEmailAddress(s):
     s = re.sub(r"^mailto:", '', s)
     s = re.sub(r"[,; ].*", '', s)
@@ -242,6 +249,7 @@ def composeEmail(archiveId, metrics, usageh, usagec):
         "numberOfArchives": metrics.size(),
         "adminEmail": normalizeEmailAddress(row["AdminEmail"]),
         "feedbackOnUpdate": determineFeedbackOnUpdate(lastUpdated, score, archiveId),
+        "feedbackOnHarvest": determineFeedbackOnHarvest(row["LastHarvested"], row["BaseURL"]),
         "feedbackOnIntegrity": determineFeedbackOnIntegrity(row['integrity_problems'], archiveId, orgStarScore - starScore),
         "metricsTable": generateMetricsTable(metrics, archiveId),
         "usagePeriodBeg": usagePeriodBeg,
