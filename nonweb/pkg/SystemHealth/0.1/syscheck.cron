@@ -2,5 +2,5 @@
 
 subject="OLAC ALERT ($(date +'%b %d %H:%M %Y'))"
 recipients="$(olacvar tech_email) $(olacvar olac_admin_email | sed 's/,/ /')"
-$(dirname $0)/syscheck | grep -v 'PASS$' | \
+$(dirname $0)/syscheck enabled-daily | grep -v 'PASS$' | \
     /usr/bin/mail -e -s "$subject" $recipients
