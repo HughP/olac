@@ -2,8 +2,8 @@
 
 echo "Check if DC schema has not changed..."
 
-URL="http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd"
-CHKSUM="f3fa7880f6fac5c76e6ae5f236833d8e"
+URL="http://dublincore.org/schemas/xmls/qdc/dc.xsd"
+CHKSUM="7d469a2eac18d58ab99e26d1cfe5079e"
 
 NEW_CHKSUM=$(curl -s "$URL" | md5sum | cut -d' ' -f 1)
 
