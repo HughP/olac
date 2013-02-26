@@ -721,28 +721,23 @@ def check_redundant_identifier(con, archive_id=None):
     cur.close()
 
 #
-# IHC (Invalid HTML Character)
+# ICC (Invalid Character Code)
 # IUC (Invalid UTF-8 Character)
 #
 def check_invalid_character(con, archive_id=None):
-    invalid_html_chars = set()
-    invalid_html_chars.update(range(0,32))
-    invalid_html_chars.remove(9)
-    invalid_html_chars.remove(10)
-    invalid_html_chars.remove(13)
-    invalid_html_chars.update(range(127,160))
-    invalid_html_chars.update(range(55296,57344))
+    invalid_chars = set()
+    invalid_chars.update(range(127,160))
     
-    def find_invalid_html_char(s):
+    def find_invalid_char(s):
         L = []
         for i, c in enumerate(s):
-            if ord(c) in invalid_html_chars:
+            if ord(c) in invalid_chars:
                 L.append(i)
         return L
 
     if archive_id is None:
         sqls = [
-            "delete from INTEGRITY_CHECK where Problem_Code in ('IHC','IUC')",
+            "delete from INTEGRITY_CHECK where Problem_Code in ('ICC','IUC')",
             "select Element_ID, Content from METADATA_ELEM"
             ]
     else:
@@ -753,7 +748,7 @@ def check_invalid_character(con, archive_id=None):
             where ic.Object_ID=me.Element_ID
             and me.Item_ID=ai.Item_ID
             and ai.Archive_ID=%d
-            and Problem_Code in ('IHC','IUC')
+            and Problem_Code in ('ICC','IUC')
             """ % archive_id,
         
             """
@@ -776,7 +771,7 @@ def check_invalid_character(con, archive_id=None):
     
     for row in cur.fetchall():
         try:
-            clst = find_invalid_html_char(row[1])
+            clst = find_invalid_char(row[1])
             if clst:
                 j = 0
                 L = []
@@ -795,7 +790,7 @@ def check_invalid_character(con, archive_id=None):
                     s2 = "..." + s2[clst[0] - 25:]
                 if len(s2) > 255:
                     s2 = s2[:252] + "..."
-                cur.execute(sql2, (row[0], s2, "IHC"))
+                cur.execute(sql2, (row[0], s2, "ICC"))
         except UnicodeEncodeError:
             cur.execute(sql2, (row[0], "", "IUC"))
     con.commit()
