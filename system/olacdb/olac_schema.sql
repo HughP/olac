@@ -301,6 +301,7 @@ insert into EXTENSION (Type,NS,NSPrefix,NSSchema,Display) values ('W3CDTF','http
 # Extension_ID        : (Foreign Key)
 # Item_ID             : (Foreign Key)
 # Tag_ID              : (Foreign Key)
+# Do_ICC              : if true, ICC check & fix should be performed
 ##################################################################
 
 
@@ -314,6 +315,7 @@ create table METADATA_ELEM (
 	Code            varchar(255) default '',
 	Item_ID         int,
 	Tag_ID          smallint,
+	Do_ICC		bool default true,
 
 	primary key (Element_ID),
 	foreign key (Extension_ID) references EXTENSION (Extension_ID) on delete set null on update cascade,
@@ -321,7 +323,8 @@ create table METADATA_ELEM (
 	foreign key (Tag_ID) references ELEMENT_DEFN (Tag_ID) on delete set null on update cascade,
 	key (TagName),
 	key (Type),
-	key (Code)
+	key (Code),
+        key (Do_ICC)
 ) engine=innodb, charset=utf8;
 
 create index METADATA_ELEM_INDEX on METADATA_ELEM (Item_ID, Tag_ID);
