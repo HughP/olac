@@ -735,10 +735,20 @@ def check_invalid_character(con, archive_id=None):
                 L.append(i)
         return L
 
+    def fix_invalid_char(s):
+        return re.sub(r'[\x80-\x9f]', u'\ufffd', s)
+
     if archive_id is None:
         sqls = [
-            "delete from INTEGRITY_CHECK where Problem_Code in ('ICC','IUC')",
-            "select Element_ID, Content from METADATA_ELEM"
+            """
+            delete from INTEGRITY_CHECK
+            where Problem_Code in ('ICC','IUC')
+            """,
+            """
+            select Element_ID, Content
+            from METADATA_ELEM
+            where Do_ICC = true
+            """
             ]
     else:
         sqls = [
@@ -749,6 +759,7 @@ def check_invalid_character(con, archive_id=None):
             and me.Item_ID=ai.Item_ID
             and ai.Archive_ID=%d
             and Problem_Code in ('ICC','IUC')
+            and Do_ICC = true
             """ % archive_id,
         
             """
@@ -756,6 +767,7 @@ def check_invalid_character(con, archive_id=None):
             from METADATA_ELEM me, ARCHIVED_ITEM ai
             where me.Item_ID=ai.Item_ID
             and ai.Archive_ID=%d
+            and Do_ICC = true
             """ % archive_id
             ]
     
@@ -769,6 +781,12 @@ def check_invalid_character(con, archive_id=None):
     values (%s, %s, %s)
     """
     
+    sql3 = """
+    update METADATA_ELEM
+    set Content=%s, Do_ICC=false
+    where Element_ID=%s
+    """
+
     for row in cur.fetchall():
         try:
             clst = find_invalid_char(row[1])
@@ -791,6 +809,7 @@ def check_invalid_character(con, archive_id=None):
                 if len(s2) > 255:
                     s2 = s2[:252] + "..."
                 cur.execute(sql2, (row[0], s2, "ICC"))
+            cur.execute(sql3, (fix_invalid_char(row[1]), row[0]))
         except UnicodeEncodeError:
             cur.execute(sql2, (row[0], "", "IUC"))
     con.commit()
