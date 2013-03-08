@@ -694,26 +694,4 @@ sub recordExists {
     }
 }
 
-sub findIhcRecords {
-    # Find items that has a metadata element whose content contains an invalid
-    # html character. The search is restricted by the range of Item_IDs
-    # specified by the first Item_ID and the last Item_ID in the range.
-    
-    my $self = shift;
-    my $item_id1 = shift;  # first item id in the range
-    my $item_id2 = shift;  # last item id in the range
-    my $sql = "
-        select distinct Item_ID
-        from METADATA_ELEM me
-        left join INTEGRITY_CHECK ic on ic.Problem_Code='IHC'
-            and ic.Object_ID=me.Element_ID
-        where ic.Object_ID is not null
-        and Item_ID >= $item_id1
-        and Item_ID <= $item_id2
-    ";
-    my $h = {};
-    my $res = $self->{dbh}->selectall_arrayref($sql);
-    map {$h->{$_->[0]} = 1} @$res;
-    return $h;
-}
 1;
