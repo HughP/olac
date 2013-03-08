@@ -398,15 +398,6 @@ sub serve_GetRecord {
         return create_error("idDoesNotExist", $request);
     }
 
-    # if metadata prefix is olac_dla, don't return the record if it contains an
-    # invalid html character
-    if ($request->{metadataPrefix} eq 'olac_dla') {
-        my $ihc_records = $self->{db}->findIhcRecords($head->[2], $head->[2]);
-        if (scalar(keys(%$ihc_records)) > 0) {
-            return create_error("idDoesNotExist", $request);
-        }
-    }
-    
     # GetRecord {
     #   record {
     #     header [status] {
@@ -530,23 +521,6 @@ sub serve_ListIdentifiers {
         return create_error("noRecordsMatch", $request);
     }
 
-    # if metadata prefix is olac_dla, filter out record ids that have an
-    # invalid html character in their content
-    if ($request->{metadataPrefix} eq 'olac_dla') {
-        my $first = $list->[0]->[2];
-        my $last = $list->[scalar(@$list)-1]->[2];
-        my $ihc_records = $self->{db}->findIhcRecords($first, $last);
-        my $idx = 0;
-        while ($idx < scalar(@$list)) {
-            my $key = $list->[$idx]->[2];
-            if (exists($ihc_records->{$key})) {
-                splice @$list, $idx, 1;
-            } else {
-                $idx++;
-            }
-        }
-    }
-    
     ($doc, $li) = get_template($request);
 
     foreach $row (@$list) {
@@ -677,32 +651,6 @@ sub serve_ListRecords {
         return create_error("noRecordsMatch", $request);
     }
 
-    # If metadata prefix is olac_dla, filter out records with invalid html
-    # characters.
-    if ($request->{metadataPrefix} eq 'olac_dla') {
-        my $first_item_id = $head->[0]->[2];
-        my $last_item_id = $head->[scalar(@$head)-1]->[2];
-        my $ihc_items = $self->{db}->findIhcRecords($first_item_id, $last_item_id);
-        my $idx = 0;
-        while ($idx < scalar(@$head)) {
-            my $key = $head->[$idx]->[2];
-            if (exists($ihc_items->{$key})) {
-                splice @$head, $idx, 1;
-            } else {
-                $idx++;
-            }
-        }
-        $idx = 0;
-        while ($idx < scalar(@$meta)) {
-            my $key = $meta->[$idx]->[7];
-            if (exists($ihc_items->{$key})) {
-                splice @$meta, $idx, 1;
-            } else {
-                $idx++;
-            }
-        }
-    }
-    
     ($doc, $lr) = get_template($request);
 
     my ($get_container, $get_metadata) = 
