@@ -410,7 +410,7 @@ create table SERVICES (
 #
 # Problem_Code         : 3-letter code for a problem
 # Applies_To           : 'A' for Archive, 'I' for Archive Item,
-@                        'E' for Metadata Element
+#                        'E' for Metadata Element
 # Severity             : 'E' for Error, 'W' for Warning
 # Label
 # Description
