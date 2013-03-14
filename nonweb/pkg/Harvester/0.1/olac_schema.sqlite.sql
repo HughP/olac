@@ -79,6 +79,7 @@ create table METADATA_ELEM (
     Code            varchar(255) default '',
     Item_ID         int,
     Tag_ID          int,
+    Do_ICC          bool,
 	primary key (Element_ID),
 	foreign key (Extension_ID) references EXTENSION (Extension_ID)
         on delete set null 
