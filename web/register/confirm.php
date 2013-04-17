@@ -49,10 +49,10 @@ function success($magic, $repoid, $baseurl)
        "<p>The base url of $repoid has changed to $baseurl.</p>";
 }
 
-function change_baseurl($repoid, $url)
+function change_baseurl($repoid, $repotype, $url)
 {
   global $DB;
-  $sql = "update ARCHIVES set BASEURL='$url' where ID='$repoid'";
+  $sql = "update ARCHIVES set BASEURL='$url', type='$repotype' where ID='$repoid'";
   $DB->sql($sql);
   if ($DB->saw_error()) {
     error("database error while updating the base url\n\n" .
@@ -106,10 +106,11 @@ BORDER="0"></A></TD>
 
 
 $repoid = $rows[0]["repository_id"];
+$repotype = $row[0]["repository_type"];
 $baseurl = $rows[0]["new_url"];
 $oldurl = $rows[0]['BaseURL'];
 
-if (change_baseurl($repoid, $baseurl))
+if (change_baseurl($repoid, $repotype, $baseurl))
   success($magic, $repoid, $baseurl);
 
 
