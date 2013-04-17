@@ -323,7 +323,7 @@ EOT;
 
   $adminemail = get_admin_email($DB, $repoid);
   if ($adminemail === FALSE) {
-    $subject = "olac registration error (kind 1";
+    $subject = "olac registration error (kind 1)";
     $msg = "Database failed when obtaining adminEmail of $repoid.\n\n";
     $msg .= "DB error msg: " . $DB->get_error_message();
     mail_by_olac_admin($OLAC_SYS_ADMIN_EMAIL, $subject, $msg);
