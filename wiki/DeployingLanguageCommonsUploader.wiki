@@ -50,7 +50,7 @@ Edit templates/sr.xml file and update the baseURL.
 
 = Database =
 
-Initialize database.
+Initialize database. Note that sqlite database is being used in this setup.
 
 {{{
 cd language-commons
