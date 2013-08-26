@@ -72,5 +72,5 @@ A sample configuration file is included in the source: `apache/language-commons`
 Add a cron job checks newly accepted items and uploads them to archive.org. For example,
 
 {{{
-*/15 * * * * (cd /olac/languagecommons/django_deploy; ./manage.py upload_items)
+*/15 * * * * (cd /olac/language-commons; ./manage.py upload_items)
 }}}
