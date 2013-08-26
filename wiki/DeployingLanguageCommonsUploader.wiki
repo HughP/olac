@@ -23,14 +23,6 @@ cd /olac
 git clone git@github.com:olac/language-commons.git
 }}}
 
-At the top level of the directory, you should see files like README.markdown, settings.py and urls.py.
-
-{{{
-tar xf language-commons-uploader.tgz
-mv language-commons django_deploy
-rm language-commons-uploader.tgz
-}}}
-
 Make settings.py file by copying the sample file. Open the file and edit SECRET_KEY. Update database and timezone settings as necessary.
 
 {{{
@@ -54,6 +46,21 @@ chmod g+w uploads
 }}}
 
 Edit templates/sr.xml file and update the baseURL.
+
+
+= Database =
+
+Initialize database.
+
+{{{
+cd language-commons
+./manage.py syncdb
+./manage.py migrate
+chmod g+w . commons.db
+chgrp www-data . commons.db
+}}}
+
+The chmod and chgrp lines are necessary to give the web server write access to the database.
 
 
 = Configure Apache =
