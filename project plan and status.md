@@ -201,7 +201,7 @@ Status: Pages found not to be needed as explained above.
 Deliverable: Support the oai_dc format in the data provider side of the OLAC Aggregator; see separate specification.
 Status: Implementation completed and documented in an informational note.
 Deliverable: Get harvested by OAIster (union catalog of over 20 million OAI records, http://www.oaister.org/).
-Status: OAIster has been absorbed into WorldCat, and WorldCat is now harvesting the complete OLAC catalog.
+Status: OAIster has been absorbed into [WorldCat](/WorldCat.md), and [WorldCat](/WorldCat.md) is now harvesting the complete OLAC catalog.
 Deliverable: Get harvested by DRIVER.
 Status: Not started.
 2.3e OLAC search service: Develop a search service that takes advantage of OLAC’s metadata standards to provide easy-to-use precise search over the complete OLAC catalog.
