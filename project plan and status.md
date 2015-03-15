@@ -139,7 +139,7 @@ Status: Training data has been created based on titles, descriptions, and subjec
 2.1c MARC Crosswalk: Develop a crosswalk that transforms a set of MARC catalog records for language resources into an OLAC static repository.
 
 Deliverable: A processor (see specification) that transforms a set of MARC catalog records supplied by a participating archive to OLAC format, and which uses the classifiers developed in 2.1a and 2.1b to add language codes and linguistic data types when they are not available in the original data.
-Status: A rule-based crosswalk has been implemented in Python and XSLT; see abstract and poster. The classifiers developed in 2.1a and 2.1b have been integrated.
+Status: A rule-based crosswalk has been implemented in Python and XSLT; see [abstract](http://www.sil.org/~simonsg/reprint/jcdl2009.pdf) and [poster](http://www.sil.org/~simonsg/poster/MARC-to-OLAC.pdf). The classifiers developed in 2.1a and 2.1b have been integrated.
 Deliverable: A static repository for language resources in the GIAL library built from the MARC dataset they have provided.
 Status: The rule-based crosswalk gave satisfactory results for this collection and it is now operational; see http://www.language-archives.org/archive/gial.edu.
 Deliverable: A static repository for language resources in the National Anthropological Archive built from the MARC dataset they have provided.
