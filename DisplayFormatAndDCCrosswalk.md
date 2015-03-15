@@ -47,7 +47,7 @@ olac:language with <dc:subject>. Do all of the following which apply:
 Generate a <dc:language> with the code as its content (unless this would create a duplicate element). (N.B. This is because the DC standard expects ISO 639 codes with the <dc:language> element, but not with <dc:subject>.)
 Generate a <dc:subject> with the language name as content. Append "language" unless the name of the language already contains that word.
 If the element has contents, generate another <dc:subject> element with that content.
-The date-related elements comprise a special case that should be handled by the crosswalk since a generated record should have only one <dc:date> element (see, for instance, DRIVER Guidelines). In the simple DC world, highest preference is given to the date of publication if applicable. Thus generate only one <dc:date> element following this guideline:
+The date-related elements comprise a special case that should be handled by the crosswalk since a generated record should have only one <dc:date> element (see, for instance, [DRIVER Guidelines](http://www.driver-support.eu/documents/DRIVER_Guidelines_v2_Final_2008-11-13.pdf)). In the simple DC world, highest preference is given to the date of publication if applicable. Thus generate only one <dc:date> element following this guideline:
 
 Use the content of the first available element in this order of preference: dc:date, dcterms:issued, dcterms:dateCopyrighted, dcterms:created, dcterms:available, dcterms:dateAccepted, dcterms:dateSubmitted, dcterms:modified, dcterms:valid.
 2. Format for HTML display of OLAC metadata
