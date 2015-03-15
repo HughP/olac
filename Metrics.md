@@ -1,0 +1,102 @@
+#Metrics  
+1.1f Metrics Updated Sep 30, 2009 by haepal
+Specifications for new OLAC metrics pages
+The existing OLAC metrics page can be found here.
+
+It is called "OLAC Archive Report Card". In the proposal, we have already renamed it "OLAC Archive Score Card". Should we even go a step further and just call it "OLAC Archive Metrics" since the majority of it is descriptive rather than evaluative? [SB: yes, I agree]
+I'm imagining two sets of pages, one like the current one which gives all the metrics for a selected archive (or for the full set of archives), and a second one which ranks all of the archives from highest to lowest with respect to a selected metric (perhaps "Comparative Archive Metrics"). #summary OLAC Metrics spec
+
+1. OLAC Archive Metrics
+This page would be as now with a drop down list to choose all archives or a specific archive. Then the beginning would be as now with identification information for the selected archive. The metrics themselves would be more extensive and listed in two subsections, Summary Statistics and Metadata Usage:
+
+Summary statistics
+Size	Number of archives (global only) Number of resources Number of resources accessible online
+Coverage	Distinct languages Distinct linguistics subfields Distinct linguistic types Distinct DCMI types
+Usage	OLAC search requests per month Click-throughs per month
+Quality	Percentage of archives with catalogs updated in last year (global page only) Percentage of archives with five-star metadata (global page only) Date of last update Average metadata quality score Average elements per record Average encoding schemes per record
+For the time being, we should just omit metrics that we cannot compute, and add them when we are able.
+
+The coverage statistics could also be expressed as a percentage of the total number of items in the vocabulary. Does it make sense to turn this into two sets of numbers, Breadth (which is the count of distinct instances) and Depth (which would be records per instance). In the latter, the numerator would be the number of records that use a code from that vocabulary and the denominator would be the distinct code values used.
+
+Will it be possible for us to keep search statistics by archive? In the case of a single archive, I'm imagining the count of search requests per month as the number of requests that retrieved something from that archive. [SB: A possible lightweight way to implement this instead of logging search results, is to re-run all queries from that quarter, for each archive, with SELECT COUNT(*); another approach would be to set up a separate Google Analytics page for each archive.] [HL: See the discussion posted [http://olac.wiki.sourceforge.net/message/view/1.1f-Metrics/367|here].]
+The metadata quality score needs significant rethinking from what we have on the current page. A subsection to discuss that follows the next subsection.
+
+Metadata usage
+This section of the report would be similar to what we have on the current page with the histograms, except we need some slightly different results.
+
+Metadata quality	As now: quality score by number of records
+Core components	Similar to "Core element usage" except that it is counting the records that satisfy each of the 8 core quality tests (that is, all but Depth and Precision; [see metrics](http://olac.googlecode.com/svn/web/NOTE/metrics.html)).
+Element usage	DC elements by number of times used.
+Refinement usage	Refined elements by number of times used.
+Encoding scheme usage	The encoding schemes recommended in the usage document by number of times used.
+We could also add histograms for some of the encoding schemes when they are actually used by the archive, e.g. distribution of linguistic type usage, linguistic subfield usage, DCMI type usage
+
+The metadata quality score
+29 October 2007
+Quality score now based on elements (5 points) + schemes (5 points) to give greater weight to the special interests of OLAC. Latest revision.
+
+23 October 2007
+A metric based on elements (7.5) + schemes (2.5) was [proposed](http://olac.svn.sourceforge.net/viewvc/*checkout*/olac/web/NOTE/metrics.html?revision=276), but it didn't give enough weight to the special interests of OLAC.
+
+3 October 2007
+The quality score for a metadata record would range from 0 to 10 and be based on two parts: a score for the presence of the must-have elements (8 points possible) and added bonus points (up to 2 points) for nice-to-have elements.For each metadata record there is a quality score from 0 to 10. The score is the sum of two parts: a score for the presence of must-have elements Thus a score of five stars would mean not only that the record satisfies all the minimum requirements for mandatory elements (which would be four stars), but that it is significantly richer in content than the minimum.
+
+The quality score for an archive would be the average quality score of its metadata records, minus a penalty point for each warning of misuse of metadata elements. The numbers below are the identifiers for specific best practice recommendations.
+
+Automatable must-have features ("minimal best practice"):
+
+Record has Date (or refinement) (10)
+Every date (or refinement) uses scheme or brackets (11)
+Record has Description or Subject (12 = 20)
+Record has Language (15)
+Every Language has an ISO 639-3 code (16)
+Record has exactly one Title (23, 24)
+Record has a Type with a DCMI-Type code (25)
+Automatable nice-to-have features ("recommended best practice"):
+
+Uses refinements (2)
+Contributor with OLAC Role code (6)
+Coverage with an encoding scheme (7)
+Creator with OLAC Role code (0)
+Format with IMT code (13)
+Identifier with a URI scheme (14)
+Relation (including Source) with an OAI identifier (18 = 19)
+Subject with ISO 639-3 code (21)
+Subject with OLAC Linguistic Subfield code (22)
+Type with OLAC Linguistic Type code (26)
+Non-automatable penalty warnings (perhaps only "minimal" are penalties; if so, which should those be?):
+
+Using an element for the wrong kind of information (1)
+Failing to use a refinement when possible (2)
+Failing to use xml:lang (3)
+Putting multiple values in a single element (4)
+Not inverting names to sort form (5, 8, 17)
+Failing to give a code for a subject language (22)
+Discussion of metric that has been used in OLAC "Report Card"
+The current computation is based on:
+
+Score = 10 * ( (1/1) * (code exists score) - (1/5) * (element absent deductions) )
+Where,
+
+Code exists score =
+( Number of elements containing code attributes ) / ( Number of elements in the record of type with associated code )
+Element absent deductions =
+( Number of core elements absent ) / ( Number of core elements )
+where there are five core elements: date, description, title, subject, identifier
+Some problems with this formula: The denominator of "code exists score" should not be the number of elements that could have a code. By this formula somebody gets 50% quality for having a subject with a language code and a subject with topical keywords. The record should score 100% for having the language code. For the "element absent deductions", date, description, and title do feel mandatory. I don't think subject is. Rather the mandatory thing is that the record have a language code (which could be on language rather than subject), or that it have either a language code or a linguistic subfield code. If identifier is in the mix, it is for having a URI that gives online access, but I'm not sure we want to count off for things that have never been digitized.
+
+2. Comparative Archive Metrics
+This would be a second dynamic page that lists the participating archives ranked (from highest to lowest) by a selected metric from the same metrics shown on the archive report:
+
+Number of metadata records
+Number of resources accessible online (identifier elements containing a URI)
+Distinct languages
+Distinct linguistic types
+Distinct linguistic subfields
+Distinct DCMI types
+Date of last update (most recent datestamp on any record)
+Average metadata quality score
+Average elements per record (%.1f formatting for averages)
+Average encoding schemes per record (xsi:types)
+Search requests per month
+Click-throughs per month
