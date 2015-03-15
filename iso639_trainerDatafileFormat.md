@@ -1,0 +1,46 @@
+# Introduction #
+
+This document specifies the format of the data file that the iso639\_trainer will load and use in the construction of the iso639\_classifier.  Data files in this format should be saved with the extension ".tab".
+
+
+# Specification #
+
+Each line of the data file follows this format:
+
+```
+language_or_country_code    item_type   item1
+```
+
+Each line of the data file has three items, separated by tabs: `language_or_country_code`, `item_type` and the actual item.  `language_or_country_code` is an ISO 639 three letter language code or a two letter country code.  `item_type` specifies what type the item is.  Multiple items of the same type are listed on separate lines.
+
+Comments are preceded by a #.
+
+## Sample iso639\_trainer data file ##
+
+```
+# This is a comment.
+abc    sn    strong_name1
+abc    sn    strong_name2
+abc    wn    weak_name1
+abc    wn    weak_name2
+abc    wn    weak_name3
+abc    cc    country_code1
+abc    cc    country_code2
+abc    cc    country_code3
+abc    rg    region1
+abc    rg    region2
+abc    rg    region3
+AB     cn    country_name1
+AB     cn    country_name2
+mno    mn    macrolanguage_name
+```
+
+`abc` represents an ISO 639 three letter language code and `AB` is an ISO 3166 two letter country code.
+
+## `item_type` legend ##
+  * `sn`: _Strong name_ - Names that are commonly used for the language identified by this three letter language code.  All primary names in the Ethnologue and all names in the ISO 639 standard are treated as strong names.
+  * `wn`: _Weak name_ - Names that have been associated with the language identified by the given three letter language code but which are not now in common use. (The classifier may give more weight to the occurrence of a strong name than to a weak name.)
+  * `mn`: _Macrolanguage name_ - Names that have been associated with the language identified by the given three letter language code which denotes a macrolanguage.
+  * `cc`: _Country Code_ - Two letter codes from ISO 3166 for countries in which this language is spoken.
+  * `rg`: _Region_ - Names of geographical regions in which this language is spoken, or other place names associated with the language.
+  * `cn`: _Country Name_ Names for the country identified by this country code.

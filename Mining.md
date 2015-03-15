@@ -1,0 +1,14 @@
+[1.1 Metadata](Metadata.md) | [1.2 Participation](Participation.md) | [1.3 Curation](Curation.md) | [2.1 Crosswalking](Crosswalking.md) | [2.2 Mining](Mining.md) | [2.3 Search](Search.md)
+
+### Outcome 2.2: Linguistic web mining services are discovering low density language materials and reliably categorizing it with OLAC vocabularies (out of scope). ###
+
+(The amount of the grant award was less than the original project budget. In the statement of impact for the reduced award, this task was dropped from the project with the following explanation: _With the reduced award we propose to scale back the project by eliminating work on Outcome 2.2. Omitting this task will not jeopardize the success of the other tasks. In the event that progress on other tasks is ahead of schedule we will conduct preliminary experiments in the area of Outcome 2.2._)
+
+2.2a _Language identification:_ Develop an automated procedure for finding low-density language identification from an arbitrary web document, and translating this to an appropriate ISO 639-3 code.
+
+2.2b _Language resource type identification:_ Develop an automated procedure for identifying the language resource type of an arbitrary web document and translating this to an appropriate OLAC linguistic data type code.
+
+  * work on a definition of language resource
+  * work on a vocabulary of resource types
+
+2.2c _Web mining:_ Generate OLAC metadata records for low-density language resources discovered by linguistic web-mining projects, such as Hughes’ collection of 600,000 low-density language URLs.

@@ -1,0 +1,489 @@
+# Introduction #
+
+This document records a process of building an OLAC web server from scratch.
+
+
+# Details #
+
+## The machine ##
+
+Created a vm on a vmware server with 4 CPU/2GB RAM/250GB HDD. The architecture of the machine is i686. The virtual HDD was created on a NFS storage, which is not optimal given that OLAC heavily relies on dynamic database operations.
+
+## The OS ##
+
+### Installation ###
+Debian 5.0.3 was chosen because we were told that Debian as a server is more stable than Ubuntu by a system administrator.
+
+Created one partition without a swap partition. A swap file will be added later instead. This will make it easier to change its size when we add more RAM to the machine. There are reports that in terms of performance, there's little difference between swap partition and swap file.
+
+Created a user account olac (OLAC System Admin). This account will be used for doing things that are needed to be done as a root.
+
+For software configuration, the followings were checked.
+
+  * Web server
+  * SQL server (this was a mistake since it installed postgresql instead of mysql)
+  * Standard machine
+
+### Configuration 1: Sudo ###
+In order to make the olac account a sudoer, installed sudo as a root user.
+
+```
+apt-get install sudo
+```
+
+Run visudo to edit /etc/sudoers file. Add a line at the end: "olac ALL=(ALL) ALL". We are giving full privileges for now, but this can be changed later.
+
+### Configuration 2: Uninstall postgresql ###
+This step is not needed if "SQL server" is not checked in the software configuration step during Debian installation.
+
+Uninstalled postgresql by running
+
+```
+apt-get autoremove postgresql-8.3
+apt-get autoremove postgresql-client-8.3
+apt-get autoremove postgresql-doc-8.3
+```
+
+Some residue of the initial installation remains, e.g. /var/lib/postgresql, /etc/init.d/postgresql-8.3, etc., but it's not necessary to remove them.
+
+### Configuration 3: Swap file ###
+
+Create a swap file as follows.
+
+```
+dd if=/dev/zero of=/swap bs=1024k count=4096
+mkswap /swap
+swapon /swap
+```
+
+Modify /etc/fstab to add the following line:
+
+```
+/swap swap swap defaults 0 0
+```
+
+
+### Configuration 4: Webmaster account ###
+
+Created a new account olacweb (OLAC Web Admin) within olacweb group. The home
+directory was set to /olac and password was disabled. This home directory is a base directory for all other files and directories.
+
+```
+groupadd olacweb
+useradd -g olacweb -G www-data -d /olac -m -s /bin/bash \
+    -c "OLAC Web Admin" olacweb
+```
+
+As the olacweb user, create the following directories:
+
+```
+mkdir svn conf data cache
+chmod 1777 cache
+```
+
+  * conf is the configuration directory
+  * data contains data sources used by different parts of the web site
+  * cache is used by applications to store temporary data
+
+
+### Configuration 5: SSH ###
+
+Installed ssh daemon as follows.
+
+```
+apt-get install openssh-server
+```
+
+Added users ssh public keys to the ~olacweb/.ssh/authrorized\_keys file.
+
+
+### Configuration 6: MySQL ###
+
+```
+apt-get install mysql-server
+```
+
+Created databases and user account after logging in as a root user.
+
+```
+create database olac;
+create database olactmp;
+grant all on olac.* to olac@localhost;
+grant all on olactmp.* to olac@localhost;
+set password for olac@localhost = password('...');
+```
+
+
+### Configure 7: Apache ###
+
+Create an OLAC-specific configuration file by copying the default configuration file.
+
+```
+cp /etc/apache2/sites-available/{default,olac}
+```
+
+Edit /etc/apache2/sites-available/olac. These are the changes made.
+
+```
+ServerName www.language-archives.org
+ServerAdmin olac@localhost
+DocumentRoot /olac/www
+<Directory />  # this and anything contained in it were not changed
+```
+
+```
+<Directory /olac/www>
+    Options -Indexes FollowSymLinks  -MultiViews
+```
+
+Favicon:
+
+```
+AddType image/x-icon .ico
+<Files favicon.ico>
+    ErrorDocument 404 /favicon.ico
+</Files>
+```
+
+CGI part.
+
+```
+ScriptAlias /cgi-bin/ /olac/cgi/
+<Directory "/olac/cgi">
+```
+
+Logging.
+
+```
+ErrorLog /var/log/apache2/error-olac.log
+CustomLog /var/log/apache2/access-olac.log combined
+```
+
+Finally, removed everything related to /doc/.
+
+For WSGI add the following.
+
+```
+	<Directory /olac/wsgi>
+                Order allow,deny
+                Allow from all
+        </Directory>
+```
+
+Disabled the default site and enabled the olac site:
+
+```
+rm /etc/apache2/sites-enabled/000-default
+# the above would not be necessary if DNS entry was properly updated with the
+# machine's IP addr
+ln -s ../sites-available/olac /etc/apache2/sites-enables/001-olac
+/etc/init.d/apache2 restart
+```
+
+Optionally, you can enable status report which is sometimes useful in troubleshooting mysterious CPU usage spikes caused by apache processes. To enable it, add the following line at the top of the config file, outside the VirtualHost container.
+
+```
+ExtendedStatus On
+```
+
+And add this somewhere inside the VirtualHost container:
+
+```
+<Location /server-status>
+  SetHandler server-status
+  Order Deny,Allow
+  Deny from all
+  Allow from .ldc.upenn.edu
+</Location>
+```
+
+The status report will be available from .../server-status and only inside the ldc.upenn.edu domain.
+
+### Configuration 8: PHP ###
+
+Edit /etc/php5/apache2/php.ini. Update the upload\_max\_filesize variable. Default value is 2MB. Change it to 20MB (or more).
+
+One of the reasons that we want a large value for this is variable is the registration page. People sometimes upload very large static repository file.
+
+### Configuration 9: Outbound email ###
+
+Configure exim4 to email outbound emails. For this particular setup, we chose "mail sent by smarthost; no local mail". This enables outbound email by a remote mail server, and disables inbound emails.
+
+```
+dpkg-reconfigure exim4-config
+```
+
+Read menus and explanations, and select options appropriate for your environment.
+
+
+### Other packages ###
+
+  * gcc
+  * make
+  * subversion
+  * rsync
+  * sqlite3
+  * curl
+  * xsltproc
+  * xalan
+  * openjdk-6-jdk
+  * libxerces2-java
+  * libxerces2-java-doc (for xercesSamples.jar)
+  * php5-mysql
+  * php5-gd
+  * php5-xsl
+  * php5-cli
+  * php5-cgi
+  * python-mysqldb
+  * python-openssl
+  * python-pycurl
+  * python-dev
+  * libxml-dom-perl
+  * libapache2-mod-wsgi
+  * ntp
+  * unzip
+
+  * CherryPy: installed version 3.1.2 from source
+  * simplejson: installed version 2.0.9 from source
+  * PyMeld: installed a customized version from source found in
+> > svn:/system/PyMeld.py.
+
+  * google-api-python-client (1.0c2)
+
+## Setting up OLAC ##
+
+In this section, it is assumed that you are logged in as olacweb unless the
+account to be used is explicitly mentioned.
+
+### Obtain and deploy OLAC ###
+
+Check out OLAC from the SVN repository:
+
+```
+svn checkout https://olac.googlecode.com/svn/ /olac/svn --username ...
+```
+
+Copy web contents and other files.
+
+```
+rsync -av --exclude=.svn /olac/svn/web/* /olac/svn/www
+rsync -av --exclude=.svn /olac/svn/nonweb/* /olac
+```
+
+Create the following directory for registration script.
+
+```
+mkdir /olac/www/register/tmp
+chgrp www-data /olac/www/register/tmp
+chmod g+ws /olac/www/register/tmp
+```
+
+As root, do the following.
+
+```
+cp /olac/svn/system/olacbase /etc
+cp /olac/svn/system/olacvar /bin
+cp /olac/svn/system/olacvarlist /bin
+mkdir /usr/lib/python2.5/site-packages/olac
+cp /olac/svn/system/python/*.py /usr/lib/python2.5/site-packages/olac
+cp /olac/svn/system/optionparser.py /usr/lib/python2.5/site-packages
+mkdir /usr/share/php  # this is the default include path of php
+cp /olac/svn/system/olac.php /usr/share/php
+```
+
+To explain what those files are:
+
+  * www/`*`: The web documents.
+  * olacbase: Contains the base path to OLAC, i.e. the directory containing www, conf, pkg, etc. that we've created earlier. We can find everything else once we know where the base directory is.
+  * olacvar: Looks up a configuration variable and prints out the value. For non-existent variable, prints out /dev/null.
+  * olacvarlist: Prints out a list of existing configuration variables.
+  * .../site-packages/olac: Python module providing functions for configuration variable lookup and logging.
+  * optionparser.py: Yet another version of command line option processor that many of OLAC applications use.
+  * olac.php: PHP module providing olacvar function.
+
+
+### Syslog setup ###
+OLAC applications can use system's logging facility. As root, do the following.
+
+```
+echo "local0.debug /var/log/olac.log" > /etc/rsyslog.d/olac.conf
+/etc/init.d/rsyslogd restart
+```
+
+The system logger provides 8 facilities reservered for local use. They are
+local0 through local7. OLAC can use one of them. In this example, we chose
+local0.
+
+Any log messages sent to local0 will be saved in the /var/log/olac.log file.
+
+Update variable syslog/facility (the /olac/conf/syslog/facility file) to set
+it:
+
+```
+LOG_LOCAL0
+```
+
+Note that in C library, the facility local0 is identified by LOG\_LOCAL0. The
+syslog/facility varible contains this C library name.
+
+
+### CodeIgniter setup ###
+Download an appropriate version of CodeIgniter. Unzip it under pkg/CodeIgniter.
+Make a symlink called "Current" to the created directory, e.g.
+
+```
+rm -f Current
+ln -s CodeIgniter_1.7.2 Current
+```
+
+
+### Database setup ###
+As olacweb do the following. This just makes it easier for you to use MySQL
+from console. Applications shouldn't reply on this file.
+
+```
+cat > ~/.my.cnf <<EOF
+[client]
+user = olac
+password = "..."
+host = localhost
+db = olac
+default_character_set = utf8
+EOF
+chmod 600 ~/.my.cnf
+```
+
+Go to the svn/system/olacdb directory and follow instructions in the README
+file to populate the database.  (OLAC extensions should be loaded for both OLAC
+1.0 and 1.1.)
+
+Tune MySQL performance. Here's an example. Note that MySQL configuration is
+modular and we can put OLAC-specific configs in a separate file.
+
+```
+# as root
+cat > /etc/mysql/conf.d/olac.cnf <<EOF
+[musqld]
+set-variable=long_query_time=30
+log-slow-queries=/var/log/mysql/olac-slow.log
+key_buffer_size=268435456 # 12.5% of RAM
+innodb_buffer_pool_size=1073741824 # 50% of RAM
+EOF
+/etc/init.d/mysql restart
+```
+
+
+#### Search database ####
+To setup tables for search tool, go to svn/web/tools/search/lib, and do the
+following. This create these tables: GoogleTerms, TAG\_USAGE, ITEM\_SCORES,
+SOUNDEX\_TABLE, and LanguageSoundex.
+
+```
+cat googleTable.sql | mysql olac
+cat searchTables.sql | mysql olac
+php createGoogleTable.php
+python $(olacvar harvester/update_soundex_tab)
+```
+
+### PHP scripts without .php extension ###
+There are PHP scripts without .php extension. They make URL prettier.
+
+  * /metrics
+  * /sample
+  * /search
+
+For each of those, add the following to the /etc/apache2/sites-available/olac
+file. (Replace "..." with the script name.)
+
+```
+	<Location /...>
+		SetHandler application/x-httpd-php
+	</Location>
+```
+
+
+### WSGI scripts ###
+Mount WSGI scripts as follows.
+
+```
+        WSGIScriptAlias /cp /olac/wsgi/cp.wsgi
+        WSGIScriptAlias /google-sitemap.xml /olac/wsgi/google-sitemap.wsgi
+        WSGIScriptAlias /srv /olac/wsgi/srv.wsgi
+```
+
+  * cp.wsgi is services written using CherryPy. The survey page uses this as its backend.
+  * google-sitemap.wsgi is a dynamically generated google sitemap.
+
+If you created the cache directory earlier, make sure that the python/egg/cache
+variable points to the same directory.
+
+```
+olacvar python/egg/cache
+```
+
+
+### Redirections ###
+
+Add the following to the apache configuration file for OLAC.
+
+```
+Redirect permanent /tools/search/search.php /search
+```
+
+
+
+### Static pages ###
+
+Add the following to the apache configuration file for OLAC.
+
+```
+RewriteEngine On
+RewriteRule (/\.svn/)|(/\.svn$)         /not/found              [L,R=404]
+RewriteRule ^/archives$                 /static/archives.html   [L,PT]
+RewriteRule ^/(area/[a-zA-Z]+)$         /static/$1.html         [L,PT]
+RewriteRule ^/(country/[a-zA-Z]+)$      /static/$1.html         [L,PT]
+RewriteRule ^/(language/[a-zA-Z]+)$     /static/$1.html         [L,PT]
+RewriteRule ^/(archive/.*)$             /static/$1.html         [L,PT]
+RewriteRule ^/(archive_records/.*)$     /static/$1.html         [L,PT]
+RewriteRule ^/(item/.*)                 /static/$1.html         [L,PT]
+RewriteRule ^/(checks/.*/download)      /static/$1.html         [L,PT,T=text/tab-separated-values]
+RewriteRule ^/(checks/.*)               /static/$1.html         [L,PT]
+RewriteRule ^/checks\.py(/.*)?$         /checks$1               [L,PT]
+RewriteRule ^/viser                     /tools/viser/viser.php  [L,PT]
+```
+
+### Cron jobs ###
+Set up cronjobs for harvester, online resources checker (part of integrity check), Google Analytics information collector (for quarterly reports), and quarterly report. Here's an example.
+
+```
+# m h  dom mon dow   command
+MAILTO=...
+# harvester
+#00 13,21 * * * flock $(olacvar locks/harvester) $(olacvar cron/harvester)
+00 02 * * * flock $(olacvar locks/harvester) $(olacvar cron/harvester) MONTHLY
+00 20 * * 5 $(olacvar cron/integrity_online_resources)
+# google analytics download + store
+00 06 2 * * $(olacvar cron/ga)
+# quarterly report
+37 10 3 1,4,7,10 * $(olacvar cron/quarterly_report)
+# system health
+00 * * * * $(olacvar cron/system_health)
+00 00 * * 1 $(olacvar cron/system_health_weekly)
+# update svn
+15 5,11,17,23 * * * svn update $(cat /etc/olacbase)/svn
+```
+
+Also, as a root user, create a crontab for the www-data user (use command like "crontab -u www-data -e"). This is for cleaning up the resumption tokens created by OLACA.
+
+```
+# m h  dom mon dow   command
+MAILTO=haepal@gmail.com
+# clean up resumption tokens
+*/5 * * * * find /tmp -maxdepth 1 -type f -name "olac-rt-*" -mmin +15 -exec rm -f \{} \; >/dev/null 2>&1
+```
+
+Note that MAILTO should be set to the value of the tech\_email variable.
+
+
+### Seed the OLAC database ###
+If there are preexisting archive registrations, populate the ARCHIVES table with them. The archives in the ARCHIVES table will be harvested within the next harvest cycle specified in the crontab.

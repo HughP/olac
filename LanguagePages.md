@@ -1,0 +1,85 @@
+# Objective #
+
+The objective is to create dynamically generated pages on the OLAC site that will serve as index pages for each known language. The URLs will be:
+
+> http://www.language-archives.org/language/xyz
+
+where _xyz_ is the ISO 639-3 code for the language. The page will have links to all OLAC records that are indexed against that language. It will also have all known alternate names for the language as well as dialect names so that a general Google search against one of those terms can retrieve OLAC index of all known resources for the language.
+
+# Reciprocal links #
+
+We will encourage OLAC participants to make links to these language index pages from their language-specific pages. This will serve a two-fold purpose:
+
+  1. It offers a service to their users by informing them of all known resources for that language that are held by OLAC participants.
+  1. It should increase traffic to their site since users of other language sites will also be directed to their site, and perhaps more significantly, because more in-coming links to the OLAC language index page will increase its Google number which will increase the likelihood that a general Google search (using any known name for the language) will land on the OLAC language index page and thus direct users interested in that language to all OLAC participants.
+
+# Links from item pages #
+
+A parallel change to the site is that every ISO 639-3 codes appearing as a metadata value in an /item/_oai-id_ page will be made into a link to the appropriate language page. In this way, anyone who discovers an OLAC item of interest (such as through a general Google search) will have a link to a list of all known resources relevant to the same language.
+
+# Page design #
+
+The OLAC database already has a table for the complete ISO639-3 code set. Use this behind the dynamic /language page to resolve the code to a name and generate the following title and H1 heading for the page:
+
+> `Resources in and about the _Name_ language`
+
+(except suppress the addition of "language" when the name already contains the word).  Continue as follows:
+
+```
+ISO 639-3: _code_   (as a link to http://www.sil.org/iso639-3/documentation.asp?id=code)
+
+The combined catalog of all OLAC participants contains 
+the following resources that are relevant to this language:
+
+   * Primary texts 
+   * Lexical resources
+   * Language descriptions
+   * Other resources about the language
+   * Other resources in the language
+
+   (_The above is a bulleted list of links to the H2s below;
+    only those which apply are listed._)
+
+Other known names and dialect names: _comma delimited list_
+
+_H2 for each of the above that applies_
+
+   _List of links to resources that match_
+
+Other search terms: _comma delimited list of synonyms 
+for language, dialect, text, lexicon, description_
+```
+
+When there are no items indexed against a valid ISO 639-3 code, the contents (following the first line with the link to the code documentation page) should be:
+
+```
+The combined catalog of all OLAC participants does not yet contain 
+any resources that are relevant to this language.
+```
+
+# Implementation notes #
+
+The list of "Other known names and dialects" is available by downloading the LanguageIndex table from http://www.ethnologue.com/codes/ . That table is denormalized to include all names in all countries so the following query must be used to get the list of unique names associated with a language:
+```
+   SELECT DISTINCT Name FROM LangaugeIndex
+   WHERE LangID='xyz'
+```
+If the query returns no results, then do not include the "Other known names" heading.
+
+The bulleted list serves as a table of contents to the page. Each list item is a link to a corresponding H2 heading further down the page. The list should contain only those items that have any associated resources.  That is,
+
+  * **Primary texts:** This subsection lists all resources that are indexed as `linguistic-type = primary_text` and `subject language = xyz`.
+  * **Lexical resources:** This subsection lists all resources that are indexed as `linguistic-type = lexicon` and `subject language = xyz`.
+  * **Language descriptions:** This subsection lists all resources that are indexed as `linguistic-type = language_description` and `subject language = xyz`.
+  * **Other resources about the language:** This subsection lists all resources for which `subject language = xyz` and there is no value for `linguistic-type`. If there are no resources in one of the first three categories, then the label should be simply "Resources about the language".
+  * **Other resources in the language:** This subsection lists all resources for which `language = xyz` and NOT `subject language = xyz`. If there are no resources in one of the first three categories, then the label should be simply "Resources in the language".
+
+For the time being, the links to the resources may be simply the OAI identifier (as on the archive\_records/ pages). Eventually we want to add a mini-citation format (which will be developed in Issues 70 and 79).
+
+The "Other search terms" at the bottom of the page combine with the alternate names at the top of the page to serve as "flypaper" for general Google searches by people who have never heard of OLAC. If they specify a known language name plus a known synonym of a linguistic type, then the OLAC language index page is a page they are probably interested in.  The synonyms will include synonyms in major languages. All pages will include synonyms for language and dialect. Inclusion of synonyms for primary text, lexicon, and language description is contingent on there being resources of that type for the language. (This is to avoid making the false statement, for instance, that the page is relevant to lexicons if it does not list any.) [Issue 90](https://code.google.com/p/olac/issues/detail?id=90) is a work item to collect synonyms in major languages. In the meantime, start with the following English terms for the synonym sets:
+  * language, dialect, vernacular
+  * text, discourse, documentation
+  * lexicon, dictionary, vocabulary, wordlist, phrase book
+  * description, grammar, syntax, morphology, phonology, orthography
+
+Except the English terms "language, text, description" need not be included here since they are already on the page in the headings.

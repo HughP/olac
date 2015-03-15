@@ -1,0 +1,81 @@
+# Introduction #
+
+This wiki page documents how the Language Commons Uploader was deployed on the current OLAC web server as of August 2013. Language Commons Uploader was originally written by Alistair Roche and some minor fixes were made by Haejoong Lee.
+
+
+# Prerequisites #
+
+  * Install Django 1.2.5.
+  * Install Django uni\_form.
+  * Install Django south.
+
+(Apache, MySQL and mod\_wsgi were already available on the OLAC server.)
+
+
+# Install LanguageCommons Uploader at non-root URL #
+
+Download LanguageCommons Uploader from the olac github repository.
+
+```
+cd /olac
+git clone git@github.com:olac/language-commons.git
+```
+
+Make settings.py file by copying the sample file. Open the file and edit SECRET\_KEY. Update database and timezone settings as necessary.
+
+```
+cp settings.py.sample settings.py
+# then, make necessary changes
+```
+
+Update uploader/secret.py file to set the values for the two variables.
+
+For each (broken) links in the media/admin directory, find the actual
+file under /usr/lib/python2.5/site-packages/django/contrib/admin/media.
+Replace the links with the actual files.
+
+Create an uploads directory, where uploaded items are saved.
+
+```
+cd /olac/languagecommons/django/media
+mkdir uploads
+chgrp www-data uploads
+chmod g+w uploads
+```
+
+Edit templates/sr.xml file and update the baseURL.
+
+
+# Database #
+
+Initialize database. Note that sqlite database is being used in this setup.
+
+```
+cd language-commons
+./manage.py syncdb
+./manage.py migrate
+chmod g+w . commons.db
+chgrp www-data . commons.db
+```
+
+The chmod and chgrp lines are necessary to give the web server write access to the database.
+
+
+# Configure Apache #
+
+Set up a virtual host and add the following lines to the config file.
+
+```
+Alias /media/ /olac/languagecommons/django/media/
+Alias /admin_media/ /olac/languagecommons/django/media/admin/
+WSGIScriptAlias / /olac/languagecommons/django/apache/django.wsgi
+```
+
+A sample configuration file is included in the source: `apache/language-commons`.
+
+# Cron job #
+Add a cron job checks newly accepted items and uploads them to archive.org. For example,
+
+```
+*/15 * * * * (cd /olac/language-commons; ./manage.py upload_items)
+```

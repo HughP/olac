@@ -1,0 +1,77 @@
+# Introduction #
+
+This page contains steps for improving quality of faceted search available via the
+[UPenn DLA](http://syslsl01.library.upenn.edu/dla/olac/index.html).
+
+## Delivery ##
+
+The metadata should be delivered to the library via the OAI protocol to support incremental harvesting.  Any enhancements for human readability should be implemented on the OLAC side, and kept distinct from OLAC's existing format, which suggests we should use a different format, e.g. `olac_dla`, and this probably needs its own XML schema.
+
+## Enriching the content ##
+
+### New Elements ###
+
+The repository is not named in the OLAC record.  The DLA treats repository just like any other facet, and so we need to create ad hoc elements to hold the information.
+
+  * `<facet name="Archive">The LDC Corpus Catalog</facet>`
+  * `<facet name="Archive home">http://www.ldc.upenn.edu/Catalog/</facet>`
+  * `<facet name="Archive description">http://www.language-archives.org/archive/www.ldc.upenn.edu</facet>`
+
+We need to support navigation by global regions:
+
+  * `<facet name="Region">Asia</facet>`
+
+We need to indicate whether the item has some online information or not:
+
+  * `<facet name="Online">Yes</facet>`
+
+Facets are flat, but the system's navigation of facets enables hierarchical browsing in any case.  So we can just dump out each level of the hierarchy in a separate element. (NB filtering required here, since some labels, like `Western`, are not unique; we could maintain a list of published family names.)
+
+  1. `<facet name="Language family">Indo-European</facet>`
+  1. `<facet name="Language family">Romance</facet>`
+  1. `<facet name="Language family">Italo-Western</facet>`
+  1. `<facet name="Language family">Gallo-Romance</facet>`
+
+New attribute `view` for every coded value, which gets source from OLAC vocabulary document where possible, e.g.:
+
+  * `<dc:language xsi:type="olac:language" olac:code="fra" view="French"/>`
+  * `<dc:type xsi:type="olac:linguistic-type" olac:code="lexicon" view="Lexicon"/>`
+  * `<dc:coverage xsi:type="dcterms:ISO3166" view="Australia">AU
+
+Unknown end tag for &lt;/coverage&gt;
+
+
+
+
+## Spreadsheet ##
+
+[Spreadsheet for documenting proto-solr fields](https://spreadsheets8.google.com/ccc?key=tdyjBM1we0jlei6VmBFnKBA&hl=en&pli=1#gid=10)
+
+## Public vs staff view ##
+
+The DLA supports a separate "staff view" (visible to anyone by following a link from any DLA page), which can include facets which are not yet clean enough for the default public display.  This would be useful to archivists as they curate their metadata.  We need to agree on a subset of facets which make up the public display.
+
+# Meta curation #
+
+There is the option of automatically curating metadata on the OLAC side, to improve the search experience of users.  However, this is error prone, and it is more important to allow the community to experience the benefits of good quality metadata directly.  The DLA service will hopefully motivate participating archives to improve the quality of their metadata.
+
+# Website #
+
+Title: Find Language Resources in the OLAC Catalog ?
+
+Footer: OLAC: Open Language Archives Community ?
+
+## Sidebar ##
+
+  * Navigating the Database
+    * Database Home
+    * Search Strategies
+    * New: Records recently added or modified
+
+  * Contacts
+    * [Database content](mailto:olac-admin@googlegroups.com)
+    * [DLA service](mailto:??)
+
+  * More Information
+    * [OLAC Homepage](http://www.language-archives.org/)
+    * [OLAC FAQ](http://www.language-archives.org/documents/faq.html)

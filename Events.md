@@ -1,0 +1,1 @@
+**JCDL June 21-25 2010, Australia http://www.jcdl-icadl2010.org/** 6th IEEE International Conference on E-Science, Australia, late 2010

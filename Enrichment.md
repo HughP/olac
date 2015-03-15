@@ -1,0 +1,46 @@
+# Introduction #
+
+One strategy for extending the coverage of OLAC is to harvest general catalogs (like OAIster and the Library of Congress), extract the language resources within them, and enrich those metadata records with the controlled vocabulary descriptors that are crucial for language resources, particularly subject language and language resource type.
+
+Our first thought was to use machine learning techniques to build a binary classifier to recognize language resources; then apply further classifiers to identify subject languages and language resource types for the selected language resources. Subsequent thinking, however, has revealed that the problem should be solved in the other order.  That is, apply classifiers to identify subject languages and linguistic data types first, and then use these results as the basis for identifying language resources. That is, the basic logic is this:
+
+```
+ If a resource has at least one identifiable subject language
+    and it has at least one identifiable language resource type,
+ then it is a language resource.
+```
+
+With classifiers for subject language and language resource type in hand, the binary choice could be made on the basis of Boolean logic. Furthermore, it is to our advantage to put the effort of classifier construction into these two separate and more focused problems, since we need those classifiers anyway in order to meet the metadata enrichment need that we already have. We have OLAC records that have been supplied by participating archives which have been identified by them as language resources, but for which they have not followed our best practice recommendations of supplying language codes and resource type codes.  Ideally, the classifiers built for that task could also be used to posit languages or resources types for general resources as an input to deciding whether or not they are language resources.
+
+The remainder of this page discusses design specifications for the various classifiers.
+
+# The subject language classifier #
+
+The language classifier does not seem to be amenable to a machine learning approach.  This is because there are 7,500 possible classifications and we have no more than one or two exemplars for the majority of them. It should be amenable, however, to a knowledge engineering approach since we have for a starting point the content of Ethnologue which is the authoritative work on language identification.
+
+The information available to us from Ethnologue is of four types:
+
+  * For each language we have a unique three-letter code from ISO 639-3.
+  * For each language we have a list of known names.
+  * For each language we have associated geographic names in the description of region where spoken and in the list of countries were spoken.
+  * For each language we have a genetic classification as a list of language subgroup names.
+
+The classifier must be a multi-label classifier; that is, more than one language may apply to a given resource. In the general case, it is also the case that no language will apply. The classifier should return a metric for the likelihood that a given language applies. The occurrence of a name known to be associated with a language is the first evidence we are looking for.  However, many languages may be associated with the same name. Therefore, the occurrence of geographical names and linguistic subgroup names may serve to increase the likelihood of choosing among alternative languages. It would also be possible to use population information from Ethnologue to posit relative probabilities based on language size.
+
+In the case of application to known language resources, the fact that this classifier posits language identifications above a minimum threshold of likelihood will be taken to indicate that the metadata should be enriched. In the case of application to a general resource, there is no assumption that the names found in the resource are referring to a language. Only when the record is also found to be a potential language resource (by the results of the other classifier) is the result of this classifier taken to represent the identification of a language.
+
+# The problem of uncertain or ambiguous identification #
+
+Language identification within OLAC records has thus far been certain.  Automatic metadata enrichment needs to be able to deal with uncertainty. For instance, the classifier may narrow the language identity down to one of two choices. It would not be right to report both language codes with certainty, but nor would it be right to report no language codes. OLAC users would no doubt prefer to be given both codes with a warning that only one or the other is right.  A related problem is the existence of macrolanguage codes in MARC or OAI records. These are new problems that needs to be solved in the OLAC infrastructure. Another possible addition to infrastructure is the tagging of a metadata element as having been added by one of our automated metadata enrichment services. Along with this, we may need to add a _dcterms:provenance_ element to explain where the additions came from. The solutions to all of these have yet to be worked out.
+
+# The language resource type classifier #
+
+The language resource type classifier does seem amenable to the machine learning approach. We could use LC subject headings to produce the tagged training data. That is, for each term in our type vocabulary, we could identify the associated LCSHs. Then we could assign our type code to a large collection of records based on matching LCSH.  That would then give us classified data for training and test sets. This classifier, too, must be a multi-label classifier; that is, more than one language resource type may apply to a given resource. In the general case, it is also the case that no resource type will apply.
+
+At the moment, we have only the simple linguistic data type vocabulary with three values: _primary`_`text, lexicon,_ and _language`_`description._ We can get to work with this vocabulary, but while we are studying LCSH to map headings to resource types, we should look at the broader question of developing a complete vocabulary of language resource types.
+
+When applying the trained classifier to an OAI record, for instance, there is no assumption that the resource is a language resource if the classifier returns a likely label. Only when the record is also found to have a potential language identification (by the results of the other classifier) is the result of this classifier taken to represent the identification of a language resource type.
+
+# The language resource recognizer #
+
+The single rule given above in the Introduction would be the main rule for deciding that a resource is a language resource. However, there could be additional rules.  For instance, we could also accept items based on content language. For this we will need a stop list, since we do not want to include every book written in English, but we would want to include every book written in an endangered language. We could use population data available from Ethnologue to test against a threshold for inclusion. Another class of language resource that would require a different rule is resources that apply to all languages like methodologies or software.
